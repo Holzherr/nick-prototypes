@@ -1,0 +1,1350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lawyer Loop-In — GitLaw Prototype</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root { color-scheme: light; }
+  html, body { height: 100%; }
+  body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+  .scroll-fade { mask-image: linear-gradient(to bottom, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%); }
+
+  .root-grid {
+    display: grid;
+    height: calc(100vh - 3rem);
+    grid-template-columns: 1fr 1fr 0fr;
+    transition: grid-template-columns .4s ease;
+  }
+  .root-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+  .lawyer-col {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .col-label {
+    padding: 6px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #fff;
+    flex: 0 0 auto;
+  }
+
+  .stage { transition: all .3s ease; }
+  .stage[data-state="pending"] { opacity: .35; }
+  .stage[data-state="active"]  { opacity: 1; }
+  .stage[data-state="done"]    { opacity: .9; }
+  .stage[data-state="active"] .stage-card { border-color: #059669; box-shadow: 0 0 0 4px rgba(5,150,105,.08); }
+
+  .connector { width: 2px; background: #e2e8f0; margin: 4px 0 4px 14px; }
+  .stage[data-state="done"] .connector,
+  .stage[data-state="active"] .connector { background: #10b981; }
+
+  .pulse-dot { width:8px;height:8px;border-radius:9999px;background:#10b981; box-shadow:0 0 0 0 rgba(16,185,129,.7); animation: pulse 1.6s infinite; }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(16,185,129,.7);} 70%{box-shadow:0 0 0 10px rgba(16,185,129,0);} 100%{box-shadow:0 0 0 0 rgba(16,185,129,0);} }
+
+  .msg-enter { animation: msgEnter .3s ease-out; }
+  @keyframes msgEnter { from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+
+  ins.tc { background: #dcfce7; text-decoration: none; color: #065f46; padding: 0 2px; border-radius: 2px; }
+  del.tc { background: #fee2e2; color: #7f1d1d; padding: 0 2px; border-radius: 2px; }
+
+  .drawer { transition: transform .3s ease; }
+  .drawer.hidden-right { transform: translateX(100%); }
+
+  details summary { list-style: none; cursor: pointer; }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] .chev { transform: rotate(90deg); }
+  .chev { transition: transform .2s ease; display: inline-block; }
+
+  .star { line-height: 1; transition: color .15s ease; }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900 overflow-hidden">
+
+<header class="h-12 flex items-center justify-between px-4 border-b bg-white relative z-30">
+  <div class="flex items-center gap-3">
+    <div class="w-7 h-7 rounded-md bg-violet-700 text-white grid place-items-center text-xs font-bold">GL</div>
+    <div class="text-sm">
+      <span class="text-slate-500">GitLaw</span>
+      <span class="text-slate-300 mx-1">/</span>
+      <span class="font-medium">Prototypes</span>
+      <span class="text-slate-300 mx-1">/</span>
+      <span class="font-medium">Lawyer Loop-In</span>
+    </div>
+  </div>
+  <div class="flex items-center gap-2">
+    <button id="specBtn" class="text-sm px-3 py-1.5 rounded-md border hover:bg-slate-100">Spec</button>
+    <button id="resetBtn" class="text-xs text-slate-500 hover:text-slate-900 px-2">Reset</button>
+    <button id="backBtn" class="border text-sm px-3 py-1.5 rounded-md hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed" disabled>← Back</button>
+    <button id="nextBtn" class="bg-slate-900 text-white text-sm px-3 py-1.5 rounded-md hover:bg-slate-800">Next step →</button>
+    <button id="playBtn" class="border text-sm px-3 py-1.5 rounded-md hover:bg-slate-100">Auto-play</button>
+  </div>
+</header>
+
+<div id="rootGrid" class="root-grid">
+
+  <!-- ============================ LEFT: GitLaw user view (violet) ============================ -->
+  <section class="border-r flex flex-col min-h-0" style="background: #faf8ff;">
+    <div class="col-label" style="background:#7c3aed">GitLaw user sees this</div>
+
+    <div class="px-6 py-4 border-b bg-white">
+      <div class="flex items-center gap-2 text-xs text-slate-500">
+        <span>Repository</span>
+        <span class="text-slate-300">›</span>
+        <span class="mono">nda-acme-2026</span>
+        <span class="ml-auto inline-flex items-center gap-1 text-emerald-700">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Working Draft · v0.4
+        </span>
+      </div>
+      <h1 class="mt-2 text-lg font-semibold">Mutual NDA — GitLaw Ltd × Acme Corp</h1>
+      <div class="mt-1 text-xs text-slate-500">
+        4 pages · 1,847 words · NDA · England &amp; Wales · drafted by GitLaw AI
+      </div>
+    </div>
+
+    <div id="chat" class="flex-1 overflow-y-auto px-6 py-4 space-y-4 scroll-fade">
+      <div class="flex gap-3 msg-enter">
+        <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+        <div class="flex-1">
+          <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · agent · just now</div>
+          <div class="mt-1 text-sm bg-violet-50 border border-violet-100 rounded-lg px-3 py-2 max-w-prose">
+            I've drafted your mutual NDA for Acme Corp — 4 pages, 1,847 words, IP carve-outs in clause 4, 2-year survival in clause 7. Want me to get this checked over by a lawyer before you sign?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t bg-white px-6 py-3 text-xs text-slate-500 flex items-center justify-between">
+      <div>Powered by GitLaw's panel of verified UK &amp; US lawyers.</div>
+      <button id="termsLink" class="underline hover:text-slate-900">Standard Engagement Terms</button>
+    </div>
+  </section>
+
+  <!-- ============================ MIDDLE: Internal dashboard (slate) ============================ -->
+  <section class="bg-slate-50 flex flex-col min-h-0 relative border-r">
+    <div class="col-label" style="background:#1e293b">Internal GitLaw dashboard only</div>
+
+    <div class="px-6 py-4 border-b bg-white flex items-center gap-3">
+      <div class="w-7 h-7 rounded-md bg-emerald-600 text-white grid place-items-center text-xs font-bold">A</div>
+      <div>
+        <div class="text-sm font-semibold">Lawyer Loop-In — system flow</div>
+        <div class="text-xs text-slate-500">Click any stage to inspect what happens.</div>
+      </div>
+      <div id="agentStatus" class="ml-auto inline-flex items-center gap-2 text-xs text-slate-500">
+        <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span> idle
+      </div>
+    </div>
+
+    <div id="flow" class="flex-1 overflow-y-auto px-6 py-4 scroll-fade">
+      <!-- 1 -->
+      <div class="stage" data-state="pending" data-stage="1">
+        <div class="stage-card rounded-lg border bg-white p-3">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-md bg-slate-100 grid place-items-center text-sm">📨</div>
+            <div class="font-medium text-sm">1 · Intake</div>
+            <span class="ml-auto text-[11px] mono text-slate-400">AI agent</span>
+          </div>
+          <div class="mt-2 text-sm text-slate-600">
+            Agent parses the request, classifies it (<span class="mono">matter=NDA · jurisdiction=E&amp;W · words=1,847</span>), and estimates a fee band per tier before the user sees options.
+          </div>
+        </div>
+        <div class="connector h-4"></div>
+      </div>
+
+      <!-- 2 -->
+      <div class="stage" data-state="pending" data-stage="2">
+        <div class="stage-card rounded-lg border bg-white p-3">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-md bg-slate-100 grid place-items-center text-sm">📡</div>
+            <div class="font-medium text-sm">2 · Outreach to panel</div>
+            <span class="ml-auto text-[11px] mono text-slate-400">jurisdiction + practice + tier</span>
+          </div>
+          <div class="mt-2 text-sm text-slate-600">
+            Agent contacts qualified panel lawyers in parallel — only their professional details and the matter type leave GitLaw at this point. Document &amp; memory are <span class="font-medium">not</span> shared yet.
+          </div>
+          <div class="mt-2 text-xs text-slate-500 flex items-center gap-2">
+            <span id="outreachCount" class="mono">contacting 5 senior UK lawyers…</span>
+          </div>
+        </div>
+        <div class="connector h-4"></div>
+      </div>
+
+      <!-- 3 -->
+      <div class="stage" data-state="pending" data-stage="3">
+        <div class="stage-card rounded-lg border bg-white p-3">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-md bg-slate-100 grid place-items-center text-sm">📋</div>
+            <div class="font-medium text-sm">3 · Match results</div>
+            <span class="ml-auto text-[11px] mono text-slate-400">price · speed · rating</span>
+          </div>
+          <div class="mt-2 text-sm text-slate-600">
+            Lawyers who responded with a bid. Agent ranks by fit on price + SLA + rating and surfaces the top match.
+          </div>
+          <div id="matchList" class="mt-3 space-y-1.5 text-xs"></div>
+        </div>
+        <div class="connector h-4"></div>
+      </div>
+
+      <!-- 4 -->
+      <div class="stage" data-state="pending" data-stage="4">
+        <div class="stage-card rounded-lg border bg-white p-3">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-md bg-slate-100 grid place-items-center text-sm">🤝</div>
+            <div class="font-medium text-sm">4 · Client approval</div>
+            <span class="ml-auto text-[11px] mono text-slate-400">terms · scope · payment</span>
+          </div>
+          <div class="mt-2 text-sm text-slate-600">
+            One step: user accepts Standard Engagement Terms, confirms what context to share, and authorizes the fee on file. If no card is on file, they add one here.
+          </div>
+        </div>
+        <div class="connector h-4"></div>
+      </div>
+
+      <!-- 5 -->
+      <div class="stage" data-state="pending" data-stage="5">
+        <div class="stage-card rounded-lg border bg-white p-3">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-md bg-slate-100 grid place-items-center text-sm">📦</div>
+            <div class="font-medium text-sm">5 · Lawyer engaged · context delivered</div>
+            <button data-action="show-context" class="ml-auto text-xs border px-2 py-0.5 rounded hover:bg-slate-100">
+              See exactly what lawyer gets →
+            </button>
+          </div>
+          <div class="mt-2 text-sm text-slate-600">
+            Lawyer is provisioned a time-boxed Guest role on the repo and receives a structured brief from the doc, AI brief, and approved memory.
+          </div>
+          <div class="mt-2 grid grid-cols-2 gap-2 text-xs">
+            <div class="border rounded p-2">📄 Document v0.4 (snapshot)</div>
+            <div class="border rounded p-2">🧠 AI brief</div>
+            <div class="border rounded p-2">👤 Profile (GitLaw Ltd)</div>
+            <div class="border rounded p-2">📕 Playbook</div>
+            <div class="border rounded p-2 col-span-2">🏢 Contact file — Acme Corp</div>
+          </div>
+        </div>
+        <div class="connector h-4"></div>
+      </div>
+
+      <!-- 6 -->
+      <div class="stage" data-state="pending" data-stage="6">
+        <div class="stage-card rounded-lg border bg-white p-3">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-md bg-slate-100 grid place-items-center text-sm">🧑‍⚖️</div>
+            <div class="font-medium text-sm">6 · Review in progress</div>
+            <span class="ml-auto text-[11px] mono text-slate-400">async · live doc</span>
+          </div>
+          <div class="mt-2 text-sm text-slate-600">
+            Lawyer reviews inside GitLaw using native Suggestions + Comments. Doc stays live — client can keep editing; lawyer sees the latest.
+          </div>
+        </div>
+        <div class="connector h-4"></div>
+      </div>
+
+      <!-- 7 -->
+      <div class="stage" data-state="pending" data-stage="7">
+        <div class="stage-card rounded-lg border bg-white p-3">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-md bg-slate-100 grid place-items-center text-sm">📝</div>
+            <div class="font-medium text-sm">7 · Feedback delivered · client accepts</div>
+            <span class="ml-auto text-[11px] mono text-slate-400">Suggestions + Comments + memo</span>
+          </div>
+          <div class="mt-2 text-sm text-slate-600">
+            Lawyer submits a Change Request (Track Changes) <span class="font-medium">and</span> a separate written memo. Client reviews, then accepts — this releases escrow.
+          </div>
+        </div>
+        <div class="connector h-4"></div>
+      </div>
+
+      <!-- 8 -->
+      <div class="stage" data-state="pending" data-stage="8">
+        <div class="stage-card rounded-lg border bg-white p-3">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-md bg-slate-100 grid place-items-center text-sm">✅</div>
+            <div class="font-medium text-sm">8 · Settle &amp; close</div>
+            <button data-action="show-payment" class="ml-auto text-xs border px-2 py-0.5 rounded hover:bg-slate-100">
+              Payment model →
+            </button>
+          </div>
+          <div class="mt-2 text-sm text-slate-600">
+            Payment released → client rates the engagement (optional) and chooses whether to take Jess out of the repo or keep her access until signature. Audit trail filed.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t bg-white px-6 py-2 text-[11px] text-slate-500 flex items-center justify-between">
+      <div>Match policy: <span class="text-slate-700">jurisdiction → practice fit → tier → quality-weighted price</span></div>
+      <div>Payment: <span class="text-slate-700">authorize on approval · release on review</span></div>
+    </div>
+  </section>
+
+  <!-- ============================ RIGHT: Lawyer view (amber) ============================ -->
+  <aside class="lawyer-col">
+    <div class="col-label" style="background:#d97706">Lawyer sees this</div>
+
+    <div class="px-6 py-4 border-b">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-full bg-rose-200 text-rose-800 grid place-items-center text-xs font-semibold">JF</div>
+        <div>
+          <div class="text-sm font-semibold">Jess Ford</div>
+          <div class="text-xs text-slate-500">Northgate LLP · senior · 7y PQE</div>
+        </div>
+      </div>
+    </div>
+    <div id="lawyerStream" class="flex-1 overflow-y-auto px-6 py-4 space-y-4 scroll-fade">
+      <!-- Cards injected by JS, synced to flow stages -->
+    </div>
+    <div class="border-t bg-slate-50 px-6 py-2 text-[11px] text-slate-500">
+      Access is time-boxed and audited. Jess only sees what the client explicitly shared.
+    </div>
+  </aside>
+</div>
+
+<!-- ============================ Templates ============================ -->
+
+<template id="msg-agent-quote">
+  <div data-bubble="quote" class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · agent · just now</div>
+      <div class="mt-1 text-sm bg-violet-50 border border-violet-100 rounded-lg px-3 py-2 max-w-prose">
+        Got it — pricing the review. Based on the doc (1,847 words, mutual NDA, E&amp;W law):
+      </div>
+      <div class="mt-2 max-w-prose rounded-xl border bg-white shadow-sm">
+        <div class="px-3 py-2 border-b text-xs text-slate-500 flex items-center gap-2">
+          <span class="mono">Mutual NDA · 4 pages · 1,847 words · E&amp;W</span>
+          <span class="ml-auto inline-flex items-center gap-1 text-emerald-700">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> typical match in ~2h
+          </span>
+        </div>
+        <div class="px-3 py-3">
+          <div class="text-xs font-medium text-slate-500 mb-2">Choose tier</div>
+          <div class="grid grid-cols-3 gap-2">
+            <button data-tier="junior" class="tier-opt text-left rounded-lg border px-2.5 py-2 hover:border-slate-400">
+              <div class="text-xs text-slate-500">Junior</div>
+              <div class="text-lg font-semibold">£250</div>
+              <div class="text-[11px] text-slate-500">~3h · trainee / 2-3y PQE</div>
+            </button>
+            <button data-tier="senior" class="tier-opt text-left rounded-lg border-2 border-emerald-600 px-2.5 py-2 bg-emerald-50/40">
+              <div class="text-xs text-emerald-700 font-medium">Senior</div>
+              <div class="text-lg font-semibold">£450</div>
+              <div class="text-[11px] text-slate-500">~1.5h · 5-10y PQE · redline + memo</div>
+            </button>
+            <button data-tier="expert" class="tier-opt text-left rounded-lg border px-2.5 py-2 hover:border-slate-400">
+              <div class="text-xs text-slate-500">Expert</div>
+              <div class="text-lg font-semibold">£800</div>
+              <div class="text-[11px] text-slate-500">~24h · 15y+ · partner sign-off</div>
+            </button>
+          </div>
+          <div class="mt-3 text-xs text-slate-500">
+            Price = base fee + per-word factor for your matter type. <a class="underline" href="#" data-action="show-pricing-explain">How is this calculated?</a>
+          </div>
+          <button data-action="request-review" class="mt-3 w-full bg-emerald-600 text-white text-sm font-medium rounded-md py-2 hover:bg-emerald-700">
+            Find me a <span data-tier-label>Senior</span> lawyer at <span data-tier-price>£450</span> →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="msg-consent">
+  <div data-bubble="consent" class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · agent · just now</div>
+      <div class="mt-1 text-sm bg-violet-50 border border-violet-100 rounded-lg px-3 py-2 max-w-prose">
+        To engage <span class="font-medium">Jess Ford</span> for the review — confirm what to share, accept the terms, and authorize the fee:
+      </div>
+      <div class="mt-2 max-w-prose rounded-xl border bg-white">
+        <div class="px-3 py-3 space-y-2.5 text-sm border-b">
+          <div class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Share with counsel</div>
+          <label class="flex items-start gap-2">
+            <input type="checkbox" checked class="mt-1" />
+            <div>
+              <div class="font-medium">This document</div>
+              <div class="text-xs text-slate-500">Mutual NDA v0.4 — full text, comments, history</div>
+            </div>
+          </label>
+          <label class="flex items-start gap-2">
+            <input type="checkbox" checked class="mt-1" />
+            <div>
+              <div class="font-medium">Profile</div>
+              <div class="text-xs text-slate-500">GitLaw Ltd — company info, jurisdiction, signing authority</div>
+            </div>
+          </label>
+          <label class="flex items-start gap-2">
+            <input type="checkbox" checked class="mt-1" />
+            <div>
+              <div class="font-medium">Playbook</div>
+              <div class="text-xs text-slate-500">Your standard preferences and red lines</div>
+            </div>
+          </label>
+          <label class="flex items-start gap-2">
+            <input type="checkbox" checked class="mt-1" />
+            <div>
+              <div class="font-medium">Acme Corp contact file</div>
+              <div class="text-xs text-slate-500">Past deals, what they've accepted, who you've negotiated with</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="px-3 py-3 space-y-2 border-b">
+          <div class="text-xs font-medium text-slate-500 uppercase tracking-wide">Payment</div>
+          <div class="flex items-center gap-2 text-sm">
+            <span class="inline-flex items-center gap-2 rounded-md border bg-slate-50 px-2 py-1.5">
+              <span class="text-[11px] mono bg-slate-900 text-white px-1.5 py-0.5 rounded">VISA</span>
+              <span class="mono">•••• 4242</span>
+              <span class="text-xs text-slate-500">· exp 03/27</span>
+            </span>
+            <button class="text-xs text-slate-500 underline hover:text-slate-900">Use a different card</button>
+          </div>
+          <div class="text-xs text-slate-500">£450 + VAT will be held on this card now and released to Jess only after you accept her review.</div>
+        </div>
+
+        <div class="px-3 py-3 space-y-2">
+          <label class="flex items-start gap-2 text-sm">
+            <input type="checkbox" checked class="mt-1" />
+            <div>
+              <div class="font-medium">I accept the <a class="underline" href="#" data-action="open-terms">Standard Engagement Terms</a></div>
+              <div class="text-xs text-slate-500">Platform-facilitated payment via escrow · GitLaw is not the lawyer of record</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="px-3 py-2 flex items-center justify-between bg-slate-50 rounded-b-xl border-t">
+          <div class="text-xs text-slate-500">You can revoke access anytime.</div>
+          <button data-action="approve-consent" class="bg-emerald-600 text-white text-sm font-medium rounded-md px-3 py-1.5 hover:bg-emerald-700">
+            Approve &amp; engage Jess →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="msg-engaged">
+  <div class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · agent · just now</div>
+      <div class="mt-1 text-sm bg-violet-50 border border-violet-100 rounded-lg px-3 py-2 max-w-prose">
+        <span class="font-medium">Jess Ford (Northgate LLP)</span> is now engaged. She's been provisioned access to the doc + the context you approved.
+      </div>
+      <div class="mt-2 max-w-prose rounded-lg border-l-4 border-emerald-500 bg-emerald-50 px-3 py-2 flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-rose-200 text-rose-800 grid place-items-center font-semibold">JF</div>
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-medium">Lawyer engaged · Jess Ford</div>
+          <div class="text-xs text-slate-600">Senior · 7y PQE · commercial &amp; tech transactions · SRA #ABC1234</div>
+        </div>
+        <div class="text-right text-xs">
+          <div class="text-slate-500">ETA</div>
+          <div class="font-medium">~2h</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="msg-changes">
+  <div class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-rose-100 text-rose-700 grid place-items-center text-xs font-semibold">JF</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">Jess Ford</span> · 1h 51m later</div>
+      <div class="mt-1 text-sm bg-white border rounded-lg px-3 py-2 max-w-prose">
+        Review submitted. 6 suggestions on the doc, 2 anchored comments, and a memo (separate attachment below).
+      </div>
+      <div class="mt-2 max-w-prose rounded-lg border bg-white">
+        <div class="px-3 py-2 border-b flex items-center gap-2 text-xs">
+          <span class="font-medium">📝 Change Request #1</span>
+          <span class="text-slate-500">· 6 suggestions · clauses 4, 7, 11</span>
+          <span class="ml-auto inline-flex items-center gap-1 text-emerald-700"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> ready to review</span>
+        </div>
+        <div class="px-3 py-2 text-sm leading-relaxed">
+          <div class="text-[11px] text-slate-400 mono mb-1">Clause 4.3 — IP residuals</div>
+          Nothing in this Agreement shall transfer any Intellectual Property Rights<ins class="tc">, except that each party retains a non-exclusive licence to use Residual Information retained in unaided memory by personnel who had access to Confidential Information</ins>.
+          <div class="text-[11px] text-slate-400 mono mt-3 mb-1">Clause 7.2 — Survival</div>
+          The obligations in this Agreement shall survive termination for a period of <del class="tc">five (5)</del><ins class="tc">two (2)</ins> years.
+        </div>
+        <div class="px-3 py-2 border-t flex items-center gap-2">
+          <button class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-md">Accept all</button>
+          <button class="text-xs border px-2.5 py-1 rounded-md">Review one-by-one</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="msg-memo">
+  <div class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-rose-100 text-rose-700 grid place-items-center text-xs font-semibold">JF</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">Jess Ford</span> · memo · attached</div>
+      <div class="mt-1 max-w-prose rounded-lg border bg-white">
+        <div class="px-3 py-2 border-b flex items-center gap-2 text-xs">
+          <span class="font-medium">📑 Advice memo — Jess Ford, Northgate LLP</span>
+          <span class="ml-auto text-slate-500">~600 words</span>
+        </div>
+        <div class="px-3 py-3 text-sm leading-relaxed text-slate-700 space-y-2">
+          <p><b>Summary.</b> The mutual NDA is largely fit for purpose for a diligence-stage exchange with Acme. I've made one substantive change to the IP carve-out and a number of clean-up edits; see the change request for individual suggestions.</p>
+          <p><b>Headline risk — clause 4.3 (IP residuals).</b> As drafted, "Nothing… shall transfer any Intellectual Property Rights" is broader than typical and could be read to forbid even residual know-how retained in unaided memory. I've proposed a standard residuals carve-out — your Playbook flagged this preference and I've matched it.</p>
+          <p><b>Clause 7.2 (Survival).</b> The 5-year survival period is on the higher end for a diligence-stage NDA. I've suggested 2 years, which aligns with your Playbook default and is consistent with what Acme has accepted on prior deals (per your contact file).</p>
+          <p><b>Lower-priority cleanups.</b> Clause 11 (Notices) — added email as a valid notice channel. Minor stylistic edits for plain-English consistency.</p>
+          <p><b>Sign-off readiness.</b> Once the IP residuals change lands, I see no remaining blockers to signature.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="msg-accept">
+  <div data-bubble="accept" class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · agent · just now</div>
+      <div class="mt-1 text-sm bg-violet-50 border border-violet-100 rounded-lg px-3 py-2 max-w-prose">
+        Once you're happy with Jess's suggestions and memo, accept the review. That releases payment from escrow and closes the engagement.
+      </div>
+      <div class="mt-2 max-w-prose flex items-center gap-2">
+        <button data-action="request-revisions" class="text-sm border px-3 py-1.5 rounded-md hover:bg-slate-100">Ask Jess for revisions</button>
+        <button data-action="accept-review" class="bg-emerald-600 text-white text-sm font-medium rounded-md px-3 py-1.5 hover:bg-emerald-700">
+          Accept the review →
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="msg-wrapup">
+  <div data-bubble="wrapup" class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · agent · just now</div>
+      <div class="mt-1 text-sm bg-violet-50 border border-violet-100 rounded-lg px-3 py-2 max-w-prose">
+        Payment released to Jess. Two quick things to wrap up:
+      </div>
+      <div class="mt-2 max-w-prose rounded-xl border bg-white">
+        <div class="px-3 py-3 border-b">
+          <div class="text-xs font-medium uppercase tracking-wide text-slate-500 mb-2">Rate the engagement (optional)</div>
+          <div class="flex items-center gap-1" id="starGroup" data-rating="0">
+            <button type="button" class="star text-2xl text-slate-300 hover:text-amber-400" data-star="1">★</button>
+            <button type="button" class="star text-2xl text-slate-300 hover:text-amber-400" data-star="2">★</button>
+            <button type="button" class="star text-2xl text-slate-300 hover:text-amber-400" data-star="3">★</button>
+            <button type="button" class="star text-2xl text-slate-300 hover:text-amber-400" data-star="4">★</button>
+            <button type="button" class="star text-2xl text-slate-300 hover:text-amber-400" data-star="5">★</button>
+            <span class="ml-2 text-xs text-slate-500" data-rating-label>—</span>
+          </div>
+          <textarea class="mt-2 w-full text-sm border rounded-md p-2 resize-none" rows="2" placeholder="Optional: what worked well or didn't?"></textarea>
+        </div>
+        <div class="px-3 py-3">
+          <div class="text-xs font-medium uppercase tracking-wide text-slate-500 mb-1">Lawyer access</div>
+          <div class="text-xs text-slate-600 mb-2">Jess currently has Editor access on the repo. Your call.</div>
+          <div class="flex items-center gap-2">
+            <button data-action="access-revoke" class="text-sm bg-slate-900 text-white px-3 py-1.5 rounded-md hover:bg-slate-800">Remove access</button>
+            <button data-action="access-keep" class="text-sm border px-3 py-1.5 rounded-md hover:bg-slate-100">Ignore</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- Lawyer-view step templates -->
+<template id="lv-invite">
+  <div class="rounded-lg border bg-white p-3 msg-enter">
+    <div class="text-xs text-slate-500 mb-1">From GitLaw · outreach received</div>
+    <div class="text-sm font-medium">New senior NDA review available</div>
+    <div class="mt-1 text-xs text-slate-600 space-y-0.5">
+      <div>• Matter: mutual NDA · 4 pages · 1,847 words</div>
+      <div>• Jurisdiction: England &amp; Wales</div>
+      <div>• Estimated effort / fee: ~1.5h · £450</div>
+      <div>• Client industry: legal-tech SaaS</div>
+    </div>
+    <div class="mt-2 text-[11px] text-slate-500">No document, client name, or memory shared yet. Reply with availability + bid to be considered.</div>
+    <div class="mt-2 flex items-center gap-2">
+      <span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded">I'm available — bid £450, 2h</span>
+    </div>
+  </div>
+</template>
+
+<template id="lv-waiting">
+  <div class="rounded-lg border bg-white p-3 msg-enter">
+    <div class="text-xs text-slate-500 mb-1">Status update</div>
+    <div class="text-sm">Your bid was forwarded to the client. Waiting for them to confirm engagement…</div>
+  </div>
+</template>
+
+<template id="lv-engaged">
+  <div class="rounded-lg border bg-white p-3 msg-enter">
+    <div class="text-xs text-slate-500 mb-1">Client confirmed · engagement live</div>
+    <div class="text-sm">You now have Editor access on <span class="mono">nda-acme-2026</span> for 7 days. Bundle below.</div>
+    <div class="mt-3 space-y-2">
+      <details open class="border rounded">
+        <summary class="px-2.5 py-1.5 flex items-center gap-2 text-xs bg-slate-50 rounded-t">
+          <span class="chev">▶</span><span class="font-medium">📄 Document</span><span class="ml-auto text-slate-500">v0.4</span>
+        </summary>
+        <div class="px-2.5 py-1.5 text-xs text-slate-600">Full text + version history; live link follows client edits.</div>
+      </details>
+      <details class="border rounded">
+        <summary class="px-2.5 py-1.5 flex items-center gap-2 text-xs bg-slate-50 rounded-t">
+          <span class="chev">▶</span><span class="font-medium">🧠 AI brief</span>
+        </summary>
+        <div class="px-2.5 py-1.5 text-xs text-slate-600">
+          Client's specific concerns: IP carve-outs (cl. 4), term + survival (cl. 7). Urgency: signature target Fri. AI confidence: 0.78.
+        </div>
+      </details>
+      <details class="border rounded">
+        <summary class="px-2.5 py-1.5 flex items-center gap-2 text-xs bg-slate-50 rounded-t">
+          <span class="chev">▶</span><span class="font-medium">👤 Profile (client)</span>
+        </summary>
+        <div class="px-2.5 py-1.5 text-xs text-slate-600">
+          GitLaw Ltd · E&amp;W · legal-tech SaaS · signing: Nicolas Holzherr-Mandal.
+        </div>
+      </details>
+      <details class="border rounded">
+        <summary class="px-2.5 py-1.5 flex items-center gap-2 text-xs bg-slate-50 rounded-t">
+          <span class="chev">▶</span><span class="font-medium">📕 Playbook</span>
+        </summary>
+        <div class="px-2.5 py-1.5 text-xs text-slate-600 mono whitespace-pre-wrap">Liability: cap at fees paid (12m).
+Term/survival: 2y NDAs.
+IP: carve out residual info in unaided memory.
+Style: plain English, no Latin.</div>
+      </details>
+      <details class="border rounded">
+        <summary class="px-2.5 py-1.5 flex items-center gap-2 text-xs bg-slate-50 rounded-t">
+          <span class="chev">▶</span><span class="font-medium">🏢 Counterparty intelligence</span>
+        </summary>
+        <div class="px-2.5 py-1.5 text-xs text-slate-600 mono whitespace-pre-wrap">Acme Corp: pushes for 5y survival, accepted 2y once.
+Won't go below £100k liability cap. K&amp;E reviews >£250k deals.</div>
+      </details>
+    </div>
+  </div>
+</template>
+
+<template id="lv-working">
+  <div class="rounded-lg border bg-white p-3 msg-enter">
+    <div class="text-xs text-slate-500 mb-1">Working on review</div>
+    <div class="text-sm">You're editing inside GitLaw with native Suggestions + Comments. Save a Change Request and write a memo when done.</div>
+  </div>
+</template>
+
+<template id="lv-submitted">
+  <div class="rounded-lg border bg-white p-3 msg-enter">
+    <div class="text-xs text-slate-500 mb-1">Review submitted</div>
+    <div class="text-sm">6 suggestions + memo sent to client. Awaiting client acceptance to release payment.</div>
+  </div>
+</template>
+
+<template id="lv-paid">
+  <div class="rounded-lg border bg-white p-3 msg-enter">
+    <div class="text-xs text-slate-500 mb-1">Payment received</div>
+    <div class="text-sm">Funds released. Engagement closed. Client manages your access from their side.</div>
+  </div>
+</template>
+
+<template id="lv-removed">
+  <div class="rounded-lg border bg-white p-3 msg-enter">
+    <div class="text-xs text-slate-500 mb-1">Access removed</div>
+    <div class="text-sm">The client has removed your access to the repo. Engagement fully closed.</div>
+  </div>
+</template>
+
+<template id="lv-kept">
+  <div class="rounded-lg border bg-white p-3 msg-enter">
+    <div class="text-xs text-slate-500 mb-1">Access continued</div>
+    <div class="text-sm">The client left your access in place — you can answer follow-up questions if asked.</div>
+  </div>
+</template>
+
+<!-- ============================ Drawers ============================ -->
+<aside id="ctxDrawer" class="drawer hidden-right fixed right-0 top-12 bottom-0 w-[480px] bg-white border-l shadow-xl z-40 flex flex-col">
+  <div class="px-5 py-3 border-b flex items-center justify-between">
+    <div>
+      <div class="text-sm font-semibold">Context the lawyer receives</div>
+      <div class="text-xs text-slate-500">Assembled at engagement-start; client controls what's included</div>
+    </div>
+    <button data-action="close-drawer" class="text-slate-400 hover:text-slate-900">✕</button>
+  </div>
+  <div class="flex-1 overflow-y-auto px-5 py-4 space-y-3 text-sm">
+    <details open class="border rounded-lg">
+      <summary class="px-3 py-2 flex items-center gap-2 bg-slate-50 rounded-t-lg">
+        <span class="chev">▶</span><span class="font-medium">📄 Document</span>
+        <span class="ml-auto text-xs text-slate-500">Mutual NDA v0.4</span>
+      </summary>
+      <div class="px-3 py-2 text-xs space-y-1 text-slate-600">
+        <div>• Full text + version history of <span class="mono">nda-acme-2026</span> @ v0.4</div>
+        <div>• Snapshot frozen at engagement-start; live link follows client edits during review</div>
+      </div>
+    </details>
+    <details class="border rounded-lg">
+      <summary class="px-3 py-2 flex items-center gap-2 bg-slate-50 rounded-t-lg">
+        <span class="chev">▶</span><span class="font-medium">🧠 AI brief</span>
+      </summary>
+      <div class="px-3 py-2 text-xs space-y-1 text-slate-600">
+        <div><b>Matter type:</b> NDA review (mutual)</div>
+        <div><b>Length / complexity:</b> 4 pages / 1,847 words / standard</div>
+        <div><b>Original user prompts:</b> "Draft mutual NDA with Acme for diligence call." → "Tighten clause 4 IP, survival to 2y."</div>
+        <div><b>User's specific concerns:</b> IP carve-outs (cl. 4) and term + survival (cl. 7)</div>
+        <div><b>Urgency:</b> 48h — signature target Fri</div>
+        <div><b>AI confidence:</b> 0.78</div>
+      </div>
+    </details>
+    <details class="border rounded-lg">
+      <summary class="px-3 py-2 flex items-center gap-2 bg-slate-50 rounded-t-lg">
+        <span class="chev">▶</span><span class="font-medium">👤 Profile</span>
+      </summary>
+      <div class="px-3 py-2 text-xs text-slate-600 space-y-1">
+        <div><b>Entity:</b> GitLaw Ltd (CH 12345678)</div>
+        <div><b>Jurisdiction:</b> England &amp; Wales</div>
+        <div><b>Industry:</b> Legal-tech SaaS</div>
+        <div><b>Signing authority:</b> Nicolas Holzherr-Mandal, Founder/Director</div>
+      </div>
+    </details>
+    <details class="border rounded-lg">
+      <summary class="px-3 py-2 flex items-center gap-2 bg-slate-50 rounded-t-lg">
+        <span class="chev">▶</span><span class="font-medium">📕 Playbook</span>
+      </summary>
+      <div class="px-3 py-2 text-xs text-slate-600 mono whitespace-pre-wrap">Liability: cap at fees paid (12m).
+Governing law: E&amp;W (NY for US counterparties).
+Term &amp; survival: 2y on NDAs, 3y on commercial.
+IP: always carve out residual information in unaided memory.
+Non-solicit: drop if pushed; not a red line.
+Style: plain English, no Latin, no legalese.</div>
+    </details>
+    <details class="border rounded-lg">
+      <summary class="px-3 py-2 flex items-center gap-2 bg-slate-50 rounded-t-lg">
+        <span class="chev">▶</span><span class="font-medium">🏢 Acme Corp contact file</span>
+      </summary>
+      <div class="px-3 py-2 text-xs text-slate-600 space-y-2">
+        <div><b>Identity:</b> Acme Corp · legal@acme.com · Tags: [Customer, Enterprise]</div>
+        <div class="mono whitespace-pre-wrap">Negotiation patterns (3 prior deals):
+- Push for 5y survival on NDAs; settle for 3y; have accepted 2y once with reciprocal.
+- Won't accept liability caps below 100k.
+- Sarah Rowe (in-house counsel) is primary; partner at K&amp;E reviews >£250k deals.</div>
+      </div>
+    </details>
+    <details class="border rounded-lg">
+      <summary class="px-3 py-2 flex items-center gap-2 bg-slate-50 rounded-t-lg">
+        <span class="chev">▶</span><span class="font-medium">📑 Standard Engagement Terms</span>
+      </summary>
+      <div class="px-3 py-2 text-xs text-slate-600 space-y-1">
+        <div>Scope: doc review only — Suggestions + Comments</div>
+        <div>Confidentiality: lawyer bound by professional conduct rules + platform DPA</div>
+        <div>Liability: lawyer's professional indemnity; GitLaw is platform-only</div>
+        <div>Payment: escrow, released on user approval</div>
+      </div>
+    </details>
+    <div class="text-[11px] text-slate-500 pt-1">
+      Lawyer access is time-boxed (default: matter duration + 7 days). All access events are audited.
+    </div>
+  </div>
+</aside>
+
+<aside id="payDrawer" class="drawer hidden-right fixed right-0 top-12 bottom-0 w-[480px] bg-white border-l shadow-xl z-40 flex flex-col">
+  <div class="px-5 py-3 border-b flex items-center justify-between">
+    <div>
+      <div class="text-sm font-semibold">Payment model</div>
+      <div class="text-xs text-slate-500">Stripe Connect · authorize → capture → release</div>
+    </div>
+    <button data-action="close-drawer" class="text-slate-400 hover:text-slate-900">✕</button>
+  </div>
+  <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4 text-sm">
+    <div class="rounded-lg border p-3">
+      <div class="font-medium mb-1">1 · Authorize on approval</div>
+      <div class="text-xs text-slate-600">When the client approves the engagement (single approval step — terms + scope + payment), we authorize the fee on their card via Stripe. <span class="font-medium">No charge yet</span> — it's a hold.</div>
+    </div>
+    <div class="rounded-lg border p-3">
+      <div class="font-medium mb-1">2 · Capture on engagement</div>
+      <div class="text-xs text-slate-600">When the matched lawyer is engaged, we capture the hold. Funds sit in GitLaw's marketplace escrow.</div>
+    </div>
+    <div class="rounded-lg border p-3">
+      <div class="font-medium mb-1">3 · Release on acceptance</div>
+      <div class="text-xs text-slate-600">Client clicks "Accept the review" → Stripe pays out to the lawyer's connected account. Receipt + invoice filed in the repo's audit trail.</div>
+    </div>
+    <div class="rounded-lg border p-3">
+      <div class="font-medium mb-1">Cancel / dispute</div>
+      <div class="text-xs text-slate-600">If client cancels mid-review, lawyer submits a partial invoice; client pays partial fee and the rest of the hold is released. Disputes escalate to GitLaw support for arbitration.</div>
+    </div>
+    <div class="rounded-lg bg-amber-50 border border-amber-200 p-3 text-xs text-amber-900">
+      <b>Marketplace fee (internal note):</b> GitLaw takes a marketplace fee from the lawyer's payout, in line with Rocket Lawyer / LegalZoom / Upwork practice. <span class="font-medium">Not disclosed to the client</span>.
+    </div>
+  </div>
+</aside>
+
+<aside id="specDrawer" class="drawer hidden-right fixed right-0 top-12 bottom-0 w-[540px] bg-white border-l shadow-xl z-40 flex flex-col">
+  <div class="px-5 py-3 border-b flex items-center justify-between">
+    <div>
+      <div class="text-sm font-semibold">Spec — Lawyer Loop-In (v0.4)</div>
+      <div class="text-xs text-slate-500">High-level intent · derived from <span class="mono">eaglelaw-spec/10-feature-spec/20-ai-assistance/60-lawyer-loop-in.md</span></div>
+    </div>
+    <button data-action="close-drawer" class="text-slate-400 hover:text-slate-900">✕</button>
+  </div>
+  <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4 text-sm">
+    <section>
+      <div class="text-xs uppercase tracking-wide text-slate-500 mb-1">Problem</div>
+      <p>Users trust AI for speed but not for high-stakes legal output. They need fast, affordable human verification embedded in the same workflow.</p>
+    </section>
+    <section>
+      <div class="text-xs uppercase tracking-wide text-slate-500 mb-1">Flow</div>
+      <ol class="list-decimal pl-5 space-y-1">
+        <li>User picks a tier and asks the agent to find a lawyer.</li>
+        <li>Agent reaches out to the panel (matter type only — no doc, no memory yet).</li>
+        <li>Bids come back; agent ranks and surfaces the top match.</li>
+        <li>User reviews the named lawyer + price, then accepts terms + scope + payment in one approval step.</li>
+        <li>Lawyer is engaged, escrow capture happens, full context bundle delivered.</li>
+        <li>Lawyer reviews in-doc; submits a Change Request + separate memo.</li>
+        <li>User clicks <b>Accept the review</b> → escrow releases.</li>
+        <li>User rates the engagement (optional) and decides whether to take the lawyer out of the repo or keep them in until signature.</li>
+      </ol>
+    </section>
+    <section>
+      <div class="text-xs uppercase tracking-wide text-slate-500 mb-1">Principles</div>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><b>Agent is orchestrator, not advisor.</b> Avoids UPL risk in the US.</li>
+        <li><b>User sees the lawyer before paying.</b> Match → name → consent → capture.</li>
+        <li><b>Single approval step.</b> Terms + scope + payment authorization collapse into one click.</li>
+        <li><b>Granular consent on context.</b> Per-scope toggles for doc, Profile, Playbook, contact files.</li>
+        <li><b>Acceptance triggers release.</b> Escrow only releases when the user explicitly accepts the review.</li>
+        <li><b>User controls lawyer access.</b> Take them out, or keep them in — user's call, not the lawyer's.</li>
+        <li><b>Feedback as native primitives.</b> Suggestions + Comments + a separate written memo.</li>
+        <li><b>Marketplace fee invisible to client.</b> Standard across legal &amp; freelance marketplaces.</li>
+      </ul>
+    </section>
+    <section>
+      <div class="text-xs uppercase tracking-wide text-slate-500 mb-1">Pricing (prototype values)</div>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Junior: £100 base + £0.08/word — ~£250, ~3h.</li>
+        <li>Senior: £200 base + £0.135/word — ~£450, ~1.5h, redline + memo.</li>
+        <li>Expert: £400 base + £0.22/word — ~£800, ~24h, partner sign-off.</li>
+      </ul>
+    </section>
+    <section>
+      <div class="text-xs uppercase tracking-wide text-slate-500 mb-1">Open forks</div>
+      <ol class="list-decimal pl-5 space-y-1">
+        <li><b>Match vs choice.</b> Agent auto-picks (current) vs surface 2-3 bids and let user choose.</li>
+        <li><b>Repo model.</b> Lawyer as Party with special posture vs sidecar service signing Change Requests as the firm.</li>
+        <li><b>Privilege.</b> Is the user the lawyer's direct client, or is GitLaw an intermediary?</li>
+        <li><b>Revisions path.</b> If user wants the lawyer to redo something before accepting, does that consume the same fee or is it a top-up?</li>
+        <li><b>Memory-share granularity.</b> Per-scope toggles (current) or a single "share my context" switch?</li>
+      </ol>
+    </section>
+    <section class="text-[11px] text-slate-500 border-t pt-3">
+      References: <span class="mono">eaglelaw-spec/10-feature-spec/20-ai-assistance/60-lawyer-loop-in.md</span> · <span class="mono">00-foundational/93-memory.md</span>
+    </section>
+  </div>
+</aside>
+
+<div id="backdrop" class="hidden fixed inset-0 bg-black/20 z-30"></div>
+
+<script>
+// =============================================================================
+// Panel — only lawyers who responded with a bid (conflict/no-response hidden)
+// =============================================================================
+const lawyers = [
+  { id: 'jess',  name: 'Jess Ford',   firm: 'Northgate LLP', tier: 'Senior', rate: 450, eta: '2h', rating: 4.7, topMatch: true },
+  { id: 'omar',  name: 'Omar Khan',   firm: 'Brick Court',   tier: 'Senior', rate: 480, eta: '3h', rating: 4.6 },
+  { id: 'priya', name: 'Priya Shah',  firm: 'Carraway Law',  tier: 'Senior', rate: 500, eta: '4h', rating: 4.8 },
+];
+
+const chatEl = document.getElementById('chat');
+const flowEl = document.getElementById('flow');
+const statusEl = document.getElementById('agentStatus');
+const lawyerStream = document.getElementById('lawyerStream');
+const rootGrid = document.getElementById('rootGrid');
+
+const backBtn = document.getElementById('backBtn');
+const nextBtn = document.getElementById('nextBtn');
+const playBtn = document.getElementById('playBtn');
+const resetBtn = document.getElementById('resetBtn');
+const specBtn = document.getElementById('specBtn');
+const backdrop = document.getElementById('backdrop');
+
+const ctxDrawer = document.getElementById('ctxDrawer');
+const payDrawer = document.getElementById('payDrawer');
+const specDrawer = document.getElementById('specDrawer');
+
+let cursor = -1;
+let autoTimer = null;
+let chosenTier = 'senior';
+let accessDecision = null;  // 'revoke' | 'keep'
+const snapshots = [];
+const seedChatChildren = 1;
+
+const tiers = {
+  junior: { lbl: 'Junior', price: '£250', sla: '~3h',   desc: 'trainee / 2-3y PQE' },
+  senior: { lbl: 'Senior', price: '£450', sla: '~1.5h', desc: '5-10y PQE · redline + memo' },
+  expert: { lbl: 'Expert', price: '£800', sla: '~24h',  desc: '15y+ · partner sign-off' },
+};
+
+// -----------------------------------------------------------------------------
+// Snapshot / restore
+// -----------------------------------------------------------------------------
+function snapshot() {
+  return {
+    chatHTML: chatEl.innerHTML,
+    flowStates: Array.from(flowEl.querySelectorAll('.stage')).map(s => s.dataset.state),
+    lawyerHTML: lawyerStream.innerHTML,
+    gridClasses: rootGrid.className,
+    statusHTML: statusEl.innerHTML,
+    outreachCount: document.getElementById('outreachCount').textContent,
+    matchListHTML: document.getElementById('matchList').innerHTML,
+    chosenTier,
+    accessDecision,
+    nextDisabled: nextBtn.disabled,
+    nextText: nextBtn.textContent,
+  };
+}
+function restore(s) {
+  chatEl.innerHTML = s.chatHTML;
+  const stages = flowEl.querySelectorAll('.stage');
+  s.flowStates.forEach((state, i) => { if (stages[i]) stages[i].dataset.state = state; });
+  lawyerStream.innerHTML = s.lawyerHTML;
+  rootGrid.className = s.gridClasses;
+  statusEl.innerHTML = s.statusHTML;
+  document.getElementById('outreachCount').textContent = s.outreachCount;
+  document.getElementById('matchList').innerHTML = s.matchListHTML;
+  chosenTier = s.chosenTier;
+  accessDecision = s.accessDecision;
+  nextBtn.disabled = s.nextDisabled;
+  nextBtn.textContent = s.nextText;
+  if (!s.nextDisabled) nextBtn.classList.remove('opacity-50','cursor-not-allowed');
+}
+
+// -----------------------------------------------------------------------------
+// Helpers
+// -----------------------------------------------------------------------------
+function setAgentStatus(state) {
+  let dot = '<span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>';
+  let label = 'idle';
+  if (state === 'working') { dot = '<span class="pulse-dot"></span>'; label = 'working'; }
+  else if (state === 'done') { dot = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>'; label = 'complete'; }
+  statusEl.innerHTML = dot + '<span>' + label + '</span>';
+}
+
+function renderMatchList() {
+  const el = document.getElementById('matchList');
+  el.innerHTML = lawyers.map((l, i) => `
+    <div class="flex items-center gap-2 rounded-md border px-2 py-1.5 ${l.topMatch ? 'bg-emerald-50 border-emerald-200' : 'bg-white'}">
+      <div class="w-5 text-center text-slate-400 mono">${i+1}</div>
+      <div class="font-medium">${l.name}</div>
+      <div class="text-slate-500">· ${l.firm}</div>
+      <div class="ml-auto text-slate-700">£${l.rate} · ${l.eta} · ★ ${l.rating}</div>
+      ${l.topMatch ? '<span class="ml-2 px-1.5 py-0.5 text-[10px] rounded bg-emerald-600 text-white">top match</span>' : ''}
+    </div>
+  `).join('');
+}
+
+function setStage(n, state) {
+  const el = flowEl.querySelector(`[data-stage="${n}"]`);
+  if (!el) return;
+  el.dataset.state = state;
+  if (state === 'active') el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function appendUserMsg(text) {
+  chatEl.insertAdjacentHTML('beforeend', `
+    <div class="flex gap-3 msg-enter">
+      <div class="w-8 h-8 rounded-full bg-sky-200 text-sky-800 grid place-items-center text-xs font-semibold">NH</div>
+      <div class="flex-1">
+        <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">Nick Holzherr</span> · just now</div>
+        <div class="mt-1 text-sm bg-sky-50 border border-sky-100 rounded-lg px-3 py-2 max-w-prose">${text}</div>
+      </div>
+    </div>`);
+  chatEl.scrollTop = chatEl.scrollHeight;
+}
+function appendAgentMsg(text) {
+  chatEl.insertAdjacentHTML('beforeend', `
+    <div class="flex gap-3 msg-enter">
+      <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+      <div class="flex-1">
+        <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · agent · just now</div>
+        <div class="mt-1 text-sm bg-violet-50 border border-violet-100 rounded-lg px-3 py-2 max-w-prose">${text}</div>
+      </div>
+    </div>`);
+  chatEl.scrollTop = chatEl.scrollHeight;
+}
+function appendFromTpl(id) {
+  const tpl = document.getElementById(id);
+  const node = tpl.content.firstElementChild.cloneNode(true);
+  chatEl.appendChild(node);
+  chatEl.scrollTop = chatEl.scrollHeight;
+}
+
+function pushLawyer(tplId) {
+  const t = document.getElementById(tplId);
+  const node = t.content.firstElementChild.cloneNode(true);
+  lawyerStream.appendChild(node);
+  lawyerStream.scrollTop = lawyerStream.scrollHeight;
+}
+function openLawyerCol() { rootGrid.classList.add('three-col'); }
+
+// -----------------------------------------------------------------------------
+// Collapsing bubbles
+// -----------------------------------------------------------------------------
+function quoteExpandedHTML() {
+  const cells = ['junior','senior','expert'].map(k => {
+    const t = tiers[k];
+    const chosen = k === chosenTier;
+    return `
+      <div class="rounded-lg border px-2.5 py-2 ${chosen ? 'border-2 border-emerald-600 bg-emerald-50/40' : 'opacity-60'}">
+        <div class="text-xs ${chosen ? 'text-emerald-700 font-medium' : 'text-slate-500'}">${t.lbl}${chosen ? ' · your choice' : ''}</div>
+        <div class="text-lg font-semibold">${t.price}</div>
+        <div class="text-[11px] text-slate-500">${t.sla} · ${t.desc}</div>
+      </div>`;
+  }).join('');
+  return `
+    <div class="text-xs text-slate-500 mb-2">Locked in. Options at the time you chose:</div>
+    <div class="grid grid-cols-3 gap-2 mb-2">${cells}</div>
+    <div class="text-[11px] text-slate-500">Pricing basis: 1,847 words · mutual NDA · E&amp;W</div>`;
+}
+
+function consentExpandedHTML() {
+  return `
+    <div class="text-xs text-slate-500 mb-2">Approved on engagement-start. Use Revoke to pull the lawyer's access.</div>
+    <ul class="text-sm space-y-1 mb-3">
+      <li>✓ Document — Mutual NDA v0.4</li>
+      <li>✓ Profile — GitLaw Ltd</li>
+      <li>✓ Playbook</li>
+      <li>✓ Acme Corp contact file</li>
+    </ul>
+    <div class="text-sm mb-2">
+      <div class="text-[11px] uppercase tracking-wide text-slate-500">Payment</div>
+      <div>VISA •••• 4242 · £450 held in escrow</div>
+    </div>
+    <div class="text-sm mb-3">
+      <div class="text-[11px] uppercase tracking-wide text-slate-500">Terms</div>
+      <div>Standard Engagement Terms — accepted</div>
+    </div>
+    <div class="flex items-center gap-2">
+      <button class="text-xs border border-rose-300 text-rose-700 px-2.5 py-1 rounded-md hover:bg-rose-50" data-action="revoke">Revoke access</button>
+      <span class="text-[11px] text-slate-500">stops the engagement · lawyer is invoiced pro-rata</span>
+    </div>`;
+}
+
+function wrapupExpandedHTML(rating, comment) {
+  const stars = rating > 0
+    ? '<span class="text-amber-500">' + '★'.repeat(rating) + '</span><span class="text-slate-300">' + '☆'.repeat(5 - rating) + '</span>'
+    : '<span class="text-slate-400">Not rated</span>';
+  return `
+    <div class="text-xs text-slate-500 mb-2">Wrap-up details for this engagement.</div>
+    <div class="text-sm space-y-2">
+      <div>
+        <div class="text-[11px] uppercase tracking-wide text-slate-500">Rating</div>
+        <div class="text-base">${stars}</div>
+      </div>
+      ${comment ? `<div><div class="text-[11px] uppercase tracking-wide text-slate-500">Comment</div><div>"${comment.replace(/"/g,'&quot;')}"</div></div>` : ''}
+      <div>
+        <div class="text-[11px] uppercase tracking-wide text-slate-500">Lawyer access</div>
+        <div>${accessDecision === 'revoke' ? 'Access removed' : 'Left as-is'}</div>
+      </div>
+    </div>`;
+}
+
+function collapseBubble(name, summaryHTML, expandedHTML) {
+  const bubble = chatEl.querySelector(`[data-bubble="${name}"]`);
+  if (!bubble) return;
+  const wrap = document.createElement('div');
+  wrap.className = 'flex gap-3';
+  wrap.dataset.bubble = name + '-collapsed';
+  wrap.innerHTML = `
+    <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 grid place-items-center text-xs font-semibold">✓</div>
+    <div class="flex-1 max-w-prose">
+      <details class="rounded-lg border bg-emerald-50/30 border-emerald-100">
+        <summary class="px-3 py-2 text-sm flex items-center gap-2 select-none">
+          <span class="chev">▶</span>
+          <span class="flex-1">${summaryHTML}</span>
+          <span class="text-[11px] text-slate-500">click to expand</span>
+        </summary>
+        <div class="px-3 pb-3 pt-1 border-t border-emerald-100">${expandedHTML}</div>
+      </details>
+    </div>`;
+  bubble.replaceWith(wrap);
+}
+
+// -----------------------------------------------------------------------------
+// Steps
+// -----------------------------------------------------------------------------
+const steps = [
+  // 0 — user says yes → quote bubble
+  () => {
+    setAgentStatus('working');
+    setStage(1, 'active');
+    appendUserMsg("Yes please — get this checked over.");
+    appendFromTpl('msg-agent-quote');
+  },
+
+  // 1 — tier chosen + Find lawyer → outreach starts; lawyer col opens
+  () => {
+    setStage(1, 'done');
+    setStage(2, 'active');
+    const t = tiers[chosenTier];
+    collapseBubble('quote',
+      `<span class="font-medium">${t.lbl} review requested</span> — ${t.price} estimate`,
+      quoteExpandedHTML()
+    );
+    appendAgentMsg("Reaching out to senior UK lawyers now to source quotes.");
+    openLawyerCol();
+    pushLawyer('lv-invite');
+  },
+
+  // 2 — bids in; top match surfaced
+  () => {
+    setStage(2, 'done');
+    setStage(3, 'active');
+    document.getElementById('outreachCount').textContent = 'contacted 5 · 3 responded';
+    renderMatchList();
+    appendAgentMsg("3 senior lawyers responded. Top match: <span class='font-medium'>Jess Ford (Northgate LLP)</span> — £450, 2h, ★ 4.7. Confirm below to engage her.");
+    pushLawyer('lv-waiting');
+  },
+
+  // 3 — consent gate for Jess
+  () => {
+    setStage(3, 'done');
+    setStage(4, 'active');
+    appendFromTpl('msg-consent');
+  },
+
+  // 4 — consent approved → engaged, full bundle to Jess
+  () => {
+    setStage(4, 'done');
+    setStage(5, 'active');
+    collapseBubble('consent',
+      `<span class="font-medium">Engagement approved.</span> Sharing doc + Profile + Playbook + Acme file · £450 held on •••• 4242`,
+      consentExpandedHTML()
+    );
+    appendFromTpl('msg-engaged');
+    pushLawyer('lv-engaged');
+  },
+
+  // 5 — review in progress
+  () => {
+    setStage(5, 'done');
+    setStage(6, 'active');
+    appendAgentMsg("Jess has the doc open and is working through it now.");
+    pushLawyer('lv-working');
+  },
+
+  // 6 — feedback delivered + accept button
+  () => {
+    setStage(6, 'done');
+    setStage(7, 'active');
+    appendFromTpl('msg-changes');
+    appendFromTpl('msg-memo');
+    appendFromTpl('msg-accept');
+    pushLawyer('lv-submitted');
+  },
+
+  // 7 — user accepted → escrow released; wrap-up card (rating + access decision)
+  () => {
+    setStage(7, 'done');
+    setStage(8, 'active');
+    collapseBubble('accept',
+      `<span class="font-medium">Review accepted.</span> Payment released from escrow.`,
+      `<div class="text-xs text-slate-500">You accepted Jess's review at this step. Escrow released £450 to her.</div>`
+    );
+    appendFromTpl('msg-wrapup');
+    pushLawyer('lv-paid');
+  },
+
+  // 8 — wrap-up finalized (rating + access decision captured)
+  () => {
+    const bubble = chatEl.querySelector('[data-bubble="wrapup"]');
+    let rating = 0; let comment = '';
+    if (bubble) {
+      rating = +(bubble.querySelector('#starGroup')?.dataset.rating || 0);
+      comment = bubble.querySelector('textarea')?.value || '';
+    }
+    if (accessDecision === 'revoke') {
+      collapseBubble('wrapup',
+        `<span class="font-medium">Engagement closed.</span> Access removed${rating ? ` · ${rating}/5 stars` : ''}`,
+        wrapupExpandedHTML(rating, comment)
+      );
+      appendAgentMsg("Jess's access has been removed. Engagement fully closed.");
+      pushLawyer('lv-removed');
+    } else {
+      collapseBubble('wrapup',
+        `<span class="font-medium">Engagement closed.</span> Access left as-is${rating ? ` · ${rating}/5 stars` : ''}`,
+        wrapupExpandedHTML(rating, comment)
+      );
+      appendAgentMsg("Got it — Jess's access stays as-is. You can remove it anytime from the consent panel above.");
+      pushLawyer('lv-kept');
+    }
+    setStage(8, 'done');
+    setAgentStatus('done');
+    nextBtn.disabled = true;
+    nextBtn.classList.add('opacity-50','cursor-not-allowed');
+    nextBtn.textContent = 'Finished';
+    stopAutoplay();
+  },
+];
+
+function updateNavButtons() {
+  backBtn.disabled = (cursor < 0);
+}
+
+function advance() {
+  if (cursor + 1 >= steps.length) return;
+  snapshots[cursor + 1] = snapshot();
+  cursor++;
+  steps[cursor]();
+  updateNavButtons();
+}
+
+function back() {
+  if (cursor < 0) return;
+  const s = snapshots[cursor];
+  if (s) restore(s);
+  cursor--;
+  if (cursor < 0) setAgentStatus('idle');
+  updateNavButtons();
+}
+
+function reset() {
+  cursor = -1;
+  snapshots.length = 0;
+  accessDecision = null;
+  stopAutoplay();
+  while (chatEl.children.length > seedChatChildren) chatEl.removeChild(chatEl.lastChild);
+  flowEl.querySelectorAll('.stage').forEach(s => s.dataset.state = 'pending');
+  document.getElementById('matchList').innerHTML = '';
+  document.getElementById('outreachCount').textContent = 'contacting 5 senior UK lawyers…';
+  rootGrid.classList.remove('three-col');
+  lawyerStream.innerHTML = '';
+  setAgentStatus('idle');
+  nextBtn.disabled = false;
+  nextBtn.classList.remove('opacity-50','cursor-not-allowed');
+  nextBtn.textContent = 'Next step →';
+  updateNavButtons();
+}
+
+function startAutoplay() {
+  if (autoTimer) return;
+  playBtn.textContent = 'Pause';
+  autoTimer = setInterval(() => {
+    if (cursor >= steps.length - 1) { stopAutoplay(); return; }
+    advance();
+  }, 1600);
+}
+function stopAutoplay() {
+  if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  playBtn.textContent = 'Auto-play';
+}
+
+// -----------------------------------------------------------------------------
+// Event delegation
+// -----------------------------------------------------------------------------
+document.addEventListener('click', e => {
+  // Tier selection inside the active quote bubble
+  const tierBtn = e.target.closest('.tier-opt');
+  if (tierBtn) {
+    const bubble = tierBtn.closest('[data-bubble="quote"]');
+    if (!bubble) return;
+    chosenTier = tierBtn.dataset.tier;
+    bubble.querySelectorAll('.tier-opt').forEach(b => {
+      b.classList.remove('border-2','border-emerald-600','bg-emerald-50/40');
+      b.classList.add('border');
+    });
+    tierBtn.classList.remove('border');
+    tierBtn.classList.add('border-2','border-emerald-600','bg-emerald-50/40');
+    const t = tiers[chosenTier];
+    bubble.querySelector('[data-tier-label]').textContent = t.lbl;
+    bubble.querySelector('[data-tier-price]').textContent = t.price;
+    return;
+  }
+
+  // Star rating inside the active wrap-up bubble
+  const starBtn = e.target.closest('.star');
+  if (starBtn) {
+    const group = starBtn.closest('#starGroup');
+    if (group) {
+      const n = +starBtn.dataset.star;
+      group.dataset.rating = n;
+      group.querySelectorAll('.star').forEach((s, i) => {
+        if (i < n) { s.classList.remove('text-slate-300'); s.classList.add('text-amber-400'); }
+        else { s.classList.remove('text-amber-400'); s.classList.add('text-slate-300'); }
+      });
+      const labels = ['—', 'Bad', 'Meh', 'OK', 'Good', 'Excellent'];
+      const lbl = group.querySelector('[data-rating-label]');
+      if (lbl) lbl.textContent = labels[n];
+    }
+    return;
+  }
+
+  const t = e.target.closest('[data-action]');
+  if (!t) return;
+  const action = t.dataset.action;
+  switch (action) {
+    case 'request-review':
+    case 'approve-consent':
+    case 'accept-review':
+      advance();
+      break;
+    case 'access-revoke':
+      accessDecision = 'revoke';
+      advance();
+      break;
+    case 'access-keep':
+      accessDecision = 'keep';
+      advance();
+      break;
+    case 'request-revisions':
+      appendAgentMsg("Got it — drafting a revisions request to Jess. (Prototype stub.)");
+      t.disabled = true; t.classList.add('opacity-50','cursor-not-allowed');
+      break;
+    case 'revoke':
+      appendAgentMsg("Access revoked. Engagement closed; Jess invoiced pro-rata for time-to-date.");
+      t.disabled = true; t.textContent = 'Access revoked ✓';
+      t.classList.add('opacity-60','cursor-not-allowed');
+      break;
+    case 'show-context':         showDrawer(ctxDrawer); break;
+    case 'show-payment':         showDrawer(payDrawer); break;
+    case 'show-pricing-explain': e.preventDefault(); showDrawer(specDrawer); break;
+    case 'open-terms':           e.preventDefault(); showDrawer(specDrawer); break;
+    case 'close-drawer':         hideAllDrawers(); break;
+  }
+});
+
+function showDrawer(el) {
+  document.querySelectorAll('.drawer').forEach(d => d.classList.add('hidden-right'));
+  el.classList.remove('hidden-right');
+  backdrop.classList.remove('hidden');
+}
+function hideAllDrawers() {
+  document.querySelectorAll('.drawer').forEach(d => d.classList.add('hidden-right'));
+  backdrop.classList.add('hidden');
+}
+
+backdrop.addEventListener('click', hideAllDrawers);
+specBtn.addEventListener('click', () => showDrawer(specDrawer));
+document.getElementById('termsLink').addEventListener('click', () => showDrawer(specDrawer));
+
+// Stage clicks
+flowEl.addEventListener('click', e => {
+  const stage = e.target.closest('.stage');
+  if (!stage) return;
+  if (e.target.closest('[data-action]')) return;
+  const n = +stage.dataset.stage;
+  if (n === 5) showDrawer(ctxDrawer);
+  else if (n === 8) showDrawer(payDrawer);
+});
+
+nextBtn.addEventListener('click', advance);
+backBtn.addEventListener('click', () => { stopAutoplay(); back(); });
+resetBtn.addEventListener('click', reset);
+playBtn.addEventListener('click', () => {
+  if (autoTimer) stopAutoplay();
+  else { if (cursor < 0) advance(); startAutoplay(); }
+});
+
+setAgentStatus('idle');
+updateNavButtons();
+</script>
+</body>
+</html>
