@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Files index — source documents</title>
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  .sidebar { width: 320px; border-right: 1px solid #e2e8f0; background: white; overflow-y: auto; }
+  .doc-item { display: block; padding: 10px 14px; border-bottom: 1px solid #f1f5f9; font-size: 13px; color: #334155; cursor: pointer; transition: background 0.1s; line-height: 1.4; }
+  .doc-item:hover { background: #f8fafc; }
+  .doc-item.active { background: #0f172a; color: white; }
+  .doc-item .doc-num { display: inline-block; width: 22px; font-size: 11px; color: #94a3b8; font-feature-settings: "tnum"; }
+  .doc-item.active .doc-num { color: #cbd5e1; }
+  .doc-title { word-break: break-word; }
+  .viewer { flex: 1; overflow-y: auto; padding: 32px 48px 64px; background: #fafafa; }
+  .markdown-body { max-width: 760px; margin: 0 auto; line-height: 1.6; color: #1e293b; }
+  .markdown-body h1 { font-size: 1.875rem; font-weight: 700; margin: 1.5rem 0 1rem; color: #0f172a; }
+  .markdown-body h2 { font-size: 1.5rem; font-weight: 600; margin: 2rem 0 0.75rem; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.25rem; }
+  .markdown-body h3 { font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.5rem; color: #1e293b; }
+  .markdown-body h4 { font-size: 1.05rem; font-weight: 600; margin: 1.25rem 0 0.5rem; }
+  .markdown-body p { margin: 0.75rem 0; }
+  .markdown-body ul, .markdown-body ol { margin: 0.5rem 0 0.75rem 1.5rem; }
+  .markdown-body li { margin: 0.25rem 0; }
+  .markdown-body code { background: #f1f5f9; padding: 0.125rem 0.375rem; border-radius: 0.25rem; font-size: 0.875em; font-family: "SF Mono", Menlo, monospace; }
+  .markdown-body pre { background: #0f172a; color: #e2e8f0; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin: 1rem 0; }
+  .markdown-body pre code { background: transparent; padding: 0; color: inherit; }
+  .markdown-body blockquote { border-left: 3px solid #cbd5e1; padding-left: 1rem; color: #64748b; font-style: italic; margin: 1rem 0; }
+  .markdown-body table { border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+  .markdown-body th, .markdown-body td { border: 1px solid #e2e8f0; padding: 0.5rem 0.75rem; text-align: left; }
+  .markdown-body th { background: #f8fafc; font-weight: 600; }
+  .markdown-body a { color: #2563eb; text-decoration: underline; }
+  .markdown-body hr { border: none; border-top: 1px solid #e2e8f0; margin: 2rem 0; }
+  .empty-state { text-align: center; padding: 80px 20px; color: #94a3b8; font-size: 14px; }
+  .topbar { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 1px solid #e2e8f0; background: white; font-size: 12px; }
+  .topbar a { color: #475569; text-decoration: none; }
+  .topbar a:hover { color: #0f172a; }
+</style>
+</head>
+<body class="bg-slate-50">
+
+<div class="topbar">
+  <a href="../index.html">← Back to prototypes</a>
+  <span class="text-slate-300">/</span>
+  <a href="./overview.html">Files index app</a>
+  <span class="text-slate-300">/</span>
+  <span class="text-slate-900 font-medium">Source documents</span>
+  <span class="text-slate-400 ml-auto" id="count"></span>
+</div>
+
+<div class="flex" style="height: calc(100vh - 41px);">
+  <aside class="sidebar" id="sidebar">
+    <div class="p-3 border-b border-slate-200 sticky top-0 bg-white z-10">
+      <input id="filter" type="search" placeholder="Filter…" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded focus:outline-none focus:border-slate-900" />
+    </div>
+    <div id="doc-list"></div>
+  </aside>
+  <main class="viewer" id="viewer">
+    <div class="empty-state">Select a document on the left to read it here.</div>
+  </main>
+</div>
+
+<script>
+const DOCS = [
+  "01-Allrecipes Contract - FINAL 2014-06-12.md",
+  "02-161121 Whisk BBC GF.md",
+  "03-Consultancy agreement Milica Stojic.md",
+  "04-Option Agreement template Claire Powell v2.md",
+  "05-Org Chart.md",
+  "06-Mutual_NDA_Foodient_GreatBritishChefs.md",
+  "07-Mutual_NDA_Reciply_Foodity.md",
+  "08-120712 Claire Powell Employment Contract.md",
+  "09-Collaboration Agreement Whisk & MKC FINAL.md",
+  "10-EU TM.md",
+  "11-Employment Contract Oliver Mason.md",
+  "12-Loan Note Certificate FINAL.md",
+  "13-Matthew Hines Employment Contract.md",
+  "14-Mutual_NDA_Foodient_DrJennyKabir.md",
+  "15-Option Agreement Anthony Herron.md",
+  "16-UK TM.md",
+  "17-Foodient_certificate_of_incorporation.md",
+  "18-Foodient_memorandum_of_association.md",
+  "19-UK TM scan.md",
+  "20-Mutual_NDA_Foodient_CallcreditInformationGroup_complete.md",
+  "21-EALP Quasi-Equity Jan 2013 1.md",
+  "22-Foodient Ltd. - 2013-10-18 - Articles.md",
+  "23-Whisk Sub Agreement - 12 June 2012.md",
+];
+
+function prettyTitle(filename) {
+  return filename
+    .replace(/^\d+-/, '')
+    .replace(/\.md$/, '')
+    .replace(/_/g, ' ');
+}
+
+function shortNum(filename) {
+  const m = filename.match(/^(\d+)/);
+  return m ? m[1] : '·';
+}
+
+function renderList(items, activeFilename) {
+  const list = document.getElementById('doc-list');
+  list.innerHTML = '';
+  for (const filename of items) {
+    const a = document.createElement('a');
+    a.className = 'doc-item' + (filename === activeFilename ? ' active' : '');
+    a.href = '#' + encodeURIComponent(filename);
+    a.innerHTML = `<span class="doc-num">${shortNum(filename)}</span><span class="doc-title">${prettyTitle(filename)}</span>`;
+    list.appendChild(a);
+  }
+  document.getElementById('count').textContent = `${items.length} of ${DOCS.length} documents`;
+}
+
+async function loadDoc(filename) {
+  const viewer = document.getElementById('viewer');
+  viewer.innerHTML = '<div class="empty-state">Loading…</div>';
+  try {
+    const r = await fetch('./sources/' + encodeURIComponent(filename));
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const md = await r.text();
+    viewer.innerHTML = '<article class="markdown-body"></article>';
+    viewer.querySelector('.markdown-body').innerHTML = marked.parse(md);
+    viewer.scrollTop = 0;
+  } catch (err) {
+    viewer.innerHTML = `<div class="empty-state">Couldn't load ${filename}: ${err.message}</div>`;
+  }
+}
+
+function applyFilter() {
+  const q = document.getElementById('filter').value.trim().toLowerCase();
+  const filtered = q
+    ? DOCS.filter(d => d.toLowerCase().includes(q))
+    : DOCS;
+  const active = decodeURIComponent(location.hash.slice(1));
+  renderList(filtered, active);
+}
+
+function handleHash() {
+  const filename = decodeURIComponent(location.hash.slice(1));
+  if (filename && DOCS.includes(filename)) {
+    loadDoc(filename);
+    applyFilter();
+  }
+}
+
+document.getElementById('filter').addEventListener('input', applyFilter);
+window.addEventListener('hashchange', handleHash);
+applyFilter();
+handleHash();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitLaw — Categories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="overview.css">
+</head>
+<body data-page="categories">
+<div class="app">
+  <aside class="sidebar">
+    <button class="side-icon" title="Settings"><i class="ti ti-settings"></i></button>
+    <button class="side-icon" title="New"><i class="ti ti-plus"></i></button>
+    <button class="side-icon" title="Search"><i class="ti ti-search"></i></button>
+    <a class="side-icon active" href="overview.html" title="Files"><i class="ti ti-folder"></i></a>
+    <button class="side-icon" title="Sign"><i class="ti ti-edit"></i></button>
+    <a class="side-icon" href="knowledge.html" title="Knowledge"><i class="ti ti-books"></i></a>
+    <button class="side-icon" title="Notifications"><i class="ti ti-bell"></i><span class="dot">3</span></button>
+    <div class="side-spacer"></div>
+    <div class="side-avatar">AC</div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <a class="tab" href="overview.html">Overview</a>
+      <a class="tab" href="all-files.html">All files</a>
+      <a class="tab" href="parties.html">Parties</a>
+      <a class="tab" href="status.html">Status</a>
+      <a class="tab active" href="categories.html">Categories</a>
+    </div>
+
+    <div class="content">
+      <div id="categories-root"></div>
+    </div>
+  </main>
+</div>
+<script src="data.js"></script>
+<script src="pages.js"></script>
+</body>
+</html>

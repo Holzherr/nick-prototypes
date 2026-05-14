@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitLaw — Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="overview.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <button class="side-icon" title="Settings"><i class="ti ti-settings"></i></button>
+    <button class="side-icon" title="New"><i class="ti ti-plus"></i></button>
+    <button class="side-icon" title="Search"><i class="ti ti-search"></i></button>
+    <a class="side-icon active" href="overview.html" title="Files"><i class="ti ti-folder"></i></a>
+    <button class="side-icon" title="Sign"><i class="ti ti-edit"></i></button>
+    <a class="side-icon" href="knowledge.html" title="Knowledge"><i class="ti ti-books"></i></a>
+    <button class="side-icon" title="Notifications"><i class="ti ti-bell"></i><span class="dot">3</span></button>
+    <div class="side-spacer"></div>
+    <div class="side-avatar">AC</div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <a class="tab active" href="overview.html">Overview</a>
+      <a class="tab" href="all-files.html">All files</a>
+      <a class="tab" href="parties.html">Parties</a>
+      <a class="tab" href="status.html">Status</a>
+      <a class="tab" href="categories.html">Categories</a>
+      <div class="topbar-right">
+        <button id="customize-btn" class="icon-only ghost" title="Customize">
+          <i class="ti ti-adjustments-horizontal"></i>
+        </button>
+        <button id="onboarding-btn" class="icon-only ghost" title="Get started">
+          <i class="ti ti-rocket"></i>
+        </button>
+      </div>
+    </div>
+    <div class="content" id="root"></div>
+  </main>
+</div>
+
+<!-- ── Chat handoff modal (Files Index spec §3 / AC-41) ──────────────
+     Opens when a user clicks an action button on a Missing or Suggested
+     card. Shows the entities that would be attached to the chat thread
+     plus an editable starter prompt. Send is illustrative only — this
+     prototype doesn't post to a chat backend. -->
+<div class="modal-backdrop" id="handoff-backdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="handoff-title">
+    <div class="modal-head">
+      <div>
+        <div class="modal-eyebrow" id="handoff-eyebrow">Chat handoff</div>
+        <div class="modal-title" id="handoff-title">…</div>
+      </div>
+      <button class="icon-btn" id="handoff-close" title="Close"><i class="ti ti-x"></i></button>
+    </div>
+
+    <div class="modal-body">
+      <div class="handoff-section">
+        <div class="handoff-label"><i class="ti ti-paperclip"></i> Files attached</div>
+        <div class="handoff-chips" id="handoff-files"></div>
+      </div>
+      <div class="handoff-section" id="handoff-contacts-section">
+        <div class="handoff-label"><i class="ti ti-users"></i> Contacts attached</div>
+        <div class="handoff-chips" id="handoff-contacts"></div>
+      </div>
+      <div class="handoff-section">
+        <div class="handoff-label"><i class="ti ti-message-circle"></i> Prompt <span class="handoff-hint">(editable — review before sending)</span></div>
+        <textarea id="handoff-prompt" class="handoff-prompt" spellcheck="false"></textarea>
+      </div>
+    </div>
+
+    <div class="modal-foot">
+      <div class="handoff-foot-note">No backend in this prototype — Send is illustrative only.</div>
+      <div class="modal-foot-actions">
+        <button id="handoff-cancel">Cancel</button>
+        <button class="primary" id="handoff-send"><i class="ti ti-send"></i> Send to chat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Onboarding modal (Figma node 2570:34623) ───────────────────────
+     Surface for new users to connect a cloud source or upload contracts.
+     Triggered by the rocket button in the topbar. -->
+<div class="modal-backdrop onboarding-backdrop" id="onboarding-backdrop" hidden>
+  <div class="onboarding-modal" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
+    <button class="onboarding-close" id="onboarding-close" title="Close"><i class="ti ti-x"></i></button>
+
+    <!-- Animated hero (adapted from cold-start-onboarding) -->
+    <div class="cold-start-anim">
+      <div class="hero">
+        <div class="hero-caption caption-a">We read each contract</div>
+        <div class="hero-caption caption-b">Your legal brain takes shape</div>
+
+        <!-- Scene A: Scan + extract -->
+        <div class="hero-scene scene-scan">
+          <div class="doc">
+            <div class="doc-corner"></div>
+            <div class="doc-title">MASTER SERVICES<br/>AGREEMENT</div>
+            <div class="doc-subtitle">Acme Inc. — Studio Co.</div>
+            <div class="doc-line full"></div>
+            <div class="doc-line w90"></div>
+            <div class="doc-line w55"></div>
+            <div class="doc-gap"></div>
+            <div class="doc-line w70"></div>
+            <div class="doc-line full"></div>
+            <div class="doc-line w90"></div>
+            <div class="doc-line w40"></div>
+            <div class="doc-gap"></div>
+            <div class="doc-line w70"></div>
+            <div class="doc-line full"></div>
+            <div class="doc-line w55"></div>
+            <div class="scan-line"></div>
+          </div>
+          <div class="extracted">
+            <div class="chip">
+              <div class="chip-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4.5" r="2"/><circle cx="10" cy="5.5" r="1.8"/><path d="M1.5 12.5c0-1.8 1.6-3 3.5-3s3.5 1.2 3.5 3M8 12.5c0-1.4 1.2-2.4 2.5-2.4s2 1 2 2.4"/></svg></div>
+              <div class="chip-body"><div class="chip-label">Parties</div><div class="chip-value">Acme Inc. ↔ Studio Co.</div></div>
+            </div>
+            <div class="chip">
+              <div class="chip-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="10" height="9" rx="1.5"/><path d="M2 5.5h10M4.5 2v2.5M9.5 2v2.5"/></svg></div>
+              <div class="chip-body"><div class="chip-label">Renews</div><div class="chip-value">Mar 15, 2026 · auto</div></div>
+            </div>
+            <div class="chip">
+              <div class="chip-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3.5" width="11" height="7" rx="1"/><path d="M1.5 6h11M3.5 9h2"/></svg></div>
+              <div class="chip-body"><div class="chip-label">Payment</div><div class="chip-value">Net 30 · $12,000/mo</div></div>
+            </div>
+            <div class="chip">
+              <div class="chip-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5l5 1.7v3.5c0 3-2 5.3-5 6.3-3-1-5-3.3-5-6.3V3.2L7 1.5z"/></svg></div>
+              <div class="chip-body"><div class="chip-label">Liability cap</div><div class="chip-value">$50,000</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene B: Brain orbit -->
+        <div class="hero-scene scene-brain">
+          <div class="orbit-sq">
+            <div class="ring-outer-spin"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="41" stroke="#d3b4f7" stroke-width="0.4" stroke-dasharray="2 2"/></svg></div>
+            <div class="ring-inner-spin"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="24" stroke="#d3b4f7" stroke-width="0.3" stroke-dasharray="1.5 1.5"/></svg></div>
+            <div class="brain-wrap">
+              <svg viewBox="0 0 80 83" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.92489 32.8599C1.16018 17.867 5.57196 8.16577 16.1602 3.7561C24.9838 -0.653565 32.9249 0.228369 39.9838 6.40191C47.0426 0.228369 54.9838 -0.653565 63.8074 3.7561C74.3956 8.16577 78.8074 17.867 77.0427 32.8599C80.5721 44.3251 79.2486 54.4673 73.0721 63.2866C68.6603 74.7518 59.8368 80.4843 46.6014 80.4843C42.1897 82.2482 37.7779 82.2482 33.3661 80.4843C20.1308 80.4843 11.3073 74.7518 6.89549 63.2866C0.719007 54.4673 -0.604525 44.3251 2.92489 32.8599Z" fill="white" stroke="currentColor" stroke-width="2"/>
+                <path d="M39.984 6.40192C38.2193 22.2767 38.2193 34.6238 39.984 43.4431C41.7487 56.6721 41.7487 69.0192 39.984 80.4844" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M29.3953 19.6309C23.2188 22.2767 17.9247 25.8045 13.5129 30.2141" stroke="currentColor"/>
+                <path d="M26.7481 43.4431C19.6893 45.207 14.3951 48.7347 10.8657 54.0263" stroke="currentColor"/>
+                <path d="M50.5723 19.6309C56.7487 22.2767 62.0429 25.8045 66.4546 30.2141" stroke="currentColor"/>
+                <path d="M53.2194 43.4431C60.2783 45.207 65.5724 48.7347 69.1018 54.0263" stroke="currentColor"/>
+              </svg>
+            </div>
+            <div class="odoc" style="left:50%;top:9%"><div class="odoc-inner"><div class="scanner"><div class="scanner-text">10010101&#10;01101001&#10;10110100&#10;01011010</div></div><div class="odoc-icon"><svg viewBox="0 0 34 43" fill="none"><path d="M6.14 0.75H24.1067L33.09 10.125V36.375C33.09 40.125 31.2933 42 27.7 42H6.14C2.54667 42 0.75 40.125 0.75 36.375V6.375C0.75 2.625 2.54667 0.75 6.14 0.75Z" fill="white" stroke="currentColor" stroke-width="1.5"/><path d="M24.1068 0.75V10.125H33.0901" stroke="currentColor" stroke-width="1.5"/><text x="5" y="28" font-size="6" font-weight="700" font-family="sans-serif" fill="currentColor" letter-spacing="0.3">DOCX</text></svg></div></div></div>
+            <div class="odoc" style="left:79%;top:21%"><div class="odoc-inner"><div class="scanner"><div class="scanner-text">01101001&#10;10100101&#10;11001010&#10;00101101</div></div><div class="odoc-icon"><svg viewBox="0 0 34 43" fill="none"><path d="M6.14 0.75H24.1067L33.09 10.125V36.375C33.09 40.125 31.2933 42 27.7 42H6.14C2.54667 42 0.75 40.125 0.75 36.375V6.375C0.75 2.625 2.54667 0.75 6.14 0.75Z" fill="white" stroke="currentColor" stroke-width="1.5"/><path d="M24.1068 0.75V10.125H33.0901" stroke="currentColor" stroke-width="1.5"/><text x="8" y="28" font-size="6" font-weight="700" font-family="sans-serif" fill="currentColor" letter-spacing="0.3">PDF</text></svg></div></div></div>
+            <div class="odoc" style="left:91%;top:50%"><div class="odoc-inner"><div class="scanner"><div class="scanner-text">11001010&#10;01010110&#10;10010101&#10;01101001</div></div><div class="odoc-icon"><svg viewBox="0 0 34 43" fill="none"><path d="M6.14 0.75H24.1067L33.09 10.125V36.375C33.09 40.125 31.2933 42 27.7 42H6.14C2.54667 42 0.75 40.125 0.75 36.375V6.375C0.75 2.625 2.54667 0.75 6.14 0.75Z" fill="white" stroke="currentColor" stroke-width="1.5"/><path d="M24.1068 0.75V10.125H33.0901" stroke="currentColor" stroke-width="1.5"/><text x="5" y="28" font-size="6" font-weight="700" font-family="sans-serif" fill="currentColor" letter-spacing="0.3">DOCX</text></svg></div></div></div>
+            <div class="odoc" style="left:79%;top:79%"><div class="odoc-inner"><div class="scanner"><div class="scanner-text">01011010&#10;11001010&#10;00101101&#10;10010101</div></div><div class="odoc-icon"><svg viewBox="0 0 34 43" fill="none"><path d="M6.14 0.75H24.1067L33.09 10.125V36.375C33.09 40.125 31.2933 42 27.7 42H6.14C2.54667 42 0.75 40.125 0.75 36.375V6.375C0.75 2.625 2.54667 0.75 6.14 0.75Z" fill="white" stroke="currentColor" stroke-width="1.5"/><path d="M24.1068 0.75V10.125H33.0901" stroke="currentColor" stroke-width="1.5"/><text x="8" y="28" font-size="6" font-weight="700" font-family="sans-serif" fill="currentColor" letter-spacing="0.3">PDF</text></svg></div></div></div>
+            <div class="odoc" style="left:50%;top:91%"><div class="odoc-inner"><div class="scanner"><div class="scanner-text">10110100&#10;01011010&#10;10010101&#10;01101001</div></div><div class="odoc-icon"><svg viewBox="0 0 34 43" fill="none"><path d="M6.14 0.75H24.1067L33.09 10.125V36.375C33.09 40.125 31.2933 42 27.7 42H6.14C2.54667 42 0.75 40.125 0.75 36.375V6.375C0.75 2.625 2.54667 0.75 6.14 0.75Z" fill="white" stroke="currentColor" stroke-width="1.5"/><path d="M24.1068 0.75V10.125H33.0901" stroke="currentColor" stroke-width="1.5"/><text x="5" y="28" font-size="6" font-weight="700" font-family="sans-serif" fill="currentColor" letter-spacing="0.3">DOCX</text></svg></div></div></div>
+            <div class="odoc" style="left:21%;top:79%"><div class="odoc-inner"><div class="scanner"><div class="scanner-text">00101101&#10;10010101&#10;01101001&#10;11001010</div></div><div class="odoc-icon"><svg viewBox="0 0 34 43" fill="none"><path d="M6.14 0.75H24.1067L33.09 10.125V36.375C33.09 40.125 31.2933 42 27.7 42H6.14C2.54667 42 0.75 40.125 0.75 36.375V6.375C0.75 2.625 2.54667 0.75 6.14 0.75Z" fill="white" stroke="currentColor" stroke-width="1.5"/><path d="M24.1068 0.75V10.125H33.0901" stroke="currentColor" stroke-width="1.5"/><text x="5" y="28" font-size="6" font-weight="700" font-family="sans-serif" fill="currentColor" letter-spacing="0.3">DOCX</text></svg></div></div></div>
+            <div class="odoc" style="left:9%;top:50%"><div class="odoc-inner"><div class="scanner"><div class="scanner-text">01101001&#10;11001010&#10;01011010&#10;10110100</div></div><div class="odoc-icon"><svg viewBox="0 0 34 43" fill="none"><path d="M6.14 0.75H24.1067L33.09 10.125V36.375C33.09 40.125 31.2933 42 27.7 42H6.14C2.54667 42 0.75 40.125 0.75 36.375V6.375C0.75 2.625 2.54667 0.75 6.14 0.75Z" fill="white" stroke="currentColor" stroke-width="1.5"/><path d="M24.1068 0.75V10.125H33.0901" stroke="currentColor" stroke-width="1.5"/><text x="8" y="28" font-size="6" font-weight="700" font-family="sans-serif" fill="currentColor" letter-spacing="0.3">PDF</text></svg></div></div></div>
+            <div class="odoc" style="left:21%;top:21%"><div class="odoc-inner"><div class="scanner"><div class="scanner-text">10010101&#10;00101101&#10;01011010&#10;10110100</div></div><div class="odoc-icon"><svg viewBox="0 0 34 43" fill="none"><path d="M6.14 0.75H24.1067L33.09 10.125V36.375C33.09 40.125 31.2933 42 27.7 42H6.14C2.54667 42 0.75 40.125 0.75 36.375V6.375C0.75 2.625 2.54667 0.75 6.14 0.75Z" fill="white" stroke="currentColor" stroke-width="1.5"/><path d="M24.1068 0.75V10.125H33.0901" stroke="currentColor" stroke-width="1.5"/><text x="8" y="28" font-size="6" font-weight="700" font-family="sans-serif" fill="currentColor" letter-spacing="0.3">PDF</text></svg></div></div></div>
+            <div class="pdot" style="left:50%;top:26%"><div class="pdot-inner"></div></div>
+            <div class="pdot" style="left:67%;top:33%"><div class="pdot-inner"></div></div>
+            <div class="pdot" style="left:74%;top:50%"><div class="pdot-inner"></div></div>
+            <div class="pdot" style="left:67%;top:67%"><div class="pdot-inner"></div></div>
+            <div class="pdot" style="left:50%;top:74%"><div class="pdot-inner"></div></div>
+            <div class="pdot" style="left:33%;top:67%"><div class="pdot-inner"></div></div>
+            <div class="pdot" style="left:26%;top:50%"><div class="pdot-inner"></div></div>
+            <div class="pdot" style="left:33%;top:33%"><div class="pdot-inner"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="onboarding-title" id="onboarding-title">Unlock insights from your contracts</h2>
+    <p class="onboarding-sub">
+      Upload your existing contracts and GitLaw will extract key terms, dates,
+      parties, and reminders — then use them as context when drafting or
+      reviewing future documents.
+    </p>
+
+    <div class="onboarding-grid">
+      <div class="onb-source">
+        <div class="onb-source-icon onb-source-gdrive"><i class="ti ti-brand-google-drive"></i></div>
+        <div class="onb-source-text">
+          <div class="onb-source-name">Google Drive</div>
+          <div class="onb-source-desc">Contracts, Legal Docum…</div>
+        </div>
+        <button class="onb-connect">Connect</button>
+      </div>
+      <div class="onb-source">
+        <div class="onb-source-icon onb-source-dropbox"><i class="ti ti-brand-dropbox"></i></div>
+        <div class="onb-source-text">
+          <div class="onb-source-name">Dropbox</div>
+          <div class="onb-source-desc">Contracts, Legal Docum…</div>
+        </div>
+        <button class="onb-connect">Connect</button>
+      </div>
+      <div class="onb-source">
+        <div class="onb-source-icon onb-source-onedrive"><i class="ti ti-cloud"></i></div>
+        <div class="onb-source-text">
+          <div class="onb-source-name">OneDrive</div>
+          <div class="onb-source-desc">Contracts, Legal Docum…</div>
+        </div>
+        <button class="onb-connect">Connect</button>
+      </div>
+      <div class="onb-source">
+        <div class="onb-source-icon onb-source-gmail"><i class="ti ti-mail"></i></div>
+        <div class="onb-source-text">
+          <div class="onb-source-name">Gmail</div>
+          <div class="onb-source-desc">Legal attachments, atta…</div>
+        </div>
+        <button class="onb-connect">Connect</button>
+      </div>
+    </div>
+
+    <button class="onb-upload"><i class="ti ti-arrow-up"></i> Upload files and folders</button>
+
+    <div class="onb-secure">
+      <div class="onb-secure-title">Your data is secure</div>
+      <div class="onb-secure-row">
+        <span><i class="ti ti-shield-check"></i> SOC2 compliant</span>
+        <span><i class="ti ti-lock"></i> We will never share it</span>
+        <span><i class="ti ti-server"></i> Stored on secure servers</span>
+      </div>
+    </div>
+
+    <button class="onb-skip" id="onboarding-skip">Skip (I'll add the contracts later)</button>
+  </div>
+</div>
+
+<!-- ── Upload progress (Files Index AC-16 live-fill) ─────────────────
+     Floats above the user-avatar area. Two states:
+       • expanded panel — header + per-file scan list
+       • collapsed pill — spinner icon only; click to re-expand -->
+<div class="upload-progress" id="upload-progress" hidden>
+  <div class="upload-progress-head">
+    <button class="upload-progress-toggle" id="upload-progress-collapse" title="Collapse"><i class="ti ti-chevron-down"></i></button>
+    <div class="upload-progress-title" id="upload-progress-title">Scanning files</div>
+    <div class="upload-progress-count" id="upload-progress-count"></div>
+  </div>
+  <div class="upload-progress-list" id="upload-progress-list"></div>
+</div>
+
+<button class="upload-progress-collapsed" id="upload-progress-expand" hidden title="Show upload progress">
+  <i class="ti ti-loader-2 up-spinning"></i>
+</button>
+
+<script src="data.js"></script>
+<script src="overview.js"></script>
+<script src="pages.js"></script>
+</body>
+</html>

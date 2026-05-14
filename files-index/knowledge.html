@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitLaw — Knowledge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="overview.css">
+</head>
+<body data-page="knowledge">
+<div class="app">
+  <aside class="sidebar">
+    <button class="side-icon" title="Settings"><i class="ti ti-settings"></i></button>
+    <button class="side-icon" title="New"><i class="ti ti-plus"></i></button>
+    <button class="side-icon" title="Search"><i class="ti ti-search"></i></button>
+    <a class="side-icon" href="overview.html" title="Files"><i class="ti ti-folder"></i></a>
+    <button class="side-icon" title="Sign"><i class="ti ti-edit"></i></button>
+    <a class="side-icon active" href="knowledge.html" title="Knowledge"><i class="ti ti-books"></i></a>
+    <button class="side-icon" title="Notifications"><i class="ti ti-bell"></i><span class="dot">3</span></button>
+    <div class="side-spacer"></div>
+    <div class="side-avatar">AC</div>
+  </aside>
+
+  <main class="main">
+    <div class="content">
+      <div class="list-header">
+        <div>
+          <div class="list-header-left">Knowledge</div>
+          <div class="list-header-sub">Contacts and Context Files extracted from your corpus</div>
+        </div>
+        <div class="list-header-right">
+          <div class="search">
+            <i class="ti ti-search"></i>
+            <input placeholder="Search">
+          </div>
+          <button class="icon-btn" title="Sort"><i class="ti ti-arrow-down"></i></button>
+          <button class="icon-btn" title="Filter"><i class="ti ti-adjustments-horizontal"></i></button>
+          <button class="icon-btn" title="View"><i class="ti ti-layout-grid"></i></button>
+        </div>
+      </div>
+
+      <div class="subtabs" id="subtabs">
+        <button class="subtab active" data-pane="contacts">Contacts</button>
+        <button class="subtab" data-pane="context">Context</button>
+      </div>
+
+      <div class="pane" data-pane="contacts">
+        <div id="knowledge-contacts"></div>
+      </div>
+
+      <div class="pane" data-pane="context" hidden>
+        <div class="file-list" id="ctx-list"></div>
+        <div class="ctx-detail" id="ctx-detail" hidden>
+          <div class="ctx-detail-head">
+            <button class="icon-btn" id="ctx-back" title="Back"><i class="ti ti-arrow-left"></i></button>
+            <div class="ctx-detail-titles">
+              <div class="ctx-detail-title">…</div>
+              <div class="ctx-tags"></div>
+            </div>
+            <div class="ctx-detail-actions">
+              <button class="chip" id="ctx-download"><i class="ti ti-download"></i> Download</button>
+              <button class="chip" id="ctx-edit"><i class="ti ti-pencil"></i> Edit</button>
+            </div>
+          </div>
+          <div class="ctx-detail-body" id="ctx-body"></div>
+          <div class="ctx-detail-editor" id="ctx-editor" hidden>
+            <div class="ctx-editor-meta">Editing the raw markdown body. Saves locally for this session only.</div>
+            <textarea id="ctx-editor-text" class="ctx-textarea" spellcheck="false"></textarea>
+            <div class="ctx-editor-actions">
+              <button id="ctx-cancel">Cancel</button>
+              <button class="primary" id="ctx-save"><i class="ti ti-check"></i> Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="data.js"></script>
+<script src="pages.js"></script>
+</body>
+</html>

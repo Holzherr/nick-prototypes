@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lawyer Loop-In Lite — Option B: Bring your own lawyer (or use ours)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+  .msg-enter { animation: e .3s ease-out; }
+  @keyframes e { from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+</style>
+</head>
+<body class="bg-violet-50/40 text-slate-900">
+
+<header class="h-12 flex items-center justify-between px-4 border-b bg-white">
+  <div class="flex items-center gap-3">
+    <div class="w-7 h-7 rounded-md bg-violet-700 text-white grid place-items-center text-xs font-bold">GL</div>
+    <div class="text-sm">
+      <span class="text-slate-500">GitLaw</span>
+      <span class="text-slate-300 mx-1">/</span>
+      <span class="font-medium">Prototypes</span>
+      <span class="text-slate-300 mx-1">/</span>
+      <span class="font-medium">Lawyer Loop-In Lite</span>
+      <span class="text-slate-300 mx-1">·</span>
+      <span class="text-slate-500">Option B — BYO lawyer (or use ours)</span>
+    </div>
+  </div>
+  <div class="flex items-center gap-2">
+    <a href="README.md" class="text-sm px-3 py-1.5 rounded-md border hover:bg-slate-100">Options overview</a>
+    <a href="a-concierge.html" class="text-sm px-3 py-1.5 rounded-md border hover:bg-slate-100">← Option A</a>
+    <button id="resetBtn" class="text-xs text-slate-500 hover:text-slate-900 px-2">Reset</button>
+  </div>
+</header>
+
+<div class="mx-auto max-w-2xl px-6 py-8">
+
+  <div class="rounded-lg border bg-white px-4 py-3 mb-6 text-xs">
+    <div class="font-semibold text-violet-900">Option B — Bring your own lawyer (or use ours)</div>
+    <div class="text-slate-600 mt-0.5">
+      Two routes from a single moment: invite your existing lawyer (free, instant), or have GitLaw match you with one (concierge flow). Both end with the lawyer as a Guest Editor on this doc; in neither case is GitLaw in the payment loop. Build cost: ~1-2 eng-days for the invite side, plus a shared inbox for the concierge side.
+    </div>
+  </div>
+
+  <div class="rounded-xl border bg-white px-5 py-4">
+    <div class="flex items-center gap-2 text-xs text-slate-500">
+      <span>Repository</span>
+      <span class="text-slate-300">›</span>
+      <span class="mono">nda-acme-2026</span>
+      <span class="ml-auto inline-flex items-center gap-1 text-emerald-700">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Working Draft · v0.4
+      </span>
+    </div>
+    <h1 class="mt-1.5 text-lg font-semibold">Mutual NDA — GitLaw Ltd × Acme Corp</h1>
+    <div class="mt-0.5 text-xs text-slate-500">4 pages · 1,847 words · NDA · England &amp; Wales · drafted by GitLaw AI</div>
+  </div>
+
+  <div id="flow" class="mt-6 space-y-4">
+
+    <div class="flex gap-3 msg-enter">
+      <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+      <div class="flex-1">
+        <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · just now</div>
+        <div class="mt-1 text-sm bg-white border rounded-lg px-3 py-2 max-w-prose">
+          Want a real lawyer to look at this before you sign? Two ways:
+        </div>
+
+        <div class="mt-2 grid grid-cols-2 gap-3 max-w-prose">
+
+          <!-- Card 1: invite your own -->
+          <div class="rounded-xl border bg-white p-3 flex flex-col">
+            <div class="text-sm font-semibold text-slate-900 mb-1">I have a lawyer</div>
+            <div class="text-xs text-slate-600 mb-2">What they'll see:</div>
+            <ul class="text-xs text-slate-600 space-y-1 flex-1">
+              <li class="flex items-start gap-1.5"><span class="text-emerald-600 mt-0.5">✓</span><span>Full doc + version history</span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-600 mt-0.5">✓</span><span>AI brief + Playbook (optional)</span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-600 mt-0.5">✓</span><span>Their templates apply on top</span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-600 mt-0.5">✓</span><span>Editor · Suggestions + Comments</span></li>
+            </ul>
+            <div class="text-[11px] text-slate-500 mt-2 border-t pt-1.5">
+              Free for both of you on GitLaw. Lawyer bills at their normal rates — GitLaw isn't part of the engagement.
+            </div>
+            <button id="ctaInvite" class="mt-2 w-full bg-emerald-600 text-white text-sm font-medium rounded-md px-3 py-1.5 hover:bg-emerald-700">Invite my lawyer →</button>
+          </div>
+
+          <!-- Card 2: find me one -->
+          <div class="rounded-xl border bg-white p-3 flex flex-col">
+            <div class="text-sm font-semibold text-slate-900 mb-1">Find me one</div>
+            <div class="text-xs text-slate-600 mb-2">What you get:</div>
+            <ul class="text-xs text-slate-600 space-y-1 flex-1">
+              <li class="flex items-start gap-1.5"><span class="text-emerald-600 mt-0.5">✓</span><span>Vetted UK senior lawyer</span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-600 mt-0.5">✓</span><span>Matched within ~1 hour</span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-600 mt-0.5">✓</span><span>Same in-doc collaboration</span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-600 mt-0.5">✓</span><span>Lawyer quotes fee direct</span></li>
+            </ul>
+            <div class="text-[11px] text-slate-500 mt-2 border-t pt-1.5">
+              Typical fee for this doc (<span data-fill="wordcount">1,847</span> words): <span class="font-medium text-slate-700" data-fill="cardPrice">£400–£500</span>. Paid to the lawyer; GitLaw doesn't take a cut.
+            </div>
+            <button id="ctaFindOne" class="mt-2 w-full border text-sm font-medium rounded-md px-3 py-1.5 hover:bg-slate-100 text-slate-700">Find me one →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ Templates: INVITE PATH ============ -->
+
+<template id="tpl-invite-form">
+  <div class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · just now</div>
+      <div class="mt-1 text-sm bg-white border rounded-lg px-3 py-2 max-w-prose">
+        Who should we invite? They'll get an email with a link to this doc.
+      </div>
+      <div class="mt-2 max-w-prose rounded-xl border bg-white">
+        <div class="px-3 py-3 space-y-3 text-sm">
+          <div>
+            <label class="block text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Lawyer's name</label>
+            <input type="text" id="invName" value="Jess Ford" class="w-full text-sm border rounded-md px-2 py-1.5" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Lawyer's email</label>
+            <input type="email" id="invEmail" value="jess.ford@northgate-llp.co.uk" class="w-full text-sm border rounded-md px-2 py-1.5" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Share with them</label>
+            <div class="space-y-1.5 rounded-md border px-2.5 py-2 bg-slate-50/50">
+              <label class="flex items-start gap-2">
+                <input type="checkbox" checked class="mt-1" />
+                <div class="flex-1">
+                  <div class="text-sm font-medium">This document</div>
+                  <div class="text-[11px] text-slate-500">Mutual NDA v0.4 — full text + version history</div>
+                </div>
+              </label>
+              <label class="flex items-start gap-2">
+                <input type="checkbox" checked class="mt-1" />
+                <div class="flex-1">
+                  <div class="text-sm font-medium">Profile</div>
+                  <div class="text-[11px] text-slate-500">GitLaw Ltd — company info, jurisdiction, signing authority</div>
+                </div>
+              </label>
+              <label class="flex items-start gap-2">
+                <input type="checkbox" checked class="mt-1" />
+                <div class="flex-1">
+                  <div class="text-sm font-medium">Playbook</div>
+                  <div class="text-[11px] text-slate-500">Your standard preferences and red lines</div>
+                </div>
+              </label>
+              <label class="flex items-start gap-2">
+                <input type="checkbox" checked class="mt-1" />
+                <div class="flex-1">
+                  <div class="text-sm font-medium">Acme Corp contact file</div>
+                  <div class="text-[11px] text-slate-500">Past deals + negotiation patterns from your contact intelligence</div>
+                </div>
+              </label>
+            </div>
+            <div class="text-[11px] text-slate-500 mt-1">Untick anything you'd rather they don't see. You can revoke access at any time.</div>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Access level</label>
+            <select class="w-full text-sm border rounded-md px-2 py-1.5">
+              <option selected>Editor — can add Suggestions and Comments</option>
+              <option>Viewer — read-only</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Optional note to them</label>
+            <textarea rows="3" class="w-full text-sm border rounded-md p-2">Hi Jess — Acme NDA for our diligence call on Friday. Particularly want your eyes on clause 4 (IP) and clause 7 (5-year survival feels long). Standard fee is fine; bill me directly when done.</textarea>
+          </div>
+          <div class="text-xs text-slate-500 border-t pt-2">
+            GitLaw is just providing collaboration. You and your lawyer agree fees, scope, and engagement letter between yourselves.
+          </div>
+        </div>
+        <div class="px-3 py-2 bg-slate-50 rounded-b-xl border-t flex items-center justify-between">
+          <button data-action="preview-email" class="text-xs text-slate-600 underline hover:text-slate-900">Preview what they'll see</button>
+          <button data-action="send-invite" class="bg-emerald-600 text-white text-sm font-medium rounded-md px-3 py-1.5 hover:bg-emerald-700">Send invitation →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-email-preview">
+  <div class="msg-enter">
+    <div class="text-xs text-slate-500 mb-2">Email preview — this is what your lawyer receives</div>
+    <div class="rounded-xl border bg-white shadow-sm">
+      <div class="px-4 py-3 border-b">
+        <div class="text-sm"><span class="text-slate-500">From:</span> Nick Holzherr (via GitLaw) &lt;noreply@gitlaw.co&gt;</div>
+        <div class="text-sm"><span class="text-slate-500">To:</span> <span data-fill="email">jess.ford@northgate-llp.co.uk</span></div>
+        <div class="text-sm"><span class="text-slate-500">Reply-to:</span> nick@gitlaw.co</div>
+        <div class="text-sm font-medium mt-1">Nick Holzherr is asking you to review a mutual NDA</div>
+      </div>
+      <div class="px-4 py-3 text-sm space-y-3 leading-relaxed">
+        <p>Hi <span data-fill="name">Jess</span>,</p>
+        <p>Nick Holzherr from GitLaw Ltd has invited you to review a document they're working on:</p>
+        <div class="rounded-lg border bg-slate-50 px-3 py-2 text-xs">
+          <div class="font-medium text-slate-900">Mutual NDA — GitLaw Ltd × Acme Corp</div>
+          <div class="text-slate-600">4 pages · 1,847 words · England &amp; Wales</div>
+        </div>
+        <p class="text-slate-600 italic">"Hi Jess — Acme NDA for our diligence call on Friday. Particularly want your eyes on clause 4 (IP) and clause 7 (5-year survival feels long). Standard fee is fine; bill me directly when done."</p>
+        <p><b>Click below to open the doc.</b> You'll get Editor access — you can add Suggestions (tracked changes) and Comments, just like in Word or Google Docs, and apply your own templates and clauses on top of what's there.</p>
+        <div>
+          <span class="inline-block bg-emerald-600 text-white text-sm font-medium px-4 py-2 rounded-md">Open the document →</span>
+        </div>
+        <p class="text-xs text-slate-500 border-t pt-3">GitLaw is a collaboration tool. Fees, engagement letter and any client-relationship paperwork are between you and Nick — GitLaw isn't a party to your engagement.</p>
+      </div>
+    </div>
+    <button data-action="actually-send" class="mt-3 text-xs underline text-slate-600 hover:text-slate-900">⏵ Looks good — send it</button>
+  </div>
+</template>
+
+<template id="tpl-sent">
+  <div class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-sky-200 text-sky-800 grid place-items-center text-xs font-semibold">NH</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">Nick Holzherr</span> · just now</div>
+      <div class="mt-1 text-sm bg-sky-50 border border-sky-100 rounded-lg px-3 py-2 max-w-prose">Sent.</div>
+    </div>
+  </div>
+  <div class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · just now</div>
+      <div class="mt-1 text-sm bg-white border rounded-lg px-3 py-2 max-w-prose">
+        Invitation sent to <span class="mono" data-fill="email">jess.ford@northgate-llp.co.uk</span>. They'll appear in your collaborators list once they accept.
+      </div>
+      <div class="mt-2 max-w-prose rounded-lg border bg-white">
+        <div class="px-3 py-2 border-b text-xs"><span class="font-medium">Collaborators</span></div>
+        <div class="px-3 py-2 space-y-2 text-sm">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-sky-200 text-sky-800 grid place-items-center text-xs font-semibold">NH</div>
+            <div class="flex-1">
+              <div class="font-medium">Nick Holzherr</div>
+              <div class="text-xs text-slate-500">Owner · you</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 grid place-items-center text-xs font-semibold">JF</div>
+            <div class="flex-1">
+              <div class="font-medium" data-fill="name">Jess Ford</div>
+              <div class="text-xs text-slate-500">Pending invitation · <span data-fill="email">jess.ford@northgate-llp.co.uk</span></div>
+            </div>
+            <button class="text-xs border px-2 py-0.5 rounded hover:bg-slate-100">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <button data-action="simulate-accept" class="mt-2 text-xs underline text-slate-600 hover:text-slate-900">⏵ Simulate: Jess accepts the invitation</button>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-accepted">
+  <div class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · ~30 min later</div>
+      <div class="mt-1 text-sm bg-white border rounded-lg px-3 py-2 max-w-prose">
+        <span class="font-medium" data-fill="name">Jess Ford</span> accepted the invitation and now has Editor access. They can review the doc whenever — you'll see Suggestions and Comments appear in the thread.
+      </div>
+      <div class="mt-2 max-w-prose rounded-lg border bg-white">
+        <div class="px-3 py-2 border-b text-xs flex items-center gap-2">
+          <span class="font-medium">Collaborators</span>
+          <span class="ml-auto inline-flex items-center gap-1 text-emerald-700"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Live</span>
+        </div>
+        <div class="px-3 py-2 space-y-2 text-sm">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-sky-200 text-sky-800 grid place-items-center text-xs font-semibold">NH</div>
+            <div class="flex-1">
+              <div class="font-medium">Nick Holzherr</div>
+              <div class="text-xs text-slate-500">Owner · you</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-rose-200 text-rose-800 grid place-items-center text-xs font-semibold">JF</div>
+            <div class="flex-1">
+              <div class="font-medium" data-fill="name">Jess Ford</div>
+              <div class="text-xs text-slate-500">Guest · Editor · invited by you</div>
+            </div>
+            <button class="text-xs border px-2 py-0.5 rounded hover:bg-slate-100">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4 rounded-lg bg-amber-50 border border-amber-200 px-3 py-2 text-xs text-amber-900">
+    <b>Build note.</b> Piggybacks on GitLaw's existing Guest/Editor share + a templated email. No agent, no payment, no marketplace.
+  </div>
+</template>
+
+<!-- ============ Templates: CONCIERGE PATH (find me one) ============ -->
+
+<template id="tpl-conc-intake">
+  <div class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · just now</div>
+      <div class="mt-1 text-sm bg-white border rounded-lg px-3 py-2 max-w-prose">
+        Two quick questions and we'll match you with a UK senior lawyer. No payment from you to GitLaw — the lawyer will quote you directly.
+      </div>
+      <div class="mt-2 max-w-prose rounded-xl border bg-white">
+        <div class="px-3 py-3 space-y-3 text-sm">
+          <div>
+            <label class="block text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">When do you need this back?</label>
+            <select id="urgencySel" class="w-full text-sm border rounded-md px-2 py-1.5">
+              <option value="24h">Within 24 hours</option>
+              <option value="48h" selected>Within 48 hours</option>
+              <option value="week">This week</option>
+            </select>
+          </div>
+          <div class="rounded-lg bg-violet-50 border border-violet-100 px-3 py-2">
+            <div class="text-[11px] uppercase tracking-wide text-violet-700 font-medium">Estimated fee for this review</div>
+            <div class="mt-0.5 flex items-baseline gap-2 flex-wrap">
+              <div class="text-base font-semibold text-slate-900" id="estPrice">£400–£500</div>
+              <div class="text-sm text-slate-700">for <span class="font-bold text-violet-700"><span data-fill="wordcount">1,847</span> words</span></div>
+            </div>
+            <div class="text-[11px] text-slate-600" id="estNote">Standard 48h turnaround · paid directly to the lawyer</div>
+            <div class="text-[11px] text-slate-500 mt-1.5 border-t border-violet-100 pt-1.5">
+              <span class="font-medium text-slate-600">How this is calculated:</span> word count × per-word factor + base fee, adjusted for lawyer seniority and turnaround.
+            </div>
+            <div class="text-[11px] text-slate-500 mt-0.5">
+              Senior NDA review · <span id="estTurnLabel">48h standard</span>.
+            </div>
+            <div class="text-[11px] text-slate-500 mt-1">Final fee is what your lawyer quotes when they reach out. GitLaw doesn't take a cut.</div>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Anything specific you want them to focus on? (optional)</label>
+            <textarea rows="2" class="w-full text-sm border rounded-md p-2" placeholder="e.g. IP carve-outs in clause 4, 5-year survival period feels long"></textarea>
+          </div>
+          <div class="text-xs text-slate-500 border-t pt-2">
+            By clicking Request, you authorize GitLaw to share this document with a matched UK lawyer and add them to this repo as a Guest collaborator.
+          </div>
+        </div>
+        <div class="px-3 py-2 bg-slate-50 rounded-b-xl border-t flex items-center justify-end">
+          <button data-action="conc-submit" class="bg-emerald-600 text-white text-sm font-medium rounded-md px-3 py-1.5 hover:bg-emerald-700">Request a lawyer →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-conc-confirm">
+  <div class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-sky-200 text-sky-800 grid place-items-center text-xs font-semibold">NH</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">Nick Holzherr</span> · just now</div>
+      <div class="mt-1 text-sm bg-sky-50 border border-sky-100 rounded-lg px-3 py-2 max-w-prose">Submitted — find me a lawyer for the Acme NDA review.</div>
+    </div>
+  </div>
+  <div class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · just now</div>
+      <div class="mt-1 text-sm bg-white border rounded-lg px-3 py-2 max-w-prose">
+        Got it. We'll find a matched UK lawyer and email you within <span class="font-medium">1 business hour</span> with their introduction. Watch for an email from <span class="mono">concierge@gitlaw.co</span>.
+      </div>
+      <div class="mt-2 max-w-prose rounded-lg border-l-4 border-emerald-500 bg-emerald-50 px-3 py-2 text-sm">
+        <div class="font-medium">Request received · ref <span class="mono">LR-2026-0518</span></div>
+        <div class="text-xs text-slate-600">No charge yet. Lawyer will agree fees with you directly when they reach out.</div>
+      </div>
+      <button data-action="conc-email" class="mt-2 text-xs underline text-slate-600 hover:text-slate-900">⏵ Show what arrives in your inbox</button>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-conc-email">
+  <div class="msg-enter">
+    <div class="text-xs text-slate-500 mb-2">~1 hour later — email from <span class="mono">concierge@gitlaw.co</span></div>
+    <div class="rounded-xl border bg-white shadow-sm">
+      <div class="px-4 py-3 border-b">
+        <div class="text-sm"><span class="text-slate-500">From:</span> GitLaw Concierge &lt;concierge@gitlaw.co&gt;</div>
+        <div class="text-sm"><span class="text-slate-500">To:</span> nick@gitlaw.co</div>
+        <div class="text-sm font-medium mt-1">Your matched lawyer for the Acme NDA review</div>
+      </div>
+      <div class="px-4 py-3 text-sm space-y-3 leading-relaxed">
+        <p>Hi Nick,</p>
+        <p>Thanks for the request. We've matched you with <b>Jess Ford</b> (Northgate LLP, senior commercial lawyer in London, 7 years' PQE, 40+ NDAs reviewed in the last year).</p>
+        <div class="rounded-lg border bg-slate-50 p-3 flex items-start gap-3">
+          <div class="w-10 h-10 rounded-full bg-rose-200 text-rose-800 grid place-items-center font-semibold">JF</div>
+          <div class="flex-1 min-w-0 text-xs">
+            <div class="font-medium text-slate-900">Jess Ford</div>
+            <div class="text-slate-600">Northgate LLP · Senior · SRA #ABC1234</div>
+            <div class="text-slate-600">Commercial &amp; tech transactions · England &amp; Wales</div>
+            <div class="text-slate-600 mt-1">Typical NDA review fee: £400–£500 fixed-fee · 24–48h turnaround</div>
+          </div>
+        </div>
+        <p><b>What happens next:</b></p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Jess will reach out within the next few hours with her engagement letter and quote.</li>
+          <li>She's already been added to your repo <span class="mono">nda-acme-2026</span> as a Guest collaborator.</li>
+          <li>Once you've agreed terms with her, she'll review the doc inside GitLaw using Suggestions + Comments.</li>
+          <li>She invoices you directly — GitLaw isn't in the payment loop.</li>
+        </ol>
+        <p>Any questions, just reply.</p>
+        <p>— The GitLaw team</p>
+      </div>
+      <div class="px-4 py-2 border-t bg-slate-50 text-xs text-slate-500 flex items-center justify-between rounded-b-xl">
+        <span>Want a different lawyer? Reply with "swap" and we'll match again.</span>
+        <button data-action="conc-doc" class="underline hover:text-slate-900">⏵ See your doc after Jess accepts</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-conc-doc-state">
+  <div class="msg-enter">
+    <div class="text-xs text-slate-500 mb-2">Back in your GitLaw doc</div>
+    <div class="rounded-xl border bg-white">
+      <div class="px-5 py-3 border-b flex items-center gap-2 text-xs">
+        <span class="font-medium">Collaborators</span>
+        <span class="ml-auto text-slate-500">Manage access</span>
+      </div>
+      <div class="px-5 py-3 space-y-2 text-sm">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-sky-200 text-sky-800 grid place-items-center text-xs font-semibold">NH</div>
+          <div class="flex-1">
+            <div class="font-medium">Nick Holzherr</div>
+            <div class="text-xs text-slate-500">Owner · you</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-rose-200 text-rose-800 grid place-items-center text-xs font-semibold">JF</div>
+          <div class="flex-1">
+            <div class="font-medium">Jess Ford</div>
+            <div class="text-xs text-slate-500">Guest · Editor · added by GitLaw Concierge</div>
+          </div>
+          <button class="text-xs border px-2 py-0.5 rounded hover:bg-slate-100">Remove</button>
+        </div>
+      </div>
+      <div class="px-5 py-2 bg-slate-50 border-t text-xs text-slate-500 rounded-b-xl">
+        Jess can suggest edits and add comments. You stay in control of accepting them and paying her.
+      </div>
+    </div>
+    <div class="mt-4 rounded-lg bg-amber-50 border border-amber-200 px-3 py-2 text-xs text-amber-900">
+      <b>Build note.</b> Identical post-state to Option A — same Guest collaborator primitive, same out-of-loop payment, same human-matched lawyer on the back end.
+    </div>
+  </div>
+</template>
+
+<script>
+const flow = document.getElementById('flow');
+const ctaInvite = document.getElementById('ctaInvite');
+const ctaFindOne = document.getElementById('ctaFindOne');
+const resetBtn = document.getElementById('resetBtn');
+
+let lastName = 'Jess Ford';
+let lastEmail = 'jess.ford@northgate-llp.co.uk';
+
+// Word-count-driven pricing for a senior NDA review
+// Calibrated so 1,847 words at standard urgency → £400-£500
+const WORD_COUNT = 1847;
+const BASE_FEE  = 200;
+const PER_WORD  = 0.135;
+function priceRange(multiplier) {
+  const mid = BASE_FEE + WORD_COUNT * PER_WORD;
+  const low  = Math.round(mid * multiplier * 0.9 / 50) * 50;
+  const high = Math.round(mid * multiplier * 1.1 / 50) * 50;
+  return `£${low}–£${high}`;
+}
+// Populate the "Find me one" card footer on load
+document.querySelectorAll('[data-fill="wordcount"]').forEach(el => el.textContent = WORD_COUNT.toLocaleString());
+document.querySelectorAll('[data-fill="cardPrice"]').forEach(el => el.textContent = priceRange(1.0));
+
+function appendTpl(id) {
+  const tpl = document.getElementById(id);
+  const node = tpl.content.cloneNode(true);
+  node.querySelectorAll('[data-fill="name"]').forEach(el => el.textContent = lastName);
+  node.querySelectorAll('[data-fill="email"]').forEach(el => el.textContent = lastEmail);
+  node.querySelectorAll('[data-fill="wordcount"]').forEach(el => el.textContent = WORD_COUNT.toLocaleString());
+  flow.appendChild(node);
+  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+function disableCard(btn) {
+  btn.disabled = true;
+  btn.classList.add('opacity-50','cursor-not-allowed');
+}
+
+ctaInvite.addEventListener('click', () => {
+  ctaInvite.textContent = 'Selected ✓';
+  disableCard(ctaInvite); disableCard(ctaFindOne);
+  appendTpl('tpl-invite-form');
+});
+
+ctaFindOne.addEventListener('click', () => {
+  ctaFindOne.textContent = 'Selected ✓';
+  disableCard(ctaInvite); disableCard(ctaFindOne);
+  appendTpl('tpl-conc-intake');
+});
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-action]');
+  if (!t) return;
+  const action = t.dataset.action;
+  if (action === 'preview-email') {
+    const nameInp = document.getElementById('invName');
+    const emailInp = document.getElementById('invEmail');
+    if (nameInp) lastName = nameInp.value.trim() || lastName;
+    if (emailInp) lastEmail = emailInp.value.trim() || lastEmail;
+    t.disabled = true; t.classList.add('opacity-50','cursor-not-allowed');
+    appendTpl('tpl-email-preview');
+  } else if (action === 'actually-send') {
+    t.remove();
+    appendTpl('tpl-sent');
+  } else if (action === 'send-invite') {
+    const nameInp = document.getElementById('invName');
+    const emailInp = document.getElementById('invEmail');
+    if (nameInp) lastName = nameInp.value.trim() || lastName;
+    if (emailInp) lastEmail = emailInp.value.trim() || lastEmail;
+    t.disabled = true; t.textContent = 'Sent ✓';
+    t.classList.add('opacity-50','cursor-not-allowed');
+    appendTpl('tpl-sent');
+  } else if (action === 'simulate-accept') {
+    t.remove();
+    appendTpl('tpl-accepted');
+  } else if (action === 'conc-submit') {
+    t.disabled = true; t.textContent = 'Submitted';
+    t.classList.add('opacity-50','cursor-not-allowed');
+    appendTpl('tpl-conc-confirm');
+  } else if (action === 'conc-email') {
+    t.remove();
+    appendTpl('tpl-conc-email');
+  } else if (action === 'conc-doc') {
+    t.remove();
+    appendTpl('tpl-conc-doc-state');
+  }
+});
+
+document.addEventListener('change', e => {
+  if (e.target.id !== 'urgencySel') return;
+  const map = {
+    '24h':  [1.25, 'Rush turnaround · paid directly to the lawyer', '24h rush'],
+    '48h':  [1.0,  'Standard 48h turnaround · paid directly to the lawyer', '48h standard'],
+    'week': [0.8,  'Relaxed turnaround · paid directly to the lawyer', 'this week'],
+  };
+  const [mult, note, turnLabel] = map[e.target.value] || map['48h'];
+  const p = document.getElementById('estPrice');
+  const n = document.getElementById('estNote');
+  const tl = document.getElementById('estTurnLabel');
+  if (p) p.textContent = priceRange(mult);
+  if (n) n.textContent = note;
+  if (tl) tl.textContent = turnLabel;
+});
+
+resetBtn.addEventListener('click', () => location.reload());
+</script>
+</body>
+</html>
