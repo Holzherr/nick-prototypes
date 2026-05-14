@@ -1,6 +1,6 @@
-# P2 / P3 · Lawyer loop-in — context & feedback brief
+# P1 · Lawyer loop-in (bring-your-own) — context & feedback brief
 
-> Covers **P2** (concierge, A) and **P3** (bring-your-own, B). Same underlying experience — different sourcing of the lawyer.
+> Featured prototype: **BYO (variant B)** — the user supplies their own lawyer. The folder also contains the concierge variant (A) at [`a-concierge.html`](./a-concierge.html), kept for comparison but not currently on the landing page.
 
 ## What this prototype tests
 
@@ -13,13 +13,14 @@ Both sit on the **same underlying model** — a "lawyer access" experience — b
 
 ## Relationship to other prototypes
 
-This is the **medium-involvement** option on the lawyer-access difficulty axis:
+This is the **easiest-to-build** option on the lawyer-access axis. Two ways for a user to get legal help live on the landing page:
 
-| Difficulty / human involvement | Prototype |
-|---|---|
-| **Lightest** — AI advice only, no human | [Legal-advice agent](../legal-advice-agent/) |
-| **Medium** — AI + human lawyer in loop, marketplace or BYO | **This prototype** |
-| **Heaviest** — full lawyer engagement (out of scope here) | (existing GitLaw partner flows) |
+| Implementation difficulty | Prototype | Why |
+|---|---|---|
+| 🟢 **Easiest** | **P1 · This prototype (BYO)** | No marketplace, no vetting, no tier system. User invites their own lawyer as a Guest. |
+| 🔴 **Hardest** | [P2 · Legal-advice agent](../legal-advice-agent/) | Autonomous AI advice — UPL, accuracy, and trust are the load-bearing problems. |
+
+The concierge variant (A) — where GitLaw matches the user with a marketplace lawyer — is in this folder at [`a-concierge.html`](./a-concierge.html) for reference but sits between BYO and full-engagement on the build-difficulty axis; not currently shown on the landing.
 
 ## Related EagleLaw-spec docs
 

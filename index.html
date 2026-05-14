@@ -36,33 +36,30 @@
 
   <section>
     <h2 class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Lawyer access</h2>
-    <p class="text-xs text-slate-500 mb-4">Three variants at increasing levels of human involvement. Same underlying experience — different difficulty / cost / liability profile.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <p class="text-xs text-slate-500 mb-4">Two ends of the implementation-difficulty axis. <strong>BYO</strong> is the easiest to ship (no marketplace, no vetting — user supplies the lawyer). <strong>AI agent</strong> is the hardest (autonomous advice with UPL, trust and accuracy constraints).</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
       <div class="card bg-white border border-slate-200 rounded-xl p-5">
-        <div class="mb-3"><span class="tag bg-sky-100 text-sky-700">level 1 · AI only</span></div>
-        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P1</span> <a href="./legal-advice-agent/index.html">Legal-advice agent</a></h3>
-        <p class="text-sm text-slate-600 leading-relaxed mb-3">Lightest touch. An AI agent gives the user contract advice without escalating to a human — surfaces escalation paths and "human review needed" checkpoints, but the loop stays in chat. Scales, but constrained by UPL.</p>
+        <div class="mb-3 flex flex-wrap gap-1.5">
+          <span class="tag bg-emerald-100 text-emerald-700">🟢 easiest to build</span>
+          <span class="tag bg-violet-100 text-violet-700">human-in-loop</span>
+        </div>
+        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P1</span> <a href="./lawyer-loop-in-lite/b-byo.html">Lawyer loop-in — bring-your-own</a></h3>
+        <p class="text-sm text-slate-600 leading-relaxed mb-3">The user invites their existing lawyer (their firm's GC, a friend who's a solicitor, etc.) to join the document. GitLaw becomes the workspace; the lawyer becomes a Guest collaborator. No marketplace, no tier system, no liability for matching.</p>
+        <div class="text-xs">
+          <a href="./viewer.html?path=lawyer-loop-in-lite/CONTEXT.md" class="text-violet-700 hover:underline">📋 Context & feedback brief →</a>
+        </div>
+      </div>
+
+      <div class="card bg-white border border-slate-200 rounded-xl p-5">
+        <div class="mb-3 flex flex-wrap gap-1.5">
+          <span class="tag bg-rose-100 text-rose-700">🔴 hardest to build</span>
+          <span class="tag bg-sky-100 text-sky-700">AI only</span>
+        </div>
+        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P2</span> <a href="./legal-advice-agent/index.html">Legal-advice agent</a></h3>
+        <p class="text-sm text-slate-600 leading-relaxed mb-3">An AI agent gives the user contract advice without routing to a human. Surfaces escalation paths and "human review needed" checkpoints — but the loop stays in chat. Scales infinitely if it works; constrained by UPL, accuracy, and trust.</p>
         <div class="text-xs">
           <a href="./viewer.html?path=legal-advice-agent/CONTEXT.md" class="text-sky-700 hover:underline">📋 Context & feedback brief →</a>
-        </div>
-      </div>
-
-      <div class="card bg-white border border-slate-200 rounded-xl p-5">
-        <div class="mb-3"><span class="tag bg-violet-100 text-violet-700">level 2 · concierge</span></div>
-        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P2</span> <a href="./lawyer-loop-in-lite/a-concierge.html">Lawyer loop-in — concierge (A)</a></h3>
-        <p class="text-sm text-slate-600 leading-relaxed mb-3">Medium touch. GitLaw matches the user with a vetted lawyer from its marketplace, who reviews the AI's draft, sends back recommendations, and (optionally) takes over the engagement. Tier toggle, consent gate, context drawer, payment model.</p>
-        <div class="text-xs">
-          <a href="./viewer.html?path=lawyer-loop-in-lite/CONTEXT.md" class="text-violet-700 hover:underline">📋 Context & feedback brief →</a>
-        </div>
-      </div>
-
-      <div class="card bg-white border border-slate-200 rounded-xl p-5">
-        <div class="mb-3"><span class="tag bg-violet-100 text-violet-700">level 2 · BYO</span></div>
-        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P3</span> <a href="./lawyer-loop-in-lite/b-byo.html">Lawyer loop-in — bring-your-own (B)</a></h3>
-        <p class="text-sm text-slate-600 leading-relaxed mb-3">Same model as concierge (A), but the user invites their own existing lawyer instead of going through GitLaw's marketplace. The lawyer joins as a Guest collaborator on the document.</p>
-        <div class="text-xs">
-          <a href="./viewer.html?path=lawyer-loop-in-lite/CONTEXT.md" class="text-violet-700 hover:underline">📋 Context & feedback brief →</a>
         </div>
       </div>
 
@@ -76,7 +73,7 @@
 
       <div class="card bg-white border border-slate-200 rounded-xl p-5">
         <div class="mb-3"><span class="tag bg-emerald-100 text-emerald-700">file UX</span></div>
-        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P4</span> <a href="./files-index/overview.html">Files index</a></h3>
+        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P3</span> <a href="./files-index/overview.html">Files index</a></h3>
         <p class="text-sm text-slate-600 leading-relaxed mb-3">UX rendered against 23 real sample contracts (Whisk / Foodient / templates). Tabs: all-files, categories, knowledge, parties, contacts, status. Companion to the memory prototype.</p>
         <div class="text-xs space-y-1">
           <div><a href="./viewer.html?path=files-index/CONTEXT.md" class="text-emerald-700 hover:underline">📋 Context & feedback brief →</a></div>
@@ -89,7 +86,7 @@
           <span class="tag bg-rose-100 text-rose-700">redline UX</span>
           <span class="tag bg-slate-100 text-slate-600">↗ external</span>
         </div>
-        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P5</span> <a href="https://gitlaw-co.github.io/gitlaw-redline-nick/">GitLaw redline — Nick's fork</a></h3>
+        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P4</span> <a href="https://gitlaw-co.github.io/gitlaw-redline-nick/">GitLaw redline — Nick's fork</a></h3>
         <p class="text-sm text-slate-600 leading-relaxed mb-3">AI-redlining + suggestion-card layer over track-changes. Forked from Dario's main thread on 2026-05-14 so Nick can iterate independently.</p>
         <div class="text-xs text-slate-400">gitlaw-co/gitlaw-redline-nick · spec: <code class="text-slate-500">10-feature-spec/20-ai-assistance/20-redlining-and-review.md</code></div>
       </div>
@@ -99,7 +96,7 @@
           <span class="tag bg-slate-100 text-slate-700">redline UX</span>
           <span class="tag bg-slate-100 text-slate-600">↗ external</span>
         </div>
-        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P6</span> <a href="https://gitlaw-co.github.io/gitlaw-redline/">GitLaw redline — Dario's main</a></h3>
+        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P5</span> <a href="https://gitlaw-co.github.io/gitlaw-redline/">GitLaw redline — Dario's main</a></h3>
         <p class="text-sm text-slate-600 leading-relaxed mb-3">Dario's parallel thread on the redline prototype. The upstream Nick's fork was cut from.</p>
         <div class="text-xs text-slate-400">gitlaw-co/gitlaw-redline · spec: <code class="text-slate-500">10-feature-spec/20-ai-assistance/20-redlining-and-review.md</code></div>
       </div>

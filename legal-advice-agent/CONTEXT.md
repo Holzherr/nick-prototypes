@@ -1,4 +1,4 @@
-# P1 · Legal-advice agent — context & feedback brief
+# P2 · Legal-advice agent — context & feedback brief
 
 ## What this prototype tests
 
@@ -6,15 +6,14 @@ The **lightest-touch** version of GitLaw's lawyer-access experience: an AI agent
 
 ## Relationship to other prototypes
 
-This is the **lightest** option on the lawyer-access difficulty axis:
+This is the **hardest-to-build** option on the lawyer-access axis. Two ways for a user to get legal help live on the landing page:
 
-| Difficulty / human involvement | Prototype |
-|---|---|
-| **Lightest** — AI advice only, no human | **This prototype** |
-| **Medium** — AI + human lawyer in loop (concierge or BYO) | [Lawyer loop-in](../lawyer-loop-in-lite/) |
-| **Heaviest** — full lawyer engagement (out of scope here) | (existing GitLaw partner flows) |
+| Implementation difficulty | Prototype | Why |
+|---|---|---|
+| 🟢 **Easiest** | [P1 · Lawyer loop-in (BYO)](../lawyer-loop-in-lite/) | No marketplace, no vetting. User supplies their own lawyer as a Guest collaborator. |
+| 🔴 **Hardest** | **P2 · This prototype** | Autonomous AI advice with UPL, accuracy, and trust as load-bearing problems. |
 
-The point of having both: figure out how much of the value sits in the agent alone vs how much requires a human in the loop. Cheaper / scales better / is faster — but more legally risky.
+The point of having both: figure out how much of the value sits in the agent alone vs how much requires a human in the loop. The agent is the high-ceiling / high-risk product; BYO is the safer, MVP-friendly path that pushes liability back to the user's chosen lawyer.
 
 ## Related EagleLaw-spec docs
 

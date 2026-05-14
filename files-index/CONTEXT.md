@@ -1,4 +1,4 @@
-# P4 · Files index — context & feedback brief
+# P3 · Files index — context & feedback brief
 
 ## What this prototype tests
 
