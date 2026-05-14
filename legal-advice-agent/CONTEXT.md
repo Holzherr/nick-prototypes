@@ -1,4 +1,4 @@
-# Legal-advice agent — context & feedback brief
+# P1 · Legal-advice agent — context & feedback brief
 
 ## What this prototype tests
 

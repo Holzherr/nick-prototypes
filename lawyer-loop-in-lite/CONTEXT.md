@@ -1,4 +1,6 @@
-# Lawyer loop-in — context & feedback brief
+# P2 / P3 · Lawyer loop-in — context & feedback brief
+
+> Covers **P2** (concierge, A) and **P3** (bring-your-own, B). Same underlying experience — different sourcing of the lawyer.
 
 ## What this prototype tests
 
