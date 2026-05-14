@@ -1,8 +1,8 @@
-# Prototypes — public, deployed to GitHub Pages
+# Nick's prototypes — public, deployed to GitHub Pages
 
-This folder holds **public-facing prototypes**. Anything in here is uploaded to GitHub Pages by `.github/workflows/pages.yml` on every push to `main` that touches `prototypes/**`. **Don't put anything sensitive here.**
+This is its own git repo: **`Holzherr/nick-prototypes`** (public). It lives nested inside `~/assistant/prototypes/` for convenience, but the outer `assistant` repo gitignores it. All git operations from inside here.
 
-Live: `https://<owner>.github.io/<repo>/` (the exact URL appears in the workflow run output after the first deploy).
+Every push to `main` deploys to **https://holzherr.github.io/nick-prototypes/** in ~30-60s via `.github/workflows/pages.yml`. The repo and Pages site are both public — **don't put anything sensitive here**.
 
 ## What is and isn't here
 
