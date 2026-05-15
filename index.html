@@ -25,9 +25,11 @@
       <h1 class="text-2xl font-semibold tracking-tight">Nick's prototypes</h1>
     </div>
     <p class="text-slate-300 text-sm max-w-2xl leading-relaxed">UI explorations, mostly for GitLaw. Each one is a single-file HTML prototype — no build, no framework — meant to be played with and torn apart. Each card has a <strong class="text-white">Context</strong> link with related spec docs + a structured testing brief for in-house lawyers.</p>
-    <div class="mt-4 inline-flex items-center gap-2 text-xs text-slate-300 bg-white/5 border border-white/10 rounded-lg px-3 py-2">
-      <span>👩‍⚖️</span>
-      <span><strong class="text-white">Lawyer testing:</strong> 15-20 min async per prototype · structured questions · reply via Slack DM or email · no attribution without permission</span>
+    <div class="mt-4 flex flex-wrap gap-2">
+      <a href="./feedback/" class="inline-flex items-center gap-2 text-xs text-amber-200 bg-amber-500/15 border border-amber-400/30 rounded-lg px-3 py-2 hover:bg-amber-500/25 transition">
+        <span>👩‍⚖️</span>
+        <span><strong class="text-amber-100">Lawyers — start here</strong> · feedback round (P3 + P4 primary)</span>
+      </a>
     </div>
   </div>
 </header>
@@ -67,14 +69,35 @@
   </section>
 
   <section>
+    <h2 class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Memory</h2>
+    <p class="text-xs text-slate-500 mb-4">GitLaw remembering context about the user across chat sessions. Lives on Stg-chat.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <div class="card bg-white border border-slate-200 rounded-xl p-5">
+        <div class="mb-3 flex flex-wrap gap-1.5">
+          <span class="tag bg-amber-100 text-amber-700">extraction</span>
+          <span class="tag bg-slate-100 text-slate-600">↗ live on Stg-chat</span>
+        </div>
+        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P3</span> <a href="https://www.loom.com/share/e007d5e86e884270a36f42ce49cafaaf">Memory — extracted from chat</a></h3>
+        <p class="text-sm text-slate-600 leading-relaxed mb-3">Test by chatting on Stg-chat, then running <code class="text-slate-500">/print-memory</code> to see what was extracted. <code class="text-slate-500">/clear-memory</code> resets it. Watch the 3-min Loom first.</p>
+        <div class="text-xs space-y-1">
+          <div><a href="./viewer.html?path=memory/CONTEXT.md" class="text-amber-700 hover:underline">📋 Context & feedback brief →</a></div>
+          <div><a href="https://www.loom.com/share/e007d5e86e884270a36f42ce49cafaaf" class="text-slate-500 hover:underline">🎥 Loom walkthrough (3 min)</a></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
     <h2 class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Files index</h2>
     <p class="text-xs text-slate-500 mb-4">UX for finding, organising, and understanding a user's contract corpus.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
       <div class="card bg-white border border-slate-200 rounded-xl p-5">
-        <div class="mb-3"><span class="tag bg-emerald-100 text-emerald-700">file UX</span></div>
-        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P3</span> <a href="./files-index/overview.html">Files index</a></h3>
-        <p class="text-sm text-slate-600 leading-relaxed mb-3">UX rendered against 23 real sample contracts (Whisk / Foodient / templates). Tabs: all-files, categories, knowledge, parties, contacts, status. Companion to the memory prototype.</p>
+        <div class="mb-3"><span class="tag bg-emerald-100 text-emerald-700">extraction · file UX</span></div>
+        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P4</span> <a href="./files-index/overview.html">Files index</a></h3>
+        <p class="text-sm text-slate-600 leading-relaxed mb-3">UX rendered against 23 real sample contracts (Whisk / Foodient / templates). Tabs: all-files, categories, knowledge, parties, contacts, status. Sibling to P3 Memory — both are extraction problems.</p>
         <div class="text-xs space-y-1">
           <div><a href="./viewer.html?path=files-index/CONTEXT.md" class="text-emerald-700 hover:underline">📋 Context & feedback brief →</a></div>
           <div><a href="./files-index/sources.html" class="text-slate-500 hover:underline">📂 Browse the 23 source contracts</a></div>
@@ -94,7 +117,7 @@
           <span class="tag bg-rose-100 text-rose-700">redline UX</span>
           <span class="tag bg-slate-100 text-slate-600">↗ external</span>
         </div>
-        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P4</span> <a href="https://gitlaw-co.github.io/gitlaw-redline-nick/">GitLaw redline — Nick's fork</a></h3>
+        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P5</span> <a href="https://gitlaw-co.github.io/gitlaw-redline-nick/">GitLaw redline — Nick's fork</a></h3>
         <p class="text-sm text-slate-600 leading-relaxed mb-3">AI-redlining + suggestion-card layer over track-changes. Forked from Dario's main thread on 2026-05-14 so Nick can iterate independently.</p>
         <div class="text-xs text-slate-400">gitlaw-co/gitlaw-redline-nick · spec: <code class="text-slate-500">10-feature-spec/20-ai-assistance/20-redlining-and-review.md</code></div>
       </div>
@@ -104,7 +127,7 @@
           <span class="tag bg-slate-100 text-slate-700">redline UX</span>
           <span class="tag bg-slate-100 text-slate-600">↗ external</span>
         </div>
-        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P5</span> <a href="https://gitlaw-co.github.io/gitlaw-redline/">GitLaw redline — Dario's main</a></h3>
+        <h3 class="text-base font-semibold mb-2"><span class="text-slate-400 font-mono mr-1">P6</span> <a href="https://gitlaw-co.github.io/gitlaw-redline/">GitLaw redline — Dario's main</a></h3>
         <p class="text-sm text-slate-600 leading-relaxed mb-3">Dario's parallel thread on the redline prototype. The upstream Nick's fork was cut from.</p>
         <div class="text-xs text-slate-400">gitlaw-co/gitlaw-redline · spec: <code class="text-slate-500">10-feature-spec/20-ai-assistance/20-redlining-and-review.md</code></div>
       </div>
