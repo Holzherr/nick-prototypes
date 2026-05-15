@@ -1,9 +1,9 @@
 # P1 + P2 — Lawyer access · feedback (shared Doc)
 
 > **For:** Rebecca, Sophia, Ankit, Roman · **From:** Nick
-> **Deadline:** Fri 22 May (override if you want)
-> **Time needed:** ~15-20 min (bonus — only if you have time after P3 + P4)
-> **Priority:** Secondary · UX focus only
+> **Deadline:** Fri 22 May
+> **Time needed:** ~15-20 min
+> **Priority:** After P3, P4, and P5 — directional / earlier-stage UX read
 
 ---
 
@@ -55,31 +55,11 @@ We want a lawyer's gut reaction on **both**, and which problem-space we should b
 
 ## Write your thoughts below
 
-Find your name or add a section under your name. Bullet points fine. Screenshots welcome (Cmd+V).
+Start a new section with your name as a level-2 heading (`## Rebecca`, `## Sophia` etc.) so we can attribute. Bullet points fine. Screenshots welcome (Cmd+V).
 
 ---
 
-## Rebecca
-
-_(your section — start typing)_
-
----
-
-## Sophia
-
-_(your section — start typing)_
-
----
-
-## Roman
-
-_(your section — start typing)_
-
----
-
-## Ankit
-
-_(your section — start typing)_
+_(write below — add `## Your name` then your thoughts)_
 
 ---
 
