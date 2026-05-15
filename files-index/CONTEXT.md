@@ -34,7 +34,20 @@ Update these paths if the spec moves.
 
 ### How long this should take
 
-10-15 minutes. Less heavy than the lawyer-access prototypes because the UX is more concrete.
+10-15 minutes against the 23 samples. Longer if you bring your own corpus — see "even better" path below.
+
+### Two paths
+
+**Option A — test against the 23 samples** (default).
+
+**Option B — test against contracts you understand** (much better signal).
+
+The 23 sample contracts are real but Nick's context. Validation is sharper when run over contracts whose legal background you already understand. Two ways:
+
+- **If you use Claude Code** (or are willing to install it): clone `holzherr/nick-prototypes`, drop your own contract folder into `files-index/sources/`, re-run the extraction step locally. You see the prototype rendered against your corpus.
+- **If you don't / can't**: send Nick a folder of contracts — your own real ones, or public templates / online sample contracts. Doesn't need to be confidential. He'll set up the prototype against your set and share the result so you can validate with legal context you actually understand.
+
+This matters because when Victor first set up the prototype against synthetic data, the gut-check was weak. Nick re-ran it with his own Whisk-era contracts and the fidelity check sharpened immediately — knowing the original contract context meant he could see at a glance what the extraction was getting wrong. Same will be true for you.
 
 ### Scenarios to imagine
 
@@ -44,14 +57,20 @@ Open the [files-index overview](./overview.html) and pretend it's loaded with yo
 
 ### Questions we want answered
 
-Reply in Slack DM to Nick, or in an email — short bullets are fine.
+Write in the shared Google Doc (link on the [feedback page](../feedback/)). Bullets are fine.
 
-1. **First-week usefulness:** On your first week, what would you do with this view? What would you actually click on?
-2. **Categorisation:** Look at one or two source contracts (any in the sources viewer) and check whether the way the prototype categorises them matches how you'd categorise them. Where does it get it wrong?
-3. **Missing metadata:** What fields / facets would you NEED to see at-a-glance that the prototype doesn't show?
-4. **Counterparty / party views:** The "Parties" tab groups contracts by counterparty. Useful or noise? When would you actually use that lens?
-5. **Risk surfacing:** A lawyer's job here often involves spotting risk fast. Anything in this UX that helps that? Anything missing?
-6. **Comparison:** How does this compare to how you currently find contracts — Outlook + DMS search? iManage? Just folders? What's the realistic ceiling on adoption?
+**Primary — legal validity of the extraction:**
+
+1. **Categorisation accuracy:** look at 2-3 source contracts in the browser (or in your own corpus if you went Option B). Where does the prototype's category match your read? Where does it get it wrong?
+2. **Party extraction:** does it correctly identify counterparties, internal entities, signatories?
+3. **Date extraction:** execution dates, effective dates, term lengths, expiry dates — anything off?
+4. **Risk / non-standard signals:** is the prototype surfacing clauses that warrant attention, or missing them?
+5. **Missing fields:** what would a lawyer NEED to see at-a-glance that the prototype doesn't show? Governing law, term, value caps, indemnity scope, etc.
+
+**UX (welcome, just less load-bearing):**
+
+6. **First-week-as-GC scenario:** imagine you've just joined a 5-year-old SaaS company as in-house GC. What would you actually click on first? Which lens is most useful?
+7. **Comparison:** how does this compare to how you currently find contracts (DMS search, Outlook, folders)? What's the realistic ceiling on adoption?
 
 ### How we use the feedback
 

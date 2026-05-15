@@ -21,7 +21,19 @@ This is the thing we most need eyes on. When you chat with the agent then run `/
 - Is anything **missing** that a lawyer would have surfaced from the same conversation?
 - Is anything **stored that shouldn't be** (privileged content, off-topic chitchat treated as legal fact, anything that looks like advice rather than recall)?
 
-### Secondary — UX
+### Equally important — "is this memory actually material to future interactions?"
+
+Memory should **only** store things that are uniquely valuable for future turns. It should **not** store:
+
+- Information that's already in playbooks (duplicative — playbooks are loaded as context anyway).
+- Generic context that doesn't differentiate this user from any other user.
+- Restatements of what the agent already knows from the document or chat history.
+
+If memory fills with fluff or duplicative context, it **actively degrades** agent quality — the agent dilutes its attention on the high-signal items it actually needs. We only want material additions in there.
+
+When reviewing `/print-memory` output, flag aggressively: when in doubt, mark a stored item as "shouldn't be here." Easier for Nick to keep an over-cautious flag than to miss a clutter pattern.
+
+### UX (welcome, just less load-bearing)
 
 - Did the agent reference its memory naturally during follow-up turns, or did it feel disconnected?
 - Did the memory help shortcut work, or did re-stating things feel necessary anyway?

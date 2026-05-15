@@ -1,9 +1,9 @@
 # P5 — AI redlining · feedback (shared Doc)
 
 > **For:** Rebecca, Sophia, Ankit, Roman · **From:** Nick
-> **Deadline:** Fri 22 May (override if you want)
-> **Time needed:** ~15-20 min (bonus — only if you have time after P3 + P4)
-> **Priority:** Secondary · UX focus only
+> **Deadline:** Fri 22 May
+> **Time needed:** ~15-20 min
+> **Priority:** After P3 + P4 — but the next-most-important, since this lives in your daily flow
 
 ---
 
@@ -42,31 +42,11 @@ Write feedback in this Doc regardless of which one you spent time in (note which
 
 ## Write your thoughts below
 
-Find your name or add a section. Note whether you tested P5 or P6 (or both). Screenshots welcome (Cmd+V).
+Start a new section with your name as a level-2 heading (`## Rebecca`, `## Sophia` etc.) so we can attribute. Note whether you tested P5 or P6 (or both) under your section. Screenshots welcome (Cmd+V).
 
 ---
 
-## Rebecca
-
-_(your section — start typing)_
-
----
-
-## Sophia
-
-_(your section — start typing)_
-
----
-
-## Roman
-
-_(your section — start typing)_
-
----
-
-## Ankit
-
-_(your section — start typing)_
+_(write below — add `## Your name` then your thoughts)_
 
 ---
 
