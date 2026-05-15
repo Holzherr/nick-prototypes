@@ -44,7 +44,7 @@ Update these paths if the spec moves.
 
 The 23 sample contracts are real but Nick's context. Validation is sharper when run over contracts whose legal background you already understand. Two ways:
 
-- **If you use Claude Code** (or are willing to install it): clone `holzherr/nick-prototypes`, drop your own contract folder into `files-index/sources/`, re-run the extraction step locally. You see the prototype rendered against your corpus.
+- **If you use Claude Code** (or are willing to install it): go to [`GitLaw-co/memory-tests`](https://github.com/GitLaw-co/memory-tests/tree/whisk-com-contract-sample), check out the `whisk-com-contract-sample` branch (Nick's branch with the visual file-index prototype added). Create your own branch from it, swap the contract corpus for your own, re-run the extraction. You see the prototype rendered against your corpus.
 - **If you don't / can't**: send Nick a folder of contracts — your own real ones, or public templates / online sample contracts. Doesn't need to be confidential. He'll set up the prototype against your set and share the result so you can validate with legal context you actually understand.
 
 This matters because when Victor first set up the prototype against synthetic data, the gut-check was weak. Nick re-ran it with his own Whisk-era contracts and the fidelity check sharpened immediately — knowing the original contract context meant he could see at a glance what the extraction was getting wrong. Same will be true for you.
