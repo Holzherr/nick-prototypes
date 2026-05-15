@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GitLaw prototype feedback — content team</title>
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  .card { transition: border-color 0.15s, box-shadow 0.15s; }
+  .card:hover { border-color: #cbd5e1; box-shadow: 0 2px 6px rgba(15,23,42,0.04); }
+  .tag { display: inline-block; font-size: 10px; padding: 3px 9px; border-radius: 999px; font-weight: 500; letter-spacing: 0.01em; }
+  .pri-bar { background: linear-gradient(90deg, #fef3c7 0%, #fee2e2 100%); }
+  .sec-bar { background: linear-gradient(90deg, #f1f5f9 0%, #e2e8f0 100%); }
+  .grad { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+  code.kbd { background: #f1f5f9; padding: 1px 6px; border-radius: 4px; font-size: 0.9em; color: #475569; font-family: "SF Mono", Menlo, monospace; }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+
+<header class="grad text-white">
+  <div class="max-w-4xl mx-auto px-6 py-12">
+    <div class="text-xs text-slate-300 uppercase tracking-wider mb-2">Feedback round · internal content team</div>
+    <h1 class="text-2xl font-semibold tracking-tight mb-3">GitLaw prototype feedback</h1>
+    <p class="text-slate-300 text-sm leading-relaxed max-w-2xl">Hi Rebecca, Sophia, Ankit, Roman — please take ~60-90 min to test the prototypes below and share your thoughts in the linked Google Docs. <strong class="text-white">P3 Memory and P4 Files index are the priority</strong> (we need eyes on extraction accuracy from a legal standpoint). P1/P2/P5 are bonus if you have time (UX-only).</p>
+    <p class="text-slate-400 text-xs mt-3"><strong class="text-slate-200">Deadline:</strong> by Fri 22 May (~1 week). <strong class="text-slate-200">No attribution</strong> in any aggregated write-up without your permission. Reply async — no meeting needed unless you want one.</p>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-10 space-y-8">
+
+  <!-- PRIMARY -->
+  <section>
+    <div class="pri-bar rounded-lg px-4 py-2 mb-4 inline-block">
+      <span class="text-xs uppercase tracking-wider font-semibold text-amber-900">Primary · legal validity</span>
+    </div>
+    <p class="text-sm text-slate-600 mb-5">These are extraction features — GitLaw parsing unstructured input into structured legal facts. We mainly need lawyers' eyes on <strong>whether the extracted output is legally valid</strong>: factually accurate, correctly classified, not misleading, nothing important missing. UX feedback is secondary.</p>
+    <div class="space-y-4">
+
+      <div class="card bg-white border border-slate-200 rounded-xl p-5">
+        <div class="flex items-start gap-4">
+          <span class="text-slate-400 font-mono text-base mt-0.5 flex-shrink-0">P3</span>
+          <div class="flex-1">
+            <div class="mb-2 flex flex-wrap gap-1.5">
+              <span class="tag bg-amber-100 text-amber-700">extraction</span>
+              <span class="tag bg-slate-100 text-slate-600">↗ live on Stg-chat</span>
+            </div>
+            <h2 class="text-base font-semibold text-slate-900 mb-2">Memory — extracted from chat</h2>
+            <p class="text-sm text-slate-600 leading-relaxed mb-3">When you chat with GitLaw, it extracts and remembers context about you. Test by having a real-ish session, then running <code class="kbd">/print-memory</code> to see what it stored. Look for legal mistakes, misclassifications, things that shouldn't be there, things that should be there but aren't.</p>
+            <div class="text-sm space-y-1.5">
+              <div>🎥 <a href="https://www.loom.com/share/e007d5e86e884270a36f42ce49cafaaf" class="text-amber-700 hover:underline">Loom walkthrough (3 min — watch first)</a></div>
+              <div>💬 <a href="#" class="text-slate-400 hover:underline" data-stg-chat>Stg-chat link <span class="text-xs">(Nick to add URL)</span></a></div>
+              <div>📝 <a href="#" class="text-amber-700 hover:underline font-medium" data-doc="p3-memory">Write feedback in the P3 Doc</a></div>
+              <div class="text-xs text-slate-500 pt-1">Commands: <code class="kbd">/print-memory</code> · <code class="kbd">/clear-memory</code></div>
+              <div class="text-xs"><a href="../viewer.html?path=memory/CONTEXT.md" class="text-slate-500 hover:underline">Full context & questions →</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-white border border-slate-200 rounded-xl p-5">
+        <div class="flex items-start gap-4">
+          <span class="text-slate-400 font-mono text-base mt-0.5 flex-shrink-0">P4</span>
+          <div class="flex-1">
+            <div class="mb-2 flex flex-wrap gap-1.5">
+              <span class="tag bg-emerald-100 text-emerald-700">extraction · file UX</span>
+            </div>
+            <h2 class="text-base font-semibold text-slate-900 mb-2">Files index</h2>
+            <p class="text-sm text-slate-600 leading-relaxed mb-3">UX rendered against 23 real sample contracts. Click through the tabs (all-files, categories, knowledge, parties, contacts, status), then open the source-contract browser and gut-check whether the index categorised and extracted things correctly.</p>
+            <div class="text-sm space-y-1.5">
+              <div>🔗 <a href="../files-index/overview.html" class="text-emerald-700 hover:underline">Open Files index prototype</a></div>
+              <div>📂 <a href="../files-index/sources.html" class="text-slate-500 hover:underline">Browse the 23 source contracts (markdown)</a></div>
+              <div>📝 <a href="#" class="text-emerald-700 hover:underline font-medium" data-doc="p4-files-index">Write feedback in the P4 Doc</a></div>
+              <div class="text-xs"><a href="../viewer.html?path=files-index/CONTEXT.md" class="text-slate-500 hover:underline">Full context & questions →</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECONDARY -->
+  <section>
+    <div class="sec-bar rounded-lg px-4 py-2 mb-4 inline-block">
+      <span class="text-xs uppercase tracking-wider font-semibold text-slate-700">Secondary · UX (bonus, if you have time)</span>
+    </div>
+    <p class="text-sm text-slate-600 mb-5">These are user-experience prototypes. Skim them after you've done P3 and P4. Mostly we want a lawyer's gut reaction on the flow and where it'd break in practice.</p>
+    <div class="space-y-4">
+
+      <div class="card bg-white border border-slate-200 rounded-xl p-5">
+        <div class="flex items-start gap-4">
+          <span class="text-slate-400 font-mono text-base mt-0.5 flex-shrink-0">P1 + P2</span>
+          <div class="flex-1">
+            <div class="mb-2 flex flex-wrap gap-1.5">
+              <span class="tag bg-violet-100 text-violet-700">human-in-loop</span>
+              <span class="tag bg-sky-100 text-sky-700">AI only</span>
+            </div>
+            <h2 class="text-base font-semibold text-slate-900 mb-2">Lawyer access — BYO and AI-agent</h2>
+            <p class="text-sm text-slate-600 leading-relaxed mb-3">Two ways for users to get legal help: bring-your-own-lawyer (P1, easiest to build) and a pure AI advice agent (P2, hardest). Same goal, opposite ends of the implementation-difficulty axis.</p>
+            <div class="text-sm space-y-1.5">
+              <div>🔗 <a href="../lawyer-loop-in-lite/b-byo.html" class="text-violet-700 hover:underline">P1 — Lawyer loop-in BYO</a></div>
+              <div>🔗 <a href="../legal-advice-agent/index.html" class="text-sky-700 hover:underline">P2 — Legal-advice agent</a></div>
+              <div>📝 <a href="#" class="text-slate-700 hover:underline font-medium" data-doc="p1-p2-lawyer-access">Write feedback in the P1+P2 Doc</a></div>
+              <div class="text-xs"><a href="../viewer.html?path=lawyer-loop-in-lite/CONTEXT.md" class="text-slate-500 hover:underline">P1 context →</a> · <a href="../viewer.html?path=legal-advice-agent/CONTEXT.md" class="text-slate-500 hover:underline">P2 context →</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-white border border-slate-200 rounded-xl p-5">
+        <div class="flex items-start gap-4">
+          <span class="text-slate-400 font-mono text-base mt-0.5 flex-shrink-0">P5</span>
+          <div class="flex-1">
+            <div class="mb-2 flex flex-wrap gap-1.5">
+              <span class="tag bg-rose-100 text-rose-700">redline UX</span>
+              <span class="tag bg-slate-100 text-slate-600">↗ external</span>
+            </div>
+            <h2 class="text-base font-semibold text-slate-900 mb-2">AI redlining — Nick's fork</h2>
+            <p class="text-sm text-slate-600 leading-relaxed mb-3">AI-suggested-changes layered on track-changes. Test the flow of accepting / rejecting / refining AI suggestions.</p>
+            <div class="text-sm space-y-1.5">
+              <div>🔗 <a href="https://gitlaw-co.github.io/gitlaw-redline-nick/" class="text-rose-700 hover:underline">P5 — gitlaw-redline-nick</a></div>
+              <div>📝 <a href="#" class="text-rose-700 hover:underline font-medium" data-doc="p5-ai-redlining">Write feedback in the P5 Doc</a></div>
+              <div class="text-xs text-slate-500">P6 (Dario's main thread) is the upstream — feel free to compare them, but write feedback in the P5 Doc.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="bg-white border border-slate-200 rounded-xl p-6">
+    <h3 class="text-sm font-semibold mb-3 text-slate-900">How to give feedback</h3>
+    <ul class="text-sm text-slate-700 space-y-2 leading-relaxed">
+      <li><strong>Format:</strong> Each prototype has a single shared Google Doc. Find your name (or add a section under your name), write your thoughts. Other people's responses are visible — that's intentional, see what others noticed and add what's different.</li>
+      <li><strong>Screenshots:</strong> Paste inline (Insert → Image or just Cmd+V). Annotate if helpful.</li>
+      <li><strong>Length:</strong> Bullet points are fine. Long-form is fine. Whatever helps you express the thought clearly.</li>
+      <li><strong>If you only have 15 minutes:</strong> Do P3 Memory only — that's the highest-priority one. Look at <code class="kbd">/print-memory</code> output after one chat session and tell us what's wrong about it.</li>
+      <li><strong>If something's broken:</strong> Just write it down. Don't try to fix it, don't worry about whether it's known. Raw observations are gold.</li>
+      <li><strong>Stuck or want to talk it through:</strong> DM Nick in Slack. A 30-min call works if async is hard for any prototype.</li>
+    </ul>
+  </section>
+
+  <footer class="text-xs text-slate-400 pt-4 border-t border-slate-200">
+    Materials are public-internet visible (this site is hosted on GitHub Pages). The prototypes themselves don't contain client data. If anything sensitive needs to be said, use the Google Doc (only people with the link can read) or Slack DM.
+  </footer>
+
+</main>
+
+<script>
+// Doc links are wired up after Nick creates the Google Docs and pastes URLs into this object.
+// Just edit DOC_URLS below and redeploy.
+const DOC_URLS = {
+  "p3-memory": null,        // Set to the P3 Memory Doc URL
+  "p4-files-index": null,   // Set to the P4 Files index Doc URL
+  "p1-p2-lawyer-access": null,  // Set to the P1+P2 Lawyer access Doc URL
+  "p5-ai-redlining": null,  // Set to the P5 AI redlining Doc URL
+};
+const STG_CHAT_URL = null;  // Set to the Stg-chat URL when ready
+
+document.querySelectorAll('[data-doc]').forEach(a => {
+  const key = a.dataset.doc;
+  const url = DOC_URLS[key];
+  if (url) {
+    a.setAttribute('href', url);
+    a.setAttribute('target', '_blank');
+  } else {
+    a.classList.add('text-slate-400');
+    a.classList.remove('font-medium');
+    a.innerHTML += ' <span class="text-xs">(Nick to add Doc URL)</span>';
+    a.addEventListener('click', e => { e.preventDefault(); alert('Doc not yet linked — Nick will share the link once the Doc is created.'); });
+  }
+});
+
+if (STG_CHAT_URL) {
+  document.querySelectorAll('[data-stg-chat]').forEach(a => {
+    a.setAttribute('href', STG_CHAT_URL);
+    a.innerHTML = '💬 Open Stg-chat';
+    a.classList.remove('text-slate-400');
+    a.classList.add('text-amber-700');
+  });
+}
+</script>
+
+</body>
+</html>
