@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GitLaw Sub-Agents — Chat View · v0.2</title>
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root { color-scheme: light; }
+  html, body { height: 100%; margin: 0; }
+  body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+  .grad-header { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%); }
+
+  /* App grid */
+  .app {
+    display: grid;
+    grid-template-columns: 260px 1fr 380px;
+    grid-template-rows: 56px 1fr;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .topbar { grid-column: 1 / -1; }
+  .sidebar { overflow-y: auto; }
+  .chatcol { display: flex; flex-direction: column; min-height: 0; overflow: hidden; background: #faf8ff; }
+  .activitycol { display: flex; flex-direction: column; min-height: 0; overflow: hidden; background: #fff; border-left: 1px solid #e2e8f0; }
+
+  /* Sidebar */
+  .sidebar { background: #fafafa; border-right: 1px solid #e2e8f0; }
+  .scn-item { cursor: pointer; transition: background .12s, border-color .12s; }
+  .scn-item:hover { background: #f1f5f9; }
+  .scn-item.active { background: #ede9fe; border-left-color: #7c3aed !important; }
+
+  /* Chat messages */
+  .chat-scroll { flex: 1; overflow-y: auto; padding: 24px 32px 100px; scroll-behavior: smooth; }
+  .msg { animation: msgEnter .35s ease-out; }
+  @keyframes msgEnter { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+
+  .bubble-user { background: #7c3aed; color: white; border-radius: 18px 18px 4px 18px; padding: 10px 14px; max-width: 580px; font-size: 14px; line-height: 1.5; }
+  .bubble-agent { background: white; border: 1px solid #e2e8f0; color: #0f172a; border-radius: 18px 18px 18px 4px; padding: 12px 16px; max-width: 620px; font-size: 14px; line-height: 1.55; white-space: pre-wrap; }
+  .bubble-agent strong { color: #5b21b6; font-weight: 600; }
+
+  .typing { display: inline-flex; gap: 3px; align-items: center; padding: 8px 14px; }
+  .typing span { width: 6px; height: 6px; background: #94a3b8; border-radius: 999px; animation: bounce 1.2s infinite; }
+  .typing span:nth-child(2) { animation-delay: .15s; }
+  .typing span:nth-child(3) { animation-delay: .3s; }
+  @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); opacity: .4; } 30% { transform: translateY(-4px); opacity: 1; } }
+
+  .progress-card { background: white; border: 1px solid #e2e8f0; border-left: 3px solid #7c3aed; border-radius: 10px; padding: 10px 14px; max-width: 480px; font-size: 13px; color: #475569; display: flex; align-items: center; gap: 10px; }
+  .spinner { width: 14px; height: 14px; border: 2px solid #ddd6fe; border-top-color: #7c3aed; border-radius: 999px; animation: spin .8s linear infinite; flex-shrink: 0; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .time-jump { background: linear-gradient(90deg, #fef3c7 0%, #fed7aa 50%, #fef3c7 100%); background-size: 200% 100%; animation: shimmer 2s linear infinite; border: 1px solid #fde68a; border-radius: 10px; padding: 12px 16px; color: #78350f; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 13px; font-weight: 500; max-width: 540px; margin: 8px auto; }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+  .external-event { background: #ecfeff; border: 1px solid #a5f3fc; border-radius: 12px; padding: 12px 16px; max-width: 540px; font-size: 13.5px; color: #155e75; display: flex; gap: 10px; align-items: flex-start; }
+
+  .inline-doc { background: #fff; border: 1px solid #fde68a; border-left: 3px solid #f59e0b; border-radius: 10px; padding: 14px; max-width: 580px; font-size: 13px; line-height: 1.55; color: #422006; }
+  .inline-doc-label { font-size: 10.5px; font-weight: 700; letter-spacing: .1em; color: #92400e; text-transform: uppercase; margin-bottom: 8px; }
+  ins.tc { background:#dcfce7; text-decoration:none; color:#065f46; padding:0 2px; border-radius:2px; }
+  del.tc { background:#fee2e2; color:#7f1d1d; padding:0 2px; border-radius:2px; text-decoration:line-through; }
+
+  /* Composer (inactive — purely visual) */
+  .composer { padding: 12px 32px 20px; background: #faf8ff; }
+  .composer-inner { background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; color: #94a3b8; font-size: 13.5px; }
+
+  /* Activity panel */
+  .activity-scroll { flex: 1; overflow-y: auto; padding: 16px; }
+  .act-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 12px; margin-bottom: 10px; font-size: 12.5px; animation: msgEnter .3s ease-out; }
+  .act-tool { border-left: 3px solid #7c3aed; }
+  .act-doc { border-left: 3px solid #f59e0b; }
+  .act-deadline { border-left: 3px solid #ef4444; }
+  .act-notify { border-left: 3px solid #3b82f6; }
+  .act-external { border-left: 3px solid #14b8a6; }
+  .act-subagent { border-left: 3px solid #ec4899; }
+
+  .act-head { display: flex; align-items: center; gap: 8px; font-weight: 600; color: #0f172a; margin-bottom: 4px; }
+  .act-kind { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+  .act-kind-tool { background: #ede9fe; color: #5b21b6; }
+  .act-kind-doc { background: #fef3c7; color: #92400e; }
+  .act-kind-deadline { background: #fee2e2; color: #991b1b; }
+  .act-kind-notify { background: #dbeafe; color: #1e40af; }
+  .act-kind-external { background: #ccfbf1; color: #115e59; }
+  .act-kind-subagent { background: #fce7f3; color: #9d174d; }
+  .act-time { font-size: 10.5px; color: #94a3b8; margin-left: auto; }
+  .act-body { font-size: 12px; color: #475569; line-height: 1.5; }
+  .act-result { background: #f8fafc; border-radius: 6px; padding: 6px 8px; margin-top: 6px; font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 11px; color: #334155; white-space: pre-wrap; }
+  .act-status { font-size: 11px; padding: 2px 7px; border-radius: 999px; font-weight: 600; }
+  .status-running { background: #ede9fe; color: #5b21b6; }
+  .status-done { background: #d1fae5; color: #065f46; }
+  .status-waiting { background: #fef3c7; color: #92400e; }
+
+  .act-spinner { width: 10px; height: 10px; border: 1.5px solid #ddd6fe; border-top-color: #7c3aed; border-radius: 999px; animation: spin .8s linear infinite; display: inline-block; }
+
+  /* Topbar */
+  .ctrl-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 500; transition: background .15s; }
+  .ctrl-btn.primary { background: white; color: #4c1d95; }
+  .ctrl-btn.primary:hover { background: #f5f3ff; }
+  .ctrl-btn.ghost { color: white; background: rgba(255,255,255,.1); }
+  .ctrl-btn.ghost:hover { background: rgba(255,255,255,.2); }
+  .speed-chip { padding: 4px 10px; font-size: 12px; border-radius: 6px; cursor: pointer; color: white; }
+  .speed-chip.active { background: white; color: #4c1d95; font-weight: 600; }
+
+  /* sidebar empty state */
+  .empty-hint { padding: 32px 20px; color: #94a3b8; font-size: 12.5px; text-align: center; }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<div class="app">
+
+  <!-- ===== TOP BAR ===== -->
+  <header class="topbar grad-header text-white flex items-center px-4 gap-3">
+    <a href="./index.html" class="ctrl-btn ghost">← Panel view</a>
+    <div class="text-xs text-violet-200">v0.2 · chat view</div>
+    <div id="scenarioTitle" class="ml-4 text-sm font-medium opacity-80"></div>
+    <div class="ml-auto flex items-center gap-3">
+      <div class="flex items-center gap-1 bg-white/10 rounded-lg p-1">
+        <span class="text-xs text-violet-200 px-2">Speed</span>
+        <span class="speed-chip" data-sp="0.5">0.5×</span>
+        <span class="speed-chip active" data-sp="1">1×</span>
+        <span class="speed-chip" data-sp="2">2×</span>
+        <span class="speed-chip" data-sp="4">4×</span>
+      </div>
+      <button id="playBtn" class="ctrl-btn primary">▶ Play</button>
+      <button id="resetBtn" class="ctrl-btn ghost">⟲ Reset</button>
+    </div>
+  </header>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="px-4 pt-5 pb-2">
+      <div class="text-[10.5px] uppercase tracking-wider font-semibold text-slate-500">Live demos</div>
+      <div class="text-[11px] text-slate-400 mt-0.5">Fully scripted · auto-timed</div>
+    </div>
+    <div id="scnLive" class="mb-4"></div>
+
+    <div class="px-4 pb-2">
+      <div class="text-[10.5px] uppercase tracking-wider font-semibold text-slate-500">Coming in v0.3</div>
+    </div>
+    <div id="scnPreview"></div>
+
+    <div class="px-4 mt-4 pb-6 border-t pt-4 border-slate-200 text-[11px] text-slate-500 leading-relaxed">
+      <strong class="text-slate-700">How this works:</strong> click a scenario and hit <strong>Play</strong>. The chat shows what the user sees; the right panel shows what GitLaw is doing in the background. Time-jumps compress days or weeks of waiting into seconds.
+    </div>
+  </aside>
+
+  <!-- ===== CHAT COLUMN ===== -->
+  <section class="chatcol">
+    <div class="px-8 py-3 border-b bg-white flex items-center gap-3 shrink-0">
+      <div id="chatAgentBadge" class="w-8 h-8 rounded-lg bg-violet-600 text-white grid place-items-center text-xs font-bold">GL</div>
+      <div>
+        <div id="chatAgentName" class="text-sm font-semibold">GitLaw</div>
+        <div id="chatAgentSub" class="text-xs text-slate-500">Choose a scenario from the left to start</div>
+      </div>
+      <div id="elapsedClock" class="ml-auto text-xs text-slate-400 hidden">
+        <span class="mono" id="elapsedReal">0s real</span>
+        <span class="text-slate-300 mx-1">·</span>
+        <span class="mono" id="elapsedFake">—</span>
+      </div>
+    </div>
+
+    <div id="chatScroll" class="chat-scroll">
+      <div id="chatEmpty" class="text-center text-slate-400 text-sm mt-20">
+        <div class="text-5xl mb-3">⚖️</div>
+        <div class="font-medium text-slate-500 mb-1">Pick a scenario to begin</div>
+        <div class="text-xs">Watch a real legal workflow play out as a GitLaw chat — with the machinery on the right.</div>
+      </div>
+      <div id="chatMessages" class="space-y-3 max-w-3xl mx-auto"></div>
+    </div>
+
+    <div class="composer">
+      <div class="composer-inner">
+        <span>💬</span>
+        <span>Reply to GitLaw…</span>
+        <span class="ml-auto text-xs text-slate-300">(composer is illustrative only)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACTIVITY COLUMN ===== -->
+  <section class="activitycol">
+    <div class="px-4 py-3 border-b bg-white flex items-center gap-2 shrink-0">
+      <div class="text-sm font-semibold">Background activity</div>
+      <span id="activeCount" class="text-xs text-slate-400 ml-auto"></span>
+    </div>
+    <div id="activityScroll" class="activity-scroll">
+      <div id="activityEmpty" class="empty-hint">
+        Tools, sub-agents, document operations, deadlines, and external events appear here as GitLaw works.
+      </div>
+      <div id="activityFeed"></div>
+    </div>
+    <div class="px-4 py-3 border-t bg-slate-50 text-[11px] text-slate-500" id="statusFooter">
+      Idle
+    </div>
+  </section>
+
+</div>
+
+<script>
+// =============== SCENARIOS ===============
+const SCENARIOS = [
+  // ============================================================
+  // 1. CEASE & DESIST — Amazon listing
+  // ============================================================
+  {
+    id: 'cd-amazon',
+    scripted: true,
+    agentName: 'Cease & Desist Agent',
+    agentSub: 'Cross-cutting · Pre-litigation specialist',
+    badge: 'C&D',
+    badgeColor: 'bg-rose-600',
+    title: 'Amazon seller copying your trademark',
+    summary: 'Evidence capture → parallel Amazon takedown + C&D letter → 14-day clock → settlement',
+    durationLabel: '~3 weeks compressed',
+    steps: [
+      { type: 'user', text: "Hey — someone's selling a knockoff on Amazon UK using our trademark 'Lumino' and our product photos. Spotted it this morning. What do I do?", delay: 0, fakeTime: '2026-05-17 09:48' },
+      { type: 'agent', text: "Frustrating — these copycats move fast. First priority is locking down the evidence before they edit the listing. Can you send me the URL?", delay: 1800 },
+      { type: 'user', text: "amazon.co.uk/dp/B0CXYZ123", delay: 1400 },
+      { type: 'agent', text: "Got it. Capturing the listing in three ways so we have court-quality proof if this escalates: Wayback snapshot, full-page screenshots, and a hash of the HTML. On it now.", delay: 1500 },
+      { type: 'agent-action', text: "Capturing listing — Wayback + screenshots + HTML hash", delay: 600, duration: 2400,
+        activity: { kind: 'tool', name: 'evidence_capture', body: 'Wayback Machine + Playwright screenshots + SHA-256 of rendered HTML', result: '✓ 3 screenshots captured\n✓ Wayback snapshot: web.archive.org/web/20260517094920\n✓ SHA-256: 4f9a2c…d8b1\nStored: matter/cd-2026-014/evidence/' } },
+      { type: 'agent', text: "Evidence locked. Now let me compare their listing against your registered mark and image library to confirm infringement.", delay: 1500 },
+      { type: 'agent-action', text: "Comparing listing against UK00003456789 + your product image library", delay: 500, duration: 2000,
+        activity: { kind: 'tool', name: 'infringement_diff', body: 'Side-by-side: their listing vs. your registered mark + your image CDN', result: '✓ "Lumino" used 7× in title + bullets (identical, class 11 goods)\n✓ 3 product photos byte-identical to yours\n→ §10(1) Trade Marks Act 1994 + §16 CDPA 1988' } },
+      { type: 'agent', text: "Clear infringement on two fronts:\n\n  • **Trademark** — they used 'Lumino' seven times, identical to your UK00003456789 in class 11\n  • **Copyright** — three product photos are pixel-for-pixel yours\n\nLet me find out who's behind this so we know where to serve.", delay: 2200 },
+      { type: 'agent-action', text: "Companies House lookup for 'BrightHome-EU'", delay: 500, duration: 1800,
+        activity: { kind: 'tool', name: 'entity_lookup', body: 'Companies House API · search by Amazon seller name', result: '✓ BRIGHTHOME EU LTD\n   Company No. 14782341\n   Registered office: 27 Old Gloucester St, London WC1N 3AX\n   Director: J. Karolak (sole)\n   Incorporated: 2024-03-12 · Active' } },
+      { type: 'agent', text: "Found them: BrightHome EU Ltd, registered at 27 Old Gloucester Street, London. Sole director J. Karolak. Live company.\n\nI recommend two parallel actions:\n\n  1. **Amazon Brand Registry IP complaint** — fastest takedown, usually 24-48h\n  2. **Formal cease & desist letter** to their registered office — gives them 14 days to confirm cessation, account for sales, and destroy stock. Reserves your right to damages.\n\nWant me to do both?", delay: 2500 },
+      { type: 'user', text: "Yes, both — go", delay: 2000 },
+      { type: 'agent-action', text: "Filing Amazon Brand Registry IP complaint", delay: 500, duration: 1600,
+        activity: { kind: 'external', icon: '🅰️', text: 'Amazon Brand Registry · IP complaint submitted', detail: 'Listing ASIN B0CXYZ123 flagged for TM + copyright infringement. Case ID AMZ-2604-7732831.' } },
+      { type: 'agent', text: "Amazon complaint filed — case ID AMZ-2604-7732831. Now drafting the C&D letter.", delay: 1400 },
+      { type: 'agent-action', text: "Drafting C&D letter from UK trademark + copyright template", delay: 500, duration: 2400,
+        activity: { kind: 'doc', name: 'C&D letter v1', body: 'Template: uk_trademark_copyright_combined · 4 pages · 1,247 words', result: 'Working draft: matter/cd-2026-014/letter-v1.docx' } },
+      { type: 'inline-doc', label: 'Letter draft — for your sign-off', delay: 1600, html: `
+        <div><strong>Without prejudice save as to costs</strong></div>
+        <div class="mt-2">Dear Sirs,</div>
+        <div class="mt-2">We act for Lumino Ltd, the proprietor of UK trade mark No. <strong>UK00003456789</strong> and owner of copyright in the photographs at Schedule A.</div>
+        <div class="mt-2">It has come to our client's attention that BrightHome EU Ltd is offering for sale via amazon.co.uk (ASIN B0CXYZ123) goods bearing the LUMINO mark and using our client's photographs. This constitutes infringement under <strong>section 10(1) Trade Marks Act 1994</strong> and <strong>section 16 CDPA 1988</strong>.</div>
+        <div class="mt-2">Our client requires, within <strong>fourteen (14) days</strong>: <em>(i)</em> cessation; <em>(ii)</em> removal of all listings; <em>(iii)</em> delivery-up or destruction of stock; <em>(iv)</em> an account of sales.</div>
+        <div class="mt-2">Our client expressly reserves the right to claim damages, an account of profits, and costs.</div>
+      ` },
+      { type: 'user', text: "Looks good — send it", delay: 2500 },
+      { type: 'agent-action', text: "Despatching Royal Mail Signed-For 1st class", delay: 500, duration: 1500,
+        activity: { kind: 'external', icon: '📮', text: 'Royal Mail Signed-For 1st · AB123456789GB', detail: 'To: 27 Old Gloucester St, WC1N 3AX. ETA 2026-05-19. Auto-polling delivery.' } },
+      { type: 'agent', text: "On its way. Tracking AB123456789GB, expected delivery Monday. I'll watch the postal trail and the 14-day clock starts the moment they sign.", delay: 1800,
+        activity: { kind: 'deadline', name: 'C&D response deadline', body: 'Triggers on delivery confirmation · auto-monitored' } },
+      { type: 'time-jump', label: '2 days later', subtitle: 'Watching Royal Mail tracking…', delay: 1000, duration: 2800, fakeTime: '2026-05-19 09:14' },
+      { type: 'external-event', icon: '📬', title: 'Royal Mail · delivered', body: 'Signed by J. Karolak at 09:14, 27 Old Gloucester Street.', delay: 800,
+        activity: { kind: 'external', icon: '📬', text: 'Royal Mail · delivered & signed', detail: 'Signature: J. Karolak (sole director) · 09:14 · 2026-05-19', status: 'done' } },
+      { type: 'agent', text: "Delivered. Signed personally by J. Karolak (their sole director — they can't claim they didn't see it). 14-day clock is now running.\n\nDeadline: **2026-05-31 23:59**. I'll flag if anything changes on Amazon or in the post.", delay: 2000,
+        activity: { kind: 'deadline', name: '14-day C&D response', body: 'Due 2026-05-31 23:59 · Escalation: hand to UK Litigation agent if no response' } },
+      { type: 'time-jump', label: '26 hours later', subtitle: 'Amazon Brand Registry update', delay: 1200, duration: 2500, fakeTime: '2026-05-20 11:20' },
+      { type: 'external-event', icon: '🅰️', title: 'Amazon · listing removed', body: 'BrightHome-EU pulled ASIN B0CXYZ123 voluntarily — likely in response to the IP complaint.', delay: 800,
+        activity: { kind: 'external', icon: '🅰️', text: 'Amazon · ASIN B0CXYZ123 removed', detail: 'Seller pulled listing voluntarily after Brand Registry complaint.', status: 'done' } },
+      { type: 'agent', text: "Listing's down — Brand Registry usually does the trick within 48h. That's the immediate harm stopped.\n\nThe C&D letter is still in play because Amazon takedown alone doesn't give us: (a) an account of past sales, (b) destruction of remaining stock, or (c) damages. We need their formal response by 2026-05-31 for those.", delay: 2400 },
+      { type: 'time-jump', label: '11 days later', subtitle: 'Day 13 of 14 — response window almost up', delay: 1200, duration: 2800, fakeTime: '2026-05-30 15:42' },
+      { type: 'external-event', icon: '✉️', title: 'Inbound · solicitor letter from Hartwell & Partners', body: 'Acting for BrightHome EU Ltd. One day before deadline.', delay: 800,
+        activity: { kind: 'external', icon: '✉️', text: 'Inbound: Hartwell & Partners (acting for BrightHome)', detail: 'Response received 1 day before C&D deadline.', status: 'done' } },
+      { type: 'agent-action', text: "Parsing their response…", delay: 600, duration: 1800,
+        activity: { kind: 'subagent', name: 'document_intake', body: 'Sub-agent: extract admissions, denials, offers' } },
+      { type: 'agent', text: "Their position:\n\n  • **Admit:** nothing (standard solicitor posture)\n  • **Offer:** cessation (already happened), destruction of 4 remaining units, **£1,200 in damages**, full-and-final release\n  • **Request:** signed settlement agreement\n\nLet me run the damages numbers so you have a basis to decide.", delay: 2400 },
+      { type: 'agent-action', text: "Calculating reasonable damages range", delay: 500, duration: 2000,
+        activity: { kind: 'tool', name: 'damages_estimator', body: 'Based on Amazon sales data (47 units @ £39 RRP) + class 11 license royalty benchmarks', result: '47 units sold × £39 = £1,833 revenue\nEst. their profit: £450 (margin ~25%)\nNotional license fee: ~£550 (3% of revenue)\nGoodwill harm: £500-1,500 (no evidence of confusion in market)\n→ Range: £1,500 – £2,800\n→ Their £1,200 offer: 20% below midpoint' } },
+      { type: 'agent', text: "Their offer of £1,200 is plausible but on the low side. Reasonable settlement range is **£1,500-£2,800** based on their actual sales and a notional licence fee.\n\nLitigation to push higher would cost £8-15k and take 9-18 months in the County Court. Not economic unless the principle matters more than the money.\n\nMy recommendation: **counter at £2,500**, leaves room to settle at £1,800-2,000 + the full-and-final release they want. Want me to draft the counter-offer letter?", delay: 2800 },
+      { type: 'user', text: "Yes, counter at £2,500. Also I want a clause that if they sell our products again within 5 years, the settlement is void and we can sue for the full amount plus this.", delay: 3500 },
+      { type: 'agent', text: "Good instinct — that's a **springing covenant**, common in IP settlements. I'll draft it.", delay: 1600 },
+      { type: 'agent-action', text: "Drafting counter + settlement agreement with springing covenant", delay: 500, duration: 2200,
+        activity: { kind: 'doc', name: 'Counter-offer + settlement v1', body: 'Includes 5-year springing covenant. Drafted from settled-IP template + your custom clause.' } },
+      { type: 'agent', text: "Counter ready. £2,500 + springing covenant (any new infringement in 5 years voids the settlement and revives the original claim plus this one).\n\nOnce you sign, I'll send it Recorded Delivery and re-arm the response monitor. Estimated resolution: another 2-3 weeks.", delay: 2500,
+        activity: { kind: 'deadline', name: 'Counter-offer response window', body: 'Expected: 14 days from despatch · Auto-monitored' } },
+    ],
+  },
+
+  // ============================================================
+  // 2. GDPR — 72-hour breach notification
+  // ============================================================
+  {
+    id: 'gdpr-72h',
+    scripted: true,
+    agentName: 'Data Protection Agent',
+    agentSub: 'UK/EU GDPR specialist',
+    badge: 'DP',
+    badgeColor: 'bg-violet-600',
+    title: 'Data breach detected — 72-hour ICO clock',
+    summary: 'Article 33 risk assessment → ICO breach report → escalation to Article 34 subject notification',
+    durationLabel: '72 hours intense + follow-up',
+    steps: [
+      { type: 'user', text: "We just discovered a data breach. Engineering says an S3 bucket was misconfigured public for about 14 days. ~8,000 customer records exposed — emails plus hashed passwords. Discovered 09:30 this morning.", delay: 0, fakeTime: '2026-05-17 09:51' },
+      { type: 'agent', text: "OK — this is time-critical. **Article 33 GDPR gives us 72 hours from awareness** to notify the ICO if the breach poses a risk to people's rights and freedoms.\n\nYour clock started at 09:30. Deadline: **Friday 2026-05-20 09:30**. We have 71h 39m.\n\nLet me assess whether this is even reportable, then prep what we need.", delay: 2000,
+        activity: { kind: 'deadline', name: 'ICO 72h notification deadline', body: 'Due Friday 2026-05-20 09:30 · 71h 39m remaining' } },
+      { type: 'agent-action', text: "Running Article 33 risk-to-rights assessment", delay: 600, duration: 2600,
+        activity: { kind: 'tool', name: 'breach_severity_article33', body: 'Inputs: data categories, encryption status, scale, sensitivity, identifiability', result: '— Personal data: email addresses + hashed passwords\n— Scale: ~8,000 subjects\n— Encryption at rest: yes (passwords bcrypt cost 12)\n— Encryption in transit during exposure: no\n— Sensitivity: low-medium (not special category)\n→ Risk: MEDIUM\n→ Conclusion: Reportable to ICO (Art 33)\n→ Subject notification (Art 34): NOT YET — pending evidence of actual access' } },
+      { type: 'agent', text: "Assessment:\n\n  • **Reportable to ICO** — yes, even hashed passwords + email at this scale crosses the threshold\n  • **Reportable to data subjects** — not yet. Article 34 only triggers if there's *high* risk, usually evidenced by actual access/exfiltration\n\nThe big unknown: **was the bucket actually accessed during the 14-day window?** Can engineering check the S3 access logs and any abnormal login activity since the exposure started?", delay: 2800 },
+      { type: 'time-jump', label: '47 minutes later', subtitle: 'Engineering investigating', delay: 1000, duration: 2500, fakeTime: '2026-05-17 10:38' },
+      { type: 'user', text: "Eng came back. S3 access logs show 3 unknown IPs hit the bucket — two from Tor exits, one from a Lithuanian IP. ~200 objects fetched in total. No abnormal login activity on our side though, no credential stuffing detected.", delay: 1000 },
+      { type: 'agent', text: "That changes the picture significantly. **Actual access by unknown parties = real risk to subjects**, not just theoretical. We're now in **Article 34 territory too** — we have to notify the affected customers, not just the ICO.\n\nLet me build out both notifications in parallel.", delay: 2400,
+        activity: { kind: 'deadline', name: 'Article 34 subject notification', body: '"Without undue delay" once high risk confirmed · Target: within 48h' } },
+      { type: 'agent-action', text: "Drafting ICO breach report (12-section form)", delay: 600, duration: 3000,
+        activity: { kind: 'tool', name: 'ico_breach_report_72h', body: 'ICO online form · auto-fill from incident data + Article 33 assessment', result: '✓ Sections 1-7 auto-filled (nature, categories, numbers, contact, dates)\n⚠ Sections 8-10 need your input (containment, consequences, measures)\n⚠ Sections 11-12 = consequences for subjects + your DPO sign-off' } },
+      { type: 'agent-action', text: "Drafting subject notification email — plain English, ICO-aligned tone", delay: 500, duration: 2200,
+        activity: { kind: 'doc', name: 'Customer notification email v1', body: 'Drafted from ICO template guidance · 280 words · neutral, non-alarming, action-oriented' } },
+      { type: 'inline-doc', label: 'ICO report — preview (your input needed in red)', delay: 1500, html: `
+        <div class="text-[11px] uppercase tracking-wider font-semibold text-amber-700 mb-2">ICO Breach Report DBR/2026/draft</div>
+        <div><strong>1. Nature of breach:</strong> Confidentiality breach via misconfigured cloud storage (S3 bucket public)</div>
+        <div class="mt-1"><strong>2. Categories of data:</strong> Identification data (email addresses); authentication data (bcrypt-hashed passwords)</div>
+        <div class="mt-1"><strong>3. Approximate number of data subjects:</strong> 8,000</div>
+        <div class="mt-1"><strong>4. Approximate number of records:</strong> 8,000</div>
+        <div class="mt-1"><strong>5. Date of breach:</strong> 2026-05-03 (estimated, based on S3 config change log)</div>
+        <div class="mt-1"><strong>6. Date of awareness:</strong> 2026-05-17 09:30</div>
+        <div class="mt-1"><strong>7. Date of containment:</strong> 2026-05-17 ~09:45 (bucket made private)</div>
+        <div class="mt-2 text-red-700"><strong>8. Description of consequences — NEEDS YOUR INPUT</strong></div>
+        <div class="mt-1 text-red-700"><strong>9. Measures taken or proposed — NEEDS YOUR INPUT</strong></div>
+      ` },
+      { type: 'agent', text: "I've pre-filled what I can. Three things need you:\n\n  1. **Consequences experienced** — e.g., any customer complaints since access happened?\n  2. **Containment measures** — what eng did to lock the bucket and rotate keys\n  3. **Measures proposed** — password reset for affected users? Free credit monitoring? Process changes?\n\nIf you give me the inputs I can have the ICO report ready to submit within the hour.", delay: 2800 },
+      { type: 'user', text: "1. No customer complaints. 2. Bucket made private 09:45, S3 access keys rotated, alerting added for any public bucket. 3. Forcing password reset on all 8k affected users, offering 12mo Have-I-Been-Pwned monitoring, root-cause infra review.", delay: 4000 },
+      { type: 'agent-action', text: "Compiling final ICO report + scheduling submission", delay: 500, duration: 2200 },
+      { type: 'agent', text: "Final report assembled. Ready to submit when your DPO signs off — that's the only thing standing between us and the ICO right now. Want me to ping your DPO?", delay: 1800,
+        activity: { kind: 'notify', name: 'DPO sign-off request', body: 'To: dpo@yourco.com · Subject: URGENT — ICO breach report sign-off · 70h until deadline' } },
+      { type: 'user', text: "Yes, ping her now and CC me.", delay: 2000 },
+      { type: 'time-jump', label: '3 hours later', subtitle: 'DPO reviewing', delay: 1000, duration: 2200, fakeTime: '2026-05-17 14:14' },
+      { type: 'external-event', icon: '✅', title: 'DPO approved', body: 'Bernadette Chen signed off the ICO report and customer notification.', delay: 800,
+        activity: { kind: 'external', icon: '✅', text: 'DPO sign-off received', detail: 'Bernadette Chen approved both ICO report and subject notification.', status: 'done' } },
+      { type: 'agent-action', text: "Submitting ICO breach report", delay: 600, duration: 2000,
+        activity: { kind: 'tool', name: 'ico_breach_report_72h', body: 'Final submission to ICO via secure portal', result: '✓ Submitted 14:22\n✓ Reference: DBR/2026/0048281\n✓ Acknowledgement expected within 7 days' } },
+      { type: 'agent-action', text: "Dispatching customer notification to 8,000 affected users", delay: 500, duration: 1800,
+        activity: { kind: 'external', icon: '📨', text: '8,000 customer notification emails queued', detail: 'Via SendGrid · throttled 200/min · ETA 40 min completion', status: 'running' } },
+      { type: 'agent', text: "Both done.\n\n  • **ICO:** submitted at 14:22, reference DBR/2026/0048281. **55 hours inside the 72h window.**\n  • **Customers:** 8,000 emails queued, will complete in ~40 minutes. Password resets on next login.\n\nI'll watch for the ICO acknowledgement (usually 5-7 days) and flag any follow-up questions.", delay: 2600 },
+      { type: 'time-jump', label: '3 days later', subtitle: 'ICO response', delay: 1200, duration: 2800, fakeTime: '2026-05-20 11:08' },
+      { type: 'external-event', icon: '📨', title: 'ICO · acknowledgement + follow-up questions', body: 'Three questions from the case officer.', delay: 800,
+        activity: { kind: 'external', icon: '📨', text: 'ICO case officer · follow-up questions', detail: 'Reference DBR/2026/0048281 · 14-day response window', status: 'done' } },
+      { type: 'agent', text: "ICO came back. Case officer Sarah Whitmore is satisfied with the breach report but has three follow-ups:\n\n  1. Evidence of the bcrypt cost factor (they want to assess whether the hashes are realistically crackable)\n  2. Copy of your now-updated S3 alerting policy\n  3. Audit trail showing the password reset enforcement\n\nNon-confrontational tone — they're documenting due diligence, not building an enforcement case. I'll draft the response. 14 days to reply.", delay: 3000 },
+    ],
+  },
+
+  // ============================================================
+  // 3. UK DEBT COLLECTION — silent debtor escalation
+  // ============================================================
+  {
+    id: 'debt-silent-15k',
+    scripted: true,
+    agentName: 'Invoice Debt Collection Agent',
+    agentSub: 'UK escalation ladder',
+    badge: '£',
+    badgeColor: 'bg-emerald-600',
+    title: '£15k invoice — debtor going silent (UK)',
+    summary: 'Solvency check → interest calc → Pre-Action Protocol → statutory demand → settlement',
+    durationLabel: '~60 days compressed',
+    steps: [
+      { type: 'user', text: "Customer hasn't paid a £15k invoice. 47 days overdue. I've sent three reminders, total silence. They're a UK limited company. What now?", delay: 0, fakeTime: '2026-05-17 16:00' },
+      { type: 'agent', text: "Right — time to escalate. Before I draft anything, two questions answer themselves: are they actually able to pay, and what do they actually owe under the Late Payment Act? Let me check.", delay: 1900 },
+      { type: 'agent-action', text: "Companies House solvency check on Acme Widgets Ltd", delay: 500, duration: 2200,
+        activity: { kind: 'tool', name: 'companies_house_solvency', body: 'API: status, accounts, charges, CCJs, gazette notices', result: '✓ Status: Active\n✓ Accounts: filed on time, latest balance sheet shows £180k net assets\n✓ Charges: 1 floating charge (HSBC, 2023)\n✗ CCJs: none\n✗ Winding-up petitions: none\n→ Solvent. Non-payment is willful, not insolvency.' } },
+      { type: 'agent-action', text: "Calculating amount owed under Late Payment of Commercial Debts (Interest) Act 1998", delay: 500, duration: 1500,
+        activity: { kind: 'tool', name: 'interest_calculator', body: '8% statutory + BoE base (5.00%) + fixed compensation', result: 'Principal: £15,000\nInterest (47 days @ 13.00%): £250.96\nFixed sum (s.5A): £100\n→ Total now: £15,350.96\n→ Daily accrual: £5.34' } },
+      { type: 'agent', text: "Good news / bad news.\n\n  • **Good:** Acme are demonstrably solvent. £180k net assets, no CCJs, no insolvency events. They can pay.\n  • **Total owed today:** **£15,350.96** (£15k principal + £250.96 interest at 13% + £100 fixed comp). Accruing £5.34/day.\n\nThe willful silence pattern + solvency = ideal candidates for a **Pre-Action Protocol for Debt Claims letter**. It's mandatory before court action, gives them 30 days, and courts look favourably on senders if it gets ignored. Want me to draft?", delay: 2800 },
+      { type: 'user', text: "Yes — draft it", delay: 2000 },
+      { type: 'agent-action', text: "Drafting PAP letter + required attachments (Info Sheet, Reply Form, Financial Statement)", delay: 500, duration: 2400,
+        activity: { kind: 'doc', name: 'PAP debt-claim letter v1', body: 'Includes the 3 mandatory PAP attachments. Drafted from PD-PAC template.' } },
+      { type: 'agent', text: "Drafted. The letter spells out:\n\n  • The debt and how it's calculated (with interest schedule)\n  • The 30-day response window\n  • Their options: pay, dispute, propose terms, or face proceedings\n\nPlus the three attachments PAP requires by default (Information Sheet, Reply Form, Financial Statement form). Send?", delay: 2400 },
+      { type: 'user', text: "Send", delay: 1600 },
+      { type: 'agent-action', text: "Despatching Royal Mail Signed-For 1st class", delay: 500, duration: 1500,
+        activity: { kind: 'external', icon: '📮', text: 'Royal Mail Signed-For · CD987654321GB', detail: 'To: Acme Widgets Ltd, 12 Cromwell Rd, Birmingham B1 4AA. ETA tomorrow.' } },
+      { type: 'time-jump', label: '1 day later', subtitle: 'Royal Mail tracking', delay: 1000, duration: 2200, fakeTime: '2026-05-18 11:30' },
+      { type: 'external-event', icon: '📬', title: 'Royal Mail · delivered', body: 'Signed by Acme reception (illegible signature).', delay: 800,
+        activity: { kind: 'external', icon: '📬', text: 'Delivered & signed', detail: 'Reception signature · 11:30 · PAP 30-day clock running', status: 'done' } },
+      { type: 'agent', text: "Delivered. 30-day PAP clock started. Deadline: **2026-06-17**. I'll send a reminder at the halfway mark and let you know if there's any contact in between.", delay: 2000,
+        activity: { kind: 'deadline', name: 'PAP response window', body: 'Due 2026-06-17 · Half-time reminder T-15' } },
+      { type: 'time-jump', label: '14 days later', subtitle: 'Half-time — no contact', delay: 1200, duration: 2200, fakeTime: '2026-06-01 09:00' },
+      { type: 'agent', text: "Halfway through the PAP window. **No response, no acknowledgement, no contact.** Sending a polite reminder noting the deadline.", delay: 1800,
+        activity: { kind: 'notify', name: 'PAP reminder email', body: 'Half-time courtesy reminder · referencing 15 days remaining' } },
+      { type: 'time-jump', label: '16 days later', subtitle: 'Day 30 — PAP window closed', delay: 1200, duration: 2500, fakeTime: '2026-06-17 17:30' },
+      { type: 'agent', text: "PAP window expired with **zero response from Acme**. Two routes from here:\n\n  • **(a) Money Claim Online** — issue proceedings for £15,455 + court fee (£455) + fixed costs (£100). Hearing in 4-12 months. Standard path.\n  • **(b) Statutory Demand under Insolvency Act 1986** — Form SD1. If they don't pay or apply to set aside within **21 days**, you can present a winding-up petition. Often forces payment because directors fear winding-up.\n\nFor £15k with a *solvent* debtor who's chosen to ignore you, the statutory demand is the bigger stick. Caveat: if they apply to set aside on the basis the debt is genuinely disputed, you lose costs. Given their silence (not 'disputed', just ignored), this is the right call. Want me to prep?", delay: 3200 },
+      { type: 'user', text: "Statutory demand. Apply pressure.", delay: 2200 },
+      { type: 'agent-action', text: "Generating Form SD1 statutory demand", delay: 500, duration: 2000,
+        activity: { kind: 'tool', name: 'statutory_demand_generator', body: 'Form SD1 (Insolvency Rules 2016) · service requirements + 21-day window', result: '✓ Form SD1 drafted\n⚠ Must be served PERSONALLY by a process server (not post)\n→ Suggested process server: Court Enforcement Services, Birmingham · £85' } },
+      { type: 'agent', text: "Form SD1 drafted. Key procedural note: statutory demands must be **served personally** by a process server — Royal Mail won't satisfy the courts. I've found a process server in Birmingham (Court Enforcement Services, £85). Once served, 21-day countdown starts.\n\nGo ahead?", delay: 2600 },
+      { type: 'user', text: "Yes", delay: 1600 },
+      { type: 'agent-action', text: "Instructing process server", delay: 500, duration: 1500,
+        activity: { kind: 'external', icon: '🚶', text: 'Process server instructed · CES Birmingham', detail: 'Brief + Form SD1 dispatched. Attempt 1 expected within 48h.' } },
+      { type: 'time-jump', label: '4 days later', subtitle: 'Process server update', delay: 1200, duration: 2500, fakeTime: '2026-06-21 14:00' },
+      { type: 'external-event', icon: '🚶', title: 'Process server · personal service complete', body: 'Form SD1 served on the sole director, R. Mehta, at her home address.', delay: 800,
+        activity: { kind: 'external', icon: '🚶', text: 'Served personally on director', detail: 'R. Mehta · home address · 14:00 · Certificate of service filed', status: 'done' } },
+      { type: 'agent', text: "Served. **21-day clock now running** — deadline **2026-07-12**. They have three options: pay in full, apply to set aside, or face a winding-up petition.\n\nDirectors usually call within 48h of a statutory demand. The combination of personal service + the prospect of winding-up tends to focus minds.", delay: 2600,
+        activity: { kind: 'deadline', name: 'SD1 21-day window', body: 'Due 2026-07-12 · Next step on expiry: winding-up petition' } },
+      { type: 'time-jump', label: '6 days later', subtitle: 'Inbound contact', delay: 1200, duration: 2200, fakeTime: '2026-06-27 10:15' },
+      { type: 'external-event', icon: '📞', title: 'Inbound call · Acme MD', body: 'R. Mehta phoned the office. Wants to discuss settlement.', delay: 800,
+        activity: { kind: 'external', icon: '📞', text: 'Inbound: Acme MD R. Mehta', detail: 'Offering to settle. Wants 4 monthly instalments.', status: 'done' } },
+      { type: 'agent', text: "The statutory demand worked. R. Mehta called and is offering **4 monthly instalments of £3,837.74** (£15,350.96 total, no further interest).\n\nMy steer: **accept in principle, but with three conditions** —\n\n  1. **Consent order** lodged at court so if they default you can enforce immediately (no fresh proceedings)\n  2. **First instalment in 7 days** (proves intent)\n  3. **Default clause:** missed payment = full balance immediately due + interest accrues\n\nThis turns a willful debtor into a court-supervised payment plan. Want me to draft?", delay: 3000 },
+    ],
+  },
+
+  // ============================================================
+  // 4. PATENT USPTO — §103 obviousness
+  // ============================================================
+  {
+    id: 'patent-obv',
+    scripted: true,
+    agentName: 'Patent Prosecution Agent',
+    agentSub: 'USPTO specialist',
+    badge: '🔬',
+    badgeColor: 'bg-indigo-600',
+    title: 'USPTO §103 obviousness rejection',
+    summary: 'Office action parse → prior-art deep-dive → claim amendment → response Change Request',
+    durationLabel: '3 months → compressed',
+    steps: [
+      { type: 'user', text: "Got a non-final office action on US application 17/845,221. Examiner rejected claims 1-7 under §103, said they're obvious over Smith and Lee combined. Three months to respond.", delay: 0, fakeTime: '2026-05-17 10:00' },
+      { type: 'agent', text: "OK — pulling the file and parsing the rejection before we plan a response.", delay: 1500 },
+      { type: 'agent-action', text: "USPTO Patent Center status lookup", delay: 500, duration: 1800,
+        activity: { kind: 'tool', name: 'uspto_status_lookup', body: 'Patent Center API · app 17/845,221', result: '✓ Status: Non-Final Rejection mailed 2026-05-15\n✓ Statutory period: 3 months (extendable to 6)\n✓ Response due: 2026-08-15\n✓ Examiner: M. Patel · Art Unit 2649\n✓ Claims pending: 1-12' } },
+      { type: 'agent-action', text: "Parsing office action — extracting rejections by type", delay: 500, duration: 2400,
+        activity: { kind: 'tool', name: 'office_action_parse', body: 'OCR + structured extraction · classify by §101/§102/§103/§112', result: 'Rejections detected:\n  • §103 — Claims 1-7 obvious over Smith (US 9,123,456) in view of Lee (US 10,234,567)\n  • §112(b) — Claim 8 indefinite ("substantially aligned")\n→ Allowable: claims 9-12 (dependent on novel limitation)' } },
+      { type: 'agent', text: "Two issues to address before **2026-08-15**:\n\n  • **§103** on claims 1-7 — examiner combined Smith + Lee\n  • **§112(b)** on claim 8 — \"substantially aligned\" called indefinite\n  • Claims 9-12 already allowable\n\nLet me dig into the cited art before I recommend a response strategy.", delay: 2400,
+        activity: { kind: 'deadline', name: 'OA response deadline', body: 'Due 2026-08-15 (3-month statutory) · Internal review target T-14' } },
+      { type: 'agent-action', text: "Deep prior-art analysis on Smith + Lee for claim 1", delay: 600, duration: 3200,
+        activity: { kind: 'subagent', name: 'prior_art_analyst', body: 'Sub-agent: pulls cited refs, compares against claim limitations, checks combination motivation' } },
+      { type: 'agent-action', text: "Cross-checking KSR / MPEP 2143 rationales", delay: 400, duration: 1800,
+        activity: { kind: 'tool', name: 'prior_art_search', body: 'Google Patents + Lens.org · KSR rationale fit', result: 'Smith teaches feedback loop (col. 4, l. 18-32)\nLee teaches sensor array (col. 7, l. 1-15)\n→ NEITHER teaches: "sensor calibration triggered by feedback variance > threshold τ" (claim 1)\n→ Smith\'s feedback is POST-HOC, not triggering\n→ Lee\'s sensors UNCALIBRATED\n→ Combination motivation reads like impermissible hindsight (MPEP 2142)' } },
+      { type: 'agent', text: "Strong news — the §103 has a real weak point. **Neither Smith nor Lee teaches the variance-triggered calibration** that's at the heart of claim 1. Smith's feedback happens post-hoc; Lee's sensors aren't calibrated at all.\n\nThe examiner's combination motivation reads like **impermissible hindsight reconstruction** using your own disclosure as a roadmap (MPEP 2142).\n\nRecommended response:\n\n  1. **Traverse §103** — argue no teaching/suggestion of the variance trigger, KSR rationale fails\n  2. **Amend claim 8** — replace \"substantially aligned\" with \"aligned within ±2°\" (specific, measurable, defensible)\n  3. **Inventor declaration** — examiner Patel weights evidence; declaration on how the threshold τ was derived strengthens non-obviousness\n\nShall I draft the response as a Change Request on the docket repo?", delay: 3200 },
+      { type: 'user', text: "Yes — and include the inventor declaration. Set the internal review deadline 2 weeks before the statutory.", delay: 3000 },
+      { type: 'agent-action', text: "Drafting claim 8 amendment", delay: 500, duration: 1500,
+        activity: { kind: 'tool', name: 'claim_amendment_drafter', body: 'Fix indefiniteness while preserving scope', result: '"wherein the sensor array is aligned within ±2° of the reference axis" (was: "substantially aligned with the reference axis")' } },
+      { type: 'agent-action', text: "Opening Change Request on docket repo", delay: 500, duration: 1800,
+        activity: { kind: 'doc', name: 'CR #14 — Response to OA 2026-05-15', body: '3 files staged: response.docx · claim-amendment.docx · inventor-declaration-template.docx · branch oa-response-2026-05-15' } },
+      { type: 'inline-doc', label: 'Response to OA — excerpt', delay: 1500, html: `
+        <div class="text-[11px] uppercase tracking-wider font-semibold text-amber-700 mb-2">Response to Office Action · Excerpt</div>
+        <div>Applicant respectfully traverses the §103 rejection.</div>
+        <div class="mt-2"><ins class="tc">Neither Smith nor Lee teaches or suggests the limitation "sensor calibration triggered by feedback variance > threshold τ" recited in claim 1. Smith's feedback mechanism is post-hoc and does not trigger calibration; Lee's sensor array does not perform calibration at all. The Examiner's combination relies on impermissible hindsight reconstruction using Applicant's own disclosure as a roadmap (MPEP 2142).</ins></div>
+        <div class="mt-3">Claim 8 is amended as follows:</div>
+        <div class="mt-1">"wherein the sensor array is <del class="tc">substantially aligned with</del> <ins class="tc">aligned within ±2° of</ins> the reference axis."</div>
+      ` },
+      { type: 'agent-action', text: "Setting deadlines + drafting inventor declaration questionnaire", delay: 500, duration: 2000,
+        activity: { kind: 'deadline', name: 'Internal CR review', body: 'Due 2026-08-01 (T-14 before statutory) · Auto-reminders T-7 and T-2' } },
+      { type: 'agent', text: "Change Request #14 opened with: traversal argument, claim 8 amendment, inventor declaration template, internal review deadline 2026-08-01.\n\nTo finalise the declaration I need 20 minutes with the inventor on the threshold derivation. Want me to send them a structured form (faster, no scheduling) or schedule a call?", delay: 2800 },
+      { type: 'user', text: "Send the form. Inventor is travelling this week.", delay: 2200 },
+      { type: 'agent-action', text: "Sending declaration questionnaire to inventor", delay: 500, duration: 1400,
+        activity: { kind: 'notify', name: 'Inventor declaration form', body: 'To: a.chen@yourco.com · 8 questions · expected return within 72h' } },
+      { type: 'time-jump', label: '4 days later', subtitle: 'Inventor response', delay: 1200, duration: 2200, fakeTime: '2026-05-21 16:00' },
+      { type: 'external-event', icon: '📝', title: 'Inventor declaration returned', body: 'A. Chen completed the form with 4 supporting test datasets attached.', delay: 800,
+        activity: { kind: 'external', icon: '📝', text: 'Inventor questionnaire returned', detail: '4 datasets attached showing threshold τ derivation', status: 'done' } },
+      { type: 'agent', text: "Inventor returned the form plus four test datasets showing the τ threshold derivation. The datasets are strong — they show clear divergence above τ and stable behaviour below, exactly the non-obvious technical effect we want to highlight.\n\nIncorporating into the declaration and CR. Will surface again for your review at the T-14 mark.", delay: 2600 },
+      { type: 'time-jump', label: '10 weeks later', subtitle: 'Internal review window', delay: 1500, duration: 3000, fakeTime: '2026-08-01 09:00' },
+      { type: 'agent', text: "We're at the internal review checkpoint (2026-08-01, 14 days before statutory). The Change Request is ready:\n\n  • Traversal argument finalised with KSR + MPEP 2142 citations\n  • Claim 8 amendment in place\n  • Inventor declaration signed by A. Chen, with all 4 datasets as exhibits\n  • Examiner-interview request appended (recommended given the technical density)\n\nWant to review and approve filing, or escalate to outside counsel for a second look?", delay: 3000 },
+    ],
+  },
+
+  // ============================================================
+  // PREVIEW-ONLY scenarios
+  // ============================================================
+  { id: 'tm-clear-file', scripted: false, agentName: 'Trademark Agent', badge: '™', badgeColor: 'bg-amber-600',
+    title: 'Clear and file "Hatchwise" in classes 9 + 42', summary: 'WIPO + USPTO + UKIPO clearance → Madrid filing strategy', durationLabel: '~4 weeks compressed' },
+  { id: 'personal-laptop', scripted: false, agentName: 'Personal Litigation Agent', badge: '👤', badgeColor: 'bg-teal-600',
+    title: 'Faulty £2,500 laptop — retailer refusing refund', summary: 'Consumer Rights Act §9-11 reverse burden → small claims', durationLabel: '~3 months compressed' },
+  { id: 'uk-lit-pre-action', scripted: false, agentName: 'UK Commercial Litigation Agent', badge: '⚖', badgeColor: 'bg-slate-600',
+    title: 'Pre-action letter for £250k breach of contract', summary: 'Practice Direction Pre-Action Conduct compliant → response window → CPR Part 7', durationLabel: '~2 months compressed' },
+];
+
+// =============== STATE ===============
+let state = {
+  scenarioId: null,
+  stepIdx: -1,
+  playing: false,
+  speed: 1,
+  timer: null,
+  realStart: null,
+  clockTimer: null,
+};
+
+// =============== UTILITIES ===============
+function el(tag, attrs = {}, ...children) {
+  const e = document.createElement(tag);
+  if (attrs) for (const [k, v] of Object.entries(attrs)) {
+    if (k === 'class') e.className = v;
+    else if (k === 'html') e.innerHTML = v;
+    else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+    else e.setAttribute(k, v);
+  }
+  for (const c of children) {
+    if (c == null) continue;
+    e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  }
+  return e;
+}
+
+function fmtDuration(ms) {
+  const s = Math.floor(ms / 1000);
+  if (s < 60) return `${s}s real`;
+  const m = Math.floor(s / 60);
+  return `${m}m ${s % 60}s real`;
+}
+
+// =============== SIDEBAR ===============
+function renderSidebar() {
+  const live = document.getElementById('scnLive');
+  const prev = document.getElementById('scnPreview');
+  SCENARIOS.filter(s => s.scripted).forEach(s => live.appendChild(scnItem(s)));
+  SCENARIOS.filter(s => !s.scripted).forEach(s => prev.appendChild(scnItem(s, true)));
+}
+
+function scnItem(s, isPreview = false) {
+  const node = el('div', {
+    class: `scn-item border-l-4 border-transparent px-4 py-3`,
+    'data-id': s.id,
+    onclick: () => selectScenario(s.id),
+  },
+    el('div', { class: 'flex items-center gap-2 mb-1' },
+      el('span', { class: `inline-flex items-center justify-center w-5 h-5 rounded text-[10px] font-bold text-white shrink-0 ${s.badgeColor}` }, s.badge),
+      el('div', { class: 'text-[11px] text-slate-500 truncate' }, s.agentName),
+    ),
+    el('div', { class: 'text-[13px] font-medium leading-snug mb-1' }, s.title),
+    el('div', { class: 'text-[11px] text-slate-500 leading-snug' }, s.summary || ''),
+    el('div', { class: 'mt-1.5 flex items-center gap-1.5' },
+      isPreview
+        ? el('span', { class: 'text-[10px] uppercase tracking-wider font-semibold text-slate-400' }, 'preview')
+        : el('span', { class: 'text-[10px] uppercase tracking-wider font-semibold text-emerald-600' }, '● live'),
+      s.durationLabel ? el('span', { class: 'text-[10px] text-slate-400' }, `· ${s.durationLabel}`) : null,
+    ),
+  );
+  return node;
+}
+
+function selectScenario(id) {
+  state = { ...state, scenarioId: id, stepIdx: -1, playing: false, realStart: null };
+  stopTimer();
+  document.querySelectorAll('.scn-item').forEach(n => n.classList.toggle('active', n.dataset.id === id));
+  resetView();
+  const s = SCENARIOS.find(x => x.id === id);
+  document.getElementById('chatAgentName').textContent = s.agentName;
+  document.getElementById('chatAgentSub').textContent = s.agentSub || '';
+  document.getElementById('chatAgentBadge').textContent = s.badge;
+  document.getElementById('chatAgentBadge').className = `w-8 h-8 rounded-lg text-white grid place-items-center text-xs font-bold ${s.badgeColor}`;
+  document.getElementById('scenarioTitle').textContent = s.title;
+  document.getElementById('chatEmpty').style.display = 'none';
+  if (!s.scripted) {
+    document.getElementById('chatMessages').appendChild(el('div', { class: 'bg-slate-50 border border-slate-200 rounded-xl p-6 text-sm text-slate-600 text-center' },
+      el('div', { class: 'text-3xl mb-2' }, '✏️'),
+      el('div', { class: 'font-medium mb-1' }, 'Scripted in v0.3'),
+      el('div', { class: 'text-xs' }, 'This scenario will be fully auto-timed in the next iteration. For now it\'s in the panel view only.'),
+    ));
+    document.getElementById('playBtn').disabled = true;
+    document.getElementById('playBtn').style.opacity = 0.5;
+  } else {
+    document.getElementById('playBtn').disabled = false;
+    document.getElementById('playBtn').style.opacity = 1;
+    document.getElementById('elapsedClock').classList.remove('hidden');
+    document.getElementById('elapsedReal').textContent = '0s real';
+    document.getElementById('elapsedFake').textContent = s.steps[0].fakeTime || '—';
+  }
+  setFooter('Ready to play');
+}
+
+// =============== VIEW RESET ===============
+function resetView() {
+  document.getElementById('chatMessages').innerHTML = '';
+  document.getElementById('chatEmpty').style.display = 'none';
+  document.getElementById('activityFeed').innerHTML = '';
+  document.getElementById('activityEmpty').style.display = 'block';
+  document.getElementById('activeCount').textContent = '';
+  setFooter('Idle');
+  if (state.clockTimer) { clearInterval(state.clockTimer); state.clockTimer = null; }
+}
+
+function setFooter(txt, kind) {
+  const f = document.getElementById('statusFooter');
+  f.textContent = txt;
+  f.className = 'px-4 py-3 border-t text-[11px] ' + (kind === 'play' ? 'bg-violet-50 text-violet-700 font-medium' : kind === 'jump' ? 'bg-amber-50 text-amber-800 font-medium' : 'bg-slate-50 text-slate-500');
+}
+
+// =============== PLAYBACK ===============
+function play() {
+  if (!state.scenarioId) return;
+  if (state.playing) return;
+  state.playing = true;
+  state.realStart = state.realStart || Date.now();
+  document.getElementById('playBtn').textContent = '⏸ Pause';
+  if (!state.clockTimer) {
+    state.clockTimer = setInterval(() => {
+      document.getElementById('elapsedReal').textContent = fmtDuration(Date.now() - state.realStart);
+    }, 250);
+  }
+  advance();
+}
+
+function pause() {
+  state.playing = false;
+  stopTimer();
+  document.getElementById('playBtn').textContent = '▶ Play';
+  setFooter('Paused');
+}
+
+function stopTimer() {
+  if (state.timer) { clearTimeout(state.timer); state.timer = null; }
+}
+
+function reset() {
+  pause();
+  state.stepIdx = -1;
+  state.realStart = null;
+  if (state.clockTimer) { clearInterval(state.clockTimer); state.clockTimer = null; }
+  document.getElementById('elapsedReal').textContent = '0s real';
+  resetView();
+  if (state.scenarioId) selectScenario(state.scenarioId);
+}
+
+function advance() {
+  if (!state.playing) return;
+  const s = SCENARIOS.find(x => x.id === state.scenarioId);
+  state.stepIdx += 1;
+  if (state.stepIdx >= s.steps.length) {
+    state.playing = false;
+    document.getElementById('playBtn').textContent = '▶ Replay';
+    setFooter('✓ Scenario complete');
+    return;
+  }
+  const step = s.steps[state.stepIdx];
+  const baseDelay = (step.delay || 1200) / state.speed;
+  setFooter('Playing…', 'play');
+
+  // For agent / agent-action / time-jump we show a typing or progress indicator first
+  if (step.type === 'agent') {
+    showTyping(() => {
+      renderStep(step);
+      maybeEmitActivity(step);
+      schedNext(900 / state.speed);
+    }, baseDelay);
+  } else if (step.type === 'agent-action') {
+    state.timer = setTimeout(() => {
+      const progNode = renderProgress(step);
+      maybeEmitActivity(step);
+      const dur = (step.duration || 1800) / state.speed;
+      state.timer = setTimeout(() => {
+        markProgressDone(progNode);
+        schedNext(500 / state.speed);
+      }, dur);
+    }, baseDelay);
+  } else if (step.type === 'time-jump') {
+    state.timer = setTimeout(() => {
+      const jumpNode = renderTimeJump(step);
+      setFooter(`⏩ Time-jump: ${step.label}`, 'jump');
+      if (step.fakeTime) document.getElementById('elapsedFake').textContent = step.fakeTime;
+      const dur = (step.duration || 2500) / state.speed;
+      state.timer = setTimeout(() => {
+        jumpNode.style.animation = 'none';
+        jumpNode.style.background = '#fef3c7';
+        schedNext(400 / state.speed);
+      }, dur);
+    }, baseDelay);
+  } else if (step.type === 'external-event') {
+    state.timer = setTimeout(() => {
+      renderExternalEvent(step);
+      maybeEmitActivity(step);
+      schedNext(900 / state.speed);
+    }, baseDelay);
+  } else if (step.type === 'inline-doc') {
+    state.timer = setTimeout(() => {
+      renderInlineDoc(step);
+      maybeEmitActivity(step);
+      schedNext(1200 / state.speed);
+    }, baseDelay);
+  } else if (step.type === 'user') {
+    state.timer = setTimeout(() => {
+      renderStep(step);
+      maybeEmitActivity(step);
+      schedNext(700 / state.speed);
+    }, baseDelay);
+  } else {
+    schedNext(baseDelay);
+  }
+
+  if (step.fakeTime) document.getElementById('elapsedFake').textContent = step.fakeTime;
+}
+
+function schedNext(delay) {
+  state.timer = setTimeout(advance, delay);
+  scrollChat();
+}
+
+function showTyping(then, delay) {
+  state.timer = setTimeout(() => {
+    const t = el('div', { class: 'msg flex gap-2 items-end' },
+      el('div', { class: 'w-7 h-7 rounded-lg bg-violet-600 text-white grid place-items-center text-[10px] font-bold shrink-0' }, 'GL'),
+      el('div', { class: 'typing bubble-agent', style: 'padding: 8px 14px;' },
+        el('span'), el('span'), el('span'),
+      ),
+    );
+    t.id = 'typingNode';
+    document.getElementById('chatMessages').appendChild(t);
+    scrollChat();
+    state.timer = setTimeout(() => {
+      const typing = document.getElementById('typingNode');
+      if (typing) typing.remove();
+      then();
+    }, 600 / state.speed);
+  }, delay);
+}
+
+// =============== RENDERERS ===============
+function renderStep(step) {
+  const m = document.getElementById('chatMessages');
+  if (step.type === 'user') {
+    m.appendChild(el('div', { class: 'msg flex gap-2 justify-end' },
+      el('div', { class: 'bubble-user' }, step.text),
+      el('div', { class: 'w-7 h-7 rounded-lg bg-slate-300 text-slate-700 grid place-items-center text-[10px] font-bold shrink-0' }, 'You'),
+    ));
+  } else if (step.type === 'agent') {
+    const bubble = el('div', { class: 'bubble-agent' });
+    // bold support: replace **x** with <strong>x</strong>
+    bubble.innerHTML = step.text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    m.appendChild(el('div', { class: 'msg flex gap-2 items-end' },
+      el('div', { class: 'w-7 h-7 rounded-lg bg-violet-600 text-white grid place-items-center text-[10px] font-bold shrink-0' }, 'GL'),
+      bubble,
+    ));
+  }
+  scrollChat();
+}
+
+function renderProgress(step) {
+  const m = document.getElementById('chatMessages');
+  const card = el('div', { class: 'progress-card msg' },
+    el('div', { class: 'spinner' }),
+    el('div', {}, step.text),
+  );
+  const wrap = el('div', { class: 'flex gap-2 items-end' },
+    el('div', { class: 'w-7 h-7 rounded-lg bg-violet-100 text-violet-700 grid place-items-center text-[10px] font-bold shrink-0' }, '⚙'),
+    card,
+  );
+  m.appendChild(wrap);
+  scrollChat();
+  return card;
+}
+
+function markProgressDone(card) {
+  card.querySelector('.spinner')?.remove();
+  card.style.borderLeftColor = '#10b981';
+  card.style.color = '#065f46';
+  card.insertBefore(el('span', { html: '✓ ', style: 'color: #10b981; font-weight: 600;' }), card.firstChild);
+}
+
+function renderTimeJump(step) {
+  const m = document.getElementById('chatMessages');
+  const node = el('div', { class: 'time-jump msg' },
+    el('span', {}, '⏩'),
+    el('div', { class: 'flex flex-col' },
+      el('div', {}, step.label),
+      step.subtitle ? el('div', { class: 'text-[11px] font-normal mt-0.5 opacity-80' }, step.subtitle) : null,
+    ),
+  );
+  m.appendChild(el('div', { class: 'flex justify-center' }, node));
+  scrollChat();
+  return node;
+}
+
+function renderExternalEvent(step) {
+  const m = document.getElementById('chatMessages');
+  m.appendChild(el('div', { class: 'msg flex gap-2 items-start' },
+    el('div', { class: 'w-7 h-7 rounded-lg bg-teal-100 text-teal-700 grid place-items-center text-sm shrink-0' }, step.icon || '📨'),
+    el('div', { class: 'external-event flex-1' },
+      el('div', {},
+        el('div', { class: 'font-semibold mb-0.5' }, step.title),
+        el('div', { class: 'text-[12px] text-cyan-900/80' }, step.body),
+      ),
+    ),
+  ));
+  scrollChat();
+}
+
+function renderInlineDoc(step) {
+  const m = document.getElementById('chatMessages');
+  const docBox = el('div', { class: 'inline-doc msg flex-1' },
+    el('div', { class: 'inline-doc-label' }, step.label),
+  );
+  const body = el('div');
+  body.innerHTML = step.html;
+  docBox.appendChild(body);
+  m.appendChild(el('div', { class: 'flex gap-2 items-start' },
+    el('div', { class: 'w-7 h-7 rounded-lg bg-amber-100 text-amber-700 grid place-items-center text-sm shrink-0' }, '📄'),
+    docBox,
+  ));
+  scrollChat();
+}
+
+function scrollChat() {
+  const c = document.getElementById('chatScroll');
+  c.scrollTop = c.scrollHeight;
+}
+
+// =============== ACTIVITY PANEL ===============
+function maybeEmitActivity(step) {
+  if (!step.activity) return;
+  document.getElementById('activityEmpty').style.display = 'none';
+  const a = step.activity;
+  const feed = document.getElementById('activityFeed');
+  const kindMap = {
+    tool: { cls: 'act-tool', kindCls: 'act-kind-tool', label: 'TOOL', icon: '🔧' },
+    doc: { cls: 'act-doc', kindCls: 'act-kind-doc', label: 'DOCUMENT', icon: '📄' },
+    deadline: { cls: 'act-deadline', kindCls: 'act-kind-deadline', label: 'DEADLINE', icon: '⏰' },
+    notify: { cls: 'act-notify', kindCls: 'act-kind-notify', label: 'NOTIFY', icon: '📣' },
+    external: { cls: 'act-external', kindCls: 'act-kind-external', label: 'EXTERNAL', icon: a.icon || '🌐' },
+    subagent: { cls: 'act-subagent', kindCls: 'act-kind-subagent', label: 'SUB-AGENT', icon: '🤝' },
+  };
+  const meta = kindMap[a.kind] || kindMap.tool;
+  const card = el('div', { class: `act-card ${meta.cls}` });
+  const head = el('div', { class: 'act-head' },
+    el('span', {}, meta.icon),
+    el('span', { class: `act-kind ${meta.kindCls}` }, meta.label),
+    el('span', { class: 'act-time' }, new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })),
+  );
+  card.appendChild(head);
+  card.appendChild(el('div', { class: 'font-semibold text-[12.5px] mb-1' }, a.name || a.text));
+  if (a.body) card.appendChild(el('div', { class: 'act-body' }, a.body));
+  if (a.detail) card.appendChild(el('div', { class: 'act-body' }, a.detail));
+  if (a.result) card.appendChild(el('div', { class: 'act-result' }, a.result));
+  if (a.status) {
+    const statusEl = el('div', { class: 'mt-1.5' },
+      el('span', { class: `act-status status-${a.status}` },
+        a.status === 'running' ? '◔ Running' : a.status === 'done' ? '✓ Done' : '⏳ Waiting'
+      )
+    );
+    card.appendChild(statusEl);
+  }
+  feed.insertBefore(card, feed.firstChild);
+  updateActiveCount();
+}
+
+function updateActiveCount() {
+  const n = document.getElementById('activityFeed').children.length;
+  document.getElementById('activeCount').textContent = n > 0 ? `${n} event${n === 1 ? '' : 's'}` : '';
+}
+
+// =============== CONTROLS ===============
+document.getElementById('playBtn').addEventListener('click', () => {
+  if (state.playing) pause(); else play();
+});
+document.getElementById('resetBtn').addEventListener('click', reset);
+document.querySelectorAll('.speed-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.speed-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    state.speed = parseFloat(chip.dataset.sp);
+  });
+});
+
+// =============== INIT ===============
+renderSidebar();
+</script>
+</body>
+</html>

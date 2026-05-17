@@ -4,7 +4,10 @@ A concept prototype for a panel of specialist legal sub-agents inside GitLaw —
 
 ## Current version
 
-**v0.1** — panel grid + agent detail view + scenario player. Two fully-scripted scenarios; remaining scenarios show trigger + preview-only player.
+**v0.2** — added a second view: `chat.html`. Auto-timed scenario playback in a GitLaw-chat-style UI with sidebar scenario picker, chat thread, and live "background activity" panel.
+
+- `index.html` — **panel view** (v0.1). 9-agent grid with toolkits + step-by-step scenario player.
+- `chat.html` — **chat view** (v0.2). Pick scenario → hit Play → watch the user/agent conversation auto-play with tool calls, document operations, deadlines, external events, and time-jumps animating in real time. 4 fully-scripted scenarios with mocked legal timelines (seconds → days → weeks → months compressed into seconds of real time).
 
 ## Run
 
@@ -55,13 +58,23 @@ Single-file HTML. Tailwind via CDN. No build.
 - **Tool calls render as terminal-style cards** — name + args + mocked result. Felt more "real agent" than chat bubbles.
 - **Document operations render with Track Changes styling** — `<ins>` green, `<del>` red strikethrough — to ground the demo in GitLaw's ADF + Suggest Mode reality.
 
-## Scripted scenarios in v0.1
+## Scripted scenarios
 
-1. **Patent USPTO — §103 obviousness rejection on US 17/845,221** (12 steps)
-   Tool chain: `uspto_status_lookup` → `office_action_parse` → `prior_art_search` → `claim_amendment_drafter` → `open_change_request` → `set_deadline`. Demonstrates technical depth (KSR / MPEP 2143 / hindsight reconstruction) and Change Request creation.
+**Panel view (v0.1)** — 2 scenarios, step-by-step manual advance:
+1. Patent USPTO §103 obviousness on US 17/845,221
+2. Cease & Desist — Amazon listing
 
-2. **Cease & Desist — Amazon listing copying trademark + product images** (12 steps)
-   Tool chain: `evidence_capture` (Wayback + screenshot + hash) → `infringement_diff` → `entity_lookup` (Companies House) → `create_document` → `delivery_tracker` (Royal Mail) → `response_monitor`. Demonstrates evidence preservation, parallel Amazon takedown + C&D letter, and handoff queue to UK Commercial Litigation agent if no response.
+**Chat view (v0.2)** — 4 scenarios, auto-timed with mocked legal timelines:
+1. **Cease & Desist — Amazon listing** (~30 steps, ~3 weeks compressed). Showcases evidence capture, parallel Amazon takedown + Royal Mail tracked C&D, time-jumps (2 days → 26 hours → 11 days), inbound solicitor response, damages estimator, settlement counter with springing covenant.
+2. **GDPR 72h breach** (~20 steps, 72h + follow-up). Ticking clock drama: Article 33 risk assessment → S3 access log discovery escalates to Article 34 → ICO form drafting → DPO sign-off → 8,000 customer emails → ICO follow-up questions 3 days later.
+3. **UK Debt Collection** (~25 steps, ~60 days compressed). Full escalation ladder: Companies House solvency check → interest calc under Late Payment Act → PAP letter → silence → statutory demand (personal service by process server) → director phones to settle, consent order + default clause recommended.
+4. **Patent USPTO §103 obviousness** (~20 steps, 3 months compressed). Office action parsing → prior-art deep-dive with sub-agent → KSR/MPEP 2142 hindsight argument → claim 8 amendment for indefiniteness → inventor declaration questionnaire → 10-week wait compressed → internal review at T-14.
+
+Plus 3 preview-only scenarios (Trademark, Personal Lit, UK Commercial Lit) in the chat sidebar — to be scripted in v0.3.
+
+### Time-jump UX (the demo's most interesting move)
+
+Long waits in real legal workflows (Royal Mail delivery, statutory deadlines, ICO acknowledgement, prior-art research) are compressed into 2-3 second animated "⏩ N days later" bars in the chat. The real-world clock advances in the header (`elapsedFake`); the real elapsed time is shown separately (`elapsedReal`). The right-hand activity feed continues to emit events at the compressed pace so the user sees the *machinery* of the wait, not dead air.
 
 ## Open forks (for v0.2+)
 
