@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GitLaw Specialist Sub-Agents — v0.1</title>
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root { color-scheme: light; }
+  body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+  .grad-header { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%); }
+
+  .card { transition: border-color .15s, box-shadow .15s, transform .15s; cursor: pointer; }
+  .card:hover { border-color: #94a3b8; box-shadow: 0 4px 12px rgba(15,23,42,.06); transform: translateY(-1px); }
+
+  .tool-chip { display:inline-flex; align-items:center; gap:4px; font-size:10.5px; padding:3px 8px; border-radius:999px; background:#f1f5f9; color:#475569; font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; border:1px solid #e2e8f0; }
+  .tool-chip.specialist { background:#ede9fe; color:#5b21b6; border-color:#ddd6fe; }
+  .tool-chip.shared { background:#f1f5f9; color:#64748b; }
+
+  .group-label { font-size:10.5px; text-transform:uppercase; letter-spacing:.1em; font-weight:600; color:#64748b; }
+  .juris-pill { display:inline-block; font-size:10px; padding:2px 7px; border-radius:6px; font-weight:600; letter-spacing:.02em; }
+
+  /* Detail / scenario player */
+  .view { display:none; }
+  .view.active { display:block; }
+
+  .msg { animation: msgEnter .35s ease-out; }
+  @keyframes msgEnter { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  .tool-call { background:#0f172a; color:#e2e8f0; border-radius:10px; padding:10px 14px; font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size:12px; }
+  .tool-call .tool-name { color:#a78bfa; }
+  .tool-call .tool-result { color:#86efac; }
+  .tool-call .tool-arg { color:#fbbf24; }
+
+  .doc-op { background:#fef3c7; border:1px solid #fde68a; border-radius:10px; padding:10px 14px; font-size:12.5px; color:#78350f; }
+  .doc-op .doc-op-label { font-weight:600; color:#92400e; }
+
+  ins.tc { background:#dcfce7; text-decoration:none; color:#065f46; padding:0 2px; border-radius:2px; }
+  del.tc { background:#fee2e2; color:#7f1d1d; padding:0 2px; border-radius:2px; text-decoration:line-through; }
+
+  .scenario-row { transition: background .15s; cursor:pointer; }
+  .scenario-row:hover { background:#f8fafc; }
+  .scenario-row.scripted::after { content:""; }
+
+  /* color tint per agent group */
+  .tint-ip-indigo { background:#eef2ff; color:#3730a3; }
+  .tint-ip-blue { background:#eff6ff; color:#1e40af; }
+  .tint-ip-amber { background:#fef3c7; color:#92400e; }
+  .tint-pre-rose { background:#fff1f2; color:#9f1239; }
+  .tint-pre-emerald { background:#ecfdf5; color:#065f46; }
+  .tint-disp-slate { background:#f1f5f9; color:#334155; }
+  .tint-disp-stone { background:#f5f5f4; color:#44403c; }
+  .tint-pers-teal { background:#f0fdfa; color:#115e59; }
+  .tint-reg-violet { background:#f5f3ff; color:#5b21b6; }
+
+  .ring-ip-indigo { box-shadow: inset 0 0 0 3px #6366f1; }
+  .ring-ip-blue { box-shadow: inset 0 0 0 3px #3b82f6; }
+  .ring-ip-amber { box-shadow: inset 0 0 0 3px #f59e0b; }
+  .ring-pre-rose { box-shadow: inset 0 0 0 3px #f43f5e; }
+  .ring-pre-emerald { box-shadow: inset 0 0 0 3px #10b981; }
+  .ring-disp-slate { box-shadow: inset 0 0 0 3px #64748b; }
+  .ring-disp-stone { box-shadow: inset 0 0 0 3px #78716c; }
+  .ring-pers-teal { box-shadow: inset 0 0 0 3px #14b8a6; }
+  .ring-reg-violet { box-shadow: inset 0 0 0 3px #8b5cf6; }
+
+  .scripted-badge { background:#10b981; color:#fff; }
+  .preview-badge { background:#e2e8f0; color:#475569; }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+
+<!-- =============== HEADER =============== -->
+<header class="grad-header text-white">
+  <div class="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between text-xs">
+    <a href="../" class="text-violet-200 hover:text-white">← All prototypes</a>
+    <span class="text-violet-300">v0.1 · concept demo</span>
+  </div>
+  <div class="max-w-6xl mx-auto px-6 pb-10 pt-4">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="w-10 h-10 rounded-lg bg-white/10 grid place-items-center text-lg">⚖️</div>
+      <h1 class="text-2xl font-semibold tracking-tight">GitLaw Specialist Sub-Agents</h1>
+    </div>
+    <p class="text-violet-100 text-sm max-w-3xl leading-relaxed">A panel of nine specialist agents — each grounded in a real legal workflow (patents, trademarks, debt collection, litigation, GDPR…) with its own toolkit of GitLaw primitives and external lookups. Click an agent to see its scenarios and watch a simulated conversation flow play out.</p>
+    <div class="mt-4 flex flex-wrap gap-3 text-xs">
+      <span class="bg-white/10 px-3 py-1.5 rounded-md">9 agents</span>
+      <span class="bg-white/10 px-3 py-1.5 rounded-md">~45 specialist tools</span>
+      <span class="bg-white/10 px-3 py-1.5 rounded-md">8 shared GitLaw primitives</span>
+      <span class="bg-emerald-500/30 border border-emerald-300/40 px-3 py-1.5 rounded-md">2 scripted scenarios in v0.1</span>
+    </div>
+  </div>
+</header>
+
+<!-- =============== GRID VIEW =============== -->
+<main id="gridView" class="view active max-w-6xl mx-auto px-6 py-10">
+
+  <!-- Shared primitives section -->
+  <section class="mb-10">
+    <h2 class="group-label mb-2">Shared GitLaw primitives — every agent can call these</h2>
+    <div id="sharedTools" class="flex flex-wrap gap-1.5"></div>
+  </section>
+
+  <!-- IP group -->
+  <section class="mb-8">
+    <h2 class="group-label mb-3">Intellectual property</h2>
+    <div id="grid-ip" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+  </section>
+
+  <!-- Pre-litigation -->
+  <section class="mb-8">
+    <h2 class="group-label mb-3">Pre-litigation</h2>
+    <div id="grid-pre" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </section>
+
+  <!-- Disputes -->
+  <section class="mb-8">
+    <h2 class="group-label mb-3">Disputes</h2>
+    <div id="grid-disp" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </section>
+
+  <!-- Personal + Regulatory -->
+  <section class="mb-8">
+    <h2 class="group-label mb-3">Personal + Regulatory</h2>
+    <div id="grid-other" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </section>
+
+  <footer class="mt-12 pt-6 border-t border-slate-200 text-xs text-slate-500">
+    <p>v0.1 ships the panel + toolkit + 2 fully-scripted scenarios. Remaining scenarios show trigger + 3-message preview, ending in "v0.2 will continue".</p>
+  </footer>
+</main>
+
+<!-- =============== AGENT DETAIL VIEW =============== -->
+<main id="agentView" class="view max-w-6xl mx-auto px-6 py-10"></main>
+
+<!-- =============== SCENARIO PLAYER VIEW =============== -->
+<main id="scenarioView" class="view max-w-4xl mx-auto px-6 py-8"></main>
+
+<script>
+// =============== DATA ===============
+const SHARED_TOOLS = [
+  { name: 'create_document', desc: 'New file in a Repository' },
+  { name: 'open_change_request', desc: 'Fork + PR against a Working Draft' },
+  { name: 'apply_track_changes', desc: 'Suggest Mode edits inside ADF' },
+  { name: 'add_comment', desc: 'Annotation on a document' },
+  { name: 'search_repository', desc: 'Find clauses / past matters' },
+  { name: 'request_signature', desc: 'Kick off Signing Package' },
+  { name: 'set_deadline', desc: 'Calendar + reminder' },
+  { name: 'notify_participant', desc: 'Alert counterparty or teammate' },
+];
+
+const AGENTS = [
+  // ---------- IP ----------
+  {
+    id: 'patent-uspto', group: 'ip', color: 'ip-indigo',
+    name: 'Patent Prosecution', icon: '🔬',
+    juris: 'USPTO 🇺🇸', jurisColor: 'tint-ip-indigo',
+    blurb: 'Drafts responses to office actions, manages claim amendments, tracks IDS obligations, navigates §101/§102/§103/§112 rejections.',
+    tools: [
+      { name: 'uspto_status_lookup', desc: 'Current Patent Center status, due dates, file history' },
+      { name: 'office_action_parse', desc: 'Extracts rejections by type (§101/§102/§103/§112)' },
+      { name: 'prior_art_search', desc: 'Google Patents + Lens.org for cited art + alternatives' },
+      { name: 'claim_amendment_drafter', desc: 'Suggests claim amendments preserving scope' },
+      { name: 'ids_filing', desc: 'Files Information Disclosure Statement' },
+    ],
+    scenarios: [
+      {
+        id: 'obv-103', scripted: true,
+        title: '§103 obviousness rejection on US 17/845,221',
+        trigger: 'Non-final office action received: examiner combined Smith (US 9,123,456) + Lee (US 10,234,567) to reject claims 1-7 as obvious. 3-month statutory period running, response due 2026-08-15.',
+        steps: [
+          { type: 'tool', name: 'uspto_status_lookup', args: 'app_no: "17/845,221"',
+            result: 'Status: Non-Final Rejection · Mailed: 2026-05-15 · Statutory period: 3mo · Response due: 2026-08-15 · Examiner: M. Patel (Art Unit 2649) · Claims pending: 1-12' },
+          { type: 'tool', name: 'office_action_parse', args: 'app_no: "17/845,221"',
+            result: 'Rejections detected:\n  • §103 — Claims 1-7 obvious over Smith in view of Lee\n  • §112(b) — Claim 8 indefinite ("substantially aligned")\n  • Allowable: Claims 9-12 (dependent on novel limitation)' },
+          { type: 'agent', text: "I've parsed the office action. Two issues to address before the August 15 deadline: a §103 obviousness rejection on claims 1-7 combining Smith + Lee, and a §112(b) indefiniteness rejection on claim 8. Claims 9-12 are allowable as-is.\n\nLet me pull the cited art and look for the actual technical gap." },
+          { type: 'tool', name: 'prior_art_search', args: 'cited: ["US 9,123,456 (Smith)", "US 10,234,567 (Lee)"], target_claim: 1',
+            result: 'Smith teaches X (feedback loop), Lee teaches Y (sensor array). NEITHER teaches the claim 1 limitation "sensor calibration triggered by feedback variance > threshold τ." Smith\'s feedback is post-hoc; Lee\'s sensors are uncalibrated. Combination motivation in Office Action appears to be impermissible hindsight reconstruction.' },
+          { type: 'agent', text: "Good news — the §103 has a real weak point. Neither Smith nor Lee teaches the variance-triggered calibration limitation. The examiner's combination motivation reads like hindsight. I can draft a response arguing:\n\n  1. Non-obviousness under MPEP 2143 — no teaching/suggestion in the cited art for the variance trigger\n  2. KSR rationale insufficient — examiner reconstructed using applicant's own disclosure\n  3. Narrow amendment to claim 8 to fix indefiniteness (replace \"substantially aligned\" with \"aligned within ±2°\")\n\nShall I draft the response as a Change Request on the parent docket repo?" },
+          { type: 'user', text: "Yes — also add a declaration from the inventor on the variance threshold derivation. Examiner Patel likes evidence." },
+          { type: 'tool', name: 'claim_amendment_drafter', args: 'claim: 8, fix: "indefiniteness"',
+            result: 'Proposed: "wherein the sensor array is aligned within ±2° of the reference axis" (was: "wherein the sensor array is substantially aligned with the reference axis")' },
+          { type: 'tool', name: 'open_change_request', args: 'repo: "uspto/17-845-221", branch: "oa-response-2026-05-15"',
+            result: 'CR #14 opened: "Response to Non-Final OA mailed 2026-05-15" · 3 files staged: response.docx, claim-amendment.docx, inventor-declaration.docx' },
+          { type: 'doc', label: 'Change Request #14 — preview', html: `
+            <div class="text-xs text-amber-900/70 mb-2">RESPONSE TO OFFICE ACTION — EXCERPT</div>
+            <div class="text-sm leading-relaxed">Applicant respectfully traverses the §103 rejection. <ins class="tc">Neither Smith nor Lee teaches or suggests the limitation "sensor calibration triggered by feedback variance > threshold τ" recited in claim 1. Smith's feedback mechanism is post-hoc and does not trigger calibration; Lee's sensor array does not perform calibration at all. The Examiner's combination relies on impermissible hindsight reconstruction using Applicant's own disclosure as a roadmap (MPEP 2142).</ins></div>
+            <div class="text-sm leading-relaxed mt-3">Claim 8 is amended as follows: "wherein the sensor array is <del class="tc">substantially aligned with</del> <ins class="tc">aligned within ±2° of</ins> the reference axis."</div>
+          ` },
+          { type: 'tool', name: 'set_deadline', args: 'matter: "17/845,221", due: "2026-08-01", label: "Internal review of CR #14"',
+            result: 'Deadline set · 14 days before statutory · Assigned to: M. Holzherr · Auto-reminder T-7 and T-2' },
+          { type: 'agent', text: "Change Request #14 opened with the response, claim amendment, and inventor declaration template. Internal review deadline set for August 1, two weeks before the statutory deadline.\n\nNext: I'll prep the declaration questions for the inventor — want me to schedule a 30-minute call this week, or send them via async form?" },
+        ]
+      },
+      {
+        id: 'final-oa', scripted: false,
+        title: 'Final office action — RCE vs Appeal decision',
+        trigger: 'Final rejection mailed 2026-05-10. Same §103 rejection maintained over response. Decision needed: RCE, Notice of Appeal, or abandonment.',
+      },
+      {
+        id: 'pre-appeal', scripted: false,
+        title: 'Pre-appeal brief conference request',
+        trigger: 'Examiner refuses to withdraw rejection. Want to request pre-appeal review before filing full appeal brief ($830 → $2,330 savings if successful).',
+      },
+    ],
+  },
+  {
+    id: 'patent-epo', group: 'ip', color: 'ip-blue',
+    name: 'Patent Prosecution', icon: '🔬',
+    juris: 'EPO / UKIPO 🇪🇺', jurisColor: 'tint-ip-blue',
+    blurb: 'Handles EP examination, Rule 71(3) communications, divisional strategy, opposition proceedings under EPC.',
+    tools: [
+      { name: 'epo_register_lookup', desc: 'European Patent Register status + file' },
+      { name: 'rule_71_3_check', desc: 'Validates translations + claims fees before grant' },
+      { name: 'divisional_eligibility', desc: 'Window check: divisional must be filed while parent pending' },
+      { name: 'opposition_strategy', desc: 'Grounds analysis: novelty, inventive step, sufficiency, added matter' },
+      { name: 'epc_rule_lookup', desc: 'EPC + Rules + Guidelines for Examination' },
+    ],
+    scenarios: [
+      { id: 'r71-3', scripted: false, title: 'Rule 71(3) communication — translations + claims fees in 4 months',
+        trigger: 'EPO issued Rule 71(3) Communication of Intention to Grant. 4-month window to file translations (DE + FR claims) and pay grant + publication fee.' },
+      { id: 'divisional', scripted: false, title: 'File a divisional before parent grants',
+        trigger: 'Parent EP application about to grant. Want to preserve subject matter from withdrawn claims as a divisional.' },
+      { id: 'opposition', scripted: false, title: 'Opposition filed against our EP patent',
+        trigger: 'Third party filed opposition 8 months post-grant. Grounds: lack of inventive step (Art 56 EPC) and added subject matter (Art 123(2)).' },
+    ],
+  },
+  {
+    id: 'trademark', group: 'ip', color: 'ip-amber',
+    name: 'Trademark', icon: '™️',
+    juris: 'Multi-jurisdiction', jurisColor: 'tint-ip-amber',
+    blurb: 'Clearance searches, Nice classification, Madrid Protocol filings, office action responses, opposition defense.',
+    tools: [
+      { name: 'tess_search', desc: 'USPTO TESS clearance search' },
+      { name: 'wipo_global_brand_search', desc: 'WIPO Global Brand Database across 70+ registries' },
+      { name: 'nice_classification', desc: 'Nice Agreement class lookup + risk analysis' },
+      { name: 'madrid_filing', desc: 'WIPO Madrid Protocol filing through base mark' },
+      { name: 'watch_service_setup', desc: 'Configure monitoring for confusingly-similar applications' },
+    ],
+    scenarios: [
+      { id: 'clear-file', scripted: false, title: 'Clear and file "Hatchwise" in classes 9 + 42 (US + EU)',
+        trigger: 'Client wants global protection for new SaaS brand "Hatchwise". Need clearance, classification advice, and a Madrid filing strategy.' },
+      { id: 'descriptive', scripted: false, title: 'Office action — descriptiveness refusal at USPTO',
+        trigger: 'USPTO examiner refused registration under §2(e)(1) — alleged descriptive of the goods. Response due in 6 months.' },
+      { id: 'opposition-ukipo', scripted: false, title: 'Opposition filed at UKIPO against our pending mark',
+        trigger: 'Earlier mark holder filed opposition 2 months into the publication window. Grounds: §5(2)(b) likelihood of confusion.' },
+    ],
+  },
+
+  // ---------- PRE-LITIGATION ----------
+  {
+    id: 'cease-desist', group: 'pre', color: 'pre-rose',
+    name: 'Cease & Desist', icon: '⚠️',
+    juris: 'Cross-cutting', jurisColor: 'tint-pre-rose',
+    blurb: 'Investigates the breach, drafts the letter with correct legal hooks, serves it, tracks response, escalates to litigation if needed.',
+    tools: [
+      { name: 'evidence_capture', desc: 'Wayback + screenshot with timestamp + hash' },
+      { name: 'entity_lookup', desc: 'Companies House / Secretary of State for serving party' },
+      { name: 'infringement_diff', desc: 'Side-by-side comparison of marks/products/text' },
+      { name: 'delivery_tracker', desc: 'Royal Mail Signed-For / FedEx certified delivery' },
+      { name: 'response_monitor', desc: 'Deadline countdown + escalation trigger' },
+    ],
+    scenarios: [
+      {
+        id: 'amazon', scripted: true,
+        title: 'Amazon listing copying our trademark + product images',
+        trigger: 'A third-party seller "BrightHome-EU" listed a product on Amazon.co.uk using our registered trademark "Lumino" and three of our product photos. First spotted yesterday by sales team.',
+        steps: [
+          { type: 'agent', text: "Before I draft anything, I need to lock down the evidence — Amazon listings get edited or pulled within hours once a seller notices attention. Capturing now." },
+          { type: 'tool', name: 'evidence_capture', args: 'url: "amazon.co.uk/dp/B0CXYZ123", method: "wayback+screenshot+hash"',
+            result: 'Captured: 3 full-page screenshots + Wayback snapshot + SHA-256 of HTML · Timestamp: 2026-05-17 09:14 UTC · Storage: matter/cease-desist-2026-014/evidence/' },
+          { type: 'tool', name: 'infringement_diff', args: 'our_mark: "Lumino (UK00003456789)", their_listing: "B0CXYZ123"',
+            result: 'Trademark use: 7 instances of "Lumino" in title + bullets (identical mark, identical class 11 goods)\nImages: 3 of our copyrighted product photos used verbatim (filenames match our CDN)\nConclusion: clear §10(1) Trade Marks Act 1994 infringement + copyright infringement' },
+          { type: 'tool', name: 'entity_lookup', args: 'name: "BrightHome-EU", jurisdiction: "UK"',
+            result: 'Companies House: BRIGHTHOME EU LTD (Company No. 14782341) · Registered office: 27 Old Gloucester St, London WC1N 3AX · Director: J. Karolak (sole) · Incorporated: 2024-03-12 · Active' },
+          { type: 'agent', text: "Strong evidence and a UK-registered entity to serve. Recommend a two-track response:\n\n  1. **Amazon IP complaint** (fastest takedown — usually 24-48h via Brand Registry)\n  2. **C&D letter to BrightHome EU Ltd** at registered office, giving 14 days to: (a) confirm cessation, (b) destroy stock, (c) account for sales\n\nThe C&D should reference Trade Marks Act 1994 §10(1) and §97A CDPA 1988 for the images. Shall I draft?" },
+          { type: 'user', text: "Yes — and add a costs reservation clause. Don't make first demand for damages, but reserve the right." },
+          { type: 'tool', name: 'create_document', args: 'type: "cease_and_desist", template: "uk_trademark_copyright_combined"',
+            result: 'Document created: matter/cease-desist-2026-014/letter-v1.docx (4 pages, 1,247 words)' },
+          { type: 'doc', label: 'C&D Letter — opening paragraphs', html: `
+            <div class="text-xs text-amber-900/70 mb-2">CEASE AND DESIST — EXCERPT</div>
+            <div class="text-sm leading-relaxed"><strong>Without prejudice save as to costs</strong></div>
+            <div class="text-sm leading-relaxed mt-2">Dear Sirs,</div>
+            <div class="text-sm leading-relaxed mt-2">We act for [Client], the registered proprietor of UK trade mark No. <strong>UK00003456789</strong> ("LUMINO") in class 11, and the owner of copyright in the product photographs attached at Schedule A.</div>
+            <div class="text-sm leading-relaxed mt-2">It has come to our client's attention that BrightHome EU Ltd is offering for sale on amazon.co.uk (ASIN B0CXYZ123) goods bearing the LUMINO mark and using our client's copyrighted images. This conduct constitutes infringement of our client's registered trade mark under <strong>section 10(1) of the Trade Marks Act 1994</strong> and infringement of copyright under <strong>section 16 of the Copyright, Designs and Patents Act 1988</strong>.</div>
+            <div class="text-sm leading-relaxed mt-2">Our client requires that you, within <strong>fourteen (14) days</strong> of the date of this letter: <em>(i)</em> cease all use of the LUMINO mark and the photographs; <em>(ii)</em> remove the offending listing from Amazon and any other platform; <em>(iii)</em> deliver up or destroy any infringing stock; and <em>(iv)</em> provide an account of sales made to date.</div>
+            <div class="text-sm leading-relaxed mt-2">Our client expressly reserves the right to claim damages, an account of profits, and costs in any subsequent proceedings.</div>
+          ` },
+          { type: 'tool', name: 'delivery_tracker', args: 'method: "royal_mail_signed_for_1st", to: "27 Old Gloucester St, London WC1N 3AX"',
+            result: 'Despatch label generated · Tracking: AB123456789GB · Expected delivery: 2026-05-19 · Auto-poll set' },
+          { type: 'tool', name: 'response_monitor', args: 'deadline: "2026-05-31", matter: "cease-desist-2026-014"',
+            result: 'Countdown started: 14 days · Escalation path queued: T-3 → reminder email; T+1 (no response) → handoff to UK Commercial Litigation Agent for Particulars of Claim draft' },
+          { type: 'agent', text: "Letter ready for your review and signature. Two parallel actions queued:\n\n  • Amazon IP complaint (Brand Registry) — I can file this now if you give the green light\n  • C&D letter — once you sign, it goes Royal Mail Signed-For to BrightHome's registered office, 14-day clock starts on delivery\n\nIf no response by 2026-05-31, I'll hand off to the UK Commercial Litigation agent to draft Particulars of Claim. Anything to add before I file the Amazon complaint?" },
+        ]
+      },
+      { id: 'ex-employee', scripted: false, title: 'Ex-employee soliciting our clients in breach of restrictive covenant',
+        trigger: 'Senior salesperson left 6 weeks ago, now contacting our top-10 accounts. Restrictive covenant in their contract: 12mo non-solicit, 6mo non-compete.' },
+      { id: 'defamation', scripted: false, title: 'Defamatory online review on Trustpilot',
+        trigger: 'Anonymous 1-star review on Trustpilot makes specific false claims about safety of our product. Defamation Act 2013 serious harm threshold needs assessing.' },
+    ],
+  },
+  {
+    id: 'debt-collection', group: 'pre', color: 'pre-emerald',
+    name: 'Invoice Debt Collection', icon: '💷',
+    juris: 'UK / US branching', jurisColor: 'tint-pre-emerald',
+    blurb: 'Escalation ladder from chaser → formal demand → pre-action protocol letter → statutory demand or MCOL / state court filing.',
+    tools: [
+      { name: 'companies_house_solvency', desc: 'Active filings, charges, CCJs, winding-up petitions' },
+      { name: 'interest_calculator', desc: 'Late Payment Act 8% + BoE base + £40-£100 fixed cost' },
+      { name: 'statutory_demand_generator', desc: 'Form 4.1 statutory demand (Insolvency Act 1986)' },
+      { name: 'mcol_filing', desc: 'Money Claim Online submission for claims < £100k' },
+      { name: 'payment_tracker', desc: 'Bank reconciliation + part-payment ledger' },
+    ],
+    scenarios: [
+      { id: 'silent-debtor', scripted: false, title: '£15k unpaid invoice — UK debtor going silent',
+        trigger: 'Invoice raised 2026-02-10, 30-day terms. Three chasers ignored. Last contact 6 weeks ago. Debtor is a UK limited company.' },
+      { id: 'preserve-relation', scripted: false, title: '£800 invoice, repeat customer — preserve relationship',
+        trigger: 'Long-standing customer 47 days overdue on a small invoice. Want firm but soft escalation that keeps the account alive.' },
+      { id: 'us-interstate', scripted: false, title: '$50k SaaS invoice, interstate US debtor',
+        trigger: 'California-based debtor on a contract with NY jurisdiction clause. 90 days overdue. Forum selection vs minimum-contacts question.' },
+    ],
+  },
+
+  // ---------- DISPUTES ----------
+  {
+    id: 'lit-uk', group: 'disp', color: 'disp-slate',
+    name: 'Commercial Litigation', icon: '⚖️',
+    juris: 'England & Wales 🇬🇧', jurisColor: 'tint-disp-slate',
+    blurb: 'Pre-action protocol, Particulars of Claim, CPR Part 31 disclosure, witness statements, costs budgets, CE-File submissions.',
+    tools: [
+      { name: 'cpr_lookup', desc: 'Civil Procedure Rules + Practice Directions' },
+      { name: 'bailii_case_search', desc: 'BAILII case law search with citation extraction' },
+      { name: 'disclosure_list_part31', desc: 'Part 31 disclosure list builder + privilege log' },
+      { name: 'costs_budget_precedent_h', desc: 'Precedent H costs budget by phase' },
+      { name: 'ce_file_submit', desc: 'HMCTS CE-File submission with fee payment' },
+    ],
+    scenarios: [
+      { id: 'pre-action', scripted: false, title: 'Breach of contract — £250k disputed, pre-action letter needed',
+        trigger: 'Commercial contract terminated for alleged breach. Need Practice Direction Pre-Action Conduct compliant letter before claim.' },
+      { id: 'disclosure', scripted: false, title: 'Disclosure deadline in 14 days — Part 31 list',
+        trigger: 'CMC ordered standard disclosure. 14 days to produce Part 31 list with privilege log over ~12,000 documents.' },
+      { id: 'precedent-h', scripted: false, title: 'Costs budget (Precedent H) due before CCMC',
+        trigger: 'CCMC in 21 days. Need Precedent H costs budget by phase, with budget discussion report, exchanged with opponent 7 days prior.' },
+    ],
+  },
+  {
+    id: 'lit-us', group: 'disp', color: 'disp-stone',
+    name: 'Commercial Litigation', icon: '⚖️',
+    juris: 'US Federal 🇺🇸', jurisColor: 'tint-disp-stone',
+    blurb: 'Complaint drafting, Rule 26 disclosures, e-discovery custodian planning, motion practice under local rules.',
+    tools: [
+      { name: 'pacer_lookup', desc: 'PACER docket pull + RECAP cross-check' },
+      { name: 'frcp_lookup', desc: 'Federal Rules of Civil Procedure + Advisory Committee Notes' },
+      { name: 'westlaw_search', desc: 'Westlaw / KeyCite citator integration' },
+      { name: 'ediscovery_custodian_planner', desc: 'Custodian + data source mapping for Rule 26(f) meet-and-confer' },
+      { name: 'local_rules_motion_template', desc: 'Motion template by district + chambers preferences' },
+    ],
+    scenarios: [
+      { id: 'answer-21', scripted: false, title: 'Complaint served — answer due in 21 days (FRCP 12)',
+        trigger: 'Complaint served via FRCP 4. 21-day window: file answer, motion to dismiss, or motion for extension. Federal court, SDNY.' },
+      { id: 'rule-26f', scripted: false, title: 'Rule 26(f) conference — e-discovery custodian plan',
+        trigger: 'Rule 26(f) meet-and-confer in 10 days. Need custodian list, data sources, search terms, ESI protocol draft, and proportionality analysis.' },
+      { id: 'motion-dismiss', scripted: false, title: 'Motion to dismiss for failure to state a claim',
+        trigger: 'Reviewing complaint for Twombly/Iqbal plausibility deficiencies. Considering 12(b)(6) motion vs answer with affirmative defenses.' },
+    ],
+  },
+
+  // ---------- PERSONAL + REGULATORY ----------
+  {
+    id: 'lit-personal-uk', group: 'pers', color: 'pers-teal',
+    name: 'Personal Litigation', icon: '👤',
+    juris: 'UK — litigant in person 🇬🇧', jurisColor: 'tint-pers-teal',
+    blurb: 'Built for users without lawyers. Small claims, employment tribunal, housing disrepair, tenancy disputes — written in plain English with court-level rigour.',
+    tools: [
+      { name: 'acas_early_conciliation', desc: 'ACAS EC notification + certificate tracking' },
+      { name: 'et1_drafter', desc: 'Employment tribunal ET1 form builder' },
+      { name: 'legal_aid_check', desc: 'LASPO scope + means/merits test' },
+      { name: 'track_allocation_calculator', desc: 'Small claims / fast / multi-track threshold check' },
+      { name: 'evidence_bundle_builder', desc: 'PDF bundle assembly with index + pagination' },
+    ],
+    scenarios: [
+      { id: 'faulty-laptop', scripted: false, title: 'Faulty £2,500 laptop, retailer refusing refund',
+        trigger: 'Consumer Rights Act 2015 §9-11 satisfactory quality claim. Retailer offering repair only, user wants refund. Within 6 months reverse-burden.' },
+      { id: 'unfair-dismissal', scripted: false, title: 'Unfair dismissal — 3 months less 1 day to file ET1',
+        trigger: 'Dismissed 2026-03-20. ET1 deadline 2026-06-19 (3 months less 1 day). ACAS Early Conciliation mandatory first step.' },
+      { id: 'tenancy-deposit', scripted: false, title: 'Tenancy deposit not returned — Housing Act 2004 penalty',
+        trigger: 'Landlord did not protect deposit in approved scheme within 30 days. Tenant entitled to 1-3x deposit penalty under HA 2004 §214.' },
+    ],
+  },
+  {
+    id: 'gdpr', group: 'reg', color: 'reg-violet',
+    name: 'Data Protection', icon: '🔐',
+    juris: 'UK / EU GDPR', jurisColor: 'tint-reg-violet',
+    blurb: 'Breach notification (Article 33 72-hour clock), DSARs, DPIAs, ROPA updates, controller/processor classification.',
+    tools: [
+      { name: 'dsar_intake', desc: 'DSAR scope + identity verification workflow' },
+      { name: 'breach_severity_article33', desc: 'Article 33 risk-to-rights-and-freedoms assessment' },
+      { name: 'ico_breach_report_72h', desc: 'ICO breach report form with auto-fill' },
+      { name: 'dpia_template', desc: 'DPIA template per ICO guidance' },
+      { name: 'ropa_updater', desc: 'Record of Processing Activities update' },
+    ],
+    scenarios: [
+      { id: 'breach-72h', scripted: false, title: 'Data breach detected this morning — 72-hour clock running',
+        trigger: 'Engineering reported misconfigured S3 bucket exposed for ~14 days. ~8,000 customer records (email + hashed password) potentially accessed. Discovery: 09:30 today.' },
+      { id: 'dsar', scripted: false, title: 'DSAR from former employee — 1 month to respond',
+        trigger: 'DSAR received from former employee asking for "all my data". Includes emails about them, performance reviews, references. Third-party data + privilege questions.' },
+      { id: 'dpia', scripted: false, title: 'DPIA needed for new HR analytics tool',
+        trigger: 'HR proposing rollout of attrition-prediction tool processing performance + sentiment data. ICO guidance triggers DPIA (high risk + new tech + employee monitoring).' },
+    ],
+  },
+];
+
+// =============== RENDER GRID ===============
+function el(tag, attrs = {}, ...children) {
+  const e = document.createElement(tag);
+  if (attrs) {
+    for (const [k, v] of Object.entries(attrs)) {
+      if (k === 'class') e.className = v;
+      else if (k === 'html') e.innerHTML = v;
+      else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+      else e.setAttribute(k, v);
+    }
+  }
+  for (const c of children) {
+    if (c == null) continue;
+    e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  }
+  return e;
+}
+
+function renderSharedTools() {
+  const c = document.getElementById('sharedTools');
+  SHARED_TOOLS.forEach(t => {
+    const chip = el('span', { class: 'tool-chip shared', title: t.desc }, t.name);
+    c.appendChild(chip);
+  });
+}
+
+function renderAgentCard(agent) {
+  const scriptedCount = agent.scenarios.filter(s => s.scripted).length;
+  const card = el('div', {
+    class: `card bg-white border border-slate-200 rounded-xl p-5 ring-${agent.color}`,
+    onclick: () => showAgent(agent.id),
+  });
+
+  const head = el('div', { class: 'flex items-start justify-between gap-3 mb-3' });
+  const left = el('div', { class: 'flex items-center gap-2.5' },
+    el('div', { class: 'text-2xl' }, agent.icon),
+    el('div', {},
+      el('h3', { class: 'font-semibold text-base leading-tight' }, agent.name),
+      el('span', { class: `juris-pill ${agent.jurisColor} mt-1` }, agent.juris),
+    )
+  );
+  head.appendChild(left);
+  card.appendChild(head);
+
+  card.appendChild(el('p', { class: 'text-sm text-slate-600 leading-relaxed mb-4' }, agent.blurb));
+
+  const toolsLabel = el('div', { class: 'group-label mb-1.5' }, `Specialist toolkit · ${agent.tools.length}`);
+  card.appendChild(toolsLabel);
+  const tools = el('div', { class: 'flex flex-wrap gap-1.5 mb-4' });
+  agent.tools.forEach(t => tools.appendChild(el('span', { class: 'tool-chip specialist', title: t.desc }, t.name)));
+  card.appendChild(tools);
+
+  const footer = el('div', { class: 'flex items-center justify-between pt-3 border-t border-slate-100 text-xs' });
+  const scenarioInfo = el('div', { class: 'flex items-center gap-2' },
+    el('span', { class: 'text-slate-500' }, `${agent.scenarios.length} scenarios`),
+    scriptedCount > 0
+      ? el('span', { class: 'tool-chip scripted-badge', title: 'Fully scripted in v0.1' }, `${scriptedCount} scripted`)
+      : el('span', { class: 'tool-chip preview-badge' }, 'preview only'),
+  );
+  footer.appendChild(scenarioInfo);
+  footer.appendChild(el('span', { class: 'text-slate-400' }, 'Open →'));
+  card.appendChild(footer);
+  return card;
+}
+
+function renderGrid() {
+  renderSharedTools();
+  const groups = { ip: 'grid-ip', pre: 'grid-pre', disp: 'grid-disp', pers: 'grid-other', reg: 'grid-other' };
+  AGENTS.forEach(a => {
+    const target = document.getElementById(groups[a.group]);
+    target.appendChild(renderAgentCard(a));
+  });
+}
+
+// =============== AGENT DETAIL ===============
+function showAgent(agentId) {
+  const a = AGENTS.find(x => x.id === agentId);
+  const v = document.getElementById('agentView');
+  v.innerHTML = '';
+
+  const back = el('button', {
+    class: 'text-sm text-violet-700 hover:underline mb-4',
+    onclick: () => showView('gridView'),
+  }, '← All agents');
+  v.appendChild(back);
+
+  const head = el('div', { class: 'flex items-start gap-4 mb-6' },
+    el('div', { class: 'text-4xl' }, a.icon),
+    el('div', {},
+      el('h2', { class: 'text-2xl font-semibold' }, a.name),
+      el('div', { class: 'flex items-center gap-2 mt-1' },
+        el('span', { class: `juris-pill ${a.jurisColor}` }, a.juris),
+      ),
+      el('p', { class: 'text-slate-600 mt-3 max-w-3xl' }, a.blurb),
+    )
+  );
+  v.appendChild(head);
+
+  // Toolkit
+  const toolkit = el('section', { class: 'mb-8' });
+  toolkit.appendChild(el('h3', { class: 'group-label mb-3' }, `Specialist toolkit — ${a.tools.length} tools`));
+  const toolGrid = el('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-2' });
+  a.tools.forEach(t => {
+    toolGrid.appendChild(el('div', { class: 'bg-white border border-slate-200 rounded-lg p-3 flex items-start gap-3' },
+      el('span', { class: 'tool-chip specialist mt-0.5 shrink-0' }, t.name),
+      el('span', { class: 'text-sm text-slate-600' }, t.desc),
+    ));
+  });
+  toolkit.appendChild(toolGrid);
+
+  const sharedNote = el('div', { class: 'mt-4 text-xs text-slate-500 flex items-center gap-2 flex-wrap' });
+  sharedNote.appendChild(el('span', {}, 'Plus all 8 shared GitLaw primitives:'));
+  SHARED_TOOLS.forEach(t => sharedNote.appendChild(el('span', { class: 'tool-chip shared', title: t.desc }, t.name)));
+  toolkit.appendChild(sharedNote);
+  v.appendChild(toolkit);
+
+  // Scenarios
+  const scenSec = el('section', {});
+  scenSec.appendChild(el('h3', { class: 'group-label mb-3' }, `Scenarios — ${a.scenarios.length}`));
+  const list = el('div', { class: 'bg-white border border-slate-200 rounded-lg divide-y divide-slate-100' });
+  a.scenarios.forEach(s => {
+    const row = el('div', {
+      class: 'scenario-row p-4 flex items-start gap-3',
+      onclick: () => showScenario(a.id, s.id),
+    });
+    row.appendChild(el('div', { class: 'shrink-0 mt-0.5' },
+      s.scripted
+        ? el('span', { class: 'tool-chip scripted-badge' }, '▶ play')
+        : el('span', { class: 'tool-chip preview-badge' }, 'preview')
+    ));
+    row.appendChild(el('div', { class: 'flex-1' },
+      el('div', { class: 'font-medium text-sm' }, s.title),
+      el('div', { class: 'text-xs text-slate-500 mt-1 leading-relaxed' }, s.trigger),
+    ));
+    row.appendChild(el('span', { class: 'text-slate-400 text-sm' }, '→'));
+    list.appendChild(row);
+  });
+  scenSec.appendChild(list);
+  v.appendChild(scenSec);
+
+  showView('agentView');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+// =============== SCENARIO PLAYER ===============
+let playerState = { agentId: null, scenarioId: null, stepIdx: 0 };
+
+function showScenario(agentId, scenarioId) {
+  const a = AGENTS.find(x => x.id === agentId);
+  const s = a.scenarios.find(x => x.id === scenarioId);
+  const v = document.getElementById('scenarioView');
+  v.innerHTML = '';
+  playerState = { agentId, scenarioId, stepIdx: 0 };
+
+  const back = el('button', {
+    class: 'text-sm text-violet-700 hover:underline mb-4',
+    onclick: () => showAgent(agentId),
+  }, `← ${a.name} (${a.juris})`);
+  v.appendChild(back);
+
+  v.appendChild(el('h2', { class: 'text-xl font-semibold mb-2' }, s.title));
+  v.appendChild(el('div', { class: 'bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-900 mb-6' },
+    el('div', { class: 'text-xs font-semibold uppercase tracking-wider text-amber-700 mb-1' }, 'Trigger'),
+    el('div', {}, s.trigger),
+  ));
+
+  const transcript = el('div', { id: 'transcript', class: 'space-y-3 mb-6' });
+  v.appendChild(transcript);
+
+  const controls = el('div', { id: 'controls', class: 'flex items-center gap-3 sticky bottom-4 bg-white border border-slate-200 rounded-xl p-3 shadow-md' });
+  v.appendChild(controls);
+
+  if (s.scripted) {
+    renderStep(s);
+    renderControls(s);
+  } else {
+    // Preview-only path
+    transcript.appendChild(el('div', { class: 'bg-slate-50 border border-slate-200 rounded-lg p-4 text-sm text-slate-600' },
+      el('div', { class: 'mb-2' }, '👋 Hi — I can help with this. Before I draft anything, let me confirm a few facts and pull the relevant procedural rules.'),
+      el('div', { class: 'mb-2' }, '🔧 [Would call specialist tools here]'),
+      el('div', {}, '— preview ends; v0.2 will continue this scenario —'),
+    ));
+  }
+
+  showView('scenarioView');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function renderStep(s) {
+  const step = s.steps[playerState.stepIdx];
+  if (!step) return;
+  const t = document.getElementById('transcript');
+  let node;
+  if (step.type === 'agent') {
+    node = el('div', { class: 'msg flex gap-3' },
+      el('div', { class: 'w-8 h-8 rounded-lg bg-violet-600 text-white grid place-items-center text-xs font-bold shrink-0' }, 'AI'),
+      el('div', { class: 'bg-white border border-slate-200 rounded-xl p-4 text-sm leading-relaxed whitespace-pre-line flex-1' }, step.text),
+    );
+  } else if (step.type === 'user') {
+    node = el('div', { class: 'msg flex gap-3 justify-end' },
+      el('div', { class: 'bg-violet-600 text-white rounded-xl p-4 text-sm leading-relaxed max-w-xl' }, step.text),
+      el('div', { class: 'w-8 h-8 rounded-lg bg-slate-200 text-slate-700 grid place-items-center text-xs font-bold shrink-0' }, 'You'),
+    );
+  } else if (step.type === 'tool') {
+    node = el('div', { class: 'msg flex gap-3' },
+      el('div', { class: 'w-8 h-8 rounded-lg bg-slate-100 text-slate-500 grid place-items-center text-xs shrink-0' }, '🔧'),
+      el('div', { class: 'tool-call flex-1' }, '')
+    );
+    node.lastChild.innerHTML = `<div class="mb-1"><span class="text-slate-400">▶</span> <span class="tool-name">${step.name}</span>(<span class="tool-arg">${step.args}</span>)</div><div class="tool-result whitespace-pre-line">${step.result}</div>`;
+  } else if (step.type === 'doc') {
+    node = el('div', { class: 'msg flex gap-3' },
+      el('div', { class: 'w-8 h-8 rounded-lg bg-amber-100 text-amber-700 grid place-items-center text-xs shrink-0' }, '📄'),
+      el('div', { class: 'doc-op flex-1' },
+        el('div', { class: 'doc-op-label mb-2' }, step.label)
+      ),
+    );
+    const docBody = el('div', { class: 'bg-white rounded p-3 border border-amber-200' });
+    docBody.innerHTML = step.html;
+    node.lastChild.appendChild(docBody);
+  }
+  t.appendChild(node);
+}
+
+function renderControls(s) {
+  const c = document.getElementById('controls');
+  c.innerHTML = '';
+  const total = s.steps.length;
+  const cur = playerState.stepIdx + 1;
+  c.appendChild(el('div', { class: 'text-xs text-slate-500 flex-1' }, `Step ${Math.min(cur, total)} of ${total}`));
+  c.appendChild(el('button', {
+    class: 'text-xs border border-slate-300 px-3 py-1.5 rounded-md hover:bg-slate-50',
+    onclick: () => {
+      playerState.stepIdx = 0;
+      document.getElementById('transcript').innerHTML = '';
+      renderStep(s);
+      renderControls(s);
+    },
+  }, '⟲ Reset'));
+
+  if (playerState.stepIdx < total - 1) {
+    c.appendChild(el('button', {
+      class: 'text-sm bg-slate-900 text-white px-4 py-1.5 rounded-md hover:bg-slate-800',
+      onclick: () => {
+        playerState.stepIdx += 1;
+        renderStep(s);
+        renderControls(s);
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      },
+    }, 'Next step →'));
+  } else {
+    c.appendChild(el('span', { class: 'text-xs text-emerald-700 font-medium' }, '✓ scenario complete'));
+  }
+}
+
+// =============== VIEW SWITCHING ===============
+function showView(id) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// =============== INIT ===============
+renderGrid();
+</script>
+</body>
+</html>
