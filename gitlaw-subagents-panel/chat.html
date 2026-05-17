@@ -501,27 +501,28 @@ function renderSidebar() {
 
 function scnItem(s, isPreview = false) {
   const node = el('div', {
-    class: `scn-item border-l-4 border-transparent px-4 py-3`,
+    class: `scn-item border-l-4 border-transparent px-4 py-3.5`,
     'data-id': s.id,
     onclick: () => selectScenario(s.id),
   },
-    el('div', { class: 'flex items-center gap-2 mb-1' },
-      el('span', { class: `inline-flex items-center justify-center w-5 h-5 rounded text-[10px] font-bold text-white shrink-0 ${s.badgeColor}` }, s.badge),
-      el('div', { class: 'text-[11px] text-slate-500 truncate' }, s.agentName),
-    ),
-    el('div', { class: 'text-[13px] font-medium leading-snug mb-1' }, s.title),
-    el('div', { class: 'text-[11px] text-slate-500 leading-snug' }, s.summary || ''),
-    el('div', { class: 'mt-1.5 flex items-center gap-1.5' },
-      isPreview
-        ? el('span', { class: 'text-[10px] uppercase tracking-wider font-semibold text-slate-400' }, 'preview')
-        : el('span', { class: 'text-[10px] uppercase tracking-wider font-semibold text-emerald-600' }, '● live'),
-      s.durationLabel ? el('span', { class: 'text-[10px] text-slate-400' }, `· ${s.durationLabel}`) : null,
+    el('div', { class: 'flex items-start gap-2.5' },
+      el('span', { class: `inline-flex items-center justify-center w-7 h-7 rounded-md text-[12px] font-bold text-white shrink-0 mt-0.5 ${s.badgeColor}` }, s.badge),
+      el('div', { class: 'min-w-0 flex-1' },
+        el('div', { class: 'text-[14px] font-semibold leading-tight text-slate-900' }, s.agentName),
+        el('div', { class: 'text-[11.5px] text-slate-500 leading-snug mt-0.5' }, s.title),
+        el('div', { class: 'mt-1.5 flex items-center gap-1.5' },
+          isPreview
+            ? el('span', { class: 'text-[10px] uppercase tracking-wider font-semibold text-slate-400' }, 'preview')
+            : el('span', { class: 'text-[10px] uppercase tracking-wider font-semibold text-emerald-600' }, '● live'),
+          s.durationLabel ? el('span', { class: 'text-[10px] text-slate-400' }, `· ${s.durationLabel}`) : null,
+        ),
+      ),
     ),
   );
   return node;
 }
 
-function selectScenario(id) {
+function selectScenario(id, autoplay = true) {
   state = { ...state, scenarioId: id, stepIdx: -1, playing: false, realStart: null };
   stopTimer();
   document.querySelectorAll('.scn-item').forEach(n => n.classList.toggle('active', n.dataset.id === id));
@@ -547,8 +548,12 @@ function selectScenario(id) {
     document.getElementById('elapsedClock').classList.remove('hidden');
     document.getElementById('elapsedReal').textContent = '0s real';
     document.getElementById('elapsedFake').textContent = s.steps[0].fakeTime || '—';
+    if (autoplay) {
+      // Autoplay on selection — kick off after a short beat so the user clocks the chat header
+      setTimeout(() => play(), 350);
+    }
   }
-  setFooter('Ready to play');
+  setFooter(autoplay ? 'Starting…' : 'Ready to play');
 }
 
 // =============== VIEW RESET ===============
@@ -601,7 +606,7 @@ function reset() {
   if (state.clockTimer) { clearInterval(state.clockTimer); state.clockTimer = null; }
   document.getElementById('elapsedReal').textContent = '0s real';
   resetView();
-  if (state.scenarioId) selectScenario(state.scenarioId);
+  if (state.scenarioId) selectScenario(state.scenarioId, false);
 }
 
 function advance() {
