@@ -35,7 +35,7 @@
   <div class="max-w-4xl mx-auto px-6 py-12">
     <div class="text-xs text-slate-300 uppercase tracking-wider mb-2">Feedback round · internal content team</div>
     <h1 class="text-2xl font-semibold tracking-tight mb-3">GitLaw prototype feedback</h1>
-    <p class="text-slate-300 text-sm leading-relaxed max-w-2xl">Hi Rebecca, Sophia, Ankit, Roman — please test the prototypes below and write thoughts in the linked Google Docs. <strong class="text-white">P3 and P4 are the priority</strong> — we mainly need a lawyer's eye on whether the extracted output is correct. UX feedback welcome too on any of them.</p>
+    <p class="text-slate-300 text-sm leading-relaxed max-w-2xl">Please test the prototypes below and write thoughts in the linked Google Doc. <strong class="text-white">P3 and P4 are the priority</strong> — we mainly need a lawyer's eye on whether the extracted output is correct. UX feedback welcome too on any of them.</p>
     <p class="text-slate-400 text-xs mt-3"><strong class="text-slate-200">Deadline:</strong> Fri 22 May · <strong class="text-slate-200">~60-90 min total</strong></p>
   </div>
 </header>
@@ -64,8 +64,8 @@
               <strong>Key thing to test:</strong> memory should <em>only</em> store things uniquely useful for later turns. Not playbook content (already loaded), not generic chitchat, not restatements of what's in the chat. Fluff dilutes the signal and degrades the agent. Flag anything that doesn't pass: <em>"would this uniquely help a future turn?"</em>
             </div>
             <div class="text-sm space-y-1.5">
-              <div>🎥 <a href="https://www.loom.com/share/e007d5e86e884270a36f42ce49cafaaf" class="text-amber-700 hover:underline">Loom walkthrough (3 min — watch first)</a></div>
-              <div>💬 <a href="https://stg-chat.gitlaw.co/" class="text-amber-700 hover:underline">Open Stg-chat</a> <span class="text-xs text-slate-500">— make a new account if your git.law one doesn't work; any email is fine</span></div>
+              <div>🎥 <a href="https://www.loom.com/share/e007d5e86e884270a36f42ce49cafaaf" target="_blank" rel="noopener" class="text-amber-700 hover:underline">Loom walkthrough (3 min — watch first)</a></div>
+              <div>💬 <a href="https://stg-chat.gitlaw.co/" target="_blank" rel="noopener" class="text-amber-700 hover:underline">Open Stg-chat</a> <span class="text-xs text-slate-500">— make a new account if your git.law one doesn't work; any email is fine</span></div>
               <div>📝 <a href="#" class="text-amber-700 hover:underline font-medium" data-doc>Write in the shared feedback Doc</a></div>
               <div class="text-xs text-slate-500 pt-1">Commands: <code class="kbd">/print-memory</code> · <code class="kbd">/clear-memory</code></div>
             </div>
@@ -108,14 +108,14 @@
             <div class="text-sm text-emerald-900 bg-emerald-50 border border-emerald-200 rounded-lg p-3 mb-3 leading-relaxed">
               <strong>Even better — test with your own contracts.</strong> Two paths:
               <ul class="list-disc ml-5 mt-1.5 space-y-1">
-                <li><strong>Claude Code user?</strong> Go to <a href="https://github.com/GitLaw-co/memory-tests/tree/whisk-com-contract-sample" class="text-emerald-700 hover:underline font-mono text-xs">GitLaw-co/memory-tests</a>, check out the <code class="kbd">whisk-com-contract-sample</code> branch (Nick's branch with the visual file-index prototype). Create your own branch from it, swap in your contracts, re-run. Best signal.</li>
+                <li><strong>Claude Code user?</strong> Go to <a href="https://github.com/GitLaw-co/memory-tests/tree/whisk-com-contract-sample" target="_blank" rel="noopener" class="text-emerald-700 hover:underline font-mono text-xs">GitLaw-co/memory-tests</a>, check out the <code class="kbd">whisk-com-contract-sample</code> branch (Nick's branch with the visual file-index prototype). Create your own branch from it, swap in your contracts, re-run. Best signal.</li>
                 <li><strong>Not?</strong> Send Nick a folder (your real contracts, or public templates / online samples — doesn't need to be confidential). He'll set it up and share the result.</li>
               </ul>
               <p class="mt-2 text-xs">Why this matters: Victor tested with synthetic data and the fidelity check was weak. Nick re-ran it on his old Whisk contracts — knowing the originals, he spotted what was wrong instantly. Same will be true for you.</p>
             </div>
             <div class="text-sm space-y-1.5">
-              <div>🔗 <a href="../files-index/overview.html" class="text-emerald-700 hover:underline">Open Files index prototype (23 sample contracts)</a></div>
-              <div>📂 <a href="../files-index/sources.html" class="text-slate-500 hover:underline">Browse the 23 source contracts</a></div>
+              <div>🔗 <a href="../files-index/overview.html" target="_blank" rel="noopener" class="text-emerald-700 hover:underline">Open Files index prototype (23 sample contracts)</a></div>
+              <div>📂 <a href="../files-index/sources.html" target="_blank" rel="noopener" class="text-slate-500 hover:underline">Browse the 23 source contracts</a></div>
               <div>📝 <a href="#" class="text-emerald-700 hover:underline font-medium" data-doc>Write in the shared feedback Doc</a></div>
             </div>
             <details>
@@ -162,7 +162,7 @@
             <h2 class="text-base font-semibold text-slate-900 mb-2">AI redlining — Nick's fork</h2>
             <p class="text-sm text-slate-600 leading-relaxed mb-3">AI suggestions layered on track-changes. Test accept / reject / refine. Your gut on whether the suggestion-card layer earns its place in Word matters.</p>
             <div class="text-sm space-y-1.5">
-              <div>🔗 <a href="https://gitlaw-co.github.io/gitlaw-redline-nick/" class="text-rose-700 hover:underline">P5 — gitlaw-redline-nick</a></div>
+              <div>🔗 <a href="https://gitlaw-co.github.io/gitlaw-redline-nick/" target="_blank" rel="noopener" class="text-rose-700 hover:underline">P5 — gitlaw-redline-nick</a></div>
               <div>📝 <a href="#" class="text-rose-700 hover:underline font-medium" data-doc>Write in the shared feedback Doc</a></div>
               <div class="text-xs text-slate-500">P6 (Dario's main thread) — compare if you want, write in the P5 Doc.</div>
             </div>
@@ -194,8 +194,8 @@
             <h2 class="text-base font-semibold text-slate-900 mb-2">Lawyer access — BYO and AI-agent</h2>
             <p class="text-sm text-slate-600 leading-relaxed mb-3">Two ways to get users legal help — BYO lawyer (P1, easiest to build) vs pure AI agent (P2, hardest). Earlier-stage / directional.</p>
             <div class="text-sm space-y-1.5">
-              <div>🔗 <a href="../lawyer-loop-in-lite/b-byo.html" class="text-violet-700 hover:underline">P1 — Lawyer loop-in BYO</a></div>
-              <div>🔗 <a href="../legal-advice-agent/index.html" class="text-sky-700 hover:underline">P2 — Legal-advice agent</a></div>
+              <div>🔗 <a href="../lawyer-loop-in-lite/b-byo.html" target="_blank" rel="noopener" class="text-violet-700 hover:underline">P1 — Lawyer loop-in BYO</a></div>
+              <div>🔗 <a href="../legal-advice-agent/index.html" target="_blank" rel="noopener" class="text-sky-700 hover:underline">P2 — Legal-advice agent</a></div>
               <div>📝 <a href="#" class="text-slate-700 hover:underline font-medium" data-doc>Write in the shared feedback Doc</a></div>
             </div>
             <details>
@@ -232,7 +232,7 @@
   <section class="bg-white border border-slate-200 rounded-xl p-6">
     <h3 class="text-sm font-semibold mb-3 text-slate-900">How to give feedback</h3>
     <ul class="text-sm text-slate-700 space-y-2 leading-relaxed">
-      <li><strong>Where:</strong> <a href="https://docs.google.com/document/d/143AIFuxGa8BUKgm8LqPcjLrJg_q0SSuJWBvdn98hMqs/edit" class="text-blue-600 hover:underline">one shared Google Doc</a> for all prototypes. Scroll to your prototype's section, add your name, write. The Doc itself has Nick's format notes at the top.</li>
+      <li><strong>Where:</strong> <a href="https://docs.google.com/document/d/143AIFuxGa8BUKgm8LqPcjLrJg_q0SSuJWBvdn98hMqs/edit" target="_blank" rel="noopener" class="text-blue-600 hover:underline">one shared Google Doc</a> for all prototypes. Scroll to your prototype's section, add your name, write. The Doc itself has Nick's format notes at the top.</li>
       <li><strong>Screenshots:</strong> paste inline (Cmd+V). Annotate if helpful.</li>
       <li><strong>Length:</strong> bullets or long-form — whatever's clearest.</li>
       <li><strong>Only 15 minutes?</strong> Do P3. Look at <code class="kbd">/print-memory</code> after one chat session and tell us what's wrong.</li>
