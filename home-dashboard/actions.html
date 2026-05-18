@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Content Ops · Key actions this week</title>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --border: #e6e4df;
+    --ink: #1f1d1a;
+    --ink-soft: #5b574f;
+    --ink-mute: #8a857a;
+    --accent: #2f6feb;
+    --good: #1f8a4c;
+    --warn: #b07b00;
+    --bad: #c0392b;
+    --good-bg: #e8f5ec;
+    --warn-bg: #fbf2dc;
+    --bad-bg: #fbe6e3;
+    --chip-bg: #ece9e2;
+    --shadow: 0 1px 0 rgba(0,0,0,.02), 0 4px 14px rgba(15,15,15,.04);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 28px 28px 80px; }
+  .back { font-size: 12px; color: var(--ink-mute); text-decoration: none; }
+  .back:hover { color: var(--accent); }
+  header.top { margin-top: 12px; margin-bottom: 28px; }
+  header.top h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.02em; font-weight: 650; }
+  header.top p { color: var(--ink-soft); margin: 0; max-width: 700px; }
+  .stamp { display: block; margin-top: 8px; font-size: 12px; color: var(--ink-mute); }
+
+  .blockers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .block { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--bad); border-radius: 10px; padding: 16px 18px; box-shadow: var(--shadow); }
+  .block.warn { border-left-color: var(--warn); }
+  .block .tag { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--bad); }
+  .block.warn .tag { color: var(--warn); }
+  .block h3 { margin: 6px 0 8px; font-size: 16px; }
+  .block p { margin: 0 0 8px; color: var(--ink-soft); }
+  .block .meta { font-size: 12px; color: var(--ink-mute); }
+  .block ul { margin: 8px 0 0; padding-left: 18px; color: var(--ink-soft); font-size: 13px; }
+  .block ul li { margin-bottom: 3px; }
+
+  h2.section { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-mute); margin: 26px 0 12px; font-weight: 600; }
+
+  footer.note { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 11px; color: var(--ink-mute); }
+
+  @media (max-width: 760px) { .blockers { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="./index.html">← Back to dashboard</a>
+
+  <header class="top">
+    <h1>🥇 Key actions — this week</h1>
+    <p>Prioritised by leverage. What's blocking the content op + what to chip away at if the blockers are someone else's call.</p>
+    <span class="stamp">Refreshed 2026-W20 · 18 May 2026</span>
+  </header>
+
+  <h2 class="section">🔴 Blockers</h2>
+  <div class="blockers">
+
+    <div class="block">
+      <div class="tag">Biggest lever</div>
+      <h3>Assign committee reviewers to 58 Ready-for-Review drafts</h3>
+      <p>Today only 1 of 59 has an assignee (1.7%). Every week these sit, no provenance signal flows to users. Single largest unblock in the entire content op.</p>
+      <div class="meta">Top waiting working groups</div>
+      <ul>
+        <li>Commercial Contracts (US) — 7 drafts</li>
+        <li>Entertainment (UK) — 6 drafts</li>
+        <li>Entertainment (US) — 6 drafts</li>
+        <li>Dispute Resolution (US) — 6 drafts</li>
+        <li>Commercial Contracts (UK) — 5 drafts</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="tag">UK pipeline</div>
+      <h3>Merge PR #312 — 3 UK playbooks waiting</h3>
+      <p>UK is half-ICP; these expand it materially. Sofya's branch; Rebecca + Ankit assigned reviewers.</p>
+      <div class="meta">Playbooks waiting</div>
+      <ul>
+        <li>UK Lease Agreement</li>
+        <li>UK Investment Term Sheet</li>
+        <li>UK Investment Agreement</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2 class="section">⚠ Amber</h2>
+  <div class="blockers">
+
+    <div class="block warn">
+      <div class="tag">Staff UK working groups</div>
+      <h3>8 UK WGs have 0 committee members</h3>
+      <p>No UK committee = no UK trust signal on prod templates. Onboard Joe Al‑Khayat &amp; Heidi Maharaj (currently Lead / Invited in the pipeline).</p>
+      <div class="meta">UK WGs at 0</div>
+      <ul>
+        <li>Dispute Resolution / ADR (UK)</li>
+        <li>Freelancer / Contractor (UK)</li>
+        <li>AI Governance (UK)</li>
+        <li>SaaS / Software Licensing (UK)</li>
+        <li>Employment &amp; Workforce (UK)</li>
+        <li>Technology &amp; IP (UK)</li>
+        <li>+ 2 more</li>
+      </ul>
+    </div>
+
+    <div class="block warn">
+      <div class="tag">Investigate underused playbooks</div>
+      <h3>4 published playbooks ≤ 3 calls / 8w</h3>
+      <p>Either the agent isn't surfacing them, the demand isn't there, or another playbook is winning the match. Decide: refresh, deprecate, or reposition.</p>
+      <div class="meta">Underused (calls in last 8 weeks)</div>
+      <ul>
+        <li>uk_office_policies_playbook_v1 — 2 calls</li>
+        <li>us_employment_agreement_drafting_playbook_v2 — 1 call</li>
+        <li>us_master_services_agreement_playbook_v1 — 1 call</li>
+        <li>in_athlete_representation_agreement_playbook_v1 — 1 call</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer class="note">
+    These actions are derived from the Notion 🏡 Home + linked dashboards as of 2026-05-18. Once the weekly snapshot cron (CHB-017) is wired, this page will be regenerated automatically each Sunday.
+  </footer>
+</div>
+</body>
+</html>

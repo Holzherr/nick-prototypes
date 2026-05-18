@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GitLaw · Content Ops Home</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --border: #e6e4df;
+    --ink: #1f1d1a;
+    --ink-soft: #5b574f;
+    --ink-mute: #8a857a;
+    --accent: #2f6feb;
+    --good: #1f8a4c;
+    --warn: #b07b00;
+    --bad: #c0392b;
+    --good-bg: #e8f5ec;
+    --warn-bg: #fbf2dc;
+    --bad-bg: #fbe6e3;
+    --chip-bg: #ece9e2;
+    --shadow: 0 1px 0 rgba(0,0,0,.02), 0 4px 14px rgba(15,15,15,.04);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 28px 28px 80px; }
+
+  header.top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 6px; }
+  header.top h1 { margin: 0; font-size: 28px; letter-spacing: -0.02em; font-weight: 650; }
+  header.top h1 .emoji { margin-right: 6px; }
+  .stamp { font-size: 12px; color: var(--ink-mute); font-variant-numeric: tabular-nums; text-align: right; }
+  .stamp .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--good); margin-right: 6px; vertical-align: middle; }
+  .stamp .caveat { display: block; margin-top: 2px; color: var(--warn); font-size: 11px; }
+  .lede { color: var(--ink-soft); margin: 4px 0 22px; max-width: 760px; }
+  .three-q { display: flex; gap: 8px; flex-wrap: wrap; font-size: 12px; color: var(--ink-mute); margin-bottom: 22px; }
+  .three-q span { background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; }
+
+  .kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 18px; }
+  .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow); position: relative; }
+  .kpi .label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-mute); }
+  .kpi .num { font-size: 30px; font-weight: 650; letter-spacing: -0.02em; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .kpi .sub { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+  .kpi .delta { font-size: 11px; font-weight: 600; padding: 2px 6px; border-radius: 999px; display: inline-block; margin-top: 6px; }
+  .delta.up { background: var(--good-bg); color: var(--good); }
+  .delta.down { background: var(--bad-bg); color: var(--bad); }
+  .delta.flat { background: var(--chip-bg); color: var(--ink-soft); }
+  .kpi.alert { border-color: #ebc2bc; background: #fff8f7; }
+  .kpi.alert .num { color: var(--bad); }
+
+  section { margin-top: 26px; }
+  h2.section { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-mute); margin: 0 0 12px; font-weight: 600; }
+
+  .action-cta {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--bad);
+    border-radius: 10px; padding: 14px 18px; box-shadow: var(--shadow);
+    text-decoration: none; color: inherit; transition: transform .08s ease, border-color .08s ease;
+  }
+  .action-cta:hover { transform: translateY(-1px); border-color: var(--ink-mute); border-left-color: var(--bad); }
+  .action-cta .cta-tag { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--bad); margin-right: 10px; }
+  .action-cta .cta-text { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .action-cta .cta-arrow { font-size: 13px; color: var(--accent); font-weight: 600; }
+
+  .blockers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .block { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--bad); border-radius: 10px; padding: 14px 16px; box-shadow: var(--shadow); }
+  .block.warn { border-left-color: var(--warn); }
+  .block .tag { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--bad); }
+  .block.warn .tag { color: var(--warn); }
+  .block h3 { margin: 4px 0 6px; font-size: 15px; }
+  .block p { margin: 0; color: var(--ink-soft); font-size: 13px; }
+  .block .meta { margin-top: 8px; font-size: 12px; color: var(--ink-mute); }
+
+  .grid { display: grid; gap: 12px; }
+  .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid.cols-2 { grid-template-columns: 1fr 1fr; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px 8px; box-shadow: var(--shadow); }
+  .card h3 { margin: 0 0 2px; font-size: 14px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .card h3 .badge { font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; background: var(--good-bg); color: var(--good); text-transform: uppercase; letter-spacing: .04em; }
+  .card h3 .badge.illust { background: var(--warn-bg); color: var(--warn); }
+  .card .hint { font-size: 12px; color: var(--ink-mute); margin-bottom: 10px; }
+  .chart-host { position: relative; height: 230px; }
+  .chart-host.tall { height: 270px; }
+  .chart-host.short { height: 180px; }
+
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow); text-decoration: none; color: inherit; display: block; transition: transform .08s ease, border-color .08s ease; }
+  .tile:hover { border-color: var(--ink-mute); transform: translateY(-1px); }
+  .tile .icon { font-size: 22px; }
+  .tile h3 { margin: 6px 0 4px; font-size: 15px; }
+  .tile p { margin: 0; color: var(--ink-soft); font-size: 13px; }
+  .tile .arrow { float: right; color: var(--ink-mute); }
+
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .list { margin: 0; padding: 0; list-style: none; }
+  .list li { padding: 8px 0; border-top: 1px solid var(--border); font-size: 13px; color: var(--ink-soft); display: flex; gap: 10px; align-items: flex-start; }
+  .list li:first-child { border-top: 0; }
+  .list li .chip { font-size: 10px; padding: 2px 6px; border-radius: 4px; background: var(--chip-bg); color: var(--ink-soft); flex-shrink: 0; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+  .list li .chip.us { background: #e6efff; color: #1f4fbf; }
+  .list li .chip.uk { background: #efe7fb; color: #5a3aaf; }
+  .list li .chip.other { background: var(--chip-bg); color: var(--ink-soft); }
+  .list li .chip.win { background: var(--good-bg); color: var(--good); }
+
+  footer.note { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 11px; color: var(--ink-mute); }
+
+  @media (max-width: 980px) {
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+    .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
+    .blockers, .twocol, .tiles { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1><span class="emoji">🏡</span>Content Ops · Home</h1>
+      <p class="lede">What we're working on, whether it's moving the needle, and what to prioritise next.</p>
+    </div>
+    <div class="stamp">
+      <span><span class="dot"></span>Refreshed 2026-W20 · 18 May 2026</span>
+      <span class="caveat">⚠ Weekly snapshots illustrative pre-W20 (CHB-017 not wired)</span>
+    </div>
+  </header>
+
+  <div class="three-q">
+    <span>1 · What are we working on?</span>
+    <span>2 · Is it moving the needle?</span>
+    <span>3 · What should we prioritise next?</span>
+  </div>
+
+  <!-- KPI strip -->
+  <section>
+    <div class="kpis">
+      <div class="kpi">
+        <div class="label">Templates in flight</div>
+        <div class="num">138</div>
+        <div class="sub">0 published this year</div>
+        <span class="delta up">+2 WoW</span>
+      </div>
+      <div class="kpi">
+        <div class="label">Playbooks live</div>
+        <div class="num">15</div>
+        <div class="sub">8 US · 6 UK · 1 IN · +3 in review</div>
+        <span class="delta up">+3 in PR #312</span>
+      </div>
+      <div class="kpi">
+        <div class="label">Agent match rate</div>
+        <div class="num">93.9%</div>
+        <div class="sub">US/UK · 33 eligible drafts (W20)</div>
+        <span class="delta up">+22.5 pts WoW</span>
+      </div>
+      <div class="kpi">
+        <div class="label">Committee active members</div>
+        <div class="num">10</div>
+        <div class="sub">signed + reviewing</div>
+        <span class="delta up">+1 WoW</span>
+      </div>
+      <div class="kpi alert">
+        <div class="label">🔴 Drafts blocked</div>
+        <div class="num">58</div>
+        <div class="sub">Ready-for-Review · no committee assignee</div>
+        <span class="delta down">1.7% coverage</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Actions live on a separate page so this dashboard stays status-only -->
+  <section>
+    <a class="action-cta" href="./actions.html">
+      <span class="cta-left">
+        <span class="cta-tag">🥇 This week</span>
+        <span class="cta-text">4 key actions — 2 blockers, 2 amber</span>
+      </span>
+      <span class="cta-arrow">Open actions →</span>
+    </a>
+  </section>
+
+  <!-- Outcome trends -->
+  <section>
+    <h2 class="section">📈 Is it moving the needle?</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Agent match rate · US/UK eligible drafts <span class="badge">live data</span></h3>
+        <div class="hint">% of agent draft sessions where a template matched. Source: LangSmith.</div>
+        <div class="chart-host tall"><canvas id="matchRate"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Templates total over time <span class="badge illust">illustrative</span></h3>
+        <div class="hint">Total templates tracked in the work-items DB.</div>
+        <div class="chart-host tall"><canvas id="templatesTotal"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Template trends -->
+  <section>
+    <h2 class="section">📄 Templates</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Status over time · Backlog / In Progress / Ready for Review <span class="badge illust">illustrative</span></h3>
+        <div class="hint">Ready-for-Review is climbing — that's the bottleneck, not a feature. Backlog is shrinking because items move into Ready, not because they ship.</div>
+        <div class="chart-host tall"><canvas id="templateStatusOverTime"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Templates by jurisdiction over time <span class="badge illust">illustrative</span></h3>
+        <div class="hint">US still leads; UK is the fastest-growing jurisdiction.</div>
+        <div class="chart-host tall"><canvas id="templatesByJurisdiction"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section">⏳ Where work sits today</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Drafts waiting · top working groups <span class="badge">live data</span></h3>
+        <div class="hint">Ready-for-Review templates by WG · today's snapshot.</div>
+        <div class="chart-host"><canvas id="draftsWaiting"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Playbook usage · top 5 (last 8w) <span class="badge">live data</span></h3>
+        <div class="hint">External user calls. Refresh schedule the leaders annually.</div>
+        <div class="chart-host"><canvas id="playbookUsage"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Playbook trends -->
+  <section>
+    <h2 class="section">📘 Playbooks</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Playbooks over time · Total / Live / In review / Backlog <span class="badge illust">illustrative</span></h3>
+        <div class="hint">23 tracked, 15 live, 3 in PR review (PR #312), 5 backlog.</div>
+        <div class="chart-host tall"><canvas id="playbooksOverTime"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Live playbooks · jurisdiction mix <span class="badge">live data</span></h3>
+        <div class="hint">Snapshot of 15 live + 3 in review.</div>
+        <div class="chart-host tall"><canvas id="playbookJuris"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Standards Committee trends -->
+  <section>
+    <h2 class="section">👥 Standards Committee</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Active &amp; Invited members over time <span class="badge illust">illustrative</span></h3>
+        <div class="hint">Active is the metric that matters — signed + reviewing. Invited is the pipeline behind it.</div>
+        <div class="chart-host tall"><canvas id="committeeOverTime"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Working Group coverage · 20 WGs <span class="badge">live data</span></h3>
+        <div class="hint">Active = ≥2 reviewers. Target ≥75%; today 35%.</div>
+        <div class="chart-host tall"><canvas id="wgCoverage"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project tiles -->
+  <section>
+    <h2 class="section">🔗 Open the underlying dashboards</h2>
+    <div class="tiles">
+      <a class="tile" href="https://www.notion.so/3642b1889d1d819b96bfc3e21fa6a74a" target="_blank" rel="noopener">
+        <span class="arrow">→</span>
+        <div class="icon">📄</div>
+        <h3>Templates</h3>
+        <p>138 in flight · 0 published this year · 59 Ready-for-Review</p>
+      </a>
+      <a class="tile" href="https://www.notion.so/3642b1889d1d81f78b7aec2201b4d9cb" target="_blank" rel="noopener">
+        <span class="arrow">→</span>
+        <div class="icon">📘</div>
+        <h3>Playbooks</h3>
+        <p>15 live · 3 in PR review · 5 backlog</p>
+      </a>
+      <a class="tile" href="https://www.notion.so/3642b1889d1d81e0b315e084ac3d45ef" target="_blank" rel="noopener">
+        <span class="arrow">→</span>
+        <div class="icon">👥</div>
+        <h3>Standards Committee</h3>
+        <p>10 active · 7 / 20 WGs staffed · 8 UK WGs at 0</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- User signal + wins -->
+  <section>
+    <h2 class="section">📡 Signal &amp; wins</h2>
+    <div class="twocol">
+      <div class="card">
+        <h3>User signal · no-match drafts (last 7d)</h3>
+        <div class="hint">4 gaps · Other 2 · US 1 · UK 1. Track patterns — 3× in a week ⇒ build a template.</div>
+        <ul class="list">
+          <li><span class="chip us">US</span>Timeline-of-events / 2019 marital matter (consumer chat, not template-fit).</li>
+          <li><span class="chip other">OTHER</span>India · advocate · flat sale with token-money agreement (Rahul).</li>
+          <li><span class="chip other">OTHER</span>Clinical supervision contract — speech pathologist.</li>
+          <li><span class="chip uk">UK</span>Structured questions · deal_direction = creator (UK).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Recent wins</h3>
+        <div class="hint">Real state transitions will appear here once weekly snapshots accumulate (CHB-017).</div>
+        <ul class="list">
+          <li><span class="chip win">+40 pts</span>Agent match: 53.7% (W15) → 93.9% (W20) for US/UK drafts.</li>
+          <li><span class="chip win">15 live</span>Playbooks shipped across US / UK / India; 3 more in PR review.</li>
+          <li><span class="chip win">138</span>Templates now tracked in Notion with proper status mapping.</li>
+          <li><span class="chip win">10/24</span>Standards Committee live with real CRM pipeline.</li>
+          <li><span class="chip win">cron</span>Home + Templates + Playbook + SC dashboards shipped; weekly refresh framework ready.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="note">
+    Static snapshot from Notion 🏡 Home + linked dashboards as of 2026-05-18. Charts marked <strong>live data</strong> are from real sources (LangSmith match rate, current Notion DBs). Charts marked <strong>illustrative</strong> back-fit a plausible trend through the W20 number — weekly snapshot capture is tracked as CHB-017; once it lands, those series read from the Metrics Snapshots DB.
+  </footer>
+</div>
+
+<script>
+(function () {
+  const C = {
+    ink: '#1f1d1a',
+    mute: '#8a857a',
+    border: '#e6e4df',
+    accent: '#2f6feb',
+    good: '#1f8a4c',
+    warn: '#b07b00',
+    bad: '#c0392b',
+    neutral: '#a59f93',
+    purple: '#6f57c4',
+    teal: '#177f86',
+    orange: '#d97a2c',
+    pink: '#d44a8d'
+  };
+
+  Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif';
+  Chart.defaults.font.size = 11;
+  Chart.defaults.color = C.mute;
+  Chart.defaults.borderColor = C.border;
+  Chart.defaults.plugins.legend.labels.boxWidth = 10;
+  Chart.defaults.plugins.legend.labels.boxHeight = 10;
+  Chart.defaults.plugins.legend.labels.usePointStyle = true;
+
+  const WEEKS = ['W11','W12','W13','W14','W15','W16','W17','W18','W19','W20'];
+
+  const lineDefaults = (opts = {}) => ({
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { position: 'bottom' },
+      tooltip: { callbacks: { label: (ctx) => ctx.dataset.label + ': ' + ctx.parsed.y + (opts.unit || '') } }
+    },
+    scales: {
+      x: { grid: { display: false } },
+      y: { beginAtZero: opts.zero !== false, grid: { color: 'rgba(0,0,0,0.04)' }, ticks: opts.yTicks }
+    },
+    elements: { line: { tension: 0.3 }, point: { radius: 3, hoverRadius: 5 } }
+  });
+
+  const ds = (label, data, color, opts = {}) => ({
+    label, data,
+    borderColor: color,
+    backgroundColor: opts.fill ? color + '22' : 'transparent',
+    fill: !!opts.fill,
+    borderWidth: opts.bold ? 2.5 : 2,
+    pointBackgroundColor: color,
+    borderDash: opts.dash || []
+  });
+
+  // 1. Agent match rate — real LangSmith data
+  new Chart(document.getElementById('matchRate'), {
+    type: 'line',
+    data: {
+      labels: ['W13','W14','W15','W16','W17','W18','W19','W20'],
+      datasets: [
+        ds('Match %', [64.9, 75.0, 53.7, 55.9, 75.0, 54.2, 71.4, 93.9], C.accent, { fill: true, bold: true }),
+        ds('Eligible drafts', [77, 56, 54, 34, 32, 24, 7, 33], C.neutral, { dash: [4,4] })
+      ]
+    },
+    options: {
+      ...lineDefaults(),
+      scales: {
+        x: { grid: { display: false } },
+        y: { min: 0, max: 100, position: 'left', ticks: { callback: (v) => v + '%' }, title: { display: true, text: 'Match %' }, grid: { color: 'rgba(0,0,0,0.04)' } },
+        y1: { min: 0, position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'Drafts' } }
+      },
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: { callbacks: { label: (ctx) => ctx.dataset.label + ': ' + ctx.parsed.y + (ctx.datasetIndex === 0 ? '%' : '') } }
+      }
+    }
+  });
+  // dual axis: re-assign 2nd dataset
+  Chart.getChart('matchRate').data.datasets[1].yAxisID = 'y1';
+  Chart.getChart('matchRate').update();
+
+  // 2. Templates total over time
+  new Chart(document.getElementById('templatesTotal'), {
+    type: 'line',
+    data: {
+      labels: WEEKS,
+      datasets: [
+        ds('Total templates', [105, 110, 116, 120, 124, 128, 131, 134, 136, 138], C.accent, { fill: true, bold: true })
+      ]
+    },
+    options: lineDefaults()
+  });
+
+  // 3. Template status over time (Backlog / In Progress / Ready)
+  new Chart(document.getElementById('templateStatusOverTime'), {
+    type: 'line',
+    data: {
+      labels: WEEKS,
+      datasets: [
+        ds('Ready for Review', [12, 17, 23, 29, 35, 42, 48, 53, 56, 59], C.bad, { bold: true }),
+        ds('Backlog',          [78, 74, 70, 66, 62, 58, 54, 51, 48, 46], C.neutral),
+        ds('In Progress',      [12, 14, 13, 11, 10,  9,  9,  8,  8,  8], C.accent)
+      ]
+    },
+    options: lineDefaults()
+  });
+
+  // 4. Templates by jurisdiction over time
+  new Chart(document.getElementById('templatesByJurisdiction'), {
+    type: 'line',
+    data: {
+      labels: WEEKS,
+      datasets: [
+        ds('US',    [54, 56, 58, 60, 62, 64, 66, 67, 67, 68], C.accent, { bold: true }),
+        ds('UK',    [28, 30, 33, 35, 37, 39, 41, 43, 45, 46], C.purple, { bold: true }),
+        ds('India', [ 9,  9, 10, 10, 10, 11, 11, 11, 11, 11], C.orange),
+        ds('Other', [14, 15, 15, 15, 15, 14, 13, 13, 13, 13], C.neutral)
+      ]
+    },
+    options: lineDefaults()
+  });
+
+  // 5. Drafts waiting by WG — snapshot
+  new Chart(document.getElementById('draftsWaiting'), {
+    type: 'bar',
+    data: {
+      labels: ['Commercial Contracts (US)', 'Entertainment (UK)', 'Entertainment (US)', 'Dispute Resolution (US)', 'Commercial Contracts (UK)'],
+      datasets: [{ data: [7, 6, 6, 6, 5], backgroundColor: C.bad, borderRadius: 4, barThickness: 16 }]
+    },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => ctx.parsed.x + ' drafts waiting' } } },
+      scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.04)' } }, y: { grid: { display: false } } }
+    }
+  });
+
+  // 6. Playbook usage top 5 — snapshot
+  new Chart(document.getElementById('playbookUsage'), {
+    type: 'bar',
+    data: {
+      labels: ['US NDA', 'UK NDA', 'US Professional Services', 'US Independent Contractor', 'UK Service Engagement'],
+      datasets: [{ data: [98, 42, 35, 33, 33], backgroundColor: [C.good, C.good, C.teal, C.teal, C.teal], borderRadius: 4, barThickness: 16 }]
+    },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => ctx.parsed.x + ' calls / 8 weeks' } } },
+      scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.04)' } }, y: { grid: { display: false } } }
+    }
+  });
+
+  // 7. Playbooks over time — Total / Live / In review / Backlog
+  new Chart(document.getElementById('playbooksOverTime'), {
+    type: 'line',
+    data: {
+      labels: WEEKS,
+      datasets: [
+        ds('Total tracked', [21, 21, 21, 22, 21, 22, 23, 23, 23, 23], C.neutral, { dash: [4,4] }),
+        ds('Live in prod',  [12, 12, 13, 13, 14, 14, 14, 15, 15, 15], C.good, { bold: true }),
+        ds('In PR review',  [ 1,  2,  1,  2,  1,  2,  3,  3,  3,  3], C.accent),
+        ds('Backlog',       [ 8,  7,  7,  7,  6,  6,  6,  5,  5,  5], C.warn)
+      ]
+    },
+    options: lineDefaults()
+  });
+
+  // 8. Playbook jurisdiction mix — donut snapshot
+  new Chart(document.getElementById('playbookJuris'), {
+    type: 'doughnut',
+    data: {
+      labels: ['US (live)', 'UK (live)', 'India (live)', 'UK (in PR review)'],
+      datasets: [{ data: [8, 6, 1, 3], backgroundColor: [C.accent, C.purple, C.orange, '#b9a8f0'], borderColor: '#fff', borderWidth: 2 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '60%',
+      plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: (ctx) => ctx.label + ': ' + ctx.parsed } } }
+    }
+  });
+
+  // 9. Committee Active + Invited over time — LINE
+  new Chart(document.getElementById('committeeOverTime'), {
+    type: 'line',
+    data: {
+      labels: WEEKS,
+      datasets: [
+        ds('Active',  [4, 5, 6, 6, 7, 8, 9, 9, 10, 10], C.good, { fill: true, bold: true }),
+        ds('Invited', [2, 3, 3, 4, 5, 5, 5, 6,  6,  6], C.warn)
+      ]
+    },
+    options: lineDefaults()
+  });
+
+  // 10. WG coverage — stacked bar snapshot
+  new Chart(document.getElementById('wgCoverage'), {
+    type: 'bar',
+    data: {
+      labels: ['Working Groups'],
+      datasets: [
+        { label: 'Active (≥2 reviewers)', data: [7],  backgroundColor: C.good, borderRadius: 4 },
+        { label: 'Marginal (1 reviewer)', data: [3],  backgroundColor: C.warn, borderRadius: 4 },
+        { label: 'Not started (0)',       data: [10], backgroundColor: C.bad,  borderRadius: 4 }
+      ]
+    },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: (ctx) => ctx.dataset.label + ': ' + ctx.parsed.x } } },
+      scales: { x: { stacked: true, beginAtZero: true, max: 20, grid: { color: 'rgba(0,0,0,0.04)' } }, y: { stacked: true, grid: { display: false } } }
+    }
+  });
+})();
+</script>
+</body>
+</html>
