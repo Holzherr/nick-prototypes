@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GitLaw — Credits top-up · v0.1</title>
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root { color-scheme: light; }
+  html, body { height: 100%; margin: 0; }
+  body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #faf8ff; }
+  .grad-header { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%); }
+
+  .app { display: grid; grid-template-rows: 56px 1fr; height: 100vh; overflow: hidden; }
+
+  /* Chat */
+  .chat-scroll { flex: 1; overflow-y: auto; padding: 28px 32px 120px; scroll-behavior: smooth; }
+  .msg { animation: msgEnter .35s ease-out; }
+  @keyframes msgEnter { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+
+  .bubble-user { background: #7c3aed; color: white; border-radius: 18px 18px 4px 18px; padding: 10px 14px; max-width: 560px; font-size: 14px; line-height: 1.55; }
+  .bubble-agent { background: white; border: 1px solid #e2e8f0; color: #0f172a; border-radius: 18px 18px 18px 4px; padding: 12px 16px; max-width: 600px; font-size: 14px; line-height: 1.6; }
+  .bubble-agent strong { color: #5b21b6; font-weight: 600; }
+
+  .typing { display: inline-flex; gap: 3px; align-items: center; padding: 10px 14px; }
+  .typing span { width: 6px; height: 6px; background: #94a3b8; border-radius: 999px; animation: bounce 1.2s infinite; }
+  .typing span:nth-child(2) { animation-delay: .15s; }
+  .typing span:nth-child(3) { animation-delay: .3s; }
+  @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); opacity: .4; } 30% { transform: translateY(-4px); opacity: 1; } }
+
+  /* Out-of-credits card */
+  .ooc-card { background: #fff; border: 1px solid #fecaca; border-left: 3px solid #ef4444; border-radius: 12px; padding: 14px 16px; max-width: 540px; }
+  .ooc-title { font-size: 13.5px; font-weight: 600; color: #991b1b; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .ooc-body { font-size: 13.5px; color: #475569; line-height: 1.5; margin-bottom: 12px; }
+  .topup-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .topup-btn { background: #fff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 10px 16px; font-size: 14px; font-weight: 600; color: #0f172a; cursor: pointer; transition: all .15s; min-width: 84px; text-align: center; }
+  .topup-btn:hover { border-color: #7c3aed; background: #faf5ff; color: #5b21b6; }
+  .topup-btn.hot { border-color: #7c3aed; background: #ede9fe; color: #5b21b6; box-shadow: 0 0 0 4px rgba(124,58,237,.15); transform: translateY(-1px); }
+
+  /* Success toast inside chat */
+  .success-card { background: #ecfdf5; border: 1px solid #a7f3d0; border-left: 3px solid #10b981; border-radius: 10px; padding: 12px 14px; max-width: 480px; font-size: 13.5px; color: #064e3b; display: flex; align-items: center; gap: 10px; }
+
+  /* Composer (visual only) */
+  .composer { padding: 12px 32px 16px; background: #faf8ff; }
+  .composer-inner { background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; color: #94a3b8; font-size: 13.5px; }
+
+  /* Credit pill in bottom-left */
+  .credit-pill {
+    position: fixed; left: 18px; bottom: 18px; z-index: 40;
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 999px;
+    padding: 8px 14px 8px 12px; display: flex; align-items: center; gap: 8px;
+    font-size: 12.5px; color: #475569; box-shadow: 0 4px 16px rgba(15,23,42,.06);
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .credit-pill.empty { border-color: #fecaca; color: #991b1b; }
+  .credit-pill.flash { animation: flashPill 1.4s ease-out; }
+  @keyframes flashPill {
+    0% { transform: scale(1); border-color: #fde68a; }
+    20% { transform: scale(1.08); border-color: #10b981; box-shadow: 0 0 0 6px rgba(16,185,129,.18); }
+    100% { transform: scale(1); border-color: #e2e8f0; }
+  }
+  .credit-pill .dot { width: 7px; height: 7px; border-radius: 999px; background: #10b981; }
+  .credit-pill.empty .dot { background: #ef4444; }
+
+  /* Stripe lightbox */
+  .scrim { position: fixed; inset: 0; background: rgba(15,23,42,.55); z-index: 50; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .25s; }
+  .scrim.show { opacity: 1; pointer-events: auto; }
+  .stripe-box { background: #fff; border-radius: 14px; width: 380px; max-width: 92vw; box-shadow: 0 24px 64px rgba(15,23,42,.35); overflow: hidden; transform: translateY(20px) scale(.98); transition: transform .28s cubic-bezier(.2,.9,.3,1.2); }
+  .scrim.show .stripe-box { transform: translateY(0) scale(1); }
+  .stripe-head { padding: 18px 20px 14px; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: space-between; }
+  .stripe-merch { font-size: 12.5px; color: #64748b; }
+  .stripe-amt { font-size: 22px; font-weight: 600; color: #0f172a; margin-top: 2px; }
+  .stripe-logo { font-size: 11px; font-weight: 700; color: #635bff; letter-spacing: .04em; display: flex; align-items: center; gap: 6px; }
+  .stripe-logo::before { content: ''; width: 16px; height: 16px; border-radius: 4px; background: #635bff; display: inline-block; }
+  .stripe-body { padding: 16px 20px 18px; }
+  .field-label { font-size: 11px; font-weight: 600; color: #475569; letter-spacing: .02em; margin-bottom: 5px; text-transform: uppercase; }
+  .field { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 12px; font-size: 14px; color: #0f172a; font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace; min-height: 38px; box-sizing: border-box; display: flex; align-items: center; gap: 6px; }
+  .field.focus { border-color: #635bff; box-shadow: 0 0 0 3px rgba(99,91,255,.16); }
+  .field .caret { display: inline-block; width: 1px; height: 16px; background: #635bff; animation: caretBlink 1s steps(2) infinite; }
+  @keyframes caretBlink { 50% { opacity: 0; } }
+  .field-row { display: flex; gap: 10px; margin-top: 12px; }
+  .field-row > div { flex: 1; }
+  .pay-btn { width: 100%; margin-top: 16px; background: #635bff; color: #fff; font-weight: 600; font-size: 14px; border-radius: 8px; padding: 12px; border: 0; cursor: pointer; transition: background .15s, transform .1s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .pay-btn:hover { background: #5048e5; }
+  .pay-btn.pressed { transform: scale(.98); }
+  .pay-btn[disabled] { opacity: .8; cursor: default; }
+  .pay-spinner { width: 14px; height: 14px; border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 999px; animation: spin .8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .stripe-success { display: flex; flex-direction: column; align-items: center; padding: 28px 20px 24px; gap: 12px; }
+  .check-circle { width: 56px; height: 56px; border-radius: 999px; background: #ecfdf5; border: 2px solid #10b981; display: flex; align-items: center; justify-content: center; animation: pop .35s cubic-bezier(.2,.9,.3,1.4); }
+  .check-circle svg { width: 28px; height: 28px; stroke: #10b981; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  @keyframes pop { from { transform: scale(.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .success-txt { font-size: 15px; font-weight: 600; color: #064e3b; }
+  .success-sub { font-size: 12.5px; color: #475569; }
+
+  /* Topbar / controls */
+  .ctrl-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 500; transition: background .15s; cursor: pointer; border: 0; }
+  .ctrl-btn.primary { background: white; color: #4c1d95; }
+  .ctrl-btn.primary:hover { background: #f5f3ff; }
+  .ctrl-btn.ghost { color: white; background: rgba(255,255,255,.12); }
+  .ctrl-btn.ghost:hover { background: rgba(255,255,255,.2); }
+
+  .footer-note { font-size: 11px; color: #94a3b8; text-align: center; padding: 8px 0 14px; }
+</style>
+</head>
+<body class="text-slate-900">
+
+<div class="app">
+
+  <!-- Topbar -->
+  <div class="grad-header text-white flex items-center justify-between px-6">
+    <div class="flex items-center gap-3">
+      <span class="text-lg">⚖️</span>
+      <div>
+        <div class="font-semibold text-[15px] leading-tight">GitLaw chat</div>
+        <div class="text-[11px] text-violet-100/80 leading-tight">Top-up flow · auto-play prototype</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="restartBtn" class="ctrl-btn primary">↻ Restart</button>
+      <a href="../index.html" class="ctrl-btn ghost">← All prototypes</a>
+    </div>
+  </div>
+
+  <!-- Chat column -->
+  <div class="flex flex-col min-h-0">
+    <div id="chat" class="chat-scroll"></div>
+    <div class="composer">
+      <div class="composer-inner">
+        <span class="opacity-60">Message GitLaw…</span>
+      </div>
+    </div>
+    <div class="footer-note">Demo · no real payment is processed.</div>
+  </div>
+
+</div>
+
+<!-- Credit pill (bottom-left) -->
+<div id="creditPill" class="credit-pill empty">
+  <span class="dot"></span>
+  <span>Credits:</span>
+  <strong id="creditAmt">$0.00</strong>
+</div>
+
+<!-- Stripe lightbox -->
+<div id="scrim" class="scrim">
+  <div class="stripe-box">
+    <div class="stripe-head">
+      <div>
+        <div class="stripe-merch">GitLaw · git.law</div>
+        <div class="stripe-amt" id="stripeAmt">$20.00</div>
+      </div>
+      <div class="stripe-logo">stripe</div>
+    </div>
+
+    <div id="stripeBody" class="stripe-body">
+      <div class="field-label">Card number</div>
+      <div id="fCard" class="field">
+        <span id="fCardVal"></span><span id="fCardCaret" class="caret hidden"></span>
+      </div>
+      <div class="field-row">
+        <div>
+          <div class="field-label">Expiry</div>
+          <div id="fExp" class="field">
+            <span id="fExpVal"></span><span id="fExpCaret" class="caret hidden"></span>
+          </div>
+        </div>
+        <div>
+          <div class="field-label">CVC</div>
+          <div id="fCvc" class="field">
+            <span id="fCvcVal"></span><span id="fCvcCaret" class="caret hidden"></span>
+          </div>
+        </div>
+      </div>
+      <button id="payBtn" class="pay-btn">
+        <span id="payTxt">Pay $20.00</span>
+      </button>
+    </div>
+
+    <div id="stripeSuccess" class="stripe-success hidden">
+      <div class="check-circle">
+        <svg viewBox="0 0 24 24"><polyline points="4,12 10,18 20,7"/></svg>
+      </div>
+      <div class="success-txt">Payment successful</div>
+      <div class="success-sub">$20.00 charged · receipt sent to nick@…</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const chat = document.getElementById('chat');
+const creditPill = document.getElementById('creditPill');
+const creditAmt = document.getElementById('creditAmt');
+const scrim = document.getElementById('scrim');
+const stripeBody = document.getElementById('stripeBody');
+const stripeSuccess = document.getElementById('stripeSuccess');
+const payBtn = document.getElementById('payBtn');
+const restartBtn = document.getElementById('restartBtn');
+
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+function addUser(text) {
+  const w = document.createElement('div');
+  w.className = 'msg flex justify-end mb-3';
+  w.innerHTML = `<div class="bubble-user">${text}</div>`;
+  chat.appendChild(w); scroll();
+  return w;
+}
+function addAgent(html) {
+  const w = document.createElement('div');
+  w.className = 'msg flex mb-3';
+  w.innerHTML = `<div class="bubble-agent">${html}</div>`;
+  chat.appendChild(w); scroll();
+  return w;
+}
+function addTyping() {
+  const w = document.createElement('div');
+  w.className = 'msg flex mb-3';
+  w.innerHTML = `<div class="bubble-agent typing"><span></span><span></span><span></span></div>`;
+  chat.appendChild(w); scroll();
+  return w;
+}
+function scroll() { chat.scrollTop = chat.scrollHeight; }
+
+let timers = [];
+function track(id) { timers.push(id); return id; }
+function reset() {
+  timers.forEach(clearTimeout); timers = [];
+  chat.innerHTML = '';
+  creditPill.classList.add('empty');
+  creditPill.classList.remove('flash');
+  creditAmt.textContent = '$0.00';
+  scrim.classList.remove('show');
+  stripeBody.classList.remove('hidden');
+  stripeSuccess.classList.add('hidden');
+  document.getElementById('fCardVal').textContent = '';
+  document.getElementById('fExpVal').textContent = '';
+  document.getElementById('fCvcVal').textContent = '';
+  ['fCard','fExp','fCvc'].forEach(id => document.getElementById(id).classList.remove('focus'));
+  ['fCardCaret','fExpCaret','fCvcCaret'].forEach(id => document.getElementById(id).classList.add('hidden'));
+  payBtn.disabled = false; payBtn.classList.remove('pressed');
+  document.getElementById('payTxt').textContent = 'Pay $20.00';
+}
+
+async function typeInto(fieldId, valId, caretId, text, perChar = 55) {
+  const field = document.getElementById(fieldId);
+  const val = document.getElementById(valId);
+  const caret = document.getElementById(caretId);
+  field.classList.add('focus'); caret.classList.remove('hidden');
+  for (const ch of text) {
+    val.textContent += ch;
+    await sleep(perChar);
+  }
+  await sleep(180);
+  field.classList.remove('focus'); caret.classList.add('hidden');
+}
+
+async function play() {
+  reset();
+  await sleep(500);
+
+  // 1. User message that triggers an out-of-credits state
+  addUser("Can you redline this NDA against our playbook?");
+  await sleep(900);
+
+  // 2. Agent typing → out-of-credits card
+  const t = addTyping();
+  await sleep(1200);
+  t.remove();
+
+  addAgent(`
+    <div class="ooc-card">
+      <div class="ooc-title">⚠️ You're out of credits</div>
+      <div class="ooc-body">Redlining this NDA will use roughly <strong>$0.40</strong> in AI credits. Top up to continue — pick any amount.</div>
+      <div class="topup-row">
+        <div class="topup-btn" data-amt="10">$10</div>
+        <div class="topup-btn hot" data-amt="20" id="btn20">$20</div>
+        <div class="topup-btn" data-amt="50">$50</div>
+      </div>
+    </div>
+  `);
+  await sleep(1700);
+
+  // 3. Simulate user clicking $20 — open Stripe lightbox
+  const btn20 = document.getElementById('btn20');
+  btn20.style.boxShadow = '0 0 0 6px rgba(124,58,237,.3)';
+  await sleep(450);
+  scrim.classList.add('show');
+  await sleep(550);
+
+  // 4. Auto-fill card details
+  await typeInto('fCard', 'fCardVal', 'fCardCaret', '4242 4242 4242 4242', 38);
+  await sleep(150);
+  await typeInto('fExp', 'fExpVal', 'fExpCaret', '04 / 28', 70);
+  await sleep(120);
+  await typeInto('fCvc', 'fCvcVal', 'fCvcCaret', '424', 90);
+  await sleep(400);
+
+  // 5. Click pay
+  payBtn.classList.add('pressed');
+  await sleep(140);
+  payBtn.classList.remove('pressed');
+  payBtn.disabled = true;
+  document.getElementById('payTxt').innerHTML = '<span class="pay-spinner"></span>Processing…';
+  await sleep(1500);
+
+  // 6. Stripe success state
+  stripeBody.classList.add('hidden');
+  stripeSuccess.classList.remove('hidden');
+  await sleep(1100);
+
+  // 7. Close lightbox
+  scrim.classList.remove('show');
+  await sleep(450);
+
+  // 8. Agent confirms + credit pill updates
+  // Update credit pill
+  creditPill.classList.remove('empty');
+  creditPill.classList.add('flash');
+  // Tween the number 0 → 20
+  const start = performance.now();
+  const dur = 900;
+  function tick(now) {
+    const p = Math.min(1, (now - start) / dur);
+    const v = (p * 20).toFixed(2);
+    creditAmt.textContent = `$${v}`;
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  addAgent(`
+    <div class="success-card">
+      <span>✅</span>
+      <div>Added <strong>$20.00</strong> to your account. Picking up where we left off…</div>
+    </div>
+  `);
+  await sleep(2200);
+  creditPill.classList.remove('flash');
+}
+
+restartBtn.addEventListener('click', () => play());
+
+// Kick off
+play();
+</script>
+
+</body>
+</html>
