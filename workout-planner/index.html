@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Workout Planner — v0.1</title>
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+  /* Phone frame on desktop */
+  .phone {
+    width: 100%;
+    max-width: 420px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: #f1f5f9;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(15,23,42,0.06), 0 24px 60px -20px rgba(15,23,42,0.25);
+  }
+  @media (min-width: 720px) {
+    body { padding: 24px 0; background: #0f172a; }
+    .phone { border-radius: 32px; overflow: hidden; min-height: calc(100vh - 48px); }
+  }
+  .brand-orange { background: #ee6f3a; }
+  .brand-orange-dark { background: #c1542a; }
+  .text-brand { color: #ee6f3a; }
+  .border-brand { border-color: #ee6f3a; }
+  .ring-brand { --tw-ring-color: rgba(238,111,58,0.35); }
+  /* Smooth view transitions */
+  .view { animation: fade 0.15s ease-out; }
+  @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  /* Hide scrollbar on mobile */
+  .scroll-area::-webkit-scrollbar { width: 4px; }
+  .scroll-area::-webkit-scrollbar-thumb { background: rgba(15,23,42,0.08); border-radius: 2px; }
+  /* YouTube card thumbnail */
+  .yt-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    aspect-ratio: 16 / 9;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+  .yt-card:hover { transform: scale(1.005); }
+  .yt-card:active { transform: scale(0.995); }
+  .yt-play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px; height: 48px;
+    background: #ff0000;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+  .yt-play svg { width: 24px; height: 24px; fill: white; margin-left: 2px; }
+  .yt-card:hover .yt-play { background: #ff1a1a; }
+  /* Modal */
+  .modal-backdrop { animation: backdrop 0.18s ease-out; }
+  @keyframes backdrop { from { opacity: 0; } to { opacity: 1; } }
+  .modal-panel { animation: slideup 0.22s ease-out; }
+  @keyframes slideup { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  /* Tab pill */
+  .tab-pill {
+    background: rgba(0,0,0,0.18);
+    border-radius: 999px;
+    padding: 4px;
+    display: flex;
+    gap: 4px;
+  }
+  .tab-pill button {
+    flex: 1;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    transition: background 0.15s;
+  }
+  .tab-pill button.active {
+    background: rgba(255,255,255,0.18);
+    color: white;
+  }
+  /* Exercise label badge */
+  .ex-badge {
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    color: #334155;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  /* Superset bracket */
+  .ss-bracket {
+    border-left: 2px solid #cbd5e1;
+    margin-left: 15px;
+    padding-left: 0;
+  }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<div class="phone flex flex-col" id="app">
+  <!-- rendered by JS -->
+</div>
+
+<!-- Modal layer -->
+<div id="modal-root"></div>
+
+<script src="./data.js"></script>
+<script>
+// ============================================================
+// State
+// ============================================================
+const STORAGE_KEY = 'workout-planner-v1';
+const HABITS_KEY  = 'workout-planner-habits-v1';
+
+function loadOverrides() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+  catch { return {}; }
+}
+function saveOverrides() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state.overrides));
+}
+function loadHabits() {
+  try { return JSON.parse(localStorage.getItem(HABITS_KEY)) || {}; }
+  catch { return {}; }
+}
+function saveHabits() {
+  localStorage.setItem(HABITS_KEY, JSON.stringify(state.habits));
+}
+
+const state = {
+  view: 'workouts',           // workouts | habits | messages | account
+  workoutsTab: 'upcoming',    // upcoming | past
+  selectedWorkoutId: null,
+  workouts: window.SEED_WORKOUTS.map(w => ({ ...w, exercises: w.exercises.map(e => ({ ...e })) })),
+  overrides: loadOverrides(), // { [workoutId]: { completed, exercises: { [label]: { results } }, comments: [] } }
+  habits: loadHabits(),       // { 'YYYY-MM-DD': { calories: ..., ... } }
+  habitDate: '2026-05-18',
+  modal: null,                // { kind: 'history'|'comments', data: {...} }
+};
+
+// Apply stored overrides on top of seed data.
+function effectiveWorkout(w) {
+  const o = state.overrides[w.id];
+  if (!o) return w;
+  const merged = { ...w };
+  if (typeof o.completed === 'boolean') merged.completed = o.completed;
+  if (o.exercises) {
+    merged.exercises = w.exercises.map(ex => {
+      const eo = o.exercises[ex.label];
+      return eo ? { ...ex, results: eo.results !== undefined ? eo.results : ex.results } : ex;
+    });
+  }
+  merged.comments = o.comments || [];
+  return merged;
+}
+
+function getWorkoutById(id) {
+  const w = state.workouts.find(x => x.id === id);
+  return w ? effectiveWorkout(w) : null;
+}
+
+function setOverride(workoutId, mutator) {
+  const cur = state.overrides[workoutId] || { exercises: {}, comments: [] };
+  mutator(cur);
+  state.overrides[workoutId] = cur;
+  saveOverrides();
+}
+
+// ============================================================
+// Date helpers
+// ============================================================
+const TODAY = '2026-05-19';
+
+function greeting() {
+  const h = new Date().getHours();
+  if (h < 12) return 'Good morning';
+  if (h < 18) return 'Good afternoon';
+  return 'Good evening';
+}
+
+// ============================================================
+// Icons (inline SVG)
+// ============================================================
+const icons = {
+  back:    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>',
+  check:   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+  timer:   '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="9" y1="2" x2="15" y2="2"/></svg>',
+  chat:    '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
+  close:   '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
+  history: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/><polyline points="12 7 12 12 16 14"/></svg>',
+  flame:   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ee6f3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
+  search:  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+  calendar:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+  edit:    '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>',
+  camera:  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>',
+  send:    '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>',
+  // bottom-nav icons
+  navWorkout: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
+  navHabits:  '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><text x="2" y="9" font-size="6" fill="currentColor" stroke="none">1</text><text x="2" y="20" font-size="6" fill="currentColor" stroke="none">2</text></svg>',
+  navMsg:     '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
+  navAcct:    '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M6.5 19a6 6 0 0 1 11 0"/></svg>',
+};
+
+// ============================================================
+// Rendering
+// ============================================================
+const $app = document.getElementById('app');
+const $modal = document.getElementById('modal-root');
+
+function render() {
+  if (state.view === 'workouts' && state.selectedWorkoutId) {
+    renderWorkoutDetail();
+  } else if (state.view === 'workouts') {
+    renderWorkoutsList();
+  } else if (state.view === 'habits') {
+    renderHabits();
+  } else if (state.view === 'messages') {
+    renderMessages();
+  } else if (state.view === 'account') {
+    renderAccount();
+  }
+  renderModal();
+}
+
+function bottomNav(active) {
+  const tab = (key, icon, label) => `
+    <button data-nav="${key}" class="flex flex-col items-center gap-0.5 ${active === key ? 'text-slate-900' : 'text-slate-500'} flex-1 py-2 ${active === key ? 'bg-slate-100 rounded-2xl mx-1' : ''}">
+      ${icon}
+      <span class="text-[10px] font-medium">${label}</span>
+    </button>`;
+  return `
+    <nav class="bg-white border-t border-slate-200 flex items-stretch px-2 pt-2 pb-3" style="padding-bottom: max(12px, env(safe-area-inset-bottom));">
+      ${tab('workouts', icons.navWorkout, 'Workouts')}
+      ${tab('habits',   icons.navHabits,  'Habit Tracker')}
+      ${tab('messages', icons.navMsg,     'Messages')}
+      ${tab('account',  icons.navAcct,    'Account')}
+    </nav>`;
+}
+
+// ------------------------------------------------------------
+// View: Workouts list
+// ------------------------------------------------------------
+function renderWorkoutsList() {
+  const all = state.workouts.map(effectiveWorkout);
+  const upcoming = all.filter(w => w.date >= TODAY).sort((a,b) => a.date.localeCompare(b.date));
+  const past     = all.filter(w => w.date <  TODAY).sort((a,b) => b.date.localeCompare(a.date));
+  const list = state.workoutsTab === 'upcoming' ? upcoming : past;
+
+  $app.innerHTML = `
+    <div class="view flex flex-col flex-1 min-h-screen">
+      <header class="brand-orange text-white px-5 pt-12 pb-5">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-md bg-white/15 border border-white/30 flex items-center justify-center text-[10px] font-bold tracking-wider">WP</div>
+          <h1 class="text-xl font-semibold tracking-tight">${greeting()}, Nick</h1>
+        </div>
+        <div class="tab-pill">
+          <button data-tab="upcoming" class="${state.workoutsTab==='upcoming'?'active':''}">Upcoming</button>
+          <button data-tab="past"     class="${state.workoutsTab==='past'    ?'active':''}">Past</button>
+        </div>
+      </header>
+
+      <div class="flex-1 px-4 py-4 space-y-3 scroll-area overflow-y-auto pb-24">
+        ${list.map(workoutCard).join('') || `<div class="text-center text-slate-400 text-sm pt-10">No workouts yet.</div>`}
+      </div>
+
+      ${bottomNav('workouts')}
+    </div>
+  `;
+
+  $app.querySelectorAll('[data-tab]').forEach(b => b.onclick = () => { state.workoutsTab = b.dataset.tab; render(); });
+  $app.querySelectorAll('[data-workout]').forEach(b => b.onclick = () => { state.selectedWorkoutId = b.dataset.workout; render(); });
+  bindNav();
+}
+
+function workoutCard(w) {
+  const dateLabel = w.longDate;
+  const checkClasses = w.completed
+    ? 'bg-emerald-500 text-white border-emerald-500'
+    : 'bg-white text-slate-300 border-slate-200';
+  const exerciseRows = [
+    `<div class="flex items-center gap-3 py-1.5"><span class="ex-badge bg-orange-50">${icons.flame}</span><span class="text-slate-700 text-[15px]">Warm up</span></div>`,
+    ...w.exercises.map(ex => {
+      const isSuper = ex.type === 'superset';
+      return `<div class="flex items-center gap-3 py-1.5"><span class="ex-badge ${isSuper ? 'bg-slate-100' : 'bg-slate-100'}">${ex.label}</span><span class="text-slate-700 text-[15px]">${ex.name.replace(/^ISSA Exercise Library /, '')}</span></div>`;
+    })
+  ].join('');
+  return `
+    <button data-workout="${w.id}" class="block w-full text-left bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-slate-300 transition">
+      <div class="bg-slate-100/70 px-5 py-3.5 flex items-center justify-between border-b border-slate-200/70">
+        <span class="text-[15px] text-slate-700">${dateLabel}</span>
+        <span class="w-7 h-7 rounded-full border flex items-center justify-center ${checkClasses}">${icons.check}</span>
+      </div>
+      <div class="px-5 pt-3 pb-2">
+        <h3 class="text-[17px] font-semibold text-slate-900 mb-1">${w.name}</h3>
+        <div class="space-y-0">
+          ${exerciseRows}
+        </div>
+      </div>
+    </button>`;
+}
+
+// ------------------------------------------------------------
+// View: Workout detail
+// ------------------------------------------------------------
+function renderWorkoutDetail() {
+  const w = getWorkoutById(state.selectedWorkoutId);
+  if (!w) { state.selectedWorkoutId = null; return render(); }
+
+  const exCount = w.exercises.length;
+  $app.innerHTML = `
+    <div class="view flex flex-col flex-1 min-h-screen">
+      <header class="brand-orange text-white px-4 pt-12 pb-5 relative">
+        <div class="flex items-center justify-between">
+          <button data-action="back" class="w-9 h-9 rounded-full bg-white/25 hover:bg-white/35 flex items-center justify-center text-white">${icons.back}</button>
+          <div class="text-center">
+            <div class="text-[15px] font-medium">${w.shortDate}</div>
+          </div>
+          <div class="flex items-center gap-1 bg-white/20 rounded-full p-1.5">
+            <button data-action="timer" class="w-8 h-8 flex items-center justify-center text-white">${icons.timer}</button>
+            <button data-action="comments" class="w-8 h-8 flex items-center justify-center text-white">${icons.chat}</button>
+          </div>
+        </div>
+        <div class="text-center mt-2">
+          <div class="text-[18px] font-semibold">${w.name}</div>
+          <div class="text-[13px] text-white/80 mt-0.5">Warm Up • ${exCount} Exercises</div>
+        </div>
+      </header>
+
+      <div class="flex-1 px-3 py-3 space-y-3 scroll-area overflow-y-auto pb-28">
+        ${warmupCard(w)}
+        ${w.exercises.map((ex, i) => exerciseCard(w, ex, i)).join('')}
+        ${completeButton(w)}
+      </div>
+    </div>
+  `;
+
+  $app.querySelector('[data-action="back"]').onclick = () => { state.selectedWorkoutId = null; render(); };
+  $app.querySelector('[data-action="comments"]').onclick = () => openModal({ kind: 'comments', workoutId: w.id });
+  $app.querySelector('[data-action="timer"]').onclick = () => alert('Rest timer — coming soon');
+
+  $app.querySelectorAll('[data-history]').forEach(b => b.onclick = () => openModal({ kind: 'history', exercise: b.dataset.history }));
+  $app.querySelectorAll('[data-add-result]').forEach(b => b.onclick = () => {
+    const label = b.dataset.addResult;
+    const ex = w.exercises.find(e => e.label === label);
+    const cur = ex.results || '';
+    const v = prompt(`Results for ${label} — ${ex.name}\n\nFormat: comma-separated values per set (e.g. 47.5,52.5,55 for weights; or "10,8,8" for reps)`, cur);
+    if (v !== null) {
+      setOverride(w.id, o => {
+        o.exercises = o.exercises || {};
+        o.exercises[label] = { results: v.trim() };
+      });
+      render();
+    }
+  });
+  $app.querySelectorAll('[data-toggle-set-done]').forEach(b => b.onclick = () => {
+    const label = b.dataset.toggleSetDone;
+    setOverride(w.id, o => {
+      o.exercises = o.exercises || {};
+      o.exercises[label] = o.exercises[label] || {};
+      o.exercises[label].done = !o.exercises[label].done;
+    });
+    render();
+  });
+  const complete = $app.querySelector('[data-complete]');
+  if (complete) complete.onclick = () => {
+    setOverride(w.id, o => { o.completed = !w.completed; });
+    render();
+  };
+}
+
+function warmupCard(w) {
+  return `
+    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+      <div class="bg-slate-100/70 px-5 py-3 text-center border-b border-slate-200/70">
+        <span class="text-[12px] font-semibold tracking-[0.15em] text-slate-500">WARM UP</span>
+      </div>
+      <div class="p-5">
+        <h4 class="font-semibold text-slate-900 mb-2">Instructions</h4>
+        <pre class="text-[15px] text-slate-700 leading-relaxed whitespace-pre-wrap font-sans">${w.warmup}</pre>
+      </div>
+    </div>`;
+}
+
+function exerciseCard(w, ex, idx) {
+  const isSuper = ex.type === 'superset';
+  const groupBadge = isSuper ? 'SUPERSET' : 'SINGLE';
+  const ytSearch = `https://www.youtube.com/results?search_query=${encodeURIComponent(ex.search || ex.name)}`;
+  const hasResults = !!ex.results && ex.results.length > 0;
+  const completed = w.completed && hasResults;
+  const checkBadge = completed
+    ? `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 text-white">${icons.check}</span>`
+    : `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full border border-slate-300 text-slate-300">${icons.check}</span>`;
+
+  return `
+    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+      <div class="bg-slate-100/70 px-4 py-2.5 flex items-center justify-between border-b border-slate-200/70">
+        <span class="inline-block bg-white text-slate-700 text-[11px] font-semibold tracking-wider px-2.5 py-1 rounded">${groupBadge}</span>
+        <span class="text-slate-600 font-semibold text-[15px]">${ex.label}</span>
+        ${checkBadge}
+      </div>
+      <div class="p-4 space-y-3">
+        <h4 class="font-semibold text-slate-900 text-[17px] leading-snug">${ex.name}</h4>
+
+        <a href="${ytSearch}" target="_blank" rel="noopener" class="block">
+          <div class="yt-card">
+            <div class="absolute top-2 left-2 right-2 flex items-center gap-2 text-white">
+              <div class="w-7 h-7 rounded-full bg-white/95 flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#cc0000"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <div class="text-[12px] font-semibold truncate">${ex.name}</div>
+                <div class="text-[10px] text-white/75">YouTube tutorial</div>
+              </div>
+            </div>
+            <div class="yt-play"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></div>
+            <div class="absolute bottom-2 right-2 text-white text-[11px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded">
+              Watch on
+              <svg width="42" height="10" viewBox="0 0 90 20" fill="white"><path d="M27.973 3.123A3.78 3.78 0 0 0 25.31.443C22.96 0 13.5 0 13.5 0S4.04 0 1.69.443A3.78 3.78 0 0 0-.973 3.123C-1.5 5.487-1.5 10-1.5 10s0 4.513.527 6.877a3.78 3.78 0 0 0 2.663 2.68C4.04 20 13.5 20 13.5 20s9.46 0 11.81-.443a3.78 3.78 0 0 0 2.663-2.68C28.5 14.513 28.5 10 28.5 10s0-4.513-.527-6.877zM10.5 14.5v-9L18 10z"/><text x="32" y="14" font-size="11" font-weight="700">YouTube</text></svg>
+            </div>
+          </div>
+        </a>
+
+        <div class="pt-1">
+          <h5 class="font-semibold text-slate-900 mb-1">Instructions</h5>
+          <pre class="text-[14px] text-slate-700 leading-relaxed whitespace-pre-wrap font-sans">${ex.instructions}</pre>
+        </div>
+
+        ${hasResults ? `
+          <div class="pt-1">
+            <h5 class="font-semibold text-slate-900 mb-1">Results</h5>
+            <div class="text-[14px] text-slate-700">${ex.results}</div>
+          </div>
+        ` : ''}
+
+        <button data-add-result="${ex.label}" class="w-full border border-slate-800 rounded-full py-2.5 text-[14px] font-medium text-slate-900 hover:bg-slate-50 transition">
+          ${hasResults ? `Update results for ${ex.label}` : `Add results for ${ex.label}`}
+        </button>
+
+        <button data-history="${ex.name}" class="w-full flex items-center justify-center gap-1.5 text-slate-500 text-[13px] py-1 hover:text-slate-700">
+          ${icons.history}<span>Exercise History</span>
+        </button>
+      </div>
+    </div>`;
+}
+
+function completeButton(w) {
+  const isPlanned = w.date >= TODAY;
+  if (!isPlanned && !w.completed) return ''; // truly past + uncompleted skipped — still allow toggle below
+  return `
+    <button data-complete class="w-full ${w.completed ? 'bg-emerald-700' : 'bg-slate-900'} text-white rounded-full py-3.5 font-medium text-[15px] flex items-center justify-center gap-2 hover:opacity-95 transition">
+      ${icons.check}
+      <span>${w.completed ? 'Workout Complete — tap to undo' : 'Complete Workout'}</span>
+    </button>`;
+}
+
+// ------------------------------------------------------------
+// View: Habit Tracker
+// ------------------------------------------------------------
+function renderHabits() {
+  const dt = state.habitDate;
+  const day = state.habits[dt] || {};
+
+  $app.innerHTML = `
+    <div class="view flex flex-col flex-1 min-h-screen">
+      <header class="brand-orange text-white px-5 pt-12 pb-5">
+        <div class="flex items-center justify-between">
+          <div class="w-9"></div>
+          <h1 class="text-[18px] font-semibold">Habit Tracker</h1>
+          <button class="w-9 h-9 flex items-center justify-center text-white">${icons.edit}</button>
+        </div>
+      </header>
+
+      <div class="px-4 py-4">
+        <div class="bg-white border border-slate-200 rounded-xl px-4 py-3 flex items-center justify-between mb-4">
+          <input type="date" value="${dt}" id="habit-date" class="text-[15px] text-slate-900 bg-transparent focus:outline-none flex-1" />
+          <span class="text-slate-400">${icons.calendar}</span>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden divide-y divide-slate-100">
+          ${window.HABIT_FIELDS.map(f => habitRow(f, day[f.key])).join('')}
+        </div>
+
+        <div class="mt-6 text-[12px] text-slate-400 text-center">Tap a row to enter today's value.</div>
+      </div>
+
+      ${bottomNav('habits')}
+    </div>
+  `;
+
+  $app.querySelector('#habit-date').onchange = (e) => { state.habitDate = e.target.value; render(); };
+  $app.querySelectorAll('[data-habit]').forEach(b => b.onclick = () => {
+    const key = b.dataset.habit;
+    const f = window.HABIT_FIELDS.find(x => x.key === key);
+    const cur = (state.habits[dt] && state.habits[dt][key]) || '';
+    const v = prompt(`${f.label}${f.unit ? ` (${f.unit})` : ''}`, cur);
+    if (v !== null) {
+      state.habits[dt] = state.habits[dt] || {};
+      if (v.trim() === '') delete state.habits[dt][key];
+      else state.habits[dt][key] = v.trim();
+      saveHabits();
+      render();
+    }
+  });
+  bindNav();
+}
+
+function habitRow(f, val) {
+  const dotColor = {
+    emerald: 'bg-emerald-400',
+    sky:     'bg-sky-400',
+    pink:    'bg-pink-400',
+  }[f.color] || 'bg-slate-400';
+  const done = val !== undefined && val !== '';
+  return `
+    <button data-habit="${f.key}" class="w-full flex items-center gap-3 px-4 py-3.5 hover:bg-slate-50 transition text-left">
+      <span class="w-2 h-2 rounded-full ${dotColor}"></span>
+      <span class="font-semibold text-slate-900 flex-1">${f.label}</span>
+      ${done ? `<span class="text-slate-500 text-[14px]">${val}</span>` : ''}
+      <span class="w-6 h-6 rounded-full ${done ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-300'} flex items-center justify-center">${icons.check}</span>
+    </button>`;
+}
+
+// ------------------------------------------------------------
+// View: Messages (stub)
+// ------------------------------------------------------------
+function renderMessages() {
+  $app.innerHTML = `
+    <div class="view flex flex-col flex-1 min-h-screen">
+      <header class="brand-orange text-white px-5 pt-12 pb-5 text-center">
+        <h1 class="text-[18px] font-semibold">Messages</h1>
+      </header>
+      <div class="flex-1 flex items-center justify-center text-slate-400 text-sm px-6 text-center">
+        Coach DMs would live here.<br/>Stub — not part of the v0.1 build.
+      </div>
+      ${bottomNav('messages')}
+    </div>`;
+  bindNav();
+}
+
+// ------------------------------------------------------------
+// View: Account (stub)
+// ------------------------------------------------------------
+function renderAccount() {
+  const totalWorkouts = state.workouts.length;
+  const completed = state.workouts.filter(w => effectiveWorkout(w).completed).length;
+  $app.innerHTML = `
+    <div class="view flex flex-col flex-1 min-h-screen">
+      <header class="brand-orange text-white px-5 pt-12 pb-8 text-center">
+        <div class="w-20 h-20 rounded-full bg-white/20 border-2 border-white/40 flex items-center justify-center text-3xl mx-auto mb-3">N</div>
+        <h1 class="text-[18px] font-semibold">Nick</h1>
+        <div class="text-white/80 text-[13px] mt-0.5">nickholzherr@gmail.com</div>
+      </header>
+      <div class="flex-1 px-4 py-4 space-y-3">
+        <div class="bg-white border border-slate-200 rounded-2xl p-5">
+          <h3 class="font-semibold text-slate-900 mb-3">Program progress</h3>
+          <div class="flex items-end gap-2 mb-1">
+            <span class="text-3xl font-bold text-slate-900">${completed}</span>
+            <span class="text-slate-500 text-[13px] pb-1">/ ${totalWorkouts} sessions</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+            <div class="bg-emerald-500 h-full" style="width: ${(completed/totalWorkouts*100).toFixed(0)}%"></div>
+          </div>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-2xl p-5">
+          <h3 class="font-semibold text-slate-900 mb-3">Reset data</h3>
+          <p class="text-[13px] text-slate-500 mb-3">Clears all logged results, comments, and habit entries from this browser.</p>
+          <button id="reset-btn" class="text-[13px] text-rose-600 hover:text-rose-700 font-medium">Reset prototype data</button>
+        </div>
+      </div>
+      ${bottomNav('account')}
+    </div>`;
+  document.getElementById('reset-btn').onclick = () => {
+    if (confirm('Wipe all results, comments, and habit data?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(HABITS_KEY);
+      state.overrides = {};
+      state.habits = {};
+      render();
+    }
+  };
+  bindNav();
+}
+
+// ------------------------------------------------------------
+// Modals
+// ------------------------------------------------------------
+function openModal(m) { state.modal = m; render(); }
+function closeModal() { state.modal = null; render(); }
+
+function renderModal() {
+  if (!state.modal) { $modal.innerHTML = ''; return; }
+  if (state.modal.kind === 'history') renderHistoryModal(state.modal.exercise);
+  if (state.modal.kind === 'comments') renderCommentsModal(state.modal.workoutId);
+}
+
+function renderHistoryModal(exerciseName) {
+  const all = state.workouts
+    .map(effectiveWorkout)
+    .flatMap(w => w.exercises
+      .filter(e => e.name === exerciseName && e.results)
+      .map(e => ({ date: w.date, longDate: w.longDate, instructions: e.instructions, results: e.results })))
+    .sort((a,b) => b.date.localeCompare(a.date));
+
+  $modal.innerHTML = `
+    <div class="fixed inset-0 bg-black/40 modal-backdrop z-40 flex items-end md:items-center justify-center" data-close>
+      <div class="modal-panel bg-slate-50 w-full md:max-w-md md:rounded-2xl md:max-h-[80vh] flex flex-col overflow-hidden" style="max-height: 85vh">
+        <div class="bg-white px-4 pt-12 pb-4 flex items-center justify-between border-b border-slate-200" style="background: linear-gradient(#ee6f3a 0%, #ee6f3a 48px, white 48px);">
+          <div class="w-8"></div>
+          <h2 class="font-semibold text-slate-900 text-[17px]">Exercise History</h2>
+          <button data-close-btn class="text-slate-500 hover:text-slate-900">${icons.close}</button>
+        </div>
+        <div class="px-4 py-3 border-b border-slate-200 bg-white">
+          <div class="flex items-center gap-2 bg-white border border-slate-300 rounded-full px-4 py-2.5">
+            <span class="text-slate-400">${icons.search}</span>
+            <span class="flex-1 text-[14px] text-slate-700 truncate">${exerciseName}</span>
+            <button data-close-btn class="text-slate-400 hover:text-slate-700">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="#cbd5e1"/><path d="M15 9l-6 6M9 9l6 6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex-1 overflow-y-auto p-4 space-y-3 scroll-area">
+          ${all.length === 0 ? `<div class="text-center text-slate-400 text-sm pt-10">No prior sessions for this exercise.</div>` : all.map(h => `
+            <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+              <div class="px-4 pt-3 pb-2">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-semibold text-slate-900 truncate pr-3">${exerciseName.replace(/^ISSA Exercise Library /, '')}</h3>
+                  <button data-view-workout="${h.date}" class="text-sky-600 text-[13px] hover:underline shrink-0">View Workout</button>
+                </div>
+                <div class="text-[13px] font-medium text-slate-800 mt-1.5">${h.longDate}</div>
+                <pre class="text-[13px] text-slate-400 mt-2 whitespace-pre-wrap font-sans">${h.instructions}</pre>
+              </div>
+              <div class="bg-slate-50 px-4 py-3 border-t border-slate-100 text-[14px] text-slate-700">${h.results}</div>
+            </div>`).join('')}
+        </div>
+      </div>
+    </div>`;
+
+  $modal.querySelectorAll('[data-close-btn]').forEach(b => b.onclick = closeModal);
+  $modal.querySelector('[data-close]').onclick = (e) => { if (e.target === e.currentTarget) closeModal(); };
+  $modal.querySelectorAll('[data-view-workout]').forEach(b => b.onclick = () => {
+    const date = b.dataset.viewWorkout;
+    const w = state.workouts.find(x => x.date === date && x.exercises.some(e => e.name === exerciseName));
+    if (w) { state.selectedWorkoutId = w.id; closeModal(); }
+  });
+}
+
+function renderCommentsModal(workoutId) {
+  const w = getWorkoutById(workoutId);
+  const comments = w.comments || [];
+
+  $modal.innerHTML = `
+    <div class="fixed inset-0 bg-black/40 modal-backdrop z-40 flex items-end md:items-center justify-center" data-close>
+      <div class="modal-panel bg-slate-50 w-full md:max-w-md md:rounded-2xl flex flex-col overflow-hidden" style="height: 85vh; max-height: 85vh">
+        <div class="bg-white px-4 pt-12 pb-4 flex items-center justify-between border-b border-slate-200" style="background: linear-gradient(#c1542a 0%, #c1542a 48px, white 48px);">
+          <div class="w-8"></div>
+          <h2 class="font-semibold text-slate-900 text-[17px]">Workout Comments</h2>
+          <button data-close-btn class="text-slate-500 hover:text-slate-900">${icons.close}</button>
+        </div>
+        <div class="flex-1 overflow-y-auto p-4 scroll-area ${comments.length === 0 ? 'flex items-center justify-center' : 'space-y-2'}">
+          ${comments.length === 0 ? emptyComments() : comments.map(c => commentBubble(c)).join('')}
+        </div>
+        <div class="bg-white border-t border-slate-200 px-3 py-3 flex items-center gap-2">
+          <button class="w-9 h-9 flex items-center justify-center text-slate-400 hover:text-slate-600">${icons.camera}</button>
+          <input id="comment-input" type="text" placeholder="Add Comment" class="flex-1 bg-slate-100 border border-slate-200 rounded-full px-4 py-2.5 text-[14px] focus:outline-none focus:ring-2 ring-brand" />
+          <button id="comment-send" class="w-9 h-9 rounded-full bg-slate-300 hover:bg-slate-700 flex items-center justify-center">${icons.send}</button>
+        </div>
+      </div>
+    </div>`;
+
+  $modal.querySelectorAll('[data-close-btn]').forEach(b => b.onclick = closeModal);
+  $modal.querySelector('[data-close]').onclick = (e) => { if (e.target === e.currentTarget) closeModal(); };
+  const input = document.getElementById('comment-input');
+  const send = () => {
+    const text = input.value.trim();
+    if (!text) return;
+    setOverride(workoutId, o => {
+      o.comments = o.comments || [];
+      o.comments.push({ text, ts: new Date().toISOString(), author: 'Nick' });
+    });
+    render();
+  };
+  document.getElementById('comment-send').onclick = send;
+  input.onkeydown = (e) => { if (e.key === 'Enter') send(); };
+  input.focus();
+}
+
+function emptyComments() {
+  return `
+    <div class="space-y-3 opacity-50">
+      <div class="bg-white rounded-2xl px-4 py-3 max-w-[80%]">
+        <div class="h-2 w-32 bg-slate-200 rounded mb-2"></div>
+        <div class="h-2 w-44 bg-slate-200 rounded"></div>
+      </div>
+      <div class="bg-white rounded-2xl px-4 py-3 max-w-[80%] ml-auto">
+        <div class="h-2 w-28 bg-slate-200 rounded mb-2 ml-auto"></div>
+        <div class="h-2 w-40 bg-slate-200 rounded ml-auto"></div>
+      </div>
+      <div class="bg-white rounded-2xl px-4 py-3 max-w-[80%]">
+        <div class="h-2 w-36 bg-slate-200 rounded mb-2"></div>
+        <div class="h-2 w-32 bg-slate-200 rounded"></div>
+      </div>
+      <div class="text-center text-slate-400 font-semibold text-[15px] pt-2">No comments on this workout</div>
+    </div>`;
+}
+
+function commentBubble(c) {
+  const isMe = c.author === 'Nick';
+  const time = new Date(c.ts).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+  return `
+    <div class="flex ${isMe ? 'justify-end' : ''}">
+      <div class="${isMe ? 'bg-orange-500 text-white' : 'bg-white text-slate-900'} rounded-2xl px-4 py-2 max-w-[80%]">
+        <div class="text-[14px] leading-snug">${escapeHtml(c.text)}</div>
+        <div class="text-[10px] ${isMe ? 'text-white/70' : 'text-slate-400'} mt-1">${time}</div>
+      </div>
+    </div>`;
+}
+
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// ------------------------------------------------------------
+// Nav binding
+// ------------------------------------------------------------
+function bindNav() {
+  $app.querySelectorAll('[data-nav]').forEach(b => b.onclick = () => {
+    state.view = b.dataset.nav;
+    state.selectedWorkoutId = null;
+    render();
+  });
+}
+
+// ============================================================
+// Boot
+// ============================================================
+render();
+</script>
+</body>
+</html>
