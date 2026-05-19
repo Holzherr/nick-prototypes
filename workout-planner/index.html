@@ -3,12 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Workout Planner — v0.1</title>
+<title>Workout Planner — v0.2</title>
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
-  /* Phone frame on desktop */
   .phone {
     width: 100%;
     max-width: 420px;
@@ -27,13 +26,10 @@
   .text-brand { color: #ee6f3a; }
   .border-brand { border-color: #ee6f3a; }
   .ring-brand { --tw-ring-color: rgba(238,111,58,0.35); }
-  /* Smooth view transitions */
   .view { animation: fade 0.15s ease-out; }
   @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
-  /* Hide scrollbar on mobile */
   .scroll-area::-webkit-scrollbar { width: 4px; }
   .scroll-area::-webkit-scrollbar-thumb { background: rgba(15,23,42,0.08); border-radius: 2px; }
-  /* YouTube card thumbnail */
   .yt-card {
     background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
     aspect-ratio: 16 / 9;
@@ -56,13 +52,12 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   }
   .yt-play svg { width: 24px; height: 24px; fill: white; margin-left: 2px; }
-  .yt-card:hover .yt-play { background: #ff1a1a; }
-  /* Modal */
   .modal-backdrop { animation: backdrop 0.18s ease-out; }
   @keyframes backdrop { from { opacity: 0; } to { opacity: 1; } }
   .modal-panel { animation: slideup 0.22s ease-out; }
   @keyframes slideup { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-  /* Tab pill */
+  .sheet-panel { animation: sheetup 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes sheetup { from { transform: translateY(100%); } to { transform: translateY(0); } }
   .tab-pill {
     background: rgba(0,0,0,0.18);
     border-radius: 999px;
@@ -83,7 +78,6 @@
     background: rgba(255,255,255,0.18);
     color: white;
   }
-  /* Exercise label badge */
   .ex-badge {
     width: 32px; height: 32px;
     border-radius: 6px;
@@ -96,67 +90,94 @@
     font-weight: 600;
     flex-shrink: 0;
   }
-  /* Superset bracket */
-  .ss-bracket {
-    border-left: 2px solid #cbd5e1;
-    margin-left: 15px;
-    padding-left: 0;
+  .set-input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    transition: border-color 0.1s, box-shadow 0.1s;
   }
+  .set-input:focus {
+    outline: none;
+    border-color: #ee6f3a;
+    box-shadow: 0 0 0 3px rgba(238,111,58,0.15);
+  }
+  .set-input::placeholder { color: #cbd5e1; font-weight: 400; }
+  .pill {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+  /* Sync status dot in header */
+  .sync-dot { width: 8px; height: 8px; border-radius: 999px; display: inline-block; }
+  .sync-dot.ok { background: #34d399; box-shadow: 0 0 0 2px rgba(52,211,153,0.25); }
+  .sync-dot.local { background: #cbd5e1; }
+  .sync-dot.err { background: #f87171; box-shadow: 0 0 0 2px rgba(248,113,113,0.25); }
+  .sync-dot.syncing { background: #fbbf24; animation: pulse 1.2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
-<div class="phone flex flex-col" id="app">
-  <!-- rendered by JS -->
-</div>
-
-<!-- Modal layer -->
+<div class="phone flex flex-col" id="app"></div>
 <div id="modal-root"></div>
 
 <script src="./data.js"></script>
 <script>
 // ============================================================
+// Constants + Storage keys
+// ============================================================
+const TODAY = '2026-05-19';
+const LS = {
+  overrides: 'workout-planner-v2',
+  habits:    'workout-planner-habits-v2',
+  goals:     'workout-planner-goals-v2',
+  cloud:     'workout-planner-cloud-v2',
+};
+
+// ============================================================
 // State
 // ============================================================
-const STORAGE_KEY = 'workout-planner-v1';
-const HABITS_KEY  = 'workout-planner-habits-v1';
-
-function loadOverrides() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
-  catch { return {}; }
-}
-function saveOverrides() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state.overrides));
-}
-function loadHabits() {
-  try { return JSON.parse(localStorage.getItem(HABITS_KEY)) || {}; }
-  catch { return {}; }
-}
-function saveHabits() {
-  localStorage.setItem(HABITS_KEY, JSON.stringify(state.habits));
+function loadJSON(key, fallback) {
+  try { return JSON.parse(localStorage.getItem(key)) || fallback; }
+  catch { return fallback; }
 }
 
 const state = {
-  view: 'workouts',           // workouts | habits | messages | account
-  workoutsTab: 'upcoming',    // upcoming | past
+  view: 'workouts',
+  workoutsTab: 'upcoming',
   selectedWorkoutId: null,
   workouts: window.SEED_WORKOUTS.map(w => ({ ...w, exercises: w.exercises.map(e => ({ ...e })) })),
-  overrides: loadOverrides(), // { [workoutId]: { completed, exercises: { [label]: { results } }, comments: [] } }
-  habits: loadHabits(),       // { 'YYYY-MM-DD': { calories: ..., ... } }
+  overrides: loadJSON(LS.overrides, {}),  // { [workoutId]: { completed, exercises: { [label]: { results, notes } }, comments: [] } }
+  habits:    loadJSON(LS.habits, {}),
+  goals:     { ...window.SEED_GOALS, ...loadJSON(LS.goals, {}) },
+  cloud:     loadJSON(LS.cloud, { enabled: false, url: '', anonKey: '', userEmail: '', lastSync: null, status: 'local' }),
   habitDate: '2026-05-18',
-  modal: null,                // { kind: 'history'|'comments', data: {...} }
+  modal: null,
 };
 
-// Apply stored overrides on top of seed data.
+function persist(key, value) { localStorage.setItem(key, JSON.stringify(value)); scheduleCloudSync(); }
+function saveOverrides() { persist(LS.overrides, state.overrides); }
+function saveHabits()    { persist(LS.habits,    state.habits);    }
+function saveGoals()     { persist(LS.goals,     state.goals);     }
+function saveCloud()     { localStorage.setItem(LS.cloud, JSON.stringify(state.cloud)); /* no recursive sync */ }
+
 function effectiveWorkout(w) {
   const o = state.overrides[w.id];
-  if (!o) return w;
+  if (!o) return { ...w, comments: [] };
   const merged = { ...w };
   if (typeof o.completed === 'boolean') merged.completed = o.completed;
   if (o.exercises) {
     merged.exercises = w.exercises.map(ex => {
       const eo = o.exercises[ex.label];
-      return eo ? { ...ex, results: eo.results !== undefined ? eo.results : ex.results } : ex;
+      if (!eo) return ex;
+      return { ...ex, results: eo.results !== undefined ? eo.results : ex.results, notes: eo.notes };
     });
   }
   merged.comments = o.comments || [];
@@ -176,39 +197,206 @@ function setOverride(workoutId, mutator) {
 }
 
 // ============================================================
-// Date helpers
+// Prescription parser + Suggestion engine
 // ============================================================
-const TODAY = '2026-05-19';
+function parseInstructions(text) {
+  // Each line like "NxM" or "NxM /Yrpe" or "NxM each side" or "NxM /Y/Zrpe"
+  return text.split('\n').filter(Boolean).flatMap(line => {
+    const m = line.match(/^(\d+)x(\d+)/);
+    if (!m) return [{ targetReps: null, targetRpe: null, raw: line.trim() }];
+    const nSets = parseInt(m[1], 10);
+    const reps = parseInt(m[2], 10);
+    const rpeMatch = line.match(/\/([\d.]+)(?:\/[\d.]+)?rpe/i);
+    const rpe = rpeMatch ? parseFloat(rpeMatch[1]) : null;
+    const note = line.replace(/^\d+x\d+\s*/, '').replace(/\/[\d.]+(?:\/[\d.]+)?rpe/i, '').trim() || null;
+    return Array(nSets).fill().map(() => ({ targetReps: reps, targetRpe: rpe, note }));
+  });
+}
 
-function greeting() {
-  const h = new Date().getHours();
-  if (h < 12) return 'Good morning';
-  if (h < 18) return 'Good afternoon';
-  return 'Good evening';
+function bumpFor(name) {
+  const n = name.toLowerCase();
+  if (n.includes('deadlift'))                                                     return 5;
+  if (n.includes('squat'))                                                        return 2.5;
+  if (n.includes('bench') || n.includes('overhead press') || n.includes('row'))   return 2.5;
+  if (n.includes('pull down') || n.includes('pulldown'))                          return 2.5;
+  if (n.includes('rdl') || n.includes('split squat'))                             return 2;
+  if (n.includes('face pull') || n.includes('lat raise') || n.includes('side bend')) return 1;
+  return 2.5;
+}
+
+function findLastSession(exerciseName, beforeDate) {
+  const past = state.workouts
+    .map(effectiveWorkout)
+    .filter(w => w.date < beforeDate && w.exercises.some(e => e.name === exerciseName && Array.isArray(e.results) && e.results.length > 0))
+    .sort((a,b) => b.date.localeCompare(a.date));
+  if (!past.length) return null;
+  const w = past[0];
+  return { workout: w, exercise: w.exercises.find(e => e.name === exerciseName) };
+}
+
+// Build per-set suggestions for an exercise on a given workout.
+// Returns an array aligned with the parsed instructions, each entry:
+//   { targetReps, targetRpe, note, suggestedWeight, lastSet }
+function suggestSets(workout, exercise) {
+  const targets = parseInstructions(exercise.instructions);
+  const last = findLastSession(exercise.name, workout.date);
+  const goal = state.goals[exercise.name];
+
+  return targets.map((t, i) => {
+    if (!last) return { ...t, suggestedWeight: null, lastSet: null };
+    const lastSet = last.exercise.results[i] || last.exercise.results[last.exercise.results.length - 1];
+    if (!lastSet || lastSet.weight == null) return { ...t, suggestedWeight: null, lastSet };
+
+    let suggested = lastSet.weight;
+    const bump = bumpFor(exercise.name);
+
+    // Always trend up a touch on the same RPE — the "small iteration" lift week-to-week.
+    // Bigger jumps when last session left obvious headroom; smaller when last was at or above target.
+    if (lastSet.rpe != null && t.targetRpe != null) {
+      if (t.targetRpe - lastSet.rpe >= 1)        suggested = lastSet.weight + bump;
+      else if (t.targetRpe - lastSet.rpe >= 0.5) suggested = lastSet.weight + bump * 0.75;
+      else if (t.targetRpe - lastSet.rpe >= 0)   suggested = lastSet.weight + bump * 0.5;
+      else                                       suggested = lastSet.weight; // last was harder than target — hold
+    } else {
+      suggested = lastSet.weight + bump * 0.5;
+    }
+    // Round to plausible plate increment.
+    const inc = bump >= 5 ? 2.5 : (bump >= 2.5 ? 1.25 : 0.5);
+    suggested = Math.round(suggested / inc) * inc;
+
+    return { ...t, suggestedWeight: suggested, lastSet };
+  });
+}
+
+function bestEverForExercise(exerciseName) {
+  let best = null;
+  for (const w of state.workouts.map(effectiveWorkout)) {
+    const ex = w.exercises.find(e => e.name === exerciseName);
+    if (!ex || !Array.isArray(ex.results)) continue;
+    for (const s of ex.results) {
+      if (s && s.weight != null && (!best || s.weight > best.weight)) {
+        best = { weight: s.weight, reps: s.reps, date: w.date };
+      }
+    }
+  }
+  return best;
 }
 
 // ============================================================
-// Icons (inline SVG)
+// Display helpers
+// ============================================================
+function formatResultsCompact(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) return '';
+  return arr.map(s => {
+    if (s.weight == null && s.reps == null) return '—';
+    const w = s.weight != null ? `${s.weight}` : '?';
+    const r = s.reps   != null ? `×${s.reps}` : '';
+    return `${w}${r}`;
+  }).join(' · ');
+}
+
+function formatResultsList(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) return '';
+  return arr.map((s, i) => {
+    const w = s.weight != null ? `${s.weight} kg` : '—';
+    const r = s.reps   != null ? `${s.reps} reps` : '';
+    const rpe = s.rpe  != null ? ` @ ${s.rpe} RPE` : '';
+    return `Set ${i+1}: ${w} × ${r}${rpe}`;
+  }).join('\n');
+}
+
+function isResultsEmpty(r) {
+  if (!Array.isArray(r)) return true;
+  return r.length === 0 || r.every(s => s == null || (s.weight == null && s.reps == null));
+}
+
+// ============================================================
+// Icons
 // ============================================================
 const icons = {
-  back:    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>',
-  check:   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
-  timer:   '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="9" y1="2" x2="15" y2="2"/></svg>',
-  chat:    '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
-  close:   '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
-  history: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/><polyline points="12 7 12 12 16 14"/></svg>',
-  flame:   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ee6f3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
-  search:  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+  back:   '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>',
+  check:  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+  timer:  '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="9" y1="2" x2="15" y2="2"/></svg>',
+  chat:   '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
+  close:  '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
+  history:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/><polyline points="12 7 12 12 16 14"/></svg>',
+  flame:  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ee6f3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
+  search: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
   calendar:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
-  edit:    '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>',
-  camera:  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>',
-  send:    '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>',
-  // bottom-nav icons
+  edit:   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>',
+  camera: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>',
+  send:   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>',
+  chevron:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>',
+  target: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+  cloud:  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>',
+  trending:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+  plus:   '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>',
   navWorkout: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
   navHabits:  '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><text x="2" y="9" font-size="6" fill="currentColor" stroke="none">1</text><text x="2" y="20" font-size="6" fill="currentColor" stroke="none">2</text></svg>',
   navMsg:     '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
   navAcct:    '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M6.5 19a6 6 0 0 1 11 0"/></svg>',
 };
+
+// ============================================================
+// Cloud sync (Supabase REST)
+// ============================================================
+let _syncTimer = null;
+function scheduleCloudSync() {
+  if (!state.cloud.enabled) return;
+  if (_syncTimer) clearTimeout(_syncTimer);
+  _syncTimer = setTimeout(() => doCloudSync('push').catch(()=>{}), 800);
+}
+
+async function doCloudSync(direction) {
+  const { url, anonKey, userEmail } = state.cloud;
+  if (!url || !anonKey || !userEmail) throw new Error('Cloud sync not configured');
+  state.cloud.status = 'syncing'; renderSyncIndicator();
+
+  const endpoint = `${url.replace(/\/$/, '')}/rest/v1/workout_data`;
+  const headers = {
+    'apikey': anonKey,
+    'Authorization': `Bearer ${anonKey}`,
+    'Content-Type': 'application/json',
+    'Prefer': 'resolution=merge-duplicates,return=representation',
+  };
+
+  try {
+    if (direction === 'push') {
+      const payload = { overrides: state.overrides, habits: state.habits, goals: state.goals };
+      const body = JSON.stringify({ user_email: userEmail, payload, updated_at: new Date().toISOString() });
+      const r = await fetch(endpoint, { method: 'POST', headers, body });
+      if (!r.ok) throw new Error(`Push failed: ${r.status} ${await r.text()}`);
+    } else if (direction === 'pull') {
+      const r = await fetch(`${endpoint}?user_email=eq.${encodeURIComponent(userEmail)}&select=payload,updated_at`, { headers });
+      if (!r.ok) throw new Error(`Pull failed: ${r.status} ${await r.text()}`);
+      const rows = await r.json();
+      if (rows.length > 0 && rows[0].payload) {
+        const p = rows[0].payload;
+        if (p.overrides) { state.overrides = p.overrides; localStorage.setItem(LS.overrides, JSON.stringify(p.overrides)); }
+        if (p.habits)    { state.habits    = p.habits;    localStorage.setItem(LS.habits,    JSON.stringify(p.habits));    }
+        if (p.goals)     { state.goals     = p.goals;     localStorage.setItem(LS.goals,     JSON.stringify(p.goals));     }
+      }
+    }
+    state.cloud.status = 'ok';
+    state.cloud.lastSync = new Date().toISOString();
+    saveCloud();
+  } catch (e) {
+    state.cloud.status = 'err';
+    state.cloud.lastError = String(e.message || e);
+    saveCloud();
+    throw e;
+  } finally {
+    renderSyncIndicator();
+  }
+}
+
+function renderSyncIndicator() {
+  const el = document.getElementById('sync-dot');
+  if (!el) return;
+  el.className = `sync-dot ${state.cloud.status || 'local'}`;
+  const lbl = document.getElementById('sync-label');
+  if (lbl) lbl.textContent = ({ ok: 'Synced', local: 'Local only', syncing: 'Syncing…', err: 'Sync error' })[state.cloud.status || 'local'];
+}
 
 // ============================================================
 // Rendering
@@ -217,17 +405,13 @@ const $app = document.getElementById('app');
 const $modal = document.getElementById('modal-root');
 
 function render() {
-  if (state.view === 'workouts' && state.selectedWorkoutId) {
-    renderWorkoutDetail();
-  } else if (state.view === 'workouts') {
-    renderWorkoutsList();
-  } else if (state.view === 'habits') {
-    renderHabits();
-  } else if (state.view === 'messages') {
-    renderMessages();
-  } else if (state.view === 'account') {
-    renderAccount();
-  }
+  if (state.view === 'workouts' && state.selectedWorkoutId) renderWorkoutDetail();
+  else if (state.view === 'workouts') renderWorkoutsList();
+  else if (state.view === 'habits')   renderHabits();
+  else if (state.view === 'messages') renderMessages();
+  else if (state.view === 'account')  renderAccount();
+  else if (state.view === 'goals')    renderGoals();
+  else if (state.view === 'cloud')    renderCloudSync();
   renderModal();
 }
 
@@ -258,18 +442,22 @@ function renderWorkoutsList() {
   $app.innerHTML = `
     <div class="view flex flex-col flex-1 min-h-screen">
       <header class="brand-orange text-white px-5 pt-12 pb-5">
-        <div class="flex items-center gap-3 mb-5">
+        <div class="flex items-center gap-3 mb-1">
           <div class="w-10 h-10 rounded-md bg-white/15 border border-white/30 flex items-center justify-center text-[10px] font-bold tracking-wider">WP</div>
-          <h1 class="text-xl font-semibold tracking-tight">${greeting()}, Nick</h1>
+          <h1 class="text-xl font-semibold tracking-tight flex-1">${greeting()}, Nick</h1>
+          <div class="flex items-center gap-1.5 bg-white/15 rounded-full px-2.5 py-1 text-[11px]" title="${state.cloud.enabled ? 'Cloud sync on' : 'Local only — open Account → Cloud Sync'}">
+            <span id="sync-dot" class="sync-dot ${state.cloud.status || 'local'}"></span>
+            <span id="sync-label">${({ ok:'Synced', local:'Local', syncing:'Syncing…', err:'Sync error' })[state.cloud.status || 'local']}</span>
+          </div>
         </div>
-        <div class="tab-pill">
+        <div class="tab-pill mt-4">
           <button data-tab="upcoming" class="${state.workoutsTab==='upcoming'?'active':''}">Upcoming</button>
           <button data-tab="past"     class="${state.workoutsTab==='past'    ?'active':''}">Past</button>
         </div>
       </header>
 
       <div class="flex-1 px-4 py-4 space-y-3 scroll-area overflow-y-auto pb-24">
-        ${list.map(workoutCard).join('') || `<div class="text-center text-slate-400 text-sm pt-10">No workouts yet.</div>`}
+        ${list.map(w => workoutCard(w, state.workoutsTab === 'upcoming')).join('') || `<div class="text-center text-slate-400 text-sm pt-10">No workouts yet.</div>`}
       </div>
 
       ${bottomNav('workouts')}
@@ -281,31 +469,64 @@ function renderWorkoutsList() {
   bindNav();
 }
 
-function workoutCard(w) {
+function workoutCard(w, isUpcoming) {
   const dateLabel = w.longDate;
   const checkClasses = w.completed
     ? 'bg-emerald-500 text-white border-emerald-500'
     : 'bg-white text-slate-300 border-slate-200';
+
+  // For upcoming workouts, compute suggested top-set summary per exercise.
   const exerciseRows = [
     `<div class="flex items-center gap-3 py-1.5"><span class="ex-badge bg-orange-50">${icons.flame}</span><span class="text-slate-700 text-[15px]">Warm up</span></div>`,
     ...w.exercises.map(ex => {
-      const isSuper = ex.type === 'superset';
-      return `<div class="flex items-center gap-3 py-1.5"><span class="ex-badge ${isSuper ? 'bg-slate-100' : 'bg-slate-100'}">${ex.label}</span><span class="text-slate-700 text-[15px]">${ex.name.replace(/^ISSA Exercise Library /, '')}</span></div>`;
+      let suggestion = '';
+      if (isUpcoming) {
+        const sets = suggestSets(w, ex);
+        const weights = sets.map(s => s.suggestedWeight).filter(x => x != null);
+        if (weights.length) {
+          const top = Math.max(...weights);
+          suggestion = `<span class="ml-auto text-[12px] text-slate-500 font-medium whitespace-nowrap">→ ${top}kg</span>`;
+        } else {
+          suggestion = `<span class="ml-auto text-[11px] text-slate-400 whitespace-nowrap">new lift</span>`;
+        }
+      } else {
+        // past: show summary of logged top weight if any
+        if (Array.isArray(ex.results) && ex.results.length) {
+          const top = ex.results.reduce((m, s) => s && s.weight != null && s.weight > m ? s.weight : m, 0);
+          if (top > 0) suggestion = `<span class="ml-auto text-[12px] text-slate-500 font-medium whitespace-nowrap">${top}kg</span>`;
+        }
+      }
+      return `<div class="flex items-center gap-3 py-1.5">
+        <span class="ex-badge">${ex.label}</span>
+        <span class="text-slate-700 text-[15px] truncate">${ex.name.replace(/^ISSA Exercise Library /, '')}</span>
+        ${suggestion}
+      </div>`;
     })
   ].join('');
+
   return `
     <button data-workout="${w.id}" class="block w-full text-left bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-slate-300 transition">
       <div class="bg-slate-100/70 px-5 py-3.5 flex items-center justify-between border-b border-slate-200/70">
         <span class="text-[15px] text-slate-700">${dateLabel}</span>
         <span class="w-7 h-7 rounded-full border flex items-center justify-center ${checkClasses}">${icons.check}</span>
       </div>
-      <div class="px-5 pt-3 pb-2">
-        <h3 class="text-[17px] font-semibold text-slate-900 mb-1">${w.name}</h3>
+      <div class="px-5 pt-3 pb-3">
+        <div class="flex items-center justify-between mb-1">
+          <h3 class="text-[17px] font-semibold text-slate-900">${w.name}</h3>
+          ${isUpcoming ? `<span class="pill bg-orange-100 text-orange-700">${icons.trending} suggested</span>` : ''}
+        </div>
         <div class="space-y-0">
           ${exerciseRows}
         </div>
       </div>
     </button>`;
+}
+
+function greeting() {
+  const h = new Date().getHours();
+  if (h < 12) return 'Good morning';
+  if (h < 18) return 'Good afternoon';
+  return 'Good evening';
 }
 
 // ------------------------------------------------------------
@@ -315,7 +536,6 @@ function renderWorkoutDetail() {
   const w = getWorkoutById(state.selectedWorkoutId);
   if (!w) { state.selectedWorkoutId = null; return render(); }
 
-  const exCount = w.exercises.length;
   $app.innerHTML = `
     <div class="view flex flex-col flex-1 min-h-screen">
       <header class="brand-orange text-white px-4 pt-12 pb-5 relative">
@@ -331,13 +551,13 @@ function renderWorkoutDetail() {
         </div>
         <div class="text-center mt-2">
           <div class="text-[18px] font-semibold">${w.name}</div>
-          <div class="text-[13px] text-white/80 mt-0.5">Warm Up • ${exCount} Exercises</div>
+          <div class="text-[13px] text-white/80 mt-0.5">Warm Up • ${w.exercises.length} Exercises</div>
         </div>
       </header>
 
       <div class="flex-1 px-3 py-3 space-y-3 scroll-area overflow-y-auto pb-28">
         ${warmupCard(w)}
-        ${w.exercises.map((ex, i) => exerciseCard(w, ex, i)).join('')}
+        ${w.exercises.map(ex => exerciseCard(w, ex)).join('')}
         ${completeButton(w)}
       </div>
     </div>
@@ -348,28 +568,9 @@ function renderWorkoutDetail() {
   $app.querySelector('[data-action="timer"]').onclick = () => alert('Rest timer — coming soon');
 
   $app.querySelectorAll('[data-history]').forEach(b => b.onclick = () => openModal({ kind: 'history', exercise: b.dataset.history }));
-  $app.querySelectorAll('[data-add-result]').forEach(b => b.onclick = () => {
-    const label = b.dataset.addResult;
-    const ex = w.exercises.find(e => e.label === label);
-    const cur = ex.results || '';
-    const v = prompt(`Results for ${label} — ${ex.name}\n\nFormat: comma-separated values per set (e.g. 47.5,52.5,55 for weights; or "10,8,8" for reps)`, cur);
-    if (v !== null) {
-      setOverride(w.id, o => {
-        o.exercises = o.exercises || {};
-        o.exercises[label] = { results: v.trim() };
-      });
-      render();
-    }
-  });
-  $app.querySelectorAll('[data-toggle-set-done]').forEach(b => b.onclick = () => {
-    const label = b.dataset.toggleSetDone;
-    setOverride(w.id, o => {
-      o.exercises = o.exercises || {};
-      o.exercises[label] = o.exercises[label] || {};
-      o.exercises[label].done = !o.exercises[label].done;
-    });
-    render();
-  });
+  $app.querySelectorAll('[data-add-result]').forEach(b => b.onclick = () => openModal({ kind: 'results', workoutId: w.id, label: b.dataset.addResult }));
+  $app.querySelectorAll('[data-set-goal]').forEach(b => b.onclick = () => openModal({ kind: 'goal-edit', exerciseName: b.dataset.setGoal }));
+
   const complete = $app.querySelector('[data-complete]');
   if (complete) complete.onclick = () => {
     setOverride(w.id, o => { o.completed = !w.completed; });
@@ -390,15 +591,60 @@ function warmupCard(w) {
     </div>`;
 }
 
-function exerciseCard(w, ex, idx) {
+function exerciseCard(w, ex) {
   const isSuper = ex.type === 'superset';
   const groupBadge = isSuper ? 'SUPERSET' : 'SINGLE';
   const ytSearch = `https://www.youtube.com/results?search_query=${encodeURIComponent(ex.search || ex.name)}`;
-  const hasResults = !!ex.results && ex.results.length > 0;
-  const completed = w.completed && hasResults;
-  const checkBadge = completed
+  const hasResults = !isResultsEmpty(ex.results);
+  const checkBadge = hasResults
     ? `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 text-white">${icons.check}</span>`
     : `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full border border-slate-300 text-slate-300">${icons.check}</span>`;
+
+  const isUpcoming = w.date >= TODAY;
+  const goal = state.goals[ex.name];
+  const sets = suggestSets(w, ex);
+  const best = bestEverForExercise(ex.name);
+
+  // Suggestion block
+  let suggestionBlock = '';
+  if (isUpcoming && sets.some(s => s.suggestedWeight != null)) {
+    const suggestedLine = sets.map(s =>
+      s.suggestedWeight != null ? `<span class="font-semibold text-slate-900">${s.suggestedWeight}kg</span>×${s.targetReps || '—'}` : '—'
+    ).join(' <span class="text-slate-300">·</span> ');
+    const lastLine = sets[0] && sets[0].lastSet
+      ? `<div class="text-[11px] text-slate-500 mt-1">Last time: ${formatResultsCompact(sets.map(s => s.lastSet).filter(Boolean))}</div>` : '';
+    suggestionBlock = `
+      <div class="bg-orange-50/70 border border-orange-200/60 rounded-xl px-3 py-2.5">
+        <div class="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-orange-700 mb-1">
+          ${icons.trending}<span>Suggested today</span>
+        </div>
+        <div class="text-[13px] text-slate-700">${suggestedLine}</div>
+        ${lastLine}
+      </div>`;
+  }
+
+  // Goal block
+  let goalBlock = '';
+  if (goal) {
+    const pct = best && goal.targetWeight ? Math.min(100, Math.round((best.weight / goal.targetWeight) * 100)) : 0;
+    goalBlock = `
+      <button data-set-goal="${escapeAttr(ex.name)}" class="w-full bg-emerald-50/70 border border-emerald-200/60 rounded-xl px-3 py-2.5 text-left hover:border-emerald-300">
+        <div class="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-emerald-700 mb-1">
+          ${icons.target}<span>Goal</span>
+        </div>
+        <div class="text-[13px] text-slate-800"><span class="font-semibold">${goal.targetWeight ?? '—'} kg</span>${goal.targetReps ? ` × ${goal.targetReps}` : ''}${goal.note ? ` <span class="text-slate-500">— ${escapeHtml(goal.note)}</span>` : ''}</div>
+        ${best ? `
+          <div class="mt-1.5">
+            <div class="flex items-center justify-between text-[11px] text-slate-500 mb-0.5">
+              <span>Best: ${best.weight}kg × ${best.reps}</span>
+              <span>${pct}%</span>
+            </div>
+            <div class="w-full bg-white rounded-full h-1.5 overflow-hidden"><div class="bg-emerald-500 h-full" style="width:${pct}%"></div></div>
+          </div>` : ''}
+      </button>`;
+  } else if (isUpcoming) {
+    goalBlock = `<button data-set-goal="${escapeAttr(ex.name)}" class="w-full text-left text-[12px] text-slate-500 hover:text-slate-800 py-1.5 px-3 border border-dashed border-slate-200 rounded-lg flex items-center gap-1.5">${icons.plus} Set a goal for this exercise</button>`;
+  }
 
   return `
     <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
@@ -422,10 +668,7 @@ function exerciseCard(w, ex, idx) {
               </div>
             </div>
             <div class="yt-play"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></div>
-            <div class="absolute bottom-2 right-2 text-white text-[11px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded">
-              Watch on
-              <svg width="42" height="10" viewBox="0 0 90 20" fill="white"><path d="M27.973 3.123A3.78 3.78 0 0 0 25.31.443C22.96 0 13.5 0 13.5 0S4.04 0 1.69.443A3.78 3.78 0 0 0-.973 3.123C-1.5 5.487-1.5 10-1.5 10s0 4.513.527 6.877a3.78 3.78 0 0 0 2.663 2.68C4.04 20 13.5 20 13.5 20s9.46 0 11.81-.443a3.78 3.78 0 0 0 2.663-2.68C28.5 14.513 28.5 10 28.5 10s0-4.513-.527-6.877zM10.5 14.5v-9L18 10z"/><text x="32" y="14" font-size="11" font-weight="700">YouTube</text></svg>
-            </div>
+            <div class="absolute bottom-2 right-2 text-white text-[11px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded">Watch on YouTube</div>
           </div>
         </a>
 
@@ -434,18 +677,22 @@ function exerciseCard(w, ex, idx) {
           <pre class="text-[14px] text-slate-700 leading-relaxed whitespace-pre-wrap font-sans">${ex.instructions}</pre>
         </div>
 
+        ${suggestionBlock}
+        ${goalBlock}
+
         ${hasResults ? `
           <div class="pt-1">
             <h5 class="font-semibold text-slate-900 mb-1">Results</h5>
-            <div class="text-[14px] text-slate-700">${ex.results}</div>
+            <pre class="text-[14px] text-slate-700 leading-relaxed whitespace-pre-wrap font-sans">${formatResultsList(ex.results)}</pre>
+            ${ex.notes ? `<div class="text-[13px] text-slate-500 mt-1">Notes: ${escapeHtml(ex.notes)}</div>` : ''}
           </div>
         ` : ''}
 
-        <button data-add-result="${ex.label}" class="w-full border border-slate-800 rounded-full py-2.5 text-[14px] font-medium text-slate-900 hover:bg-slate-50 transition">
-          ${hasResults ? `Update results for ${ex.label}` : `Add results for ${ex.label}`}
+        <button data-add-result="${ex.label}" class="w-full ${hasResults ? 'border border-slate-800' : 'bg-slate-900 text-white border border-slate-900'} rounded-full py-2.5 text-[14px] font-medium ${hasResults ? 'text-slate-900' : ''} hover:opacity-90 transition">
+          ${hasResults ? `Update results for ${ex.label}` : `Log results for ${ex.label}`}
         </button>
 
-        <button data-history="${ex.name}" class="w-full flex items-center justify-center gap-1.5 text-slate-500 text-[13px] py-1 hover:text-slate-700">
+        <button data-history="${escapeAttr(ex.name)}" class="w-full flex items-center justify-center gap-1.5 text-slate-500 text-[13px] py-1 hover:text-slate-700">
           ${icons.history}<span>Exercise History</span>
         </button>
       </div>
@@ -453,8 +700,6 @@ function exerciseCard(w, ex, idx) {
 }
 
 function completeButton(w) {
-  const isPlanned = w.date >= TODAY;
-  if (!isPlanned && !w.completed) return ''; // truly past + uncompleted skipped — still allow toggle below
   return `
     <button data-complete class="w-full ${w.completed ? 'bg-emerald-700' : 'bg-slate-900'} text-white rounded-full py-3.5 font-medium text-[15px] flex items-center justify-center gap-2 hover:opacity-95 transition">
       ${icons.check}
@@ -497,34 +742,18 @@ function renderHabits() {
   `;
 
   $app.querySelector('#habit-date').onchange = (e) => { state.habitDate = e.target.value; render(); };
-  $app.querySelectorAll('[data-habit]').forEach(b => b.onclick = () => {
-    const key = b.dataset.habit;
-    const f = window.HABIT_FIELDS.find(x => x.key === key);
-    const cur = (state.habits[dt] && state.habits[dt][key]) || '';
-    const v = prompt(`${f.label}${f.unit ? ` (${f.unit})` : ''}`, cur);
-    if (v !== null) {
-      state.habits[dt] = state.habits[dt] || {};
-      if (v.trim() === '') delete state.habits[dt][key];
-      else state.habits[dt][key] = v.trim();
-      saveHabits();
-      render();
-    }
-  });
+  $app.querySelectorAll('[data-habit]').forEach(b => b.onclick = () => openModal({ kind: 'habit-edit', key: b.dataset.habit }));
   bindNav();
 }
 
 function habitRow(f, val) {
-  const dotColor = {
-    emerald: 'bg-emerald-400',
-    sky:     'bg-sky-400',
-    pink:    'bg-pink-400',
-  }[f.color] || 'bg-slate-400';
+  const dotColor = { emerald: 'bg-emerald-400', sky: 'bg-sky-400', pink: 'bg-pink-400' }[f.color] || 'bg-slate-400';
   const done = val !== undefined && val !== '';
   return `
     <button data-habit="${f.key}" class="w-full flex items-center gap-3 px-4 py-3.5 hover:bg-slate-50 transition text-left">
       <span class="w-2 h-2 rounded-full ${dotColor}"></span>
       <span class="font-semibold text-slate-900 flex-1">${f.label}</span>
-      ${done ? `<span class="text-slate-500 text-[14px]">${val}</span>` : ''}
+      ${done ? `<span class="text-slate-500 text-[14px]">${escapeHtml(val)}</span>` : ''}
       <span class="w-6 h-6 rounded-full ${done ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-300'} flex items-center justify-center">${icons.check}</span>
     </button>`;
 }
@@ -539,7 +768,7 @@ function renderMessages() {
         <h1 class="text-[18px] font-semibold">Messages</h1>
       </header>
       <div class="flex-1 flex items-center justify-center text-slate-400 text-sm px-6 text-center">
-        Coach DMs would live here.<br/>Stub — not part of the v0.1 build.
+        Coach DMs would live here.<br/>Stub — not part of the v0.2 build.
       </div>
       ${bottomNav('messages')}
     </div>`;
@@ -547,19 +776,24 @@ function renderMessages() {
 }
 
 // ------------------------------------------------------------
-// View: Account (stub)
+// View: Account
 // ------------------------------------------------------------
 function renderAccount() {
   const totalWorkouts = state.workouts.length;
   const completed = state.workouts.filter(w => effectiveWorkout(w).completed).length;
+  const goalsCount = Object.keys(state.goals).length;
+  const cloudLabel = state.cloud.enabled
+    ? (state.cloud.status === 'ok' ? `On · last sync ${timeAgo(state.cloud.lastSync)}` : (state.cloud.status === 'err' ? 'Error — tap to fix' : 'On'))
+    : 'Off — using local storage only';
+
   $app.innerHTML = `
     <div class="view flex flex-col flex-1 min-h-screen">
       <header class="brand-orange text-white px-5 pt-12 pb-8 text-center">
         <div class="w-20 h-20 rounded-full bg-white/20 border-2 border-white/40 flex items-center justify-center text-3xl mx-auto mb-3">N</div>
         <h1 class="text-[18px] font-semibold">Nick</h1>
-        <div class="text-white/80 text-[13px] mt-0.5">nickholzherr@gmail.com</div>
+        <div class="text-white/80 text-[13px] mt-0.5">${state.cloud.userEmail || 'nickholzherr@gmail.com'}</div>
       </header>
-      <div class="flex-1 px-4 py-4 space-y-3">
+      <div class="flex-1 px-4 py-4 space-y-3 scroll-area overflow-y-auto pb-24">
         <div class="bg-white border border-slate-200 rounded-2xl p-5">
           <h3 class="font-semibold text-slate-900 mb-3">Program progress</h3>
           <div class="flex items-end gap-2 mb-1">
@@ -570,49 +804,510 @@ function renderAccount() {
             <div class="bg-emerald-500 h-full" style="width: ${(completed/totalWorkouts*100).toFixed(0)}%"></div>
           </div>
         </div>
+
+        ${accountRow('goals',  icons.target, 'Goals',         `${goalsCount} set`,                  'text-emerald-600')}
+        ${accountRow('cloud',  icons.cloud,  'Cloud sync',    cloudLabel,                            state.cloud.enabled ? (state.cloud.status === 'err' ? 'text-rose-600' : 'text-emerald-600') : 'text-slate-500')}
+
         <div class="bg-white border border-slate-200 rounded-2xl p-5">
           <h3 class="font-semibold text-slate-900 mb-3">Reset data</h3>
-          <p class="text-[13px] text-slate-500 mb-3">Clears all logged results, comments, and habit entries from this browser.</p>
-          <button id="reset-btn" class="text-[13px] text-rose-600 hover:text-rose-700 font-medium">Reset prototype data</button>
+          <p class="text-[13px] text-slate-500 mb-3">Clears logged results, comments, goals, and habit entries from this browser (cloud copy unaffected — pull from cloud to restore).</p>
+          <button id="reset-btn" class="text-[13px] text-rose-600 hover:text-rose-700 font-medium">Reset local data</button>
         </div>
       </div>
       ${bottomNav('account')}
     </div>`;
   document.getElementById('reset-btn').onclick = () => {
-    if (confirm('Wipe all results, comments, and habit data?')) {
-      localStorage.removeItem(STORAGE_KEY);
-      localStorage.removeItem(HABITS_KEY);
-      state.overrides = {};
-      state.habits = {};
+    if (confirm('Wipe local overrides, goals, and habit data? Cloud copy is unaffected.')) {
+      [LS.overrides, LS.habits, LS.goals].forEach(k => localStorage.removeItem(k));
+      state.overrides = {}; state.habits = {}; state.goals = {};
       render();
     }
   };
+  $app.querySelectorAll('[data-go]').forEach(b => b.onclick = () => { state.view = b.dataset.go; render(); });
   bindNav();
 }
 
+function accountRow(go, icon, label, subtext, subClass) {
+  return `
+    <button data-go="${go}" class="w-full bg-white border border-slate-200 rounded-2xl p-4 flex items-center gap-3 hover:border-slate-300 transition text-left">
+      <span class="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700">${icon}</span>
+      <div class="flex-1 min-w-0">
+        <div class="font-semibold text-slate-900">${label}</div>
+        <div class="text-[12px] ${subClass} mt-0.5 truncate">${subtext}</div>
+      </div>
+      <span class="text-slate-400">${icons.chevron}</span>
+    </button>`;
+}
+
+function timeAgo(iso) {
+  if (!iso) return 'never';
+  const s = Math.round((Date.now() - new Date(iso).getTime()) / 1000);
+  if (s < 60) return `${s}s ago`;
+  if (s < 3600) return `${Math.round(s/60)}m ago`;
+  if (s < 86400) return `${Math.round(s/3600)}h ago`;
+  return `${Math.round(s/86400)}d ago`;
+}
+
 // ------------------------------------------------------------
-// Modals
+// View: Goals
 // ------------------------------------------------------------
-function openModal(m) { state.modal = m; render(); }
-function closeModal() { state.modal = null; render(); }
+function renderGoals() {
+  // All unique exercises across the schedule.
+  const allExercises = Array.from(new Set(state.workouts.flatMap(w => w.exercises.map(e => e.name))));
+  const goaled = allExercises.filter(n => state.goals[n]);
+  const ungoaled = allExercises.filter(n => !state.goals[n]);
+
+  $app.innerHTML = `
+    <div class="view flex flex-col flex-1 min-h-screen">
+      <header class="brand-orange text-white px-4 pt-12 pb-5">
+        <div class="flex items-center justify-between">
+          <button data-back class="w-9 h-9 rounded-full bg-white/25 flex items-center justify-center">${icons.back}</button>
+          <h1 class="text-[18px] font-semibold">Goals</h1>
+          <div class="w-9"></div>
+        </div>
+        <p class="text-[12px] text-white/85 text-center mt-2">Targets for each lift. Suggestions on upcoming workouts climb toward these.</p>
+      </header>
+      <div class="flex-1 px-4 py-4 space-y-4 scroll-area overflow-y-auto pb-8">
+        ${goaled.length ? `
+          <div>
+            <h3 class="text-[12px] uppercase tracking-wider text-slate-500 font-semibold mb-2">Active goals</h3>
+            <div class="space-y-2">${goaled.map(goalRow).join('')}</div>
+          </div>` : `
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 text-center">
+            <div class="text-slate-400 text-sm mb-2">No goals yet.</div>
+            <div class="text-slate-500 text-[13px]">Tap a lift below to set one — e.g. "Back Squat 80kg × 5".</div>
+          </div>`}
+
+        <div>
+          <h3 class="text-[12px] uppercase tracking-wider text-slate-500 font-semibold mb-2">Available lifts</h3>
+          <div class="space-y-2">${ungoaled.map(n => goalSetButton(n)).join('')}</div>
+        </div>
+      </div>
+    </div>`;
+
+  document.querySelector('[data-back]').onclick = () => { state.view = 'account'; render(); };
+  $app.querySelectorAll('[data-set-goal]').forEach(b => b.onclick = () => openModal({ kind: 'goal-edit', exerciseName: b.dataset.setGoal }));
+}
+
+function goalRow(name) {
+  const g = state.goals[name];
+  const best = bestEverForExercise(name);
+  const pct = best && g.targetWeight ? Math.min(100, Math.round((best.weight / g.targetWeight) * 100)) : 0;
+  return `
+    <button data-set-goal="${escapeAttr(name)}" class="w-full bg-white border border-slate-200 rounded-2xl p-4 text-left hover:border-slate-300 transition">
+      <div class="flex items-start justify-between gap-2 mb-1.5">
+        <span class="font-semibold text-slate-900 text-[15px] leading-snug">${name.replace(/^ISSA Exercise Library /, '')}</span>
+        <span class="text-emerald-700 font-semibold text-[14px] whitespace-nowrap">${g.targetWeight ?? '—'} kg${g.targetReps ? ` × ${g.targetReps}` : ''}</span>
+      </div>
+      ${g.note ? `<div class="text-[12px] text-slate-500 mb-2">${escapeHtml(g.note)}</div>` : ''}
+      <div class="flex items-center justify-between text-[11px] text-slate-500 mb-1">
+        <span>${best ? `Best so far: ${best.weight}kg × ${best.reps} on ${best.date}` : 'No logged results yet'}</span>
+        <span>${pct}%</span>
+      </div>
+      <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden"><div class="bg-emerald-500 h-full" style="width:${pct}%"></div></div>
+    </button>`;
+}
+
+function goalSetButton(name) {
+  return `
+    <button data-set-goal="${escapeAttr(name)}" class="w-full bg-white border border-dashed border-slate-300 rounded-2xl p-3 text-left hover:border-slate-400 hover:bg-slate-50 transition">
+      <div class="flex items-center justify-between">
+        <span class="text-slate-700 text-[14px]">${name.replace(/^ISSA Exercise Library /, '')}</span>
+        <span class="text-slate-400 text-[12px] flex items-center gap-1">${icons.plus} Set goal</span>
+      </div>
+    </button>`;
+}
+
+// ------------------------------------------------------------
+// View: Cloud Sync (Supabase setup)
+// ------------------------------------------------------------
+function renderCloudSync() {
+  const c = state.cloud;
+  $app.innerHTML = `
+    <div class="view flex flex-col flex-1 min-h-screen">
+      <header class="brand-orange text-white px-4 pt-12 pb-5">
+        <div class="flex items-center justify-between">
+          <button data-back class="w-9 h-9 rounded-full bg-white/25 flex items-center justify-center">${icons.back}</button>
+          <h1 class="text-[18px] font-semibold">Cloud Sync</h1>
+          <div class="w-9"></div>
+        </div>
+      </header>
+      <div class="flex-1 px-4 py-4 space-y-4 scroll-area overflow-y-auto pb-8">
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <h3 class="font-semibold text-slate-900">Status</h3>
+              <p class="text-[12px] text-slate-500 mt-0.5">${c.enabled ? ({ ok:'Synced to Supabase', local:'Configured but never synced', syncing:'Syncing…', err:`Error: ${c.lastError || 'unknown'}` })[c.status || 'local'] : 'Disabled — data stays on this device only'}</p>
+            </div>
+            <span class="sync-dot ${c.status || 'local'}"></span>
+          </div>
+          ${c.lastSync ? `<div class="text-[11px] text-slate-400">Last sync: ${new Date(c.lastSync).toLocaleString()}</div>` : ''}
+          ${c.enabled ? `
+            <div class="flex gap-2 mt-3">
+              <button id="pull-now" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-full py-2 text-[13px] font-medium">Pull from cloud</button>
+              <button id="push-now" class="flex-1 bg-slate-900 hover:opacity-90 text-white rounded-full py-2 text-[13px] font-medium">Push now</button>
+            </div>` : ''}
+        </div>
+
+        <form id="cloud-form" class="bg-white border border-slate-200 rounded-2xl p-5 space-y-3">
+          <h3 class="font-semibold text-slate-900">Supabase config</h3>
+          <p class="text-[12px] text-slate-500">Paste your Supabase project's URL and anon key. Data syncs to a single <code class="bg-slate-100 px-1 rounded">workout_data</code> row keyed by your email.</p>
+          <label class="block">
+            <span class="text-[12px] font-semibold text-slate-700">Project URL</span>
+            <input id="cloud-url" type="url" value="${escapeAttr(c.url || '')}" placeholder="https://xxx.supabase.co" class="set-input mt-1 text-left" />
+          </label>
+          <label class="block">
+            <span class="text-[12px] font-semibold text-slate-700">Anon key</span>
+            <textarea id="cloud-key" rows="3" placeholder="eyJhbGciOi…" class="w-full p-2 border border-slate-200 rounded-lg text-[12px] font-mono mt-1 focus:outline-none focus:border-orange-400">${escapeHtml(c.anonKey || '')}</textarea>
+          </label>
+          <label class="block">
+            <span class="text-[12px] font-semibold text-slate-700">Your email (row key)</span>
+            <input id="cloud-email" type="email" value="${escapeAttr(c.userEmail || '')}" placeholder="you@example.com" class="set-input mt-1 text-left" />
+          </label>
+          <div class="flex items-center gap-2">
+            <input id="cloud-enabled" type="checkbox" ${c.enabled ? 'checked' : ''} class="w-4 h-4 accent-orange-500" />
+            <label for="cloud-enabled" class="text-[13px] text-slate-700">Enable cloud sync</label>
+          </div>
+          <div class="flex gap-2 pt-2">
+            <button type="button" id="cloud-test" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-full py-2.5 text-[14px] font-medium">Test connection</button>
+            <button type="submit" class="flex-1 bg-slate-900 hover:opacity-90 text-white rounded-full py-2.5 text-[14px] font-medium">Save</button>
+          </div>
+          <div id="cloud-msg" class="text-[12px] mt-1"></div>
+        </form>
+
+        <details class="bg-white border border-slate-200 rounded-2xl p-5">
+          <summary class="font-semibold text-slate-900 cursor-pointer">One-time Supabase setup (60 sec)</summary>
+          <ol class="text-[13px] text-slate-700 leading-relaxed list-decimal pl-5 space-y-1.5 mt-3">
+            <li>Create a free project at <a href="https://supabase.com" target="_blank" class="text-orange-700 underline">supabase.com</a>.</li>
+            <li>Open the SQL editor and run the snippet below.</li>
+            <li>Copy the project URL and <em>anon</em> key from Project Settings → API.</li>
+            <li>Paste them above, tick Enable, hit Save.</li>
+          </ol>
+          <pre class="bg-slate-900 text-slate-100 text-[11px] p-3 rounded-lg mt-3 overflow-x-auto">create table workout_data (
+  user_email  text        primary key,
+  payload     jsonb       not null default '{}'::jsonb,
+  updated_at  timestamptz not null default now()
+);
+
+-- Prototype-grade open access. Tighten with RLS + auth for production.
+alter table workout_data enable row level security;
+create policy "anon all" on workout_data
+  for all using (true) with check (true);</pre>
+          <p class="text-[12px] text-slate-500 mt-2">The anon key is safe to embed client-side. The RLS policy here is wide-open — fine for a personal prototype, but tighten before sharing the URL with anyone else.</p>
+        </details>
+      </div>
+    </div>`;
+
+  document.querySelector('[data-back]').onclick = () => { state.view = 'account'; render(); };
+
+  const form = document.getElementById('cloud-form');
+  const msg = document.getElementById('cloud-msg');
+  form.onsubmit = (e) => {
+    e.preventDefault();
+    state.cloud.url       = document.getElementById('cloud-url').value.trim();
+    state.cloud.anonKey   = document.getElementById('cloud-key').value.trim();
+    state.cloud.userEmail = document.getElementById('cloud-email').value.trim();
+    state.cloud.enabled   = document.getElementById('cloud-enabled').checked;
+    state.cloud.status    = state.cloud.enabled ? 'local' : 'local';
+    saveCloud();
+    msg.textContent = 'Saved.';
+    msg.className = 'text-[12px] mt-1 text-emerald-700';
+    if (state.cloud.enabled) doCloudSync('push').then(() => render()).catch(err => { msg.textContent = String(err.message); msg.className = 'text-[12px] mt-1 text-rose-600'; render(); });
+  };
+
+  document.getElementById('cloud-test').onclick = async () => {
+    const url       = document.getElementById('cloud-url').value.trim();
+    const anonKey   = document.getElementById('cloud-key').value.trim();
+    if (!url || !anonKey) { msg.textContent = 'Need URL + anon key.'; msg.className = 'text-[12px] mt-1 text-rose-600'; return; }
+    msg.textContent = 'Testing…';
+    msg.className = 'text-[12px] mt-1 text-slate-500';
+    try {
+      const r = await fetch(`${url.replace(/\/$/, '')}/rest/v1/workout_data?select=user_email&limit=1`, {
+        headers: { apikey: anonKey, Authorization: `Bearer ${anonKey}` }
+      });
+      if (r.ok) { msg.textContent = '✓ Connection works.'; msg.className = 'text-[12px] mt-1 text-emerald-700'; }
+      else { msg.textContent = `✗ ${r.status} ${await r.text()}`; msg.className = 'text-[12px] mt-1 text-rose-600'; }
+    } catch (err) { msg.textContent = `✗ ${err.message}`; msg.className = 'text-[12px] mt-1 text-rose-600'; }
+  };
+
+  const pullBtn = document.getElementById('pull-now');
+  if (pullBtn) pullBtn.onclick = () => doCloudSync('pull').then(render).catch(e => { msg.textContent = String(e.message); msg.className = 'text-[12px] mt-1 text-rose-600'; });
+  const pushBtn = document.getElementById('push-now');
+  if (pushBtn) pushBtn.onclick = () => doCloudSync('push').then(render).catch(e => { msg.textContent = String(e.message); msg.className = 'text-[12px] mt-1 text-rose-600'; });
+}
+
+// ============================================================
+// Modals + Sheets
+// ============================================================
+function openModal(m) { state.modal = m; renderModal(); }
+function closeModal() { state.modal = null; renderModal(); }
 
 function renderModal() {
   if (!state.modal) { $modal.innerHTML = ''; return; }
-  if (state.modal.kind === 'history') renderHistoryModal(state.modal.exercise);
-  if (state.modal.kind === 'comments') renderCommentsModal(state.modal.workoutId);
+  if (state.modal.kind === 'history')    renderHistoryModal(state.modal.exercise);
+  if (state.modal.kind === 'comments')   renderCommentsModal(state.modal.workoutId);
+  if (state.modal.kind === 'results')    renderResultsSheet(state.modal.workoutId, state.modal.label);
+  if (state.modal.kind === 'goal-edit')  renderGoalEditSheet(state.modal.exerciseName);
+  if (state.modal.kind === 'habit-edit') renderHabitEditSheet(state.modal.key);
 }
 
+// ---- Inline Results sheet ----------------------------------
+function renderResultsSheet(workoutId, label) {
+  const w = getWorkoutById(workoutId);
+  const ex = w.exercises.find(e => e.label === label);
+  const sets = suggestSets(w, ex);
+  const existing = Array.isArray(ex.results) ? ex.results : [];
+  const isCompound = /squat|deadlift|bench|press|row|pull down|rdl/i.test(ex.name);
+
+  const rows = sets.map((s, i) => {
+    const cur = existing[i] || {};
+    const weightVal   = cur.weight   != null ? cur.weight   : '';
+    const repsVal     = cur.reps     != null ? cur.reps     : '';
+    const rpeVal      = cur.rpe      != null ? cur.rpe      : '';
+    const placeholderW = s.suggestedWeight != null ? s.suggestedWeight : '';
+    const placeholderR = s.targetReps      != null ? s.targetReps      : '';
+    const placeholderE = s.targetRpe       != null ? s.targetRpe       : '';
+    return `
+      <div class="grid grid-cols-12 gap-2 items-center">
+        <div class="col-span-2 text-[12px] font-semibold text-slate-500 text-center">Set ${i+1}</div>
+        <div class="col-span-3"><input data-set-w="${i}" inputmode="decimal" type="text" value="${weightVal}" placeholder="${placeholderW}" class="set-input" /></div>
+        <div class="col-span-1 text-slate-400 text-center text-[14px]">kg</div>
+        <div class="col-span-2"><input data-set-r="${i}" inputmode="numeric" type="text" value="${repsVal}" placeholder="${placeholderR}" class="set-input" /></div>
+        <div class="col-span-1 text-slate-400 text-center text-[14px]">reps</div>
+        <div class="col-span-2"><input data-set-e="${i}" inputmode="decimal" type="text" value="${rpeVal}" placeholder="${placeholderE}" class="set-input" /></div>
+        <div class="col-span-1 text-slate-400 text-center text-[12px]">rpe</div>
+      </div>`;
+  }).join('');
+
+  const lastRef = sets[0] && sets[0].lastSet
+    ? `<div class="text-[11px] text-slate-500 mt-1">Last time: ${formatResultsCompact(sets.map(s => s.lastSet).filter(Boolean))}</div>`
+    : '';
+
+  $modal.innerHTML = `
+    <div class="fixed inset-0 bg-black/40 modal-backdrop z-40 flex items-end md:items-center justify-center" data-close>
+      <div class="sheet-panel bg-slate-50 w-full md:max-w-md md:rounded-2xl flex flex-col overflow-hidden" style="max-height: 92vh">
+        <div class="bg-white px-4 pt-5 pb-4 border-b border-slate-200 flex items-start justify-between">
+          <div class="flex-1 min-w-0">
+            <div class="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">${ex.label} · ${isCompound ? 'compound' : 'accessory'}</div>
+            <h2 class="text-[17px] font-semibold text-slate-900 leading-snug mt-0.5">${ex.name}</h2>
+            <div class="text-[12px] text-slate-500 mt-1">${ex.instructions.split('\n').join(' · ')}</div>
+            ${lastRef}
+          </div>
+          <button data-close-btn class="text-slate-400 hover:text-slate-700 ml-2">${icons.close}</button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto px-4 py-4 space-y-2 scroll-area">
+          ${rows}
+
+          <button id="add-set" class="w-full mt-2 border border-dashed border-slate-300 rounded-xl py-2 text-[13px] text-slate-500 hover:border-slate-400 hover:text-slate-700 flex items-center justify-center gap-1.5">${icons.plus} Add another set</button>
+
+          <div class="pt-3">
+            <label class="text-[12px] font-semibold text-slate-700 block mb-1">Notes (optional)</label>
+            <textarea id="ex-notes" rows="2" placeholder="Felt strong / right knee tight / dropped 2.5kg…" class="w-full p-2 border border-slate-200 rounded-lg text-[13px] focus:outline-none focus:border-orange-400">${escapeHtml(ex.notes || '')}</textarea>
+          </div>
+        </div>
+
+        <div class="bg-white border-t border-slate-200 px-4 py-3 flex gap-2">
+          ${!isResultsEmpty(ex.results) ? `<button id="clear-results" class="px-4 py-2.5 rounded-full text-rose-600 hover:bg-rose-50 text-[14px] font-medium">Clear</button>` : ''}
+          <button data-close-btn class="flex-1 bg-slate-100 hover:bg-slate-200 rounded-full py-2.5 text-[14px] font-medium text-slate-700">Cancel</button>
+          <button id="save-results" class="flex-1 bg-slate-900 hover:opacity-90 text-white rounded-full py-2.5 text-[14px] font-medium">Save</button>
+        </div>
+      </div>
+    </div>`;
+
+  let setCount = sets.length;
+  $modal.querySelectorAll('[data-close-btn]').forEach(b => b.onclick = closeModal);
+  $modal.querySelector('[data-close]').onclick = (e) => { if (e.target === e.currentTarget) closeModal(); };
+
+  document.getElementById('add-set').onclick = () => {
+    const cur = collectSheetSets(setCount);
+    setOverride(w.id, o => {
+      o.exercises = o.exercises || {};
+      o.exercises[label] = { ...(o.exercises[label] || {}), results: cur.concat([{}]), notes: document.getElementById('ex-notes').value || undefined };
+    });
+    renderResultsSheet(workoutId, label);
+  };
+
+  document.getElementById('save-results').onclick = () => {
+    const results = collectSheetSets(setCount);
+    const notes = document.getElementById('ex-notes').value.trim();
+    setOverride(w.id, o => {
+      o.exercises = o.exercises || {};
+      o.exercises[label] = { results, notes: notes || undefined };
+    });
+    closeModal();
+    render();
+  };
+
+  const clearBtn = document.getElementById('clear-results');
+  if (clearBtn) clearBtn.onclick = () => {
+    setOverride(w.id, o => {
+      if (o.exercises && o.exercises[label]) delete o.exercises[label];
+    });
+    closeModal();
+    render();
+  };
+
+  function collectSheetSets(n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const wv = document.querySelector(`[data-set-w="${i}"]`)?.value.trim();
+      const rv = document.querySelector(`[data-set-r="${i}"]`)?.value.trim();
+      const ev = document.querySelector(`[data-set-e="${i}"]`)?.value.trim();
+      if (!wv && !rv && !ev) { out.push({}); continue; }
+      const s = {};
+      if (wv) s.weight = parseFloat(wv);
+      if (rv) s.reps   = parseInt(rv, 10);
+      if (ev) s.rpe    = parseFloat(ev);
+      out.push(s);
+    }
+    return out;
+  }
+
+  // Auto-focus first empty weight field.
+  const firstEmpty = $modal.querySelector('input[data-set-w]:placeholder-shown') || $modal.querySelector('[data-set-w="0"]');
+  if (firstEmpty) setTimeout(() => firstEmpty.focus(), 60);
+}
+
+// ---- Goal edit sheet ---------------------------------------
+function renderGoalEditSheet(exerciseName) {
+  const g = state.goals[exerciseName] || {};
+  const best = bestEverForExercise(exerciseName);
+
+  $modal.innerHTML = `
+    <div class="fixed inset-0 bg-black/40 modal-backdrop z-40 flex items-end md:items-center justify-center" data-close>
+      <div class="sheet-panel bg-slate-50 w-full md:max-w-md md:rounded-2xl flex flex-col overflow-hidden" style="max-height: 80vh">
+        <div class="bg-white px-4 pt-5 pb-4 border-b border-slate-200 flex items-start justify-between">
+          <div class="flex-1 min-w-0">
+            <div class="text-[11px] text-emerald-700 uppercase tracking-wider font-semibold flex items-center gap-1">${icons.target} Goal</div>
+            <h2 class="text-[17px] font-semibold text-slate-900 leading-snug mt-0.5">${exerciseName}</h2>
+            ${best ? `<div class="text-[12px] text-slate-500 mt-1">Current best: ${best.weight}kg × ${best.reps}</div>` : ''}
+          </div>
+          <button data-close-btn class="text-slate-400 hover:text-slate-700 ml-2">${icons.close}</button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto px-4 py-4 space-y-3 scroll-area">
+          <div class="grid grid-cols-12 gap-2">
+            <div class="col-span-5">
+              <label class="text-[12px] font-semibold text-slate-700 block mb-1">Target weight</label>
+              <div class="flex items-center gap-1.5"><input id="goal-w" inputmode="decimal" type="text" value="${g.targetWeight ?? ''}" placeholder="80" class="set-input" /><span class="text-slate-500 text-[13px]">kg</span></div>
+            </div>
+            <div class="col-span-4">
+              <label class="text-[12px] font-semibold text-slate-700 block mb-1">Target reps</label>
+              <div class="flex items-center gap-1.5"><input id="goal-r" inputmode="numeric" type="text" value="${g.targetReps ?? ''}" placeholder="5" class="set-input" /><span class="text-slate-500 text-[13px]">reps</span></div>
+            </div>
+            <div class="col-span-3">
+              <label class="text-[12px] font-semibold text-slate-700 block mb-1">By</label>
+              <input id="goal-d" type="date" value="${g.deadline ?? ''}" class="set-input text-[12px]" />
+            </div>
+          </div>
+          <div>
+            <label class="text-[12px] font-semibold text-slate-700 block mb-1">Note (optional)</label>
+            <textarea id="goal-n" rows="2" placeholder="Why this goal matters / form cue / reminder" class="w-full p-2 border border-slate-200 rounded-lg text-[13px] focus:outline-none focus:border-orange-400">${escapeHtml(g.note || '')}</textarea>
+          </div>
+        </div>
+
+        <div class="bg-white border-t border-slate-200 px-4 py-3 flex gap-2">
+          ${state.goals[exerciseName] ? `<button id="goal-del" class="px-4 py-2.5 rounded-full text-rose-600 hover:bg-rose-50 text-[14px] font-medium">Remove</button>` : ''}
+          <button data-close-btn class="flex-1 bg-slate-100 hover:bg-slate-200 rounded-full py-2.5 text-[14px] font-medium text-slate-700">Cancel</button>
+          <button id="goal-save" class="flex-1 bg-emerald-600 hover:opacity-90 text-white rounded-full py-2.5 text-[14px] font-medium">Save goal</button>
+        </div>
+      </div>
+    </div>`;
+
+  $modal.querySelectorAll('[data-close-btn]').forEach(b => b.onclick = closeModal);
+  $modal.querySelector('[data-close]').onclick = (e) => { if (e.target === e.currentTarget) closeModal(); };
+
+  document.getElementById('goal-save').onclick = () => {
+    const w = document.getElementById('goal-w').value.trim();
+    const r = document.getElementById('goal-r').value.trim();
+    const d = document.getElementById('goal-d').value.trim();
+    const n = document.getElementById('goal-n').value.trim();
+    if (!w && !r && !n) return closeModal();
+    state.goals[exerciseName] = {
+      targetWeight: w ? parseFloat(w) : null,
+      targetReps:   r ? parseInt(r, 10) : null,
+      deadline:     d || null,
+      note:         n || null,
+    };
+    saveGoals();
+    closeModal();
+    render();
+  };
+
+  const delBtn = document.getElementById('goal-del');
+  if (delBtn) delBtn.onclick = () => {
+    delete state.goals[exerciseName];
+    saveGoals();
+    closeModal();
+    render();
+  };
+
+  setTimeout(() => document.getElementById('goal-w')?.focus(), 60);
+}
+
+// ---- Habit edit sheet (inline instead of prompt) -----------
+function renderHabitEditSheet(key) {
+  const f = window.HABIT_FIELDS.find(x => x.key === key);
+  const dt = state.habitDate;
+  const cur = (state.habits[dt] && state.habits[dt][key]) || '';
+
+  $modal.innerHTML = `
+    <div class="fixed inset-0 bg-black/40 modal-backdrop z-40 flex items-end md:items-center justify-center" data-close>
+      <div class="sheet-panel bg-slate-50 w-full md:max-w-md md:rounded-2xl flex flex-col overflow-hidden">
+        <div class="bg-white px-4 pt-5 pb-4 border-b border-slate-200 flex items-start justify-between">
+          <div>
+            <div class="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">${dt}</div>
+            <h2 class="text-[17px] font-semibold text-slate-900 mt-0.5">${f.label}</h2>
+          </div>
+          <button data-close-btn class="text-slate-400 hover:text-slate-700">${icons.close}</button>
+        </div>
+        <div class="px-4 py-5">
+          <div class="flex items-center gap-2">
+            <input id="habit-val" inputmode="decimal" type="text" value="${escapeAttr(cur)}" placeholder="${f.placeholder}" class="set-input text-left text-[18px] py-3" autofocus />
+            ${f.unit ? `<span class="text-slate-500 text-[14px]">${f.unit}</span>` : ''}
+          </div>
+        </div>
+        <div class="bg-white border-t border-slate-200 px-4 py-3 flex gap-2">
+          ${cur ? `<button id="habit-del" class="px-4 py-2.5 rounded-full text-rose-600 hover:bg-rose-50 text-[14px] font-medium">Clear</button>` : ''}
+          <button data-close-btn class="flex-1 bg-slate-100 hover:bg-slate-200 rounded-full py-2.5 text-[14px] font-medium text-slate-700">Cancel</button>
+          <button id="habit-save" class="flex-1 bg-slate-900 hover:opacity-90 text-white rounded-full py-2.5 text-[14px] font-medium">Save</button>
+        </div>
+      </div>
+    </div>`;
+
+  $modal.querySelectorAll('[data-close-btn]').forEach(b => b.onclick = closeModal);
+  $modal.querySelector('[data-close]').onclick = (e) => { if (e.target === e.currentTarget) closeModal(); };
+
+  const save = () => {
+    const v = document.getElementById('habit-val').value.trim();
+    state.habits[dt] = state.habits[dt] || {};
+    if (!v) delete state.habits[dt][key]; else state.habits[dt][key] = v;
+    saveHabits();
+    closeModal();
+    render();
+  };
+  document.getElementById('habit-save').onclick = save;
+  document.getElementById('habit-val').onkeydown = (e) => { if (e.key === 'Enter') save(); };
+  const del = document.getElementById('habit-del');
+  if (del) del.onclick = () => { document.getElementById('habit-val').value = ''; save(); };
+
+  setTimeout(() => document.getElementById('habit-val')?.focus(), 60);
+}
+
+// ---- History modal -----------------------------------------
 function renderHistoryModal(exerciseName) {
   const all = state.workouts
     .map(effectiveWorkout)
     .flatMap(w => w.exercises
-      .filter(e => e.name === exerciseName && e.results)
-      .map(e => ({ date: w.date, longDate: w.longDate, instructions: e.instructions, results: e.results })))
+      .filter(e => e.name === exerciseName && !isResultsEmpty(e.results))
+      .map(e => ({ date: w.date, longDate: w.longDate, instructions: e.instructions, results: e.results, notes: e.notes })))
     .sort((a,b) => b.date.localeCompare(a.date));
 
   $modal.innerHTML = `
     <div class="fixed inset-0 bg-black/40 modal-backdrop z-40 flex items-end md:items-center justify-center" data-close>
-      <div class="modal-panel bg-slate-50 w-full md:max-w-md md:rounded-2xl md:max-h-[80vh] flex flex-col overflow-hidden" style="max-height: 85vh">
+      <div class="modal-panel bg-slate-50 w-full md:max-w-md md:rounded-2xl flex flex-col overflow-hidden" style="max-height: 85vh">
         <div class="bg-white px-4 pt-12 pb-4 flex items-center justify-between border-b border-slate-200" style="background: linear-gradient(#ee6f3a 0%, #ee6f3a 48px, white 48px);">
           <div class="w-8"></div>
           <h2 class="font-semibold text-slate-900 text-[17px]">Exercise History</h2>
@@ -622,9 +1317,6 @@ function renderHistoryModal(exerciseName) {
           <div class="flex items-center gap-2 bg-white border border-slate-300 rounded-full px-4 py-2.5">
             <span class="text-slate-400">${icons.search}</span>
             <span class="flex-1 text-[14px] text-slate-700 truncate">${exerciseName}</span>
-            <button data-close-btn class="text-slate-400 hover:text-slate-700">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="#cbd5e1"/><path d="M15 9l-6 6M9 9l6 6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-            </button>
           </div>
         </div>
         <div class="flex-1 overflow-y-auto p-4 space-y-3 scroll-area">
@@ -638,7 +1330,10 @@ function renderHistoryModal(exerciseName) {
                 <div class="text-[13px] font-medium text-slate-800 mt-1.5">${h.longDate}</div>
                 <pre class="text-[13px] text-slate-400 mt-2 whitespace-pre-wrap font-sans">${h.instructions}</pre>
               </div>
-              <div class="bg-slate-50 px-4 py-3 border-t border-slate-100 text-[14px] text-slate-700">${h.results}</div>
+              <div class="bg-slate-50 px-4 py-3 border-t border-slate-100 text-[13px] text-slate-700">
+                <pre class="whitespace-pre-wrap font-sans">${formatResultsList(h.results)}</pre>
+                ${h.notes ? `<div class="text-[12px] text-slate-500 mt-1.5">Notes: ${escapeHtml(h.notes)}</div>` : ''}
+              </div>
             </div>`).join('')}
         </div>
       </div>
@@ -649,10 +1344,11 @@ function renderHistoryModal(exerciseName) {
   $modal.querySelectorAll('[data-view-workout]').forEach(b => b.onclick = () => {
     const date = b.dataset.viewWorkout;
     const w = state.workouts.find(x => x.date === date && x.exercises.some(e => e.name === exerciseName));
-    if (w) { state.selectedWorkoutId = w.id; closeModal(); }
+    if (w) { state.selectedWorkoutId = w.id; closeModal(); render(); }
   });
 }
 
+// ---- Comments modal ----------------------------------------
 function renderCommentsModal(workoutId) {
   const w = getWorkoutById(workoutId);
   const comments = w.comments || [];
@@ -696,18 +1392,9 @@ function renderCommentsModal(workoutId) {
 function emptyComments() {
   return `
     <div class="space-y-3 opacity-50">
-      <div class="bg-white rounded-2xl px-4 py-3 max-w-[80%]">
-        <div class="h-2 w-32 bg-slate-200 rounded mb-2"></div>
-        <div class="h-2 w-44 bg-slate-200 rounded"></div>
-      </div>
-      <div class="bg-white rounded-2xl px-4 py-3 max-w-[80%] ml-auto">
-        <div class="h-2 w-28 bg-slate-200 rounded mb-2 ml-auto"></div>
-        <div class="h-2 w-40 bg-slate-200 rounded ml-auto"></div>
-      </div>
-      <div class="bg-white rounded-2xl px-4 py-3 max-w-[80%]">
-        <div class="h-2 w-36 bg-slate-200 rounded mb-2"></div>
-        <div class="h-2 w-32 bg-slate-200 rounded"></div>
-      </div>
+      <div class="bg-white rounded-2xl px-4 py-3 max-w-[80%]"><div class="h-2 w-32 bg-slate-200 rounded mb-2"></div><div class="h-2 w-44 bg-slate-200 rounded"></div></div>
+      <div class="bg-white rounded-2xl px-4 py-3 max-w-[80%] ml-auto"><div class="h-2 w-28 bg-slate-200 rounded mb-2 ml-auto"></div><div class="h-2 w-40 bg-slate-200 rounded ml-auto"></div></div>
+      <div class="bg-white rounded-2xl px-4 py-3 max-w-[80%]"><div class="h-2 w-36 bg-slate-200 rounded mb-2"></div><div class="h-2 w-32 bg-slate-200 rounded"></div></div>
       <div class="text-center text-slate-400 font-semibold text-[15px] pt-2">No comments on this workout</div>
     </div>`;
 }
@@ -724,13 +1411,15 @@ function commentBubble(c) {
     </div>`;
 }
 
+// ============================================================
+// Utilities
+// ============================================================
 function escapeHtml(s) {
-  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
+function escapeAttr(s) { return escapeHtml(s); }
 
-// ------------------------------------------------------------
-// Nav binding
-// ------------------------------------------------------------
 function bindNav() {
   $app.querySelectorAll('[data-nav]').forEach(b => b.onclick = () => {
     state.view = b.dataset.nav;
@@ -742,7 +1431,12 @@ function bindNav() {
 // ============================================================
 // Boot
 // ============================================================
-render();
+(async function boot() {
+  if (state.cloud.enabled && state.cloud.url && state.cloud.anonKey && state.cloud.userEmail) {
+    try { await doCloudSync('pull'); } catch (e) { /* fall through */ }
+  }
+  render();
+})();
 </script>
 </body>
 </html>
