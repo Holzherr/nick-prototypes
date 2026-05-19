@@ -1,70 +1,89 @@
-# workout-planner — v0.1
+# workout-planner — v0.2
 
-Phone-shaped prototype of a coaching-app workout planner. Modeled on an MSC-style
-strength-training app: orange-themed mobile UI, day-cards listing exercises with
-warmup + lettered exercises (A, B, C, D, E1/E2 supersets), tap-into-detail with
-YouTube video tile, prescription text, results entry, and per-exercise history.
+Phone-shaped strength-planner prototype. Plan upcoming sessions with
+suggestions derived from past performance + goals, log results inline,
+and (optionally) sync everything to Supabase so it survives a browser
+wipe and works across devices.
 
-Plan + log + look back, in one surface.
+## What's in v0.2
 
-## What's in it
+### Inline results entry
+- "Log results for A" opens a slide-up sheet, not a native prompt.
+- One row per set, pre-filled with **suggested weight** (greyed placeholder),
+  **target reps**, and **target RPE** parsed from the prescription.
+- Editable: tweak any cell, add or remove sets, append free-text notes.
+- Save commits to localStorage and (if enabled) syncs to Supabase in the
+  background — no page reload.
+- Same sheet for habit-tracker entries.
 
-- **Workouts list** — Upcoming / Past tabs. Each card: date header, workout name
-  ("Strength W2"), warmup row + lettered exercise list, completion checkmark.
-- **Workout detail** — orange header (date, name, exercise count), warmup card,
-  exercise cards with YouTube tile (links to YouTube search for the exercise),
-  prescription, "Add results" inline prompt, "Exercise History" pull-up.
-- **Exercise history modal** — every past instance of the exercise across the
-  schedule with prescription + logged results, and a "View Workout" deep-link.
-- **Workout Comments modal** — empty state, then bubble chat with the coach (mocked
-  as the user posting to themselves for now).
-- **Habit Tracker** — date picker + 10 daily metrics (calories, protein, carbs,
-  fat, weight, sleep, steps, energy, hunger, stress). Tap a row to enter a value;
-  persists per date.
-- **Account** — completion count, reset-data button.
+### Suggestions on upcoming workouts
+- Each exercise card on a future-dated workout shows a "Suggested today"
+  block: per-set weights × target reps, plus a "Last time" line for
+  reference.
+- Engine is RPE-aware:
+  - Last set well under target RPE → full bump (+2.5 kg compound, +5 kg deadlift).
+  - Last set near target RPE → ¾ bump.
+  - Last set at target RPE → ½ bump (the "small iteration" floor).
+  - Last set over target → hold.
+- The list-view exercise rows also surface a one-line top-set suggestion
+  (`→ 50kg`) so you can scan the week ahead.
 
-## How "today" works
+### Goals
+- Account → Goals lists every exercise in the program.
+- Tap any lift to set a target weight × reps + deadline + note.
+- Goals show on the exercise card in detail view: target, current best,
+  progress bar.
+- Goals climb in the data layer alongside results — they sync to Supabase
+  with everything else.
 
-Seed data is anchored at **2026-05-19** (matches the source screenshots). The
-schedule generator runs ±6 weeks around that anchor and labels weeks W1→W4 on a
-rolling 4-week cycle. Tue + Thu workouts only.
+### Cloud sync (Supabase)
+- Account → Cloud sync. Paste your Supabase project URL, anon key, and
+  email. Tick Enable, hit Save.
+- Saves all logged results, comments, goals, and habit entries into a
+  single `workout_data` row keyed by email.
+- Auto-push: debounced 800 ms after every write.
+- Auto-pull: on app boot, if configured.
+- Manual Push/Pull buttons + Test connection.
+- DDL snippet rendered in the page — paste into Supabase's SQL editor.
+- localStorage is always the first write target, so the app works fully
+  offline. Cloud is purely a sync layer.
 
-If you ship this for real, the anchor would be `new Date()` and the schedule
-would come from a backend program-design tool — but for a planner prototype, the
-fixed anchor lets the "past sessions have realistic history" demo actually land.
+## Past results, refreshed
 
-## Improvements over the source
-
-- **Compact exercise rows** on the list — name only, no per-set noise.
-- **Results inline** under each exercise card on past sessions (the source
-  hides them behind a separate screen).
-- **Comment input always visible** on the comments modal, not just an empty state.
-- **Reset button** on Account for clean demo runs.
-- **Phone frame on desktop** so it doesn't sprawl when opened on a laptop.
+Seed data now reads as a coherent training story across the eight past
+sessions: W3 base → W4 peak → W1 deload → today (W2). Each lift's numbers
+climb consistently week-over-week, with realistic per-set weight, reps,
+and RPE so the history modal and suggestion engine look right out of the
+box.
 
 ## Decisions
 
-- **No real YouTube embeds.** Each exercise tile links to a YouTube search for
-  the exercise rather than embedding a specific (possibly broken) video ID.
-  The visual matches the source's embed style; clicking opens results in a new
-  tab. Cleaner than hallucinated IDs that 404.
-- **localStorage for persistence.** Results, comments, and habit entries
-  survive a refresh. Reset from Account if a clean demo run is needed.
-- **Single-file HTML + data.js.** No build step. Tailwind via CDN.
-- **`prompt()` for value entry.** Native prompt is fine for v0.1 — a custom
-  sheet would be the next polish step.
+- **Suggestions always nudge up at the same RPE.** Even on a deload→working
+  jump, the engine adds half a bump rather than holding the line. That's
+  the explicit ask: small iterations to improve.
+- **Single Supabase row, JSON payload.** No per-workout rows, no joins.
+  Simplest possible schema for a personal-use prototype. Swap to a
+  relational shape when this graduates from prototype.
+- **Anon key in the client is OK.** Supabase anon keys are designed for
+  client-side use; tighten with RLS + auth before sharing.
+- **YouTube tile still links to search.** Same call as v0.1 — no hallucinated
+  video IDs. Swap for real `youtube.com/embed/<id>` when a curated video
+  list exists.
+- **Comments are mock-only.** No coach side; bubbles persist locally + to
+  cloud but author is always "Nick".
 
 ## Known issues / parked
 
-- No drag-to-reorder, no add-exercise, no add-workout from the UI — the schedule
-  is seed-only. Editing happens by adding to `data.js`.
-- Timer button is a stub (alert).
-- Coach voice in Comments is single-user only; multi-party threads would need
-  an `author` toggle in the data model.
-- Habit-tracker visualisation (line charts over time) not built — the screenshots
-  only showed the entry surface.
+- Timer button is still a stub.
+- No editing the program itself from the UI — exercises and prescriptions
+  come from `data.js`.
+- No habit charts.
+- Cloud sync conflict resolution is "last write wins" — fine for a single
+  user across devices, not for shared accounts.
+- The inline results sheet doesn't validate (you can save `weight=banana`).
 
 ## Run
 
-Open `index.html` directly, or `python3 -m http.server 8765` from `prototypes/`
-and visit `/workout-planner/`.
+Open `index.html` directly, or serve from `prototypes/` and visit
+`/workout-planner/`. localStorage persists between reloads; flip on cloud
+sync to keep the data across devices.
