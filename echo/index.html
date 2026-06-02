@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Echo — your assistant, everywhere</title>
+<meta name="description" content="Echo is the ambient assistant that lives on every channel, remembers everyone you know, and does the work before you ask. Request early access." />
+<meta property="og:title" content="Echo — your assistant, everywhere" />
+<meta property="og:description" content="One quiet layer over your whole life. Request early access." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='white'/%3E%3Ccircle cx='50' cy='50' r='26' fill='none' stroke='white' stroke-opacity='.5' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='white' stroke-opacity='.2' stroke-width='2'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050505; --ink:#f5f5f3; --muted:#8a8a86; --faint:#5a5a57;
+    --line:rgba(255,255,255,.10); --line-soft:rgba(255,255,255,.06);
+    --accent:#e8e4dc; --glow:rgba(232,228,220,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-weight:400; line-height:1.5; -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility; overflow-x:hidden;
+  }
+  /* ambient background: deep vignette + faint top glow */
+  body::before{
+    content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(900px 520px at 50% -8%, var(--glow), transparent 60%),
+      radial-gradient(1200px 800px at 50% 120%, rgba(255,255,255,.03), transparent 55%);
+  }
+  body::after{
+    content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+    background:radial-gradient(120% 120% at 50% 0%, transparent 60%, rgba(0,0,0,.7) 100%);
+  }
+  .wrap{position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:0 28px}
+
+  /* ── nav ── */
+  nav{display:flex; align-items:center; justify-content:space-between; padding:30px 0 0}
+  .brand{display:flex; align-items:center; gap:11px; letter-spacing:.02em}
+  .brand .mark{width:22px; height:22px}
+  .brand b{font-weight:600; font-size:16px; letter-spacing:.04em}
+  .nav-cta{font-size:13px; color:var(--muted); text-decoration:none; border:1px solid var(--line);
+    padding:8px 16px; border-radius:999px; transition:.25s; backdrop-filter:blur(6px)}
+  .nav-cta:hover{color:var(--ink); border-color:rgba(255,255,255,.28)}
+
+  /* ── hero ── */
+  .hero{position:relative; text-align:center; padding:118px 0 90px; min-height:82vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center}
+  /* concentric echo rings behind the wordmark */
+  .rings{position:absolute; top:50%; left:50%; width:760px; height:760px;
+    transform:translate(-50%,-58%); z-index:-1; pointer-events:none}
+  .rings span{position:absolute; inset:0; margin:auto; border-radius:50%;
+    border:1px solid rgba(255,255,255,.07); animation:pulse 6.5s ease-out infinite}
+  .rings span:nth-child(1){width:160px;height:160px}
+  .rings span:nth-child(2){width:360px;height:360px; animation-delay:1.3s; border-color:rgba(255,255,255,.05)}
+  .rings span:nth-child(3){width:560px;height:560px; animation-delay:2.6s; border-color:rgba(255,255,255,.035)}
+  .rings span:nth-child(4){width:760px;height:760px; animation-delay:3.9s; border-color:rgba(255,255,255,.025)}
+  @keyframes pulse{0%{opacity:.0; transform:scale(.86)}30%{opacity:1}100%{opacity:0; transform:scale(1.12)}}
+
+  .eyebrow{font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--faint);
+    margin-bottom:30px; font-weight:500}
+  .eyebrow .dot{display:inline-block; width:5px; height:5px; border-radius:50%;
+    background:#9ad99a; box-shadow:0 0 10px #9ad99a; margin-right:9px; vertical-align:middle; animation:breathe 3s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:.45}50%{opacity:1}}
+
+  h1{font-family:'Instrument Serif',Georgia,serif; font-weight:400; letter-spacing:-.01em;
+    font-size:clamp(48px,8.5vw,104px); line-height:.98; margin-bottom:26px}
+  h1 .it{font-style:italic; color:var(--accent)}
+  .lede{max-width:600px; font-size:clamp(17px,2.2vw,20px); color:var(--muted); font-weight:300;
+    line-height:1.62; margin:0 auto 42px}
+  .lede b{color:var(--ink); font-weight:500}
+
+  /* ── waitlist form ── */
+  .waitlist{width:100%; max-width:480px; margin:0 auto}
+  .field{display:flex; gap:8px; padding:7px; border:1px solid var(--line);
+    border-radius:14px; background:rgba(255,255,255,.025); backdrop-filter:blur(8px);
+    transition:.25s; box-shadow:0 20px 60px -30px rgba(0,0,0,.9)}
+  .field:focus-within{border-color:rgba(255,255,255,.32); background:rgba(255,255,255,.045)}
+  .field input{flex:1; background:transparent; border:0; outline:0; color:var(--ink);
+    font-family:inherit; font-size:15.5px; padding:0 14px; min-width:0}
+  .field input::placeholder{color:var(--faint)}
+  .field button{flex:none; border:0; cursor:pointer; font-family:inherit; font-weight:600;
+    font-size:14.5px; letter-spacing:.01em; color:#0a0a0a; background:var(--ink);
+    padding:13px 22px; border-radius:9px; transition:.2s}
+  .field button:hover{background:#fff; transform:translateY(-1px); box-shadow:0 10px 30px -12px rgba(255,255,255,.4)}
+  .field button:active{transform:translateY(0)}
+  .field button:disabled{opacity:.6; cursor:default; transform:none; box-shadow:none}
+  .fineprint{font-size:12.5px; color:var(--faint); margin-top:15px; letter-spacing:.01em}
+
+  .success{display:none; max-width:480px; margin:0 auto; text-align:center;
+    border:1px solid var(--line); border-radius:14px; padding:26px 24px;
+    background:rgba(255,255,255,.03); animation:rise .5s ease both}
+  .success .check{width:42px;height:42px;border-radius:50%;margin:0 auto 14px;
+    border:1px solid rgba(154,217,154,.5); display:flex; align-items:center; justify-content:center;
+    color:#9ad99a; font-size:20px; box-shadow:0 0 24px -6px rgba(154,217,154,.4)}
+  .success h3{font-family:'Instrument Serif',serif; font-weight:400; font-size:24px; margin-bottom:6px}
+  .success p{color:var(--muted); font-size:14.5px; font-weight:300}
+  @keyframes rise{from{opacity:0; transform:translateY(10px)}to{opacity:1; transform:none}}
+
+  /* ── proof strip ── */
+  .channels{display:flex; flex-wrap:wrap; gap:10px 26px; justify-content:center;
+    margin-top:58px; color:var(--faint); font-size:12.5px; letter-spacing:.16em; text-transform:uppercase}
+  .channels span{opacity:.8}
+
+  /* ── features ── */
+  .features{padding:30px 0 110px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line-soft); border:1px solid var(--line-soft); border-radius:18px; overflow:hidden}
+  .feat{background:var(--bg); padding:40px 32px; transition:.3s}
+  .feat:hover{background:#0b0b0a}
+  .feat .n{font-size:11px; letter-spacing:.2em; color:var(--faint); font-weight:500; margin-bottom:20px}
+  .feat h3{font-family:'Instrument Serif',serif; font-weight:400; font-size:25px; margin-bottom:11px; letter-spacing:.01em}
+  .feat p{color:var(--muted); font-size:14.5px; font-weight:300; line-height:1.6}
+
+  /* ── closing ── */
+  .closing{text-align:center; padding:40px 0 130px}
+  .closing p{font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(22px,4vw,34px);
+    color:var(--accent); max-width:680px; margin:0 auto 36px; line-height:1.32}
+  .ghost{display:inline-block; font-size:14px; color:var(--ink); text-decoration:none;
+    border:1px solid var(--line); padding:13px 28px; border-radius:999px; transition:.25s; letter-spacing:.02em}
+  .ghost:hover{border-color:rgba(255,255,255,.32); background:rgba(255,255,255,.04)}
+
+  footer{border-top:1px solid var(--line-soft); padding:30px 0 46px;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    color:var(--faint); font-size:12.5px}
+  footer a{color:var(--muted); text-decoration:none}
+  footer a:hover{color:var(--ink)}
+
+  @media (max-width:720px){
+    .features{grid-template-columns:1fr}
+    .hero{padding:84px 0 60px; min-height:auto}
+    .field{flex-direction:column}
+    .field button{padding:14px}
+    nav{padding:22px 0 0}
+  }
+  @media (prefers-reduced-motion:reduce){.rings span,.eyebrow .dot{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="7" fill="#f5f5f3"/>
+        <circle cx="50" cy="50" r="24" fill="none" stroke="#f5f5f3" stroke-opacity=".45" stroke-width="2"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="#f5f5f3" stroke-opacity=".18" stroke-width="2"/>
+      </svg>
+      <b>ECHO</b>
+    </div>
+    <a class="nav-cta" href="#waitlist">Request access</a>
+  </nav>
+
+  <header class="hero">
+    <div class="rings" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="eyebrow"><span class="dot"></span>Private beta · by invitation</div>
+    <h1>Your assistant,<br><span class="it">everywhere.</span></h1>
+    <p class="lede">Echo is the quiet layer over your whole life. It lives on every channel you use, <b>remembers everyone you know</b>, and does the work <b>before you ask</b> — not another chatbot you have to open.</p>
+
+    <div id="waitlist" class="waitlist">
+      <!-- Formspree-ready: replace YOUR_FORM_ID with a real form id to capture emails server-side.
+           Until then the form still confirms client-side and stores entries in localStorage. -->
+      <form id="wl-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <div class="field">
+          <input id="wl-email" type="email" name="email" required autocomplete="email"
+                 placeholder="you@where-you-work.com" aria-label="Email address" />
+          <button type="submit" id="wl-btn">Request access</button>
+        </div>
+        <p class="fineprint">Invitations roll out in waves. No spam — one note when it's your turn.</p>
+      </form>
+      <div id="wl-done" class="success" role="status">
+        <div class="check">✓</div>
+        <h3>You're on the list.</h3>
+        <p>We'll be in touch when your invitation is ready.</p>
+      </div>
+    </div>
+
+    <div class="channels">
+      <span>Telegram</span><span>WhatsApp</span><span>Slack</span><span>Email</span><span>Signal</span><span>Voice</span>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="feat">
+      <div class="n">01 — AMBIENT</div>
+      <h3>On every channel</h3>
+      <p>Message it on Telegram, WhatsApp, Slack, email or voice — it's the same assistant, with the same memory, wherever you are. No app to open. It comes to you.</p>
+    </div>
+    <div class="feat">
+      <div class="n">02 — MEMORY</div>
+      <h3>Remembers everything</h3>
+      <p>Every person you meet, every promise you make, every thread left open. Echo keeps the context you can't — and surfaces it the moment it matters.</p>
+    </div>
+    <div class="feat">
+      <div class="n">03 — AGENCY</div>
+      <h3>Does the work</h3>
+      <p>Drafts the reply, books the time, prepares the brief, chases the follow-up. Echo acts on your behalf and shows you the result — you stay in command, not in the weeds.</p>
+    </div>
+  </section>
+
+  <section class="closing">
+    <p>“The best assistant is the one you forget is working.”</p>
+    <a class="ghost" href="#waitlist">Request early access →</a>
+  </section>
+
+  <footer>
+    <span>Echo — an independent project by Nick Holzherr.</span>
+    <span><a href="#waitlist">Join the waitlist</a> · <span id="yr"></span></span>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const form = document.getElementById('wl-form');
+  const email = document.getElementById('wl-email');
+  const btn = document.getElementById('wl-btn');
+  const done = document.getElementById('wl-done');
+
+  function showSuccess(addr){
+    // record locally so a refresh remembers, and so it works even without a backend
+    try{
+      const list = JSON.parse(localStorage.getItem('echo_waitlist') || '[]');
+      if(addr && !list.includes(addr)){ list.push(addr); localStorage.setItem('echo_waitlist', JSON.stringify(list)); }
+    }catch(e){}
+    form.style.display = 'none';
+    done.style.display = 'block';
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const addr = email.value.trim();
+    if(!addr || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)){
+      email.focus(); email.style.borderColor = ''; form.querySelector('.field').style.borderColor = 'rgba(220,80,80,.6)';
+      return;
+    }
+    btn.disabled = true; btn.textContent = 'Sending…';
+    // If a real Formspree id is set, POST to it; otherwise just confirm client-side.
+    const endpoint = form.getAttribute('action');
+    if(endpoint && !endpoint.includes('YOUR_FORM_ID')){
+      try{
+        await fetch(endpoint, { method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form) });
+      }catch(err){ /* still confirm — prototype shouldn't dead-end */ }
+    }
+    showSuccess(addr);
+  });
+</script>
+</body>
+</html>
