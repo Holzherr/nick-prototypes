@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Echo — your assistant, everywhere</title>
-<meta name="description" content="Echo is the ambient assistant that lives on every channel, remembers everyone you know, and does the work before you ask. Request early access." />
-<meta property="og:title" content="Echo — your assistant, everywhere" />
-<meta property="og:description" content="One quiet layer over your whole life. Request early access." />
+<title>Morpheus — wake up superhuman</title>
+<meta name="description" content="Morpheus is the ambient assistant that works through the night — across every channel, remembering everyone you know, doing the work before you ask. Wake up superhuman. Request early access." />
+<meta property="og:title" content="Morpheus — wake up superhuman" />
+<meta property="og:description" content="The quiet layer over your whole life. Go to bed behind, wake up ahead. Request early access." />
 <meta property="og:type" content="website" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='white'/%3E%3Ccircle cx='50' cy='50' r='26' fill='none' stroke='white' stroke-opacity='.5' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='white' stroke-opacity='.2' stroke-width='2'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,7 +51,7 @@
   /* ── hero ── */
   .hero{position:relative; text-align:center; padding:118px 0 90px; min-height:82vh;
     display:flex; flex-direction:column; align-items:center; justify-content:center}
-  /* concentric echo rings behind the wordmark */
+  /* concentric ripple rings behind the wordmark */
   .rings{position:absolute; top:50%; left:50%; width:760px; height:760px;
     transform:translate(-50%,-58%); z-index:-1; pointer-events:none}
   .rings span{position:absolute; inset:0; margin:auto; border-radius:50%;
@@ -183,7 +183,7 @@
         <circle cx="50" cy="50" r="24" fill="none" stroke="#f5f5f3" stroke-opacity=".45" stroke-width="2"/>
         <circle cx="50" cy="50" r="42" fill="none" stroke="#f5f5f3" stroke-opacity=".18" stroke-width="2"/>
       </svg>
-      <b>ECHO</b>
+      <b>MORPHEUS</b>
     </div>
     <a class="nav-cta" href="#waitlist">Request access</a>
   </nav>
@@ -191,8 +191,8 @@
   <header class="hero">
     <div class="rings" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
     <div class="eyebrow"><span class="dot"></span>Private beta · by invitation</div>
-    <h1>Your assistant,<br><span class="it">everywhere.</span></h1>
-    <p class="lede">Echo is the quiet layer over your whole life. It lives on every channel you use, <b>remembers everyone you know</b>, and does the work <b>before you ask</b> — not another chatbot you have to open.</p>
+    <h1>Wake up<br><span class="it">superhuman.</span></h1>
+    <p class="lede">Morpheus is the quiet layer over your whole life. It works through the night — on every channel you use, <b>remembering everyone you know</b>, doing the work <b>before you ask</b>. You wake up ahead, not staring at another chatbot.</p>
 
     <div id="waitlist" class="waitlist">
       <!-- Formspree-ready: replace YOUR_FORM_ID with a real form id to capture emails server-side.
@@ -226,18 +226,18 @@
     <div class="feat">
       <div class="n">02 — MEMORY</div>
       <h3>Remembers everything</h3>
-      <p>Every person you meet, every promise you make, every thread left open. Echo keeps the context you can't — and surfaces it the moment it matters.</p>
+      <p>Every person you meet, every promise you make, every thread left open. Morpheus keeps the context you can't — and surfaces it the moment it matters.</p>
     </div>
     <div class="feat">
       <div class="n">03 — AGENCY</div>
       <h3>Does the work</h3>
-      <p>Drafts the reply, books the time, prepares the brief, chases the follow-up. Echo acts on your behalf and shows you the result — you stay in command, not in the weeds.</p>
+      <p>Drafts the reply, books the time, prepares the brief, chases the follow-up. Morpheus acts on your behalf and shows you the result — you stay in command, not in the weeds.</p>
     </div>
   </section>
 
   <section class="areas">
     <div class="areas-head">
-      <div class="eyebrow"><span class="dot"></span>What Echo handles</div>
+      <div class="eyebrow"><span class="dot"></span>What Morpheus handles</div>
       <h2>Every corner of <span class="it">your life.</span></h2>
       <p>Not a single skill bolted onto a chatbot — one assistant with the run of your world, built from the way you actually live.</p>
     </div>
@@ -302,19 +302,19 @@
         <div class="area-body">
           <span class="area-tag"><i>07</i>Relationships</span>
           <h3>Everyone you know, remembered</h3>
-          <p>Their family, their story, the promise you made. Echo keeps the context you can't — and reminds you when it's time to follow up.</p>
+          <p>Their family, their story, the promise you made. Morpheus keeps the context you can't — and reminds you when it's time to follow up.</p>
         </div>
       </a>
     </div>
   </section>
 
   <section class="closing">
-    <p>“The best assistant is the one you forget is working.”</p>
+    <p>“Go to bed behind. Wake up ahead.”</p>
     <a class="ghost" href="#waitlist">Request early access →</a>
   </section>
 
   <footer>
-    <span>Echo — an independent project by Nick Holzherr.</span>
+    <span>Morpheus — an independent project by Nick Holzherr.</span>
     <span><a href="#waitlist">Join the waitlist</a> · <span id="yr"></span></span>
   </footer>
 
@@ -331,8 +331,8 @@
   function showSuccess(addr){
     // record locally so a refresh remembers, and so it works even without a backend
     try{
-      const list = JSON.parse(localStorage.getItem('echo_waitlist') || '[]');
-      if(addr && !list.includes(addr)){ list.push(addr); localStorage.setItem('echo_waitlist', JSON.stringify(list)); }
+      const list = JSON.parse(localStorage.getItem('morpheus_waitlist') || '[]');
+      if(addr && !list.includes(addr)){ list.push(addr); localStorage.setItem('morpheus_waitlist', JSON.stringify(list)); }
     }catch(e){}
     form.style.display = 'none';
     done.style.display = 'block';
