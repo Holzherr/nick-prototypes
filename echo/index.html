@@ -16,7 +16,7 @@
   :root{
     --bg:#050505; --ink:#f5f5f3; --muted:#8a8a86; --faint:#5a5a57;
     --line:rgba(255,255,255,.10); --line-soft:rgba(255,255,255,.06);
-    --accent:#e8e4dc; --glow:rgba(232,228,220,.14);
+    --accent:#e8e4dc; --gold:#c2a878; --gold-line:rgba(194,168,120,.30); --glow:rgba(232,228,220,.13);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -64,8 +64,9 @@
 
   .eyebrow{font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--faint);
     margin-bottom:30px; font-weight:500}
+  .eyebrow{color:var(--gold)}
   .eyebrow .dot{display:inline-block; width:5px; height:5px; border-radius:50%;
-    background:#9ad99a; box-shadow:0 0 10px #9ad99a; margin-right:9px; vertical-align:middle; animation:breathe 3s ease-in-out infinite}
+    background:var(--gold); box-shadow:0 0 12px var(--gold); margin-right:9px; vertical-align:middle; animation:breathe 3s ease-in-out infinite}
   @keyframes breathe{0%,100%{opacity:.45}50%{opacity:1}}
 
   h1{font-family:'Instrument Serif',Georgia,serif; font-weight:400; letter-spacing:-.01em;
@@ -112,7 +113,7 @@
     background:var(--line-soft); border:1px solid var(--line-soft); border-radius:18px; overflow:hidden}
   .feat{background:var(--bg); padding:40px 32px; transition:.3s}
   .feat:hover{background:#0b0b0a}
-  .feat .n{font-size:11px; letter-spacing:.2em; color:var(--faint); font-weight:500; margin-bottom:20px}
+  .feat .n{font-size:11px; letter-spacing:.2em; color:var(--gold); font-weight:500; margin-bottom:20px}
   .feat h3{font-family:'Instrument Serif',serif; font-weight:400; font-size:25px; margin-bottom:11px; letter-spacing:.01em}
   .feat p{color:var(--muted); font-size:14.5px; font-weight:300; line-height:1.6}
 
@@ -130,7 +131,39 @@
   footer a{color:var(--muted); text-decoration:none}
   footer a:hover{color:var(--ink)}
 
+  /* ── life areas (velocity-style bento) ── */
+  .areas{padding:26px 0 30px}
+  .areas-head{text-align:center; max-width:660px; margin:0 auto 50px}
+  .areas-head .eyebrow{margin-bottom:22px}
+  .areas-head h2{font-family:'Instrument Serif',serif; font-weight:400;
+    font-size:clamp(34px,5.4vw,62px); line-height:1.0; letter-spacing:-.01em; margin-bottom:18px}
+  .areas-head h2 .it{font-style:italic; color:var(--gold)}
+  .areas-head p{color:var(--muted); font-weight:300; font-size:16.5px; line-height:1.62}
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  .area{position:relative; display:block; overflow:hidden; border-radius:16px; min-height:344px;
+    text-decoration:none; color:var(--ink); background:#0c0c0b; border:1px solid var(--line-soft); isolation:isolate}
+  .area.wide{grid-column:span 2}
+  .area-img{position:absolute; inset:0; z-index:-2; background-size:cover; background-position:center;
+    transform:scale(1.03); transition:transform 1.2s cubic-bezier(.2,.7,.2,1); filter:saturate(.9) brightness(.8)}
+  .area::after{content:''; position:absolute; inset:0; z-index:-1;
+    background:linear-gradient(180deg, rgba(5,5,5,.12) 0%, rgba(5,5,5,.32) 42%, rgba(5,5,5,.92) 100%)}
+  .area:hover .area-img{transform:scale(1.1)}
+  .area-body{position:absolute; left:0; right:0; bottom:0; padding:30px 28px}
+  .area-tag{display:block; font-size:10.5px; letter-spacing:.26em; text-transform:uppercase;
+    color:var(--gold); font-weight:500; margin-bottom:13px}
+  .area-tag i{font-style:normal; opacity:.55; margin-right:8px}
+  .area h3{font-family:'Instrument Serif',serif; font-weight:400; font-size:28px; letter-spacing:.005em}
+  .area p{color:#d2d1cc; font-size:14px; font-weight:300; line-height:1.55; max-width:48ch;
+    margin-top:10px; opacity:0; transform:translateY(8px); max-height:0; overflow:hidden;
+    transition:opacity .45s ease, transform .45s ease, max-height .45s ease}
+  .area:hover p, .area:focus-visible p{opacity:1; transform:none; max-height:140px}
+  @media (hover:none){ .area p{opacity:1; transform:none; max-height:140px} }
+
   @media (max-width:720px){
+    .grid{grid-template-columns:1fr}
+    .area.wide{grid-column:auto}
+    .area{min-height:300px}
+    .area p{opacity:1; transform:none; max-height:160px}
     .features{grid-template-columns:1fr}
     .hero{padding:84px 0 60px; min-height:auto}
     .field{flex-direction:column}
@@ -199,6 +232,79 @@
       <div class="n">03 — AGENCY</div>
       <h3>Does the work</h3>
       <p>Drafts the reply, books the time, prepares the brief, chases the follow-up. Echo acts on your behalf and shows you the result — you stay in command, not in the weeds.</p>
+    </div>
+  </section>
+
+  <section class="areas">
+    <div class="areas-head">
+      <div class="eyebrow"><span class="dot"></span>What Echo handles</div>
+      <h2>Every corner of <span class="it">your life.</span></h2>
+      <p>Not a single skill bolted onto a chatbot — one assistant with the run of your world, built from the way you actually live.</p>
+    </div>
+
+    <div class="grid">
+      <a class="area wide" href="#waitlist">
+        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1549294413-26f195200c16?auto=format&fit=crop&w=1500&q=80')"></div>
+        <div class="area-body">
+          <span class="area-tag"><i>01</i>Travel</span>
+          <h3>Where you go next</h3>
+          <p>From a weekend away to the family summer — flights, stays and an itinerary everyone actually wants. It plans it; you approve it.</p>
+        </div>
+      </a>
+
+      <a class="area" href="#waitlist">
+        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1100&q=80')"></div>
+        <div class="area-body">
+          <span class="area-tag"><i>02</i>Dining</span>
+          <h3>The right table</h3>
+          <p>Booked before you ask. It remembers the places you loved — and who you were with.</p>
+        </div>
+      </a>
+
+      <a class="area" href="#waitlist">
+        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1742522450616-a2cf0cba1274?auto=format&fit=crop&w=1100&q=80')"></div>
+        <div class="area-body">
+          <span class="area-tag"><i>03</i>Family</span>
+          <h3>Holding it together</h3>
+          <p>The family calendar, the kids' activities, the weekend plans — kept in one place so nothing slips.</p>
+        </div>
+      </a>
+
+      <a class="area" href="#waitlist">
+        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1571008887538-b36bb32f4571?auto=format&fit=crop&w=1100&q=80')"></div>
+        <div class="area-body">
+          <span class="area-tag"><i>04</i>Health</span>
+          <h3>Quietly on track</h3>
+          <p>Training, sleep and weight tracked in the background; the habit nudged; the trend read back to you each week.</p>
+        </div>
+      </a>
+
+      <a class="area" href="#waitlist">
+        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1100&q=80')"></div>
+        <div class="area-body">
+          <span class="area-tag"><i>05</i>Experiences</span>
+          <h3>Worth leaving home for</h3>
+          <p>The concert, the exhibition, the thing to do this weekend — matched to your time and the weather.</p>
+        </div>
+      </a>
+
+      <a class="area" href="#waitlist">
+        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1100&q=80')"></div>
+        <div class="area-body">
+          <span class="area-tag"><i>06</i>Shopping</span>
+          <h3>The right gift, on time</h3>
+          <p>Every gift idea for the people who matter, remembered — and surfaced before the date arrives.</p>
+        </div>
+      </a>
+
+      <a class="area wide" href="#waitlist">
+        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1519671282429-b44660ead0a7?auto=format&fit=crop&w=1500&q=80')"></div>
+        <div class="area-body">
+          <span class="area-tag"><i>07</i>Relationships</span>
+          <h3>Everyone you know, remembered</h3>
+          <p>Their family, their story, the promise you made. Echo keeps the context you can't — and reminds you when it's time to follow up.</p>
+        </div>
+      </a>
     </div>
   </section>
 
