@@ -12,6 +12,8 @@ The form is **Formspree-ready**: in `index.html`, replace `YOUR_FORM_ID` in the 
 
 ## State
 
+v3 — added **Priorities** as the lead bento tile (task-prioritisation / executive-assistant layer). 8 areas total.
+
 v2 — premium pass. Champagne accent + finer type. Added a velocity.black-style **life-areas bento** below the pillars: Travel · Dining · Family · Health · Experiences · Shopping · Relationships, each grounded in real Morpheus capabilities (family calendar, contacts CRM + gift loop, health digest, weekend/experience suggestions). Unsplash stock imagery (descriptions reveal on hover).
 
 v1 — hero + 3 value props (ambient / memory / agency) + waitlist + closing CTA.
