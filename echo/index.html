@@ -230,9 +230,13 @@
     <p class="lede">Echo is the quiet layer over <b>your work and your life</b>. It runs through the night — on every channel you use, clearing the inbox, prepping the meeting, remembering everyone you know, doing the work <b>before you ask</b>. You wake up ahead, not staring at another chatbot.</p>
 
     <div id="waitlist" class="waitlist">
-      <!-- Formspree-ready: replace YOUR_FORM_ID with a real form id to capture emails server-side.
-           Until then the form still confirms client-side and stores entries in localStorage. -->
-      <form id="wl-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+      <!-- FormSubmit.co relay → emails go straight to Nick. No account/key needed.
+           One-time: click the activation link FormSubmit emails on the first real submission. -->
+      <form id="wl-form" action="https://formsubmit.co/ajax/nickholzherr@gmail.com" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Echo — new waitlist request" />
+        <input type="hidden" name="form_type" value="waitlist" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="field">
           <input id="wl-email" type="email" name="email" required autocomplete="email"
                  placeholder="you@where-you-work.com" aria-label="Email address" />
@@ -306,7 +310,11 @@
         </div>
       </div>
 
-      <form id="apply-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+      <form id="apply-form" action="https://formsubmit.co/ajax/nickholzherr@gmail.com" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Echo — new access application" />
+        <input type="hidden" name="form_type" value="application" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="field">
           <input id="apply-email" type="email" name="email" required autocomplete="email"
                  placeholder="you@where-you-work.com" aria-label="Email address" />
@@ -378,6 +386,9 @@
     { mode:'life', tag:'Experiences', h:'Worth leaving home for',
       p:'The concert, the exhibition, the thing to do this weekend — matched to your time and the weather.',
       img:'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1100&q=80' },
+    { mode:'life', tag:'Watchlist', h:'Your next favourite, found',
+      p:'The next film, series or book — picked from what you and your family have actually loved. Invite everyone in to collaborate, and Echo finds the thing you’ll all agree on.',
+      img:'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1100&q=80' },
     { mode:'life', tag:'Shopping', h:'The right gift, on time',
       p:'Every gift idea for the people who matter, remembered — and surfaced before the date arrives.',
       img:'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1100&q=80' },
