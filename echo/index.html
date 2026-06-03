@@ -159,6 +159,17 @@
   .area:hover p, .area:focus-visible p{opacity:1; transform:none; max-height:140px}
   @media (hover:none){ .area p{opacity:1; transform:none; max-height:140px} }
 
+  /* ── work ⇄ life toggle ── */
+  .area-toggle{display:inline-flex; gap:4px; padding:5px; margin-top:8px;
+    border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.025); backdrop-filter:blur(6px)}
+  .area-toggle button{border:0; background:transparent; color:var(--muted); font-family:inherit;
+    font-size:13px; letter-spacing:.05em; padding:9px 22px; border-radius:999px; cursor:pointer; transition:.22s}
+  .area-toggle button:hover{color:var(--ink)}
+  .area-toggle button[aria-selected="true"]{background:var(--ink); color:#0a0a0a; font-weight:500}
+  .grid .area{animation:cardin .5s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes cardin{from{opacity:0; transform:translateY(10px) scale(.99)}to{opacity:1; transform:none}}
+  @media (prefers-reduced-motion:reduce){.grid .area{animation:none}}
+
   @media (max-width:720px){
     .grid{grid-template-columns:1fr}
     .area.wide{grid-column:auto}
@@ -192,7 +203,7 @@
     <div class="rings" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
     <div class="eyebrow"><span class="dot"></span>Private beta · by invitation</div>
     <h1>Wake up<br><span class="it">superhuman.</span></h1>
-    <p class="lede">Echo is the quiet layer over your whole life. It works through the night — on every channel you use, <b>remembering everyone you know</b>, doing the work <b>before you ask</b>. You wake up ahead, not staring at another chatbot.</p>
+    <p class="lede">Echo is the quiet layer over <b>your work and your life</b>. It runs through the night — on every channel you use, clearing the inbox, prepping the meeting, remembering everyone you know, doing the work <b>before you ask</b>. You wake up ahead, not staring at another chatbot.</p>
 
     <div id="waitlist" class="waitlist">
       <!-- Formspree-ready: replace YOUR_FORM_ID with a real form id to capture emails server-side.
@@ -238,83 +249,16 @@
   <section class="areas">
     <div class="areas-head">
       <div class="eyebrow"><span class="dot"></span>What Echo handles</div>
-      <h2>Every corner of <span class="it">your life.</span></h2>
-      <p>Not a single skill bolted onto a chatbot — one assistant with the run of your world, built from the way you actually live.</p>
+      <h2>One assistant. <span class="it">Work and life.</span></h2>
+      <p>Not a single skill bolted onto a chatbot — one mind across both halves of your day, with the same memory whether you're closing a deal or planning the weekend.</p>
+      <div class="area-toggle" role="tablist" aria-label="Switch between work and life">
+        <button role="tab" data-mode="work" aria-selected="true">Work</button>
+        <button role="tab" data-mode="life" aria-selected="false">Life</button>
+        <button role="tab" data-mode="all" aria-selected="false">All</button>
+      </div>
     </div>
 
-    <div class="grid">
-      <a class="area wide" href="#waitlist">
-        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1711030239027-4ee82270f3f8?auto=format&fit=crop&w=1500&q=80')"></div>
-        <div class="area-body">
-          <span class="area-tag"><i>01</i>Priorities</span>
-          <h3>The short list that matters</h3>
-          <p>Your chief of staff for the day. Echo reads everything coming at you — messages, meetings, open loops — and hands you the few things that truly matter. It closes what's done and chases what's slipping, so nothing quietly rots.</p>
-        </div>
-      </a>
-
-      <a class="area" href="#waitlist">
-        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1549294413-26f195200c16?auto=format&fit=crop&w=1100&q=80')"></div>
-        <div class="area-body">
-          <span class="area-tag"><i>02</i>Travel</span>
-          <h3>Where you go next</h3>
-          <p>From a weekend away to the family summer — flights, stays and an itinerary everyone actually wants. It plans it; you approve it.</p>
-        </div>
-      </a>
-
-      <a class="area" href="#waitlist">
-        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1100&q=80')"></div>
-        <div class="area-body">
-          <span class="area-tag"><i>03</i>Dining</span>
-          <h3>The right table</h3>
-          <p>Booked before you ask. It remembers the places you loved — and who you were with.</p>
-        </div>
-      </a>
-
-      <a class="area" href="#waitlist">
-        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1742522450616-a2cf0cba1274?auto=format&fit=crop&w=1100&q=80')"></div>
-        <div class="area-body">
-          <span class="area-tag"><i>04</i>Family</span>
-          <h3>Holding it together</h3>
-          <p>The family calendar, the kids' activities, the weekend plans — kept in one place so nothing slips.</p>
-        </div>
-      </a>
-
-      <a class="area" href="#waitlist">
-        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1571008887538-b36bb32f4571?auto=format&fit=crop&w=1100&q=80')"></div>
-        <div class="area-body">
-          <span class="area-tag"><i>05</i>Health</span>
-          <h3>Quietly on track</h3>
-          <p>Training, sleep and weight tracked in the background; the habit nudged; the trend read back to you each week.</p>
-        </div>
-      </a>
-
-      <a class="area" href="#waitlist">
-        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1100&q=80')"></div>
-        <div class="area-body">
-          <span class="area-tag"><i>06</i>Experiences</span>
-          <h3>Worth leaving home for</h3>
-          <p>The concert, the exhibition, the thing to do this weekend — matched to your time and the weather.</p>
-        </div>
-      </a>
-
-      <a class="area" href="#waitlist">
-        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1100&q=80')"></div>
-        <div class="area-body">
-          <span class="area-tag"><i>07</i>Shopping</span>
-          <h3>The right gift, on time</h3>
-          <p>Every gift idea for the people who matter, remembered — and surfaced before the date arrives.</p>
-        </div>
-      </a>
-
-      <a class="area" href="#waitlist">
-        <div class="area-img" style="background-image:url('https://images.unsplash.com/photo-1519671282429-b44660ead0a7?auto=format&fit=crop&w=1100&q=80')"></div>
-        <div class="area-body">
-          <span class="area-tag"><i>08</i>Relationships</span>
-          <h3>Everyone you know, remembered</h3>
-          <p>Their family, their story, the promise you made. Echo keeps the context you can't — and reminds you when it's time to follow up.</p>
-        </div>
-      </a>
-    </div>
+    <div class="grid" id="area-grid"></div>
   </section>
 
   <section class="closing">
@@ -330,6 +274,82 @@
 </div>
 
 <script>
+  // ── life-areas bento: data-driven so the Work ⇄ Life toggle can swap card sets ──
+  const AREAS = [
+    // shared — Echo's one short list spans both halves of your day
+    { mode:'both', wide:true, tag:'Priorities', h:'The short list that matters',
+      p:"Your chief of staff for the day. Echo reads everything coming at you — inbox, meetings, messages, open loops — and hands you the few things that truly matter. It closes what's done and chases what's slipping, so nothing quietly rots.",
+      img:'https://images.unsplash.com/photo-1711030239027-4ee82270f3f8?auto=format&fit=crop&w=1500&q=80' },
+
+    // work
+    { mode:'work', tag:'Inbox', h:'Inbox to zero, in your voice',
+      p:'Echo reads every thread, drafts the replies that sound like you, and surfaces only what needs your call. You approve; it sends.',
+      img:'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1100&q=80' },
+    { mode:'work', tag:'Meetings', h:'Briefed before, captured after',
+      p:'A one-page brief lands before every meeting — who, why, what moved last time. Notes, decisions and follow-ups land after, already chased.',
+      img:'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1100&q=80' },
+    { mode:'work', tag:'Projects', h:"What's moving, what's slipping",
+      p:'Every deliverable and deadline held in one view. Echo flags what’s drifting before it’s late and nudges the people it’s waiting on.',
+      img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1100&q=80' },
+    { mode:'work', tag:'Team', h:'On top of your people',
+      p:'1:1s prepped, who’s blocked surfaced, what each person is carrying remembered — so you lead from context, not from your inbox.',
+      img:'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1100&q=80' },
+    { mode:'work', tag:'Research', h:'The brief, done overnight',
+      p:'Hand it a company, a market, a name. You wake up to a tight, sourced briefing — the reading already done, the signal pulled from the noise.',
+      img:'https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=1100&q=80' },
+    { mode:'work', tag:'Finance', h:'Expenses and numbers, handled',
+      p:'Receipts filed, expenses reconciled, the figures that matter read back to you — no spreadsheet wrangling, no month-end scramble.',
+      img:'https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=1100&q=80' },
+
+    // life
+    { mode:'life', tag:'Travel', h:'Where you go next',
+      p:'From a weekend away to the family summer — flights, stays and an itinerary everyone actually wants. It plans it; you approve it.',
+      img:'https://images.unsplash.com/photo-1549294413-26f195200c16?auto=format&fit=crop&w=1100&q=80' },
+    { mode:'life', tag:'Dining', h:'The right table',
+      p:'Booked before you ask. It remembers the places you loved — and who you were with.',
+      img:'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1100&q=80' },
+    { mode:'life', tag:'Family', h:'Holding it together',
+      p:"The family calendar, the kids' activities, the weekend plans — kept in one place so nothing slips.",
+      img:'https://images.unsplash.com/photo-1742522450616-a2cf0cba1274?auto=format&fit=crop&w=1100&q=80' },
+    { mode:'life', tag:'Health', h:'Quietly on track',
+      p:'Training, sleep and weight tracked in the background; the habit nudged; the trend read back to you each week.',
+      img:'https://images.unsplash.com/photo-1571008887538-b36bb32f4571?auto=format&fit=crop&w=1100&q=80' },
+    { mode:'life', tag:'Experiences', h:'Worth leaving home for',
+      p:'The concert, the exhibition, the thing to do this weekend — matched to your time and the weather.',
+      img:'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1100&q=80' },
+    { mode:'life', tag:'Shopping', h:'The right gift, on time',
+      p:'Every gift idea for the people who matter, remembered — and surfaced before the date arrives.',
+      img:'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1100&q=80' },
+    { mode:'life', tag:'Relationships', h:'Everyone you know, remembered',
+      p:'Their family, their story, the promise you made. Echo keeps the context you can’t — and reminds you when it’s time to follow up.',
+      img:'https://images.unsplash.com/photo-1519671282429-b44660ead0a7?auto=format&fit=crop&w=1100&q=80' },
+  ];
+
+  const grid = document.getElementById('area-grid');
+  const toggle = document.querySelector('.area-toggle');
+
+  function renderAreas(mode){
+    const visible = AREAS.filter(a => mode === 'all' ? true : (a.mode === mode || a.mode === 'both'));
+    grid.innerHTML = visible.map((a, i) => `
+      <a class="area${a.wide ? ' wide' : ''}" href="#waitlist" style="animation-delay:${i*55}ms">
+        <div class="area-img" style="background-image:url('${a.img}')"></div>
+        <div class="area-body">
+          <span class="area-tag"><i>${String(i+1).padStart(2,'0')}</i>${a.tag}</span>
+          <h3>${a.h}</h3>
+          <p>${a.p}</p>
+        </div>
+      </a>`).join('');
+  }
+
+  toggle.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-mode]');
+    if(!btn) return;
+    toggle.querySelectorAll('button').forEach(b => b.setAttribute('aria-selected', String(b === btn)));
+    renderAreas(btn.dataset.mode);
+  });
+
+  renderAreas('work'); // work-first by default
+
   document.getElementById('yr').textContent = new Date().getFullYear();
 
   const form = document.getElementById('wl-form');
