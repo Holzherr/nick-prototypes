@@ -67,9 +67,136 @@
   <!-- The component renders here, in the chat flow -->
   <div id="flow" class="mt-6 space-y-4"></div>
 
-  <!-- Selection echo (stands in for the real flow) -->
+  <!-- Selection echo (stands in for the find-me-one flow) -->
   <div id="echo" class="mt-4 hidden rounded-lg bg-sky-50 border border-sky-100 px-3 py-2 text-xs text-sky-900"></div>
 </div>
+
+<!-- ============ Next unit: INVITE PATH (after "Invite my lawyer") ============ -->
+
+<template id="tpl-invite-form">
+  <div class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · just now</div>
+      <div class="mt-1 text-sm bg-white border rounded-lg px-3 py-2 max-w-prose">
+        Who should we invite? They'll get an email with a link to this doc.
+      </div>
+      <div class="mt-2 max-w-prose rounded-xl border bg-white">
+        <div class="px-3 py-3 space-y-3 text-sm">
+          <div>
+            <label class="block text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Lawyer's name</label>
+            <input type="text" id="invName" value="Jess Ford" class="w-full text-sm border rounded-md px-2 py-1.5" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Lawyer's email</label>
+            <input type="email" id="invEmail" value="jess.ford@northgate-llp.co.uk" class="w-full text-sm border rounded-md px-2 py-1.5" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Share with them</label>
+            <div class="space-y-1.5 rounded-md border px-2.5 py-2 bg-slate-50/50">
+              <label class="flex items-start gap-2">
+                <input type="checkbox" checked class="mt-1" />
+                <div class="flex-1">
+                  <div class="text-sm font-medium">This document</div>
+                  <div class="text-[11px] text-slate-500">Mutual NDA v0.4 — full text + version history</div>
+                </div>
+              </label>
+              <label class="flex items-start gap-2">
+                <input type="checkbox" checked class="mt-1" />
+                <div class="flex-1">
+                  <div class="text-sm font-medium">Profile</div>
+                  <div class="text-[11px] text-slate-500">GitLaw Ltd — company info, jurisdiction, signing authority</div>
+                </div>
+              </label>
+              <label class="flex items-start gap-2">
+                <input type="checkbox" checked class="mt-1" />
+                <div class="flex-1">
+                  <div class="text-sm font-medium">Playbook</div>
+                  <div class="text-[11px] text-slate-500">Your standard preferences and red lines</div>
+                </div>
+              </label>
+              <label class="flex items-start gap-2">
+                <input type="checkbox" checked class="mt-1" />
+                <div class="flex-1">
+                  <div class="text-sm font-medium">Acme Corp contact file</div>
+                  <div class="text-[11px] text-slate-500">Past deals + negotiation patterns from your contact intelligence</div>
+                </div>
+              </label>
+            </div>
+            <div class="text-[11px] text-slate-500 mt-1">Untick anything you'd rather they don't see. You can revoke access at any time.</div>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Access level</label>
+            <select class="w-full text-sm border rounded-md px-2 py-1.5">
+              <option selected>Editor — can add Suggestions and Comments</option>
+              <option>Viewer — read-only</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Optional note to them</label>
+            <textarea rows="3" class="w-full text-sm border rounded-md p-2">Hi Jess — Acme NDA for our diligence call on Friday. Particularly want your eyes on clause 4 (IP) and clause 7 (5-year survival feels long). Standard fee is fine; bill me directly when done.</textarea>
+          </div>
+          <div class="text-xs text-slate-500 border-t pt-2">
+            GitLaw is just providing collaboration. You and your lawyer agree fees, scope, and engagement letter between yourselves.
+          </div>
+        </div>
+        <div class="px-3 py-2 bg-slate-50 rounded-b-xl border-t flex items-center justify-between">
+          <button data-action="preview-email" class="text-xs text-slate-600 underline hover:text-slate-900">Preview what they'll see</button>
+          <button data-action="send-invite" class="bg-emerald-600 text-white text-sm font-medium rounded-md px-3 py-1.5 hover:bg-emerald-700">Send invitation →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-email-preview">
+  <div class="msg-enter">
+    <div class="text-xs text-slate-500 mb-2">Email preview — this is what your lawyer receives</div>
+    <div class="rounded-xl border bg-white shadow-sm">
+      <div class="px-4 py-3 border-b">
+        <div class="text-sm"><span class="text-slate-500">To:</span> <span data-fill="email">jess.ford@northgate-llp.co.uk</span></div>
+        <div class="text-sm font-medium mt-1">You've been asked to review a mutual NDA</div>
+      </div>
+      <div class="px-4 py-3 text-sm space-y-3 leading-relaxed">
+        <p>Hi <span data-fill="name">Jess</span>,</p>
+        <p>You've been invited to review a document:</p>
+        <div class="rounded-lg border bg-slate-50 px-3 py-2 text-xs">
+          <div class="font-medium text-slate-900">Mutual NDA — GitLaw Ltd × Acme Corp</div>
+          <div class="text-slate-600">4 pages · <span data-fill="wordcount">1,847</span> words · England &amp; Wales</div>
+        </div>
+        <p><b>Click below to open the doc.</b> You'll get Editor access — add Suggestions (tracked changes) and Comments, just like in Word or Google Docs, and apply your own templates on top.</p>
+        <div><span class="inline-block bg-emerald-600 text-white text-sm font-medium px-4 py-2 rounded-md">Open the document →</span></div>
+        <p class="text-xs text-slate-500 border-t pt-3">GitLaw is a collaboration tool. Fees, engagement letter and client-relationship paperwork are between you and the client — GitLaw isn't a party to the engagement.</p>
+      </div>
+    </div>
+    <button data-action="actually-send" class="mt-3 text-xs underline text-slate-600 hover:text-slate-900">⏵ Looks good — send it</button>
+  </div>
+</template>
+
+<template id="tpl-sent">
+  <div class="flex gap-3 msg-enter">
+    <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+    <div class="flex-1">
+      <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · just now</div>
+      <div class="mt-1 text-sm bg-white border rounded-lg px-3 py-2 max-w-prose">
+        Invitation sent to <span class="mono" data-fill="email">jess.ford@northgate-llp.co.uk</span>. They'll appear in your collaborators once they accept.
+      </div>
+      <div class="mt-2 max-w-prose rounded-lg border bg-white">
+        <div class="px-3 py-2 border-b text-xs"><span class="font-medium">Collaborators</span></div>
+        <div class="px-3 py-2 space-y-2 text-sm">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 grid place-items-center text-xs font-semibold">JF</div>
+            <div class="flex-1">
+              <div class="font-medium" data-fill="name">Jess Ford</div>
+              <div class="text-xs text-slate-500">Guest · Editor · pending invitation · <span data-fill="email">jess.ford@northgate-llp.co.uk</span></div>
+            </div>
+            <button class="text-xs border px-2 py-0.5 rounded hover:bg-slate-100">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <script>
 /* ---------------------------------------------------------------------------
@@ -149,34 +276,6 @@ const LoopInOffer = {
    Variant presets — add a variant by adding a config.
 --------------------------------------------------------------------------- */
 const OFFER_VARIANTS = {
-  'concierge': {
-    id: 'concierge',
-    label: 'Find me one',
-    blurb: 'A single CTA — GitLaw matches you with a lawyer who reviews the doc and quotes you directly.',
-    intro: 'Want a real lawyer to look at this before you sign?',
-    columns: 1,
-    options: [{
-      key: 'find', title: 'Get it checked by a lawyer', subtitle: 'What you get:',
-      items: ['A vetted UK senior lawyer', 'Matched within ~1 hour', 'Reviews right here in the doc', 'Lawyer quotes the fee directly'],
-      footer: 'Typical fee for this doc ({wordcount} words): <span class="font-medium text-slate-700">{price}</span>. Paid to the lawyer — GitLaw doesn’t take a cut.',
-      cta: 'Find me a lawyer →', style: 'primary'
-    }]
-  },
-
-  'byo': {
-    id: 'byo',
-    label: 'Invite your own',
-    blurb: 'Invite a lawyer you already trust. Free for both sides; GitLaw isn’t part of the engagement.',
-    intro: 'Got a lawyer you trust? Loop them in on this doc.',
-    columns: 1,
-    options: [{
-      key: 'invite', title: 'I have a lawyer', subtitle: 'What they’ll see:',
-      items: ['Full doc + version history', 'AI brief + Playbook (optional)', 'Their templates apply on top', 'Editor · Suggestions + Comments'],
-      footer: 'Free for both of you on GitLaw. Lawyer bills at their normal rates — GitLaw isn’t part of the engagement.',
-      cta: 'Invite my lawyer →', style: 'primary'
-    }]
-  },
-
   'both': {
     id: 'both',
     label: 'Both routes',
@@ -230,9 +329,22 @@ const echo = document.getElementById('echo');
 const switcher = document.getElementById('switcher');
 const stageBlurb = document.getElementById('stageBlurb');
 const WORD_COUNT = 1847;
-let current = 'concierge';
+let current = 'both';
 
 document.querySelectorAll('[data-fill="wordcount"]').forEach(el => el.textContent = WORD_COUNT.toLocaleString());
+
+let lastName = 'Jess Ford';
+let lastEmail = 'jess.ford@northgate-llp.co.uk';
+
+// Clone a follow-on unit into the flow, interpolating name / email / wordcount.
+function appendTpl(id) {
+  const node = document.getElementById(id).content.cloneNode(true);
+  node.querySelectorAll('[data-fill="name"]').forEach(el => el.textContent = lastName);
+  node.querySelectorAll('[data-fill="email"]').forEach(el => el.textContent = lastEmail);
+  node.querySelectorAll('[data-fill="wordcount"]').forEach(el => el.textContent = WORD_COUNT.toLocaleString());
+  flow.appendChild(node);
+  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
 
 function show(key) {
   current = key;
@@ -255,8 +367,35 @@ Object.values(OFFER_VARIANTS).forEach(v => {
 });
 
 flow.addEventListener('loopin:select', e => {
+  if (e.detail.option === 'invite') {
+    appendTpl('tpl-invite-form');   // the next unit
+    return;
+  }
   echo.classList.remove('hidden');
-  echo.innerHTML = `Fired <span class="mono">loopin:select</span> → variant <b>${e.detail.variant}</b>, option <b>${e.detail.option}</b>. Wire this to the real invite / concierge flow.`;
+  echo.innerHTML = `Fired <span class="mono">loopin:select</span> → variant <b>${e.detail.variant}</b>, option <b>${e.detail.option}</b>. Wire this to the find-me-one flow.`;
+});
+
+// Steps inside the invite path.
+flow.addEventListener('click', e => {
+  const t = e.target.closest('[data-action]');
+  if (!t) return;
+  const captureInputs = () => {
+    const n = document.getElementById('invName'), m = document.getElementById('invEmail');
+    if (n) lastName = n.value.trim() || lastName;
+    if (m) lastEmail = m.value.trim() || lastEmail;
+  };
+  if (t.dataset.action === 'preview-email') {
+    captureInputs();
+    t.disabled = true; t.classList.add('opacity-50', 'cursor-not-allowed');
+    appendTpl('tpl-email-preview');
+  } else if (t.dataset.action === 'actually-send') {
+    t.remove();
+    appendTpl('tpl-sent');
+  } else if (t.dataset.action === 'send-invite') {
+    captureInputs();
+    t.disabled = true; t.textContent = 'Sent ✓'; t.classList.add('opacity-50', 'cursor-not-allowed');
+    appendTpl('tpl-sent');
+  }
 });
 
 show(current);
