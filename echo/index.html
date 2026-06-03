@@ -47,6 +47,9 @@
   .nav-cta{font-size:13px; color:var(--muted); text-decoration:none; border:1px solid var(--line);
     padding:8px 16px; border-radius:999px; transition:.25s; backdrop-filter:blur(6px)}
   .nav-cta:hover{color:var(--ink); border-color:rgba(255,255,255,.28)}
+  .nav-right{display:flex; align-items:center; gap:20px}
+  .nav-link{font-size:13px; color:var(--muted); text-decoration:none; letter-spacing:.02em; transition:.25s}
+  .nav-link:hover{color:var(--ink)}
 
   /* ── hero ── */
   .hero{position:relative; text-align:center; padding:118px 0 90px; min-height:82vh;
@@ -220,7 +223,10 @@
       </svg>
       <b>ECHO</b>
     </div>
-    <a class="nav-cta" href="#waitlist">Request access</a>
+    <div class="nav-right">
+      <a class="nav-link" href="faq.html">How it works</a>
+      <a class="nav-cta" href="#waitlist">Request access</a>
+    </div>
   </nav>
 
   <header class="hero">
@@ -289,7 +295,7 @@
     <div class="grid" id="area-grid"></div>
   </section>
 
-  <section class="access">
+  <section class="access" id="access">
     <div class="access-card">
       <div class="eyebrow"><span class="dot"></span>By nomination</div>
       <h2>Access is <span class="it">earned, not bought.</span></h2>
@@ -320,7 +326,7 @@
                  placeholder="you@where-you-work.com" aria-label="Email address" />
           <button type="submit" id="apply-btn">Apply for access</button>
         </div>
-        <p class="fineprint">Tell us who nominated you in the first reply, if anyone did — it moves you up the list.</p>
+        <p class="fineprint">Tell us who nominated you in the first reply, if anyone did — it moves you up the list. New here? <a href="faq.html" style="color:var(--muted); text-decoration:underline">How Echo works →</a></p>
       </form>
       <div id="apply-done" class="success" role="status" style="margin-top:18px">
         <div class="check">✓</div>
@@ -337,7 +343,7 @@
 
   <footer>
     <span>Echo — an independent project by Nick Holzherr.</span>
-    <span><a href="#waitlist">Join the waitlist</a> · <span id="yr"></span></span>
+    <span><a href="faq.html">How it works</a> · <a href="#waitlist">Join the waitlist</a> · <span id="yr"></span></span>
   </footer>
 
 </div>
