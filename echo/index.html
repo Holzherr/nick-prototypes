@@ -444,7 +444,7 @@
       }
       btnEl.disabled = true; btnEl.textContent = sendingLabel;
       const endpoint = formEl.getAttribute('action');
-      if(endpoint && !endpoint.includes('YOUR_FORM_ID')){
+      if(endpoint){
         try{
           await fetch(endpoint, { method:'POST', headers:{'Accept':'application/json'}, body:new FormData(formEl) });
         }catch(err){ /* still confirm — prototype shouldn't dead-end */ }
