@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lawyer Loop-In — inserted chat offer</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+  .msg-enter { animation: e .3s ease-out; }
+  @keyframes e { from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+</style>
+</head>
+<body class="bg-violet-50/40 text-slate-900">
+
+<!--
+  ============================================================================
+  LoopInOffer — the agent-inserted chat unit that offers a human lawyer review.
+  Extracted from lawyer-loop-in-lite/b-byo.html.
+
+  One config-driven component; each variant is a different config.
+  Usage:
+    LoopInOffer.render(targetEl, OFFER_VARIANTS['concierge'], { wordCount: 1847 });
+  Selection fires a CustomEvent('loopin:select', { detail: { variant, option } })
+  on the target element — wire that to the invite / concierge flow.
+  ============================================================================
+-->
+
+<header class="h-12 flex items-center justify-between px-4 border-b bg-white">
+  <div class="flex items-center gap-3">
+    <div class="w-7 h-7 rounded-md bg-violet-700 text-white grid place-items-center text-xs font-bold">GL</div>
+    <div class="text-sm">
+      <span class="text-slate-500">GitLaw</span>
+      <span class="text-slate-300 mx-1">/</span>
+      <span class="font-medium">Lawyer Loop-In</span>
+      <span class="text-slate-300 mx-1">·</span>
+      <span class="text-slate-500">Inserted chat offer</span>
+    </div>
+  </div>
+  <a href="https://holzherr.github.io/nick-prototypes/lawyer-loop-in-lite/b-byo.html" class="text-sm px-3 py-1.5 rounded-md border hover:bg-slate-100">Source prototype ↗</a>
+</header>
+
+<div class="mx-auto max-w-3xl px-6 py-8">
+
+  <!-- Variant switcher -->
+  <div class="rounded-lg border bg-white px-4 py-3 mb-6">
+    <div class="text-xs font-semibold text-violet-900 mb-2">Pick a variant</div>
+    <div id="switcher" class="flex flex-wrap gap-2"></div>
+    <div id="stageBlurb" class="text-xs text-slate-600 mt-2"></div>
+  </div>
+
+  <!-- Doc context the offer is attached to (display only) -->
+  <div class="rounded-xl border bg-white px-5 py-4">
+    <div class="flex items-center gap-2 text-xs text-slate-500">
+      <span>Repository</span>
+      <span class="text-slate-300">›</span>
+      <span class="mono">nda-acme-2026</span>
+      <span class="ml-auto inline-flex items-center gap-1 text-emerald-700">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Working Draft · v0.4
+      </span>
+    </div>
+    <h1 class="mt-1.5 text-lg font-semibold">Mutual NDA — GitLaw Ltd × Acme Corp</h1>
+    <div class="mt-0.5 text-xs text-slate-500">4 pages · <span data-fill="wordcount">1,847</span> words · NDA · England &amp; Wales · drafted by GitLaw AI</div>
+  </div>
+
+  <!-- The component renders here, in the chat flow -->
+  <div id="flow" class="mt-6 space-y-4"></div>
+
+  <!-- Selection echo (stands in for the real flow) -->
+  <div id="echo" class="mt-4 hidden rounded-lg bg-sky-50 border border-sky-100 px-3 py-2 text-xs text-sky-900"></div>
+</div>
+
+<script>
+/* ---------------------------------------------------------------------------
+   Pricing helper — word-count-driven, calibrated so 1,847 words → £400–£500.
+   Lifted from the source prototype so variant footers stay consistent.
+--------------------------------------------------------------------------- */
+const BASE_FEE = 200, PER_WORD = 0.135;
+function priceRange(wordCount, multiplier = 1.0) {
+  const mid = BASE_FEE + wordCount * PER_WORD;
+  const low  = Math.round(mid * multiplier * 0.9 / 50) * 50;
+  const high = Math.round(mid * multiplier * 1.1 / 50) * 50;
+  return `£${low}–£${high}`;
+}
+
+/* ---------------------------------------------------------------------------
+   LoopInOffer — the reusable component.
+   A config = { intro, columns, options[] }, where each option =
+     { key, title, subtitle, items[], footer, cta, style:'primary'|'secondary' }
+   {price} / {wordcount} tokens in any string are interpolated at render.
+--------------------------------------------------------------------------- */
+const LoopInOffer = {
+  render(target, variant, ctx = {}) {
+    const wordCount = ctx.wordCount ?? 1847;
+    const fill = s => (s || '')
+      .replace(/\{price\}/g, priceRange(wordCount))
+      .replace(/\{wordcount\}/g, wordCount.toLocaleString());
+
+    const cols = variant.columns ?? Math.min(variant.options.length, 2);
+    const gridCls = cols === 1 ? 'grid-cols-1' : 'grid-cols-2';
+
+    const cardHtml = opt => {
+      const items = opt.items.map(i =>
+        `<li class="flex items-start gap-1.5"><span class="text-emerald-600 mt-0.5">✓</span><span>${fill(i)}</span></li>`
+      ).join('');
+      const btn = opt.style === 'secondary'
+        ? 'border text-slate-700 hover:bg-slate-100'
+        : 'bg-emerald-600 text-white hover:bg-emerald-700';
+      return `
+        <div class="rounded-xl border bg-white p-3 flex flex-col">
+          <div class="text-sm font-semibold text-slate-900 mb-1">${opt.title}</div>
+          <div class="text-xs text-slate-600 mb-2">${opt.subtitle}</div>
+          <ul class="text-xs text-slate-600 space-y-1 flex-1">${items}</ul>
+          <div class="text-[11px] text-slate-500 mt-2 border-t pt-1.5">${fill(opt.footer)}</div>
+          <button data-opt="${opt.key}" class="mt-2 w-full ${btn} text-sm font-medium rounded-md px-3 py-1.5">${opt.cta}</button>
+        </div>`;
+    };
+
+    const unit = document.createElement('div');
+    unit.className = 'flex gap-3 msg-enter';
+    unit.innerHTML = `
+      <div class="w-8 h-8 rounded-full bg-violet-700 text-white grid place-items-center text-xs font-semibold">GL</div>
+      <div class="flex-1">
+        <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">GitLaw</span> · just now</div>
+        <div class="mt-1 text-sm bg-white border rounded-lg px-3 py-2 max-w-prose">${fill(variant.intro)}</div>
+        <div class="mt-2 grid ${gridCls} gap-3 max-w-prose">${variant.options.map(cardHtml).join('')}</div>
+      </div>`;
+
+    unit.querySelectorAll('[data-opt]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        unit.querySelectorAll('[data-opt]').forEach(b => {
+          b.disabled = true; b.classList.add('opacity-50', 'cursor-not-allowed');
+        });
+        btn.textContent = 'Selected ✓';
+        target.dispatchEvent(new CustomEvent('loopin:select', {
+          bubbles: true,
+          detail: { variant: variant.id, option: btn.dataset.opt }
+        }));
+      });
+    });
+
+    target.appendChild(unit);
+    return unit;
+  }
+};
+
+/* ---------------------------------------------------------------------------
+   Variant presets — add a variant by adding a config.
+--------------------------------------------------------------------------- */
+const OFFER_VARIANTS = {
+  'concierge': {
+    id: 'concierge',
+    label: 'Find me one',
+    blurb: 'A single CTA — GitLaw matches you with a lawyer who reviews the doc and quotes you directly.',
+    intro: 'Want a real lawyer to look at this before you sign?',
+    columns: 1,
+    options: [{
+      key: 'find', title: 'Get it checked by a lawyer', subtitle: 'What you get:',
+      items: ['A vetted UK senior lawyer', 'Matched within ~1 hour', 'Reviews right here in the doc', 'Lawyer quotes the fee directly'],
+      footer: 'Typical fee for this doc ({wordcount} words): <span class="font-medium text-slate-700">{price}</span>. Paid to the lawyer — GitLaw doesn’t take a cut.',
+      cta: 'Find me a lawyer →', style: 'primary'
+    }]
+  },
+
+  'byo': {
+    id: 'byo',
+    label: 'Invite your own',
+    blurb: 'Invite a lawyer you already trust. Free for both sides; GitLaw isn’t part of the engagement.',
+    intro: 'Got a lawyer you trust? Loop them in on this doc.',
+    columns: 1,
+    options: [{
+      key: 'invite', title: 'I have a lawyer', subtitle: 'What they’ll see:',
+      items: ['Full doc + version history', 'AI brief + Playbook (optional)', 'Their templates apply on top', 'Editor · Suggestions + Comments'],
+      footer: 'Free for both of you on GitLaw. Lawyer bills at their normal rates — GitLaw isn’t part of the engagement.',
+      cta: 'Invite my lawyer →', style: 'primary'
+    }]
+  },
+
+  'both': {
+    id: 'both',
+    label: 'Both routes',
+    blurb: 'Both routes from one moment — invite your own lawyer, or have GitLaw find you one.',
+    intro: 'Want a real lawyer to look at this before you sign? Two ways:',
+    columns: 2,
+    options: [
+      {
+        key: 'invite', title: 'I have a lawyer', subtitle: 'What they’ll see:',
+        items: ['Full doc + version history', 'AI brief + Playbook (optional)', 'Their templates apply on top', 'Editor · Suggestions + Comments'],
+        footer: 'Free for both of you on GitLaw. Lawyer bills at their normal rates — GitLaw isn’t part of the engagement.',
+        cta: 'Invite my lawyer →', style: 'primary'
+      },
+      {
+        key: 'find', title: 'Find me one', subtitle: 'What you get:',
+        items: ['Vetted UK senior lawyer', 'Matched within ~1 hour', 'Same in-doc collaboration', 'Lawyer quotes fee direct'],
+        footer: 'Typical fee for this doc ({wordcount} words): <span class="font-medium text-slate-700">{price}</span>. Paid to the lawyer; GitLaw doesn’t take a cut.',
+        cta: 'Find me one →', style: 'secondary'
+      }
+    ]
+  },
+
+  'full-brief': {
+    id: 'full-brief',
+    label: 'Full brief',
+    blurb: 'The offer can hand the lawyer a fuller, user-controlled brief — profile, playbook, counterparty — not just the doc.',
+    intro: 'Want a lawyer to review this? They’ll get the full picture, not just the doc.',
+    columns: 2,
+    options: [
+      {
+        key: 'invite', title: 'I have a lawyer', subtitle: 'What they’ll see (you choose):',
+        items: ['Full doc + version history', 'Company Profile', 'Playbook — red lines & preferences', 'Counterparty contact file', 'Editor · Suggestions + Comments'],
+        footer: 'You pick what’s shared before you send, and can revoke any time. GitLaw isn’t part of the engagement.',
+        cta: 'Invite my lawyer →', style: 'primary'
+      },
+      {
+        key: 'find', title: 'Find me one', subtitle: 'What you get:',
+        items: ['Vetted UK senior lawyer', 'Matched within ~1 hour', 'Briefed with your shared context', 'Lawyer quotes fee direct'],
+        footer: 'Typical fee for this doc ({wordcount} words): <span class="font-medium text-slate-700">{price}</span>. Paid to the lawyer; GitLaw doesn’t take a cut.',
+        cta: 'Find me one →', style: 'secondary'
+      }
+    ]
+  }
+};
+
+/* ---------------------------------------------------------------------------
+   Demo harness — switcher + render + selection echo.
+--------------------------------------------------------------------------- */
+const flow = document.getElementById('flow');
+const echo = document.getElementById('echo');
+const switcher = document.getElementById('switcher');
+const stageBlurb = document.getElementById('stageBlurb');
+const WORD_COUNT = 1847;
+let current = 'concierge';
+
+document.querySelectorAll('[data-fill="wordcount"]').forEach(el => el.textContent = WORD_COUNT.toLocaleString());
+
+function show(key) {
+  current = key;
+  flow.innerHTML = '';
+  echo.classList.add('hidden');
+  stageBlurb.textContent = OFFER_VARIANTS[key].blurb;
+  switcher.querySelectorAll('button').forEach(b => {
+    const on = b.dataset.key === key;
+    b.className = 'text-xs px-3 py-1.5 rounded-md border ' +
+      (on ? 'bg-violet-700 text-white border-violet-700' : 'bg-white hover:bg-slate-100');
+  });
+  LoopInOffer.render(flow, OFFER_VARIANTS[key], { wordCount: WORD_COUNT });
+}
+
+Object.values(OFFER_VARIANTS).forEach(v => {
+  const b = document.createElement('button');
+  b.dataset.key = v.id; b.textContent = v.label;
+  b.addEventListener('click', () => show(v.id));
+  switcher.appendChild(b);
+});
+
+flow.addEventListener('loopin:select', e => {
+  echo.classList.remove('hidden');
+  echo.innerHTML = `Fired <span class="mono">loopin:select</span> → variant <b>${e.detail.variant}</b>, option <b>${e.detail.option}</b>. Wire this to the real invite / concierge flow.`;
+});
+
+show(current);
+</script>
+</body>
+</html>
