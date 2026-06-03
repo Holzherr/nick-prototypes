@@ -117,6 +117,30 @@
   .feat h3{font-family:'Instrument Serif',serif; font-weight:400; font-size:25px; margin-bottom:11px; letter-spacing:.01em}
   .feat p{color:var(--muted); font-size:14.5px; font-weight:300; line-height:1.6}
 
+  /* ── access / exclusivity ── */
+  .access{padding:60px 0 30px}
+  .access-card{max-width:780px; margin:0 auto; text-align:center; position:relative; overflow:hidden;
+    border:1px solid var(--gold-line); border-radius:20px; padding:54px 40px 46px;
+    background:linear-gradient(180deg, rgba(194,168,120,.06), rgba(255,255,255,.015));
+    box-shadow:0 40px 120px -60px rgba(0,0,0,.9)}
+  .access-card .eyebrow{margin-bottom:22px}
+  .access-card h2{font-family:'Instrument Serif',serif; font-weight:400;
+    font-size:clamp(30px,4.6vw,50px); line-height:1.04; letter-spacing:-.01em; margin-bottom:16px}
+  .access-card h2 .it{font-style:italic; color:var(--gold)}
+  .access-card .sub{color:var(--muted); font-weight:300; font-size:16.5px; line-height:1.62;
+    max-width:540px; margin:0 auto}
+  .rules{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:38px 0 36px;
+    background:var(--line-soft); border:1px solid var(--line-soft); border-radius:14px; overflow:hidden; text-align:left}
+  .rule{background:rgba(8,8,7,.6); padding:24px 22px}
+  .rule .k{font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:11px}
+  .rule p{color:var(--accent); font-size:14px; font-weight:300; line-height:1.55}
+  .access .field{max-width:480px; margin:0 auto}
+  .access .fineprint{text-align:center}
+  @media (max-width:720px){
+    .access-card{padding:40px 24px 34px}
+    .rules{grid-template-columns:1fr}
+  }
+
   /* ── closing ── */
   .closing{text-align:center; padding:40px 0 130px}
   .closing p{font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(22px,4vw,34px);
@@ -261,6 +285,43 @@
     <div class="grid" id="area-grid"></div>
   </section>
 
+  <section class="access">
+    <div class="access-card">
+      <div class="eyebrow"><span class="dot"></span>By nomination</div>
+      <h2>Access is <span class="it">earned, not bought.</span></h2>
+      <p class="sub">Echo is invite-only. New members are usually nominated by someone already inside — and every seat is given the time to be set up properly.</p>
+
+      <div class="rules">
+        <div class="rule">
+          <div class="k">Nominated in</div>
+          <p>Most new members arrive through an existing one. Know someone with Echo? Ask them to put your name forward.</p>
+        </div>
+        <div class="rule">
+          <div class="k">Members first</div>
+          <p>Most onboarding sessions are reserved for members and the people they bring. Echo is set up with you, one to one — not handed over cold.</p>
+        </div>
+        <div class="rule">
+          <div class="k">Or apply</div>
+          <p>No invite yet? Apply below. A few seats open each wave, and we read every request by hand.</p>
+        </div>
+      </div>
+
+      <form id="apply-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <div class="field">
+          <input id="apply-email" type="email" name="email" required autocomplete="email"
+                 placeholder="you@where-you-work.com" aria-label="Email address" />
+          <button type="submit" id="apply-btn">Apply for access</button>
+        </div>
+        <p class="fineprint">Tell us who nominated you in the first reply, if anyone did — it moves you up the list.</p>
+      </form>
+      <div id="apply-done" class="success" role="status" style="margin-top:18px">
+        <div class="check">✓</div>
+        <h3>Application received.</h3>
+        <p>If a seat opens in your wave, you'll hear from us directly.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="closing">
     <p>“Go to bed behind. Wake up ahead.”</p>
     <a class="ghost" href="#waitlist">Request early access →</a>
@@ -357,33 +418,35 @@
   const btn = document.getElementById('wl-btn');
   const done = document.getElementById('wl-done');
 
-  function showSuccess(addr){
-    // record locally so a refresh remembers, and so it works even without a backend
-    try{
-      const list = JSON.parse(localStorage.getItem('echo_waitlist') || '[]');
-      if(addr && !list.includes(addr)){ list.push(addr); localStorage.setItem('echo_waitlist', JSON.stringify(list)); }
-    }catch(e){}
-    form.style.display = 'none';
-    done.style.display = 'block';
+  // generic submit handler — used by both the hero waitlist and the access/apply form
+  function wireForm(formEl, emailEl, btnEl, doneEl, sendingLabel){
+    if(!formEl) return;
+    formEl.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const addr = emailEl.value.trim();
+      if(!addr || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)){
+        emailEl.focus(); formEl.querySelector('.field').style.borderColor = 'rgba(220,80,80,.6)';
+        return;
+      }
+      btnEl.disabled = true; btnEl.textContent = sendingLabel;
+      const endpoint = formEl.getAttribute('action');
+      if(endpoint && !endpoint.includes('YOUR_FORM_ID')){
+        try{
+          await fetch(endpoint, { method:'POST', headers:{'Accept':'application/json'}, body:new FormData(formEl) });
+        }catch(err){ /* still confirm — prototype shouldn't dead-end */ }
+      }
+      try{
+        const list = JSON.parse(localStorage.getItem('echo_waitlist') || '[]');
+        if(addr && !list.includes(addr)){ list.push(addr); localStorage.setItem('echo_waitlist', JSON.stringify(list)); }
+      }catch(e){}
+      formEl.style.display = 'none';
+      doneEl.style.display = 'block';
+    });
   }
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const addr = email.value.trim();
-    if(!addr || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)){
-      email.focus(); email.style.borderColor = ''; form.querySelector('.field').style.borderColor = 'rgba(220,80,80,.6)';
-      return;
-    }
-    btn.disabled = true; btn.textContent = 'Sending…';
-    // If a real Formspree id is set, POST to it; otherwise just confirm client-side.
-    const endpoint = form.getAttribute('action');
-    if(endpoint && !endpoint.includes('YOUR_FORM_ID')){
-      try{
-        await fetch(endpoint, { method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form) });
-      }catch(err){ /* still confirm — prototype shouldn't dead-end */ }
-    }
-    showSuccess(addr);
-  });
+  wireForm(form, email, btn, done, 'Sending…');
+  wireForm(document.getElementById('apply-form'), document.getElementById('apply-email'),
+           document.getElementById('apply-btn'), document.getElementById('apply-done'), 'Applying…');
 </script>
 </body>
 </html>
