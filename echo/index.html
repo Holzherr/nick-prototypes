@@ -138,6 +138,9 @@
   .verdict h3{font-family:'Instrument Serif',serif; font-weight:400; font-size:28px; margin-bottom:11px}
   .verdict p{color:var(--muted); font-size:14.5px; font-weight:300; line-height:1.62}
   .verdict p b{color:var(--accent); font-weight:500}
+  /* waitlist outcome — calmer, neutral (not the gold "expedited" treatment) */
+  .verdict.wait{border-color:var(--line); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012))}
+  .verdict.wait .badge{color:var(--muted); border-color:var(--line)}
 
   .success{display:none; max-width:480px; margin:0 auto; text-align:center;
     border:1px solid var(--line); border-radius:14px; padding:26px 24px;
@@ -307,7 +310,7 @@
 
       <!-- verdict -->
       <div id="wl-verdict" class="verdict" role="status">
-        <span class="badge">✦ Expedited access</span>
+        <span class="badge" id="wl-badge">✦ Expedited access</span>
         <h3 id="wl-verdict-h">You're in.</h3>
         <p id="wl-verdict-p"></p>
       </div>
@@ -489,14 +492,37 @@
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 
+  // ───────────────────────────────────────────────────────────────────────────
+  // Real AI gate. Paste your deployed Cloudflare Worker URL here (see echo/gate/).
+  // Leave empty → the page falls back to a local "always expedite" animation.
+  const AGENT_ENDPOINT = '';
+  // ───────────────────────────────────────────────────────────────────────────
+
   const emailRe = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+  const esc = (s) => { const d = document.createElement('div'); d.textContent = String(s == null ? '' : s); return d.innerHTML; };
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
   function postLead(formEl){
-    // fire-and-forget to FormSubmit so the real lead (name + note) reaches Nick
     const endpoint = formEl.getAttribute('action');
     if(!endpoint) return;
     try{ fetch(endpoint, { method:'POST', headers:{'Accept':'application/json'}, body:new FormData(formEl) }); }
     catch(e){ /* prototype shouldn't dead-end */ }
+  }
+  // send the lead to FormSubmit WITH the AI's decision, so Nick sees every call the agent made
+  function sendLeadWithVerdict(formEl, lead, v){
+    const endpoint = formEl.getAttribute('action');
+    if(!endpoint) return;
+    const fd = new FormData();
+    fd.append('name', lead.name);
+    fd.append('email', lead.email);
+    fd.append('note', lead.note || '');
+    fd.append('ai_decision', v ? v.decision : 'expedited (local fallback)');
+    fd.append('ai_reason', v && v.reason ? v.reason : '');
+    if(v && v.signals && v.signals.length) fd.append('ai_signals', v.signals.join(', '));
+    fd.append('form_type', 'waitlist');
+    fd.append('_subject', `Echo — ${(v ? v.decision : 'expedited').toUpperCase()}: ${lead.name}`);
+    fd.append('_template', 'table');
+    try{ fetch(endpoint, { method:'POST', headers:{'Accept':'application/json'}, body:fd }); }catch(e){}
   }
   function remember(addr){
     try{
@@ -505,16 +531,34 @@
     }catch(e){}
   }
 
-  // ── hero: collect name + email + note, run an agent "review", then expedite ──
+  // call the gate; returns {decision,headline,reason,signals} or null (→ caller falls back to expedite)
+  async function reviewProfile(lead){
+    if(!AGENT_ENDPOINT) return null;
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 30000);
+    try{
+      const r = await fetch(AGENT_ENDPOINT, {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(lead), signal: ctrl.signal,
+      });
+      clearTimeout(t);
+      if(!r.ok) return null;
+      const v = await r.json();
+      if(!v || (v.decision !== 'expedited' && v.decision !== 'waitlist')) return null;
+      return v;
+    }catch(e){ clearTimeout(t); return null; }
+  }
+
+  // ── hero: collect name + email + note, run the real review, render the verdict ──
   (function heroFlow(){
     const form = document.getElementById('wl-form');
     const nameEl = document.getElementById('wl-name');
     const emailEl = document.getElementById('wl-email');
     const noteEl = document.getElementById('wl-note');
-    const btn = document.getElementById('wl-btn');
     const analysis = document.getElementById('wl-analysis');
     const stepsEl = document.getElementById('wl-steps');
     const verdict = document.getElementById('wl-verdict');
+    const badge = document.getElementById('wl-badge');
     const verdictH = document.getElementById('wl-verdict-h');
     const verdictP = document.getElementById('wl-verdict-p');
     if(!form) return;
@@ -522,53 +566,69 @@
     const flash = (el) => { el.focus(); el.style.borderColor = 'rgba(220,80,80,.6)';
       setTimeout(() => el.style.borderColor = '', 1500); };
 
-    form.addEventListener('submit', (e) => {
+    function addStep(text, done){
+      const li = document.createElement('li');
+      li.innerHTML = `<span class="ic">${done ? '✓' : '›'}</span><span>${esc(text)}</span>`;
+      if(done) li.classList.add('done');
+      stepsEl.appendChild(li);
+    }
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = nameEl.value.trim();
       const addr = emailEl.value.trim();
+      const note = noteEl.value.trim();
       if(!name){ flash(nameEl); return; }
       if(!emailRe.test(addr)){ flash(emailEl); return; }
 
       const first = name.split(/\s+/)[0];
       const domain = addr.split('@')[1] || '';
-      const hasNote = noteEl.value.trim().length > 0;
-
-      postLead(form);
+      const lead = { name, email: addr, note };
       remember(addr);
 
-      // swap form → analysis
+      // swap form → live analysis
       form.style.display = 'none';
       analysis.classList.add('show');
 
-      const steps = [
-        hasNote ? 'Reading your note…' : 'Opening your request…',
+      // kick off the real review immediately, animate the research steps in parallel
+      const verdictPromise = reviewProfile(lead);
+      const baseSteps = [
+        note ? 'Reading your note…' : 'Opening your request…',
         `Searching the public web for “${name}”…`,
         domain ? `Cross-referencing ${domain}…` : 'Checking your background…',
         'Scoring fit against Nick’s criteria…',
-        'Match: strong — flagging for expedited access.'
       ];
+      for(const s of baseSteps){ addStep(s, false); await wait(560); }
 
-      let i = 0;
-      const tick = () => {
-        if(i >= steps.length){
-          setTimeout(() => {
-            analysis.classList.remove('show');
-            verdictH.textContent = `You’re in, ${first}.`;
-            verdictP.innerHTML = `Nick’s Echo agent just reviewed your profile and <b>fast-tracked you</b>. ` +
-              `You fit the profile of the people he wants in early — your personal invite is on its way to <b>${addr}</b>.`;
-            verdict.classList.add('show');
-          }, 650);
-          return;
-        }
-        const li = document.createElement('li');
-        const last = i === steps.length - 1;
-        li.innerHTML = `<span class="ic">${last ? '✓' : '›'}</span><span>${steps[i]}</span>`;
-        if(last) li.classList.add('done');
-        stepsEl.appendChild(li);
-        i++;
-        setTimeout(tick, last ? 520 : 560);
-      };
-      tick();
+      // wait for the genuine verdict (steps keep the panel "alive" while we wait)
+      const v = await verdictPromise;            // null → fall back to expedite
+      const decision = v ? v.decision : 'expedited';
+
+      addStep(decision === 'expedited'
+        ? 'Match: strong — flagging for expedited access.'
+        : 'Reviewed — added to the waitlist.', true);
+      await wait(700);
+
+      // record the lead with the decision attached
+      sendLeadWithVerdict(form, lead, v);
+
+      // render the verdict
+      analysis.classList.remove('show');
+      const aiReason = v && v.reason ? esc(v.reason) : '';
+      if(decision === 'expedited'){
+        verdict.classList.remove('wait');
+        badge.textContent = '✦ Expedited access';
+        verdictH.textContent = (v && v.headline) ? v.headline : `You’re in, ${first}.`;
+        verdictP.innerHTML = (aiReason ? aiReason + ' ' : `Nick’s Echo agent reviewed your profile and fast-tracked you. `)
+          + `Your personal invite is on its way to <b>${esc(addr)}</b>.`;
+      } else {
+        verdict.classList.add('wait');
+        badge.textContent = 'On the waitlist';
+        verdictH.textContent = (v && v.headline) ? v.headline : `You’re on the list, ${first}.`;
+        verdictP.innerHTML = (aiReason ? aiReason + ' ' : `Thanks, ${esc(first)} — you’re on the waitlist. `)
+          + `We’ll be in touch the moment a seat opens in your wave.`;
+      }
+      verdict.classList.add('show');
     });
   })();
 

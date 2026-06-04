@@ -1,0 +1,12 @@
+name = "echo-gate"
+main = "worker.js"
+compatibility_date = "2025-09-01"
+
+[vars]
+# The origin allowed to call this Worker (your published site). Use "*" to allow any during testing.
+ALLOW_ORIGIN = "https://holzherr.github.io"
+# Model used to review applicants. Swap to claude-haiku-4-5 for cheaper/faster, opus for sharpest.
+MODEL = "claude-sonnet-4-6"
+
+# Secret (do NOT put here — set it once with: wrangler secret put ANTHROPIC_API_KEY):
+#   ANTHROPIC_API_KEY
