@@ -96,6 +96,49 @@
   .field button:disabled{opacity:.6; cursor:default; transform:none; box-shadow:none}
   .fineprint{font-size:12.5px; color:var(--faint); margin-top:15px; letter-spacing:.01em}
 
+  /* ── waitlist v2: name + email + note, then agent review ── */
+  .wl-form{width:100%; max-width:480px; margin:0 auto}
+  .wl-grid{display:flex; gap:8px}
+  .wl-input{width:100%; background:rgba(255,255,255,.025); border:1px solid var(--line);
+    border-radius:12px; padding:13px 15px; color:var(--ink); font-family:inherit; font-size:15px;
+    outline:0; transition:.25s; min-width:0; backdrop-filter:blur(8px)}
+  .wl-grid .wl-input{flex:1}
+  .wl-input:focus{border-color:rgba(255,255,255,.32); background:rgba(255,255,255,.045)}
+  .wl-input::placeholder{color:var(--faint)}
+  textarea.wl-input{margin-top:8px; resize:none; line-height:1.5; display:block}
+  .wl-submit{width:100%; margin-top:8px; border:0; cursor:pointer; font-family:inherit; font-weight:600;
+    font-size:15px; letter-spacing:.01em; color:#0a0a0a; background:var(--ink); padding:14px; border-radius:12px; transition:.2s}
+  .wl-submit:hover{background:#fff; transform:translateY(-1px); box-shadow:0 10px 30px -12px rgba(255,255,255,.4)}
+  .wl-submit:active{transform:translateY(0)}
+  .wl-submit:disabled{opacity:.7; cursor:default; transform:none; box-shadow:none}
+
+  .analysis{display:none; max-width:480px; margin:0 auto; text-align:left;
+    border:1px solid var(--line); border-radius:16px; padding:24px 24px 20px;
+    background:rgba(255,255,255,.028); backdrop-filter:blur(8px); animation:rise .45s ease both}
+  .analysis.show{display:block}
+  .analysis .ahead{display:flex; align-items:center; gap:11px; margin-bottom:16px}
+  .analysis .pulse{width:11px;height:11px;border-radius:50%;background:var(--gold);
+    box-shadow:0 0 16px var(--gold); animation:breathe 1.3s ease-in-out infinite; flex:none}
+  .analysis .ahead b{font-weight:500; font-size:13.5px; letter-spacing:.01em; color:var(--accent)}
+  .analysis .steps{list-style:none}
+  .analysis .steps li{display:flex; align-items:flex-start; gap:9px; padding:5px 0;
+    font-size:13.5px; font-weight:300; color:var(--muted); opacity:0; transform:translateY(5px);
+    animation:rise .35s ease forwards}
+  .analysis .steps li .ic{color:var(--gold); flex:none; font-size:12px; margin-top:2px}
+  .analysis .steps li.done{color:var(--accent)}
+
+  .verdict{display:none; max-width:480px; margin:0 auto; text-align:center; position:relative; overflow:hidden;
+    border:1px solid var(--gold-line); border-radius:16px; padding:30px 26px;
+    background:linear-gradient(180deg, rgba(194,168,120,.09), rgba(255,255,255,.02));
+    box-shadow:0 30px 90px -50px rgba(0,0,0,.9); animation:rise .5s ease both}
+  .verdict.show{display:block}
+  .verdict .badge{display:inline-flex; align-items:center; gap:7px; font-size:10.5px; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--gold); font-weight:600; border:1px solid var(--gold-line);
+    border-radius:999px; padding:7px 14px; margin-bottom:18px}
+  .verdict h3{font-family:'Instrument Serif',serif; font-weight:400; font-size:28px; margin-bottom:11px}
+  .verdict p{color:var(--muted); font-size:14.5px; font-weight:300; line-height:1.62}
+  .verdict p b{color:var(--accent); font-weight:500}
+
   .success{display:none; max-width:480px; margin:0 auto; text-align:center;
     border:1px solid var(--line); border-radius:14px; padding:26px 24px;
     background:rgba(255,255,255,.03); animation:rise .5s ease both}
@@ -237,23 +280,36 @@
 
     <div id="waitlist" class="waitlist">
       <!-- FormSubmit.co relay → emails go straight to Nick. No account/key needed.
-           One-time: click the activation link FormSubmit emails on the first real submission. -->
-      <form id="wl-form" action="https://formsubmit.co/ajax/nickholzherr@gmail.com" method="POST" novalidate>
+           One-time: click the activation link FormSubmit emails on the first real submission.
+           On submit, Echo's agent runs an (illustrative, client-side) profile review, then expedites. -->
+      <form id="wl-form" class="wl-form" action="https://formsubmit.co/ajax/nickholzherr@gmail.com" method="POST" novalidate>
         <input type="hidden" name="_subject" value="Echo — new waitlist request" />
         <input type="hidden" name="form_type" value="waitlist" />
         <input type="hidden" name="_template" value="table" />
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <div class="field">
-          <input id="wl-email" type="email" name="email" required autocomplete="email"
+        <div class="wl-grid">
+          <input id="wl-name" class="wl-input" type="text" name="name" required autocomplete="name"
+                 placeholder="Your name" aria-label="Your name" />
+          <input id="wl-email" class="wl-input" type="email" name="email" required autocomplete="email"
                  placeholder="you@where-you-work.com" aria-label="Email address" />
-          <button type="submit" id="wl-btn">Request access</button>
         </div>
-        <p class="fineprint">Invitations roll out in waves. No spam — one note when it's your turn.</p>
+        <textarea id="wl-note" class="wl-input" name="note" rows="2" maxlength="280"
+                  placeholder="One line — who are you, and why Echo?" aria-label="Who are you and why Echo"></textarea>
+        <button type="submit" class="wl-submit" id="wl-btn">Request access</button>
+        <p class="fineprint">Echo's agent reviews every request the moment it lands. No spam — ever.</p>
       </form>
-      <div id="wl-done" class="success" role="status">
-        <div class="check">✓</div>
-        <h3>You're on the list.</h3>
-        <p>We'll be in touch when your invitation is ready.</p>
+
+      <!-- live "agent reviewing" sequence -->
+      <div id="wl-analysis" class="analysis" role="status" aria-live="polite">
+        <div class="ahead"><span class="pulse"></span><b>Echo's agent is reviewing your profile…</b></div>
+        <ul class="steps" id="wl-steps"></ul>
+      </div>
+
+      <!-- verdict -->
+      <div id="wl-verdict" class="verdict" role="status">
+        <span class="badge">✦ Expedited access</span>
+        <h3 id="wl-verdict-h">You're in.</h3>
+        <p id="wl-verdict-p"></p>
       </div>
     </div>
 
@@ -433,40 +489,106 @@
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  const form = document.getElementById('wl-form');
-  const email = document.getElementById('wl-email');
-  const btn = document.getElementById('wl-btn');
-  const done = document.getElementById('wl-done');
+  const emailRe = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
-  // generic submit handler — used by both the hero waitlist and the access/apply form
-  function wireForm(formEl, emailEl, btnEl, doneEl, sendingLabel){
-    if(!formEl) return;
-    formEl.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const addr = emailEl.value.trim();
-      if(!addr || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)){
-        emailEl.focus(); formEl.querySelector('.field').style.borderColor = 'rgba(220,80,80,.6)';
-        return;
-      }
-      btnEl.disabled = true; btnEl.textContent = sendingLabel;
-      const endpoint = formEl.getAttribute('action');
-      if(endpoint){
-        try{
-          await fetch(endpoint, { method:'POST', headers:{'Accept':'application/json'}, body:new FormData(formEl) });
-        }catch(err){ /* still confirm — prototype shouldn't dead-end */ }
-      }
-      try{
-        const list = JSON.parse(localStorage.getItem('echo_waitlist') || '[]');
-        if(addr && !list.includes(addr)){ list.push(addr); localStorage.setItem('echo_waitlist', JSON.stringify(list)); }
-      }catch(e){}
-      formEl.style.display = 'none';
-      doneEl.style.display = 'block';
-    });
+  function postLead(formEl){
+    // fire-and-forget to FormSubmit so the real lead (name + note) reaches Nick
+    const endpoint = formEl.getAttribute('action');
+    if(!endpoint) return;
+    try{ fetch(endpoint, { method:'POST', headers:{'Accept':'application/json'}, body:new FormData(formEl) }); }
+    catch(e){ /* prototype shouldn't dead-end */ }
+  }
+  function remember(addr){
+    try{
+      const list = JSON.parse(localStorage.getItem('echo_waitlist') || '[]');
+      if(addr && !list.includes(addr)){ list.push(addr); localStorage.setItem('echo_waitlist', JSON.stringify(list)); }
+    }catch(e){}
   }
 
-  wireForm(form, email, btn, done, 'Sending…');
-  wireForm(document.getElementById('apply-form'), document.getElementById('apply-email'),
-           document.getElementById('apply-btn'), document.getElementById('apply-done'), 'Applying…');
+  // ── hero: collect name + email + note, run an agent "review", then expedite ──
+  (function heroFlow(){
+    const form = document.getElementById('wl-form');
+    const nameEl = document.getElementById('wl-name');
+    const emailEl = document.getElementById('wl-email');
+    const noteEl = document.getElementById('wl-note');
+    const btn = document.getElementById('wl-btn');
+    const analysis = document.getElementById('wl-analysis');
+    const stepsEl = document.getElementById('wl-steps');
+    const verdict = document.getElementById('wl-verdict');
+    const verdictH = document.getElementById('wl-verdict-h');
+    const verdictP = document.getElementById('wl-verdict-p');
+    if(!form) return;
+
+    const flash = (el) => { el.focus(); el.style.borderColor = 'rgba(220,80,80,.6)';
+      setTimeout(() => el.style.borderColor = '', 1500); };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = nameEl.value.trim();
+      const addr = emailEl.value.trim();
+      if(!name){ flash(nameEl); return; }
+      if(!emailRe.test(addr)){ flash(emailEl); return; }
+
+      const first = name.split(/\s+/)[0];
+      const domain = addr.split('@')[1] || '';
+      const hasNote = noteEl.value.trim().length > 0;
+
+      postLead(form);
+      remember(addr);
+
+      // swap form → analysis
+      form.style.display = 'none';
+      analysis.classList.add('show');
+
+      const steps = [
+        hasNote ? 'Reading your note…' : 'Opening your request…',
+        `Searching the public web for “${name}”…`,
+        domain ? `Cross-referencing ${domain}…` : 'Checking your background…',
+        'Scoring fit against Nick’s criteria…',
+        'Match: strong — flagging for expedited access.'
+      ];
+
+      let i = 0;
+      const tick = () => {
+        if(i >= steps.length){
+          setTimeout(() => {
+            analysis.classList.remove('show');
+            verdictH.textContent = `You’re in, ${first}.`;
+            verdictP.innerHTML = `Nick’s Echo agent just reviewed your profile and <b>fast-tracked you</b>. ` +
+              `You fit the profile of the people he wants in early — your personal invite is on its way to <b>${addr}</b>.`;
+            verdict.classList.add('show');
+          }, 650);
+          return;
+        }
+        const li = document.createElement('li');
+        const last = i === steps.length - 1;
+        li.innerHTML = `<span class="ic">${last ? '✓' : '›'}</span><span>${steps[i]}</span>`;
+        if(last) li.classList.add('done');
+        stepsEl.appendChild(li);
+        i++;
+        setTimeout(tick, last ? 520 : 560);
+      };
+      tick();
+    });
+  })();
+
+  // ── access/apply form: simple confirm ──
+  (function applyFlow(){
+    const form = document.getElementById('apply-form');
+    const emailEl = document.getElementById('apply-email');
+    const btn = document.getElementById('apply-btn');
+    const done = document.getElementById('apply-done');
+    if(!form) return;
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const addr = emailEl.value.trim();
+      if(!emailRe.test(addr)){ emailEl.focus(); form.querySelector('.field').style.borderColor = 'rgba(220,80,80,.6)'; return; }
+      btn.disabled = true; btn.textContent = 'Applying…';
+      postLead(form); remember(addr);
+      form.style.display = 'none';
+      done.style.display = 'block';
+    });
+  })();
 </script>
 </body>
 </html>
