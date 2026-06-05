@@ -10,7 +10,15 @@ Premium black landing page + waitlist for **Echo**, the ambient personal assista
 
 The form is **Formspree-ready**: in `index.html`, replace `YOUR_FORM_ID` in the `<form action=…>` with a real [Formspree](https://formspree.io) form id to capture emails server-side. Until then it confirms client-side and records entries in `localStorage` under `echo_waitlist`, so the flow never dead-ends in a demo.
 
+## Pages
+
+- `index.html` — the landing page (hero · value props · life-areas bento · access · waitlist).
+- `faq.html` — "How it works" (yours / own machine / own key).
+- `components.html` — **the building-blocks gallery**: the standard UX-block kit every Echo agent composes its screens from (HomeCard, ApprovalCard, Board, Drawer, Timeline, Relations, SettingsPanel, Chart, Form, Brief), each rendered faithfully with its native-iOS mapping. Linked from the nav. Tells the "self-composing, renderer-neutral, web + iOS" story visually.
+
 ## State
+
+v4 — added `components.html`, the **building-blocks gallery** (the agent's UX component kit), linked from nav on index + faq.
 
 v3 — added **Priorities** as the lead bento tile (task-prioritisation / executive-assistant layer). 8 areas total.
 
