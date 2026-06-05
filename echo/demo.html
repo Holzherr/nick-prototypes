@@ -562,15 +562,23 @@ view.addEventListener('click', e=>{
 });
 
 /* ───────────────────────── VOICE ───────────────────────── */
-const AUDIO={};   // populate with pre-rendered files (e.g. ElevenLabs) to swap in studio voice: AUDIO[3]='voice/3.mp3'
+// Pre-rendered ElevenLabs narration ("Sarah" — warm American). Played in place of
+// the browser voice; regenerate with: node voice/generate.mjs. Browser TTS stays
+// as automatic fallback if a file can't load.
+const AUDIO={0:'voice/0.mp3',1:'voice/1.mp3',2:'voice/2.mp3',3:'voice/3.mp3',4:'voice/4.mp3',5:'voice/5.mp3',6:'voice/6.mp3',7:'voice/7.mp3',8:'voice/8.mp3',9:'voice/9.mp3'};
 const Voice={ enabled:true, voice:null, audioEl:null, _onend:null,
   pickVoice(){ if(!('speechSynthesis' in window)) return; const vs=speechSynthesis.getVoices();
     const pref=['Samantha','Ava','Serena','Allison','Google UK English Female','Google US English','Microsoft Aria','Daniel','Karen'];
     this.voice=pref.map(n=>vs.find(v=>v.name.includes(n))).find(Boolean)||vs.find(v=>/en[-_]/i.test(v.lang))||vs[0]||null; },
   speak(text,idx,onend){ this.stop(); this._onend=onend;
     if(!this.enabled){ orbSpeak(false); if(onend) this._timer=setTimeout(onend,Math.min(9000,2600+text.length*32)); return; }
-    if(AUDIO[idx]){ orbSpeak(true); this.audioEl=new Audio(AUDIO[idx]); this.audioEl.onended=()=>{orbSpeak(false);onend&&onend();}; this.audioEl.play().catch(()=>{orbSpeak(false);onend&&onend();}); return; }
-    if(!('speechSynthesis' in window)){ orbSpeak(false); if(onend) this._timer=setTimeout(onend,3000); return; }
+    if(AUDIO[idx]){ orbSpeak(true); this.audioEl=new Audio(AUDIO[idx]);
+      let fell=false; const fallback=()=>{ if(fell) return; fell=true; this.audioEl=null; this._browser(text,onend); };
+      this.audioEl.onended=()=>{orbSpeak(false);onend&&onend();}; this.audioEl.onerror=fallback;
+      this.audioEl.play().catch(fallback); return; }
+    this._browser(text,onend); },
+  _browser(text,onend){
+    if(!('speechSynthesis' in window)){ orbSpeak(false); if(onend) this._timer=setTimeout(onend,Math.min(9000,2600+text.length*32)); return; }
     const u=new SpeechSynthesisUtterance(text); if(this.voice) u.voice=this.voice; u.rate=1.0; u.pitch=1.0;
     u.onstart=()=>orbSpeak(true); u.onend=()=>{ orbSpeak(false); if(this._onend) this._onend(); }; orbSpeak(true); speechSynthesis.speak(u); },
   stop(){ clearTimeout(this._timer); this._onend=null; if('speechSynthesis' in window) speechSynthesis.cancel(); if(this.audioEl){this.audioEl.pause();this.audioEl=null;} orbSpeak(false); },
