@@ -323,6 +323,39 @@ const APPROVALS = [
   { hd:'✋ May investor update — needs your numbers', sm:'Drafted the full update; three revenue figures are blank pending your confirmation.',
     draft:'…MRR grew to £[__] in May, up [__]% MoM, with [__] new\ndesign partners signed. Full draft ready below.', pa:'Fill figures, then send to list (47)' },
 ];
+/* My Desk modules — the "command center" Nick wakes up to */
+const KPIS = [
+  { l:'✅ This week', v:'5', s:'tasks on your plate' },
+  { l:'✋ Waiting on you', v:'2', s:'drafts to approve' },
+  { l:'💡 Ideas', v:'3', s:'to triage' },
+  { l:'🫀 Resting HR', v:'54', s:'bpm · ▼3 this week' },
+];
+const TODAY = [
+  { icon:'⚖️', bg:'#eef2ff', title:'Approve audit reply to Sarah', meta:'GitLaw · drafted', state:'review', label:'review' },
+  { icon:'💷', bg:'#ecfeff', title:'Decide where to park Brambruesch cash', meta:'Finance · ~£100k', state:'decision', label:'decision' },
+  { icon:'🤖', bg:'#fef3c7', title:'Review agent draft: weekly team digest', meta:'GitLaw · awaiting your edit', state:'review', label:'review' },
+  { icon:'👨‍👩‍👧', bg:'#fce7f3', title:'Pick a dentist slot — both kids', meta:'Family · 2 options found', state:'todo', label:'to do' },
+  { icon:'📈', bg:'#f0fdf4', title:'Fill May investor figures', meta:'GitLaw · drafted', state:'doing', label:'doing' },
+];
+const SCHEDULE = [
+  { time:'09:30', title:'GitLaw standup', att:'8 people · agenda ready' },
+  { time:'11:00', title:'1:1 — Greg', att:'JSV cohort · brief prepped' },
+  { time:'14:00', title:'Audit sync — Sarah', att:'reply already drafted' },
+  { time:'16:30', title:'School pickup', att:'Family' },
+];
+const TEAM = [
+  { name:'Greg', s:'red', note:'needs you' },
+  { name:'Sarah', s:'red', note:'waiting 2d' },
+  { name:'Rostyslav', s:'yellow', note:'2 open' },
+  { name:'Victoria', s:'green', note:'on track' },
+];
+const RECENT = [
+  { g:'linear-gradient(135deg,#a5b4fc,#6366f1)', t:'GitLaw standup — notes', s:'Note · 12m' },
+  { g:'linear-gradient(135deg,#6ee7b7,#10b981)', t:'Auto-tag inbox contacts', s:'Idea · Sun' },
+  { g:'linear-gradient(135deg,#fdba74,#f97316)', t:'Family school-date scan', s:'Agent · 3 proposed' },
+  { g:'linear-gradient(135deg,#94a3b8,#475569)', t:'Weekly health digest', s:'Health · today' },
+  { g:'linear-gradient(135deg,#fca5a5,#ef4444)', t:'May board deck', s:'Done · yesterday' },
+];
 
 /* per-area page content */
 const AREA_BODY = {
@@ -430,13 +463,30 @@ function agentCard(a, click){
 
 const VIEWS = {
   home(){
+    const kpis = KPIS.map(k=>`<a class="kpi c3" href="#" onclick="return false"><div class="l">${k.l}</div><div class="v">${k.v}</div><div class="s">${k.s}</div></a>`).join('');
+    const today = TODAY.map(t=>`<div class="drow"><div class="ricon" style="background:${t.bg}">${t.icon}</div><div class="rmid"><div class="rtitle">${t.title}</div><div class="rmeta">${t.meta}</div></div><span class="state s-${t.state}">${t.label}</span></div>`).join('');
+    const sched = SCHEDULE.map(m=>`<div class="mrow"><div class="mtime">${m.time}</div><div><div class="mtitle">${m.title}</div><div class="matt">${m.att}</div></div></div>`).join('');
+    const reds=TEAM.filter(p=>p.s==='red').length, yel=TEAM.filter(p=>p.s==='yellow').length, grn=TEAM.filter(p=>p.s==='green').length;
+    const team = TEAM.map(p=>`<a class="team-pill" href="#" onclick="return false"><span class="team-dot ${p.s}"></span><span class="team-pill-name">${p.name}</span><span class="team-pill-count">${p.note}</span></a>`).join('');
     const cards = LIFE.map(l=>{ const a=AGENTS.find(x=>x.id===l.agent)||{}; return `
       <div class="card click" data-view="${l.id}"><div class="row" style="gap:11px"><div style="font-size:22px">${l.icon}</div>
         <div style="flex:1;min-width:0"><div class="ttl trunc">${l.name}</div><div class="sub">${a.status||''}</div></div><div style="color:#cbd5e1">→</div></div></div>`; }).join('');
+    const recent = RECENT.map(r=>`<a class="rcard" href="#" onclick="return false"><div class="rthumb" style="background:${r.g}"></div><h3>${r.t}</h3><p>${r.s}</p></a>`).join('');
     return `
-      <h1 class="greeting">Good morning, Nick.</h1>
-      <div class="lede">Thursday, 6 June · 4 things handled overnight · 2 need you.</div>
-      <div class="sec-h">Your life</div>
+      <div class="greet"><div class="avatar">NH</div><div><h1 data-greet>Good morning, Nick.</h1><p>Thursday, 6 June · <b>4 handled</b> overnight · 2 need you</p></div></div>
+      <form class="omni" onsubmit="return false"><span class="omni-icon">✦</span><input placeholder="Message Echo — add a task, capture a thought, or ask for something" /><button class="omni-send" type="submit">Send</button></form>
+
+      <div class="grid12" id="kpis" style="margin-bottom:14px">${kpis}</div>
+
+      <div class="grid12" id="deskrow" style="margin-bottom:6px">
+        <div class="panel flush c6"><div class="panel-head"><h2>Today</h2><span class="count">5</span><a href="#" onclick="return false">Open board →</a></div>${today}</div>
+        <div class="panel flush c3" id="schedule-mod"><div class="panel-head"><h2>📅 Schedule</h2><a href="#" onclick="return false">→</a></div>${sched}</div>
+        <div class="panel flush c3" id="team-mod"><div class="panel-head"><h2>👥 Team</h2><a href="#" onclick="return false">→</a></div>
+          <div class="team-summary"><span class="red">${reds} blocked</span><span class="yellow">${yel} busy</span><span class="green">${grn} ok</span></div>
+          <div class="team-light">${team}</div></div>
+      </div>
+
+      <div class="sec-h">Your life — areas you control</div>
       <div class="grid-cards" id="home-areas">${cards}</div>
       <div class="propose" id="home-propose" style="margin-top:14px"><span class="e">💡</span>
         <div class="body"><b>Echo noticed you talk about travel a lot.</b><p>Want a Travel area? I'll create an agent and a page for it.</p></div>
@@ -450,12 +500,9 @@ const VIEWS = {
           <li><span class="e">🔔</span><span>Chased 2 cold follow-ups (Victoria, Rostyslav) — nudges drafted.</span></li>
           <li><span class="e">✋</span><span><b>Needs you:</b> approve the May investor-update figures before 9am.</span></li>
         </ul></div>
-      <div class="sec-h" style="margin-top:30px">At a glance</div>
-      <div class="stats" id="home-stats" style="grid-template-columns:repeat(3,1fr)">
-        <div class="stat"><div class="big">6</div><div class="cap">tasks moved overnight</div></div>
-        <div class="stat"><div class="big" style="color:#b45309">2</div><div class="cap">waiting on you</div></div>
-        <div class="stat"><div class="big">54 <span style="font-size:13px;color:#94a3b8">bpm</span></div><div class="cap">resting HR · <span class="delta">▼3</span></div></div>
-      </div>`;
+
+      <div class="rail-head"><h2>Recent</h2><span class="count">12</span><a href="#" onclick="return false">View all →</a></div>
+      <div class="rail">${recent}</div>`;
   },
   agents(){
     const groups=[['persona','Your assistant'],['domain','Domain agents — each can have its own page'],['role','Role agents — scheduled jobs, no page'],['bridge','Channels']];
@@ -569,7 +616,7 @@ view.addEventListener('click', e=>{
 // Pre-rendered ElevenLabs narration ("Sarah" — warm American). Played in place of
 // the browser voice; regenerate with: node voice/generate.mjs. Browser TTS stays
 // as automatic fallback if a file can't load.
-const AUDIO={0:'voice/0.mp3',1:'voice/1.mp3',2:'voice/2.mp3',3:'voice/3.mp3',4:'voice/4.mp3',5:'voice/5.mp3',6:'voice/6.mp3',7:'voice/7.mp3',8:'voice/8.mp3',9:'voice/9.mp3'};
+const AUDIO={0:'voice/0.mp3',1:'voice/1.mp3',2:'voice/2.mp3',3:'voice/3.mp3',4:'voice/4.mp3',5:'voice/5.mp3',6:'voice/6.mp3',7:'voice/7.mp3',8:'voice/8.mp3',9:'voice/9.mp3',10:'voice/10.mp3'};
 const Voice={ enabled:true, voice:null, audioEl:null, _onend:null,
   pickVoice(){ if(!('speechSynthesis' in window)) return; const vs=speechSynthesis.getVoices();
     const pref=['Samantha','Ava','Serena','Allison','Google UK English Female','Google US English','Microsoft Aria','Daniel','Karen'];
@@ -593,7 +640,8 @@ function orbSpeak(on){ $('#orb').classList.toggle('speaking', !!on); }
 /* ───────────────────────── TOUR ───────────────────────── */
 const STEPS=[
   { view:'home', center:true, title:'Meet your Echo', say:"This is the home you wake up to — one quiet layer over your whole life. Let me show you around." },
-  { view:'home', target:'#life-nav', title:'Your life, in areas', say:"Echo organises around your life, not its features. Each part — Family, Health, GitLaw, Finance — gets its own page, right here in your menu." },
+  { view:'home', target:'#deskrow', title:'Your command center', say:"Wake up to one view: today's tasks, your schedule for the day, and how your team is doing — who's blocked, who needs you — all at a glance." },
+  { view:'home', target:'#life-nav', title:'Your life, in areas', say:"Echo also organises around your life, not its features. Each part — Family, Health, GitLaw, Finance — gets its own page, right here in your menu." },
   { view:'health', target:'#view', title:'A space for each part', say:"Open one and it's a real space. Here's Health — your numbers, the trends, and tonight's digest. Family, Finance, work — each has its own page like this." },
   { view:'health', detail:'health', target:'#detail-settings', title:'Every area has an agent', say:"And every area is run by an agent. Open it and you see exactly what it's allowed to touch, and everything it's done." },
   { view:'home', closeDetail:true, action:'openAdd', target:'#addpop', title:'Add a part of your life', say:"You can add a new area any time. Name it…" },
