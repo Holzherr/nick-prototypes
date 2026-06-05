@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Echo — interactive demo</title>
-<meta name="description" content="A guided, narrated walkthrough of an Echo setup — agents, home, tasks and approvals — with an AI voice that talks you through it." />
+<meta name="description" content="A guided, narrated walkthrough of an Echo setup — your life areas, agents, home, tasks and approvals — with an AI voice that talks you through it." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='white'/%3E%3Ccircle cx='50' cy='50' r='26' fill='none' stroke='white' stroke-opacity='.5' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='white' stroke-opacity='.2' stroke-width='2'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,75 +20,83 @@
     -webkit-font-smoothing:antialiased; overflow:hidden}
 
   /* ════ APP SHELL ════ */
-  .app{display:grid; grid-template-columns:228px 1fr; height:100vh; width:100vw}
-  /* sidebar */
-  .side{background:#0a0a0c; color:#e8e8e6; padding:22px 16px; display:flex; flex-direction:column; gap:6px;
-    border-right:1px solid rgba(255,255,255,.07)}
-  .side .brand{display:flex; align-items:center; gap:10px; padding:6px 8px 18px}
+  .app{display:grid; grid-template-columns:236px 1fr; height:100vh; width:100vw}
+  .side{background:#0a0a0c; color:#e8e8e6; padding:20px 14px; display:flex; flex-direction:column; gap:3px;
+    border-right:1px solid rgba(255,255,255,.07); overflow-y:auto}
+  .side .brand{display:flex; align-items:center; gap:10px; padding:6px 8px 14px}
   .side .brand b{font-weight:600; font-size:16px; letter-spacing:.05em}
-  .nav-item{display:flex; align-items:center; gap:11px; padding:10px 12px; border-radius:10px; cursor:pointer;
-    color:#9a9a98; font-size:14px; font-weight:500; transition:.18s; border:1px solid transparent}
+  .grp{font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:#5a5a57; font-weight:600; padding:14px 12px 6px}
+  .nav-item{display:flex; align-items:center; gap:11px; padding:9px 12px; border-radius:10px; cursor:pointer;
+    color:#9a9a98; font-size:13.5px; font-weight:500; transition:.16s; border:1px solid transparent}
   .nav-item .ic{width:18px; text-align:center; font-size:15px}
   .nav-item:hover{background:rgba(255,255,255,.04); color:#f0f0ee}
   .nav-item.active{background:rgba(194,168,120,.12); color:#fff; border-color:var(--gold-line)}
   .nav-item .badge{margin-left:auto; background:#e11d48; color:#fff; font-size:10px; font-weight:700; border-radius:999px; padding:1px 7px}
-  .side .foot{margin-top:auto; padding:10px 8px; font-size:11px; color:#5a5a57; border-top:1px solid rgba(255,255,255,.06)}
-  /* main */
+  .nav-item.add{color:#6f6f6c; border:1px dashed rgba(255,255,255,.14); margin-top:4px}
+  .nav-item.add:hover{color:var(--gold); border-color:var(--gold-line)}
+  .nav-item.fresh{animation:freshpop .5s ease}
+  @keyframes freshpop{0%{opacity:0; transform:translateX(-8px); background:rgba(194,168,120,.3)}100%{opacity:1; transform:none}}
+  .side .foot{margin-top:auto; padding:12px 8px 2px; font-size:11px; color:#5a5a57; border-top:1px solid rgba(255,255,255,.06)}
+
   .main{background:var(--app-bg); overflow-y:auto; position:relative}
   .topbar{position:sticky; top:0; z-index:5; background:rgba(244,246,249,.86); backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line); padding:16px 30px; display:flex; align-items:center; justify-content:space-between}
+    border-bottom:1px solid var(--line); padding:15px 30px; display:flex; align-items:center; justify-content:space-between}
   .topbar .crumb{font-size:13px; color:var(--sub)} .topbar .crumb b{color:var(--slate); font-weight:600}
   .topbar .me{display:flex; align-items:center; gap:9px; font-size:13px; color:var(--sub)}
   .topbar .avatar{width:28px; height:28px; border-radius:50%; background:#0f172a; color:#fff; display:grid; place-items:center; font-size:12px; font-weight:600}
-  .view{padding:28px 30px 120px; max-width:980px; animation:fade .4s ease}
+  .view{padding:26px 30px 120px; max-width:1000px; animation:fade .4s ease}
   @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
   .view h1{font-family:'Instrument Serif',serif; font-weight:400; font-size:30px; letter-spacing:.01em}
-  .view .lede{color:var(--sub); font-size:14px; margin-top:3px; margin-bottom:22px}
+  .view .lede{color:var(--sub); font-size:14px; margin-top:3px; margin-bottom:20px}
   .sec-h{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#94a3b8; margin:26px 0 12px}
 
-  /* ════ BLOCKS (mirror the live dashboard) ════ */
-  .grid-cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px}
-  .card{background:#fff; border:1px solid var(--line); border-radius:14px; padding:15px; box-shadow:0 2px 10px rgba(15,23,42,.04);
-    transition:.16s; cursor:default}
+  /* area page header */
+  .area-head{display:flex; align-items:flex-start; gap:14px; padding-bottom:16px; border-bottom:1px solid var(--line); margin-bottom:6px}
+  .area-head .em{font-size:34px; line-height:1}
+  .area-head .meta{font-size:12.5px; color:var(--sub); margin-top:5px}
+  .agent-link{color:#a21caf; font-weight:600; cursor:pointer; text-decoration:none} .agent-link:hover{text-decoration:underline}
+
+  /* ════ BLOCKS ════ */
+  .grid-cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(248px,1fr)); gap:14px}
+  .cols2{display:grid; grid-template-columns:1fr 1fr; gap:16px} @media(max-width:820px){.cols2{grid-template-columns:1fr}}
+  .card{background:#fff; border:1px solid var(--line); border-radius:14px; padding:15px; box-shadow:0 2px 10px rgba(15,23,42,.04); transition:.16s}
   .card.click{cursor:pointer} .card.click:hover{box-shadow:0 10px 30px rgba(15,23,42,.10); transform:translateY(-2px); border-color:#cbd5e1}
+  .panel{background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; box-shadow:0 2px 10px rgba(15,23,42,.04)}
   .pill{display:inline-block; font-size:11px; padding:2px 8px; border-radius:6px; background:#f1f5f9; color:#475569; font-weight:500}
   .kind{font-size:9.5px; padding:2px 8px; border-radius:999px; font-weight:600; letter-spacing:.03em; text-transform:uppercase; white-space:nowrap}
   .k-persona{background:#ede9fe; color:#6d28d9} .k-domain{background:#fae8ff; color:#a21caf}
   .k-role{background:#dbeafe; color:#1d4ed8} .k-bridge{background:#fef3c7; color:#b45309}
   .row{display:flex; gap:9px} .wrapped{flex-wrap:wrap} .ai{align-items:center} .mt{margin-top:9px} .mt2{margin-top:13px}
-  .ttl{font-weight:600; font-size:14.5px} .sub{color:var(--sub); font-size:12.5px} .lbl{font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:#94a3b8; margin-bottom:6px}
+  .ttl{font-weight:600; font-size:14.5px} .sub{color:var(--sub); font-size:12.5px} .lbl{font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:#94a3b8; margin-bottom:8px}
   .trunc{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
   .chip{display:inline-flex; align-items:center; gap:5px; font-size:11px; background:#f1f5f9; color:#475569; border-radius:999px; padding:4px 10px}
   .orb-ic{width:30px;height:30px;flex:0 0 auto}
+  .list{list-style:none; display:grid; gap:9px} .list li{display:flex; gap:10px; font-size:13.5px; color:#334155; line-height:1.45}
+  .list li .e{flex:0 0 auto; font-size:15px} .list li b{color:#334155}
+  .due{margin-left:auto; font-size:11px; color:#94a3b8; white-space:nowrap}
 
   /* brief */
-  .brief{background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; box-shadow:0 2px 10px rgba(15,23,42,.04)}
   .brief h3{font-family:'Instrument Serif',serif; font-weight:400; font-size:23px}
   .brief .when{font-size:12px; color:#94a3b8; margin:2px 0 14px}
-  .brief ul{list-style:none; display:grid; gap:10px}
-  .brief li{display:flex; gap:11px; font-size:13.5px; color:#334155; line-height:1.5}
-  .brief li .e{flex:0 0 auto; font-size:15px}
   .brief li b{color:#b45309}
   /* stats */
-  .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-  .stat{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px}
-  .stat .big{font-size:30px; font-weight:600; letter-spacing:-.02em}
-  .stat .cap{font-size:12px; color:var(--sub); margin-top:2px}
-  .stat .delta{font-size:12px; color:#059669; font-weight:600}
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:13px} @media(max-width:820px){.stats{grid-template-columns:1fr 1fr}}
+  .stat{background:#fff; border:1px solid var(--line); border-radius:14px; padding:15px}
+  .stat .big{font-size:27px; font-weight:600; letter-spacing:-.02em}
+  .stat .cap{font-size:11.5px; color:var(--sub); margin-top:2px}
+  .stat .delta{font-size:11.5px; color:#059669; font-weight:600} .stat .delta.up{color:#dc2626}
   /* board */
-  .board{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+  .board{display:grid; grid-template-columns:repeat(4,1fr); gap:12px} @media(max-width:820px){.board{grid-template-columns:1fr 1fr}}
   .col-h{font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#94a3b8; margin-bottom:9px; display:flex; gap:6px}
   .col-h .n{background:#e2e8f0; color:#475569; border-radius:999px; padding:0 7px; font-size:10px}
   .tcard{background:#fff; border:1px solid var(--line); border-radius:9px; padding:9px 10px; margin-bottom:8px; box-shadow:0 1px 3px rgba(15,23,42,.04)}
   .tcard .pj{font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-bottom:3px}
   .tcard .tt{font-size:12.5px; color:#1e293b; line-height:1.35}
-  .pj-gitlaw{color:#a21caf}.pj-family{color:#0891b2}.pj-finance{color:#047857}.pj-health{color:#dc2626}.pj-personal{color:#7c3aed}
+  .pj-gitlaw{color:#a21caf}.pj-family{color:#0891b2}.pj-finance{color:#047857}.pj-health{color:#dc2626}.pj-personal{color:#7c3aed}.pj-travel{color:#0284c7}
   /* approval */
   .appr{background:#f0fdf4; border:1px solid #bbf7d0; border-left:3px solid #10b981; border-radius:14px; padding:18px; margin-bottom:14px}
-  .appr .hd{font-weight:600; color:#065f46; font-size:14px}
-  .appr .sm{color:#065f46cc; font-size:13px; margin-top:6px}
-  .appr pre{background:#fff; border:1px solid #d1fae5; border-radius:9px; padding:12px; font-size:12.5px; white-space:pre-wrap;
-    color:#064e3b; margin-top:10px; font-family:'Inter',sans-serif; line-height:1.5}
+  .appr .hd{font-weight:600; color:#065f46; font-size:14px} .appr .sm{color:#065f46cc; font-size:13px; margin-top:6px}
+  .appr pre{background:#fff; border:1px solid #d1fae5; border-radius:9px; padding:12px; font-size:12.5px; white-space:pre-wrap; color:#064e3b; margin-top:10px; font-family:'Inter',sans-serif; line-height:1.5}
   .appr .pa{font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#047857; margin-top:12px}
   .btns{display:flex; gap:9px; margin-top:13px}
   .btn{font-size:13px; font-weight:600; padding:8px 16px; border-radius:9px; border:0; cursor:pointer}
@@ -96,111 +104,104 @@
   /* timeline */
   .tl-row{display:flex; align-items:baseline; gap:10px; padding:7px 0; border-bottom:1px solid #f1f5f9} .tl-row:last-child{border:0}
   .tl-when{font-size:11px; color:#94a3b8; width:62px; flex:0 0 auto} .tl-dot{width:7px;height:7px;border-radius:50%;flex:0 0 auto; transform:translateY(-1px)}
-  .d-agent{background:#7c3aed}.d-user{background:#2563eb}.d-system{background:#94a3b8}
-  .tl-txt{font-size:13px; color:#334155}
+  .d-agent{background:#7c3aed}.d-user{background:#2563eb}.d-system{background:#94a3b8} .tl-txt{font-size:13px; color:#334155}
+  /* proposal (agent proposes a new area) */
+  .propose{border:1px dashed #cbd5e1; background:#fbfdff; border-radius:14px; padding:16px; display:flex; align-items:center; gap:14px}
+  .propose .e{font-size:24px}
+  .propose .body{flex:1} .propose .body b{color:#0f172a}
+  .propose .body p{font-size:13px; color:var(--sub); margin-top:2px}
 
   /* detail slide-over */
   .detail{position:fixed; top:0; right:0; width:min(520px,92vw); height:100vh; background:#fff; z-index:40;
-    box-shadow:-30px 0 80px -40px rgba(0,0,0,.5); transform:translateX(100%); transition:transform .32s cubic-bezier(.2,.7,.2,1);
-    overflow-y:auto; padding:24px 26px 60px}
+    box-shadow:-30px 0 80px -40px rgba(0,0,0,.5); transform:translateX(100%); transition:transform .32s cubic-bezier(.2,.7,.2,1); overflow-y:auto; padding:24px 26px 60px}
   .detail.open{transform:none}
   .detail .x{position:absolute; top:18px; right:20px; font-size:24px; color:#94a3b8; cursor:pointer; line-height:1; border:0; background:none}
   .detail .head{display:flex; align-items:flex-start; gap:13px; padding-right:30px; border-bottom:1px solid var(--line); padding-bottom:16px}
   .detail .head .em{font-size:30px}
-  .scrim{position:fixed; inset:0; background:rgba(15,23,42,.28); z-index:39; opacity:0; pointer-events:none; transition:.3s}
-  .scrim.open{opacity:1}
+  .scrim{position:fixed; inset:0; background:rgba(15,23,42,.28); z-index:39; opacity:0; pointer-events:none; transition:.3s} .scrim.open{opacity:1}
   .sect{margin-top:20px} .sect .lbl{margin-bottom:9px}
   .kv{display:flex; gap:10px; align-items:center; margin-top:7px} .kv .k{width:62px; flex:0 0 auto; font-size:11.5px; color:#94a3b8}
+  .haspage{display:inline-flex; align-items:center; gap:6px; font-size:11px; color:#a21caf; background:#fdf4ff; border:1px solid #f5d0fe; border-radius:999px; padding:3px 10px; margin-top:10px}
 
-  /* ════ GUIDED TOUR ════ */
+  /* add-area popover */
+  .addpop{position:fixed; z-index:114; width:300px; background:#101014; border:1px solid var(--gold-line); border-radius:14px; padding:16px; display:none; box-shadow:0 30px 70px -30px rgba(0,0,0,.85)}
+  .addpop.show{display:block; animation:pop .25s ease}
+  .addpop h5{color:#f3f3f1; font-size:14px; font-weight:600; margin-bottom:3px} .addpop p{color:#9a9a96; font-size:12px; margin-bottom:12px; line-height:1.5}
+  .addpop input{width:100%; background:#0a0a0c; border:1px solid rgba(255,255,255,.16); color:#fff; border-radius:9px; padding:9px 11px; font-size:13px; font-family:inherit}
+  .addpop .go2{margin-top:10px; width:100%; background:var(--gold); color:#1a1407; border:0; border-radius:9px; padding:9px; font-weight:600; font-size:13px; cursor:pointer}
+
+  /* ════ TOUR ════ */
   #spot{position:fixed; z-index:100; border-radius:14px; pointer-events:none; transition:all .4s cubic-bezier(.2,.7,.2,1);
     box-shadow:0 0 0 9999px rgba(7,8,12,.62), 0 0 0 3px var(--gold), 0 0 40px rgba(194,168,120,.5); display:none}
   #spot.center{box-shadow:0 0 0 9999px rgba(7,8,12,.74)}
-  #blocker{position:fixed; inset:0; z-index:98; display:none}      /* eats clicks so the guide leads */
-
-  /* coachmark */
-  #coach{position:fixed; z-index:112; width:330px; max-width:90vw; background:#101014; color:#f3f3f1;
-    border:1px solid var(--gold-line); border-radius:16px; padding:18px 18px 16px; display:none;
-    box-shadow:0 30px 70px -30px rgba(0,0,0,.85); animation:pop .3s ease}
+  #blocker{position:fixed; inset:0; z-index:98; display:none}
+  #coach{position:fixed; z-index:112; width:330px; max-width:90vw; background:#101014; color:#f3f3f1; border:1px solid var(--gold-line); border-radius:16px; padding:18px 18px 16px; display:none; box-shadow:0 30px 70px -30px rgba(0,0,0,.85); animation:pop .3s ease}
   @keyframes pop{from{opacity:0; transform:scale(.96)}to{opacity:1; transform:none}}
   #coach .step{font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:600}
   #coach h4{font-family:'Instrument Serif',serif; font-weight:400; font-size:22px; margin:8px 0 7px; line-height:1.1}
   #coach p{font-size:13.5px; color:#bdbdb8; line-height:1.55; font-weight:300}
   #coach .ctl{display:flex; align-items:center; gap:8px; margin-top:16px}
-  #coach .dots{display:flex; gap:5px; margin-right:auto}
-  #coach .dot{width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.22)} #coach .dot.on{background:var(--gold)}
+  #coach .dots{display:flex; gap:5px; margin-right:auto} #coach .dot{width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.22)} #coach .dot.on{background:var(--gold)}
   #coach button{font-family:inherit; font-size:13px; font-weight:500; border-radius:9px; padding:7px 14px; cursor:pointer; border:1px solid transparent}
   #coach .prev{background:transparent; color:#9a9a98; border-color:rgba(255,255,255,.14)} #coach .prev:hover{color:#fff}
   #coach .next{background:var(--gold); color:#1a1407} #coach .next:hover{filter:brightness(1.07)}
-  #coach .skip{position:absolute; top:14px; right:16px; background:none; border:0; color:#6a6a67; font-size:12px; padding:0; cursor:pointer}
-  #coach .skip:hover{color:#bdbdb8}
+  #coach .skip{position:absolute; top:14px; right:16px; background:none; border:0; color:#6a6a67; font-size:12px; padding:0; cursor:pointer} #coach .skip:hover{color:#bdbdb8}
 
   /* ════ ECHO CHARACTER ════ */
   #echo{position:fixed; left:26px; bottom:26px; z-index:113; display:none; align-items:flex-end; gap:14px}
   .orb{position:relative; width:78px; height:78px; flex:0 0 auto; cursor:pointer}
-  .orb .core{position:absolute; inset:0; border-radius:50%;
-    background:radial-gradient(circle at 38% 34%, #2a2a30, #0a0a0c 70%); border:1px solid rgba(194,168,120,.4);
-    box-shadow:0 12px 40px -8px rgba(0,0,0,.7), inset 0 0 20px rgba(194,168,120,.12)}
+  .orb .core{position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle at 38% 34%, #2a2a30, #0a0a0c 70%); border:1px solid rgba(194,168,120,.4); box-shadow:0 12px 40px -8px rgba(0,0,0,.7), inset 0 0 20px rgba(194,168,120,.12)}
   .orb svg{position:absolute; inset:0; margin:auto; width:46px; height:46px}
   .orb .ring{transform-origin:center; opacity:.5}
-  .orb.speaking .r1{animation:ping 1.4s ease-out infinite} .orb.speaking .r2{animation:ping 1.4s ease-out .45s infinite}
-  .orb.speaking .r3{animation:ping 1.4s ease-out .9s infinite}
+  .orb.speaking .r1{animation:ping 1.4s ease-out infinite} .orb.speaking .r2{animation:ping 1.4s ease-out .45s infinite} .orb.speaking .r3{animation:ping 1.4s ease-out .9s infinite}
   @keyframes ping{0%{transform:scale(.55); opacity:.9}100%{transform:scale(1.15); opacity:0}}
-  .orb .eq{position:absolute; left:50%; bottom:18px; transform:translateX(-50%); display:flex; gap:3px; align-items:flex-end; height:14px; opacity:0; transition:.2s}
-  .orb.speaking .eq{opacity:1}
-  .orb .eq i{width:3px; background:var(--gold); border-radius:2px; height:4px}
-  .orb.speaking .eq i{animation:eq .6s ease-in-out infinite}
+  .orb .eq{position:absolute; left:50%; bottom:18px; transform:translateX(-50%); display:flex; gap:3px; align-items:flex-end; height:14px; opacity:0; transition:.2s} .orb.speaking .eq{opacity:1}
+  .orb .eq i{width:3px; background:var(--gold); border-radius:2px; height:4px} .orb.speaking .eq i{animation:eq .6s ease-in-out infinite}
   .orb.speaking .eq i:nth-child(2){animation-delay:.15s} .orb.speaking .eq i:nth-child(3){animation-delay:.3s} .orb.speaking .eq i:nth-child(4){animation-delay:.45s}
   @keyframes eq{0%,100%{height:4px}50%{height:13px}}
-  .orb .badge{position:absolute; top:-2px; right:-2px; width:22px;height:22px; border-radius:50%; background:#0a0a0c; border:1px solid var(--gold-line);
-    display:grid; place-items:center; font-size:11px}
-  #echo .bubble{background:#101014; border:1px solid rgba(255,255,255,.1); color:#e8e8e6; border-radius:14px 14px 14px 4px;
-    padding:11px 14px; font-size:13px; max-width:300px; line-height:1.5; box-shadow:0 16px 40px -20px rgba(0,0,0,.8); display:none}
-  #echo .bubble.show{display:block; animation:pop .25s ease}
-  #echo .bubble .who{font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:3px}
+  .orb .badge{position:absolute; top:-2px; right:-2px; width:22px;height:22px; border-radius:50%; background:#0a0a0c; border:1px solid var(--gold-line); display:grid; place-items:center; font-size:11px; cursor:pointer}
+  #echo .bubble{background:#101014; border:1px solid rgba(255,255,255,.1); color:#e8e8e6; border-radius:14px 14px 14px 4px; padding:11px 14px; font-size:13px; max-width:300px; line-height:1.5; box-shadow:0 16px 40px -20px rgba(0,0,0,.8); display:none}
+  #echo .bubble.show{display:block; animation:pop .25s ease} #echo .bubble .who{font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:3px}
 
-  /* ════ START / END SCREENS ════ */
-  .gate{position:fixed; inset:0; z-index:200; background:radial-gradient(800px 500px at 50% 30%, #14110a, #050505 70%);
-    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:30px; color:#f5f5f3}
-  .gate.hide{display:none}
+  /* ════ START / END ════ */
+  .gate{position:fixed; inset:0; z-index:200; background:radial-gradient(800px 500px at 50% 30%, #14110a, #050505 70%); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:30px; color:#f5f5f3} .gate.hide{display:none}
   .gate .bigorb{width:120px; height:120px; position:relative; margin-bottom:30px}
   .gate .bigorb svg{position:absolute; inset:0; margin:auto; width:120px; height:120px}
   .gate .bigorb span{position:absolute; inset:0; margin:auto; border:1px solid rgba(194,168,120,.35); border-radius:50%; animation:gpulse 5s ease-out infinite}
   .gate .bigorb span:nth-child(2){animation-delay:1.6s} .gate .bigorb span:nth-child(3){animation-delay:3.2s}
   @keyframes gpulse{0%{width:40px;height:40px;opacity:.8}100%{width:200px;height:200px;opacity:0}}
   .gate .eyebrow{font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; font-weight:500}
-  .gate h1{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(34px,6vw,58px); line-height:1.04; margin-bottom:16px}
-  .gate h1 .it{font-style:italic; color:var(--gold)}
+  .gate h1{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(34px,6vw,58px); line-height:1.04; margin-bottom:16px} .gate h1 .it{font-style:italic; color:var(--gold)}
   .gate p{color:#9a9a96; font-weight:300; font-size:16px; max-width:480px; line-height:1.6; margin-bottom:32px}
-  .gate .go{font-family:inherit; font-size:15px; font-weight:600; color:#1a1407; background:var(--gold); border:0; border-radius:999px;
-    padding:15px 34px; cursor:pointer; transition:.2s} .gate .go:hover{filter:brightness(1.08); transform:translateY(-1px)}
+  .gate .go{font-family:inherit; font-size:15px; font-weight:600; color:#1a1407; background:var(--gold); border:0; border-radius:999px; padding:15px 34px; cursor:pointer; transition:.2s} .gate .go:hover{filter:brightness(1.08); transform:translateY(-1px)}
   .gate .alt{margin-top:18px; display:flex; gap:18px; font-size:13px}
-  .gate .alt button{background:none; border:0; color:#7a7a77; font-size:13px; cursor:pointer; font-family:inherit; text-decoration:underline; text-underline-offset:3px}
-  .gate .alt button:hover{color:#cfcfca}
+  .gate .alt button{background:none; border:0; color:#7a7a77; font-size:13px; cursor:pointer; font-family:inherit; text-decoration:underline; text-underline-offset:3px} .gate .alt button:hover{color:#cfcfca}
   .gate .note{margin-top:26px; font-size:11.5px; color:#5a5a57; max-width:430px}
 
-  @media (max-width:760px){
-    .app{grid-template-columns:1fr} .side{display:none}
-    .board,.stats{grid-template-columns:1fr 1fr} #echo{left:14px; bottom:14px}
-    #echo .bubble{max-width:200px}
-  }
+  @media (max-width:760px){ .app{grid-template-columns:1fr} .side{display:none} #echo{left:14px; bottom:14px} #echo .bubble{max-width:200px} }
 </style>
 </head>
 <body>
 
-<!-- ░░ APP ░░ -->
-<div class="app" aria-hidden="false">
+<div class="app">
   <aside class="side">
     <div class="brand">
       <svg width="24" height="24" viewBox="0 0 100 100"><circle cx="50" cy="50" r="7" fill="#f5f5f3"/><circle cx="50" cy="50" r="24" fill="none" stroke="#f5f5f3" stroke-opacity=".45" stroke-width="3"/><circle cx="50" cy="50" r="42" fill="none" stroke="#f5f5f3" stroke-opacity=".18" stroke-width="3"/></svg>
       <b>ECHO</b>
     </div>
     <div class="nav-item" data-view="home"><span class="ic">◷</span> Home</div>
+
+    <div class="grp">Your life</div>
+    <div id="life-nav"></div>
+    <div class="nav-item add" id="add-area"><span class="ic">＋</span> Add an area</div>
+
+    <div class="grp">Workspace</div>
     <div class="nav-item" data-view="agents"><span class="ic">◉</span> Agents</div>
     <div class="nav-item" data-view="tasks"><span class="ic">▦</span> Tasks</div>
     <div class="nav-item" data-view="approvals"><span class="ic">✦</span> Approvals <span class="badge">2</span></div>
     <div class="nav-item" data-view="briefs"><span class="ic">❋</span> Briefs</div>
-    <div class="foot">Nick's workspace · 6 agents active</div>
+
+    <div class="foot" id="side-foot">Nick's workspace · 4 areas · 8 agents</div>
   </aside>
   <main class="main">
     <div class="topbar">
@@ -211,11 +212,18 @@
   </main>
 </div>
 
-<!-- ░░ detail slide-over ░░ -->
 <div class="scrim" id="scrim"></div>
 <div class="detail" id="detail"></div>
 
-<!-- ░░ tour overlay ░░ -->
+<!-- add-area popover -->
+<div class="addpop" id="addpop">
+  <h5>Add an area to your life</h5>
+  <p>Name it. Echo creates an agent for it and adds it to your menu — you can change everything later.</p>
+  <input id="addpop-input" placeholder="e.g. Travel, Home, Side project…" />
+  <button class="go2" id="addpop-go">Create area</button>
+</div>
+
+<!-- tour -->
 <div id="blocker"></div>
 <div id="spot"></div>
 <div id="coach">
@@ -223,14 +231,10 @@
   <div class="step" id="c-step">Step 1</div>
   <h4 id="c-title"></h4>
   <p id="c-text"></p>
-  <div class="ctl">
-    <div class="dots" id="c-dots"></div>
-    <button class="prev" id="c-prev">Back</button>
-    <button class="next" id="c-next">Next</button>
-  </div>
+  <div class="ctl"><div class="dots" id="c-dots"></div><button class="prev" id="c-prev">Back</button><button class="next" id="c-next">Next</button></div>
 </div>
 
-<!-- ░░ Echo character ░░ -->
+<!-- Echo character -->
 <div id="echo">
   <div class="orb" id="orb" title="Replay this step">
     <div class="core"></div>
@@ -246,60 +250,61 @@
   <div class="bubble" id="bubble"><div class="who">Echo</div><span id="bubble-t"></span></div>
 </div>
 
-<!-- ░░ start screen ░░ -->
+<!-- start -->
 <div class="gate" id="gate">
-  <div class="bigorb">
-    <span></span><span></span><span></span>
-    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="7" fill="#f5f5f3"/><circle cx="50" cy="50" r="24" fill="none" stroke="#f5f5f3" stroke-opacity=".45" stroke-width="2.5"/><circle cx="50" cy="50" r="42" fill="none" stroke="#c2a878" stroke-opacity=".5" stroke-width="2.5"/></svg>
-  </div>
+  <div class="bigorb"><span></span><span></span><span></span>
+    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="7" fill="#f5f5f3"/><circle cx="50" cy="50" r="24" fill="none" stroke="#f5f5f3" stroke-opacity=".45" stroke-width="2.5"/><circle cx="50" cy="50" r="42" fill="none" stroke="#c2a878" stroke-opacity=".5" stroke-width="2.5"/></svg></div>
   <div class="eyebrow">Interactive demo</div>
   <h1>Meet your <span class="it">Echo.</span></h1>
-  <p>A two-minute walkthrough of a working setup — your agents, your home, your tasks and the approvals that wait for you. I'll talk you through it.</p>
+  <p>A two-minute walkthrough of a working setup — your life areas, your agents, and the work that's waiting for your nod. I'll talk you through it.</p>
   <button class="go" id="start-voice">▶ Start the tour <span style="opacity:.7;font-weight:400">— with voice</span></button>
-  <div class="alt">
-    <button id="start-silent">Start without sound</button>
-    <button id="explore">Just let me explore</button>
-  </div>
+  <div class="alt"><button id="start-silent">Start without sound</button><button id="explore">Just let me explore</button></div>
   <div class="note" id="voice-note">The voice uses your browser's built-in speech — no account, nothing leaves your device. Best in Chrome, Edge or Safari.</div>
 </div>
 
 <script>
-/* ───────────────────────── DUMMY DATA (Nick's setup) ───────────────────────── */
+/* ───────────────────────── DATA (Nick's setup) ───────────────────────── */
 const RING = '<svg class="orb-ic" viewBox="0 0 100 100"><circle cx="50" cy="50" r="7" fill="#0f172a"/><circle cx="50" cy="50" r="24" fill="none" stroke="#0f172a" stroke-opacity=".5" stroke-width="4"/><circle cx="50" cy="50" r="42" fill="none" stroke="#0f172a" stroke-opacity=".22" stroke-width="4"/></svg>';
 
 const AGENTS = [
   { id:'echo', name:'Echo', kind:'persona', icon:RING, status:'Your assistant · always on', model:'opus + haiku', cadence:'always on', channel:'Telegram · web · email',
     scope:{tables:['(all)'],projects:['(all)']}, tools:['echo-db','recall','calendar','gmail','slack'], bridges:['Telegram','Web','Email'],
     events:[['now','agent','routed your message to Family'],['09:02','agent','drafted reply to Sarah'],['08:30','agent','composed your morning brief']],
-    links:[['📁 oversees','all 5 domains'],['👤 knows','142 contacts']] },
-  { id:'family', name:'Family', kind:'domain', icon:'👨‍👩‍👧', status:'2 things handled · 1 needs you', model:'haiku', cadence:'on message + 7am', channel:'Telegram',
+    links:[['📁 oversees','all areas'],['👤 knows','142 contacts']] },
+  { id:'family', name:'Family', kind:'domain', icon:'👨‍👩‍👧', status:'2 handled · 1 needs you', model:'haiku', cadence:'on message + 7am', channel:'Telegram',
     scope:{tables:['task','event','calendar'],projects:['family']}, tools:['echo-db','Google Calendar','recall'], bridges:['Telegram'],
     events:[['07:10','agent','found 2 after-school dentist slots'],['Mon','user','you added "school fair — bake"'],['Sun','agent','flagged passport renewal (90 days)']],
-    links:[['📁 belongs to','Family'],['📅 watches','shared family calendar'],['👤 about','Mia, Theo']] },
+    links:[['📁 area','Family'],['📅 watches','family calendar'],['👤 about','Mia, Theo']] },
   { id:'health', name:'Health', kind:'domain', icon:'🫀', status:'On track · resting HR ▼3', model:'haiku', cadence:'daily 8pm digest', channel:'Telegram',
     scope:{tables:['health_entry','task'],projects:['health']}, tools:['echo-db','recall'], bridges:['Telegram'],
-    events:[['20:00','agent','logged today\'s digest'],['Tue','agent','nudged: physio overdue'],['Mon','user','logged 8.1k steps']],
-    links:[['📁 belongs to','Health'],['📊 tracks','RHR, steps, sleep']] },
+    events:[['20:00','agent','logged tonight\'s digest'],['Tue','agent','nudged: physio overdue'],['Mon','user','logged 8.1k steps']],
+    links:[['📁 area','Health'],['📊 tracks','RHR, steps, sleep, weight']] },
   { id:'gitlaw', name:'GitLaw', kind:'domain', icon:'⚖️', status:'4 open · 1 awaiting you', model:'opus', cadence:'on message', channel:'Slack · Telegram',
     scope:{tables:['task','event','message'],projects:['gitlaw']}, tools:['echo-db','Slack','Gmail','recall'], bridges:['Slack','Telegram'],
     events:[['09:02','agent','drafted reply to Sarah re audit'],['08:40','agent','prepped Greg 1:1 brief'],['Mon','user','approved investor update']],
-    links:[['📁 belongs to','GitLaw'],['👤 about','Sarah Chen, Greg'],['💡 from idea','Audit automation']] },
+    links:[['📁 area','GitLaw'],['👤 about','Sarah Chen, Greg'],['💡 from idea','Audit automation']] },
   { id:'finance', name:'Personal Finance', kind:'domain', icon:'💷', status:'1 decision waiting', model:'haiku', cadence:'weekly', channel:'Telegram',
-    scope:{tables:['task','event'],projects:['personal-finance']}, tools:['echo-db','recall'], bridges:['Telegram'],
+    scope:{tables:['task','event'],projects:['finance']}, tools:['echo-db','recall'], bridges:['Telegram'],
     events:[['Mon','agent','flagged: Brambruesch cash idle'],['Sun','agent','weekly money review']],
-    links:[['📁 belongs to','Personal Finance'],['🏦 watches','Brambruesch Ltd']] },
+    links:[['📁 area','Personal Finance'],['🏦 watches','Brambruesch Ltd']] },
   { id:'feedback', name:'Customer Feedback Synthesis', kind:'role', icon:'🛎️', status:'Runs Mondays 6am', model:'opus', cadence:'weekly · Mon 6am', channel:'—',
     scope:{tables:['message','idea'],projects:['gitlaw']}, tools:['echo-db','Slack','Notion'], bridges:[],
-    events:[['Mon','agent','synthesised 31 feedback notes → 5 themes']],
-    links:[['📁 feeds','GitLaw'],['💡 produces','theme digest']] },
+    events:[['Mon','agent','synthesised 31 feedback notes → 5 themes']], links:[['📁 feeds','GitLaw']] },
   { id:'investor', name:'Investor Update', kind:'role', icon:'📈', status:'Runs monthly', model:'opus', cadence:'monthly', channel:'—',
     scope:{tables:['task','event'],projects:['gitlaw']}, tools:['echo-db','Gmail'], bridges:[],
-    events:[['Jun 1','agent','drafted May update — awaited your figures']],
-    links:[['📁 feeds','GitLaw']] },
+    events:[['Jun 1','agent','drafted May update — awaiting your figures']], links:[['📁 feeds','GitLaw']] },
   { id:'telegram', name:'Telegram bridge', kind:'bridge', icon:'📡', status:'Connected · @Echo', model:'—', cadence:'always on', channel:'Telegram',
     scope:{tables:['message'],projects:['(all)']}, tools:['echo-db'], bridges:['Telegram'],
-    events:[['now','system','delivered your message to Echo']],
-    links:[['🔌 routes to','Echo']] },
+    events:[['now','system','delivered your message to Echo']], links:[['🔌 routes to','Echo']] },
+];
+
+/* LIFE = the areas that have their own page/section. A domain agent CAN claim one
+   (it doesn't have to). Adding an area spins up an agent + a page. */
+let LIFE = [
+  { id:'family',  name:'Family',           icon:'👨‍👩‍👧', agent:'family' },
+  { id:'health',  name:'Health',           icon:'🫀',     agent:'health' },
+  { id:'gitlaw',  name:'GitLaw',           icon:'⚖️',     agent:'gitlaw' },
+  { id:'finance', name:'Personal Finance', icon:'💷',     agent:'finance' },
 ];
 
 const TASKS = {
@@ -308,314 +313,355 @@ const TASKS = {
   'Waiting':[['gitlaw','GitLaw','Sarah — updated audit scope doc'],['health','Health','Physio to confirm Thu slot']],
   'Done':[['gitlaw','GitLaw','Greg 1:1 prep'],['personal','Personal','Renew Spotify']],
 };
-
 const APPROVALS = [
-  { who:'GitLaw agent', hd:'✋ Drafted reply to Sarah — your turn', sm:'Re: the audit timeline. Confirms Friday and asks for the updated scope doc.',
+  { hd:'✋ Drafted reply to Sarah — your turn', sm:'Re: the audit timeline. Confirms Friday and asks for the updated scope doc.',
     draft:'Hi Sarah — Friday works on my side. Could you send the updated\nscope doc beforehand so I can review? Thanks, Nick', pa:'Send email via Gmail' },
-  { who:'Investor Update agent', hd:'✋ May investor update — needs your numbers', sm:'Drafted the full update; three revenue figures are blank pending your confirmation.',
+  { hd:'✋ May investor update — needs your numbers', sm:'Drafted the full update; three revenue figures are blank pending your confirmation.',
     draft:'…MRR grew to £[__] in May, up [__]% MoM, with [__] new\ndesign partners signed. Full draft ready below.', pa:'Fill figures, then send to list (47)' },
 ];
 
-/* ───────────────────────── VIEW RENDERERS ───────────────────────── */
+/* per-area page content */
+const AREA_BODY = {
+  family(){ return `
+    <div class="cols2">
+      <div class="panel"><div class="lbl">This week</div><ul class="list">
+        <li><span class="e">🎒</span><span>School fair — <b>bake for the stall</b></span><span class="due">Sat</span></li>
+        <li><span class="e">🦷</span><span>Dentist, both kids — 2 slots found, <b>pick one</b></span><span class="due">needs you</span></li>
+        <li><span class="e">🏊</span><span>Theo swimming lesson</span><span class="due">Thu 5pm</span></li>
+        <li><span class="e">🛂</span><span>Mia passport renewal</span><span class="due">90 days</span></li>
+      </ul></div>
+      <div class="panel"><div class="lbl">The kids</div>
+        <div class="card mt" style="box-shadow:none;border:1px solid var(--line)"><div class="row ai"><span style="font-size:20px">👧</span><div><div class="ttl">Mia · 9</div><div class="sub">Next: passport photo this weekend</div></div></div></div>
+        <div class="card mt" style="box-shadow:none;border:1px solid var(--line)"><div class="row ai"><span style="font-size:20px">👦</span><div><div class="ttl">Theo · 6</div><div class="sub">Next: swimming Thu · reading log due Fri</div></div></div></div>
+      </div>
+    </div>
+    <div class="sec-h">Coming up — the family calendar</div>
+    <div class="panel"><ul class="list">
+      <li><span class="e">🎂</span><span>Grandma's birthday — <b>gift idea saved</b> (gardening voucher)</span><span class="due">in 18 days</span></li>
+      <li><span class="e">✈️</span><span>Half-term: nothing booked yet — want options?</span><span class="due">Oct</span></li>
+    </ul></div>`; },
+  health(){ return `
+    <div class="stats">
+      <div class="stat"><div class="big">54 <span style="font-size:13px;color:#94a3b8">bpm</span></div><div class="cap">resting HR · <span class="delta">▼3 vs last wk</span></div></div>
+      <div class="stat"><div class="big">8.1<span style="font-size:13px;color:#94a3b8">k</span></div><div class="cap">steps today · <span class="delta">on pace</span></div></div>
+      <div class="stat"><div class="big">7h12</div><div class="cap">sleep · <span class="delta up">▼22m</span></div></div>
+      <div class="stat"><div class="big">78.4<span style="font-size:13px;color:#94a3b8">kg</span></div><div class="cap">weight · <span class="delta">▼0.6</span></div></div>
+    </div>
+    <div class="sec-h">Resting heart rate · 30 days</div>
+    <div class="panel"><svg viewBox="0 0 600 90" width="100%" height="90" preserveAspectRatio="none">
+      <polyline fill="rgba(5,150,105,.08)" stroke="none" points="0,60 60,56 120,58 180,50 240,52 300,44 360,46 420,40 480,42 540,34 600,38 600,90 0,90"/>
+      <polyline fill="none" stroke="#059669" stroke-width="2" points="0,60 60,56 120,58 180,50 240,52 300,44 360,46 420,40 480,42 540,34 600,38"/>
+    </svg></div>
+    <div class="sec-h">Tonight's digest</div>
+    <div class="panel"><ul class="list">
+      <li><span class="e">✅</span><span>Hit your step goal 5 of 7 days this week.</span></li>
+      <li><span class="e">😴</span><span>Sleep dipped — three late nights. Want a wind-down nudge at 10:30?</span></li>
+      <li><span class="e">🔔</span><span><b>Physio overdue</b> — I drafted a message to rebook Thursday.</span><span class="due">in Approvals</span></li>
+    </ul></div>`; },
+  gitlaw(){ return `
+    <div class="sec-h">Active threads</div>
+    <div class="cols2">
+      <div class="panel"><div class="row ai"><span style="font-size:18px">👤</span><div><div class="ttl">Sarah Chen — audit</div><div class="sub">Waiting on the scope doc · reply drafted</div></div></div></div>
+      <div class="panel"><div class="row ai"><span style="font-size:18px">👤</span><div><div class="ttl">Greg — JSV cohort</div><div class="sub">1:1 at 9:30 · he owes you the deck</div></div></div></div>
+    </div>
+    <div class="sec-h">Customer feedback — this week's themes</div>
+    <div class="panel"><ul class="list">
+      <li><span class="e">①</span><span><b>Lawyer-in-the-loop</b> trust — most-mentioned (11 notes)</span></li>
+      <li><span class="e">②</span><span>Faster document turnaround</span></li>
+      <li><span class="e">③</span><span>Clearer pricing</span></li>
+    </ul><div class="sub mt2">Synthesised by the Customer Feedback agent from 31 notes.</div></div>
+    <div class="sec-h">Work board</div>
+    <div class="board">
+      <div><div class="col-h">In flow <span class="n">1</span></div><div class="tcard"><div class="pj pj-gitlaw">GitLaw</div><div class="tt">Ship recall to the pilot</div></div></div>
+      <div><div class="col-h">Next <span class="n">1</span></div><div class="tcard"><div class="pj pj-gitlaw">GitLaw</div><div class="tt">Review Greg's JSV deck</div></div></div>
+      <div><div class="col-h">Waiting <span class="n">1</span></div><div class="tcard"><div class="pj pj-gitlaw">GitLaw</div><div class="tt">Sarah — scope doc</div></div></div>
+      <div><div class="col-h">Done <span class="n">1</span></div><div class="tcard"><div class="pj pj-gitlaw">GitLaw</div><div class="tt">Greg 1:1 prep</div></div></div>
+    </div>`; },
+  finance(){ return `
+    <div class="cols2">
+      <div class="panel"><div class="lbl">Brambruesch Ltd</div><div class="big" style="font-size:30px;font-weight:600">£100,400</div><div class="sub">cash · <b style="color:#b45309">sitting idle, uninvested</b></div>
+        <div class="propose mt2" style="border-style:solid"><span class="e">💷</span><div class="body"><b>A decision, not urgent</b><p>Echo flagged this. Want options — money-market, premium bonds, or leave it?</p></div></div></div>
+      <div class="panel"><div class="lbl">Accounts</div><ul class="list">
+        <li><span class="e">🏦</span><span>Current</span><span class="due">£8,210</span></li>
+        <li><span class="e">💳</span><span>Savings</span><span class="due">£24,900</span></li>
+        <li><span class="e">📈</span><span>ISA</span><span class="due">£61,300</span></li>
+      </ul></div>
+    </div>
+    <div class="sec-h">This week</div>
+    <div class="panel"><ul class="list"><li><span class="e">✅</span><span>Weekly money review done — no anomalies.</span></li><li><span class="e">🔔</span><span>Annual insurance renews next month — I'll compare quotes.</span></li></ul></div>`; },
+  _new(name){ return `
+    <div class="propose" style="border-style:solid;background:#f0fdf4;border-color:#bbf7d0">
+      <span class="e">✨</span><div class="body"><b>${name} agent created.</b><p>I've added ${name} to your menu and spun up an agent for it. Tell me what matters here and I'll start watching for it — no setup required.</p></div></div>
+    <div class="sec-h">Getting started</div>
+    <div class="panel"><ul class="list">
+      <li><span class="e">💬</span><span>Mention anything ${name.toLowerCase()}-related in chat and I'll file it here.</span></li>
+      <li><span class="e">🔧</span><span>I'll suggest what to track. You can rename, re-scope or delete this area any time.</span></li>
+      <li><span class="e">📡</span><span>Reachable on every channel you've connected.</span></li>
+    </ul></div>`; },
+};
+
+/* ───────────────────────── RENDER ───────────────────────── */
 const $ = s => document.querySelector(s);
 const view = $('#view');
 const KINDLABEL = {persona:'Persona',domain:'Domain agent',role:'Role agent',bridge:'Bridge'};
-let DETAIL_OPEN = false;
+let DETAIL_OPEN=false, CURRENT=null;
+
+function hasPage(agentId){ return LIFE.some(l=>l.agent===agentId); }
+
+function renderLifeNav(){
+  $('#life-nav').innerHTML = LIFE.map(l=>`<div class="nav-item" data-view="${l.id}"><span class="ic">${l.icon}</span> ${l.name}</div>`).join('');
+  $('#side-foot').textContent = `Nick's workspace · ${LIFE.length} areas · ${AGENTS.length} agents`;
+  wireNav();
+}
 
 function agentCard(a, click){
+  const pageTag = a.kind==='domain' ? (hasPage(a.id)?`<span class="pill" style="background:#fdf4ff;color:#a21caf">📄 has a page</span>`:`<span class="pill">no page</span>`) : '';
   return `<div class="card ${click?'click':''}" data-agent="${a.id}">
-    <div class="row" style="gap:11px">
-      <div style="font-size:22px;line-height:1">${a.icon}</div>
-      <div style="min-width:0;flex:1">
-        <div class="row ai wrapped" style="gap:8px"><span class="ttl trunc">${a.name}</span><span class="kind k-${a.kind}">${KINDLABEL[a.kind]}</span></div>
-        <div class="sub">${a.status}</div>
-      </div>
-    </div>
-    <div class="row wrapped mt">${a.model!=='—'?`<span class="pill">🧠 ${a.model}</span>`:''}<span class="pill">⏱ ${a.cadence}</span>${a.channel!=='—'?`<span class="pill">📡 ${a.channel}</span>`:''}</div>
+    <div class="row" style="gap:11px"><div style="font-size:22px;line-height:1">${a.icon}</div>
+      <div style="min-width:0;flex:1"><div class="row ai wrapped" style="gap:8px"><span class="ttl trunc">${a.name}</span><span class="kind k-${a.kind}">${KINDLABEL[a.kind]}</span></div>
+        <div class="sub">${a.status}</div></div></div>
+    <div class="row wrapped mt">${a.model!=='—'?`<span class="pill">🧠 ${a.model}</span>`:''}<span class="pill">⏱ ${a.cadence}</span>${pageTag}</div>
   </div>`;
 }
 
 const VIEWS = {
   home(){
-    const cards = AGENTS.filter(a=>['family','health','gitlaw','finance'].includes(a.id)).map(a=>agentCard(a,true)).join('');
+    const cards = LIFE.map(l=>{ const a=AGENTS.find(x=>x.id===l.agent)||{}; return `
+      <div class="card click" data-view="${l.id}"><div class="row" style="gap:11px"><div style="font-size:22px">${l.icon}</div>
+        <div style="flex:1;min-width:0"><div class="ttl trunc">${l.name}</div><div class="sub">${a.status||''}</div></div><div style="color:#cbd5e1">→</div></div></div>`; }).join('');
     return `
-    <h1 class="greeting" id="t-greeting">Good morning, Nick.</h1>
-    <div class="lede">Thursday, 6 June · 4 things handled overnight · 2 need you.</div>
+      <h1 class="greeting">Good morning, Nick.</h1>
+      <div class="lede">Thursday, 6 June · 4 things handled overnight · 2 need you.</div>
+      <div class="sec-h">Your life</div>
+      <div class="grid-cards" id="home-areas">${cards}</div>
+      <div class="propose" id="home-propose" style="margin-top:14px"><span class="e">💡</span>
+        <div class="body"><b>Echo noticed you talk about travel a lot.</b><p>Want a Travel area? I'll create an agent and a page for it.</p></div>
+        <button class="btn btn-go" id="propose-create">Create area</button></div>
 
-    <div class="sec-h">Your life, by agent</div>
-    <div class="grid-cards" id="home-agents">${cards}</div>
-
-    <div class="sec-h" style="margin-top:30px">While you slept</div>
-    <div class="brief" id="home-brief">
-      <h3>Here's what I did overnight</h3>
-      <div class="when">4 things handled · 2 waiting on you</div>
-      <ul>
-        <li><span class="e">✅</span><span>Drafted 2 replies in <b style="color:#334155">GitLaw</b> — queued for your approval.</span></li>
-        <li><span class="e">📅</span><span>Prepped tomorrow's 3 meetings with briefs and the open threads for each person.</span></li>
-        <li><span class="e">🔔</span><span>Chased 2 follow-ups going cold (Victoria, Rostyslav) — nudges drafted.</span></li>
-        <li><span class="e">✋</span><span><b>Needs you:</b> approve the May investor-update figures before 9am.</span></li>
-      </ul>
-    </div>
-
-    <div class="sec-h" style="margin-top:30px">At a glance</div>
-    <div class="stats" id="home-stats">
-      <div class="stat"><div class="big">6</div><div class="cap">tasks moved overnight</div></div>
-      <div class="stat"><div class="big" style="color:#b45309">2</div><div class="cap">waiting on you</div></div>
-      <div class="stat"><div class="big">54 <span style="font-size:14px;color:#94a3b8">bpm</span></div><div class="cap">resting HR · <span class="delta">▼3 vs last wk</span></div></div>
-    </div>`;
+      <div class="sec-h" style="margin-top:30px">While you slept</div>
+      <div class="panel brief" id="home-brief"><h3>Here's what I did overnight</h3><div class="when">4 handled · 2 waiting on you</div>
+        <ul class="list">
+          <li><span class="e">✅</span><span>Drafted 2 replies in <b>GitLaw</b> — queued for approval.</span></li>
+          <li><span class="e">📅</span><span>Prepped tomorrow's 3 meetings with briefs and open threads.</span></li>
+          <li><span class="e">🔔</span><span>Chased 2 cold follow-ups (Victoria, Rostyslav) — nudges drafted.</span></li>
+          <li><span class="e">✋</span><span><b>Needs you:</b> approve the May investor-update figures before 9am.</span></li>
+        </ul></div>
+      <div class="sec-h" style="margin-top:30px">At a glance</div>
+      <div class="stats" id="home-stats" style="grid-template-columns:repeat(3,1fr)">
+        <div class="stat"><div class="big">6</div><div class="cap">tasks moved overnight</div></div>
+        <div class="stat"><div class="big" style="color:#b45309">2</div><div class="cap">waiting on you</div></div>
+        <div class="stat"><div class="big">54 <span style="font-size:13px;color:#94a3b8">bpm</span></div><div class="cap">resting HR · <span class="delta">▼3</span></div></div>
+      </div>`;
   },
   agents(){
-    const groups = [['persona','Your assistant'],['domain','Domain agents — one per area of life'],['role','Role agents — scheduled jobs'],['bridge','Channels']];
-    let html = `<h1>Your agents</h1><div class="lede">Everyone working for you. Click any agent to see what it can touch and what it's done.</div><div id="agents-grid">`;
-    for(const [k,label] of groups){
-      const list = AGENTS.filter(a=>a.kind===k);
-      if(!list.length) continue;
-      html += `<div class="sec-h">${label}</div><div class="grid-cards">${list.map(a=>agentCard(a,true)).join('')}</div>`;
-    }
+    const groups=[['persona','Your assistant'],['domain','Domain agents — each can have its own page'],['role','Role agents — scheduled jobs, no page'],['bridge','Channels']];
+    let html=`<h1>Your agents</h1><div class="lede">Everyone working for you. Domain agents can claim a page in your menu — they don't have to. Click any to see what it can touch.</div><div id="agents-grid">`;
+    for(const [k,label] of groups){ const list=AGENTS.filter(a=>a.kind===k); if(!list.length) continue;
+      html+=`<div class="sec-h">${label}</div><div class="grid-cards">${list.map(a=>agentCard(a,true)).join('')}</div>`; }
     return html+`</div>`;
   },
   tasks(){
-    let cols='';
-    for(const [state,items] of Object.entries(TASKS)){
-      cols += `<div><div class="col-h">${state} <span class="n">${items.length}</span></div>${
-        items.map(([pj,label,tt])=>`<div class="tcard"><div class="pj pj-${pj}">${label}</div><div class="tt">${tt}</div></div>`).join('')
-      }</div>`;
-    }
-    return `<h1>Tasks</h1><div class="lede">Every project, every state, one board. I file what you tell me to the right place automatically.</div>
-      <div class="board" id="board">${cols}</div>`;
+    let cols=''; for(const [state,items] of Object.entries(TASKS)){ cols+=`<div><div class="col-h">${state} <span class="n">${items.length}</span></div>${
+      items.map(([pj,label,tt])=>`<div class="tcard"><div class="pj pj-${pj}">${label}</div><div class="tt">${tt}</div></div>`).join('')}</div>`; }
+    return `<h1>Tasks</h1><div class="lede">Every project and state, one board. I file what you tell me to the right area automatically.</div><div class="board" id="board">${cols}</div>`;
   },
   approvals(){
     return `<h1>Approvals</h1><div class="lede">I do the work and draft it. Nothing goes out until you approve — the action is always yours.</div>
-      ${APPROVALS.map((a,i)=>`<div class="appr" id="approval-${i}">
-        <div class="hd">${a.hd}</div><div class="sm">${a.sm}</div>
-        <pre>${a.draft}</pre>
+      ${APPROVALS.map((a,i)=>`<div class="appr" id="approval-${i}"><div class="hd">${a.hd}</div><div class="sm">${a.sm}</div><pre>${a.draft}</pre>
         <div class="pa">Proposed action</div><div style="color:#065f46;margin-top:2px;font-size:13px">${a.pa}</div>
-        <div class="btns"><button class="btn btn-go">Approve &amp; send</button><button class="btn btn-back">Send back</button></div>
-      </div>`).join('')}`;
+        <div class="btns"><button class="btn btn-go">Approve &amp; send</button><button class="btn btn-back">Send back</button></div></div>`).join('')}`;
   },
   briefs(){
     return `<h1>Briefs</h1><div class="lede">Your morning surface and meeting prep — composed from everything the agents did.</div>
-      <div class="brief" id="home-brief">
-        <h3>Thursday morning brief</h3><div class="when">6:00am · generated while you slept</div>
-        <ul>
-          <li><span class="e">📅</span><span><b style="color:#334155">9:30 — Greg (1:1).</b> Last: JSV cohort intro. Open: he owes you the deck; you owe the Silicon Legal note.</span></li>
-          <li><span class="e">📅</span><span><b style="color:#334155">11:00 — Audit sync w/ Sarah.</b> She's waiting on the scope doc — draft reply already queued in Approvals.</span></li>
-          <li><span class="e">🛎️</span><span>Feedback agent synthesised 31 notes into 5 themes — "lawyer-in-the-loop" leads.</span></li>
-          <li><span class="e">💷</span><span>Finance flagged Brambruesch's ~£100k sitting idle — a decision, not urgent.</span></li>
-        </ul>
-      </div>`;
+      <div class="panel brief" id="home-brief"><h3>Thursday morning brief</h3><div class="when">6:00am · generated while you slept</div><ul class="list">
+        <li><span class="e">📅</span><span><b>9:30 — Greg (1:1).</b> Last: JSV cohort intro. He owes you the deck; you owe the Silicon Legal note.</span></li>
+        <li><span class="e">📅</span><span><b>11:00 — Audit sync w/ Sarah.</b> Reply already drafted in Approvals.</span></li>
+        <li><span class="e">🫀</span><span>Health: sleep dipped 3 nights — wind-down nudge offered.</span></li>
+        <li><span class="e">💷</span><span>Finance: Brambruesch's ~£100k idle — a decision waiting in your Finance area.</span></li>
+      </ul></div>`;
   },
 };
 
-let CURRENT='home';
-function switchView(v){
-  if(CURRENT===v && view.innerHTML) return;
+function crumbLabel(v){ const l=LIFE.find(x=>x.id===v); if(l) return l.name; return {home:'Home',agents:'Agents',tasks:'Tasks',approvals:'Approvals',briefs:'Briefs'}[v]||v; }
+
+function switchView(v, force){
+  if(CURRENT===v && view.innerHTML && !force) return;
   CURRENT=v;
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.view===v));
-  $('#crumb').innerHTML = 'Workspace · <b>'+({home:'Home',agents:'Agents',tasks:'Tasks',approvals:'Approvals',briefs:'Briefs'}[v])+'</b>';
-  view.innerHTML = VIEWS[v]();
+  $('#crumb').innerHTML = (LIFE.find(x=>x.id===v)?'Your life · ':'Workspace · ')+'<b>'+crumbLabel(v)+'</b>';
+  const life = LIFE.find(x=>x.id===v);
+  if(life){ view.innerHTML = areaView(life); }
+  else { view.innerHTML = VIEWS[v](); }
   view.scrollTop=0; $('.main').scrollTop=0;
 }
 
-/* agent detail slide-over */
+function areaView(life){
+  const a = AGENTS.find(x=>x.id===life.agent) || {name:life.name, id:life.agent, icon:life.icon};
+  const body = (AREA_BODY[life.id] ? AREA_BODY[life.id]() : AREA_BODY._new(life.name));
+  return `
+    <div class="area-head"><div class="em">${life.icon}</div><div>
+      <h1>${life.name}</h1>
+      <div class="meta">Your ${life.name.toLowerCase()} space · run by the <span class="agent-link" data-agent="${a.id}">${a.name} agent →</span></div>
+    </div></div>
+    <div style="margin-top:18px">${body}</div>`;
+}
+
+/* agent detail */
 function openDetail(id){
-  const a = AGENTS.find(x=>x.id===id); if(!a) return;
-  $('#detail').innerHTML = `
-    <button class="x" id="d-x">×</button>
-    <div class="head"><div class="em">${a.icon}</div><div>
-      <div class="row ai" style="gap:8px"><div class="ttl" style="font-size:18px">${a.name}</div><span class="kind k-${a.kind}">${KINDLABEL[a.kind]}</span></div>
-      <div class="sub mt" style="margin-top:4px">${a.status}</div></div></div>
-    <div class="sect" id="detail-settings">
-      <div class="lbl">Scope — what it may touch</div>
+  const a=AGENTS.find(x=>x.id===id); if(!a) return;
+  const page = hasPage(a.id) ? `<div class="haspage">📄 Has its own page in your menu</div>` : (a.kind==='domain'?`<div class="sub mt">No page yet — could have one.</div>`:'');
+  $('#detail').innerHTML=`<button class="x" id="d-x">×</button>
+    <div class="head"><div class="em">${a.icon}</div><div><div class="row ai" style="gap:8px"><div class="ttl" style="font-size:18px">${a.name}</div><span class="kind k-${a.kind}">${KINDLABEL[a.kind]}</span></div>
+      <div class="sub" style="margin-top:4px">${a.status}</div>${page}</div></div>
+    <div class="sect" id="detail-settings"><div class="lbl">Scope — what it may touch</div>
       <div class="kv"><span class="k">tables</span><div class="row wrapped" style="gap:6px">${a.scope.tables.map(t=>`<span class="chip">${t}</span>`).join('')}</div></div>
-      <div class="kv"><span class="k">projects</span><div class="row wrapped" style="gap:6px">${a.scope.projects.map(t=>`<span class="chip">${t}</span>`).join('')}</div></div>
+      <div class="kv"><span class="k">area</span><div class="row wrapped" style="gap:6px">${a.scope.projects.map(t=>`<span class="chip">${t}</span>`).join('')}</div></div>
       <div class="lbl" style="margin-top:16px">Tools &amp; bridges</div>
-      <div class="row wrapped" style="gap:6px">${a.tools.map(t=>`<span class="chip">🔧 ${t}</span>`).join('')}${a.bridges.map(t=>`<span class="chip">📡 ${t}</span>`).join('')}</div>
-    </div>
-    <div class="sect" id="detail-timeline">
-      <div class="lbl">Recent actions · attributed</div>
-      ${a.events.map(([w,who,txt])=>`<div class="tl-row"><span class="tl-when">${w}</span><span class="tl-dot d-${who}"></span><span class="tl-txt">${txt}</span></div>`).join('')}
-    </div>
-    <div class="sect" id="detail-relations">
-      <div class="lbl">Linked records</div>
-      <div class="row wrapped" style="gap:6px">${a.links.map(([r,l])=>`<span class="chip">${r} → ${l}</span>`).join('')}</div>
-    </div>`;
-  $('#detail').classList.add('open'); $('#scrim').classList.add('open'); DETAIL_OPEN=true;
-  $('#d-x').onclick=closeDetail;
+      <div class="row wrapped" style="gap:6px">${a.tools.map(t=>`<span class="chip">🔧 ${t}</span>`).join('')}${a.bridges.map(t=>`<span class="chip">📡 ${t}</span>`).join('')}</div></div>
+    <div class="sect" id="detail-timeline"><div class="lbl">Recent actions · attributed</div>
+      ${a.events.map(([w,who,txt])=>`<div class="tl-row"><span class="tl-when">${w}</span><span class="tl-dot d-${who}"></span><span class="tl-txt">${txt}</span></div>`).join('')}</div>
+    <div class="sect"><div class="lbl">Linked records</div><div class="row wrapped" style="gap:6px">${a.links.map(([r,l])=>`<span class="chip">${r} → ${l}</span>`).join('')}</div></div>`;
+  $('#detail').classList.add('open'); $('#scrim').classList.add('open'); DETAIL_OPEN=true; $('#d-x').onclick=closeDetail;
 }
 function closeDetail(){ $('#detail').classList.remove('open'); $('#scrim').classList.remove('open'); DETAIL_OPEN=false; }
 $('#scrim').onclick=()=>{ if(!TOUR.on) closeDetail(); };
 
-/* nav + card clicks (free-explore mode) */
-document.querySelectorAll('.nav-item').forEach(n=>n.onclick=()=>{ if(TOUR.on) return; switchView(n.dataset.view); });
+/* add an area → create agent + page */
+function openAddArea(prefill){
+  const btn=$('#add-area').getBoundingClientRect();
+  const p=$('#addpop'); p.classList.add('show');
+  p.style.left=Math.min(btn.left, innerWidth-316)+'px'; p.style.top=Math.max(12, btn.top-160)+'px';
+  $('#addpop-input').value = prefill||''; if(!TOUR.on) $('#addpop-input').focus();
+}
+function closeAddArea(){ $('#addpop').classList.remove('show'); }
+const ICONS={travel:'✈️',home:'🏠',learning:'📚',side:'🚀',garden:'🌱',car:'🚗',pets:'🐾'};
+function createArea(name){
+  name=(name||'').trim(); if(!name) return;
+  const id=name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||('area'+LIFE.length);
+  if(LIFE.find(x=>x.id===id)){ closeAddArea(); switchView(id); return; }
+  const key=name.toLowerCase().split(/\s+/)[0]; const icon=ICONS[key]||'✨';
+  AGENTS.push({ id, name, kind:'domain', icon, status:'Just created · learning', model:'haiku', cadence:'on message', channel:'Telegram',
+    scope:{tables:['task','event'],projects:[id]}, tools:['echo-db','recall'], bridges:['Telegram'],
+    events:[['now','agent',name+' area created — I\'ll start watching for '+name.toLowerCase()+' things']], links:[['📁 area',name]] });
+  LIFE.push({ id, name, icon, agent:id });
+  closeAddArea(); renderLifeNav(); switchView(id, true);
+  const item=document.querySelector(`#life-nav .nav-item[data-view="${id}"]`); if(item) item.classList.add('fresh');
+}
+$('#add-area').onclick=()=>{ if(TOUR.on) return; $('#addpop').classList.contains('show')?closeAddArea():openAddArea(); };
+$('#addpop-go').onclick=()=>createArea($('#addpop-input').value);
+$('#addpop-input').addEventListener('keydown',e=>{ if(e.key==='Enter') createArea($('#addpop-input').value); });
+
+/* nav + clicks */
+function wireNav(){ document.querySelectorAll('.nav-item[data-view]').forEach(n=>n.onclick=()=>{ if(TOUR.on) return; switchView(n.dataset.view); }); }
 view.addEventListener('click', e=>{
-  const c=e.target.closest('[data-agent]'); if(c && !TOUR.on) openDetail(c.dataset.agent);
+  if(TOUR.on) return;
+  const nav=e.target.closest('[data-view]'); if(nav){ switchView(nav.dataset.view); return; }
+  const al=e.target.closest('.agent-link'); if(al){ openDetail(al.dataset.agent); return; }
+  const c=e.target.closest('[data-agent]'); if(c){ openDetail(c.dataset.agent); return; }
+  if(e.target.id==='propose-create') createArea('Travel');
 });
 
-/* ───────────────────────── VOICE (Web Speech API) ───────────────────────── */
-/* Upgrade path: to use premium pre-rendered audio (e.g. ElevenLabs), populate
-   AUDIO[stepIndex] = 'voice/step-N.mp3' and Voice.speak will play it instead. */
-const AUDIO = {};   // e.g. { 0:'voice/0.mp3', 1:'voice/1.mp3', ... }
-const Voice = {
-  enabled:true, voice:null, audioEl:null, _onend:null,
-  pickVoice(){
-    if(!('speechSynthesis' in window)) return;
-    const vs = speechSynthesis.getVoices();
-    const pref = ['Samantha','Ava','Serena','Allison','Google UK English Female','Google US English','Microsoft Aria','Daniel','Karen'];
-    this.voice = pref.map(n=>vs.find(v=>v.name.includes(n))).find(Boolean) || vs.find(v=>/en[-_]/i.test(v.lang)) || vs[0] || null;
-  },
-  speak(text, idx, onend){
-    this.stop(); this._onend=onend;
-    if(!this.enabled){ orbSpeak(false); if(onend) this._timer=setTimeout(onend, Math.min(9000, 2600+text.length*32)); return; }
-    if(AUDIO[idx]){                                  // premium pre-rendered audio
-      orbSpeak(true); this.audioEl=new Audio(AUDIO[idx]);
-      this.audioEl.onended=()=>{orbSpeak(false); onend&&onend();};
-      this.audioEl.play().catch(()=>{orbSpeak(false); onend&&onend();}); return;
-    }
+/* ───────────────────────── VOICE ───────────────────────── */
+const AUDIO={};   // populate with pre-rendered files (e.g. ElevenLabs) to swap in studio voice: AUDIO[3]='voice/3.mp3'
+const Voice={ enabled:true, voice:null, audioEl:null, _onend:null,
+  pickVoice(){ if(!('speechSynthesis' in window)) return; const vs=speechSynthesis.getVoices();
+    const pref=['Samantha','Ava','Serena','Allison','Google UK English Female','Google US English','Microsoft Aria','Daniel','Karen'];
+    this.voice=pref.map(n=>vs.find(v=>v.name.includes(n))).find(Boolean)||vs.find(v=>/en[-_]/i.test(v.lang))||vs[0]||null; },
+  speak(text,idx,onend){ this.stop(); this._onend=onend;
+    if(!this.enabled){ orbSpeak(false); if(onend) this._timer=setTimeout(onend,Math.min(9000,2600+text.length*32)); return; }
+    if(AUDIO[idx]){ orbSpeak(true); this.audioEl=new Audio(AUDIO[idx]); this.audioEl.onended=()=>{orbSpeak(false);onend&&onend();}; this.audioEl.play().catch(()=>{orbSpeak(false);onend&&onend();}); return; }
     if(!('speechSynthesis' in window)){ orbSpeak(false); if(onend) this._timer=setTimeout(onend,3000); return; }
-    const u=new SpeechSynthesisUtterance(text);
-    if(this.voice) u.voice=this.voice;
-    u.rate=1.0; u.pitch=1.0;
-    u.onstart=()=>orbSpeak(true);
-    u.onend=()=>{ orbSpeak(false); if(this._onend) this._onend(); };
-    orbSpeak(true); speechSynthesis.speak(u);
-  },
-  stop(){
-    clearTimeout(this._timer); this._onend=null;
-    if('speechSynthesis' in window) speechSynthesis.cancel();
-    if(this.audioEl){ this.audioEl.pause(); this.audioEl=null; }
-    orbSpeak(false);
-  },
+    const u=new SpeechSynthesisUtterance(text); if(this.voice) u.voice=this.voice; u.rate=1.0; u.pitch=1.0;
+    u.onstart=()=>orbSpeak(true); u.onend=()=>{ orbSpeak(false); if(this._onend) this._onend(); }; orbSpeak(true); speechSynthesis.speak(u); },
+  stop(){ clearTimeout(this._timer); this._onend=null; if('speechSynthesis' in window) speechSynthesis.cancel(); if(this.audioEl){this.audioEl.pause();this.audioEl=null;} orbSpeak(false); },
 };
 if('speechSynthesis' in window){ Voice.pickVoice(); speechSynthesis.onvoiceschanged=()=>Voice.pickVoice(); }
 function orbSpeak(on){ $('#orb').classList.toggle('speaking', !!on); }
 
-/* ───────────────────────── TOUR ENGINE ───────────────────────── */
-const STEPS = [
+/* ───────────────────────── TOUR ───────────────────────── */
+const STEPS=[
   { view:'home', center:true, title:'Meet your Echo', say:"This is the home you wake up to — one quiet layer over your whole life. Let me show you around." },
-  { view:'home', target:'#home-agents', title:'Your life, by agent', say:"Every part of your life has its own agent. Family, Health, GitLaw, Finance — each one knows its corner and works it for you." },
-  { view:'home', target:'#home-brief', title:'While you slept', say:"This is what I did overnight. Replies drafted, meetings prepped, follow-ups chased. You go to bed behind, and wake up ahead." },
-  { view:'home', target:'#home-stats', title:'At a glance', say:"Six things moved while you slept. Two need you. Nothing slips through." },
-  { view:'agents', target:'#agents-grid', title:'The whole team', say:"Here's everyone working for you — your assistant, the domain agents, the scheduled role agents, and the channels that reach you." },
-  { view:'agents', detail:'family', target:'#detail-settings', title:'Steerable, not magic', say:"Open any agent and you see exactly what it's allowed to touch — its scope, its tools, its channels. You stay in control." },
-  { view:'agents', detail:'family', target:'#detail-timeline', title:'Everything, attributed', say:"And every single action it's taken, stamped with who did what. No black box." },
-  { view:'tasks', closeDetail:true, target:'#board', title:'Your work, one board', say:"Every project and every task in one place. Tell me something in passing, and I file it to the right project automatically." },
-  { view:'approvals', target:'#approval-0', title:'I draft. You approve.', say:"This is the heart of Echo. I prepare the work — a reply, an update, a nudge — and nothing leaves until you tap approve." },
-  { view:'approvals', target:'#approval-0 .btns', title:'One tap', say:"Approve and send, or send it back with a note. That's the whole interaction. The action is always yours." },
-  { view:'home', center:true, title:"That's your Echo", say:"That's the setup. Go to bed behind. Wake up ahead. Welcome to Echo." },
+  { view:'home', target:'#life-nav', title:'Your life, in areas', say:"Echo organises around your life, not its features. Each part — Family, Health, GitLaw, Finance — gets its own page, right here in your menu." },
+  { view:'health', target:'#view', title:'A space for each part', say:"Open one and it's a real space. Here's Health — your numbers, the trends, and tonight's digest. Family, Finance, work — each has its own page like this." },
+  { view:'health', detail:'health', target:'#detail-settings', title:'Every area has an agent', say:"And every area is run by an agent. Open it and you see exactly what it's allowed to touch, and everything it's done." },
+  { view:'home', closeDetail:true, action:'openAdd', target:'#addpop', title:'Add a part of your life', say:"You can add a new area any time. Name it…" },
+  { view:'home', action:'createTravel', target:'#life-nav', title:'Echo builds it for you', say:"…and Echo spins up an agent and a page for it. Agents can even propose one when they spot a pattern. They don't have to — but when they do, it becomes a new section of your life." },
+  { view:'home', target:'#home-brief', title:'While you slept', say:"Across all of it, this is what I did overnight. Replies drafted, meetings prepped, follow-ups chased. You go to bed behind, and wake up ahead." },
+  { view:'tasks', target:'#board', title:'Your work, one board', say:"Every task across every area, in one place. Tell me something in passing and I file it to the right area automatically." },
+  { view:'approvals', target:'#approval-0', title:'I draft. You approve.', say:"And this is the heart of it. I prepare the work, but nothing leaves until you tap approve. The action is always yours." },
+  { view:'home', center:true, title:"That's your Echo", say:"Your life, in areas you control. Each run by an agent that drafts and waits for your nod. Go to bed behind. Wake up ahead." },
 ];
 
-const TOUR = { on:false, i:0, auto:true };
+const TOUR={ on:false, i:0, auto:true };
 const spot=$('#spot'), coach=$('#coach'), blocker=$('#blocker');
-
-function buildDots(){ $('#c-dots').innerHTML = STEPS.map((_,k)=>`<span class="dot ${k===TOUR.i?'on':''}"></span>`).join(''); }
-
+function buildDots(){ $('#c-dots').innerHTML=STEPS.map((_,k)=>`<span class="dot ${k===TOUR.i?'on':''}"></span>`).join(''); }
 function placeCoach(rect){
-  const cw=Math.min(330, innerWidth*0.9), ch=coach.offsetHeight||190, gap=16, pad=14;
-  let top, left;
-  if(!rect){ // center
-    top=innerHeight/2-ch/2; left=innerWidth/2-cw/2;
-  } else {
-    const below = rect.bottom+gap+ch < innerHeight;
-    top = below ? rect.bottom+gap : Math.max(pad, rect.top-gap-ch);
-    left = Math.min(Math.max(pad, rect.left + rect.width/2 - cw/2), innerWidth-cw-pad);
-    // avoid covering the echo orb (bottom-left)
-    if(top+ch > innerHeight-120 && left < 360) left = Math.min(innerWidth-cw-pad, 360);
-  }
+  const cw=Math.min(330,innerWidth*0.9), ch=coach.offsetHeight||190, gap=16, pad=14; let top,left;
+  if(!rect){ top=innerHeight/2-ch/2; left=innerWidth/2-cw/2; }
+  else { const below=rect.bottom+gap+ch<innerHeight; top=below?rect.bottom+gap:Math.max(pad,rect.top-gap-ch);
+    left=Math.min(Math.max(pad,rect.left+rect.width/2-cw/2),innerWidth-cw-pad);
+    if(top+ch>innerHeight-120 && left<360) left=Math.min(innerWidth-cw-pad,360); }
   coach.style.top=top+'px'; coach.style.left=left+'px';
 }
-
 function showStep(i){
-  TOUR.i = Math.max(0, Math.min(STEPS.length-1, i));
-  const s = STEPS[TOUR.i];
-  Voice.stop();
-
-  // view + detail state
+  TOUR.i=Math.max(0,Math.min(STEPS.length-1,i)); const s=STEPS[TOUR.i]; Voice.stop();
   switchView(s.view);
   if(s.detail) openDetail(s.detail);
-  else if(s.closeDetail || !('detail' in s)) { if(DETAIL_OPEN && !s.detail) closeDetail(); }
-
+  else if(DETAIL_OPEN) closeDetail();
+  if(s.action==='openAdd') openAddArea('Travel'); else closeAddArea();
+  if(s.action==='createTravel'){ if(!LIFE.find(x=>x.id==='travel')) createArea('Travel'); }
   buildDots();
-  $('#c-step').textContent = `Step ${TOUR.i+1} of ${STEPS.length}`;
-  $('#c-title').textContent = s.title;
-  $('#c-text').textContent = s.say;
-  $('#c-prev').style.visibility = TOUR.i===0 ? 'hidden':'visible';
-  $('#c-next').textContent = TOUR.i===STEPS.length-1 ? 'Finish ✓' : 'Next →';
-  $('#bubble-t').textContent = s.title; $('#bubble').classList.add('show');
-
-  // wait for view/detail to lay out, then spotlight + speak
+  $('#c-step').textContent=`Step ${TOUR.i+1} of ${STEPS.length}`;
+  $('#c-title').textContent=s.title; $('#c-text').textContent=s.say;
+  $('#c-prev').style.visibility=TOUR.i===0?'hidden':'visible';
+  $('#c-next').textContent=TOUR.i===STEPS.length-1?'Finish ✓':'Next →';
+  $('#bubble-t').textContent=s.title; $('#bubble').classList.add('show');
   requestAnimationFrame(()=>setTimeout(()=>{
-    const el = s.target ? document.querySelector(s.target) : null;
+    const el=s.target?document.querySelector(s.target):null;
     if(el && !s.center){
-      el.scrollIntoView({block:'center', behavior:'smooth'});
-      setTimeout(()=>{
-        const r = el.getBoundingClientRect(); const pad=8;
+      el.scrollIntoView({block:'center',behavior:'smooth'});
+      setTimeout(()=>{ const r=el.getBoundingClientRect(); const pad=8;
         spot.style.display='block'; spot.classList.remove('center');
-        spot.style.top=(r.top-pad)+'px'; spot.style.left=(r.left-pad)+'px';
-        spot.style.width=(r.width+pad*2)+'px'; spot.style.height=(r.height+pad*2)+'px';
+        spot.style.top=(r.top-pad)+'px'; spot.style.left=(r.left-pad)+'px'; spot.style.width=(r.width+pad*2)+'px'; spot.style.height=(r.height+pad*2)+'px';
         placeCoach(r); coach.style.display='block';
-      }, s.detail ? 380 : 260);   // wait out the slide-over open animation when a detail just opened
-    } else {
-      spot.style.display='block'; spot.classList.add('center');
-      spot.style.width='0'; spot.style.height='0'; spot.style.top='50%'; spot.style.left='50%';
-      placeCoach(null); coach.style.display='block';
-    }
+      }, s.detail||s.action?400:260);
+    } else { spot.style.display='block'; spot.classList.add('center'); spot.style.width='0'; spot.style.height='0'; spot.style.top='50%'; spot.style.left='50%'; placeCoach(null); coach.style.display='block'; }
     Voice.speak(s.say, TOUR.i, ()=>{ if(TOUR.on && TOUR.auto && TOUR.i<STEPS.length-1) nextStep(); });
   }, 60));
 }
-function nextStep(){ if(TOUR.i>=STEPS.length-1){ endTour(true); } else showStep(TOUR.i+1); }
+function nextStep(){ if(TOUR.i>=STEPS.length-1) endTour(true); else showStep(TOUR.i+1); }
 function prevStep(){ showStep(TOUR.i-1); }
-
-function startTour(withVoice){
-  Voice.enabled = withVoice;
-  $('#orb-badge').textContent = withVoice ? '🔊' : '🔇';
-  $('#gate').classList.add('hide');
-  $('#echo').style.display='flex'; blocker.style.display='block';
-  TOUR.on=true; TOUR.auto=true; showStep(0);
-}
-function endTour(completed){
-  TOUR.on=false; Voice.stop();
-  spot.style.display='none'; coach.style.display='none'; blocker.style.display='none';
+function startTour(withVoice){ Voice.enabled=withVoice; $('#orb-badge').textContent=withVoice?'🔊':'🔇';
+  $('#gate').classList.add('hide'); $('#echo').style.display='flex'; blocker.style.display='block'; TOUR.on=true; TOUR.auto=true; showStep(0); }
+function endTour(done){ TOUR.on=false; Voice.stop(); spot.style.display='none'; coach.style.display='none'; blocker.style.display='none'; closeAddArea();
   $('#bubble').classList.remove('show'); closeDetail();
-  if(completed){
-    $('#gate').classList.remove('hide');
-    $('#gate').innerHTML = `<div class="bigorb"><span></span><span></span><span></span>
+  if(done){ const g=$('#gate'); g.classList.remove('hide');
+    g.innerHTML=`<div class="bigorb"><span></span><span></span><span></span>
       <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="7" fill="#f5f5f3"/><circle cx="50" cy="50" r="24" fill="none" stroke="#f5f5f3" stroke-opacity=".45" stroke-width="2.5"/><circle cx="50" cy="50" r="42" fill="none" stroke="#c2a878" stroke-opacity=".5" stroke-width="2.5"/></svg></div>
       <div class="eyebrow">That's Echo</div><h1>Go to bed behind.<br><span class="it">Wake up ahead.</span></h1>
-      <p>You've seen a working setup. This is the assistant that runs while you sleep — and asks before it acts.</p>
+      <p>Your life, in areas you control — each run by an agent that drafts and asks before it acts.</p>
       <button class="go" onclick="location.href='index.html#waitlist'">Request access →</button>
-      <div class="alt"><button onclick="restartTour()">↻ Replay the tour</button><button onclick="freeExplore()">Explore on my own</button></div>`;
-  }
+      <div class="alt"><button onclick="location.reload()">↻ Replay the tour</button><button onclick="freeExplore()">Explore on my own</button></div>`; }
 }
-function restartTour(){ $('#gate').classList.remove('hide'); location.reload(); }
-function freeExplore(){
-  TOUR.on=false; Voice.stop();
-  $('#gate').classList.add('hide'); spot.style.display='none'; coach.style.display='none'; blocker.style.display='none';
-  $('#echo').style.display='none'; closeDetail(); switchView('home');
-}
+function freeExplore(){ TOUR.on=false; Voice.stop(); $('#gate').classList.add('hide'); spot.style.display='none'; coach.style.display='none'; blocker.style.display='none'; $('#echo').style.display='none'; closeDetail(); closeAddArea(); switchView('home',true); }
 
-/* controls */
 $('#c-next').onclick=()=>{ TOUR.auto=true; nextStep(); };
 $('#c-prev').onclick=()=>{ TOUR.auto=false; prevStep(); };
 $('#c-skip').onclick=()=>endTour(false);
-$('#orb').onclick=()=>{ if(TOUR.on){ TOUR.auto=false; showStep(TOUR.i); } };   // replay current step
-$('#orb-badge').onclick=(e)=>{ e.stopPropagation(); Voice.enabled=!Voice.enabled; $('#orb-badge').textContent=Voice.enabled?'🔊':'🔇'; if(!Voice.enabled) Voice.stop(); };
-window.addEventListener('keydown', e=>{
-  if(!TOUR.on) return;
+$('#orb').onclick=()=>{ if(TOUR.on){ TOUR.auto=false; showStep(TOUR.i); } };
+$('#orb-badge').onclick=e=>{ e.stopPropagation(); Voice.enabled=!Voice.enabled; $('#orb-badge').textContent=Voice.enabled?'🔊':'🔇'; if(!Voice.enabled) Voice.stop(); };
+window.addEventListener('keydown',e=>{ if(!TOUR.on) return;
   if(e.key==='ArrowRight'||e.key===' '){ e.preventDefault(); TOUR.auto=true; nextStep(); }
-  if(e.key==='ArrowLeft'){ TOUR.auto=false; prevStep(); }
-  if(e.key==='Escape') endTour(false);
-});
-addEventListener('resize', ()=>{ if(TOUR.on) showStep(TOUR.i); });
+  if(e.key==='ArrowLeft'){ TOUR.auto=false; prevStep(); } if(e.key==='Escape') endTour(false); });
+addEventListener('resize',()=>{ if(TOUR.on) showStep(TOUR.i); });
 
-/* start screen */
 $('#start-voice').onclick=()=>startTour(true);
 $('#start-silent').onclick=()=>startTour(false);
 $('#explore').onclick=freeExplore;
 if(!('speechSynthesis' in window)) $('#voice-note').textContent="Heads up: your browser has no built-in voice — the tour will run with captions instead.";
 
-/* render home behind the gate so it's ready */
-switchView('home');
+/* init */
+renderLifeNav(); switchView('home');
 </script>
 </body>
 </html>
