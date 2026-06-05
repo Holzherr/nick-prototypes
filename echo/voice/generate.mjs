@@ -18,10 +18,10 @@ if (!KEY) {
 if (!KEY) { console.error('No ELEVENLABS_API_KEY found (env or ~/.echo-eleven.env)'); process.exit(1); }
 
 // extract the `say:` strings from STEPS in order
-const html = readFileSync('demo.html', 'utf8');
+const html = readFileSync('demo-app.html', 'utf8');
 const block = html.slice(html.indexOf('const STEPS='), html.indexOf('const TOUR='));
 const lines = [...block.matchAll(/say:\s*"((?:[^"\\]|\\.)*)"/g)].map(m => m[1].replace(/\\"/g, '"'));
-if (lines.length !== 10) console.warn(`⚠ expected 10 lines, found ${lines.length}`);
+console.log(`narration lines: ${lines.length}`);
 
 for (let i = 0; i < lines.length; i++) {
   const text = lines[i];
