@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Echo — the building blocks</title>
+<meta name="description" content="Echo never designs a screen. Every agent composes its interface from one standard kit of blocks — the same blocks render on web and iOS." />
+<meta property="og:title" content="Echo — the building blocks" />
+<meta property="og:description" content="One standard component kit. Every agent reuses it. The UI composes itself." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='white'/%3E%3Ccircle cx='50' cy='50' r='26' fill='none' stroke='white' stroke-opacity='.5' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='white' stroke-opacity='.2' stroke-width='2'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050505; --ink:#f5f5f3; --muted:#8a8a86; --faint:#5a5a57;
+    --line:rgba(255,255,255,.10); --line-soft:rgba(255,255,255,.06);
+    --accent:#e8e4dc; --gold:#c2a878; --gold-line:rgba(194,168,120,.30); --glow:rgba(232,228,220,.13);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-weight:400; line-height:1.5; -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility; overflow-x:hidden;
+  }
+  body::before{
+    content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(900px 520px at 50% -8%, var(--glow), transparent 60%),
+      radial-gradient(1200px 800px at 50% 120%, rgba(255,255,255,.03), transparent 55%);
+  }
+  .wrap{position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:0 28px}
+
+  /* ── nav ── */
+  nav{display:flex; align-items:center; justify-content:space-between; padding:30px 0 0}
+  .brand{display:flex; align-items:center; gap:11px; letter-spacing:.02em; text-decoration:none; color:var(--ink)}
+  .brand .mark{width:22px; height:22px}
+  .brand b{font-weight:600; font-size:16px; letter-spacing:.04em}
+  .nav-cta{font-size:13px; color:var(--muted); text-decoration:none; border:1px solid var(--line);
+    padding:8px 16px; border-radius:999px; transition:.25s; backdrop-filter:blur(6px)}
+  .nav-cta:hover{color:var(--ink); border-color:rgba(255,255,255,.28)}
+  .nav-right{display:flex; align-items:center; gap:20px}
+  .nav-link{font-size:13px; color:var(--muted); text-decoration:none; letter-spacing:.02em; transition:.25s}
+  .nav-link:hover{color:var(--ink)}
+
+  /* ── header ── */
+  .head{text-align:center; max-width:720px; margin:96px auto 18px; position:relative}
+  .eyebrow{font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:26px; font-weight:500}
+  .head h1{font-family:'Instrument Serif',serif; font-weight:400;
+    font-size:clamp(38px,6vw,68px); line-height:1.0; letter-spacing:-.01em; margin-bottom:20px}
+  .head h1 .it{font-style:italic; color:var(--gold)}
+  .head p{color:var(--muted); font-weight:300; font-size:17px; line-height:1.64; max-width:600px; margin:0 auto}
+  .head p b{color:var(--accent); font-weight:400}
+
+  /* ── principle strip ── */
+  .principles{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:54px 0 70px;
+    background:var(--line-soft); border:1px solid var(--line-soft); border-radius:16px; overflow:hidden}
+  .principle{background:var(--bg); padding:30px 26px}
+  .principle .k{font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:12px}
+  .principle p{color:var(--muted); font-size:14px; font-weight:300; line-height:1.6}
+  .principle p b{color:var(--accent); font-weight:400}
+
+  /* ── gallery ── */
+  .gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; padding-bottom:30px}
+  .block{display:flex; flex-direction:column; border:1px solid var(--line-soft); border-radius:18px;
+    background:#0a0a09; overflow:hidden; animation:cardin .5s cubic-bezier(.2,.7,.2,1) both}
+  .block.wide{grid-column:span 2}
+  @keyframes cardin{from{opacity:0; transform:translateY(10px) scale(.99)}to{opacity:1; transform:none}}
+  @media (prefers-reduced-motion:reduce){.block{animation:none}}
+  .frame{padding:26px 26px 6px; display:flex; align-items:center; justify-content:center; min-height:210px}
+  .cap{padding:18px 26px 26px; border-top:1px solid var(--line-soft); margin-top:18px}
+  .cap .nm{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+  .cap h3{font-family:'Instrument Serif',serif; font-weight:400; font-size:24px; letter-spacing:.01em}
+  .cap .role{font-size:11px; color:var(--faint); letter-spacing:.04em}
+  .cap p{color:var(--muted); font-size:14px; font-weight:300; line-height:1.6; margin-top:9px}
+  .native{display:inline-block; margin-top:14px; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold); font-weight:500; border:1px solid var(--gold-line); border-radius:999px; padding:5px 12px}
+
+  /* ── the light "render surface" (mirrors the live dashboard's blocks) ── */
+  .surface{width:100%; background:#f8fafc; border:1px solid #e2e8f0; border-radius:14px; padding:16px;
+    color:#0f172a; font-size:13px; line-height:1.5; box-shadow:0 22px 60px -34px rgba(0,0,0,.9)}
+  .surface, .surface *{font-family:'Inter',-apple-system,sans-serif}
+  .pill{display:inline-block; font-size:11px; padding:2px 8px; border-radius:6px; background:#f1f5f9; color:#475569; font-weight:500}
+  .kind{font-size:9.5px; padding:2px 8px; border-radius:999px; font-weight:600; letter-spacing:.03em; text-transform:uppercase}
+  .k-persona{background:#ede9fe; color:#6d28d9} .k-domain{background:#fae8ff; color:#a21caf}
+  .k-role{background:#dbeafe; color:#1d4ed8} .k-skill{background:#dcfce7; color:#15803d} .k-bridge{background:#fef3c7; color:#b45309}
+  .row{display:flex; gap:8px} .wrapped{flex-wrap:wrap} .mt{margin-top:8px} .mt2{margin-top:12px}
+  .lbl{font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:#94a3b8; margin-bottom:6px}
+  .muted{color:#64748b} .truncate{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  /* card-ish surfaces */
+  .s-card{background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:14px; box-shadow:0 2px 8px rgba(15,23,42,.04)}
+  .s-h{font-weight:600; font-size:14px} .s-sub{color:#64748b; font-size:12.5px; margin-top:3px}
+  /* board */
+  .cols{display:grid; grid-template-columns:repeat(3,1fr); gap:8px}
+  .col-h{font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#94a3b8; margin-bottom:6px}
+  .tcard{background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:8px 9px; margin-bottom:6px; font-size:11.5px}
+  .tcard .pj{font-size:9px; color:#a21caf; font-weight:600; text-transform:uppercase; letter-spacing:.04em}
+  /* approval */
+  .appr{border-left:3px solid #10b981; background:#f0fdf4}
+  .appr pre{background:#fff; border:1px solid #d1fae5; border-radius:8px; padding:10px; font-size:12px;
+    white-space:pre-wrap; color:#064e3b; margin-top:8px; font-family:'Inter',sans-serif}
+  .appr .pa{font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#047857; margin-top:10px}
+  .btns{display:flex; gap:8px; margin-top:12px}
+  .btn{font-size:12px; font-weight:600; padding:7px 14px; border-radius:8px; border:0; cursor:default}
+  .btn-go{background:#059669; color:#fff} .btn-back{background:#fff; color:#475569; border:1px solid #cbd5e1}
+  /* timeline */
+  .tl-row{display:flex; align-items:baseline; gap:9px; padding:5px 0; border-bottom:1px solid #f1f5f9}
+  .tl-row:last-child{border:0}
+  .tl-when{font-size:10.5px; color:#94a3b8; width:74px; flex:0 0 auto}
+  .tl-dot{width:7px; height:7px; border-radius:50%; flex:0 0 auto}
+  .d-agent{background:#7c3aed} .d-user{background:#2563eb} .d-system{background:#94a3b8}
+  /* relations */
+  .chip{display:inline-flex; align-items:center; gap:5px; font-size:11px; background:#f1f5f9; color:#475569;
+    border-radius:999px; padding:4px 10px}
+  /* chart */
+  .metric{font-family:'Inter',sans-serif} .metric .big{font-size:30px; font-weight:600; letter-spacing:-.02em}
+  .metric .unit{font-size:13px; color:#94a3b8; font-weight:400} .metric .delta{font-size:12px; color:#059669; font-weight:600}
+  /* form */
+  .fld{width:100%; background:#fff; border:1px solid #cbd5e1; border-radius:9px; padding:9px 11px; font-size:13px; color:#0f172a}
+  .fld-ph{color:#94a3b8}
+  /* brief */
+  .brief h4{font-family:'Instrument Serif',serif; font-weight:400; font-size:18px; color:#0f172a; margin-bottom:2px}
+  .brief .when{font-size:11px; color:#94a3b8; margin-bottom:10px}
+  .brief ul{list-style:none; display:grid; gap:7px}
+  .brief li{display:flex; gap:8px; font-size:12.5px; color:#334155}
+  .brief li .e{flex:0 0 auto}
+
+  /* ── closing ── */
+  .closing{text-align:center; padding:30px 0 24px}
+  .closing p{font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(20px,3.4vw,30px);
+    color:var(--accent); max-width:680px; margin:0 auto 30px; line-height:1.34}
+  .ghost{display:inline-block; font-size:14px; color:var(--ink); text-decoration:none;
+    border:1px solid var(--line); padding:13px 28px; border-radius:999px; transition:.25s; letter-spacing:.02em}
+  .ghost:hover{border-color:rgba(255,255,255,.32); background:rgba(255,255,255,.04)}
+  footer{border-top:1px solid var(--line-soft); padding:30px 0 46px; margin-top:30px;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    color:var(--faint); font-size:12.5px}
+  footer a{color:var(--muted); text-decoration:none} footer a:hover{color:var(--ink)}
+
+  @media (max-width:760px){
+    nav{padding:22px 0 0}
+    .head{margin-top:70px}
+    .principles{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr}
+    .block.wide{grid-column:auto}
+    .cols{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="7" fill="#f5f5f3"/>
+        <circle cx="50" cy="50" r="24" fill="none" stroke="#f5f5f3" stroke-opacity=".45" stroke-width="2"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="#f5f5f3" stroke-opacity=".18" stroke-width="2"/>
+      </svg>
+      <b>ECHO</b>
+    </a>
+    <div class="nav-right">
+      <a class="nav-link" href="faq.html">How it works</a>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-cta" href="index.html#waitlist">Request access</a>
+    </div>
+  </nav>
+
+  <header class="head">
+    <div class="eyebrow">The building blocks</div>
+    <h1>One kit. <span class="it">Every agent.</span></h1>
+    <p>Echo never designs a screen. Each agent — calendar, inbox, family, health — composes its interface from <b>one standard set of blocks</b>. Add an agent and it reuses them. The UI composes itself, and the <b>same blocks render on web today and on iOS next</b>.</p>
+  </header>
+
+  <section class="principles">
+    <div class="principle">
+      <div class="k">Self-composing</div>
+      <p>An agent emits a <b>manifest</b> — "render this as an Approval card with this draft" — not HTML. New skill, zero new screens.</p>
+    </div>
+    <div class="principle">
+      <div class="k">Renderer-neutral</div>
+      <p>The same manifest drives a <b>web</b> renderer and a <b>native</b> renderer. A block never knows which surface it's on.</p>
+    </div>
+    <div class="principle">
+      <div class="k">Legible &amp; attributed</div>
+      <p>Every block traces to <b>who did what</b>. Draft-don't-send: agents propose, you approve, the action is yours.</p>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+
+    <!-- HomeCard -->
+    <figure class="block">
+      <div class="frame">
+        <div class="surface">
+          <div class="s-card">
+            <div class="row" style="gap:10px">
+              <div style="font-size:22px">📅</div>
+              <div style="min-width:0;flex:1">
+                <div class="row wrapped" style="align-items:center;gap:8px">
+                  <span class="s-h truncate">Calendar agent</span>
+                  <span class="kind k-domain">Domain agent</span>
+                </div>
+                <div class="s-sub">Prepped 3 meetings for tomorrow · 2 awaiting your OK</div>
+              </div>
+            </div>
+            <div class="row wrapped mt2"><span class="pill">🧠 haiku</span><span class="pill">⏱ daily 6am</span><span class="pill">📡 Telegram</span></div>
+          </div>
+        </div>
+      </div>
+      <figcaption class="cap">
+        <div class="nm"><h3>HomeCard</h3><span class="role">status tile</span></div>
+        <p>A glanceable summary of an agent or life-area — what it is, what it just did, what's pending.</p>
+        <span class="native">iOS · home-screen widget</span>
+      </figcaption>
+    </figure>
+
+    <!-- ApprovalCard -->
+    <figure class="block">
+      <div class="frame">
+        <div class="surface">
+          <div class="s-card appr">
+            <div style="font-weight:600;color:#065f46">✋ Drafted reply to Sarah — your turn</div>
+            <div class="mt" style="color:#065f46cc">Re: the audit timeline. Confirms Friday and asks for the updated scope doc.</div>
+            <pre>Hi Sarah — Friday works on my side. Could you send the
+updated scope doc beforehand so I can review? Thanks, Nick</pre>
+            <div class="pa">Proposed action</div>
+            <div style="color:#065f46;margin-top:2px">Send email via Gmail</div>
+            <div class="btns"><button class="btn btn-go">Approve &amp; send</button><button class="btn btn-back">Send back</button></div>
+          </div>
+        </div>
+      </div>
+      <figcaption class="cap">
+        <div class="nm"><h3>ApprovalCard</h3><span class="role">draft-don't-send</span></div>
+        <p>The trust surface. An agent's draft + the action it wants to take, with one-tap approve or send-back. Nothing leaves without you.</p>
+        <span class="native">iOS · push notification + action</span>
+      </figcaption>
+    </figure>
+
+    <!-- Board -->
+    <figure class="block wide">
+      <div class="frame">
+        <div class="surface">
+          <div class="cols">
+            <div>
+              <div class="col-h">Now</div>
+              <div class="tcard"><div class="pj">GitLaw</div>Ship recall to pilot</div>
+              <div class="tcard"><div class="pj">Family</div>Book dentist — both kids</div>
+            </div>
+            <div>
+              <div class="col-h">Next</div>
+              <div class="tcard"><div class="pj">Finance</div>Move Brambruesch cash</div>
+              <div class="tcard"><div class="pj">Health</div>Reschedule physio</div>
+            </div>
+            <div>
+              <div class="col-h">Done</div>
+              <div class="tcard" style="opacity:.6"><div class="pj">GitLaw</div>Greg 1:1 prep</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption class="cap">
+        <div class="nm"><h3>Board / EntityList</h3><span class="role">schema-driven list</span></div>
+        <p>Any set of records as a list or kanban — tasks by state, contacts, ideas. One renderer, projects down one axis, states across the other.</p>
+        <span class="native">iOS · sectioned scroll view</span>
+      </figcaption>
+    </figure>
+
+    <!-- Drawer / Detail -->
+    <figure class="block">
+      <div class="frame">
+        <div class="surface">
+          <div class="s-card">
+            <div class="row wrapped" style="align-items:center;gap:8px"><span class="kind k-domain">Family</span><span class="pill">priority · high</span></div>
+            <div class="s-h mt">Book dentist — both kids</div>
+            <div class="mt"><span class="lbl">Next action</span><div class="muted">Call practice Mon AM, ask for after-school slots</div></div>
+            <div class="mt2"><span class="lbl">Owner</span><div class="muted">Family agent → you</div></div>
+          </div>
+        </div>
+      </div>
+      <figcaption class="cap">
+        <div class="nm"><h3>Drawer / Detail</h3><span class="role">one record</span></div>
+        <p>A single record opened up — its fields, sections and editable state. The deep view behind any list item.</p>
+        <span class="native">iOS · detail sheet</span>
+      </figcaption>
+    </figure>
+
+    <!-- Timeline -->
+    <figure class="block">
+      <div class="frame">
+        <div class="surface">
+          <div class="lbl">Recent actions</div>
+          <div class="tl-row"><span class="tl-when">09:02</span><span class="tl-dot d-agent"></span><span class="truncate">drafted reply to Sarah</span></div>
+          <div class="tl-row"><span class="tl-when">08:55</span><span class="tl-dot d-agent"></span><span class="truncate">prepped 3 meeting briefs</span></div>
+          <div class="tl-row"><span class="tl-when">Mon</span><span class="tl-dot d-user"></span><span class="truncate">you approved investor update</span></div>
+          <div class="tl-row"><span class="tl-when">Mon</span><span class="tl-dot d-system"></span><span class="truncate">task created from Telegram</span></div>
+        </div>
+      </div>
+      <figcaption class="cap">
+        <div class="nm"><h3>Timeline / ActionLog</h3><span class="role">attributed feed</span></div>
+        <p>Every action, stamped with who did it — agent, you, or the system. The audit trail that makes the assistant legible.</p>
+        <span class="native">iOS · activity feed</span>
+      </figcaption>
+    </figure>
+
+    <!-- Relations -->
+    <figure class="block">
+      <div class="frame">
+        <div class="surface">
+          <div class="lbl">Linked records</div>
+          <div class="row wrapped">
+            <span class="chip">📁 belongs to → GitLaw</span>
+            <span class="chip">👤 about → Sarah Chen</span>
+            <span class="chip">💡 from idea → Audit automation</span>
+            <span class="chip">💬 touched → Telegram thread</span>
+          </div>
+        </div>
+      </div>
+      <figcaption class="cap">
+        <div class="nm"><h3>Relations / LinkGraph</h3><span class="role">linked records</span></div>
+        <p>How a record connects to everything else — its project, the people, the idea it came from. The graph, made tappable.</p>
+        <span class="native">iOS · linked chips</span>
+      </figcaption>
+    </figure>
+
+    <!-- SettingsPanel -->
+    <figure class="block">
+      <div class="frame">
+        <div class="surface">
+          <div class="lbl">Scope — what it may touch</div>
+          <div class="row mt" style="gap:8px;align-items:center"><span class="muted" style="width:54px;font-size:11px">tables</span><span class="chip">task</span><span class="chip">event</span></div>
+          <div class="row mt" style="gap:8px;align-items:center"><span class="muted" style="width:54px;font-size:11px">projects</span><span class="chip">family</span></div>
+          <div class="lbl mt2">Tools &amp; bridges</div>
+          <div class="row mt wrapped" style="gap:6px"><span class="chip">Google Calendar</span><span class="chip">echo-db</span><span class="chip">Telegram</span></div>
+        </div>
+      </div>
+      <figcaption class="cap">
+        <div class="nm"><h3>SettingsPanel</h3><span class="role">agent controls</span></div>
+        <p>An agent's persona, scope, tools and bridges — what it's allowed to touch. Steer it without touching code.</p>
+        <span class="native">iOS · settings screen</span>
+      </figcaption>
+    </figure>
+
+    <!-- Chart -->
+    <figure class="block">
+      <div class="frame">
+        <div class="surface">
+          <div class="lbl">Resting heart rate · 7-day</div>
+          <div class="row" style="align-items:baseline;gap:8px;margin-top:4px">
+            <span class="metric"><span class="big">54</span> <span class="unit">bpm</span></span>
+            <span class="metric delta">▼ 3 vs last week</span>
+          </div>
+          <svg viewBox="0 0 240 56" width="100%" height="56" style="margin-top:8px" preserveAspectRatio="none">
+            <polyline fill="none" stroke="#059669" stroke-width="2" points="0,40 40,34 80,38 120,28 160,30 200,20 240,24"/>
+            <polyline fill="rgba(5,150,105,.08)" stroke="none" points="0,40 40,34 80,38 120,28 160,30 200,20 240,24 240,56 0,56"/>
+          </svg>
+        </div>
+      </div>
+      <figcaption class="cap">
+        <div class="nm"><h3>Chart / Scorecard</h3><span class="role">a metric over time</span></div>
+        <p>A number that matters with its trend — health, spend, momentum. Composed into briefs or stood alone.</p>
+        <span class="native">iOS · widget / chart</span>
+      </figcaption>
+    </figure>
+
+    <!-- Form -->
+    <figure class="block">
+      <div class="frame">
+        <div class="surface">
+          <div class="lbl">Capture</div>
+          <div class="fld mt"><span class="fld-ph">Remind me to thank Greg for the JSV intro…</span></div>
+          <div class="row mt2" style="gap:8px"><span class="pill">📁 GitLaw</span><span class="pill">⏱ today</span></div>
+          <div class="btns"><button class="btn btn-go" style="background:#0f172a">Send to Echo</button></div>
+        </div>
+      </div>
+      <figcaption class="cap">
+        <div class="nm"><h3>Form / Capture</h3><span class="role">structured input</span></div>
+        <p>The fast way in — a thought, a task, a correction. Echo files it to the right project and agent.</p>
+        <span class="native">iOS · share-sheet "send to Echo"</span>
+      </figcaption>
+    </figure>
+
+    <!-- Brief -->
+    <figure class="block wide">
+      <div class="frame">
+        <div class="surface">
+          <div class="brief">
+            <h4>While you slept</h4>
+            <div class="when">Thursday · 6:00am · 4 things handled, 2 need you</div>
+            <ul>
+              <li><span class="e">✅</span><span>Drafted 3 inbox replies — queued for your approval.</span></li>
+              <li><span class="e">📅</span><span>Tomorrow's 3 meetings prepped with briefs &amp; open threads.</span></li>
+              <li><span class="e">🔔</span><span>Nudged 2 stale follow-ups (Victoria, Rostyslav) — drafts ready.</span></li>
+              <li><span class="e">✋</span><span><b>Needs you:</b> approve the investor-update figures before 9am.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <figcaption class="cap">
+        <div class="nm"><h3>Brief / Digest</h3><span class="role">a composed read</span></div>
+        <p>The morning surface — a narrative woven from other blocks (approvals, charts, timelines). "Here's what I did while you slept." This is what <i>wake up ahead</i> feels like.</p>
+        <span class="native">iOS · rich notification / card</span>
+      </figcaption>
+    </figure>
+
+  </section>
+
+  <section class="closing">
+    <p>"Build the blocks once. Every agent, every channel, web and native — composes itself."</p>
+    <a class="ghost" href="faq.html">How Echo works →</a>
+  </section>
+
+  <footer>
+    <span>Echo — the quiet layer over your whole life.</span>
+    <span><a href="index.html">Home</a> · <a href="faq.html">How it works</a> · <a href="index.html#waitlist">Request access</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
