@@ -19,6 +19,8 @@ The form is **Formspree-ready**: in `index.html`, replace `YOUR_FORM_ID` in the 
 
 ## State
 
+v8 — `faq.html` is now **five interactive sections**. Added **02 — What it can do**: a 3D **skills coverflow** (drag / arrows / autoplay) — install community skills or build your own, each scoped tool-by-tool, with a live detail panel + enable toggle. Replaced the sense→remember→act loop with **04 — How it comes together**: a **live dashboard that assembles from the skills you toggle on** (bento tiles appear/extend as you enable skills — "never a black box"). Reworked **05 — Why it's yours**: VM **hosted anywhere (any cloud / own box)**, **a database you choose**. Header updated to five pictures.
+
 v7 — `faq.html` diagram pass: swapped diagram 01 to **"Your data in. Action out."** — the left-to-right **Pipeline** (sources → unified wiki memory → Echo + skills → tools → you), responsive (stacks on mobile) with animated flow particles in the connectors. Reworked diagram 04 **"Yours. Actually yours."** into a **home-base** picture — your VM drawn as a house (your data · open Echo core · your key inside), reached from your phone (Telegram/WhatsApp), your Mac (Claude Code) and anywhere, with **animated bidirectional sync pulses**. Added agentmail-style **scroll-reveal** + flow animations across all four, all gated behind `prefers-reduced-motion`. New `architecture.html` content-lab (5 variants) is where the Pipeline came from.
 
 v6 — rebuilt `faq.html` as a **"How it works"** page led by four SVG **vision diagrams** (ambient channels · overnight loop · sense-remember-act · ownership architecture); moved the existing FAQ below them under a "Questions" heading.
