@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Echo — How it works (FAQ)</title>
-<meta name="description" content="How Echo works: your own database, your own model key, an open-source foundation we set up for you on a private VM and wire into your channels. The questions people ask before they join." />
+<title>Echo — How it works</title>
+<meta name="description" content="How Echo works, in four pictures: one mind on every channel, an assistant that works overnight, a sense–remember–act loop you stay in command of, and an architecture that's actually yours — your VM, your model key, your data, on an open foundation." />
 <meta property="og:title" content="Echo — How it works" />
-<meta property="og:description" content="Your data, your model key, an open foundation — set up for you and run on your own VM. The FAQ." />
+<meta property="og:description" content="The whole idea in four diagrams: one mind across every channel, work done overnight, a loop you command, and an architecture that's actually yours." />
 <meta property="og:type" content="website" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='white'/%3E%3Ccircle cx='50' cy='50' r='26' fill='none' stroke='white' stroke-opacity='.5' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='white' stroke-opacity='.2' stroke-width='2'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,31 +32,62 @@
       radial-gradient(900px 520px at 50% -8%, var(--glow), transparent 60%),
       radial-gradient(1200px 800px at 50% 120%, rgba(255,255,255,.03), transparent 55%);
   }
-  .wrap{position:relative; z-index:1; max-width:820px; margin:0 auto; padding:0 28px}
+  .wrap{position:relative; z-index:1; max-width:860px; margin:0 auto; padding:0 28px}
 
   /* ── nav ── */
   nav{display:flex; align-items:center; justify-content:space-between; padding:30px 0 0}
   .brand{display:flex; align-items:center; gap:11px; letter-spacing:.02em; text-decoration:none; color:var(--ink)}
   .brand .mark{width:22px; height:22px}
   .brand b{font-weight:600; font-size:16px; letter-spacing:.04em}
+  .nav-right{display:flex; align-items:center; gap:20px}
+  .nav-link{font-size:13px; color:var(--muted); text-decoration:none; letter-spacing:.02em; transition:.25s}
+  .nav-link:hover{color:var(--ink)}
   .nav-cta{font-size:13px; color:var(--muted); text-decoration:none; border:1px solid var(--line);
     padding:8px 16px; border-radius:999px; transition:.25s; backdrop-filter:blur(6px)}
   .nav-cta:hover{color:var(--ink); border-color:rgba(255,255,255,.28)}
 
   /* ── head ── */
-  .head{padding:74px 0 36px; max-width:640px}
+  .head{padding:74px 0 30px; max-width:680px}
   .eyebrow{font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold);
     margin-bottom:26px; font-weight:500}
   .eyebrow .dot{display:inline-block; width:5px; height:5px; border-radius:50%;
-    background:var(--gold); box-shadow:0 0 12px var(--gold); margin-right:9px; vertical-align:middle}
+    background:var(--gold); box-shadow:0 0 12px var(--gold); margin-right:9px; vertical-align:middle;
+    animation:breathe 3s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:.45}50%{opacity:1}}
   h1{font-family:'Instrument Serif',Georgia,serif; font-weight:400; letter-spacing:-.01em;
     font-size:clamp(40px,6.5vw,68px); line-height:1.0; margin-bottom:22px}
   h1 .it{font-style:italic; color:var(--accent)}
-  .head p{color:var(--muted); font-size:17px; font-weight:300; line-height:1.62; max-width:560px}
+  .head p{color:var(--muted); font-size:17px; font-weight:300; line-height:1.62; max-width:580px}
   .head p b{color:var(--ink); font-weight:500}
 
-  /* ── faq list ── */
-  .faq{padding:14px 0 40px}
+  /* ── diagrams ── */
+  .diagrams{padding:18px 0 30px}
+  .dgm{padding:40px 0 8px; border-top:1px solid var(--line-soft)}
+  .dgm:first-child{border-top:0; padding-top:8px}
+  .dgm-n{font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); font-weight:500}
+  .dgm-h{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(26px,4.2vw,40px);
+    line-height:1.04; letter-spacing:-.005em; margin:13px 0 10px}
+  .dgm-h .it{font-style:italic; color:var(--accent)}
+  .dgm-dek{color:var(--muted); font-weight:300; font-size:16px; line-height:1.62; max-width:600px; margin-bottom:26px}
+  .dgm-dek b{color:var(--ink); font-weight:500}
+  .dgm-stage{border:1px solid var(--line-soft); border-radius:18px; padding:26px 22px;
+    background:linear-gradient(180deg, rgba(255,255,255,.022), rgba(255,255,255,.005)); overflow:hidden}
+  .diagram{width:100%; height:auto; display:block}
+  .dgm-cap{color:var(--faint); font-size:13px; font-weight:300; line-height:1.6; margin-top:16px; max-width:600px}
+  .dgm-cap b{color:var(--muted); font-weight:400}
+  svg text{font-family:'Inter',-apple-system,sans-serif}
+  .svg-serif{font-family:'Instrument Serif',serif}
+  .svg-breathe{animation:breathe 3s ease-in-out infinite}
+  @media (prefers-reduced-motion:reduce){ .svg-breathe,.eyebrow .dot{animation:none} }
+
+  /* ── faq ── */
+  .faq-wrap{padding:30px 0 0}
+  .faq-head{max-width:600px; padding:34px 0 6px; border-top:1px solid var(--line-soft)}
+  .faq-head .eyebrow{margin-bottom:18px}
+  .faq-head h2{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(28px,4.2vw,44px);
+    line-height:1.04; margin-bottom:10px}
+  .faq-head p{color:var(--muted); font-weight:300; font-size:16px; line-height:1.6}
+  .faq{padding:18px 0 40px}
   .faq details{border-top:1px solid var(--line-soft); padding:0}
   .faq details:last-child{border-bottom:1px solid var(--line-soft)}
   .faq summary{list-style:none; cursor:pointer; padding:26px 44px 26px 0; position:relative;
@@ -95,7 +126,9 @@
 
   @media (max-width:720px){
     nav{padding:22px 0 0}
-    .head{padding:54px 0 26px}
+    .nav-right{gap:14px}
+    .head{padding:54px 0 22px}
+    .dgm-stage{padding:18px 12px}
   }
 </style>
 </head>
@@ -111,94 +144,285 @@
       </svg>
       <b>ECHO</b>
     </a>
-    <div style="display:flex;align-items:center;gap:20px">
-      <a class="nav-link" href="components.html" style="font-size:13px;color:var(--muted);text-decoration:none;letter-spacing:.02em">Building blocks</a>
+    <div class="nav-right">
+      <a class="nav-link" href="demo.html">Live demo</a>
+      <a class="nav-link" href="components.html">Building blocks</a>
       <a class="nav-cta" href="index.html#waitlist">Request access</a>
     </div>
   </nav>
 
   <header class="head">
     <div class="eyebrow"><span class="dot"></span>How it works</div>
-    <h1>Yours. <span class="it">Actually yours.</span></h1>
-    <p>Echo isn't another account on someone else's servers. It runs on <b>your own machine</b>, on <b>your own model key</b>, over <b>your own data</b> — built on an open foundation, set up for you, and improved for as long as you're a member. The questions people ask before they join:</p>
+    <h1>Not an app you open. <span class="it">A layer that runs.</span></h1>
+    <p>Echo is easier to show than to tell. Here's the whole idea in <b>four pictures</b> — what it is, when it works, how it thinks, and why it's actually yours. The detailed questions people ask are answered further down.</p>
   </header>
 
-  <section class="faq">
+  <section class="diagrams">
 
-    <details open>
-      <summary>What is Echo, really?</summary>
-      <div class="a">
-        <p>An ambient assistant that lives in the channels you already use — Telegram, WhatsApp, Slack, email, Signal, voice — and works through the night so you wake up ahead. It reads what's coming at you, remembers everyone you know, and does the work before you ask: drafts the reply, preps the meeting, books the table, chases the follow-up.</p>
-        <p>It isn't an app you open. It's a quiet layer over your whole life — work and personal — with one shared memory underneath.</p>
+    <!-- ── Diagram 1 — One mind, on every channel ── -->
+    <article class="dgm">
+      <div class="dgm-n">01 — What it is</div>
+      <h2 class="dgm-h">One mind, <span class="it">on every channel</span></h2>
+      <p class="dgm-dek">You don't open Echo. It reaches you — on Telegram, WhatsApp, Slack, email, Signal or voice — and it's the <b>same assistant with the same memory</b> wherever you are. Message it from your phone at dawn and your laptop at night; it never loses the thread.</p>
+      <div class="dgm-stage">
+        <svg class="diagram" viewBox="0 0 760 470" role="img" aria-label="Six channels converge into one Echo mind that sits over one shared memory">
+          <!-- converging lines -->
+          <g stroke="rgba(194,168,120,.26)" stroke-width="1" fill="none">
+            <path d="M88 64 L380 228"/><path d="M205 64 L380 228"/><path d="M322 64 L380 228"/>
+            <path d="M438 64 L380 228"/><path d="M555 64 L380 228"/><path d="M672 64 L380 228"/>
+          </g>
+          <!-- channel chips -->
+          <g font-size="13" fill="#f5f5f3" text-anchor="middle">
+            <g><rect x="36"  y="22" width="104" height="34" rx="17" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="88"  y="44">Telegram</text></g>
+            <g><rect x="153" y="22" width="104" height="34" rx="17" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="205" y="44">WhatsApp</text></g>
+            <g><rect x="270" y="22" width="104" height="34" rx="17" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="322" y="44">Slack</text></g>
+            <g><rect x="386" y="22" width="104" height="34" rx="17" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="438" y="44">Email</text></g>
+            <g><rect x="503" y="22" width="104" height="34" rx="17" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="555" y="44">Signal</text></g>
+            <g><rect x="620" y="22" width="104" height="34" rx="17" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="672" y="44">Voice</text></g>
+          </g>
+          <!-- hub mask + concentric Echo mark -->
+          <circle cx="380" cy="228" r="50" fill="#050505"/>
+          <circle cx="380" cy="228" r="44" fill="none" stroke="rgba(194,168,120,.22)" stroke-width="1.5"/>
+          <circle cx="380" cy="228" r="26" fill="none" stroke="rgba(194,168,120,.45)" stroke-width="1.5"/>
+          <circle class="svg-breathe" cx="380" cy="228" r="8" fill="#c2a878"/>
+          <text class="svg-serif" x="470" y="222" font-size="22" fill="#f5f5f3">Echo</text>
+          <text x="470" y="244" font-size="12.5" fill="#8a8a86" letter-spacing="1">one mind</text>
+          <!-- connector to memory band -->
+          <path d="M380 278 L380 352" stroke="rgba(194,168,120,.3)" stroke-width="1"/>
+          <!-- memory band -->
+          <rect x="150" y="352" width="460" height="86" rx="16" fill="rgba(194,168,120,.06)" stroke="rgba(194,168,120,.3)"/>
+          <text class="svg-serif" x="380" y="390" font-size="21" fill="#e8e4dc" text-anchor="middle">One shared memory</text>
+          <text x="380" y="414" font-size="12.5" fill="#8a8a86" text-anchor="middle" letter-spacing="1.5">people · promises · threads · history</text>
+        </svg>
       </div>
-    </details>
+      <p class="dgm-cap"><b>The reframe:</b> not another chatbot tab to manage — a single presence that lives where you already talk, backed by one memory underneath.</p>
+    </article>
 
-    <details>
-      <summary>Where does my data live?</summary>
-      <div class="a">
-        <span class="tag">Your own database</span>
-        <p>In a store <b>you own</b> — your repository and database, on your infrastructure. Your memory, your contacts, your notes, your history. It is <b>single-tenant</b>: nothing is pooled with other members, and none of it is ever used to train a model or sold to anyone.</p>
-        <p>You can read it, export it, or delete it at any time. Leaving means taking your data and the code with you — there's no hostage situation.</p>
+    <!-- ── Diagram 2 — Works overnight ── -->
+    <article class="dgm">
+      <div class="dgm-n">02 — When it works</div>
+      <h2 class="dgm-h">Go to bed behind. <span class="it">Wake up ahead.</span></h2>
+      <p class="dgm-dek">Hand off the day's loose ends at night. While you sleep, Echo clears the inbox, preps tomorrow's meetings, chases the follow-ups and runs the research — so the morning starts with <b>the work already done</b> and a short list of what truly needs you.</p>
+      <div class="dgm-stage">
+        <svg class="diagram" viewBox="0 0 760 360" role="img" aria-label="An overnight timeline: you hand off at 11pm, Echo works through the night, you wake at 7am to completed work">
+          <defs>
+            <linearGradient id="night2" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#0a0a14"/><stop offset="0.55" stop-color="#11101a"/><stop offset="1" stop-color="#1a130c"/>
+            </linearGradient>
+          </defs>
+          <rect x="18" y="20" width="724" height="320" rx="20" fill="url(#night2)" stroke="rgba(255,255,255,.07)"/>
+          <!-- dotted night track + travelling dot -->
+          <path d="M120 88 L640 88" stroke="rgba(194,168,120,.28)" stroke-width="1" stroke-dasharray="2 7"/>
+          <circle r="4" fill="#c2a878">
+            <animateMotion dur="4.5s" repeatCount="indefinite" path="M120 88 L640 88"/>
+          </circle>
+          <!-- moon, left -->
+          <g transform="translate(80,88)">
+            <circle r="22" fill="#e8e4dc" opacity=".92"/>
+            <circle cx="9" r="22" fill="#0d0c16"/>
+          </g>
+          <text x="80" y="146" font-size="12" fill="#c2a878" text-anchor="middle" letter-spacing="2">11 PM</text>
+          <text x="80" y="168" font-size="12" fill="#8a8a86" text-anchor="middle">go to bed</text>
+          <text x="80" y="185" font-size="12" fill="#8a8a86" text-anchor="middle">behind</text>
+          <!-- sun, right -->
+          <g transform="translate(680,88)" stroke="#c2a878" stroke-width="1.5">
+            <circle r="15" fill="#c2a878"/>
+            <g opacity=".8">
+              <line x1="0" y1="-24" x2="0" y2="-30"/><line x1="0" y1="24" x2="0" y2="30"/>
+              <line x1="-24" y1="0" x2="-30" y2="0"/><line x1="24" y1="0" x2="30" y2="0"/>
+              <line x1="-17" y1="-17" x2="-21" y2="-21"/><line x1="17" y1="17" x2="21" y2="21"/>
+              <line x1="-17" y1="17" x2="-21" y2="21"/><line x1="17" y1="-17" x2="21" y2="-21"/>
+            </g>
+          </g>
+          <text x="680" y="146" font-size="12" fill="#c2a878" text-anchor="middle" letter-spacing="2">7 AM</text>
+          <text x="680" y="168" font-size="12" fill="#e8e4dc" text-anchor="middle">wake up</text>
+          <text x="680" y="185" font-size="12" fill="#e8e4dc" text-anchor="middle">ahead</text>
+          <!-- middle: while you sleep -->
+          <text x="380" y="62" font-size="11" fill="#c2a878" text-anchor="middle" letter-spacing="3">WHILE YOU SLEEP</text>
+          <g font-size="13.5" fill="#e8e4dc">
+            <g><rect x="248" y="120" width="264" height="40" rx="10" fill="rgba(255,255,255,.035)" stroke="rgba(255,255,255,.1)"/><text x="278" y="145" fill="#c2a878">✓</text><text x="298" y="145">Inbox cleared to zero</text></g>
+            <g><rect x="248" y="170" width="264" height="40" rx="10" fill="rgba(255,255,255,.035)" stroke="rgba(255,255,255,.1)"/><text x="278" y="195" fill="#c2a878">✓</text><text x="298" y="195">Tomorrow's meetings prepped</text></g>
+            <g><rect x="248" y="220" width="264" height="40" rx="10" fill="rgba(255,255,255,.035)" stroke="rgba(255,255,255,.1)"/><text x="278" y="245" fill="#c2a878">✓</text><text x="298" y="245">Follow-ups chased</text></g>
+            <g><rect x="248" y="270" width="264" height="40" rx="10" fill="rgba(255,255,255,.035)" stroke="rgba(255,255,255,.1)"/><text x="278" y="295" fill="#c2a878">✓</text><text x="298" y="295">Overnight research done</text></g>
+          </g>
+        </svg>
       </div>
-    </details>
+      <p class="dgm-cap"><b>The promise:</b> the night does the work. You stop being the bottleneck on your own day.</p>
+    </article>
 
-    <details>
-      <summary>Whose AI is it running on?</summary>
-      <div class="a">
-        <span class="tag">Bring your own key</span>
-        <p>Yours. Echo runs on <b>your own Anthropic / Claude key or plan</b>. Model usage is billed to you directly, at cost — no markup, no reselling tokens, no middleman reading your prompts.</p>
-        <p>Because the intelligence is your key and the data is your database, the trust model is simple: we operate the plumbing, you own the brain and the memory.</p>
+    <!-- ── Diagram 3 — How it thinks ── -->
+    <article class="dgm">
+      <div class="dgm-n">03 — How it thinks</div>
+      <h2 class="dgm-h">Sense, remember, <span class="it">act.</span></h2>
+      <p class="dgm-dek">A loop, not a command line. Echo <b>reads</b> everything coming at you, holds it against <b>one memory</b> of everyone and everything you've touched, then <b>acts</b> — drafting, booking, prepping, chasing. Nothing irreversible goes out without you: <b>you stay in command.</b></p>
+      <div class="dgm-stage">
+        <svg class="diagram" viewBox="0 0 760 420" role="img" aria-label="A loop of three stages — sense, remember, act — circling you, who stays in command">
+          <defs>
+            <marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#c2a878"/>
+            </marker>
+          </defs>
+          <!-- arcs -->
+          <g fill="none" stroke="rgba(194,168,120,.5)" stroke-width="1.4" marker-end="url(#ah3)">
+            <path d="M262 138 Q380 78 488 138"/>
+            <path d="M598 206 Q612 318 470 344"/>
+            <path d="M290 350 Q150 320 160 208"/>
+          </g>
+          <!-- centre -->
+          <text class="svg-serif" x="380" y="222" font-size="22" fill="#e8e4dc" text-anchor="middle" font-style="italic">you stay</text>
+          <text class="svg-serif" x="380" y="248" font-size="22" fill="#e8e4dc" text-anchor="middle" font-style="italic">in command</text>
+          <!-- node: Sense -->
+          <circle cx="200" cy="150" r="68" fill="rgba(255,255,255,.025)" stroke="rgba(194,168,120,.3)"/>
+          <text class="svg-serif" x="200" y="142" font-size="20" fill="#f5f5f3" text-anchor="middle">Sense</text>
+          <text x="200" y="164" font-size="10.5" fill="#8a8a86" text-anchor="middle">reads what's</text>
+          <text x="200" y="178" font-size="10.5" fill="#8a8a86" text-anchor="middle">coming at you</text>
+          <!-- node: Remember -->
+          <circle cx="560" cy="150" r="68" fill="rgba(255,255,255,.025)" stroke="rgba(194,168,120,.3)"/>
+          <text class="svg-serif" x="560" y="142" font-size="20" fill="#f5f5f3" text-anchor="middle">Remember</text>
+          <text x="560" y="164" font-size="10.5" fill="#8a8a86" text-anchor="middle">people · promises</text>
+          <text x="560" y="178" font-size="10.5" fill="#8a8a86" text-anchor="middle">· threads</text>
+          <!-- node: Act -->
+          <circle cx="380" cy="346" r="68" fill="rgba(255,255,255,.025)" stroke="rgba(194,168,120,.3)"/>
+          <text class="svg-serif" x="380" y="338" font-size="20" fill="#f5f5f3" text-anchor="middle">Act</text>
+          <text x="380" y="360" font-size="10.5" fill="#8a8a86" text-anchor="middle">drafts · books</text>
+          <text x="380" y="374" font-size="10.5" fill="#8a8a86" text-anchor="middle">preps · chases</text>
+        </svg>
       </div>
-    </details>
+      <p class="dgm-cap"><b>The mechanism:</b> memory is the difference between a clever reply and an assistant that actually knows your world — and the approval gate keeps you the one in charge.</p>
+    </article>
 
-    <details>
-      <summary>Is it open source?</summary>
-      <div class="a">
-        <span class="tag">Open foundation</span>
-        <p>Yes. Echo is built on an <b>open-source foundation</b> you can inspect, fork and extend. No black box: you can see exactly what it does with your data and your key, and the community improves the core in the open.</p>
-        <p>If you ever want to run the whole thing yourself, you can — the managed service is about convenience, not lock-in.</p>
+    <!-- ── Diagram 4 — Actually yours ── -->
+    <article class="dgm">
+      <div class="dgm-n">04 — Why it's yours</div>
+      <h2 class="dgm-h">Yours. <span class="it">Actually yours.</span></h2>
+      <p class="dgm-dek">No account on someone else's servers. Echo runs on <b>your own private VM</b>, over <b>your own database</b>, powered by <b>your own model key</b> — on an open foundation you can inspect. We operate the plumbing; you own the brain and the memory. Leave whenever you like and take both with you.</p>
+      <div class="dgm-stage">
+        <svg class="diagram" viewBox="0 0 760 440" role="img" aria-label="A private single-tenant VM holding your database and the open-source Echo core, with your model key plugged in as the brain">
+          <defs>
+            <marker id="ah4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0 0 L10 5 L0 10 z" fill="#8a8a86"/>
+            </marker>
+          </defs>
+          <!-- we operate the plumbing -->
+          <text x="380" y="34" font-size="11.5" fill="#8a8a86" text-anchor="middle" letter-spacing="1">we operate the plumbing</text>
+          <path d="M380 44 L380 72" stroke="rgba(255,255,255,.2)" stroke-width="1" marker-end="url(#ah4)"/>
+          <!-- VM box -->
+          <rect x="196" y="78" width="430" height="300" rx="20" fill="rgba(194,168,120,.045)" stroke="rgba(194,168,120,.32)" stroke-width="1.4"/>
+          <text x="411" y="112" font-size="11" fill="#c2a878" text-anchor="middle" letter-spacing="3">YOUR PRIVATE VM</text>
+          <text x="411" y="130" font-size="11.5" fill="#8a8a86" text-anchor="middle">single-tenant · isolated · nothing pooled</text>
+          <!-- cell: database -->
+          <rect x="224" y="150" width="374" height="92" rx="12" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.1)"/>
+          <g transform="translate(548,196)" stroke="#c2a878" stroke-width="1.3" fill="none" opacity=".85">
+            <ellipse cx="0" cy="-12" rx="16" ry="6"/><path d="M-16 -12 V12 a16 6 0 0 0 32 0 V-12"/><path d="M-16 0 a16 6 0 0 0 32 0"/>
+          </g>
+          <text class="svg-serif" x="250" y="190" font-size="20" fill="#f5f5f3">Your database</text>
+          <text x="250" y="214" font-size="12" fill="#8a8a86">memory · contacts · notes · history</text>
+          <!-- cell: open core -->
+          <rect x="224" y="256" width="374" height="92" rx="12" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.1)"/>
+          <g transform="translate(548,302)" stroke="#c2a878" stroke-width="1.6" fill="none" opacity=".85">
+            <path d="M-8 -12 L-18 0 L-8 12"/><path d="M8 -12 L18 0 L8 12"/>
+          </g>
+          <text class="svg-serif" x="250" y="296" font-size="20" fill="#f5f5f3">Open-source Echo core</text>
+          <text x="250" y="320" font-size="12" fill="#8a8a86">inspect · fork · run it yourself</text>
+          <!-- model key plug -->
+          <text x="58" y="200" font-size="16" fill="#c2a878" class="svg-serif">Your key</text>
+          <text x="18" y="222" font-size="11.5" fill="#8a8a86">the brain —</text>
+          <text x="18" y="238" font-size="11.5" fill="#8a8a86">billed to you, at cost</text>
+          <path d="M120 210 L196 210" stroke="rgba(194,168,120,.5)" stroke-width="1.4"/>
+          <rect x="186" y="203" width="14" height="14" rx="3" fill="#c2a878"/>
+          <!-- exit caption -->
+          <text x="380" y="412" font-size="12.5" fill="#5a5a57" text-anchor="middle">Leave any time — take your data and the code with you. No hostage situation.</text>
+        </svg>
       </div>
-    </details>
+      <p class="dgm-cap"><b>The trust model:</b> because the intelligence is your key and the data is your store, the open foundation makes every privacy claim auditable — not just promised.</p>
+    </article>
 
-    <details>
-      <summary>How do I get it set up?</summary>
-      <div class="a">
-        <span class="tag">Done for you</span>
-        <p>We do it with you, one to one. We provision a <b>private VM</b> for you, connect your channels, wire in your model key, and migrate the context that matters — so on day one it already knows your world.</p>
-        <p>This is why access is members-first: every onboarding is a hands-on session, not a self-serve signup, and there are only so many in each wave.</p>
-      </div>
-    </details>
+  </section>
 
-    <details>
-      <summary>What does it cost?</summary>
-      <div class="a">
-        <span class="tag">Hosting &amp; improvement</span>
-        <p>A membership fee covers the managed hosting — your private VM, the channel bridges, monitoring, security and updates — plus <b>continuous improvement</b>: Echo gets sharper every week, and that work flows to you automatically.</p>
-        <p>Model usage is separate and passes straight through to your own key, at cost. So you're paying for the service and the hosting, never a markup on the intelligence itself.</p>
-      </div>
-    </details>
+  <section class="faq-wrap">
+    <div class="faq-head">
+      <div class="eyebrow"><span class="dot"></span>Questions</div>
+      <h2>The questions people ask before they join</h2>
+      <p>Everything above, in detail — plus the practical ones about cost, channels and access.</p>
+    </div>
 
-    <details>
-      <summary>Which channels does it work on?</summary>
-      <div class="a">
-        <p>Telegram, WhatsApp, Slack, email, Signal and voice today. It's the same assistant with the same memory wherever you reach it — message it from your phone in the morning and your laptop at night, it doesn't lose the thread.</p>
-      </div>
-    </details>
+    <section class="faq">
 
-    <details>
-      <summary>Is it private and secure?</summary>
-      <div class="a">
-        <p>By design. Single-tenant infrastructure, your own keys, your own VM, your own data store. Nothing is shared across members and nothing is mined. The open foundation means the privacy claims are auditable, not just promised.</p>
-      </div>
-    </details>
+      <details open>
+        <summary>What is Echo, really?</summary>
+        <div class="a">
+          <p>An ambient assistant that lives in the channels you already use — Telegram, WhatsApp, Slack, email, Signal, voice — and works through the night so you wake up ahead. It reads what's coming at you, remembers everyone you know, and does the work before you ask: drafts the reply, preps the meeting, books the table, chases the follow-up.</p>
+          <p>It isn't an app you open. It's a quiet layer over your whole life — work and personal — with one shared memory underneath.</p>
+        </div>
+      </details>
 
-    <details>
-      <summary>How do I get access?</summary>
-      <div class="a">
-        <p>By nomination, or by applying. Most members are nominated by someone already inside; if that's not you, you can apply and we open a few seats each wave — every request read by hand.</p>
-      </div>
-    </details>
+      <details>
+        <summary>Where does my data live?</summary>
+        <div class="a">
+          <span class="tag">Your own database</span>
+          <p>In a store <b>you own</b> — your repository and database, on your infrastructure. Your memory, your contacts, your notes, your history. It is <b>single-tenant</b>: nothing is pooled with other members, and none of it is ever used to train a model or sold to anyone.</p>
+          <p>You can read it, export it, or delete it at any time. Leaving means taking your data and the code with you — there's no hostage situation.</p>
+        </div>
+      </details>
 
+      <details>
+        <summary>Whose AI is it running on?</summary>
+        <div class="a">
+          <span class="tag">Bring your own key</span>
+          <p>Yours. Echo runs on <b>your own Anthropic / Claude key or plan</b>. Model usage is billed to you directly, at cost — no markup, no reselling tokens, no middleman reading your prompts.</p>
+          <p>Because the intelligence is your key and the data is your database, the trust model is simple: we operate the plumbing, you own the brain and the memory.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Is it open source?</summary>
+        <div class="a">
+          <span class="tag">Open foundation</span>
+          <p>Yes. Echo is built on an <b>open-source foundation</b> you can inspect, fork and extend. No black box: you can see exactly what it does with your data and your key, and the community improves the core in the open.</p>
+          <p>If you ever want to run the whole thing yourself, you can — the managed service is about convenience, not lock-in.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I get it set up?</summary>
+        <div class="a">
+          <span class="tag">Done for you</span>
+          <p>We do it with you, one to one. We provision a <b>private VM</b> for you, connect your channels, wire in your model key, and migrate the context that matters — so on day one it already knows your world.</p>
+          <p>This is why access is members-first: every onboarding is a hands-on session, not a self-serve signup, and there are only so many in each wave.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What does it cost?</summary>
+        <div class="a">
+          <span class="tag">Hosting &amp; improvement</span>
+          <p>A membership fee covers the managed hosting — your private VM, the channel bridges, monitoring, security and updates — plus <b>continuous improvement</b>: Echo gets sharper every week, and that work flows to you automatically.</p>
+          <p>Model usage is separate and passes straight through to your own key, at cost. So you're paying for the service and the hosting, never a markup on the intelligence itself.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Which channels does it work on?</summary>
+        <div class="a">
+          <p>Telegram, WhatsApp, Slack, email, Signal and voice today. It's the same assistant with the same memory wherever you reach it — message it from your phone in the morning and your laptop at night, it doesn't lose the thread.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Is it private and secure?</summary>
+        <div class="a">
+          <p>By design. Single-tenant infrastructure, your own keys, your own VM, your own data store. Nothing is shared across members and nothing is mined. The open foundation means the privacy claims are auditable, not just promised.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I get access?</summary>
+        <div class="a">
+          <p>By nomination, or by applying. Most members are nominated by someone already inside; if that's not you, you can apply and we open a few seats each wave — every request read by hand.</p>
+        </div>
+      </details>
+
+    </section>
   </section>
 
   <section class="cta">
