@@ -19,6 +19,8 @@ The form is **Formspree-ready**: in `index.html`, replace `YOUR_FORM_ID` in the 
 
 ## State
 
+v7 — `faq.html` diagram pass: swapped diagram 01 to **"Your data in. Action out."** — the left-to-right **Pipeline** (sources → unified wiki memory → Echo + skills → tools → you), responsive (stacks on mobile) with animated flow particles in the connectors. Reworked diagram 04 **"Yours. Actually yours."** into a **home-base** picture — your VM drawn as a house (your data · open Echo core · your key inside), reached from your phone (Telegram/WhatsApp), your Mac (Claude Code) and anywhere, with **animated bidirectional sync pulses**. Added agentmail-style **scroll-reveal** + flow animations across all four, all gated behind `prefers-reduced-motion`. New `architecture.html` content-lab (5 variants) is where the Pipeline came from.
+
 v6 — rebuilt `faq.html` as a **"How it works"** page led by four SVG **vision diagrams** (ambient channels · overnight loop · sense-remember-act · ownership architecture); moved the existing FAQ below them under a "Questions" heading.
 
 v5 — added `demo.html`, an **interactive narrated demo** (guided click-through + AI voice + animated Echo character). Linked as "Live demo" from nav.
