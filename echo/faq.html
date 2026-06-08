@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Echo — How it works</title>
-<meta name="description" content="How Echo works, in four pictures: your data flowing into one wiki-style memory and back out as action, an assistant that works overnight, a sense–remember–act loop you stay in command of, and a private VM that's actually yours — reached from your phone, your Mac and anywhere, always in sync." />
+<meta name="description" content="How Echo works, in five pictures: your data flowing into one wiki-style memory and back out as action, installable and custom skills you scope tool-by-tool, an assistant that works overnight, a dashboard that assembles itself from the skills you enable, and a private VM that's actually yours — hosted anywhere, your database, reached from your phone, your Mac and anywhere." />
 <meta property="og:title" content="Echo — How it works" />
 <meta property="og:description" content="The whole idea in four diagrams: data in / action out, work done overnight, a loop you command, and a private home base you reach from anywhere." />
 <meta property="og:type" content="website" />
@@ -170,12 +170,98 @@
   footer a{color:var(--muted); text-decoration:none}
   footer a:hover{color:var(--ink)}
 
+  /* ── skills coverflow (diagram 02) ── */
+  .deck{position:relative; height:330px; perspective:1500px; user-select:none; touch-action:pan-y}
+  .cf{position:absolute; inset:0; transform-style:preserve-3d}
+  .card{position:absolute; top:50%; left:50%; width:204px; height:286px; margin:-143px 0 0 -102px;
+    border-radius:18px; padding:20px 18px; cursor:pointer; backface-visibility:hidden;
+    border:1px solid var(--gold-line);
+    background:linear-gradient(165deg, rgba(46,43,37,.92), rgba(12,12,11,.94));
+    box-shadow:0 0 0 1px rgba(194,168,120,.12), 0 30px 60px -24px rgba(0,0,0,.85);
+    transition:transform .55s cubic-bezier(.2,.7,.2,1), opacity .55s, box-shadow .4s, border-color .4s;
+    display:flex; flex-direction:column}
+  .card::before{content:''; position:absolute; inset:0; border-radius:18px; pointer-events:none;
+    background:linear-gradient(160deg, rgba(232,228,220,.06), transparent 42%); opacity:.7}
+  .card.active{border-color:rgba(194,168,120,.65);
+    box-shadow:0 0 44px -8px rgba(194,168,120,.45), 0 0 0 1px rgba(194,168,120,.4), 0 30px 70px -24px rgba(0,0,0,.9)}
+  .card .ic{width:30px; height:30px; color:var(--gold); margin-bottom:auto}
+  .card .ic svg{width:30px; height:30px; display:block}
+  .card h4{font-family:'Instrument Serif',serif; font-weight:400; font-size:22px; margin:14px 0 7px; letter-spacing:.005em}
+  .card .cap{font-size:12px; color:var(--muted); font-weight:300; line-height:1.45}
+  .card .foot{margin-top:14px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--faint)}
+  .card.make{border-style:dashed; background:linear-gradient(165deg, rgba(194,168,120,.14), rgba(12,12,11,.94))}
+  .card.make .ic, .card.community .ic{color:var(--accent)}
+  .card .pill{position:absolute; top:16px; right:16px; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--gold); border:1px solid var(--gold-line); border-radius:999px; padding:3px 8px}
+
+  .deck-nav{display:flex; align-items:center; justify-content:center; gap:18px; margin-top:18px}
+  .deck-btn{width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:rgba(255,255,255,.03);
+    color:var(--ink); font-size:17px; cursor:pointer; transition:.2s; display:flex; align-items:center; justify-content:center}
+  .deck-btn:hover{border-color:rgba(194,168,120,.5); background:rgba(194,168,120,.08)}
+  .deck-dots{display:flex; gap:7px}
+  .deck-dots b{width:6px; height:6px; border-radius:50%; background:var(--faint); cursor:pointer; transition:.25s}
+  .deck-dots b.on{background:var(--gold); box-shadow:0 0 8px var(--gold); width:18px; border-radius:3px}
+
+  .skill-detail{margin-top:22px; border:1px solid var(--line-soft); border-radius:16px; padding:22px 24px;
+    background:rgba(255,255,255,.022); display:flex; gap:22px; align-items:flex-start; flex-wrap:wrap}
+  .skill-detail .sd-main{flex:1; min-width:240px}
+  .skill-detail h3{font-family:'Instrument Serif',serif; font-weight:400; font-size:24px; margin-bottom:6px}
+  .skill-detail .sd-desc{color:var(--muted); font-weight:300; font-size:14px; line-height:1.55; margin-bottom:14px}
+  .sd-k{font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:9px}
+  .sd-tools{display:flex; flex-wrap:wrap; gap:8px}
+  .sd-tool{font-size:12.5px; color:var(--accent); border:1px solid var(--gold-line); border-radius:8px; padding:6px 11px; background:rgba(194,168,120,.05)}
+  .sd-tool .x{color:var(--gold); margin-right:5px}
+  .sd-side{flex:none; display:flex; flex-direction:column; align-items:flex-end; gap:10px; min-width:150px}
+  .sd-toggle{display:inline-flex; align-items:center; gap:9px; cursor:pointer; font-size:13px; color:var(--muted);
+    border:1px solid var(--line); border-radius:999px; padding:8px 14px; transition:.25s}
+  .sd-toggle .sw{width:30px; height:17px; border-radius:999px; background:rgba(255,255,255,.12); position:relative; transition:.25s; flex:none}
+  .sd-toggle .sw::after{content:''; position:absolute; top:2px; left:2px; width:13px; height:13px; border-radius:50%; background:var(--ink); transition:.25s}
+  .sd-toggle.on{color:var(--accent); border-color:rgba(194,168,120,.5)}
+  .sd-toggle.on .sw{background:var(--gold)}
+  .sd-toggle.on .sw::after{left:15px; background:#0a0a0a}
+  .sd-note{font-size:11.5px; color:var(--faint); text-align:right; max-width:180px; line-height:1.5}
+
+  /* ── live dashboard (diagram 04) ── */
+  .dash-top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; flex-wrap:wrap}
+  .dash-top .em{font-family:'Instrument Serif',serif; font-size:19px}
+  .dash-live{display:inline-flex; align-items:center; gap:7px; font-size:11px; color:var(--muted); letter-spacing:.04em}
+  .dash-live i{width:7px; height:7px; border-radius:50%; background:#9ad99a; box-shadow:0 0 9px #9ad99a; animation:breathe 2.2s ease-in-out infinite}
+  .stoggles{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px}
+  .stog{font-size:12.5px; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:7px 13px;
+    cursor:pointer; display:inline-flex; gap:8px; align-items:center; transition:.2s; background:rgba(255,255,255,.02)}
+  .stog .d{width:8px; height:8px; border-radius:50%; border:1px solid var(--faint); transition:.2s}
+  .stog:hover{color:var(--ink)}
+  .stog.on{color:var(--accent); border-color:rgba(194,168,120,.5); background:rgba(194,168,120,.07)}
+  .stog.on .d{background:var(--gold); border-color:var(--gold); box-shadow:0 0 8px var(--gold)}
+  .stog.locked{opacity:.8; cursor:default}
+  .bento{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+  .tile{border:1px solid var(--line); border-radius:14px; padding:15px 16px; background:rgba(255,255,255,.025); min-height:116px; display:flex; flex-direction:column}
+  .tile.wide{grid-column:span 2}
+  .tile.core{border-color:rgba(194,168,120,.4); background:rgba(194,168,120,.06)}
+  .tile.appear{animation:tilein .5s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes tilein{from{opacity:0; transform:scale(.96) translateY(10px)}to{opacity:1; transform:none}}
+  .tile .tk{font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:9px; display:flex; align-items:center; gap:7px}
+  .tile .tk svg{width:14px; height:14px; stroke:var(--gold); fill:none; stroke-width:1.6}
+  .tile h5{font-family:'Instrument Serif',serif; font-weight:400; font-size:18px; margin-bottom:6px}
+  .tile p{font-size:12.5px; color:var(--muted); font-weight:300; line-height:1.5}
+  .tile p b{color:var(--accent); font-weight:500}
+  .dash-hint{font-size:11.5px; color:var(--faint); margin-top:15px; text-align:center}
+
+  @media (max-width:560px){
+    .deck{height:300px}
+    .skill-detail{flex-direction:column}
+    .sd-side{align-items:flex-start; width:100%}
+    .sd-note{text-align:left}
+    .bento{grid-template-columns:1fr 1fr}
+  }
+
   @media (max-width:720px){
     nav{padding:22px 0 0}
     .nav-right{gap:14px}
     .head{padding:54px 0 22px}
     .dgm-stage{padding:18px 12px}
   }
+  @media (prefers-reduced-motion:reduce){ .card{transition:none} }
 </style>
 </head>
 <body>
@@ -200,7 +286,7 @@
   <header class="head">
     <div class="eyebrow"><span class="dot"></span>How it works</div>
     <h1>Not an app you open. <span class="it">A layer that runs.</span></h1>
-    <p>Echo is easier to show than to tell. Here's the whole idea in <b>four pictures</b> — what it is, when it works, how it thinks, and why it's actually yours. The detailed questions people ask are answered further down.</p>
+    <p>Echo is easier to show than to tell. Here's the whole idea in <b>five pictures</b> — what it is, what it can do, when it works, how it comes together, and why it's actually yours. The detailed questions people ask are answered further down.</p>
   </header>
 
   <section class="diagrams">
@@ -256,9 +342,39 @@
       <p class="dgm-cap"><b>The shape:</b> your memory and Echo are the machinery in the middle — they turn raw signal into action you just approve.</p>
     </article>
 
-    <!-- ── Diagram 2 — Works overnight ── -->
+    <!-- ── Diagram 2 — Skills (coverflow) ── -->
     <article class="dgm">
-      <div class="dgm-n">02 — When it works</div>
+      <div class="dgm-n">02 — What it can do</div>
+      <h2 class="dgm-h">Add skills. <span class="it">Make your own.</span></h2>
+      <p class="dgm-dek">Echo starts with a few skills and grows. <b>Install ready-made ones from the community</b>, or <b>build your own</b> — and for each skill you choose exactly which <b>tools and capabilities</b> it can touch. Switch them on as your life needs them; everything still shares the one memory underneath.</p>
+      <div class="dgm-stage">
+        <div class="deck" id="deck" tabindex="0" role="group" aria-label="Browse Echo skills — use arrow keys or drag">
+          <div class="cf" id="cf"></div>
+        </div>
+        <div class="deck-nav">
+          <button class="deck-btn" id="deckPrev" aria-label="Previous skill">‹</button>
+          <div class="deck-dots" id="deckDots"></div>
+          <button class="deck-btn" id="deckNext" aria-label="Next skill">›</button>
+        </div>
+        <div class="skill-detail" id="skillDetail">
+          <div class="sd-main">
+            <h3 id="sdName">—</h3>
+            <p class="sd-desc" id="sdDesc">—</p>
+            <div class="sd-k">Tools &amp; capabilities it can use</div>
+            <div class="sd-tools" id="sdTools"></div>
+          </div>
+          <div class="sd-side">
+            <button class="sd-toggle on" id="sdToggle" aria-pressed="true"><span class="sw"></span><span id="sdToggleT">Enabled</span></button>
+            <div class="sd-note" id="sdNote">You decide which tools each skill may touch — nothing more.</div>
+          </div>
+        </div>
+      </div>
+      <p class="dgm-cap"><b>The point:</b> Echo isn't one fixed product — it's a base that you extend, skill by skill, granting each only the reach you choose.</p>
+    </article>
+
+    <!-- ── Diagram 3 — Works overnight ── -->
+    <article class="dgm">
+      <div class="dgm-n">03 — When it works</div>
       <h2 class="dgm-h">Go to bed behind. <span class="it">Wake up ahead.</span></h2>
       <p class="dgm-dek">Hand off the day's loose ends at night. While you sleep, Echo clears the inbox, preps tomorrow's meetings, chases the follow-ups and runs the research — so the morning starts with <b>the work already done</b> and a short list of what truly needs you.</p>
       <div class="dgm-stage">
@@ -308,58 +424,28 @@
       <p class="dgm-cap"><b>The promise:</b> the night does the work. You stop being the bottleneck on your own day.</p>
     </article>
 
-    <!-- ── Diagram 3 — How it thinks ── -->
+    <!-- ── Diagram 4 — Dashboard assembles from skills ── -->
     <article class="dgm">
-      <div class="dgm-n">03 — How it thinks</div>
-      <h2 class="dgm-h">Sense, remember, <span class="it">act.</span></h2>
-      <p class="dgm-dek">A loop, not a command line. Echo <b>reads</b> everything coming at you, holds it against <b>one memory</b> of everyone and everything you've touched, then <b>acts</b> — drafting, booking, prepping, chasing. Nothing irreversible goes out without you: <b>you stay in command.</b></p>
+      <div class="dgm-n">04 — How it comes together</div>
+      <h2 class="dgm-h">A dashboard that <span class="it">builds itself.</span></h2>
+      <p class="dgm-dek">Your view of Echo isn't fixed — it <b>assembles from the skills you've turned on</b> and extends the moment you add one. Always-on and easy to browse: a live read on what the agent is doing, what's done, and what's waiting on you. <b>Toggle a skill below and watch the dashboard grow.</b></p>
       <div class="dgm-stage">
-        <svg class="diagram" viewBox="0 0 760 420" role="img" aria-label="A loop of three stages — sense, remember, act — circling you, who stays in command">
-          <defs>
-            <marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-              <path d="M0 0 L10 5 L0 10 z" fill="#c2a878"/>
-            </marker>
-          </defs>
-          <!-- arcs -->
-          <g fill="none" stroke="rgba(194,168,120,.5)" stroke-width="1.4" marker-end="url(#ah3)">
-            <path id="loop3a" d="M262 138 Q380 78 488 138"/>
-            <path id="loop3b" d="M598 206 Q612 318 470 344"/>
-            <path id="loop3c" d="M290 350 Q150 320 160 208"/>
-          </g>
-          <!-- flowing pulses around the loop -->
-          <g class="anim3" fill="#e8e4dc">
-            <circle r="3.4"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#loop3a"/></animateMotion></circle>
-            <circle r="3.4"><animateMotion dur="2.6s" begin="0.87s" repeatCount="indefinite"><mpath href="#loop3b"/></animateMotion></circle>
-            <circle r="3.4"><animateMotion dur="2.6s" begin="1.74s" repeatCount="indefinite"><mpath href="#loop3c"/></animateMotion></circle>
-          </g>
-          <!-- centre -->
-          <text class="svg-serif" x="380" y="222" font-size="22" fill="#e8e4dc" text-anchor="middle" font-style="italic">you stay</text>
-          <text class="svg-serif" x="380" y="248" font-size="22" fill="#e8e4dc" text-anchor="middle" font-style="italic">in command</text>
-          <!-- node: Sense -->
-          <circle cx="200" cy="150" r="68" fill="rgba(255,255,255,.025)" stroke="rgba(194,168,120,.3)"/>
-          <text class="svg-serif" x="200" y="142" font-size="20" fill="#f5f5f3" text-anchor="middle">Sense</text>
-          <text x="200" y="164" font-size="10.5" fill="#8a8a86" text-anchor="middle">reads what's</text>
-          <text x="200" y="178" font-size="10.5" fill="#8a8a86" text-anchor="middle">coming at you</text>
-          <!-- node: Remember -->
-          <circle cx="560" cy="150" r="68" fill="rgba(255,255,255,.025)" stroke="rgba(194,168,120,.3)"/>
-          <text class="svg-serif" x="560" y="142" font-size="20" fill="#f5f5f3" text-anchor="middle">Remember</text>
-          <text x="560" y="164" font-size="10.5" fill="#8a8a86" text-anchor="middle">people · promises</text>
-          <text x="560" y="178" font-size="10.5" fill="#8a8a86" text-anchor="middle">· threads</text>
-          <!-- node: Act -->
-          <circle cx="380" cy="346" r="68" fill="rgba(255,255,255,.025)" stroke="rgba(194,168,120,.3)"/>
-          <text class="svg-serif" x="380" y="338" font-size="20" fill="#f5f5f3" text-anchor="middle">Act</text>
-          <text x="380" y="360" font-size="10.5" fill="#8a8a86" text-anchor="middle">drafts · books</text>
-          <text x="380" y="374" font-size="10.5" fill="#8a8a86" text-anchor="middle">preps · chases</text>
-        </svg>
+        <div class="dash-top">
+          <span class="em">Your dashboard</span>
+          <span class="dash-live"><i></i>live · assembled from your skills</span>
+        </div>
+        <div class="stoggles" id="stoggles" role="group" aria-label="Toggle skills to extend your dashboard"></div>
+        <div class="bento" id="bento"></div>
+        <div class="dash-hint" id="dashHint"></div>
       </div>
-      <p class="dgm-cap"><b>The mechanism:</b> memory is the difference between a clever reply and an assistant that actually knows your world — and the approval gate keeps you the one in charge.</p>
+      <p class="dgm-cap"><b>The feel:</b> install a skill and a new panel appears — the agent's work stays visible and browsable, never a black box.</p>
     </article>
 
     <!-- ── Diagram 4 — Your home base, reached from anywhere ── -->
     <article class="dgm">
-      <div class="dgm-n">04 — Why it's yours</div>
+      <div class="dgm-n">05 — Why it's yours</div>
       <h2 class="dgm-h">Yours. <span class="it">Actually yours.</span></h2>
-      <p class="dgm-dek">Echo lives on <b>your own private VM</b> — your data, an open Echo core and your model key, all under one roof you own. You reach that single home from wherever you already are: <b>Telegram or WhatsApp on your phone</b>, <b>Claude Code on your Mac</b>, Slack or voice anywhere. Same Echo, same memory, always in sync — and you can pick it up and leave whenever you like.</p>
+      <p class="dgm-dek">Echo lives on <b>your own private VM</b> — hosted wherever you like (any cloud, or your own box) — with <b>a database you choose</b>, an open Echo core and your model key, all under one roof you own. You reach that single home from wherever you already are: <b>Telegram or WhatsApp on your phone</b>, <b>Claude Code on your Mac</b>, Slack or voice anywhere. Same Echo, same memory, always in sync — and you can pick it up and leave whenever you like.</p>
       <div class="dgm-stage">
         <svg class="diagram" viewBox="0 0 760 460" role="img" aria-label="Your private VM drawn as a house holding your data, open Echo core and key — reached and kept in sync from your phone, your Mac and anywhere else">
           <!-- alive: gentle home pulse -->
@@ -381,7 +467,8 @@
             <circle r="2.6" fill="#e8e4dc"><animateMotion dur="3s" begin="0.2s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" repeatCount="indefinite"><mpath href="#h3"/></animateMotion></circle>
           </g>
           <!-- the house = your VM -->
-          <text x="380" y="104" font-size="10.5" fill="#c2a878" text-anchor="middle" letter-spacing="3">YOUR HOME BASE</text>
+          <text x="380" y="96" font-size="10.5" fill="#c2a878" text-anchor="middle" letter-spacing="3">YOUR HOME BASE</text>
+          <text x="380" y="113" font-size="10" fill="#5a5a57" text-anchor="middle" letter-spacing="1">host it on any cloud · or your own box</text>
           <polygon points="286,196 380,118 474,196" fill="rgba(194,168,120,.12)" stroke="#c2a878" stroke-width="1.4" stroke-linejoin="round"/>
           <rect x="302" y="196" width="156" height="130" rx="4" fill="rgba(194,168,120,.06)" stroke="#c2a878" stroke-width="1.4"/>
           <rect x="362" y="264" width="36" height="62" rx="2" fill="rgba(255,255,255,.04)" stroke="rgba(194,168,120,.4)"/>
@@ -392,8 +479,8 @@
           <g transform="translate(428,236)" stroke="#c2a878" stroke-width="1.3" fill="none" opacity=".85">
             <path d="M-5 -7 L-11 0 L-5 7"/><path d="M5 -7 L11 0 L5 7"/>
           </g>
-          <text x="380" y="350" font-size="11" fill="#c2a878" text-anchor="middle" letter-spacing="2">YOUR PRIVATE VM</text>
-          <text x="380" y="368" font-size="11.5" fill="#8a8a86" text-anchor="middle">your data · open Echo core · your key — single-tenant</text>
+          <text x="380" y="350" font-size="11" fill="#c2a878" text-anchor="middle" letter-spacing="2">YOUR PRIVATE VM · SINGLE-TENANT</text>
+          <text x="380" y="368" font-size="11.5" fill="#8a8a86" text-anchor="middle">a database you choose · open Echo core · your key</text>
           <!-- phone, left -->
           <rect x="90" y="174" width="40" height="72" rx="9" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.28)"/>
           <line x1="104" y1="182" x2="116" y2="182" stroke="rgba(255,255,255,.32)"/>
@@ -525,6 +612,156 @@
       ents.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold:.12, rootMargin:'0px 0px -8% 0px' });
     els.forEach(el => io.observe(el));
+  })();
+
+  // ── skills coverflow (diagram 02) ──
+  (function(){
+    const cf = document.getElementById('cf'); if(!cf) return;
+    const I = {
+      health:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h3l2 5 4-12 2 7h4"/></svg>',
+      cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>',
+      mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>',
+      search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/></svg>',
+      family:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/></svg>',
+      coin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 10h3a1.5 1.5 0 0 1 0 3h-3M9.5 13h4"/></svg>',
+      people:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M16 6a3 3 0 0 1 0 5M17 15c2 .5 4 2 4 5"/></svg>',
+      spark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M6.5 6.5l3 3M14.5 14.5l3 3M17.5 6.5l-3 3M9.5 14.5l-3 3"/></svg>',
+      grid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14.5v6M14.5 17.5h6"/></svg>'
+    };
+    const SKILLS = [
+      {ic:I.health, name:'Health', cap:'sleep · training · nutrition', tools:['Health data','Calendar'], desc:'Tracks sleep, training and weight in the background and reads the trend back to you each week.'},
+      {ic:I.cal, name:'Scheduling', cap:'meetings · holds · travel', tools:['Calendar','Email'], desc:'Books meetings, defends focus time and plans travel — proposing, never double-booking.'},
+      {ic:I.mail, name:'Inbox', cap:'triage · drafts in your voice', tools:['Email','Messaging'], desc:'Reads every thread, drafts replies that sound like you, surfaces only what needs your call.'},
+      {ic:I.search, name:'Research', cap:'overnight briefings', tools:['Web','Docs'], desc:'Hand it a company, market or name — wake up to a tight, sourced briefing.'},
+      {ic:I.family, name:'Family', cap:'activities · gifts · plans', tools:['Calendar','Messaging'], desc:'Holds the family calendar, the kids’ activities and the gift list so nothing slips.'},
+      {ic:I.coin, name:'Finance', cap:'expenses · subscriptions', tools:['Email','Docs'], desc:'Files receipts, reconciles expenses and flags the bill you’re overpaying.'},
+      {ic:I.people, name:'Relationships', cap:'remember everyone', tools:['Memory','Messaging'], desc:'Keeps everyone’s story and the promise you made — and reminds you when to follow up.'},
+      {ic:I.spark, name:'Build your own', cap:'name it · prompt it · scope it', tools:['Pick any tools'], desc:'Describe a skill in plain words, give it a prompt, and choose exactly which tools it may use. A bespoke skill for your work in minutes.', kind:'make'},
+      {ic:I.grid, name:'Community library', cap:'browse · install · share', tools:['One-click enable'], desc:'Switch on proven skills others have built and shared — installed into your own VM, scoped by you.', kind:'community'}
+    ];
+    let active = 0, dragging = false, sx = 0, auto;
+    const detail = {n:document.getElementById('sdName'), d:document.getElementById('sdDesc'), t:document.getElementById('sdTools'),
+      tog:document.getElementById('sdToggle'), togT:document.getElementById('sdToggleT'), note:document.getElementById('sdNote')};
+    const dots = document.getElementById('deckDots');
+    const enabled = SKILLS.map((s,i)=> i<4); // first few on by default
+
+    // build cards + dots
+    SKILLS.forEach((s,i)=>{
+      const c = document.createElement('div');
+      c.className = 'card' + (s.kind ? ' '+s.kind : '');
+      c.innerHTML = `${s.kind?'<span class="pill">'+(s.kind==='make'?'Custom':'Community')+'</span>':''}
+        <span class="ic">${s.ic}</span><h4>${s.name}</h4><div class="cap">${s.cap}</div>
+        <div class="foot">${s.kind==='make'?'+ new skill':s.kind==='community'?'from the community':'skill'}</div>`;
+      c.addEventListener('click', ()=>{ if(i===active){ toggle(); } else { go(i); } });
+      cf.appendChild(c);
+      const b = document.createElement('b'); b.addEventListener('click', ()=>go(i)); dots.appendChild(b);
+    });
+    const cards = [...cf.children];
+
+    function layout(){
+      cards.forEach((c,i)=>{
+        const o = i - active, a = Math.abs(o);
+        c.style.transform = `translateX(${o*64}px) translateZ(${-a*130}px) rotateY(${o*-34}deg) scale(${1-a*0.06})`;
+        c.style.opacity = a>3 ? 0 : 1 - a*0.16;
+        c.style.zIndex = 100 - a;
+        c.style.pointerEvents = a>3 ? 'none' : 'auto';
+        c.classList.toggle('active', i===active);
+      });
+      [...dots.children].forEach((d,i)=>d.classList.toggle('on', i===active));
+      paint();
+    }
+    function paint(){
+      const s = SKILLS[active];
+      detail.n.textContent = s.name;
+      detail.d.textContent = s.desc;
+      detail.t.innerHTML = s.tools.map(t=>`<span class="sd-tool"><span class="x">✓</span>${t}</span>`).join('');
+      if(s.kind){
+        detail.tog.style.display='none';
+        detail.note.textContent = s.kind==='make'
+          ? 'Every skill you build is granted only the tools you tick — nothing more.'
+          : 'Community skills install into your own VM and run under the tools you allow.';
+      } else {
+        detail.tog.style.display='';
+        const on = enabled[active];
+        detail.tog.classList.toggle('on', on);
+        detail.tog.setAttribute('aria-pressed', String(on));
+        detail.togT.textContent = on ? 'Enabled' : 'Enable';
+        detail.note.textContent = 'You decide which tools each skill may touch — nothing more.';
+      }
+    }
+    function toggle(){ if(SKILLS[active].kind) return; enabled[active]=!enabled[active]; paint(); }
+    function go(i){ active = (i+SKILLS.length)%SKILLS.length; layout(); restart(); }
+    detail.tog.addEventListener('click', toggle);
+    document.getElementById('deckPrev').addEventListener('click', ()=>go(active-1));
+    document.getElementById('deckNext').addEventListener('click', ()=>go(active+1));
+
+    const deck = document.getElementById('deck');
+    deck.addEventListener('keydown', e=>{ if(e.key==='ArrowLeft'){e.preventDefault();go(active-1);} if(e.key==='ArrowRight'){e.preventDefault();go(active+1);} });
+    // drag / swipe
+    const down = x=>{dragging=true; sx=x; stop();};
+    const move = x=>{ if(!dragging) return; const dx=x-sx; if(Math.abs(dx)>52){ go(active + (dx<0?1:-1)); dragging=false; } };
+    const up = ()=>dragging=false;
+    deck.addEventListener('mousedown', e=>down(e.clientX));
+    window.addEventListener('mousemove', e=>move(e.clientX));
+    window.addEventListener('mouseup', up);
+    deck.addEventListener('touchstart', e=>down(e.touches[0].clientX), {passive:true});
+    deck.addEventListener('touchmove', e=>move(e.touches[0].clientX), {passive:true});
+    deck.addEventListener('touchend', up);
+
+    // gentle autoplay, pause on interaction
+    const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    function start(){ if(reduce) return; auto = setInterval(()=>{ active=(active+1)%SKILLS.length; layout(); }, 3200); }
+    function stop(){ clearInterval(auto); }
+    function restart(){ stop(); start(); }
+    deck.addEventListener('mouseenter', stop); deck.addEventListener('mouseleave', start);
+    deck.addEventListener('focus', stop); deck.addEventListener('blur', start);
+
+    layout(); start();
+  })();
+
+  // ── live dashboard that assembles from skills (diagram 04) ──
+  (function(){
+    const bento = document.getElementById('bento'), stog = document.getElementById('stoggles'), hint = document.getElementById('dashHint');
+    if(!bento) return;
+    const rings = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5" fill="#c2a878" stroke="none"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="11" opacity=".5"/></svg>';
+    const TILES = [
+      {id:'core', lock:true, wide:true, tk:'Echo · priorities', icon:rings, h:'Today', body:'<b>3 things that matter</b> · 2 cleared overnight · 1 waiting on you'},
+      {id:'health', tk:'Health', h:'Recovery', body:'Sleep <b>7.3h</b> · 8,420 steps · resting HR 58'},
+      {id:'scheduling', tk:'Scheduling', h:'Next up', body:'<b>14:00</b> Design review · 3 focus holds kept'},
+      {id:'inbox', tk:'Inbox', h:'Cleared', body:'Inbox at <b>0</b> · 3 drafts await your ok'},
+      {id:'research', tk:'Research', h:'Briefed', body:'<b>2 briefings</b> ready from overnight'},
+      {id:'family', tk:'Family', h:'Today', body:'<b>15:30</b> school pickup — with Tara'},
+      {id:'finance', tk:'Finance', h:'Money', body:'£420 expenses filed · <b>1 bill</b> to review'},
+      {id:'relationships', tk:'Relationships', h:'Follow up', body:'<b>Sarah</b> — birthday Wed · ping her'}
+    ];
+    const ON = new Set(['health','scheduling','inbox']);
+    const skills = TILES.filter(t=>!t.lock);
+    let last = new Set();
+
+    // toggles
+    stog.innerHTML = '<span class="stog locked on" title="The orchestrator — always on"><span class="d"></span>Echo · always on</span>';
+    skills.forEach(t=>{
+      const b = document.createElement('button');
+      b.className = 'stog' + (ON.has(t.id)?' on':'');
+      b.innerHTML = `<span class="d"></span>${t.tk}`;
+      b.addEventListener('click', ()=>{ ON.has(t.id)?ON.delete(t.id):ON.add(t.id); b.classList.toggle('on', ON.has(t.id)); render(); });
+      stog.appendChild(b);
+    });
+
+    function render(){
+      const show = TILES.filter(t=>t.lock || ON.has(t.id));
+      bento.innerHTML = '';
+      show.forEach(t=>{
+        const el = document.createElement('div');
+        el.className = 'tile' + (t.wide?' wide':'') + (t.id==='core'?' core':'') + ((!t.lock && !last.has(t.id))?' appear':'');
+        el.innerHTML = `<div class="tk">${t.icon||''}${t.tk}</div><h5>${t.h}</h5><p>${t.body}</p>`;
+        bento.appendChild(el);
+      });
+      last = new Set(show.map(t=>t.id));
+      const n = ON.size, more = skills.length - n;
+      hint.textContent = `${n} skill${n===1?'':'s'} on · ${more} more to add — toggle any above to extend your dashboard`;
+    }
+    render();
   })();
 </script>
 </body>
