@@ -13,11 +13,13 @@ The form is **Formspree-ready**: in `index.html`, replace `YOUR_FORM_ID` in the 
 ## Pages
 
 - `index.html` — the landing page (hero · value props · life-areas bento · access · waitlist).
-- `faq.html` — "How it works" (yours / own machine / own key).
+- `faq.html` — **"How it works"**: opens with four hand-drawn SVG **vision diagrams** — (1) *One mind, on every channel* (channels → one Echo → one shared memory), (2) *Go to bed behind, wake up ahead* (the overnight work loop), (3) *Sense → Remember → Act* (the working loop, "you stay in command"), (4) *Yours. Actually yours.* (the ownership architecture: your VM, your key, your DB + open core). The detailed FAQ now sits below them under a "Questions" heading. All diagrams are inline SVG in the house style (gold accent, concentric-ring motif), no images/deps.
 - `components.html` — **the building-blocks gallery**: the standard UX-block kit every Echo agent composes its screens from (HomeCard, ApprovalCard, Board, Drawer, Timeline, Relations, SettingsPanel, Chart, Form, Brief), each rendered faithfully with its native-iOS mapping. Linked from the nav. Tells the "self-composing, renderer-neutral, web + iOS" story visually.
 - `demo.html` — **interactive, narrated walkthrough**. A mock Echo app with dummy data (Echo + Family/Health/GitLaw/Finance domain agents, role agents, Telegram bridge; Home with HomeCards + "while you slept" brief; Agents → detail; Tasks board; Approvals queue). A guided tour spotlights each section and an animated **"Echo" character narrates** via the browser's built-in **Web Speech API** (free, no key, on-device) with Next/Back/Skip + captions. **Voiceover upgrade path:** populate the `AUDIO` map in the script with pre-rendered files (e.g. ElevenLabs `voice/0.mp3`…) and it plays those instead of the browser voice. Best in Chrome/Edge/Safari.
 
 ## State
+
+v6 — rebuilt `faq.html` as a **"How it works"** page led by four SVG **vision diagrams** (ambient channels · overnight loop · sense-remember-act · ownership architecture); moved the existing FAQ below them under a "Questions" heading.
 
 v5 — added `demo.html`, an **interactive narrated demo** (guided click-through + AI voice + animated Echo character). Linked as "Live demo" from nav.
 
