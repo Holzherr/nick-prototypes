@@ -4,9 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Echo — How it works</title>
-<meta name="description" content="How Echo works, in four pictures: one mind on every channel, an assistant that works overnight, a sense–remember–act loop you stay in command of, and an architecture that's actually yours — your VM, your model key, your data, on an open foundation." />
+<meta name="description" content="How Echo works, in four pictures: your data flowing into one wiki-style memory and back out as action, an assistant that works overnight, a sense–remember–act loop you stay in command of, and a private VM that's actually yours — reached from your phone, your Mac and anywhere, always in sync." />
 <meta property="og:title" content="Echo — How it works" />
-<meta property="og:description" content="The whole idea in four diagrams: one mind across every channel, work done overnight, a loop you command, and an architecture that's actually yours." />
+<meta property="og:description" content="The whole idea in four diagrams: data in / action out, work done overnight, a loop you command, and a private home base you reach from anywhere." />
 <meta property="og:type" content="website" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='white'/%3E%3Ccircle cx='50' cy='50' r='26' fill='none' stroke='white' stroke-opacity='.5' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='white' stroke-opacity='.2' stroke-width='2'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,7 +78,53 @@
   svg text{font-family:'Inter',-apple-system,sans-serif}
   .svg-serif{font-family:'Instrument Serif',serif}
   .svg-breathe{animation:breathe 3s ease-in-out infinite}
-  @media (prefers-reduced-motion:reduce){ .svg-breathe,.eyebrow .dot{animation:none} }
+
+  /* ── pipeline flow (diagram 01) ── */
+  .pl{display:flex; align-items:stretch; gap:0}
+  .pl-stage{flex:1; min-width:0; border:1px solid var(--line); border-radius:14px; padding:16px 15px;
+    background:rgba(255,255,255,.025); display:flex; flex-direction:column}
+  .pl-stage.key{border-color:var(--gold-line); background:rgba(194,168,120,.06); animation:glowgold 4s ease-in-out infinite}
+  .pl-stage.brain{border-color:rgba(232,228,220,.22); background:rgba(232,228,220,.045)}
+  .pl-stage.you{flex:.62; align-items:center; justify-content:center; text-align:center}
+  @keyframes glowgold{0%,100%{box-shadow:0 0 0 0 rgba(194,168,120,0)}50%{box-shadow:0 0 26px -6px rgba(194,168,120,.4)}}
+  .pl-k{font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:6px}
+  .pl-sub{font-size:11px; color:var(--muted); font-weight:300; margin-bottom:11px; line-height:1.45}
+  .pl-chips{display:flex; flex-direction:column; gap:7px}
+  .pl-chip{font-size:12.5px; color:var(--ink); border:1px solid var(--line); border-radius:8px;
+    padding:7px 10px; background:rgba(255,255,255,.03); text-align:center}
+  .pl-chip.g{border-color:var(--gold-line); color:var(--accent)}
+  .pl-chip.ghost{color:var(--faint); border-style:dashed}
+  .pl-mark{display:flex; flex-direction:column; align-items:center; text-align:center; margin-bottom:10px}
+  .pl-mark svg{width:30px; height:30px}
+  .pl-mark .t{font-family:'Instrument Serif',serif; font-size:19px; margin-top:6px}
+  .pl-mark .s{font-size:11px; color:var(--muted); font-weight:300; margin-top:1px}
+  .pl-you-t{font-family:'Instrument Serif',serif; font-size:24px}
+  .pl-you-s{font-size:11.5px; color:var(--muted); font-weight:300; margin-top:4px}
+  .pl-ar{flex:none; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 7px; gap:6px}
+  .pl-track{position:relative; width:34px; height:2px; border-radius:2px; overflow:hidden;
+    background:linear-gradient(90deg, transparent, var(--gold-line) 30%, var(--gold-line) 70%, transparent)}
+  .pl-track i{position:absolute; top:50%; left:0; width:5px; height:5px; margin-top:-2.5px; border-radius:50%;
+    background:var(--gold); box-shadow:0 0 8px var(--gold); animation:plflow 2.2s linear infinite}
+  @keyframes plflow{0%{left:-12%; opacity:0}18%{opacity:1}82%{opacity:1}100%{left:108%; opacity:0}}
+  .pl-ar .c{font-size:9.5px; color:var(--faint); text-align:center; max-width:60px; line-height:1.3; letter-spacing:.02em}
+
+  /* ── scroll reveal (agentmail-style staggered fade-in) ── */
+  .dgm, .dgm-stage{will-change:opacity, transform}
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1; transform:none}
+
+  @media (max-width:760px){
+    .pl{flex-direction:column}
+    .pl-stage.you{flex:1}
+    .pl-ar{flex-direction:row; padding:9px 0}
+    .pl-track{transform:rotate(90deg)}
+    .pl-ar .c{max-width:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .svg-breathe,.eyebrow .dot,.pl-stage.key,.pl-track i{animation:none}
+    .reveal{opacity:1; transform:none; transition:none}
+    svg [class*="anim"]{display:none}
+  }
 
   /* ── faq ── */
   .faq-wrap{padding:30px 0 0}
@@ -159,43 +205,55 @@
 
   <section class="diagrams">
 
-    <!-- ── Diagram 1 — One mind, on every channel ── -->
+    <!-- ── Diagram 1 — The flow (pipeline) ── -->
     <article class="dgm">
       <div class="dgm-n">01 — What it is</div>
-      <h2 class="dgm-h">One mind, <span class="it">on every channel</span></h2>
-      <p class="dgm-dek">You don't open Echo. It reaches you — on Telegram, WhatsApp, Slack, email, Signal or voice — and it's the <b>same assistant with the same memory</b> wherever you are. Message it from your phone at dawn and your laptop at night; it never loses the thread.</p>
+      <h2 class="dgm-h">Your data in. <span class="it">Action out.</span></h2>
+      <p class="dgm-dek">Everything you touch — health, calendar, email, conversations — flows into <b>one wiki-style memory</b>. Echo reads the whole picture, runs the right <b>skill</b>, and acts through the <b>tools</b> you've switched on. Raw signal enters one side; finished work leaves the other, reaching you on <b>every channel</b>.</p>
       <div class="dgm-stage">
-        <svg class="diagram" viewBox="0 0 760 470" role="img" aria-label="Six channels converge into one Echo mind that sits over one shared memory">
-          <!-- converging lines -->
-          <g stroke="rgba(194,168,120,.26)" stroke-width="1" fill="none">
-            <path d="M88 64 L380 228"/><path d="M205 64 L380 228"/><path d="M322 64 L380 228"/>
-            <path d="M438 64 L380 228"/><path d="M555 64 L380 228"/><path d="M672 64 L380 228"/>
-          </g>
-          <!-- channel chips -->
-          <g font-size="13" fill="#f5f5f3" text-anchor="middle">
-            <g><rect x="36"  y="22" width="104" height="34" rx="17" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="88"  y="44">Telegram</text></g>
-            <g><rect x="153" y="22" width="104" height="34" rx="17" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="205" y="44">WhatsApp</text></g>
-            <g><rect x="270" y="22" width="104" height="34" rx="17" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="322" y="44">Slack</text></g>
-            <g><rect x="386" y="22" width="104" height="34" rx="17" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="438" y="44">Email</text></g>
-            <g><rect x="503" y="22" width="104" height="34" rx="17" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="555" y="44">Signal</text></g>
-            <g><rect x="620" y="22" width="104" height="34" rx="17" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="672" y="44">Voice</text></g>
-          </g>
-          <!-- hub mask + concentric Echo mark -->
-          <circle cx="380" cy="228" r="50" fill="#050505"/>
-          <circle cx="380" cy="228" r="44" fill="none" stroke="rgba(194,168,120,.22)" stroke-width="1.5"/>
-          <circle cx="380" cy="228" r="26" fill="none" stroke="rgba(194,168,120,.45)" stroke-width="1.5"/>
-          <circle class="svg-breathe" cx="380" cy="228" r="8" fill="#c2a878"/>
-          <text class="svg-serif" x="470" y="222" font-size="22" fill="#f5f5f3">Echo</text>
-          <text x="470" y="244" font-size="12.5" fill="#8a8a86" letter-spacing="1">one mind</text>
-          <!-- connector to memory band -->
-          <path d="M380 278 L380 352" stroke="rgba(194,168,120,.3)" stroke-width="1"/>
-          <!-- memory band -->
-          <rect x="150" y="352" width="460" height="86" rx="16" fill="rgba(194,168,120,.06)" stroke="rgba(194,168,120,.3)"/>
-          <text class="svg-serif" x="380" y="390" font-size="21" fill="#e8e4dc" text-anchor="middle">One shared memory</text>
-          <text x="380" y="414" font-size="12.5" fill="#8a8a86" text-anchor="middle" letter-spacing="1.5">people · promises · threads · history</text>
-        </svg>
+        <div class="pl">
+          <div class="pl-stage">
+            <div class="pl-k">Sources</div>
+            <div class="pl-chips">
+              <span class="pl-chip">Health data</span><span class="pl-chip">Life events</span><span class="pl-chip">Calendar</span>
+              <span class="pl-chip">Emails</span><span class="pl-chip">Flags</span><span class="pl-chip">Transcripts</span>
+            </div>
+          </div>
+          <div class="pl-ar"><span class="pl-track"><i></i></span><span class="c">extract &amp; file</span></div>
+          <div class="pl-stage key">
+            <div class="pl-k">Unified memory</div>
+            <div class="pl-sub">your wiki — one source of truth</div>
+            <div class="pl-chips">
+              <span class="pl-chip g">People · Health</span><span class="pl-chip g">Projects · Places</span><span class="pl-chip g">Events · Money</span>
+            </div>
+          </div>
+          <div class="pl-ar"><span class="pl-track"><i style="animation-delay:.4s"></i></span><span class="c">reads it</span></div>
+          <div class="pl-stage brain">
+            <div class="pl-mark">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="7" fill="#c2a878"/><circle cx="50" cy="50" r="24" fill="none" stroke="#c2a878" stroke-opacity=".5" stroke-width="3"/><circle cx="50" cy="50" r="42" fill="none" stroke="#c2a878" stroke-opacity=".22" stroke-width="3"/></svg>
+              <div class="t">Echo</div>
+              <div class="s">orchestrates · runs skills</div>
+            </div>
+            <div class="pl-chips">
+              <span class="pl-chip">Health</span><span class="pl-chip">Life</span><span class="pl-chip">Scheduling</span>
+            </div>
+          </div>
+          <div class="pl-ar"><span class="pl-track"><i style="animation-delay:.8s"></i></span><span class="c">acts via</span></div>
+          <div class="pl-stage">
+            <div class="pl-k">Tools</div>
+            <div class="pl-chips">
+              <span class="pl-chip">Email</span><span class="pl-chip">Messaging</span><span class="pl-chip">Calendar</span>
+              <span class="pl-chip ghost">+ grow</span>
+            </div>
+          </div>
+          <div class="pl-ar"><span class="pl-track"><i style="animation-delay:1.2s"></i></span><span class="c">to</span></div>
+          <div class="pl-stage you brain">
+            <div class="pl-you-t">You</div>
+            <div class="pl-you-s">every channel</div>
+          </div>
+        </div>
       </div>
-      <p class="dgm-cap"><b>The reframe:</b> not another chatbot tab to manage — a single presence that lives where you already talk, backed by one memory underneath.</p>
+      <p class="dgm-cap"><b>The shape:</b> your memory and Echo are the machinery in the middle — they turn raw signal into action you just approve.</p>
     </article>
 
     <!-- ── Diagram 2 — Works overnight ── -->
@@ -264,9 +322,15 @@
           </defs>
           <!-- arcs -->
           <g fill="none" stroke="rgba(194,168,120,.5)" stroke-width="1.4" marker-end="url(#ah3)">
-            <path d="M262 138 Q380 78 488 138"/>
-            <path d="M598 206 Q612 318 470 344"/>
-            <path d="M290 350 Q150 320 160 208"/>
+            <path id="loop3a" d="M262 138 Q380 78 488 138"/>
+            <path id="loop3b" d="M598 206 Q612 318 470 344"/>
+            <path id="loop3c" d="M290 350 Q150 320 160 208"/>
+          </g>
+          <!-- flowing pulses around the loop -->
+          <g class="anim3" fill="#e8e4dc">
+            <circle r="3.4"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#loop3a"/></animateMotion></circle>
+            <circle r="3.4"><animateMotion dur="2.6s" begin="0.87s" repeatCount="indefinite"><mpath href="#loop3b"/></animateMotion></circle>
+            <circle r="3.4"><animateMotion dur="2.6s" begin="1.74s" repeatCount="indefinite"><mpath href="#loop3c"/></animateMotion></circle>
           </g>
           <!-- centre -->
           <text class="svg-serif" x="380" y="222" font-size="22" fill="#e8e4dc" text-anchor="middle" font-style="italic">you stay</text>
@@ -291,50 +355,62 @@
       <p class="dgm-cap"><b>The mechanism:</b> memory is the difference between a clever reply and an assistant that actually knows your world — and the approval gate keeps you the one in charge.</p>
     </article>
 
-    <!-- ── Diagram 4 — Actually yours ── -->
+    <!-- ── Diagram 4 — Your home base, reached from anywhere ── -->
     <article class="dgm">
       <div class="dgm-n">04 — Why it's yours</div>
       <h2 class="dgm-h">Yours. <span class="it">Actually yours.</span></h2>
-      <p class="dgm-dek">No account on someone else's servers. Echo runs on <b>your own private VM</b>, over <b>your own database</b>, powered by <b>your own model key</b> — on an open foundation you can inspect. We operate the plumbing; you own the brain and the memory. Leave whenever you like and take both with you.</p>
+      <p class="dgm-dek">Echo lives on <b>your own private VM</b> — your data, an open Echo core and your model key, all under one roof you own. You reach that single home from wherever you already are: <b>Telegram or WhatsApp on your phone</b>, <b>Claude Code on your Mac</b>, Slack or voice anywhere. Same Echo, same memory, always in sync — and you can pick it up and leave whenever you like.</p>
       <div class="dgm-stage">
-        <svg class="diagram" viewBox="0 0 760 440" role="img" aria-label="A private single-tenant VM holding your database and the open-source Echo core, with your model key plugged in as the brain">
-          <defs>
-            <marker id="ah4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M0 0 L10 5 L0 10 z" fill="#8a8a86"/>
-            </marker>
-          </defs>
-          <!-- we operate the plumbing -->
-          <text x="380" y="34" font-size="11.5" fill="#8a8a86" text-anchor="middle" letter-spacing="1">we operate the plumbing</text>
-          <path d="M380 44 L380 72" stroke="rgba(255,255,255,.2)" stroke-width="1" marker-end="url(#ah4)"/>
-          <!-- VM box -->
-          <rect x="196" y="78" width="430" height="300" rx="20" fill="rgba(194,168,120,.045)" stroke="rgba(194,168,120,.32)" stroke-width="1.4"/>
-          <text x="411" y="112" font-size="11" fill="#c2a878" text-anchor="middle" letter-spacing="3">YOUR PRIVATE VM</text>
-          <text x="411" y="130" font-size="11.5" fill="#8a8a86" text-anchor="middle">single-tenant · isolated · nothing pooled</text>
-          <!-- cell: database -->
-          <rect x="224" y="150" width="374" height="92" rx="12" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.1)"/>
-          <g transform="translate(548,196)" stroke="#c2a878" stroke-width="1.3" fill="none" opacity=".85">
-            <ellipse cx="0" cy="-12" rx="16" ry="6"/><path d="M-16 -12 V12 a16 6 0 0 0 32 0 V-12"/><path d="M-16 0 a16 6 0 0 0 32 0"/>
+        <svg class="diagram" viewBox="0 0 760 460" role="img" aria-label="Your private VM drawn as a house holding your data, open Echo core and key — reached and kept in sync from your phone, your Mac and anywhere else">
+          <!-- alive: gentle home pulse -->
+          <circle class="anim4" cx="380" cy="222" r="100" fill="none" stroke="#c2a878" stroke-width="1">
+            <animate attributeName="r" values="92;156" dur="4.5s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values="0.22;0" dur="4.5s" repeatCount="indefinite"/>
+          </circle>
+          <!-- connectors -->
+          <path id="h1" d="M136 210 Q 235 224 300 236" fill="none" stroke="rgba(194,168,120,.35)" stroke-width="1.2"/>
+          <path id="h2" d="M614 210 Q 515 224 458 236" fill="none" stroke="rgba(194,168,120,.35)" stroke-width="1.2"/>
+          <path id="h3" d="M380 326 L380 398" fill="none" stroke="rgba(194,168,120,.35)" stroke-width="1.2"/>
+          <!-- bidirectional sync pulses -->
+          <g class="anim4">
+            <circle r="3.4" fill="#c2a878"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#h1"/></animateMotion></circle>
+            <circle r="2.6" fill="#e8e4dc"><animateMotion dur="3.2s" begin="0.7s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" repeatCount="indefinite"><mpath href="#h1"/></animateMotion></circle>
+            <circle r="3.4" fill="#c2a878"><animateMotion dur="2.8s" begin="0.5s" repeatCount="indefinite"><mpath href="#h2"/></animateMotion></circle>
+            <circle r="2.6" fill="#e8e4dc"><animateMotion dur="3.2s" begin="1.3s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" repeatCount="indefinite"><mpath href="#h2"/></animateMotion></circle>
+            <circle r="3.4" fill="#c2a878"><animateMotion dur="2.6s" begin="1s" repeatCount="indefinite"><mpath href="#h3"/></animateMotion></circle>
+            <circle r="2.6" fill="#e8e4dc"><animateMotion dur="3s" begin="0.2s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" repeatCount="indefinite"><mpath href="#h3"/></animateMotion></circle>
           </g>
-          <text class="svg-serif" x="250" y="190" font-size="20" fill="#f5f5f3">Your database</text>
-          <text x="250" y="214" font-size="12" fill="#8a8a86">memory · contacts · notes · history</text>
-          <!-- cell: open core -->
-          <rect x="224" y="256" width="374" height="92" rx="12" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.1)"/>
-          <g transform="translate(548,302)" stroke="#c2a878" stroke-width="1.6" fill="none" opacity=".85">
-            <path d="M-8 -12 L-18 0 L-8 12"/><path d="M8 -12 L18 0 L8 12"/>
+          <!-- the house = your VM -->
+          <text x="380" y="104" font-size="10.5" fill="#c2a878" text-anchor="middle" letter-spacing="3">YOUR HOME BASE</text>
+          <polygon points="286,196 380,118 474,196" fill="rgba(194,168,120,.12)" stroke="#c2a878" stroke-width="1.4" stroke-linejoin="round"/>
+          <rect x="302" y="196" width="156" height="130" rx="4" fill="rgba(194,168,120,.06)" stroke="#c2a878" stroke-width="1.4"/>
+          <rect x="362" y="264" width="36" height="62" rx="2" fill="rgba(255,255,255,.04)" stroke="rgba(194,168,120,.4)"/>
+          <!-- db + core glyphs inside -->
+          <g transform="translate(332,236)" stroke="#c2a878" stroke-width="1.1" fill="none" opacity=".85">
+            <ellipse cx="0" cy="-7" rx="9" ry="3.5"/><path d="M-9 -7 V7 a9 3.5 0 0 0 18 0 V-7"/><path d="M-9 0 a9 3.5 0 0 0 18 0"/>
           </g>
-          <text class="svg-serif" x="250" y="296" font-size="20" fill="#f5f5f3">Open-source Echo core</text>
-          <text x="250" y="320" font-size="12" fill="#8a8a86">inspect · fork · run it yourself</text>
-          <!-- model key plug -->
-          <text x="58" y="200" font-size="16" fill="#c2a878" class="svg-serif">Your key</text>
-          <text x="18" y="222" font-size="11.5" fill="#8a8a86">the brain —</text>
-          <text x="18" y="238" font-size="11.5" fill="#8a8a86">billed to you, at cost</text>
-          <path d="M120 210 L196 210" stroke="rgba(194,168,120,.5)" stroke-width="1.4"/>
-          <rect x="186" y="203" width="14" height="14" rx="3" fill="#c2a878"/>
-          <!-- exit caption -->
-          <text x="380" y="412" font-size="12.5" fill="#5a5a57" text-anchor="middle">Leave any time — take your data and the code with you. No hostage situation.</text>
+          <g transform="translate(428,236)" stroke="#c2a878" stroke-width="1.3" fill="none" opacity=".85">
+            <path d="M-5 -7 L-11 0 L-5 7"/><path d="M5 -7 L11 0 L5 7"/>
+          </g>
+          <text x="380" y="350" font-size="11" fill="#c2a878" text-anchor="middle" letter-spacing="2">YOUR PRIVATE VM</text>
+          <text x="380" y="368" font-size="11.5" fill="#8a8a86" text-anchor="middle">your data · open Echo core · your key — single-tenant</text>
+          <!-- phone, left -->
+          <rect x="90" y="174" width="40" height="72" rx="9" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.28)"/>
+          <line x1="104" y1="182" x2="116" y2="182" stroke="rgba(255,255,255,.32)"/>
+          <circle cx="110" cy="239" r="2.4" fill="rgba(255,255,255,.32)"/>
+          <text x="110" y="272" font-size="12.5" fill="#f5f5f3" text-anchor="middle">On your phone</text>
+          <text x="110" y="289" font-size="11" fill="#8a8a86" text-anchor="middle">Telegram · WhatsApp</text>
+          <!-- laptop, right -->
+          <rect x="616" y="180" width="68" height="46" rx="4" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.28)"/>
+          <path d="M604 234 L696 234 L688 226 L612 226 Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.28)" stroke-linejoin="round"/>
+          <text x="650" y="272" font-size="12.5" fill="#f5f5f3" text-anchor="middle">At your Mac</text>
+          <text x="650" y="289" font-size="11" fill="#8a8a86" text-anchor="middle">Claude Code</text>
+          <!-- anywhere pill, bottom -->
+          <rect x="290" y="402" width="180" height="32" rx="16" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.16)"/>
+          <text x="380" y="423" font-size="12" fill="#e8e4dc" text-anchor="middle">Slack · email · voice — anywhere</text>
         </svg>
       </div>
-      <p class="dgm-cap"><b>The trust model:</b> because the intelligence is your key and the data is your store, the open foundation makes every privacy claim auditable — not just promised.</p>
+      <p class="dgm-cap"><b>The trust model:</b> a home you own and visit, not an account you rent — single-tenant, inspectable, portable. Work started on your phone is there on your Mac; the privacy is auditable, not just promised.</p>
     </article>
 
   </section>
@@ -437,6 +513,19 @@
   </footer>
 
 </div>
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // agentmail-style staggered reveal on scroll
+  (function(){
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    const els = document.querySelectorAll('.dgm');
+    els.forEach(el => el.classList.add('reveal'));
+    if(!('IntersectionObserver' in window)){ els.forEach(el => el.classList.add('in')); return; }
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold:.12, rootMargin:'0px 0px -8% 0px' });
+    els.forEach(el => io.observe(el));
+  })();
+</script>
 </body>
 </html>
