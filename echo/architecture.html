@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Echo — Architecture diagrams (content lab)</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='white'/%3E%3Ccircle cx='50' cy='50' r='26' fill='none' stroke='white' stroke-opacity='.5' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='white' stroke-opacity='.2' stroke-width='2'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050505; --ink:#f5f5f3; --muted:#8a8a86; --faint:#5a5a57;
+    --line:rgba(255,255,255,.10); --line-soft:rgba(255,255,255,.06);
+    --accent:#e8e4dc; --gold:#c2a878; --gold-line:rgba(194,168,120,.30); --glow:rgba(232,228,220,.13);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',-apple-system,sans-serif;
+    font-weight:400; line-height:1.5; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+  body::before{content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:radial-gradient(900px 520px at 50% -8%, var(--glow), transparent 60%)}
+  .wrap{position:relative; z-index:1; max-width:1000px; margin:0 auto; padding:0 28px}
+
+  nav{display:flex; align-items:center; justify-content:space-between; padding:30px 0 0}
+  .brand{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--ink)}
+  .brand .mark{width:22px; height:22px}
+  .brand b{font-weight:600; font-size:16px; letter-spacing:.04em}
+  .nav-link{font-size:13px; color:var(--muted); text-decoration:none; letter-spacing:.02em}
+  .nav-link:hover{color:var(--ink)}
+
+  .head{padding:64px 0 20px; max-width:760px}
+  .eyebrow{font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); margin-bottom:22px; font-weight:500}
+  h1{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(36px,6vw,60px); line-height:1.0; margin-bottom:20px}
+  h1 .it{font-style:italic; color:var(--accent)}
+  .head p{color:var(--muted); font-size:16.5px; font-weight:300; line-height:1.62; max-width:680px}
+  .head p b{color:var(--ink); font-weight:500}
+  .labnote{margin-top:20px; font-size:13px; color:var(--faint); border-left:2px solid var(--gold-line); padding-left:14px; line-height:1.6}
+
+  /* variant block */
+  .variant{padding:44px 0 12px; border-top:1px solid var(--line-soft)}
+  .variant .vn{font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); font-weight:500}
+  .variant h2{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(24px,3.6vw,34px); line-height:1.06; margin:12px 0 8px}
+  .variant .idea{color:var(--muted); font-weight:300; font-size:15.5px; line-height:1.6; max-width:680px}
+  .variant .idea b{color:var(--ink); font-weight:500}
+  .stage{margin-top:24px; border:1px solid var(--line-soft); border-radius:18px; padding:30px 26px;
+    background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.004)); overflow:auto}
+  .story{margin-top:16px; font-family:'Instrument Serif',serif; font-style:italic; color:var(--accent);
+    font-size:17px; line-height:1.5; max-width:720px}
+  .story::before{content:'The story it tells — '; font-style:normal; font-family:'Inter',sans-serif;
+    font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:8px}
+
+  /* shared box kit */
+  .layer{border:1px solid var(--line); border-radius:14px; padding:15px 18px; background:rgba(255,255,255,.025)}
+  .layer.key{border-color:var(--gold-line); background:rgba(194,168,120,.06)}
+  .layer.brain{border-color:rgba(232,228,220,.22); background:rgba(232,228,220,.04)}
+  .lk{font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:5px}
+  .lk .grow{color:var(--faint); letter-spacing:.06em; text-transform:none; margin-left:6px}
+  .lsub{font-size:12.5px; color:var(--muted); font-weight:300; margin-bottom:12px; line-height:1.5}
+  .chips{display:flex; flex-wrap:wrap; gap:8px}
+  .chip{font-size:13px; color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:7px 13px; background:rgba(255,255,255,.03); white-space:nowrap}
+  .chip.ghost{color:var(--faint); border-style:dashed}
+  .chip.g{border-color:var(--gold-line); color:var(--accent)}
+
+  /* vertical flow (V1) */
+  .flow{display:flex; flex-direction:column; gap:0}
+  .flow .layer{position:relative}
+  .step{display:flex; flex-direction:column; align-items:center; padding:9px 0}
+  .step .ar{color:var(--gold); font-size:17px; line-height:1}
+  .step .cap{font-size:11.5px; color:var(--faint); margin-top:3px; letter-spacing:.02em}
+  .brand-mark{display:inline-flex; align-items:center; gap:11px}
+  .brand-mark svg{width:30px; height:30px; flex:none}
+  .brand-mark .bt{font-family:'Instrument Serif',serif; font-size:21px}
+  .brand-mark .bs{font-size:12.5px; color:var(--muted); font-weight:300}
+
+  /* horizontal pipeline (V2) */
+  .pipe{display:flex; align-items:stretch; gap:0; min-width:880px}
+  .pipe .col{flex:1; display:flex; flex-direction:column; justify-content:center}
+  .pipe .layer{height:100%}
+  .pipe .ar{flex:none; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 10px; color:var(--gold)}
+  .pipe .ar .g{font-size:18px}
+  .pipe .ar .cap{font-size:10px; color:var(--faint); text-align:center; max-width:74px; margin-top:4px; line-height:1.3}
+  .stk{display:flex; flex-direction:column; gap:8px}
+
+  /* hub grid (V4) */
+  .hub{display:grid; grid-template-columns:1fr 1.5fr 1fr; gap:16px; align-items:center; min-width:820px}
+  .hub .cell-top{grid-column:2; text-align:center}
+  .hub .cell-bottom{grid-column:2}
+  .hub .mem{text-align:left}
+  .hub .dir{font-size:10.5px; letter-spacing:.06em; color:var(--faint); text-align:center; margin:6px 0}
+  .hub .arrh{display:flex; align-items:center; justify-content:center; gap:8px; color:var(--gold); font-size:12px}
+
+  /* story strip (V5) */
+  .strip{display:flex; gap:0; align-items:stretch; min-width:920px}
+  .panel{flex:1; border:1px solid var(--line); border-radius:14px; padding:16px; background:rgba(255,255,255,.025)}
+  .panel.key{border-color:var(--gold-line); background:rgba(194,168,120,.05)}
+  .panel .pk{font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:9px}
+  .panel p{font-size:13px; color:var(--accent); font-weight:300; line-height:1.5}
+  .panel p b{color:var(--ink); font-weight:500}
+  .pjoin{flex:none; display:flex; align-items:center; color:var(--gold); font-size:18px; padding:0 6px}
+
+  .svgwrap{width:100%}
+  .diagram{width:100%; height:auto; display:block}
+
+  footer{border-top:1px solid var(--line-soft); padding:30px 0 60px; margin-top:50px; color:var(--faint); font-size:12.5px}
+  footer a{color:var(--muted); text-decoration:none}
+
+  @media (max-width:860px){
+    .stage{padding:18px 12px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="7" fill="#f5f5f3"/>
+        <circle cx="50" cy="50" r="24" fill="none" stroke="#f5f5f3" stroke-opacity=".45" stroke-width="2"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="#f5f5f3" stroke-opacity=".18" stroke-width="2"/>
+      </svg>
+      <b>ECHO</b>
+    </a>
+    <a class="nav-link" href="faq.html">← How it works</a>
+  </nav>
+
+  <header class="head">
+    <div class="eyebrow">Content lab · pick a structure</div>
+    <h1>Sources → memory → skills → <span class="it">you.</span></h1>
+    <p>Five ways to draw the same architecture: <b>your data flows in</b> from many sources, gets filed into <b>one unified, wiki-style memory</b>, and a <b>macro orchestrator</b> runs <b>skills</b> over it — acting through <b>tools</b> you switch on and grow. Same content every time; different shape and emphasis.</p>
+    <div class="labnote">Rough on purpose — this is about which <i>structure</i> reads best, not the visuals. Tell me which one (or which mix) and I'll make that one beautiful. Your live <a href="faq.html" style="color:var(--muted)">How-it-works</a> page is untouched.</div>
+  </header>
+
+  <!-- ════════════════ VARIANT 1 — THE STACK ════════════════ -->
+  <section class="variant">
+    <div class="vn">Variant 1</div>
+    <h2>The Stack — top-down architecture</h2>
+    <p class="idea">The literal layer cake, read top to bottom. <b>Inputs</b> at the top, your <b>unified memory</b> as the load-bearing middle, the <b>orchestrator</b> reading it and dispatching <b>skills</b>, everything acting through <b>tools</b>, and <b>you</b> at the base. Closest to the reference diagram — clearest for "how is this built."</p>
+    <div class="stage">
+      <div class="flow">
+        <div class="layer">
+          <div class="lk">Inputs <span class="grow">· your data streams</span></div>
+          <div class="chips">
+            <span class="chip">Health data</span><span class="chip">Life events</span><span class="chip">Calendar</span>
+            <span class="chip">Emails</span><span class="chip">Flags</span><span class="chip">Transcripts</span>
+          </div>
+        </div>
+        <div class="step"><span class="ar">▼</span><span class="cap">capture &amp; extract facts (esp. from transcripts)</span></div>
+        <div class="layer key">
+          <div class="lk">Unified data layer · wiki-style memory</div>
+          <div class="lsub">One structured knowledge base of your whole life — entries linked like a wiki, the single source of truth everything else reads and writes.</div>
+          <div class="chips">
+            <span class="chip g">People</span><span class="chip g">Health</span><span class="chip g">Projects</span><span class="chip g">Places</span>
+            <span class="chip g">Events</span><span class="chip g">Money</span><span class="chip g">Preferences</span>
+          </div>
+        </div>
+        <div class="step"><span class="ar">▼</span><span class="cap">Echo reads the whole picture, decides what matters</span></div>
+        <div class="layer brain">
+          <div class="brand-mark">
+            <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="7" fill="#c2a878"/><circle cx="50" cy="50" r="24" fill="none" stroke="#c2a878" stroke-opacity=".5" stroke-width="3"/><circle cx="50" cy="50" r="42" fill="none" stroke="#c2a878" stroke-opacity=".22" stroke-width="3"/></svg>
+            <div><div class="bt">Echo — the macro orchestrator</div><div class="bs">sequences the work · checks in with you · organizes your life <i>with</i> you, not at you</div></div>
+          </div>
+        </div>
+        <div class="step"><span class="ar">▼</span><span class="cap">engages the right skill</span></div>
+        <div class="layer">
+          <div class="lk">Skills <span class="grow">· domain overlays on your memory</span></div>
+          <div class="chips">
+            <span class="chip">Health</span><span class="chip">Life</span><span class="chip">Scheduling</span>
+            <span class="chip ghost">Finance, Research… +grow</span>
+          </div>
+        </div>
+        <div class="step"><span class="ar">▼</span><span class="cap">acts through your tools</span></div>
+        <div class="layer">
+          <div class="lk">Tools <span class="grow">· enable &amp; grow</span></div>
+          <div class="chips">
+            <span class="chip">Email</span><span class="chip">Chat &amp; messaging</span><span class="chip">Calendar</span>
+            <span class="chip ghost">Browser, Payments… +grow</span>
+          </div>
+        </div>
+        <div class="step"><span class="ar">▼</span></div>
+        <div class="layer" style="text-align:center">
+          <div class="bt" style="font-family:'Instrument Serif',serif; font-size:20px">You</div>
+          <div class="bs" style="font-size:12.5px; color:var(--muted)">reached on Telegram · WhatsApp · Slack · email · voice</div>
+        </div>
+      </div>
+    </div>
+    <p class="story">Everything you touch flows down into one memory; Echo reads that memory, picks the right skill, acts through your tools, and surfaces the result to you.</p>
+  </section>
+
+  <!-- ════════════════ VARIANT 2 — THE PIPELINE ════════════════ -->
+  <section class="variant">
+    <div class="vn">Variant 2</div>
+    <h2>The Pipeline — left-to-right flow</h2>
+    <p class="idea">The same layers laid out as a <b>river</b>, read like a sentence: sources on the left, your memory and the orchestrator in the middle, tools and you on the right. Best for showing <b>movement</b> — data coming in one side, action coming out the other.</p>
+    <div class="stage">
+      <div class="pipe">
+        <div class="col">
+          <div class="layer" style="height:auto">
+            <div class="lk">Sources</div>
+            <div class="stk">
+              <span class="chip">Health data</span><span class="chip">Life events</span><span class="chip">Calendar</span>
+              <span class="chip">Emails</span><span class="chip">Flags</span><span class="chip">Transcripts</span>
+            </div>
+          </div>
+        </div>
+        <div class="ar"><span class="g">→</span><span class="cap">extract &amp; file</span></div>
+        <div class="col">
+          <div class="layer key" style="height:auto">
+            <div class="lk">Unified memory</div>
+            <div class="lsub" style="margin-bottom:10px">your wiki — one source of truth</div>
+            <div class="stk">
+              <span class="chip g">People · Health</span><span class="chip g">Projects · Places</span><span class="chip g">Events · Money</span>
+            </div>
+          </div>
+        </div>
+        <div class="ar"><span class="g">→</span><span class="cap">reads it</span></div>
+        <div class="col">
+          <div class="layer brain" style="height:auto; text-align:center">
+            <svg viewBox="0 0 100 100" style="width:34px;height:34px"><circle cx="50" cy="50" r="7" fill="#c2a878"/><circle cx="50" cy="50" r="24" fill="none" stroke="#c2a878" stroke-opacity=".5" stroke-width="3"/><circle cx="50" cy="50" r="42" fill="none" stroke="#c2a878" stroke-opacity=".22" stroke-width="3"/></svg>
+            <div class="bt" style="font-family:'Instrument Serif',serif; font-size:18px; margin-top:6px">Echo</div>
+            <div class="bs" style="font-size:11.5px; color:var(--muted)">orchestrates + runs skills</div>
+            <div class="stk" style="margin-top:10px">
+              <span class="chip">Health</span><span class="chip">Life</span><span class="chip">Scheduling</span>
+            </div>
+          </div>
+        </div>
+        <div class="ar"><span class="g">→</span><span class="cap">acts via</span></div>
+        <div class="col">
+          <div class="layer" style="height:auto">
+            <div class="lk">Tools</div>
+            <div class="stk">
+              <span class="chip">Email</span><span class="chip">Messaging</span><span class="chip">Calendar</span>
+              <span class="chip ghost">+grow</span>
+            </div>
+          </div>
+        </div>
+        <div class="ar"><span class="g">→</span><span class="cap">to</span></div>
+        <div class="col" style="flex:.7">
+          <div class="layer brain" style="height:auto; text-align:center">
+            <div class="bt" style="font-family:'Instrument Serif',serif; font-size:18px">You</div>
+            <div class="bs" style="font-size:11px; color:var(--muted)">every channel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="story">Raw signal enters on the left and leaves on the right as finished action — your memory and Echo are the machinery in the middle that turns one into the other.</p>
+  </section>
+
+  <!-- ════════════════ VARIANT 3 — CONCENTRIC ════════════════ -->
+  <section class="variant">
+    <div class="vn">Variant 3</div>
+    <h2>Concentric — you at the centre</h2>
+    <p class="idea">On-brand with the Echo rings. <b>You and the orchestrator at the core</b>, wrapped by the <b>skills</b>, wrapped by your <b>memory</b> — with sources feeding <i>in</i> from the left and tools reaching <i>out</i> to act on the right. Best for the <b>"it all revolves around you"</b> feeling, less for build detail.</p>
+    <div class="stage">
+      <div class="svgwrap">
+        <svg class="diagram" viewBox="0 0 760 560" role="img" aria-label="Concentric model: you and Echo at the core, ringed by skills then memory, with sources feeding in and tools acting out">
+          <defs>
+            <marker id="ahc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#c2a878"/></marker>
+          </defs>
+          <!-- rings -->
+          <circle cx="380" cy="300" r="185" fill="none" stroke="rgba(194,168,120,.3)" stroke-width="1.4"/>
+          <circle cx="380" cy="300" r="110" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1" stroke-dasharray="3 5"/>
+          <circle cx="380" cy="300" r="48" fill="rgba(194,168,120,.08)" stroke="rgba(194,168,120,.5)" stroke-width="1.4"/>
+          <!-- ring labels -->
+          <text x="380" y="92" font-size="11" fill="#c2a878" text-anchor="middle" letter-spacing="2">UNIFIED MEMORY · YOUR WIKI</text>
+          <text x="380" y="138" font-size="11" fill="#8a8a86" text-anchor="middle" letter-spacing="1">people · health · projects · places · events · money</text>
+          <!-- skills on inner ring -->
+          <text class="svg-serif" x="380" y="206" font-size="16" fill="#f5f5f3" text-anchor="middle" font-family="'Instrument Serif',serif">Health</text>
+          <text class="svg-serif" x="306" y="384" font-size="16" fill="#f5f5f3" text-anchor="middle" font-family="'Instrument Serif',serif">Life</text>
+          <text class="svg-serif" x="454" y="384" font-size="16" fill="#f5f5f3" text-anchor="middle" font-family="'Instrument Serif',serif">Scheduling</text>
+          <text x="380" y="250" font-size="9.5" fill="#5a5a57" text-anchor="middle" letter-spacing="2">SKILLS</text>
+          <!-- core -->
+          <text class="svg-serif" x="380" y="297" font-size="19" fill="#e8e4dc" text-anchor="middle" font-family="'Instrument Serif',serif">Echo</text>
+          <text x="380" y="316" font-size="10" fill="#8a8a86" text-anchor="middle">with you</text>
+          <!-- sources in, left -->
+          <text x="96" y="150" font-size="10.5" fill="#c2a878" letter-spacing="2" text-anchor="middle">SOURCES →</text>
+          <g font-size="12" fill="#f5f5f3" text-anchor="end">
+            <text x="150" y="186">Health data</text><text x="150" y="222">Life events</text><text x="150" y="258">Calendar</text>
+            <text x="150" y="294">Emails</text><text x="150" y="330">Flags</text><text x="150" y="366">Transcripts</text>
+          </g>
+          <g stroke="rgba(194,168,120,.4)" stroke-width="1" fill="none" marker-end="url(#ahc)">
+            <path d="M160 182 Q 200 270 198 296"/><path d="M160 218 Q 195 270 198 298"/><path d="M160 254 L198 300"/>
+            <path d="M160 290 L198 302"/><path d="M160 326 Q 195 320 198 304"/><path d="M160 362 Q 200 330 198 306"/>
+          </g>
+          <!-- tools out, right -->
+          <text x="660" y="150" font-size="10.5" fill="#c2a878" letter-spacing="2" text-anchor="middle">→ TOOLS</text>
+          <g font-size="12" fill="#f5f5f3">
+            <text x="610" y="246">Email</text><text x="610" y="300">Chat &amp; messaging</text><text x="610" y="354">Calendar</text>
+          </g>
+          <g stroke="rgba(194,168,120,.4)" stroke-width="1" fill="none" marker-end="url(#ahc)">
+            <path d="M562 300 Q 585 250 604 242"/><path d="M566 300 L604 298"/><path d="M562 300 Q 585 350 604 350"/>
+          </g>
+          <text x="660" y="392" font-size="11" fill="#8a8a86" text-anchor="middle">→ reaches you</text>
+        </svg>
+      </div>
+    </div>
+    <p class="story">You're the centre of gravity: signal pulls inward through memory and skills to Echo, then pushes back outward through tools into action.</p>
+  </section>
+
+  <!-- ════════════════ VARIANT 4 — MEMORY HUB ════════════════ -->
+  <section class="variant">
+    <div class="vn">Variant 4</div>
+    <h2>Memory at the centre — the hub</h2>
+    <p class="idea">Puts the <b>unified wiki in the middle</b> as the thing everything connects to. Sources pour in from the left; the orchestrator sits above maintaining it; skills sit below reading and writing it; tools extend right to act. Best for arguing <b>"the memory is the product."</b></p>
+    <div class="stage">
+      <div class="hub">
+        <!-- top: orchestrator -->
+        <div class="layer brain cell-top">
+          <div class="brand-mark" style="justify-content:center">
+            <svg viewBox="0 0 100 100" style="width:26px;height:26px"><circle cx="50" cy="50" r="7" fill="#c2a878"/><circle cx="50" cy="50" r="24" fill="none" stroke="#c2a878" stroke-opacity=".5" stroke-width="3"/><circle cx="50" cy="50" r="42" fill="none" stroke="#c2a878" stroke-opacity=".22" stroke-width="3"/></svg>
+            <div class="bt" style="font-family:'Instrument Serif',serif; font-size:17px">Echo orchestrator</div>
+          </div>
+          <div class="dir">↕ reads &amp; maintains the memory</div>
+        </div>
+        <!-- mid-left: sources -->
+        <div class="layer">
+          <div class="lk">Sources</div>
+          <div class="stk">
+            <span class="chip">Health data</span><span class="chip">Life events</span><span class="chip">Calendar</span>
+            <span class="chip">Emails</span><span class="chip">Flags</span><span class="chip">Transcripts</span>
+          </div>
+          <div class="arrh" style="margin-top:10px">file in →</div>
+        </div>
+        <!-- centre: memory -->
+        <div class="layer key mem">
+          <div class="lk">Unified data layer</div>
+          <div class="lsub">your wiki-style memory — the single source of truth</div>
+          <div class="chips">
+            <span class="chip g">People</span><span class="chip g">Health</span><span class="chip g">Projects</span>
+            <span class="chip g">Places</span><span class="chip g">Events</span><span class="chip g">Money</span><span class="chip g">Preferences</span>
+          </div>
+        </div>
+        <!-- mid-right: tools -->
+        <div class="layer">
+          <div class="arrh" style="margin-bottom:10px">→ act through</div>
+          <div class="lk">Tools</div>
+          <div class="stk">
+            <span class="chip">Email</span><span class="chip">Chat &amp; messaging</span><span class="chip">Calendar</span>
+            <span class="chip ghost">+grow</span>
+          </div>
+          <div class="dir" style="margin-top:8px">→ you, on every channel</div>
+        </div>
+        <!-- bottom: skills -->
+        <div class="layer cell-bottom">
+          <div class="dir" style="margin-bottom:8px">↕ skills read &amp; write the memory</div>
+          <div class="lk">Skills</div>
+          <div class="chips" style="justify-content:center">
+            <span class="chip">Health</span><span class="chip">Life</span><span class="chip">Scheduling</span>
+            <span class="chip ghost">Finance, Research… +grow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="story">Your memory is the hub. Sources fill it, skills and the orchestrator work over it, tools turn what they decide into action — nothing happens that isn't grounded in your one wiki.</p>
+  </section>
+
+  <!-- ════════════════ VARIANT 5 — STORY STRIP ════════════════ -->
+  <section class="variant">
+    <div class="vn">Variant 5</div>
+    <h2>The Story Strip — one real week</h2>
+    <p class="idea">Not an architecture at all — a <b>narrative</b>. Follow a single concrete example through every layer, panel by panel. Best for a landing page or a pitch, where you want someone to <b>feel it</b> before they see the box diagram. Pairs well with any of the four above.</p>
+    <div class="stage">
+      <div class="strip">
+        <div class="panel">
+          <div class="pk">1 · Sources arrive</div>
+          <p>Monday night: your <b>stand-up transcript</b>, a <b>calendar invite</b> for Friday, your <b>Fitbit</b> logs three poor nights, an <b>email</b> from Sarah.</p>
+        </div>
+        <div class="pjoin">→</div>
+        <div class="panel key">
+          <div class="pk">2 · Filed into memory</div>
+          <p>Facts land in your wiki: <b>Sarah → birthday next Wed.</b> <b>Health → sleep trending down.</b> <b>Calendar → 4pm flight Friday.</b></p>
+        </div>
+        <div class="pjoin">→</div>
+        <div class="panel">
+          <div class="pk">3 · Echo connects it</div>
+          <p>The orchestrator reads across entries: <b>travel Friday + poor sleep + Sarah's birthday all collide this week.</b> It decides what matters.</p>
+        </div>
+        <div class="pjoin">→</div>
+        <div class="panel">
+          <div class="pk">4 · Skills act</div>
+          <p><b>Health:</b> nudge earlier nights. <b>Scheduling:</b> hold a packing slot Thursday. <b>Life:</b> a gift idea for Sarah.</p>
+        </div>
+        <div class="pjoin">→</div>
+        <div class="panel key">
+          <div class="pk">5 · Tools + you</div>
+          <p>Drafts the gift email, pencils the calendar holds, and pings you on <b>Telegram</b>: <i>"here's your week — approve?"</i></p>
+        </div>
+      </div>
+    </div>
+    <p class="story">One Tuesday, end to end — the same five layers, but told as something that happened to you rather than a system you have to understand.</p>
+  </section>
+
+  <footer>
+    Echo — architecture content lab · <a href="faq.html">back to How it works</a>
+  </footer>
+
+</div>
+</body>
+</html>
