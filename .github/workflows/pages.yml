@@ -15,7 +15,20 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  check-css:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check every class used in markup has a CSS rule
+        run: node tools/check-css.js 'echo/*.html'
+
   deploy:
+    needs: check-css
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
