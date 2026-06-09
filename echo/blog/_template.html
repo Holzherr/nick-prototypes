@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- ════════════════════════════════════════════════════════════════════════
+     POST TEMPLATE. To publish:
+       1. cp _template.html <your-slug>.html
+       2. Fill in: <title>, the two meta descriptions, the .a-meta line,
+          the <h1>, the .dek, and the .body content. Delete this comment.
+       3. Add an entry to POSTS at the top of ../blog.html (newest first),
+          matching slug = the filename without .html.
+     House style, nav and footer are already wired. No build step.
+     ════════════════════════════════════════════════════════════════════════ -->
+<title>POST TITLE — Echo</title>
+<meta name="description" content="One-sentence summary of the post for search and link previews." />
+<meta property="og:title" content="POST TITLE" />
+<meta property="og:description" content="One-sentence summary of the post for search and link previews." />
+<meta property="og:type" content="article" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='white'/%3E%3Ccircle cx='50' cy='50' r='26' fill='none' stroke='white' stroke-opacity='.5' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='white' stroke-opacity='.2' stroke-width='2'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050505; --ink:#f5f5f3; --muted:#8a8a86; --faint:#5a5a57; --read:#cfcec9;
+    --line:rgba(255,255,255,.10); --line-soft:rgba(255,255,255,.06);
+    --accent:#e8e4dc; --gold:#c2a878; --gold-line:rgba(194,168,120,.30); --glow:rgba(232,228,220,.13);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-weight:400; line-height:1.5; -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility; overflow-x:hidden;
+  }
+  body::before{
+    content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(900px 520px at 50% -8%, var(--glow), transparent 60%),
+      radial-gradient(1200px 800px at 50% 120%, rgba(255,255,255,.03), transparent 55%);
+  }
+  .wrap{position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:0 28px}
+
+  /* ── nav (shared house style) ── */
+  nav{display:flex; align-items:center; justify-content:space-between; padding:30px 0 0}
+  .brand{display:flex; align-items:center; gap:11px; letter-spacing:.02em; text-decoration:none; color:var(--ink)}
+  .brand .mark{width:22px; height:22px}
+  .brand b{font-weight:600; font-size:16px; letter-spacing:.04em}
+  .nav-right{display:flex; align-items:center; gap:20px; flex-wrap:wrap; justify-content:flex-end}
+  .nav-link{font-size:13px; color:var(--muted); text-decoration:none; letter-spacing:.02em; transition:.25s}
+  .nav-link:hover, .nav-link.here{color:var(--ink)}
+  .nav-cta{font-size:13px; color:var(--muted); text-decoration:none; border:1px solid var(--line);
+    padding:8px 16px; border-radius:999px; transition:.25s; backdrop-filter:blur(6px)}
+  .nav-cta:hover{color:var(--ink); border-color:rgba(255,255,255,.28)}
+
+  /* ── article ── */
+  article{max-width:680px; margin:0 auto; padding:64px 0 40px}
+  .back{display:inline-block; font-size:13px; color:var(--muted); text-decoration:none; letter-spacing:.02em; margin-bottom:34px; transition:.25s}
+  .back:hover{color:var(--ink)}
+  .a-meta{display:flex; align-items:center; gap:14px; font-size:11px; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--faint); margin-bottom:22px}
+  .a-meta .tag{color:var(--gold); font-weight:500}
+  article h1{font-family:'Instrument Serif',Georgia,serif; font-weight:400; letter-spacing:-.01em;
+    font-size:clamp(36px,6vw,60px); line-height:1.04; margin-bottom:20px}
+  article h1 .it{font-style:italic; color:var(--accent)}
+  .dek{color:var(--muted); font-weight:300; font-size:clamp(17px,2.3vw,20px); line-height:1.6; margin-bottom:40px}
+  .rule{height:1px; background:var(--line-soft); margin:0 0 40px}
+
+  .body{color:var(--read); font-size:18px; line-height:1.78; font-weight:300}
+  .body p{margin:0 0 24px}
+  .body p b, .body strong{color:var(--ink); font-weight:500}
+  .body h2{font-family:'Instrument Serif',serif; font-weight:400; color:var(--ink);
+    font-size:clamp(25px,3.4vw,32px); line-height:1.16; letter-spacing:.005em; margin:46px 0 18px}
+  .body a{color:var(--gold); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--gold-line); transition:.2s}
+  .body a:hover{text-decoration-color:var(--gold)}
+  .body .lead::first-letter{font-family:'Instrument Serif',serif; float:left; font-size:62px;
+    line-height:.78; padding:6px 12px 0 0; color:var(--accent)}
+  .body blockquote{margin:34px 0; padding:6px 0 6px 26px; border-left:2px solid var(--gold-line);
+    font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(22px,3vw,27px);
+    line-height:1.34; color:var(--accent)}
+  .body ul{margin:0 0 24px; padding-left:0; list-style:none}
+  .body li{position:relative; padding-left:24px; margin-bottom:14px}
+  .body li::before{content:'›'; position:absolute; left:2px; top:0; color:var(--gold)}
+  .body li b{color:var(--ink); font-weight:500}
+
+  /* sources */
+  .sources{margin-top:54px; padding-top:30px; border-top:1px solid var(--line-soft)}
+  .sources h3{font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--faint); font-weight:500; margin-bottom:18px}
+  .sources ul{list-style:none}
+  .sources li{margin-bottom:12px; font-size:15px; font-weight:300}
+  .sources a{color:var(--accent); text-decoration:none}
+  .sources a:hover{color:#fff; text-decoration:underline; text-underline-offset:3px}
+  .sources .src-note{color:var(--faint); font-size:13.5px}
+
+  /* end CTA */
+  .end-cta{max-width:680px; margin:48px auto 0; text-align:center; border:1px solid var(--gold-line);
+    border-radius:18px; padding:40px 30px; background:linear-gradient(180deg, rgba(194,168,120,.06), rgba(255,255,255,.012))}
+  .end-cta p{font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(20px,3vw,26px);
+    color:var(--accent); line-height:1.32; margin-bottom:22px}
+  .ghost{display:inline-block; font-size:14px; color:var(--ink); text-decoration:none;
+    border:1px solid var(--line); padding:13px 28px; border-radius:999px; transition:.25s; letter-spacing:.02em}
+  .ghost:hover{border-color:rgba(255,255,255,.32); background:rgba(255,255,255,.04)}
+
+  footer{border-top:1px solid var(--line-soft); padding:30px 0 46px; max-width:1080px; margin:54px auto 0;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    color:var(--faint); font-size:12.5px; padding-left:28px; padding-right:28px}
+  footer a{color:var(--muted); text-decoration:none}
+  footer a:hover{color:var(--ink)}
+
+  @media (max-width:720px){
+    nav{flex-direction:column; gap:16px; padding:22px 0 0}
+    .nav-right{gap:14px}
+    article{padding:44px 0 30px}
+    .body{font-size:17px}
+  }
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <a class="brand" href="../index.html">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="7" fill="#f5f5f3"/>
+        <circle cx="50" cy="50" r="24" fill="none" stroke="#f5f5f3" stroke-opacity=".45" stroke-width="2"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="#f5f5f3" stroke-opacity=".18" stroke-width="2"/>
+      </svg>
+      <b>ECHO</b>
+    </a>
+    <div class="nav-right">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="../faq.html">How it works</a>
+      <a class="nav-link" href="../family-hub.html">Family Space</a>
+      <a class="nav-link" href="../demo.html">Live demo</a>
+      <a class="nav-link here" href="../blog.html">Blog</a>
+      <a class="nav-cta" href="../index.html#waitlist">Request access</a>
+    </div>
+  </nav>
+
+  <article>
+    <a class="back" href="../blog.html">← All notes</a>
+    <div class="a-meta"><span class="tag">Tag</span><span>Month 2026</span><span>N min read</span></div>
+    <h1>Post title, <span class="it">italic close.</span></h1>
+    <p class="dek">One or two sentences that set up the argument and earn the click.</p>
+    <div class="rule"></div>
+
+    <div class="body">
+      <p class="lead">Opening paragraph. The first letter gets a drop cap automatically — give it a strong, declarative first sentence. Set up the idea here.</p>
+
+      <p>A normal paragraph. Bold the key phrases with <b>&lt;b&gt;</b>. Link out with <a href="https://example.com" target="_blank" rel="noopener">an anchor</a>.</p>
+
+      <h2>A section heading</h2>
+      <p>Body text under the heading.</p>
+
+      <blockquote>A pull quote, for the line worth slowing down on.</blockquote>
+
+      <h2>Another section</h2>
+      <p>More body text.</p>
+
+      <ul>
+        <li><b>A point.</b> Its explanation.</li>
+        <li><b>Another point.</b> Its explanation.</li>
+      </ul>
+
+      <p>Closing paragraph.</p>
+
+      <!-- Optional: a sources block.
+      <div class="sources">
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="#" target="_blank" rel="noopener">Source title</a> <span class="src-note">(note)</span></li>
+        </ul>
+      </div>
+      -->
+    </div>
+  </article>
+
+  <div class="end-cta">
+    <p>“Go to bed behind. Wake up ahead.”</p>
+    <a class="ghost" href="../index.html#waitlist">Request early access →</a>
+  </div>
+
+</div>
+
+<footer>
+  <span>Echo — an independent project by Nick Holzherr.</span>
+  <span><a href="../index.html">Home</a> · <a href="../blog.html">All notes</a> · <span id="yr"></span></span>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
