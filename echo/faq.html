@@ -247,6 +247,18 @@
   .tile p b{color:var(--accent); font-weight:500}
   .dash-hint{font-size:11.5px; color:var(--faint); margin-top:15px; text-align:center}
 
+  /* placement matrix — choose what shows where (diagram 04) */
+  .place{max-width:540px; margin:0 auto 24px; border:1px solid var(--line-soft); border-radius:14px; padding:15px 20px 17px; background:rgba(255,255,255,.02)}
+  .place-head{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:500; text-align:center}
+  .place-sub{font-size:11px; color:var(--faint); text-align:center; margin:3px 0 14px}
+  .place-grid{display:grid; grid-template-columns:1fr 52px 52px 52px; gap:9px 0; align-items:center}
+  .place-grid .col-h{font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); text-align:center}
+  .place-grid .mname{font-size:12.5px; color:var(--accent)}
+  .pdot{width:18px; height:18px; border-radius:50%; border:1px solid var(--faint); cursor:pointer; margin:0 auto; transition:.18s}
+  .pdot.on{background:var(--gold); border-color:var(--gold); box-shadow:0 0 8px rgba(194,168,120,.5)}
+  .pdot.lock{opacity:.5; cursor:default}
+  .pdot:hover:not(.lock){border-color:var(--gold)}
+
   /* all-surfaces lineup + device frames (diagram 04) */
   .dgm-stage.wide{width:min(1060px, 94vw); position:relative; left:50%; transform:translateX(-50%)}
   .lineup{display:flex; gap:18px; align-items:flex-end; justify-content:center; flex-wrap:wrap}
@@ -479,17 +491,17 @@
     <article class="dgm">
       <div class="dgm-n">04 — How it comes together</div>
       <h2 class="dgm-h">A dashboard that <span class="it">builds itself.</span></h2>
-      <p class="dgm-dek">Your view of Echo isn't fixed — it <b>assembles from the skills you've turned on</b> and renders to fit every screen at once: a wide board on your <b>Mac</b>, a glanceable stack on your <b>iPhone</b>, a shared family screen on the <b>kitchen tablet</b>. Same skills, dressed for each surface. <b>Toggle a skill and watch all three update.</b></p>
+      <p class="dgm-dek">Your view of Echo isn't fixed — and neither is <i>where</i> things live. The same skills render to fit every screen, and <b>you choose which modules show on which surface</b>: the essentials on your <b>iPhone</b>, the full board on your <b>Mac</b>, and the kitchen tablet kept to <b>family — shopping, the shared calendar, the week ahead</b>. Set any module to any surface below and watch all three update.</p>
       <div class="dgm-stage wide">
         <div class="dash-top">
           <span class="em">Your dashboard</span>
           <span class="dash-live"><i></i>live · across your devices</span>
         </div>
-        <div class="stoggles" id="stoggles" role="group" aria-label="Toggle skills to update every surface"></div>
+        <div class="place" id="place" role="group" aria-label="Choose which modules show on which surface"></div>
         <div class="lineup" id="lineup"></div>
         <div class="dash-hint" id="dashHint"></div>
       </div>
-      <p class="dgm-cap"><b>The feel:</b> the same skills follow you across devices — each surface shows the modules that make sense there, never a black box.</p>
+      <p class="dgm-cap"><b>The control:</b> sensible defaults out of the box — phone glanceable, Mac the full desk, kitchen family-first — and every module is yours to place, add or hide, per surface.</p>
     </article>
 
     <!-- ── Diagram 4 — Your home base, reached from anywhere ── -->
@@ -808,61 +820,62 @@
     layout(); start();
   })();
 
-  // ── live dashboard across all surfaces at once (diagram 04) ──
+  // ── dashboard: choose which modules show on which surface (diagram 04) ──
   (function(){
-    const stog = document.getElementById('stoggles'), lineup = document.getElementById('lineup'), hint = document.getElementById('dashHint');
+    const place = document.getElementById('place'), lineup = document.getElementById('lineup'), hint = document.getElementById('dashHint');
     if(!lineup) return;
     const rings = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5" fill="#c2a878" stroke="none"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="11" opacity=".5"/></svg>';
-    const TILES = [
-      {id:'core', lock:true, wide:true, tk:'Echo · priorities', icon:rings, h:'Today', body:'<b>3 things that matter</b> · 2 done overnight'},
-      {id:'health', tk:'Health', h:'Recovery', body:'Sleep <b>7.3h</b> · 8,420 steps'},
-      {id:'scheduling', tk:'Scheduling', h:'Next up', body:'<b>14:00</b> Design review'},
-      {id:'inbox', tk:'Inbox', h:'Cleared', body:'Inbox <b>0</b> · 3 drafts to ok'},
-      {id:'research', tk:'Research', h:'Briefed', body:'<b>2 briefings</b> overnight'},
-      {id:'family', tk:'Family', h:'Today', body:'<b>15:30</b> pickup — Tara'},
-      {id:'finance', tk:'Finance', h:'Money', body:'£420 filed · <b>1 bill</b>'},
-      {id:'relationships', tk:'Relationships', h:'Follow up', body:'<b>Sarah</b> — birthday Wed'}
+    // each module carries which surfaces it shows on by default — kitchen leans family
+    const MODS = [
+      {id:'today',    name:'Today',     lock:true, wide:true, icon:rings, tk:'Echo · priorities', h:'Today', body:'<b>3 things that matter</b> · 2 done overnight', on:{phone:1,mac:1,kitchen:1}},
+      {id:'inbox',    name:'Inbox',     tk:'Inbox', h:'Cleared', body:'Inbox <b>0</b> · 3 drafts to ok', on:{phone:1,mac:1,kitchen:0}},
+      {id:'calendar', name:'Calendar',  tk:'Calendar', h:'This week', body:'Wed Sarah · Thu swim', on:{phone:1,mac:1,kitchen:1}},
+      {id:'health',   name:'Health',    tk:'Health', h:'Recovery', body:'Sleep <b>7.3h</b> · 8,420 steps', on:{phone:1,mac:1,kitchen:0}},
+      {id:'research', name:'Research',  tk:'Research', h:'Briefed', body:'<b>2 briefings</b> overnight', on:{phone:0,mac:1,kitchen:0}},
+      {id:'finance',  name:'Finance',   tk:'Finance', h:'Money', body:'£420 filed · <b>1 bill</b>', on:{phone:0,mac:1,kitchen:0}},
+      {id:'people',   name:'People',    tk:'Relationships', h:'Follow up', body:'<b>Sarah</b> — birthday Wed', on:{phone:0,mac:1,kitchen:0}},
+      {id:'family',   name:'Family',    tk:'Family', h:'Today', body:'<b>15:30</b> pickup — Tara', on:{phone:0,mac:0,kitchen:1}},
+      {id:'shopping', name:'Shopping',  tk:'Shopping', h:'List', body:'Milk ✓ · Eggs · Pasta', on:{phone:0,mac:0,kitchen:1}}
     ];
-    const ON = new Set(['health','scheduling','inbox']);
-    const skills = TILES.filter(t=>!t.lock);
-    const ORDER = ['iphone','mac','tablet'];
-    const LABELS = { iphone:{b:'On your phone', s:'glanceable · Telegram'}, mac:{b:'On your Mac', s:'the full board · Claude Code'}, tablet:{b:'Home tablet', s:'shared family screen'} };
-    const CHROME = { mac:'<span class="dots"><i></i><i></i><i></i></span><span>Echo — your desk</span>', iphone:'<span class="notch"></span>', tablet:'<span>Kitchen · family</span>' };
-    const PRIORITY = { iphone:['inbox','scheduling','health','finance','family','research','relationships'], tablet:['family','scheduling','health','relationships','finance','inbox','research'] };
-    const CAP = { mac:99, iphone:3, tablet:4 };
+    const SURFS = [
+      {key:'phone',   dev:'iphone', col:'Phone',   label:{b:'On your phone', s:'glanceable · Telegram'}, chrome:'<span class="notch"></span>'},
+      {key:'mac',     dev:'mac',    col:'Mac',     label:{b:'On your Mac', s:'the full board · Claude Code'}, chrome:'<span class="dots"><i></i><i></i><i></i></span><span>Echo — your desk</span>'},
+      {key:'kitchen', dev:'tablet', col:'Kitchen', label:{b:'Home tablet', s:'shared family screen'}, chrome:'<span>Kitchen · family</span>'}
+    ];
     let lastKeys = new Set();
 
-    // skill toggles — one set, drives every surface
-    stog.innerHTML = '<span class="stog locked on" title="The orchestrator — always on"><span class="d"></span>Echo · always on</span>';
-    skills.forEach(t=>{
-      const b = document.createElement('button');
-      b.className = 'stog' + (ON.has(t.id)?' on':'');
-      b.innerHTML = `<span class="d"></span>${t.tk}`;
-      b.addEventListener('click', ()=>{ ON.has(t.id)?ON.delete(t.id):ON.add(t.id); b.classList.toggle('on', ON.has(t.id)); render(); });
-      stog.appendChild(b);
+    // placement matrix — module × surface
+    function buildMatrix(){
+      const head = `<div></div>` + SURFS.map(s=>`<div class="col-h">${s.col}</div>`).join('');
+      const rows = MODS.map((m,mi)=> `<div class="mname">${m.name}</div>` + SURFS.map(s=>
+        `<div class="pdot${m.on[s.key]?' on':''}${m.lock?' lock':''}" data-m="${mi}" data-s="${s.key}" role="button" aria-pressed="${!!m.on[s.key]}" aria-label="${m.name} on ${s.col}"></div>`
+      ).join('')).join('');
+      place.innerHTML = `<div class="place-head">Choose what shows where</div><div class="place-sub">tap a dot to add or remove a module from a surface</div><div class="place-grid">${head}${rows}</div>`;
+    }
+    place.addEventListener('click', e=>{
+      const d = e.target.closest('.pdot'); if(!d || d.classList.contains('lock')) return;
+      const m = MODS[+d.dataset.m], k = d.dataset.s;
+      m.on[k] = m.on[k] ? 0 : 1;
+      d.classList.toggle('on', !!m.on[k]); d.setAttribute('aria-pressed', String(!!m.on[k]));
+      render();
     });
 
-    function tilesFor(kind){
-      let enabled = skills.filter(t=>ON.has(t.id));
-      if(kind!=='mac'){ const pr = PRIORITY[kind]; enabled = enabled.slice().sort((a,b)=>pr.indexOf(a.id)-pr.indexOf(b.id)); }
-      return [TILES[0], ...enabled.slice(0, CAP[kind])];
-    }
     function render(){
       const newKeys = new Set();
-      lineup.innerHTML = ORDER.map(kind=>{
-        const cells = tilesFor(kind).map(t=>{
-          const key = kind+':'+t.id; newKeys.add(key);
-          const cls = 'tile' + ((t.wide && kind!=='iphone')?' wide':'') + (t.id==='core'?' core':'') + (!lastKeys.has(key)?' appear':'');
-          return `<div class="${cls}"><div class="tk">${t.icon||''}${t.tk}</div><h5>${t.h}</h5><p>${t.body}</p></div>`;
+      lineup.innerHTML = SURFS.map(s=>{
+        const mods = MODS.filter(m=>m.on[s.key]);
+        const cells = mods.map(m=>{
+          const key = s.key+':'+m.id; newKeys.add(key);
+          const cls = 'tile' + ((m.wide && s.dev!=='iphone')?' wide':'') + (m.id==='today'?' core':'') + (!lastKeys.has(key)?' appear':'');
+          return `<div class="${cls}"><div class="tk">${m.icon||''}${m.tk}</div><h5>${m.h}</h5><p>${m.body}</p></div>`;
         }).join('');
-        const l = LABELS[kind];
-        return `<div class="col"><div class="device ${kind}"><div class="device-chrome">${CHROME[kind]}</div><div class="bento">${cells}</div></div><div class="dev-label"><b>${l.b}</b>${l.s}</div></div>`;
+        return `<div class="col"><div class="device ${s.dev}"><div class="device-chrome">${s.chrome}</div><div class="bento">${cells}</div></div><div class="dev-label"><b>${s.label.b}</b>${s.label.s}</div></div>`;
       }).join('');
       lastKeys = newKeys;
-      const n = ON.size, more = skills.length - n;
-      hint.textContent = `${n} skill${n===1?'':'s'} on · ${more} more to add — toggle a skill and watch all three surfaces update`;
+      const counts = SURFS.map(s=>`${s.col} ${MODS.filter(m=>m.on[s.key]).length}`).join(' · ');
+      hint.textContent = `Modules per surface — ${counts}. Defaults shown; tap any dot above to re-arrange.`;
     }
-    render();
+    buildMatrix(); render();
   })();
 </script>
 </body>
