@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Echo — Skills gallery options · lab</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='white'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050505; --ink:#f5f5f3; --muted:#8a8a86; --faint:#5a5a57;
+    --line:rgba(255,255,255,.10); --line-soft:rgba(255,255,255,.06);
+    --accent:#e8e4dc; --gold:#c2a878; --gold-line:rgba(194,168,120,.30); --glow:rgba(232,228,220,.13);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',-apple-system,sans-serif; font-weight:400; line-height:1.5; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+  body::before{content:''; position:fixed; inset:0; z-index:0; pointer-events:none; background:radial-gradient(900px 520px at 50% -8%, var(--glow), transparent 60%)}
+  .wrap{position:relative; z-index:1; max-width:1040px; margin:0 auto; padding:0 28px}
+
+  nav{display:flex; align-items:center; justify-content:space-between; padding:30px 0 0}
+  .brand{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--ink)}
+  .brand .mark{width:22px; height:22px}
+  .brand b{font-weight:600; font-size:16px; letter-spacing:.04em}
+  .nav-link{font-size:13px; color:var(--muted); text-decoration:none}
+  .nav-link:hover{color:var(--ink)}
+
+  .head{padding:60px 0 14px; max-width:760px}
+  .eyebrow{font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); margin-bottom:22px; font-weight:500}
+  h1{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(34px,5.5vw,56px); line-height:1.0; margin-bottom:18px}
+  h1 .it{font-style:italic; color:var(--accent)}
+  .head p{color:var(--muted); font-size:16px; font-weight:300; line-height:1.62; max-width:680px}
+  .head p b{color:var(--ink); font-weight:500}
+  .labnote{margin-top:18px; font-size:13px; color:var(--faint); border-left:2px solid var(--gold-line); padding-left:14px; line-height:1.6}
+
+  .variant{padding:46px 0 14px; border-top:1px solid var(--line-soft)}
+  .variant .vn{font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); font-weight:500}
+  .variant h2{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(24px,3.6vw,34px); margin:12px 0 8px}
+  .variant .idea{color:var(--muted); font-weight:300; font-size:15px; line-height:1.6; max-width:700px}
+  .variant .idea b{color:var(--ink); font-weight:500}
+  .stage{margin-top:26px; border:1px solid var(--line-soft); border-radius:18px; padding:30px 16px;
+    background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.004)); overflow:hidden}
+
+  /* ── card kit (shared) ── */
+  .card{width:190px; height:256px; flex:none; border-radius:18px; padding:18px 16px; cursor:pointer;
+    border:1px solid var(--gold-line); background:linear-gradient(165deg, rgba(46,43,37,.92), rgba(12,12,11,.94));
+    box-shadow:0 0 0 1px rgba(194,168,120,.1), 0 22px 50px -24px rgba(0,0,0,.85);
+    display:flex; flex-direction:column; position:relative; transition:transform .5s cubic-bezier(.2,.7,.2,1), opacity .5s, box-shadow .4s, border-color .4s}
+  .card::before{content:''; position:absolute; inset:0; border-radius:18px; pointer-events:none; background:linear-gradient(160deg, rgba(232,228,220,.06), transparent 42%); opacity:.7}
+  .card .ic{width:28px; height:28px; color:var(--gold); margin-bottom:auto}
+  .card .ic svg{width:28px; height:28px; display:block}
+  .card h4{font-family:'Instrument Serif',serif; font-weight:400; font-size:21px; margin:12px 0 6px}
+  .card .cap{font-size:11.5px; color:var(--muted); font-weight:300; line-height:1.45}
+  .card .foot{margin-top:12px; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--faint)}
+  .card.make{border-style:dashed; background:linear-gradient(165deg, rgba(194,168,120,.14), rgba(12,12,11,.94))}
+  .card.make .ic, .card.community .ic{color:var(--accent)}
+  .card .pill{position:absolute; top:14px; right:14px; font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold-line); border-radius:999px; padding:3px 8px}
+  .card.sel, .card.hot{border-color:rgba(194,168,120,.65); box-shadow:0 0 40px -8px rgba(194,168,120,.4), 0 0 0 1px rgba(194,168,120,.35), 0 22px 56px -24px rgba(0,0,0,.9)}
+
+  /* V1 — wide coverflow */
+  .cf-wrap{position:relative}
+  .cf{position:relative; height:300px; perspective:1700px}
+  .cf .stageinner{position:absolute; inset:0; transform-style:preserve-3d}
+  .cf .card{position:absolute; top:50%; left:50%; margin:-128px 0 0 -95px}
+  .deck-nav{display:flex; align-items:center; justify-content:center; gap:16px; margin-top:14px}
+  .deck-btn{width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:rgba(255,255,255,.03); color:var(--ink); font-size:16px; cursor:pointer; transition:.2s}
+  .deck-btn:hover{border-color:rgba(194,168,120,.5); background:rgba(194,168,120,.08)}
+
+  /* V2 — scroll rail */
+  .rail{display:flex; gap:16px; overflow-x:auto; padding:6px 4px 18px; scroll-snap-type:x proximity; scrollbar-width:thin}
+  .rail::-webkit-scrollbar{height:7px}
+  .rail::-webkit-scrollbar-thumb{background:rgba(194,168,120,.3); border-radius:99px}
+  .rail .card{scroll-snap-align:center}
+  .rail-hint{text-align:center; font-size:11.5px; color:var(--faint); margin-top:6px}
+
+  /* V3 — fanned hand */
+  .fan{position:relative; height:330px; display:flex; align-items:center; justify-content:center}
+  .fan .card{position:absolute; transform-origin:bottom center; transition:transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .35s; width:178px; height:240px}
+  .fan .card:hover{transform:translateY(-26px) rotate(0deg) scale(1.05)!important; z-index:50!important}
+
+  /* V4 — grid wall */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(176px,1fr)); gap:14px; justify-items:center}
+  .grid .card{width:100%; max-width:210px; height:236px; transition:transform .3s, box-shadow .3s, border-color .3s}
+  .grid .card:hover{transform:translateY(-5px); border-color:rgba(194,168,120,.6); box-shadow:0 0 34px -10px rgba(194,168,120,.4)}
+
+  footer{border-top:1px solid var(--line-soft); padding:30px 0 60px; margin-top:50px; color:var(--faint); font-size:12.5px}
+  footer a{color:var(--muted); text-decoration:none}
+
+  @media (max-width:600px){ .fan{display:none} .cf{height:280px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="7" fill="#f5f5f3"/><circle cx="50" cy="50" r="24" fill="none" stroke="#f5f5f3" stroke-opacity=".45" stroke-width="2"/><circle cx="50" cy="50" r="42" fill="none" stroke="#f5f5f3" stroke-opacity=".18" stroke-width="2"/></svg>
+      <b>ECHO</b>
+    </a>
+    <a class="nav-link" href="faq.html">← How it works</a>
+  </nav>
+
+  <header class="head">
+    <div class="eyebrow">Skills gallery lab · pick one</div>
+    <h1>More cards, <span class="it">at a glance.</span></h1>
+    <p>Four ways to show the skills gallery in section <b>02</b> with <b>several cards visible at once</b> — keeping the premium glowing-card feel, losing the one-at-a-time limit. Pick the one you like and I'll wire it into the live page.</p>
+    <div class="labnote">Same nine skill cards in every option. They differ only in <i>how many you see</i> and how you move through them.</div>
+  </header>
+
+  <!-- V1 — wide coverflow -->
+  <section class="variant">
+    <div class="vn">Variant 1</div>
+    <h2>Wide coverflow — five in view</h2>
+    <p class="idea">The same coverflow you have, just tuned so <b>five cards stay readable</b> — the two on each side don't shrink away. Keeps the 3D depth and the centre-spotlight; drag or use the arrows. Closest to today, minimal change.</p>
+    <div class="stage">
+      <div class="cf-wrap">
+        <div class="cf" id="cf1" tabindex="0"><div class="stageinner" id="cf1inner"></div></div>
+        <div class="deck-nav"><button class="deck-btn" id="cf1prev" aria-label="Previous">‹</button><button class="deck-btn" id="cf1next" aria-label="Next">›</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 — scroll rail -->
+  <section class="variant">
+    <div class="vn">Variant 2</div>
+    <h2>The Rail — a shelf you scroll</h2>
+    <p class="idea">Cards line up full-size on a shelf; <b>three-and-a-half show at once</b>, the rest peek in from the edge. Drag or scroll sideways. The App-Store pattern — familiar, browsable, every card equally legible.</p>
+    <div class="stage">
+      <div class="rail" id="rail"></div>
+      <div class="rail-hint">← drag / scroll to browse all nine →</div>
+    </div>
+  </section>
+
+  <!-- V3 — fanned hand -->
+  <section class="variant">
+    <div class="vn">Variant 3</div>
+    <h2>The Fan — a hand of cards</h2>
+    <p class="idea">All nine fanned in an arc like a hand of cards — <b>every one visible at once</b>, overlapping at the edges. Hover (or tap) lifts one to the front. The most "gallery", the most premium, the most playful.</p>
+    <div class="stage">
+      <div class="fan" id="fan"></div>
+    </div>
+  </section>
+
+  <!-- V4 — grid wall -->
+  <section class="variant">
+    <div class="vn">Variant 4</div>
+    <h2>The Wall — see everything</h2>
+    <p class="idea">No gallery motion at all — every card laid out in a tidy grid, <b>all nine in view</b>, hover to highlight. Best if "browse the whole library at a glance" matters more than the spotlight drama.</p>
+    <div class="stage">
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <footer>Echo — skills gallery lab · <a href="faq.html">back to How it works</a></footer>
+
+</div>
+
+<script>
+  const I = {
+    health:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h3l2 5 4-12 2 7h4"/></svg>',
+    cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>',
+    mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>',
+    search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/></svg>',
+    family:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/></svg>',
+    coin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 10h3a1.5 1.5 0 0 1 0 3h-3M9.5 13h4"/></svg>',
+    people:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M16 6a3 3 0 0 1 0 5M17 15c2 .5 4 2 4 5"/></svg>',
+    spark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M6.5 6.5l3 3M14.5 14.5l3 3M17.5 6.5l-3 3M9.5 14.5l-3 3"/></svg>',
+    grid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14.5v6M14.5 17.5h6"/></svg>'
+  };
+  const SKILLS = [
+    {ic:I.health, name:'Health', cap:'sleep · training · nutrition'},
+    {ic:I.cal, name:'Scheduling', cap:'meetings · holds · travel'},
+    {ic:I.mail, name:'Inbox', cap:'triage · drafts in your voice'},
+    {ic:I.search, name:'Research', cap:'overnight briefings'},
+    {ic:I.family, name:'Family', cap:'activities · gifts · plans'},
+    {ic:I.coin, name:'Finance', cap:'expenses · subscriptions'},
+    {ic:I.people, name:'Relationships', cap:'remember everyone'},
+    {ic:I.spark, name:'Build your own', cap:'name it · prompt it · scope it', kind:'make'},
+    {ic:I.grid, name:'Community library', cap:'browse · install · share', kind:'community'}
+  ];
+  function cardHTML(s){
+    const pill = s.kind ? `<span class="pill">${s.kind==='make'?'Custom':'Community'}</span>` : '';
+    const foot = s.kind==='make' ? '+ new skill' : s.kind==='community' ? 'from the community' : 'skill';
+    return `<div class="card ${s.kind||''}">${pill}<span class="ic">${s.ic}</span><h4>${s.name}</h4><div class="cap">${s.cap}</div><div class="foot">${foot}</div></div>`;
+  }
+
+  // ── V1 wide coverflow ──
+  (function(){
+    const inner = document.getElementById('cf1inner'); if(!inner) return;
+    inner.innerHTML = SKILLS.map(cardHTML).join('');
+    const cards = [...inner.children]; let active = 2, auto;
+    function layout(){
+      cards.forEach((c,i)=>{
+        const o=i-active, a=Math.abs(o);
+        c.style.transform = `translateX(${o*128}px) translateZ(${-a*90}px) rotateY(${o*-18}deg) scale(${1-a*0.05})`;
+        c.style.opacity = a>2 ? 0 : 1 - a*0.12;
+        c.style.zIndex = 50-a; c.style.pointerEvents = a>2?'none':'auto';
+        c.classList.toggle('sel', i===active);
+      });
+    }
+    function go(i){ active=(i+cards.length)%cards.length; layout(); restart(); }
+    cards.forEach((c,i)=>c.addEventListener('click',()=>go(i)));
+    document.getElementById('cf1prev').onclick=()=>go(active-1);
+    document.getElementById('cf1next').onclick=()=>go(active+1);
+    const cf=document.getElementById('cf1');
+    cf.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')go(active-1);if(e.key==='ArrowRight')go(active+1);});
+    let sx=null; const dn=x=>{sx=x;stop();}, mv=x=>{if(sx==null)return;if(Math.abs(x-sx)>50){go(active+(x<sx?1:-1));sx=null;}}, up=()=>sx=null;
+    cf.addEventListener('mousedown',e=>dn(e.clientX)); window.addEventListener('mousemove',e=>mv(e.clientX)); window.addEventListener('mouseup',up);
+    cf.addEventListener('touchstart',e=>dn(e.touches[0].clientX),{passive:true}); cf.addEventListener('touchmove',e=>mv(e.touches[0].clientX),{passive:true});
+    const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+    function start(){if(reduce)return;auto=setInterval(()=>{active=(active+1)%cards.length;layout();},3000);}
+    function stop(){clearInterval(auto);} function restart(){stop();start();}
+    cf.addEventListener('mouseenter',stop); cf.addEventListener('mouseleave',start);
+    layout(); start();
+  })();
+
+  // ── V2 rail ──
+  (function(){
+    const rail=document.getElementById('rail'); if(!rail) return;
+    rail.innerHTML = SKILLS.map(cardHTML).join('');
+    let down=false,sx,sl;
+    rail.addEventListener('mousedown',e=>{down=true;sx=e.pageX;sl=rail.scrollLeft;rail.style.cursor='grabbing';});
+    window.addEventListener('mouseup',()=>{down=false;rail.style.cursor='';});
+    window.addEventListener('mousemove',e=>{if(!down)return;rail.scrollLeft=sl-(e.pageX-sx);});
+  })();
+
+  // ── V3 fan ──
+  (function(){
+    const fan=document.getElementById('fan'); if(!fan) return;
+    fan.innerHTML = SKILLS.map(cardHTML).join('');
+    const cards=[...fan.children], n=cards.length, spread=15, step=128;
+    cards.forEach((c,i)=>{
+      const mid=(n-1)/2, off=i-mid;
+      c.style.transform=`translateX(${off*step}px) translateY(${Math.abs(off)*16}px) rotate(${off*spread/ (n/2)}deg)`;
+      c.style.zIndex=String(20-Math.abs(off));
+    });
+  })();
+
+  // ── V4 grid ──
+  (function(){
+    const grid=document.getElementById('grid'); if(!grid) return;
+    grid.innerHTML = SKILLS.map(cardHTML).join('');
+  })();
+</script>
+</body>
+</html>
