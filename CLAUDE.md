@@ -32,6 +32,7 @@ Type **`/work-prototype <slug>`** to start a session — that command walks the 
 ## Conventions
 
 - **Single-file HTML where possible.** No build step. No framework. Tailwind via CDN is fine; small `data.js` companion files are fine. If a prototype outgrows this and needs a build, lift it into its own repo.
+- **Keep markup and inline CSS in sync.** When a view is built in JS, every `class="…"` it emits needs a matching rule in the `<style>` block — otherwise it renders unstyled (this bit us once when a whole home view shipped without its CSS). Run `node tools/check-css.js 'echo/*.html'` (or pass specific files) before pushing; CI runs it as the `check-css` job and **blocks the Pages deploy on failure**. It flags any class used in markup / `classList` calls but never defined, ignoring dynamic `${…}` class names.
 - **Version in `<title>`.** Bump when the change feels like a real new version (flow shift, structural redesign). Tiny tweaks don't need a bump.
 - **`README.md` is the only doc per prototype.** If a prototype is small, the README can be terse. If it grows enough that a session-start orient takes longer than a couple of minutes, split it into a deeper context file alongside.
 - **No PII or client data.** This folder is public via Pages even though the repo may be private.
