@@ -723,7 +723,7 @@
       {ic:I.spark, name:'Build your own', cap:'name it · prompt it · scope it', tools:['Pick any tools'], desc:'Describe a skill in plain words, give it a prompt, and choose exactly which tools it may use. A bespoke skill for your work in minutes.', kind:'make'},
       {ic:I.grid, name:'Community library', cap:'browse · install · share', tools:['One-click enable'], desc:'Switch on proven skills others have built and shared — installed into your own VM, scoped by you.', kind:'community'}
     ];
-    let active = 0, dragging = false, sx = 0, auto;
+    let active = 4, dragging = false, sx = 0, auto;   // start mid so collapsed cards peek on both sides
     const detail = {n:document.getElementById('sdName'), d:document.getElementById('sdDesc'), t:document.getElementById('sdTools'),
       tog:document.getElementById('sdToggle'), togT:document.getElementById('sdToggleT'), note:document.getElementById('sdNote')};
     const dots = document.getElementById('deckDots');
@@ -744,11 +744,16 @@
 
     function layout(){
       cards.forEach((c,i)=>{
-        const o = i - active, a = Math.abs(o);
-        c.style.transform = `translateX(${o*64}px) translateZ(${-a*130}px) rotateY(${o*-34}deg) scale(${1-a*0.06})`;
-        c.style.opacity = a>3 ? 0 : 1 - a*0.16;
+        const o = i - active, a = Math.abs(o), s = Math.sign(o);
+        const near = Math.min(a, 2), far = Math.max(0, a - 2);   // 5 spread out; the rest collapse tight at the edges
+        const tx = s * (near*112 + far*22);
+        const tz = -near*88 - far*150;
+        const rot = Math.max(-42, Math.min(42, o*-16));
+        const scale = 1 - near*0.055 - far*0.07;
+        c.style.transform = `translateX(${tx}px) translateZ(${tz}px) rotateY(${rot}deg) scale(${scale})`;
+        c.style.opacity = a<=2 ? 1 : a<=4 ? 0.52 - (a-2)*0.17 : 0;   // ±3, ±4 peek collapsed; beyond hidden
         c.style.zIndex = 100 - a;
-        c.style.pointerEvents = a>3 ? 'none' : 'auto';
+        c.style.pointerEvents = a<=2 ? 'auto' : 'none';
         c.classList.toggle('active', i===active);
       });
       [...dots.children].forEach((d,i)=>d.classList.toggle('on', i===active));
