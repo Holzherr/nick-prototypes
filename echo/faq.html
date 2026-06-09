@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Echo — How it works</title>
-<meta name="description" content="How Echo works, in five pictures: your data flowing into one wiki-style memory and back out as action, installable and custom skills you scope tool-by-tool, an assistant that works overnight, a dashboard that assembles itself from the skills you enable, and a private VM that's actually yours — hosted anywhere, your database, reached from your phone, your Mac and anywhere." />
+<meta name="description" content="How Echo works, in five pictures: your data flowing into one wiki-style memory and back out as action, installable and custom skills you scope tool-by-tool, an assistant that works overnight, a dashboard that assembles itself from the skills you enable, a private VM that's actually yours — hosted anywhere, your database, reached from your phone, your Mac and anywhere — and Spaces (personal, family, business) that share modules by reference and roll up into one view." />
 <meta property="og:title" content="Echo — How it works" />
 <meta property="og:description" content="The whole idea in four diagrams: data in / action out, work done overnight, a loop you command, and a private home base you reach from anywhere." />
 <meta property="og:type" content="website" />
@@ -325,6 +325,32 @@
     .dgm-stage{padding:18px 12px}
   }
   @media (prefers-reduced-motion:reduce){ .card{transition:none} }
+
+  /* ── spaces: Venn legend + Me-lens roll-up (diagram 06) ── */
+  .legend{display:flex; gap:22px; justify-content:center; flex-wrap:wrap; margin-top:18px; font-size:12.5px; color:var(--muted)}
+  .legend span{display:inline-flex; align-items:center; gap:8px}
+  .legend i{width:9px; height:9px; border-radius:50%; display:inline-block}
+  .sp-personal{background:#c2a878}.sp-family{background:#e8e4dc}.sp-business{background:#9fb3c8}
+  .spaces-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px}
+  .space{border:1px solid var(--line); border-radius:14px; padding:16px; background:rgba(255,255,255,.025)}
+  .space .sh{display:flex; align-items:center; gap:8px; font-family:'Instrument Serif',serif; font-size:19px; margin-bottom:4px}
+  .space .sh i{width:9px; height:9px; border-radius:50%}
+  .space .ssub{font-size:11px; color:var(--faint); margin-bottom:12px}
+  .space .mods{display:flex; flex-wrap:wrap; gap:6px}
+  .space .mods span{font-size:11.5px; color:var(--muted); border:1px solid var(--line-soft); border-radius:7px; padding:5px 9px; background:rgba(255,255,255,.02)}
+  .funnel{display:flex; align-items:center; justify-content:center; gap:10px; color:var(--gold); font-size:12px; margin:16px 0; letter-spacing:.04em}
+  .funnel .ln{height:1px; width:46px; background:linear-gradient(90deg, transparent, var(--gold-line), transparent)}
+  .me{border:1px solid var(--gold-line); border-radius:16px; padding:20px 22px; background:linear-gradient(180deg, rgba(194,168,120,.06), rgba(255,255,255,.012))}
+  .me-h{display:flex; align-items:center; gap:10px; margin-bottom:14px}
+  .me-h .mk{width:26px; height:26px; flex:none}
+  .me-h b{font-family:'Instrument Serif',serif; font-weight:400; font-size:20px}
+  .me-h .s{font-size:11.5px; color:var(--muted)}
+  .me-rows{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+  .me-row{display:flex; align-items:flex-start; gap:10px; border:1px solid var(--line-soft); border-radius:11px; padding:11px 13px; background:rgba(255,255,255,.022)}
+  .me-row i{width:8px; height:8px; border-radius:50%; margin-top:5px; flex:none}
+  .me-row .t{font-size:13px; color:var(--accent)}
+  .me-row .src{font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); margin-bottom:2px}
+  @media (max-width:620px){ .spaces-row{grid-template-columns:1fr} .me-rows{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -350,7 +376,7 @@
   <header class="head">
     <div class="eyebrow"><span class="dot"></span>How it works</div>
     <h1>Not an app you open. <span class="it">A layer that runs.</span></h1>
-    <p>Echo is easier to show than to tell. Here's the whole idea in <b>five pictures</b> — what it is, what it can do, when it works, how it comes together, and why it's actually yours. The detailed questions people ask are answered further down.</p>
+    <p>Echo is easier to show than to tell. Here's the whole idea in <b>six pictures</b> — what it is, what it can do, when it works, how it comes together, why it's actually yours, and how it scales across your whole life. The detailed questions people ask are answered further down.</p>
   </header>
 
   <section class="diagrams">
@@ -595,6 +621,83 @@
         </div>
       </div>
       <p class="dgm-cap"><b>The trust model:</b> a home you own and visit, not an account you rent — single-tenant, inspectable, portable. The phone shows the glance, the Mac the full desk, the kitchen the family — same memory underneath, and the privacy is auditable, not just promised.</p>
+    </article>
+
+    <!-- ── Diagram 6 — One you, many Spaces ── -->
+    <article class="dgm">
+      <div class="dgm-n">06 — How it scales</div>
+      <h2 class="dgm-h">One you. <span class="it">Many Spaces.</span></h2>
+      <p class="dgm-dek">Your life isn't one bucket. Echo holds <b>Personal</b>, <b>Family</b> and <b>Business</b> as separate, sovereign <b>Spaces</b> — like Notion workspaces, but each its own private store. A module can be <b>shared across them by reference</b> (one source of truth, never a copy), and a personal <b>"Me" lens</b> rolls the bits you care about into one dashboard. Work stays in work; your one screen still shows the whole day.</p>
+      <div class="dgm-stage">
+        <svg class="diagram" viewBox="0 0 760 600" role="img" aria-label="Three overlapping Spaces — Personal, Family, Business — with shared modules in the overlaps and you at the centre">
+          <circle cx="380" cy="225" r="160" fill="rgba(194,168,120,.05)" stroke="rgba(194,168,120,.55)" stroke-width="1.3"/>
+          <circle cx="296" cy="368" r="160" fill="rgba(232,228,220,.045)" stroke="rgba(232,228,220,.45)" stroke-width="1.3"/>
+          <circle cx="464" cy="368" r="160" fill="rgba(159,179,200,.05)" stroke="rgba(159,179,200,.5)" stroke-width="1.3"/>
+          <g text-anchor="middle">
+            <text x="380" y="130" font-size="22" fill="#f5f5f3" font-family="'Instrument Serif',serif">Personal</text>
+            <text x="380" y="150" font-size="10.5" fill="#8a8a86">health · notes · money</text>
+            <circle cx="343" cy="124" r="3.5" fill="#c2a878"/>
+            <text x="214" y="430" font-size="22" fill="#f5f5f3" font-family="'Instrument Serif',serif">Family</text>
+            <text x="214" y="450" font-size="10.5" fill="#8a8a86">shopping · kids · meals</text>
+            <circle cx="170" cy="424" r="3.5" fill="#e8e4dc"/>
+            <text x="546" y="430" font-size="22" fill="#f5f5f3" font-family="'Instrument Serif',serif">Business</text>
+            <text x="546" y="450" font-size="10.5" fill="#8a8a86">projects · team · clients</text>
+            <circle cx="498" cy="424" r="3.5" fill="#9fb3c8"/>
+          </g>
+          <g text-anchor="middle">
+            <text x="300" y="262" font-size="11" fill="#e8e4dc">Shared calendar</text>
+            <text x="300" y="279" font-size="11" fill="#e8e4dc">Photos</text>
+            <text x="460" y="262" font-size="11" fill="#e8e4dc">Contacts</text>
+            <text x="460" y="279" font-size="11" fill="#e8e4dc">Travel</text>
+            <text x="380" y="436" font-size="11" fill="#e8e4dc">Household budget</text>
+            <text x="380" y="452" font-size="9.5" fill="#5a5a57">shared by reference ↔</text>
+          </g>
+          <g text-anchor="middle">
+            <circle cx="380" cy="330" r="34" fill="#0b0b0a" stroke="rgba(194,168,120,.5)" stroke-width="1.2"/>
+            <circle cx="380" cy="330" r="20" fill="none" stroke="rgba(194,168,120,.35)" stroke-width="1"/>
+            <circle class="svg-breathe" cx="380" cy="330" r="5" fill="#c2a878"/>
+            <text x="380" y="392" font-size="15" fill="#e8e4dc" font-family="'Instrument Serif',serif" font-style="italic">you</text>
+            <text x="380" y="408" font-size="9" fill="#8a8a86">one identity, all Spaces</text>
+          </g>
+        </svg>
+        <div class="legend">
+          <span><i class="sp-personal"></i>Personal — your VM</span>
+          <span><i class="sp-family"></i>Family — the shared Family Space</span>
+          <span><i class="sp-business"></i>Business — the company's</span>
+        </div>
+
+        <div class="spaces-row">
+          <div class="space">
+            <div class="sh"><i class="sp-personal"></i>Personal</div>
+            <div class="ssub">your VM · just you</div>
+            <div class="mods"><span>Health</span><span>Notes</span><span>Money</span><span>Travel</span></div>
+          </div>
+          <div class="space">
+            <div class="sh"><i class="sp-family"></i>Family</div>
+            <div class="ssub">shared · the Family Space</div>
+            <div class="mods"><span>Calendar</span><span>Shopping</span><span>Kids</span><span>Meals</span></div>
+          </div>
+          <div class="space">
+            <div class="sh"><i class="sp-business"></i>Business</div>
+            <div class="ssub">the company's Space</div>
+            <div class="mods"><span>Projects</span><span>Team</span><span>Clients</span><span>Inbox</span></div>
+          </div>
+        </div>
+        <div class="funnel"><span class="ln"></span>the Me lens pulls a thread from each<span class="ln"></span></div>
+        <div class="me">
+          <div class="me-h">
+            <svg class="mk" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="7" fill="#c2a878"/><circle cx="50" cy="50" r="24" fill="none" stroke="#c2a878" stroke-opacity=".5" stroke-width="3"/><circle cx="50" cy="50" r="42" fill="none" stroke="#c2a878" stroke-opacity=".22" stroke-width="3"/></svg>
+            <div><b>Your dashboard</b> &nbsp;<span class="s">the Me lens — one view across every Space</span></div>
+          </div>
+          <div class="me-rows">
+            <div class="me-row"><i class="sp-personal"></i><div><div class="src">Personal</div><div class="t">Morning training done · sleep 7.3h</div></div></div>
+            <div class="me-row"><i class="sp-business"></i><div><div class="src">Business</div><div class="t">14:00 client call · brief ready</div></div></div>
+            <div class="me-row"><i class="sp-family"></i><div><div class="src">Family</div><div class="t">15:30 school pickup — Tara</div></div></div>
+            <div class="me-row"><i class="sp-family"></i><div><div class="src">Family</div><div class="t">Shopping: milk, eggs, pasta</div></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="dgm-cap"><b>The model:</b> one identity, many Spaces — each sovereign, shared by reference, federated not pooled, and rolled into a single view whenever you want it.</p>
     </article>
 
   </section>
