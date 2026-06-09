@@ -281,7 +281,7 @@
 
   <header class="hero">
     <div class="rings" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-    <div class="eyebrow"><span class="dot"></span>Private beta · by invitation</div>
+    <div class="eyebrow"><span class="dot"></span>Private beta · limited seats</div>
     <h1>Wake up<br><span class="it">superhuman.</span></h1>
     <p class="lede">Echo is the quiet layer over <b>your work and your life</b>. It runs through the night — on every channel you use, clearing the inbox, prepping the meeting, remembering everyone you know, doing the work <b>before you ask</b>. You wake up ahead, not staring at another chatbot.</p>
 
@@ -289,7 +289,7 @@
       <!-- FormSubmit.co relay → emails go straight to Nick. No account/key needed.
            One-time: click the activation link FormSubmit emails on the first real submission.
            On submit, Echo's agent runs an (illustrative, client-side) profile review, then expedites. -->
-      <form id="wl-form" class="wl-form" action="https://formsubmit.co/ajax/nickholzherr@gmail.com" method="POST" novalidate>
+      <form id="wl-form" class="wl-form" action="" method="POST" novalidate>
         <input type="hidden" name="_subject" value="Echo — new waitlist request" />
         <input type="hidden" name="form_type" value="waitlist" />
         <input type="hidden" name="_template" value="table" />
@@ -303,7 +303,7 @@
         <textarea id="wl-note" class="wl-input" name="note" rows="2" maxlength="280"
                   placeholder="One line — who are you, and why Echo?" aria-label="Who are you and why Echo"></textarea>
         <button type="submit" class="wl-submit" id="wl-btn">Request access</button>
-        <p class="fineprint">Echo's agent reviews every request the moment it lands. No spam — ever.</p>
+        <p class="fineprint">Every request is read and reviewed before an invite goes out. No spam — ever.</p>
       </form>
 
       <!-- live "agent reviewing" sequence -->
@@ -379,7 +379,7 @@
         </div>
       </div>
 
-      <form id="apply-form" action="https://formsubmit.co/ajax/nickholzherr@gmail.com" method="POST" novalidate>
+      <form id="apply-form" action="" method="POST" novalidate>
         <input type="hidden" name="_subject" value="Echo — new access application" />
         <input type="hidden" name="form_type" value="application" />
         <input type="hidden" name="_template" value="table" />
@@ -390,6 +390,7 @@
           <button type="submit" id="apply-btn">Apply for access</button>
         </div>
         <p class="fineprint">Tell us who nominated you in the first reply, if anyone did — it moves you up the list. New here? <a href="faq.html" style="color:var(--muted); text-decoration:underline">How Echo works →</a></p>
+        <p class="fineprint">Membership starts at $10/mo in beta — the Echo core itself is free and open. The optional <a href="family-hub.html" style="color:var(--muted); text-decoration:underline">Family Hub</a> wall tablet is £279 one-time.</p>
       </form>
       <div id="apply-done" class="success" role="status" style="margin-top:18px">
         <div class="check">✓</div>
@@ -505,6 +506,14 @@
   const emailRe = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
   const esc = (s) => { const d = document.createElement('div'); d.textContent = String(s == null ? '' : s); return d.innerHTML; };
   const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  // Lead endpoint assembled at runtime so the address isn't scrapeable from page source.
+  // Swap for a Formspree form id (https://formspree.io) to hide it entirely.
+  const LEAD_ENDPOINT = 'https://formsubmit.co/ajax/' + ['nickholzherr', 'gmail.com'].join('@');
+  for (const id of ['wl-form', 'apply-form']) {
+    const f = document.getElementById(id);
+    if (f) f.setAttribute('action', LEAD_ENDPOINT);
+  }
 
   function postLead(formEl){
     const endpoint = formEl.getAttribute('action');
