@@ -247,6 +247,38 @@
   .tile p b{color:var(--accent); font-weight:500}
   .dash-hint{font-size:11.5px; color:var(--faint); margin-top:15px; text-align:center}
 
+  /* surface switch + device frames (diagram 04) */
+  .surface-tabs{display:inline-flex; gap:4px; padding:5px; border:1px solid var(--line); border-radius:999px;
+    background:rgba(255,255,255,.025); margin-bottom:16px}
+  .surface-tabs button{border:0; background:transparent; color:var(--muted); font-family:inherit; font-size:13px;
+    letter-spacing:.02em; padding:8px 16px; border-radius:999px; cursor:pointer; transition:.2s}
+  .surface-tabs button:hover{color:var(--ink)}
+  .surface-tabs button.on{background:var(--ink); color:#0a0a0a; font-weight:500}
+  .device{margin:0 auto; overflow:hidden; background:rgba(255,255,255,.012);
+    transition:max-width .45s cubic-bezier(.2,.7,.2,1), border-radius .45s, border-color .3s;
+    border:1px solid var(--line); border-radius:14px}
+  .device-chrome{display:flex; align-items:center; gap:7px; height:0; overflow:hidden; transition:height .3s}
+  .device-chrome .dots{display:flex; gap:6px}
+  .device-chrome .dots i{width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.18)}
+  .device-chrome .lbl{font-size:11px; color:var(--faint); letter-spacing:.04em}
+  .device-chrome .notch{width:70px; height:18px; border-radius:0 0 12px 12px; background:#000; margin:0 auto}
+  /* mac */
+  .device.mac{max-width:100%}
+  .device.mac .device-chrome{height:36px; padding:0 14px; border-bottom:1px solid var(--line-soft)}
+  .device.mac .bento{padding:14px; grid-template-columns:repeat(3,1fr)}
+  /* iphone */
+  .device.iphone{max-width:286px; border-radius:36px; border:7px solid #1b1b18}
+  .device.iphone .device-chrome{height:24px; justify-content:center; position:relative}
+  .device.iphone .bento{padding:11px 12px 16px; grid-template-columns:1fr; gap:10px}
+  .device.iphone .tile{min-height:auto; padding:13px 14px}
+  .device.iphone .tile.wide{grid-column:auto}
+  /* tablet */
+  .device.tablet{max-width:540px; border-radius:18px; border:8px solid #161610}
+  .device.tablet .device-chrome{height:26px; padding:0 14px; justify-content:flex-start}
+  .device.tablet .bento{padding:14px; grid-template-columns:repeat(2,1fr); gap:12px}
+  .device.tablet .tile{min-height:132px}
+  .device.tablet .tile.wide{grid-column:span 2}
+
   @media (max-width:560px){
     .deck{height:300px}
     .skill-detail{flex-direction:column}
@@ -428,35 +460,43 @@
     <article class="dgm">
       <div class="dgm-n">04 — How it comes together</div>
       <h2 class="dgm-h">A dashboard that <span class="it">builds itself.</span></h2>
-      <p class="dgm-dek">Your view of Echo isn't fixed — it <b>assembles from the skills you've turned on</b> and extends the moment you add one. Always-on and easy to browse: a live read on what the agent is doing, what's done, and what's waiting on you. <b>Toggle a skill below and watch the dashboard grow.</b></p>
+      <p class="dgm-dek">Your view of Echo isn't fixed — it <b>assembles from the skills you've turned on</b>, and renders to fit wherever you are: a wide board on your <b>Mac</b>, a glanceable stack on your <b>iPhone</b>, a shared family screen on the <b>kitchen tablet</b>. Same modules, dressed for each surface. <b>Switch surface or toggle a skill and watch it adapt.</b></p>
       <div class="dgm-stage">
         <div class="dash-top">
           <span class="em">Your dashboard</span>
           <span class="dash-live"><i></i>live · assembled from your skills</span>
         </div>
+        <div class="surface-tabs" id="surfaceTabs" role="tablist" aria-label="Choose a surface">
+          <button data-s="mac" class="on" role="tab" aria-selected="true">Mac</button>
+          <button data-s="iphone" role="tab" aria-selected="false">iPhone</button>
+          <button data-s="tablet" role="tab" aria-selected="false">Home tablet</button>
+        </div>
         <div class="stoggles" id="stoggles" role="group" aria-label="Toggle skills to extend your dashboard"></div>
-        <div class="bento" id="bento"></div>
+        <div class="device mac" id="device">
+          <div class="device-chrome" id="deviceChrome"></div>
+          <div class="bento" id="bento"></div>
+        </div>
         <div class="dash-hint" id="dashHint"></div>
       </div>
-      <p class="dgm-cap"><b>The feel:</b> install a skill and a new panel appears — the agent's work stays visible and browsable, never a black box.</p>
+      <p class="dgm-cap"><b>The feel:</b> the same skills follow you across devices — each surface shows the modules that make sense there, never a black box.</p>
     </article>
 
     <!-- ── Diagram 4 — Your home base, reached from anywhere ── -->
     <article class="dgm">
       <div class="dgm-n">05 — Why it's yours</div>
       <h2 class="dgm-h">Yours. <span class="it">Actually yours.</span></h2>
-      <p class="dgm-dek">Echo lives on <b>your own private VM</b> — hosted wherever you like (any cloud, or your own box) — with <b>a database you choose</b>, an open Echo core and your model key, all under one roof you own. You reach that single home from wherever you already are: <b>Telegram or WhatsApp on your phone</b>, <b>Claude Code on your Mac</b>, Slack or voice anywhere. Same Echo, same memory, always in sync — and you can pick it up and leave whenever you like.</p>
+      <p class="dgm-dek">Echo lives on <b>your own private VM</b> — hosted wherever you like (any cloud, or your own box) — with <b>a database you choose</b>, an open Echo core and your model key, all under one roof you own. You reach that single home from wherever you already are: <b>Telegram or WhatsApp on your phone</b>, <b>Claude Code on your Mac</b>, even a <b>shared kitchen screen</b> the family uses for the shopping list and the week's calendar. Same Echo, same memory, always in sync — and you can pick it up and leave whenever you like.</p>
       <div class="dgm-stage">
-        <svg class="diagram" viewBox="0 0 760 460" role="img" aria-label="Your private VM drawn as a house holding your data, open Echo core and key — reached and kept in sync from your phone, your Mac and anywhere else">
+        <svg class="diagram" viewBox="0 0 760 510" role="img" aria-label="Your private VM drawn as a house holding your data, open Echo core and key — reached and kept in sync from your phone, your Mac and a shared family kitchen screen">
           <!-- alive: gentle home pulse -->
-          <circle class="anim4" cx="380" cy="222" r="100" fill="none" stroke="#c2a878" stroke-width="1">
-            <animate attributeName="r" values="92;156" dur="4.5s" repeatCount="indefinite"/>
+          <circle class="anim4" cx="380" cy="182" r="92" fill="none" stroke="#c2a878" stroke-width="1">
+            <animate attributeName="r" values="84;146" dur="4.5s" repeatCount="indefinite"/>
             <animate attributeName="stroke-opacity" values="0.22;0" dur="4.5s" repeatCount="indefinite"/>
           </circle>
           <!-- connectors -->
-          <path id="h1" d="M136 210 Q 235 224 300 236" fill="none" stroke="rgba(194,168,120,.35)" stroke-width="1.2"/>
-          <path id="h2" d="M614 210 Q 515 224 458 236" fill="none" stroke="rgba(194,168,120,.35)" stroke-width="1.2"/>
-          <path id="h3" d="M380 326 L380 398" fill="none" stroke="rgba(194,168,120,.35)" stroke-width="1.2"/>
+          <path id="h1" d="M131 188 Q 230 200 302 208" fill="none" stroke="rgba(194,168,120,.35)" stroke-width="1.2"/>
+          <path id="h2" d="M619 186 Q 520 200 458 208" fill="none" stroke="rgba(194,168,120,.35)" stroke-width="1.2"/>
+          <path id="h3" d="M380 266 L380 330" fill="none" stroke="rgba(194,168,120,.35)" stroke-width="1.2"/>
           <!-- bidirectional sync pulses -->
           <g class="anim4">
             <circle r="3.4" fill="#c2a878"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#h1"/></animateMotion></circle>
@@ -466,35 +506,54 @@
             <circle r="3.4" fill="#c2a878"><animateMotion dur="2.6s" begin="1s" repeatCount="indefinite"><mpath href="#h3"/></animateMotion></circle>
             <circle r="2.6" fill="#e8e4dc"><animateMotion dur="3s" begin="0.2s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" repeatCount="indefinite"><mpath href="#h3"/></animateMotion></circle>
           </g>
+          <!-- header labels -->
+          <text x="380" y="40" font-size="10.5" fill="#c2a878" text-anchor="middle" letter-spacing="3">YOUR HOME BASE · YOUR PRIVATE VM</text>
+          <text x="380" y="57" font-size="10" fill="#5a5a57" text-anchor="middle" letter-spacing="1">host on any cloud or your own box · a database you choose · open Echo core · your key</text>
           <!-- the house = your VM -->
-          <text x="380" y="96" font-size="10.5" fill="#c2a878" text-anchor="middle" letter-spacing="3">YOUR HOME BASE</text>
-          <text x="380" y="113" font-size="10" fill="#5a5a57" text-anchor="middle" letter-spacing="1">host it on any cloud · or your own box</text>
-          <polygon points="286,196 380,118 474,196" fill="rgba(194,168,120,.12)" stroke="#c2a878" stroke-width="1.4" stroke-linejoin="round"/>
-          <rect x="302" y="196" width="156" height="130" rx="4" fill="rgba(194,168,120,.06)" stroke="#c2a878" stroke-width="1.4"/>
-          <rect x="362" y="264" width="36" height="62" rx="2" fill="rgba(255,255,255,.04)" stroke="rgba(194,168,120,.4)"/>
-          <!-- db + core glyphs inside -->
-          <g transform="translate(332,236)" stroke="#c2a878" stroke-width="1.1" fill="none" opacity=".85">
+          <polygon points="300,156 380,86 460,156" fill="rgba(194,168,120,.12)" stroke="#c2a878" stroke-width="1.4" stroke-linejoin="round"/>
+          <rect x="304" y="156" width="152" height="110" rx="4" fill="rgba(194,168,120,.06)" stroke="#c2a878" stroke-width="1.4"/>
+          <rect x="362" y="216" width="36" height="50" rx="2" fill="rgba(255,255,255,.04)" stroke="rgba(194,168,120,.4)"/>
+          <g transform="translate(338,186)" stroke="#c2a878" stroke-width="1.1" fill="none" opacity=".85">
             <ellipse cx="0" cy="-7" rx="9" ry="3.5"/><path d="M-9 -7 V7 a9 3.5 0 0 0 18 0 V-7"/><path d="M-9 0 a9 3.5 0 0 0 18 0"/>
           </g>
-          <g transform="translate(428,236)" stroke="#c2a878" stroke-width="1.3" fill="none" opacity=".85">
+          <g transform="translate(422,186)" stroke="#c2a878" stroke-width="1.3" fill="none" opacity=".85">
             <path d="M-5 -7 L-11 0 L-5 7"/><path d="M5 -7 L11 0 L5 7"/>
           </g>
-          <text x="380" y="350" font-size="11" fill="#c2a878" text-anchor="middle" letter-spacing="2">YOUR PRIVATE VM · SINGLE-TENANT</text>
-          <text x="380" y="368" font-size="11.5" fill="#8a8a86" text-anchor="middle">a database you choose · open Echo core · your key</text>
+          <text x="446" y="300" font-size="9.5" fill="#5a5a57" text-anchor="start">+ Slack · voice · anywhere</text>
+          <text x="314" y="300" font-size="9.5" fill="#5a5a57" text-anchor="end">always in sync</text>
           <!-- phone, left -->
-          <rect x="90" y="174" width="40" height="72" rx="9" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.28)"/>
-          <line x1="104" y1="182" x2="116" y2="182" stroke="rgba(255,255,255,.32)"/>
-          <circle cx="110" cy="239" r="2.4" fill="rgba(255,255,255,.32)"/>
-          <text x="110" y="272" font-size="12.5" fill="#f5f5f3" text-anchor="middle">On your phone</text>
-          <text x="110" y="289" font-size="11" fill="#8a8a86" text-anchor="middle">Telegram · WhatsApp</text>
+          <rect x="85" y="150" width="40" height="72" rx="9" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.28)"/>
+          <line x1="99" y1="158" x2="111" y2="158" stroke="rgba(255,255,255,.32)"/>
+          <circle cx="105" cy="215" r="2.4" fill="rgba(255,255,255,.32)"/>
+          <text x="105" y="246" font-size="12.5" fill="#f5f5f3" text-anchor="middle">On your phone</text>
+          <text x="105" y="263" font-size="11" fill="#8a8a86" text-anchor="middle">Telegram · WhatsApp</text>
           <!-- laptop, right -->
-          <rect x="616" y="180" width="68" height="46" rx="4" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.28)"/>
-          <path d="M604 234 L696 234 L688 226 L612 226 Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.28)" stroke-linejoin="round"/>
-          <text x="650" y="272" font-size="12.5" fill="#f5f5f3" text-anchor="middle">At your Mac</text>
-          <text x="650" y="289" font-size="11" fill="#8a8a86" text-anchor="middle">Claude Code</text>
-          <!-- anywhere pill, bottom -->
-          <rect x="290" y="402" width="180" height="32" rx="16" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.16)"/>
-          <text x="380" y="423" font-size="12" fill="#e8e4dc" text-anchor="middle">Slack · email · voice — anywhere</text>
+          <rect x="621" y="154" width="68" height="46" rx="4" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.28)"/>
+          <path d="M609 208 L701 208 L693 200 L617 200 Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.28)" stroke-linejoin="round"/>
+          <text x="655" y="246" font-size="12.5" fill="#f5f5f3" text-anchor="middle">At your Mac</text>
+          <text x="655" y="263" font-size="11" fill="#8a8a86" text-anchor="middle">Claude Code</text>
+          <!-- kitchen screen = shared family dashboard -->
+          <rect x="246" y="330" width="268" height="142" rx="12" fill="rgba(255,255,255,.022)" stroke="rgba(194,168,120,.4)" stroke-width="1.3"/>
+          <rect x="372" y="472" width="16" height="9" fill="rgba(255,255,255,.05)" stroke="rgba(194,168,120,.3)"/>
+          <line x1="356" y1="481" x2="404" y2="481" stroke="rgba(194,168,120,.3)" stroke-width="1.3"/>
+          <text x="262" y="354" font-size="9.5" fill="#c2a878" letter-spacing="2">KITCHEN · FAMILY</text>
+          <g><circle cx="458" cy="350" r="3" fill="#9ad99a"/><text x="498" y="354" font-size="9.5" fill="#8a8a86" text-anchor="end">today</text></g>
+          <line x1="384" y1="364" x2="384" y2="458" stroke="rgba(255,255,255,.08)"/>
+          <!-- shopping list -->
+          <text x="262" y="380" font-size="9" fill="#e8e4dc" letter-spacing="1.5">SHOPPING</text>
+          <g stroke="rgba(194,168,120,.6)" fill="none" stroke-width="1.1"><rect x="262" y="392" width="9" height="9" rx="2"/><path d="M264 396.5 l2 2 l3.5 -4"/></g>
+          <text x="280" y="400" font-size="10.5" fill="#8a8a86" text-decoration="line-through">Milk</text>
+          <rect x="262" y="410" width="9" height="9" rx="2" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.1"/>
+          <text x="280" y="418" font-size="10.5" fill="#f5f5f3">Eggs</text>
+          <rect x="262" y="428" width="9" height="9" rx="2" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.1"/>
+          <text x="280" y="436" font-size="10.5" fill="#f5f5f3">Pasta &amp; sauce</text>
+          <!-- shared calendar -->
+          <text x="398" y="380" font-size="9" fill="#e8e4dc" letter-spacing="1.5">THIS WEEK</text>
+          <g fill="#c2a878"><circle cx="402" cy="396" r="2"/><circle cx="402" cy="414" r="2"/><circle cx="402" cy="432" r="2"/></g>
+          <text x="412" y="400" font-size="10.5" fill="#f5f5f3">Wed · Sarah's bday</text>
+          <text x="412" y="418" font-size="10.5" fill="#f5f5f3">Thu · Tara swim</text>
+          <text x="412" y="436" font-size="10.5" fill="#f5f5f3">Fri · away</text>
+          <text x="380" y="500" font-size="11" fill="#8a8a86" text-anchor="middle">The kitchen screen — a shared family dashboard</text>
         </svg>
       </div>
       <p class="dgm-cap"><b>The trust model:</b> a home you own and visit, not an account you rent — single-tenant, inspectable, portable. Work started on your phone is there on your Mac; the privacy is auditable, not just promised.</p>
@@ -736,9 +795,13 @@
     ];
     const ON = new Set(['health','scheduling','inbox']);
     const skills = TILES.filter(t=>!t.lock);
-    let last = new Set();
+    const deviceEl = document.getElementById('device'), chromeEl = document.getElementById('deviceChrome'), tabs = document.getElementById('surfaceTabs');
+    let last = new Set(), surface = 'mac';
+    const PRIORITY = { iphone:['inbox','scheduling','health','finance','family','research','relationships'],
+                       tablet:['family','scheduling','health','relationships','finance','inbox','research'] };
+    const CAP = { mac:99, iphone:3, tablet:4 };
 
-    // toggles
+    // skill toggles
     stog.innerHTML = '<span class="stog locked on" title="The orchestrator — always on"><span class="d"></span>Echo · always on</span>';
     skills.forEach(t=>{
       const b = document.createElement('button');
@@ -747,19 +810,41 @@
       b.addEventListener('click', ()=>{ ON.has(t.id)?ON.delete(t.id):ON.add(t.id); b.classList.toggle('on', ON.has(t.id)); render(); });
       stog.appendChild(b);
     });
+    // surface tabs
+    tabs.addEventListener('click', e=>{
+      const b = e.target.closest('button[data-s]'); if(!b) return;
+      surface = b.dataset.s;
+      [...tabs.children].forEach(x=>{ const on = x===b; x.classList.toggle('on', on); x.setAttribute('aria-selected', String(on)); });
+      last = new Set(); render();   // re-trigger the tile reveal on surface change
+    });
 
+    function chrome(){
+      chromeEl.innerHTML = surface==='mac'
+        ? '<span class="dots"><i></i><i></i><i></i></span><span class="lbl">Echo — your desk</span>'
+        : surface==='iphone' ? '<span class="notch"></span>'
+        : '<span class="lbl">Kitchen · family</span>';
+    }
+    function visibleTiles(){
+      let enabled = skills.filter(t=>ON.has(t.id));
+      if(surface!=='mac'){ const pr = PRIORITY[surface]; enabled = enabled.slice().sort((a,b)=>pr.indexOf(a.id)-pr.indexOf(b.id)); }
+      return [TILES[0], ...enabled.slice(0, CAP[surface])];
+    }
     function render(){
-      const show = TILES.filter(t=>t.lock || ON.has(t.id));
+      deviceEl.className = 'device ' + surface;
+      chrome();
+      const show = visibleTiles();
       bento.innerHTML = '';
       show.forEach(t=>{
         const el = document.createElement('div');
-        el.className = 'tile' + (t.wide?' wide':'') + (t.id==='core'?' core':'') + ((!t.lock && !last.has(t.id))?' appear':'');
+        el.className = 'tile' + ((t.wide && surface!=='iphone')?' wide':'') + (t.id==='core'?' core':'') + ((!t.lock && !last.has(t.id))?' appear':'');
         el.innerHTML = `<div class="tk">${t.icon||''}${t.tk}</div><h5>${t.h}</h5><p>${t.body}</p>`;
         bento.appendChild(el);
       });
       last = new Set(show.map(t=>t.id));
-      const n = ON.size, more = skills.length - n;
-      hint.textContent = `${n} skill${n===1?'':'s'} on · ${more} more to add — toggle any above to extend your dashboard`;
+      const n = ON.size, more = skills.length - n, shown = show.length - 1;
+      hint.textContent = surface==='mac'
+        ? `${n} skill${n===1?'':'s'} on · ${more} more to add — toggle any above to extend your dashboard`
+        : `Showing ${shown} of your ${n} skills here — each surface picks what fits. Back to Mac for the full board.`;
     }
     render();
   })();
