@@ -247,37 +247,44 @@
   .tile p b{color:var(--accent); font-weight:500}
   .dash-hint{font-size:11.5px; color:var(--faint); margin-top:15px; text-align:center}
 
-  /* surface switch + device frames (diagram 04) */
-  .surface-tabs{display:inline-flex; gap:4px; padding:5px; border:1px solid var(--line); border-radius:999px;
-    background:rgba(255,255,255,.025); margin-bottom:16px}
-  .surface-tabs button{border:0; background:transparent; color:var(--muted); font-family:inherit; font-size:13px;
-    letter-spacing:.02em; padding:8px 16px; border-radius:999px; cursor:pointer; transition:.2s}
-  .surface-tabs button:hover{color:var(--ink)}
-  .surface-tabs button.on{background:var(--ink); color:#0a0a0a; font-weight:500}
-  .device{margin:0 auto; overflow:hidden; background:rgba(255,255,255,.012);
-    transition:max-width .45s cubic-bezier(.2,.7,.2,1), border-radius .45s, border-color .3s;
-    border:1px solid var(--line); border-radius:14px}
-  .device-chrome{display:flex; align-items:center; gap:7px; height:0; overflow:hidden; transition:height .3s}
-  .device-chrome .dots{display:flex; gap:6px}
-  .device-chrome .dots i{width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.18)}
-  .device-chrome .lbl{font-size:11px; color:var(--faint); letter-spacing:.04em}
-  .device-chrome .notch{width:70px; height:18px; border-radius:0 0 12px 12px; background:#000; margin:0 auto}
+  /* all-surfaces lineup + device frames (diagram 04) */
+  .dgm-stage.wide{width:min(1060px, 94vw); position:relative; left:50%; transform:translateX(-50%)}
+  .lineup{display:flex; gap:18px; align-items:flex-end; justify-content:center; flex-wrap:wrap}
+  .lineup .col{display:flex; flex-direction:column}
+  .device{background:rgba(255,255,255,.012); border:1px solid var(--line); border-radius:14px; overflow:hidden}
+  .device-chrome{display:flex; align-items:center; gap:7px; padding:0 12px; height:30px;
+    border-bottom:1px solid var(--line-soft); font-size:10.5px; color:var(--faint); letter-spacing:.04em}
+  .device-chrome .dots{display:flex; gap:5px}
+  .device-chrome .dots i{width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.18)}
+  .device-chrome .notch{width:58px; height:15px; border-radius:0 0 10px 10px; background:#000; margin:0 auto}
+  .device .bento{display:grid; gap:9px; padding:12px}
+  .lineup .tile{min-height:74px; padding:11px 12px; border-radius:11px}
+  .lineup .tile .tk{font-size:8.5px; letter-spacing:.14em; margin-bottom:6px}
+  .lineup .tile .tk svg{width:13px; height:13px}
+  .lineup .tile h5{font-size:15px; margin-bottom:4px; line-height:1.05}
+  .lineup .tile p{font-size:10.5px; line-height:1.4}
   /* mac */
-  .device.mac{max-width:100%}
-  .device.mac .device-chrome{height:36px; padding:0 14px; border-bottom:1px solid var(--line-soft)}
-  .device.mac .bento{padding:14px; grid-template-columns:repeat(3,1fr)}
-  /* iphone */
-  .device.iphone{max-width:286px; border-radius:36px; border:7px solid #1b1b18}
-  .device.iphone .device-chrome{height:24px; justify-content:center; position:relative}
-  .device.iphone .bento{padding:11px 12px 16px; grid-template-columns:1fr; gap:10px}
-  .device.iphone .tile{min-height:auto; padding:13px 14px}
+  .device.mac{width:418px}
+  .device.mac .bento{grid-template-columns:repeat(3,1fr)}
+  .device.mac .tile.wide{grid-column:span 2}
+  /* iphone — a touch wider so it isn't squashed */
+  .device.iphone{width:184px; border-radius:30px; border:6px solid #1b1b18}
+  .device.iphone .device-chrome{height:22px; justify-content:center; border-bottom:0}
+  .device.iphone .bento{grid-template-columns:1fr; padding:10px}
   .device.iphone .tile.wide{grid-column:auto}
-  /* tablet */
-  .device.tablet{max-width:540px; border-radius:18px; border:8px solid #161610}
-  .device.tablet .device-chrome{height:26px; padding:0 14px; justify-content:flex-start}
-  .device.tablet .bento{padding:14px; grid-template-columns:repeat(2,1fr); gap:12px}
-  .device.tablet .tile{min-height:132px}
+  /* tablet (home) */
+  .device.tablet{width:300px; border-radius:16px; border:7px solid #161610}
+  .device.tablet .bento{grid-template-columns:repeat(2,1fr)}
   .device.tablet .tile.wide{grid-column:span 2}
+  .dev-label{text-align:center; font-size:11.5px; color:var(--muted); margin-top:12px; letter-spacing:.02em}
+  .dev-label b{color:var(--accent); font-weight:500; display:block; font-size:12.5px; margin-bottom:2px; font-family:'Instrument Serif',serif}
+  @media (max-width:760px){
+    .dgm-stage.wide{width:94vw}
+    .device.mac{width:100%}
+    .device.mac .bento{grid-template-columns:repeat(2,1fr)}
+    .device.tablet{width:100%}
+    .device.iphone{width:212px}
+  }
 
   /* per-surface "what shows where" summary (diagram 05) */
   .surf-summary{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:22px}
@@ -472,22 +479,14 @@
     <article class="dgm">
       <div class="dgm-n">04 — How it comes together</div>
       <h2 class="dgm-h">A dashboard that <span class="it">builds itself.</span></h2>
-      <p class="dgm-dek">Your view of Echo isn't fixed — it <b>assembles from the skills you've turned on</b>, and renders to fit wherever you are: a wide board on your <b>Mac</b>, a glanceable stack on your <b>iPhone</b>, a shared family screen on the <b>kitchen tablet</b>. Same modules, dressed for each surface. <b>Switch surface or toggle a skill and watch it adapt.</b></p>
-      <div class="dgm-stage">
+      <p class="dgm-dek">Your view of Echo isn't fixed — it <b>assembles from the skills you've turned on</b> and renders to fit every screen at once: a wide board on your <b>Mac</b>, a glanceable stack on your <b>iPhone</b>, a shared family screen on the <b>kitchen tablet</b>. Same skills, dressed for each surface. <b>Toggle a skill and watch all three update.</b></p>
+      <div class="dgm-stage wide">
         <div class="dash-top">
           <span class="em">Your dashboard</span>
-          <span class="dash-live"><i></i>live · assembled from your skills</span>
+          <span class="dash-live"><i></i>live · across your devices</span>
         </div>
-        <div class="surface-tabs" id="surfaceTabs" role="tablist" aria-label="Choose a surface">
-          <button data-s="mac" class="on" role="tab" aria-selected="true">Mac</button>
-          <button data-s="iphone" role="tab" aria-selected="false">iPhone</button>
-          <button data-s="tablet" role="tab" aria-selected="false">Home tablet</button>
-        </div>
-        <div class="stoggles" id="stoggles" role="group" aria-label="Toggle skills to extend your dashboard"></div>
-        <div class="device mac" id="device">
-          <div class="device-chrome" id="deviceChrome"></div>
-          <div class="bento" id="bento"></div>
-        </div>
+        <div class="stoggles" id="stoggles" role="group" aria-label="Toggle skills to update every surface"></div>
+        <div class="lineup" id="lineup"></div>
         <div class="dash-hint" id="dashHint"></div>
       </div>
       <p class="dgm-cap"><b>The feel:</b> the same skills follow you across devices — each surface shows the modules that make sense there, never a black box.</p>
@@ -804,30 +803,31 @@
     layout(); start();
   })();
 
-  // ── live dashboard that assembles from skills (diagram 04) ──
+  // ── live dashboard across all surfaces at once (diagram 04) ──
   (function(){
-    const bento = document.getElementById('bento'), stog = document.getElementById('stoggles'), hint = document.getElementById('dashHint');
-    if(!bento) return;
+    const stog = document.getElementById('stoggles'), lineup = document.getElementById('lineup'), hint = document.getElementById('dashHint');
+    if(!lineup) return;
     const rings = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5" fill="#c2a878" stroke="none"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="11" opacity=".5"/></svg>';
     const TILES = [
-      {id:'core', lock:true, wide:true, tk:'Echo · priorities', icon:rings, h:'Today', body:'<b>3 things that matter</b> · 2 cleared overnight · 1 waiting on you'},
-      {id:'health', tk:'Health', h:'Recovery', body:'Sleep <b>7.3h</b> · 8,420 steps · resting HR 58'},
-      {id:'scheduling', tk:'Scheduling', h:'Next up', body:'<b>14:00</b> Design review · 3 focus holds kept'},
-      {id:'inbox', tk:'Inbox', h:'Cleared', body:'Inbox at <b>0</b> · 3 drafts await your ok'},
-      {id:'research', tk:'Research', h:'Briefed', body:'<b>2 briefings</b> ready from overnight'},
-      {id:'family', tk:'Family', h:'Today', body:'<b>15:30</b> school pickup — with Tara'},
-      {id:'finance', tk:'Finance', h:'Money', body:'£420 expenses filed · <b>1 bill</b> to review'},
-      {id:'relationships', tk:'Relationships', h:'Follow up', body:'<b>Sarah</b> — birthday Wed · ping her'}
+      {id:'core', lock:true, wide:true, tk:'Echo · priorities', icon:rings, h:'Today', body:'<b>3 things that matter</b> · 2 done overnight'},
+      {id:'health', tk:'Health', h:'Recovery', body:'Sleep <b>7.3h</b> · 8,420 steps'},
+      {id:'scheduling', tk:'Scheduling', h:'Next up', body:'<b>14:00</b> Design review'},
+      {id:'inbox', tk:'Inbox', h:'Cleared', body:'Inbox <b>0</b> · 3 drafts to ok'},
+      {id:'research', tk:'Research', h:'Briefed', body:'<b>2 briefings</b> overnight'},
+      {id:'family', tk:'Family', h:'Today', body:'<b>15:30</b> pickup — Tara'},
+      {id:'finance', tk:'Finance', h:'Money', body:'£420 filed · <b>1 bill</b>'},
+      {id:'relationships', tk:'Relationships', h:'Follow up', body:'<b>Sarah</b> — birthday Wed'}
     ];
     const ON = new Set(['health','scheduling','inbox']);
     const skills = TILES.filter(t=>!t.lock);
-    const deviceEl = document.getElementById('device'), chromeEl = document.getElementById('deviceChrome'), tabs = document.getElementById('surfaceTabs');
-    let last = new Set(), surface = 'mac';
-    const PRIORITY = { iphone:['inbox','scheduling','health','finance','family','research','relationships'],
-                       tablet:['family','scheduling','health','relationships','finance','inbox','research'] };
+    const ORDER = ['iphone','mac','tablet'];
+    const LABELS = { iphone:{b:'On your phone', s:'glanceable · Telegram'}, mac:{b:'On your Mac', s:'the full board · Claude Code'}, tablet:{b:'Home tablet', s:'shared family screen'} };
+    const CHROME = { mac:'<span class="dots"><i></i><i></i><i></i></span><span>Echo — your desk</span>', iphone:'<span class="notch"></span>', tablet:'<span>Kitchen · family</span>' };
+    const PRIORITY = { iphone:['inbox','scheduling','health','finance','family','research','relationships'], tablet:['family','scheduling','health','relationships','finance','inbox','research'] };
     const CAP = { mac:99, iphone:3, tablet:4 };
+    let lastKeys = new Set();
 
-    // skill toggles
+    // skill toggles — one set, drives every surface
     stog.innerHTML = '<span class="stog locked on" title="The orchestrator — always on"><span class="d"></span>Echo · always on</span>';
     skills.forEach(t=>{
       const b = document.createElement('button');
@@ -836,41 +836,26 @@
       b.addEventListener('click', ()=>{ ON.has(t.id)?ON.delete(t.id):ON.add(t.id); b.classList.toggle('on', ON.has(t.id)); render(); });
       stog.appendChild(b);
     });
-    // surface tabs
-    tabs.addEventListener('click', e=>{
-      const b = e.target.closest('button[data-s]'); if(!b) return;
-      surface = b.dataset.s;
-      [...tabs.children].forEach(x=>{ const on = x===b; x.classList.toggle('on', on); x.setAttribute('aria-selected', String(on)); });
-      last = new Set(); render();   // re-trigger the tile reveal on surface change
-    });
 
-    function chrome(){
-      chromeEl.innerHTML = surface==='mac'
-        ? '<span class="dots"><i></i><i></i><i></i></span><span class="lbl">Echo — your desk</span>'
-        : surface==='iphone' ? '<span class="notch"></span>'
-        : '<span class="lbl">Kitchen · family</span>';
-    }
-    function visibleTiles(){
+    function tilesFor(kind){
       let enabled = skills.filter(t=>ON.has(t.id));
-      if(surface!=='mac'){ const pr = PRIORITY[surface]; enabled = enabled.slice().sort((a,b)=>pr.indexOf(a.id)-pr.indexOf(b.id)); }
-      return [TILES[0], ...enabled.slice(0, CAP[surface])];
+      if(kind!=='mac'){ const pr = PRIORITY[kind]; enabled = enabled.slice().sort((a,b)=>pr.indexOf(a.id)-pr.indexOf(b.id)); }
+      return [TILES[0], ...enabled.slice(0, CAP[kind])];
     }
     function render(){
-      deviceEl.className = 'device ' + surface;
-      chrome();
-      const show = visibleTiles();
-      bento.innerHTML = '';
-      show.forEach(t=>{
-        const el = document.createElement('div');
-        el.className = 'tile' + ((t.wide && surface!=='iphone')?' wide':'') + (t.id==='core'?' core':'') + ((!t.lock && !last.has(t.id))?' appear':'');
-        el.innerHTML = `<div class="tk">${t.icon||''}${t.tk}</div><h5>${t.h}</h5><p>${t.body}</p>`;
-        bento.appendChild(el);
-      });
-      last = new Set(show.map(t=>t.id));
-      const n = ON.size, more = skills.length - n, shown = show.length - 1;
-      hint.textContent = surface==='mac'
-        ? `${n} skill${n===1?'':'s'} on · ${more} more to add — toggle any above to extend your dashboard`
-        : `Showing ${shown} of your ${n} skills here — each surface picks what fits. Back to Mac for the full board.`;
+      const newKeys = new Set();
+      lineup.innerHTML = ORDER.map(kind=>{
+        const cells = tilesFor(kind).map(t=>{
+          const key = kind+':'+t.id; newKeys.add(key);
+          const cls = 'tile' + ((t.wide && kind!=='iphone')?' wide':'') + (t.id==='core'?' core':'') + (!lastKeys.has(key)?' appear':'');
+          return `<div class="${cls}"><div class="tk">${t.icon||''}${t.tk}</div><h5>${t.h}</h5><p>${t.body}</p></div>`;
+        }).join('');
+        const l = LABELS[kind];
+        return `<div class="col"><div class="device ${kind}"><div class="device-chrome">${CHROME[kind]}</div><div class="bento">${cells}</div></div><div class="dev-label"><b>${l.b}</b>${l.s}</div></div>`;
+      }).join('');
+      lastKeys = newKeys;
+      const n = ON.size, more = skills.length - n;
+      hint.textContent = `${n} skill${n===1?'':'s'} on · ${more} more to add — toggle a skill and watch all three surfaces update`;
     }
     render();
   })();
