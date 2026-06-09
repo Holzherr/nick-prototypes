@@ -215,6 +215,7 @@
 </style>
 </head>
 <body>
+<div style="position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:80;background:rgba(12,12,12,.82);color:#bdbdb4;font:11.5px/1 ui-sans-serif,system-ui;padding:7px 13px;border:1px solid rgba(255,255,255,.12);border-radius:999px;pointer-events:none;backdrop-filter:blur(6px)">Illustrative demo — sample data; features in active development</div>
 <a class="skinflip" href="demo.html">◐ Premium skin</a>
 
 <div class="app">
@@ -315,12 +316,12 @@ const AGENTS = [
     links:[['📁 area','Health'],['📊 tracks','RHR, steps, sleep, weight']] },
   { id:'gitlaw', name:'GitLaw', kind:'domain', icon:'⚖️', status:'4 open · 1 awaiting you', model:'opus', cadence:'on message', channel:'Slack · Telegram',
     scope:{tables:['task','event','message'],projects:['gitlaw']}, tools:['echo-db','Slack','Gmail','recall'], bridges:['Slack','Telegram'],
-    events:[['09:02','agent','drafted reply to Sarah re audit'],['08:40','agent','prepped Greg 1:1 brief'],['Mon','user','approved investor update']],
-    links:[['📁 area','GitLaw'],['👤 about','Sarah Chen, Greg'],['💡 from idea','Audit automation']] },
+    events:[['09:02','agent','drafted reply to Sarah re audit'],['08:40','agent','prepped Dan 1:1 brief'],['Mon','user','approved investor update']],
+    links:[['📁 area','GitLaw'],['👤 about','Sarah Chen, Dan'],['💡 from idea','Audit automation']] },
   { id:'finance', name:'Personal Finance', kind:'domain', icon:'💷', status:'1 decision waiting', model:'haiku', cadence:'weekly', channel:'Telegram',
     scope:{tables:['task','event'],projects:['finance']}, tools:['echo-db','recall'], bridges:['Telegram'],
-    events:[['Mon','agent','flagged: Brambruesch cash idle'],['Sun','agent','weekly money review']],
-    links:[['📁 area','Personal Finance'],['🏦 watches','Brambruesch Ltd']] },
+    events:[['Mon','agent','flagged: Fernway cash idle'],['Sun','agent','weekly money review']],
+    links:[['📁 area','Personal Finance'],['🏦 watches','Fernway Ltd']] },
   { id:'feedback', name:'Customer Feedback Synthesis', kind:'role', icon:'🛎️', status:'Runs Mondays 6am', model:'opus', cadence:'weekly · Mon 6am', channel:'—',
     scope:{tables:['message','idea'],projects:['gitlaw']}, tools:['echo-db','Slack','Notion'], bridges:[],
     events:[['Mon','agent','synthesised 31 feedback notes → 5 themes']], links:[['📁 feeds','GitLaw']] },
@@ -343,9 +344,9 @@ let LIFE = [
 
 const TASKS = {
   'In flow':[['gitlaw','GitLaw','Ship recall to the pilot'],['family','Family','Book dentist — both kids']],
-  'Next':[['finance','Finance','Decide: where to put Brambruesch cash'],['gitlaw','GitLaw','Review Greg\'s JSV deck']],
+  'Next':[['finance','Finance','Decide: where to put Fernway cash'],['gitlaw','GitLaw','Review Dan\'s venture deck']],
   'Waiting':[['gitlaw','GitLaw','Sarah — updated audit scope doc'],['health','Health','Physio to confirm Thu slot']],
-  'Done':[['gitlaw','GitLaw','Greg 1:1 prep'],['personal','Personal','Renew Spotify']],
+  'Done':[['gitlaw','GitLaw','Dan 1:1 prep'],['personal','Personal','Renew Spotify']],
 };
 const APPROVALS = [
   { hd:'✋ Drafted reply to Sarah — your turn', sm:'Re: the audit timeline. Confirms Friday and asks for the updated scope doc.',
@@ -362,22 +363,22 @@ const KPIS = [
 ];
 const TODAY = [
   { icon:'⚖️', bg:'#eef2ff', title:'Approve audit reply to Sarah', meta:'GitLaw · drafted', state:'review', label:'review' },
-  { icon:'💷', bg:'#ecfeff', title:'Decide where to park Brambruesch cash', meta:'Finance · ~£100k', state:'decision', label:'decision' },
+  { icon:'💷', bg:'#ecfeff', title:'Decide where to park Fernway cash', meta:'Finance · ~£84k', state:'decision', label:'decision' },
   { icon:'🤖', bg:'#fef3c7', title:'Review agent draft: weekly team digest', meta:'GitLaw · awaiting your edit', state:'review', label:'review' },
   { icon:'👨‍👩‍👧', bg:'#fce7f3', title:'Pick a dentist slot — both kids', meta:'Family · 2 options found', state:'todo', label:'to do' },
   { icon:'📈', bg:'#f0fdf4', title:'Fill May investor figures', meta:'GitLaw · drafted', state:'doing', label:'doing' },
 ];
 const SCHEDULE = [
   { time:'09:30', title:'GitLaw standup', att:'8 people · agenda ready' },
-  { time:'11:00', title:'1:1 — Greg', att:'JSV cohort · brief prepped' },
+  { time:'11:00', title:'1:1 — Dan', att:'venture cohort · brief prepped' },
   { time:'14:00', title:'Audit sync — Sarah', att:'reply already drafted' },
   { time:'16:30', title:'School pickup', att:'Family' },
 ];
 const TEAM = [
-  { name:'Greg', s:'red', note:'needs you' },
+  { name:'Dan', s:'red', note:'needs you' },
   { name:'Sarah', s:'red', note:'waiting 2d' },
-  { name:'Rostyslav', s:'yellow', note:'2 open' },
-  { name:'Victoria', s:'green', note:'on track' },
+  { name:'Marek', s:'yellow', note:'2 open' },
+  { name:'Lena', s:'green', note:'on track' },
 ];
 const RECENT = [
   { g:'linear-gradient(135deg,#a5b4fc,#6366f1)', t:'GitLaw standup — notes', s:'Note · 12m' },
@@ -429,7 +430,7 @@ const AREA_BODY = {
     <div class="sec-h">Active threads</div>
     <div class="cols2">
       <div class="panel"><div class="row ai"><span style="font-size:18px">👤</span><div><div class="ttl">Sarah Chen — audit</div><div class="sub">Waiting on the scope doc · reply drafted</div></div></div></div>
-      <div class="panel"><div class="row ai"><span style="font-size:18px">👤</span><div><div class="ttl">Greg — JSV cohort</div><div class="sub">1:1 at 9:30 · he owes you the deck</div></div></div></div>
+      <div class="panel"><div class="row ai"><span style="font-size:18px">👤</span><div><div class="ttl">Dan — venture cohort</div><div class="sub">1:1 at 9:30 · he owes you the deck</div></div></div></div>
     </div>
     <div class="sec-h">Customer feedback — this week's themes</div>
     <div class="panel"><ul class="list">
@@ -440,13 +441,13 @@ const AREA_BODY = {
     <div class="sec-h">Work board</div>
     <div class="board">
       <div><div class="col-h">In flow <span class="n">1</span></div><div class="tcard"><div class="pj pj-gitlaw">GitLaw</div><div class="tt">Ship recall to the pilot</div></div></div>
-      <div><div class="col-h">Next <span class="n">1</span></div><div class="tcard"><div class="pj pj-gitlaw">GitLaw</div><div class="tt">Review Greg's JSV deck</div></div></div>
+      <div><div class="col-h">Next <span class="n">1</span></div><div class="tcard"><div class="pj pj-gitlaw">GitLaw</div><div class="tt">Review Dan's venture deck</div></div></div>
       <div><div class="col-h">Waiting <span class="n">1</span></div><div class="tcard"><div class="pj pj-gitlaw">GitLaw</div><div class="tt">Sarah — scope doc</div></div></div>
-      <div><div class="col-h">Done <span class="n">1</span></div><div class="tcard"><div class="pj pj-gitlaw">GitLaw</div><div class="tt">Greg 1:1 prep</div></div></div>
+      <div><div class="col-h">Done <span class="n">1</span></div><div class="tcard"><div class="pj pj-gitlaw">GitLaw</div><div class="tt">Dan 1:1 prep</div></div></div>
     </div>`; },
   finance(){ return `
     <div class="cols2">
-      <div class="panel"><div class="lbl">Brambruesch Ltd</div><div class="big" style="font-size:30px;font-weight:600">£100,400</div><div class="sub">cash · <b style="color:#b45309">sitting idle, uninvested</b></div>
+      <div class="panel"><div class="lbl">Fernway Ltd</div><div class="big" style="font-size:30px;font-weight:600">£84,200</div><div class="sub">cash · <b style="color:#b45309">sitting idle, uninvested</b></div>
         <div class="propose mt2" style="border-style:solid"><span class="e">💷</span><div class="body"><b>A decision, not urgent</b><p>Echo flagged this. Want options — money-market, premium bonds, or leave it?</p></div></div></div>
       <div class="panel"><div class="lbl">Accounts</div><ul class="list">
         <li><span class="e">🏦</span><span>Current</span><span class="due">£8,210</span></li>
@@ -527,7 +528,7 @@ const VIEWS = {
         <ul class="list">
           <li><span class="e">✅</span><span>Drafted 2 replies in <b>GitLaw</b> — queued for approval.</span></li>
           <li><span class="e">📅</span><span>Prepped tomorrow's 3 meetings with briefs and open threads.</span></li>
-          <li><span class="e">🔔</span><span>Chased 2 cold follow-ups (Victoria, Rostyslav) — nudges drafted.</span></li>
+          <li><span class="e">🔔</span><span>Chased 2 cold follow-ups (Lena, Marek) — nudges drafted.</span></li>
           <li><span class="e">✋</span><span><b>Needs you:</b> approve the May investor-update figures before 9am.</span></li>
         </ul></div>
 
@@ -555,10 +556,10 @@ const VIEWS = {
   briefs(){
     return `<h1>Briefs</h1><div class="lede">Your morning surface and meeting prep — composed from everything the agents did.</div>
       <div class="panel brief" id="home-brief"><h3>Thursday morning brief</h3><div class="when">6:00am · generated while you slept</div><ul class="list">
-        <li><span class="e">📅</span><span><b>9:30 — Greg (1:1).</b> Last: JSV cohort intro. He owes you the deck; you owe the Silicon Legal note.</span></li>
+        <li><span class="e">📅</span><span><b>9:30 — Dan (1:1).</b> Last: venture cohort intro. He owes you the deck; you owe the intro note.</span></li>
         <li><span class="e">📅</span><span><b>11:00 — Audit sync w/ Sarah.</b> Reply already drafted in Approvals.</span></li>
         <li><span class="e">🫀</span><span>Health: sleep dipped 3 nights — wind-down nudge offered.</span></li>
-        <li><span class="e">💷</span><span>Finance: Brambruesch's ~£100k idle — a decision waiting in your Finance area.</span></li>
+        <li><span class="e">💷</span><span>Finance: Fernway's ~£84k idle — a decision waiting in your Finance area.</span></li>
       </ul></div>`;
   },
 };
