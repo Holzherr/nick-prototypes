@@ -279,6 +279,18 @@
   .device.tablet .tile{min-height:132px}
   .device.tablet .tile.wide{grid-column:span 2}
 
+  /* per-surface "what shows where" summary (diagram 05) */
+  .surf-summary{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:22px}
+  .ss-col{border:1px solid var(--line); border-radius:13px; padding:15px 16px; background:rgba(255,255,255,.022)}
+  .ss-col.key{border-color:var(--gold-line); background:rgba(194,168,120,.06)}
+  .ss-h{display:flex; align-items:center; gap:8px; font-size:13px; color:var(--accent); margin-bottom:11px; font-weight:500}
+  .ss-h svg{width:17px; height:17px; stroke:var(--gold); fill:none; stroke-width:1.5; flex:none}
+  .ss-tag{font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin-left:auto; font-weight:400; letter-spacing:.1em}
+  .ss-apps{display:flex; flex-wrap:wrap; gap:6px}
+  .ss-apps span{font-size:11.5px; color:var(--muted); border:1px solid var(--line-soft); border-radius:7px; padding:5px 9px; background:rgba(255,255,255,.02)}
+  .ss-col.key .ss-apps span{color:var(--accent); border-color:var(--gold-line)}
+  @media (max-width:620px){ .surf-summary{grid-template-columns:1fr} }
+
   @media (max-width:560px){
     .deck{height:300px}
     .skill-detail{flex-direction:column}
@@ -555,8 +567,22 @@
           <text x="412" y="436" font-size="10.5" fill="#f5f5f3">Fri · away</text>
           <text x="380" y="500" font-size="11" fill="#8a8a86" text-anchor="middle">The kitchen screen — a shared family dashboard</text>
         </svg>
+        <div class="surf-summary">
+          <div class="ss-col">
+            <div class="ss-h"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2.5"/><line x1="11" y1="18" x2="13" y2="18"/></svg>Your phone<span class="ss-tag">glanceable</span></div>
+            <div class="ss-apps"><span>Today's 3</span><span>Inbox</span><span>Messages</span><span>Next event</span></div>
+          </div>
+          <div class="ss-col">
+            <div class="ss-h"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M2 21h20"/></svg>Your Mac<span class="ss-tag">full board</span></div>
+            <div class="ss-apps"><span>Priorities</span><span>Inbox</span><span>Projects</span><span>Research</span><span>Finance</span><span>Calendar</span></div>
+          </div>
+          <div class="ss-col key">
+            <div class="ss-h"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18"/></svg>Kitchen · family<span class="ss-tag">shared</span></div>
+            <div class="ss-apps"><span>Shopping list</span><span>Shared calendar</span><span>Meal plan</span><span>Chores</span><span>Family notes</span></div>
+          </div>
+        </div>
       </div>
-      <p class="dgm-cap"><b>The trust model:</b> a home you own and visit, not an account you rent — single-tenant, inspectable, portable. Work started on your phone is there on your Mac; the privacy is auditable, not just promised.</p>
+      <p class="dgm-cap"><b>The trust model:</b> a home you own and visit, not an account you rent — single-tenant, inspectable, portable. The phone shows the glance, the Mac the full desk, the kitchen the family — same memory underneath, and the privacy is auditable, not just promised.</p>
     </article>
 
   </section>
