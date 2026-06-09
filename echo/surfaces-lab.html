@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Echo — Surfaces (all-at-once) · lab</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='white'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050505; --ink:#f5f5f3; --muted:#8a8a86; --faint:#5a5a57;
+    --line:rgba(255,255,255,.10); --line-soft:rgba(255,255,255,.06);
+    --accent:#e8e4dc; --gold:#c2a878; --gold-line:rgba(194,168,120,.30); --glow:rgba(232,228,220,.13);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',-apple-system,sans-serif; font-weight:400; line-height:1.5; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+  body::before{content:''; position:fixed; inset:0; z-index:0; pointer-events:none; background:radial-gradient(900px 520px at 50% -8%, var(--glow), transparent 60%)}
+  .wrap{position:relative; z-index:1; max-width:1060px; margin:0 auto; padding:0 28px}
+
+  nav{display:flex; align-items:center; justify-content:space-between; padding:30px 0 0}
+  .brand{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--ink)}
+  .brand .mark{width:22px; height:22px}
+  .brand b{font-weight:600; font-size:16px; letter-spacing:.04em}
+  .nav-link{font-size:13px; color:var(--muted); text-decoration:none}
+  .nav-link:hover{color:var(--ink)}
+
+  .head{padding:60px 0 14px; max-width:760px}
+  .eyebrow{font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); margin-bottom:22px; font-weight:500}
+  h1{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(34px,5.5vw,56px); line-height:1.0; margin-bottom:18px}
+  h1 .it{font-style:italic; color:var(--accent)}
+  .head p{color:var(--muted); font-size:16px; font-weight:300; line-height:1.62; max-width:680px}
+  .head p b{color:var(--ink); font-weight:500}
+  .labnote{margin-top:18px; font-size:13px; color:var(--faint); border-left:2px solid var(--gold-line); padding-left:14px; line-height:1.6}
+
+  .variant{padding:48px 0 14px; border-top:1px solid var(--line-soft)}
+  .variant .vn{font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); font-weight:500}
+  .variant h2{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(24px,3.6vw,34px); margin:12px 0 8px}
+  .variant .idea{color:var(--muted); font-weight:300; font-size:15px; line-height:1.6; max-width:700px}
+  .variant .idea b{color:var(--ink); font-weight:500}
+  .stage{margin-top:26px; border:1px solid var(--line-soft); border-radius:18px; padding:32px 24px;
+    background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.004)); overflow:hidden}
+
+  /* ── device frame kit ── */
+  .device{background:rgba(255,255,255,.015); border:1px solid var(--line); border-radius:14px; overflow:hidden}
+  .device .chrome{display:flex; align-items:center; gap:7px; padding:0 12px; height:30px; border-bottom:1px solid var(--line-soft); font-size:10.5px; color:var(--faint); letter-spacing:.04em}
+  .device .chrome .dots{display:flex; gap:5px}
+  .device .chrome .dots i{width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.18)}
+  .device .bento{display:grid; gap:9px; padding:12px}
+  .tile{border:1px solid var(--line); border-radius:11px; padding:11px 12px; background:rgba(255,255,255,.028); display:flex; flex-direction:column; min-height:74px}
+  .tile.core{border-color:rgba(194,168,120,.4); background:rgba(194,168,120,.06)}
+  .tile .tk{font-size:8.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:6px; display:flex; align-items:center; gap:5px}
+  .tile .tk svg{width:13px; height:13px; flex:none}
+  .tile h5{font-family:'Instrument Serif',serif; font-weight:400; font-size:15px; margin-bottom:4px; line-height:1.05}
+  .tile p{font-size:10.5px; color:var(--muted); font-weight:300; line-height:1.4}
+  .tile p b{color:var(--accent); font-weight:500}
+
+  /* mac window */
+  .device.mac .bento{grid-template-columns:repeat(3,1fr)}
+  .device.mac .tile.wide{grid-column:span 2}
+  /* iphone */
+  .device.iphone{border-radius:30px; border:6px solid #1b1b18}
+  .device.iphone .chrome{height:22px; justify-content:center; border-bottom:0}
+  .device.iphone .chrome .notch{width:58px; height:15px; background:#000; border-radius:0 0 10px 10px}
+  .device.iphone .bento{grid-template-columns:1fr; padding:10px}
+  .device.iphone .tile{min-height:auto}
+  /* tablet (home) */
+  .device.tablet{border-radius:16px; border:7px solid #161610}
+  .device.tablet .bento{grid-template-columns:repeat(2,1fr)}
+  .device.tablet .tile.wide{grid-column:span 2}
+
+  .dev-label{text-align:center; font-size:11.5px; color:var(--muted); margin-top:12px; letter-spacing:.02em}
+  .dev-label b{color:var(--accent); font-weight:500; display:block; font-size:12.5px; margin-bottom:2px; font-family:'Instrument Serif',serif}
+
+  /* V1 lineup */
+  .lineup{display:flex; gap:20px; align-items:flex-end; justify-content:center; flex-wrap:wrap}
+  .lineup .col{display:flex; flex-direction:column}
+  .lineup .device.mac{width:418px}
+  .lineup .device.iphone{width:150px}
+  .lineup .device.tablet{width:296px}
+
+  /* V2 hero stack */
+  .hero{position:relative; height:520px}
+  .hero .col{position:absolute}
+  .hero .device{box-shadow:0 40px 90px -40px rgba(0,0,0,.9)}
+  .hero .c-mac{left:50%; top:8px; transform:translateX(-58%) rotate(-2deg); z-index:1}
+  .hero .c-mac .device{width:470px}
+  .hero .c-tablet{right:6%; bottom:6px; transform:rotate(3deg); z-index:2}
+  .hero .c-tablet .device{width:300px}
+  .hero .c-phone{left:7%; bottom:0; transform:rotate(-4deg); z-index:3}
+  .hero .c-phone .device{width:166px}
+  .hero .dev-label{position:absolute; bottom:-2px; left:0; right:0}
+  .hero .c-mac .dev-label, .hero .c-tablet .dev-label, .hero .c-phone .dev-label{display:none}
+  .hero-legend{display:flex; gap:20px; justify-content:center; margin-top:22px; flex-wrap:wrap; font-size:12px; color:var(--muted)}
+  .hero-legend b{color:var(--accent); font-family:'Instrument Serif',serif; font-weight:400}
+
+  /* V3 hub */
+  .hub{position:relative; height:660px}
+  .hub .node{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:5; text-align:center;
+    width:150px; padding:18px 14px; border-radius:16px; border:1px solid var(--gold-line); background:rgba(194,168,120,.08)}
+  .hub .node .h{font-family:'Instrument Serif',serif; font-size:17px}
+  .hub .node .s{font-size:10px; color:var(--muted); margin-top:3px}
+  .hub .node svg{width:26px; height:26px; margin-bottom:6px}
+  .hub .col{position:absolute; z-index:4}
+  .hub .c-mac{left:50%; top:4px; transform:translateX(-50%)}
+  .hub .c-mac .device{width:340px}
+  .hub .c-phone{left:2%; bottom:8px}
+  .hub .c-phone .device{width:150px}
+  .hub .c-tablet{right:2%; bottom:8px}
+  .hub .c-tablet .device{width:268px}
+  .hub svg.wires{position:absolute; inset:0; width:100%; height:100%; z-index:1; pointer-events:none}
+
+  footer{border-top:1px solid var(--line-soft); padding:30px 0 60px; margin-top:50px; color:var(--faint); font-size:12.5px}
+  footer a{color:var(--muted); text-decoration:none}
+
+  @media (max-width:860px){
+    .stage{padding:18px 10px}
+    .lineup .device.mac{width:100%}
+    .hero{height:auto; display:flex; flex-direction:column; gap:20px; align-items:center}
+    .hero .col{position:static; transform:none!important}
+    .hero .c-mac .device{width:100%}
+    .hub{height:auto; display:flex; flex-direction:column; gap:18px; align-items:center}
+    .hub .col, .hub .node{position:static; transform:none}
+    .hub svg.wires{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="7" fill="#f5f5f3"/><circle cx="50" cy="50" r="24" fill="none" stroke="#f5f5f3" stroke-opacity=".45" stroke-width="2"/><circle cx="50" cy="50" r="42" fill="none" stroke="#f5f5f3" stroke-opacity=".18" stroke-width="2"/></svg>
+      <b>ECHO</b>
+    </a>
+    <a class="nav-link" href="faq.html">← How it works</a>
+  </nav>
+
+  <header class="head">
+    <div class="eyebrow">Surfaces lab · pick one</div>
+    <h1>Mac, phone, home — <span class="it">all at once.</span></h1>
+    <p>Three layouts for section <b>04 — How it comes together</b>, each showing all three surfaces together instead of a switcher. <b>Same memory, same skills — dressed for each screen.</b> Pick the one that reads best and I'll drop it into the live page.</p>
+    <div class="labnote">All three render the same enabled skills: the Mac gets the full board, the phone a glanceable stack, the home tablet a family-first view. Roughly styled — judge the <i>arrangement</i>.</div>
+  </header>
+
+  <!-- V1 — Lineup -->
+  <section class="variant">
+    <div class="vn">Variant 1</div>
+    <h2>The Lineup — three abreast</h2>
+    <p class="idea">All three devices side by side, equal footing, labelled. The honest product-shot: easy to compare what each surface shows, no cleverness. Best for the explainer where clarity beats drama.</p>
+    <div class="stage">
+      <div class="lineup">
+        <div class="col"><div data-dev="iphone"></div><div class="dev-label"><b>On your phone</b>glanceable · Telegram</div></div>
+        <div class="col"><div data-dev="mac"></div><div class="dev-label"><b>On your Mac</b>the full board · Claude Code</div></div>
+        <div class="col"><div data-dev="tablet"></div><div class="dev-label"><b>Home tablet</b>shared family screen</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 — Hero stack -->
+  <section class="variant">
+    <div class="vn">Variant 2</div>
+    <h2>The Hero Stack — overlapped, with depth</h2>
+    <p class="idea">The three devices layered in a loose perspective composition — Mac behind, phone and tablet floating in front. More marketing-hero than diagram. Best if section 04 should feel premium and aspirational.</p>
+    <div class="stage">
+      <div class="hero">
+        <div class="col c-mac"><div data-dev="mac"></div></div>
+        <div class="col c-tablet"><div data-dev="tablet"></div></div>
+        <div class="col c-phone"><div data-dev="iphone"></div></div>
+      </div>
+      <div class="hero-legend"><span><b>Mac</b> — full board</span><span><b>Phone</b> — glanceable</span><span><b>Home tablet</b> — family</span></div>
+    </div>
+  </section>
+
+  <!-- V3 — Hub -->
+  <section class="variant">
+    <div class="vn">Variant 3</div>
+    <h2>One brain, three surfaces — the hub</h2>
+    <p class="idea">Your VM and memory at the centre, the three surfaces around it, connected by live sync lines. Ties the "assembles from your skills, same memory everywhere" idea straight to the surfaces. Best for showing the <b>relationship</b>, not just the screens.</p>
+    <div class="stage">
+      <div class="hub">
+        <svg class="wires" viewBox="0 0 1000 660" preserveAspectRatio="none">
+          <defs><marker id="d" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5"><circle cx="5" cy="5" r="4" fill="#c2a878"/></marker></defs>
+          <g stroke="rgba(194,168,120,.3)" stroke-width="1.4" fill="none">
+            <path id="w1" d="M500 330 L500 150"/>
+            <path id="w2" d="M500 330 L150 560"/>
+            <path id="w3" d="M500 330 L850 560"/>
+          </g>
+          <g fill="#c2a878">
+            <circle r="3.4"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#w1"/></animateMotion></circle>
+            <circle r="3.4"><animateMotion dur="2.6s" begin="1.3s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" repeatCount="indefinite"><mpath href="#w1"/></animateMotion></circle>
+            <circle r="3.4"><animateMotion dur="2.8s" begin="0.5s" repeatCount="indefinite"><mpath href="#w2"/></animateMotion></circle>
+            <circle r="3.4"><animateMotion dur="2.8s" begin="1.9s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" repeatCount="indefinite"><mpath href="#w2"/></animateMotion></circle>
+            <circle r="3.4"><animateMotion dur="2.8s" begin="1s" repeatCount="indefinite"><mpath href="#w3"/></animateMotion></circle>
+            <circle r="3.4"><animateMotion dur="2.8s" begin="2.4s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" repeatCount="indefinite"><mpath href="#w3"/></animateMotion></circle>
+          </g>
+        </svg>
+        <div class="node">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="7" fill="#c2a878"/><circle cx="50" cy="50" r="24" fill="none" stroke="#c2a878" stroke-opacity=".5" stroke-width="3"/><circle cx="50" cy="50" r="42" fill="none" stroke="#c2a878" stroke-opacity=".22" stroke-width="3"/></svg>
+          <div class="h">Your VM</div>
+          <div class="s">one memory · your skills</div>
+        </div>
+        <div class="col c-mac"><div data-dev="mac"></div></div>
+        <div class="col c-phone"><div data-dev="iphone"></div></div>
+        <div class="col c-tablet"><div data-dev="tablet"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>Echo — surfaces lab · <a href="faq.html">back to How it works</a></footer>
+
+</div>
+
+<script>
+  const rings = '<svg viewBox="0 0 24 24" fill="none" stroke="#c2a878" stroke-width="1.6"><circle cx="12" cy="12" r="2.5" fill="#c2a878" stroke="none"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="11" opacity=".5"/></svg>';
+  const M = {
+    today:{tk:'Echo · priorities', h:'Today', body:'<b>3 things that matter</b> · 2 done overnight', wide:true, core:true},
+    health:{tk:'Health', h:'Recovery', body:'Sleep <b>7.3h</b> · 8,420 steps'},
+    scheduling:{tk:'Scheduling', h:'Next up', body:'<b>14:00</b> Design review'},
+    inbox:{tk:'Inbox', h:'Cleared', body:'Inbox <b>0</b> · 3 drafts to ok'},
+    research:{tk:'Research', h:'Briefed', body:'<b>2 briefings</b> overnight'},
+    family:{tk:'Family', h:'Today', body:'<b>15:30</b> pickup — Tara'},
+    finance:{tk:'Finance', h:'Money', body:'£420 filed · <b>1 bill</b>'},
+    shopping:{tk:'Shopping', h:'List', body:'Milk ✓ · Eggs · Pasta'},
+    week:{tk:'This week', h:'Calendar', body:'Wed Sarah · Thu swim'}
+  };
+  const LAYOUTS = {
+    mac:    ['today','health','scheduling','inbox','research','finance'],
+    iphone: ['today','inbox','scheduling','health'],
+    tablet: ['today','family','shopping','week','scheduling']
+  };
+  function tile(m, kind){
+    const wide = m.wide && kind!=='iphone' ? ' wide' : '';
+    const core = m.core ? ' core' : '';
+    return `<div class="tile${wide}${core}"><div class="tk">${m.core?rings:''}${m.tk}</div><h5>${m.h}</h5><p>${m.body}</p></div>`;
+  }
+  function deviceHTML(kind){
+    const chrome = kind==='mac' ? '<span class="dots"><i></i><i></i><i></i></span><span>Echo — your desk</span>'
+      : kind==='iphone' ? '<span class="notch"></span>'
+      : '<span>Kitchen · family</span>';
+    const tiles = LAYOUTS[kind].map(id=>tile(M[id], kind)).join('');
+    return `<div class="device ${kind}"><div class="chrome">${chrome}</div><div class="bento">${tiles}</div></div>`;
+  }
+  document.querySelectorAll('[data-dev]').forEach(el=>{ el.innerHTML = deviceHTML(el.dataset.dev); });
+</script>
+</body>
+</html>
