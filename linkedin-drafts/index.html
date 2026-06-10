@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LinkedIn drafts — Prototyping with Claude · v1</title>
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  .grad { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+  .li-card { box-shadow: 0 0 0 1px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.08); }
+  .li-body { white-space: pre-wrap; line-height: 1.5; font-size: 15px; color: #1c1c1c; }
+  .fold { border-top: 1px dashed #cbd5e1; }
+  .fold-label { font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: #94a3b8; }
+  .tag { display:inline-block; font-size:11px; padding:3px 9px; border-radius:999px; font-weight:500; }
+  .copy-btn { transition: background .15s, color .15s; }
+  .copy-btn:hover { background:#0f172a; color:#fff; }
+  .hashtag { color:#0a66c2; font-weight:500; }
+  code.kbd { background:#f1f5f9; padding:1px 6px; border-radius:4px; font-size:.9em; color:#475569; font-family:"SF Mono",Menlo,monospace; }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+
+<header class="grad text-white">
+  <div class="max-w-3xl mx-auto px-6 py-10">
+    <a href="../" class="text-slate-400 text-xs hover:text-white">← all prototypes</a>
+    <div class="flex items-center gap-3 mt-3 mb-2">
+      <span class="text-3xl">💼</span>
+      <h1 class="text-2xl font-semibold tracking-tight">LinkedIn drafts — Prototyping with Claude</h1>
+    </div>
+    <p class="text-slate-300 text-sm max-w-2xl leading-relaxed">
+      Two post drafts (different hooks) in Nick's voice, plus the open-source repo description.
+      Previewed as LinkedIn cards — the dashed line marks the <strong class="text-white">~210-char "see more" fold</strong>,
+      where most readers decide whether to keep reading.
+    </p>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 py-10 space-y-12">
+
+  <!-- DRAFT A -->
+  <section>
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Draft A · "Stop writing specs" hook</h2>
+      <button class="copy-btn text-xs border border-slate-300 rounded px-2 py-1 text-slate-600" onclick="copyPost('postA', this)">Copy text</button>
+    </div>
+    <article class="li-card bg-white rounded-xl p-5">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-11 h-11 rounded-full grad text-white flex items-center justify-center font-semibold">NH</div>
+        <div class="leading-tight">
+          <div class="font-semibold text-sm">Nick Holzherr</div>
+          <div class="text-xs text-slate-500">Founder, GitLaw · Building in public</div>
+          <div class="text-xs text-slate-400">now · 🌐</div>
+        </div>
+      </div>
+      <div id="postA" class="li-body"><span class="font-semibold">As a PM, I used to spend 80% of my time writing specs. Now I prototype instead — and I'm shipping better thinking, faster.</span>
+
+Here's the thing nobody tells you about specs: they're guesses.
+<div class="fold my-3 pt-2"><span class="fold-label">↑ above the fold · "see more" ↓</span></div>You write the spec. You hand it to design. You wait. Two or three weeks of back-and-forth later, you realise the feature was framed wrong, or something obvious was missing.
+
+There's a great Kilo Code talk titled "collaboration sucks." It's not that people suck — it's the delay. Every time an idea passes between two people, you lose momentum. You multitask to fill the gap. Everything slows down.
+
+So I changed how I work. Now I prototype with Claude.
+
+The result is near-instant. I can do 20–30 reps in an hour. And here's the part that actually matters: I update the spec and the prototype at the same time. They evolve together. The model challenges my thinking as I go — pushing back on why a feature belongs where I put it.
+
+By the end, I'm not guessing anymore. I've seen it.
+
+Then I built a skill that takes it further:
+
+⚡ It auto-pushes every prototype to a live URL (GitHub Pages). Click through it. Use it. Share it.
+
+💬 Every prototype gets a feedback button in the corner. You — or anyone you send the link to — type comments right onto the thing. Copy the link back to Claude, and it knows exactly which component you meant, and iterates.
+
+No screenshots. No "the button on the left, no the other left." Just point and fix.
+
+It builds on Plannotator, a brilliant open-source repo. I'm open-sourcing my version too (link in comments).
+
+Are you still writing specs, or have you started prototyping your way to the answer?
+
+<span class="hashtag">#ProductManagement</span> <span class="hashtag">#AI</span> <span class="hashtag">#BuildInPublic</span> <span class="hashtag">#Claude</span></div>
+    </article>
+  </section>
+
+  <!-- DRAFT B -->
+  <section>
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Draft B · "30 reps an hour" hook</h2>
+      <button class="copy-btn text-xs border border-slate-300 rounded px-2 py-1 text-slate-600" onclick="copyPost('postB', this)">Copy text</button>
+    </div>
+    <article class="li-card bg-white rounded-xl p-5">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-11 h-11 rounded-full grad text-white flex items-center justify-center font-semibold">NH</div>
+        <div class="leading-tight">
+          <div class="font-semibold text-sm">Nick Holzherr</div>
+          <div class="text-xs text-slate-500">Founder, GitLaw · Building in public</div>
+          <div class="text-xs text-slate-400">now · 🌐</div>
+        </div>
+      </div>
+      <div id="postB" class="li-body"><span class="font-semibold">I did 30 product prototypes in an hour yesterday. A year ago that was three weeks of work.</span>
+
+I'm a PM. The old loop looked like this: write a spec → hand to design → wait → realise the framing was wrong → repeat.
+<div class="fold my-3 pt-2"><span class="fold-label">↑ above the fold · "see more" ↓</span></div>Every handoff costs you. There's a Kilo Code talk called "collaboration sucks" — and the villain isn't people, it's the delay between passing an idea over and getting something back. You end up multitasking just to survive the wait.
+
+Prototyping with Claude killed that loop for me.
+
+Idea → working prototype in minutes. 10, 20, 30 reps an hour. And the spec evolves alongside the prototype — not before it, not after it. The model argues with me along the way, which is exactly what I want.
+
+Then I built two things on top:
+
+🔗 A skill that auto-publishes every prototype to a live, clickable URL.
+
+💬 A feedback button baked into every prototype — anyone with the link drops comments straight onto the screen. Paste the link back to Claude and it knows precisely which parts you mean. It fixes them.
+
+Visual feedback in, working changes out. No translation layer.
+
+Built on the excellent Plannotator repo. Open-sourcing mine — link in comments.
+
+If you build products, design, or run an agency: what's still stuck in a slow handoff loop for you?
+
+<span class="hashtag">#AI</span> <span class="hashtag">#ProductDesign</span> <span class="hashtag">#BuildInPublic</span> <span class="hashtag">#Claude</span></div>
+    </article>
+  </section>
+
+  <!-- COMMENT-ONE link -->
+  <section>
+    <h2 class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">First comment (the "link in comments")</h2>
+    <div class="bg-white li-card rounded-xl p-4 text-sm text-slate-700">
+      Repo + skill here 👉 <span class="hashtag">github.com/Holzherr/&lt;repo&gt;</span> · built on Plannotator by
+      <a class="hashtag" href="https://github.com/backnotprop/plannotator" target="_blank">github.com/backnotprop/plannotator</a>
+    </div>
+  </section>
+
+  <!-- REPO DESCRIPTION -->
+  <section>
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Open-source repo description (personal)</h2>
+      <button class="copy-btn text-xs border border-slate-300 rounded px-2 py-1 text-slate-600" onclick="copyPost('repoDesc', this)">Copy README intro</button>
+    </div>
+
+    <div class="bg-white li-card rounded-xl p-5 space-y-5">
+      <div>
+        <span class="tag bg-slate-100 text-slate-600">Repo tagline / About field</span>
+        <p class="mt-2 text-[15px] text-slate-800 leading-relaxed">
+          A Claude Code skill that publishes your prototypes to a live URL and lets anyone leave visual feedback right on the page — then feeds it back to Claude to iterate. Built on Plannotator.
+        </p>
+      </div>
+
+      <div id="repoDesc">
+        <span class="tag bg-slate-100 text-slate-600">README intro</span>
+        <div class="mt-2 text-[15px] text-slate-800 leading-relaxed space-y-3">
+          <p><strong>Prototype → publish → get feedback → iterate, without leaving the loop.</strong></p>
+          <p>This is a Claude Code skill that turns a local prototype into a live, shareable website in one step (via GitHub Pages), then drops a feedback widget into every page. Anyone with the link — teammates, clients, users — can click a button and annotate the prototype visually: point at a component, type what's wrong, done.</p>
+          <p>Copy the feedback URL back to Claude and it knows exactly which elements you're referring to, then iterates on them directly. No screenshots, no "the third card from the top," no translation between what a reviewer saw and what the model changes.</p>
+          <p>It's built for the way product builders, designers, and agencies actually work: fast reps, real feedback, tight loops. It stands on the shoulders of <a class="hashtag" href="https://github.com/backnotprop/plannotator" target="_blank">Plannotator</a> for the visual-annotation layer; this skill adds instant publishing and the round-trip back into Claude.</p>
+          <p class="font-semibold">What you get</p>
+          <ul class="list-disc ml-5 space-y-1">
+            <li>One-command publish of any prototype to a live GitHub Pages URL</li>
+            <li>A feedback button injected into every prototype — visual, point-and-comment annotations</li>
+            <li>Shareable links so anyone can review without installing anything</li>
+            <li>Annotations that Claude can read back and act on, component by component</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="text-xs text-slate-400 pt-4 border-t border-slate-200">
+    Generated by the <code class="kbd">/linkedin</code> skill · auto-published to GitHub Pages.
+    Leave feedback via Plannotator and paste the link back to Claude to iterate.
+  </p>
+</main>
+
+<script>
+function copyPost(id, btn){
+  const el = document.getElementById(id);
+  const text = (el.innerText || el.textContent).replace(/\n↑ above the fold · "see more" ↓\n?/g,'\n');
+  navigator.clipboard.writeText(text.trim()).then(()=>{
+    const o = btn.textContent; btn.textContent = "Copied ✓";
+    setTimeout(()=>btn.textContent=o, 1400);
+  });
+}
+</script>
+</body>
+</html>
