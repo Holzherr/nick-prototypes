@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LinkedIn drafts — Prototyping with Claude · v1</title>
+<title>LinkedIn drafts — Prototyping with Claude · v2</title>
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
@@ -30,19 +30,58 @@
       <h1 class="text-2xl font-semibold tracking-tight">LinkedIn drafts — Prototyping with Claude</h1>
     </div>
     <p class="text-slate-300 text-sm max-w-2xl leading-relaxed">
-      Two post drafts (different hooks) in Nick's voice, plus the open-source repo description.
-      Previewed as LinkedIn cards — the dashed line marks the <strong class="text-white">~210-char "see more" fold</strong>,
-      where most readers decide whether to keep reading.
+      Three post drafts (different hooks) in Nick's voice, plus the open-source repo description.
+      <strong class="text-white">Draft C is recommended</strong> — it uses the comment-to-unlock mechanic from the $849k-discounts post.
+      Previewed as LinkedIn cards — the dashed line marks the <strong class="text-white">~210-char "see more" fold</strong>.
     </p>
   </div>
 </header>
 
 <main class="max-w-3xl mx-auto px-6 py-10 space-y-12">
 
+  <!-- DRAFT C (recommended) -->
+  <section>
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-xs uppercase tracking-wider text-emerald-600 font-semibold">Draft C · lead-magnet hook <span class="tag bg-emerald-100 text-emerald-700 ml-1">recommended</span></h2>
+      <button class="copy-btn text-xs border border-slate-300 rounded px-2 py-1 text-slate-600" onclick="copyPost('postC', this)">Copy text</button>
+    </div>
+    <p class="text-xs text-slate-500 mb-3 -mt-1">Matches the "comment <em>X</em> and I'll send you Y" mechanic from the $849k-discounts post — Nick's highest-comment format ever (3,164 comments).</p>
+    <article class="li-card bg-white rounded-xl p-5 ring-1 ring-emerald-200">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-11 h-11 rounded-full grad text-white flex items-center justify-center font-semibold">NH</div>
+        <div class="leading-tight">
+          <div class="font-semibold text-sm">Nick Holzherr</div>
+          <div class="text-xs text-slate-500">Founder, GitLaw · Building in public</div>
+          <div class="text-xs text-slate-400">now · 🌐</div>
+        </div>
+      </div>
+      <div id="postC" class="li-body"><span class="font-semibold">Discovered a new prototyping process recently that feels like a big unlock.</span>
+
+Comment "prototype" and I'll send you the prompt + code.
+<div class="fold my-3 pt-2"><span class="fold-label">↑ above the fold · "see more" ↓</span></div>I'm a PM. The old way: write a spec → hand to design → wait 2–3 weeks → realise the framing was wrong → repeat. Every handoff kills momentum (there's a great Kilo Code talk literally called "collaboration sucks").
+
+Now I prototype with Claude instead. 10–30 reps an hour. The spec and the prototype evolve together — and the model pushes back on my thinking as I go.
+
+Two things I built on top:
+
+⚡ Auto-publishes every prototype to a live URL you can click through and share
+
+💬 A feedback button on every prototype — anyone you send the link to annotates it visually, then Claude reads it back and knows exactly which component to fix
+
+No screenshots. No "the button on the left, no the other left." Just point and fix.
+
+Built on the brilliant Plannotator (open source).
+
+Comment "prototype" and I'll send you the prompt + code to try it yourself.
+
+<span class="hashtag">#ProductManagement</span> <span class="hashtag">#AI</span> <span class="hashtag">#BuildInPublic</span> <span class="hashtag">#Claude</span></div>
+    </article>
+  </section>
+
   <!-- DRAFT A -->
   <section>
     <div class="flex items-center justify-between mb-3">
-      <h2 class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Draft A · "Stop writing specs" hook</h2>
+      <h2 class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Alt A · "Stop writing specs" hook (essay-style)</h2>
       <button class="copy-btn text-xs border border-slate-300 rounded px-2 py-1 text-slate-600" onclick="copyPost('postA', this)">Copy text</button>
     </div>
     <article class="li-card bg-white rounded-xl p-5">
@@ -86,7 +125,7 @@ Are you still writing specs, or have you started prototyping your way to the ans
   <!-- DRAFT B -->
   <section>
     <div class="flex items-center justify-between mb-3">
-      <h2 class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Draft B · "30 reps an hour" hook</h2>
+      <h2 class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Alt B · "30 reps an hour" hook (essay-style)</h2>
       <button class="copy-btn text-xs border border-slate-300 rounded px-2 py-1 text-slate-600" onclick="copyPost('postB', this)">Copy text</button>
     </div>
     <article class="li-card bg-white rounded-xl p-5">
