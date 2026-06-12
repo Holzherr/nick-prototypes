@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pinpoint — visual feedback your coding agent can act on · v0.1</title>
+<title>ShareWithAgent — visual feedback your coding agent can act on · v0.1</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'><circle cx='4.5' cy='5.5' r='2'/><circle cx='4.5' cy='18.5' r='2'/><path d='M6.4 6.5 11.5 9.4M6.4 17.5 11.5 14.6'/><rect x='11.5' y='7.5' width='10' height='9' rx='2.2'/><path d='M16.5 7.5V5'/></svg>" />
 <meta name="description" content="Open-source, agent-native visual feedback. Click or speak on any web page; get element-anchored feedback a coding agent consumes directly. 100% of hosted revenue to charity." />
 <style>
   :root { --ink:#0f172a; --sub:#475569; --mut:#94a3b8; --line:#e6eaf0; --accent:#4f46e5; --accent2:#6366f1; --bg:#fff; }
@@ -17,7 +18,7 @@
   /* nav */
   nav { display:flex; align-items:center; gap:18px; padding:18px 0; }
   .logo { font-weight:800; font-size:18px; letter-spacing:-.02em; display:flex; align-items:center; gap:8px; }
-  .logo .dot { width:15px; height:15px; border-radius:50%; background:radial-gradient(circle at 35% 35%, var(--accent2), var(--accent)); box-shadow:0 0 0 3px rgba(99,102,241,.16); }
+  .logo .mark { width:22px; height:22px; color:var(--accent); flex:0 0 auto; }
   nav .sp { flex:1; }
   nav a { color:var(--sub); text-decoration:none; font-size:14px; }
   nav a:hover { color:var(--ink); }
@@ -92,25 +93,25 @@
 
 <div class="wrap">
   <nav>
-    <div class="logo"><span class="dot"></span>Pinpoint</div>
+    <div class="logo"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="4.5" cy="5.5" r="2"/><circle cx="4.5" cy="18.5" r="2"/><path d="M6.4 6.5 11.5 9.4M6.4 17.5 11.5 14.6"/><rect x="11.5" y="7.5" width="10" height="9" rx="2.2"/><path d="M16.5 7.5V5"/><circle cx="16.5" cy="4.1" r="0.8" fill="currentColor" stroke="none"/><circle cx="15" cy="11.4" r="0.95" fill="currentColor" stroke="none"/><circle cx="18.5" cy="11.4" r="0.95" fill="currentColor" stroke="none"/><path d="M15 14.2h3.5"/></svg>ShareWithAgent</div>
     <div class="sp"></div>
     <a href="#how">How it works</a>
     <a href="#features">Features</a>
     <a href="#why">Why</a>
-    <a class="ghbtn" href="https://github.com/Holzherr/pinpoint" target="_blank" rel="noopener">★ GitHub</a>
+    <a class="ghbtn" href="https://github.com/Holzherr/sharewithagent" target="_blank" rel="noopener">★ GitHub</a>
   </nav>
 
   <header class="hero">
     <span class="pill">Open source · agent-native</span>
     <h1>Visual feedback your<br><span class="grad">coding agent can act on</span></h1>
-    <p class="lead">Click or speak on any web page. Pinpoint anchors every comment to a real DOM element and hands your coding agent <i>“button <code>.hero__cta</code>, contrast too low”</i> — not “something near (840, 312).”</p>
+    <p class="lead">Click or speak on any web page. ShareWithAgent anchors every comment to a real DOM element and hands your coding agent <i>“button <code>.hero__cta</code>, contrast too low”</i> — not “something near (840, 312).”</p>
     <div class="cta">
       <a class="btn primary" href="./app.html">▶ Try the live demo</a>
-      <a class="btn" href="https://github.com/Holzherr/pinpoint" target="_blank" rel="noopener">★ Star on GitHub</a>
+      <a class="btn" href="https://github.com/Holzherr/sharewithagent" target="_blank" rel="noopener">★ Star on GitHub</a>
     </div>
     <div class="install">
-      <span><span class="mono">npx pinpoint annotate https://your.app</span></span>
-      <button onclick="navigator.clipboard.writeText('npx pinpoint annotate https://your.app');this.textContent='Copied'">Copy</button>
+      <span><span class="mono">npx sharewithagent annotate https://your.app</span></span>
+      <button onclick="navigator.clipboard.writeText('npx sharewithagent annotate https://your.app');this.textContent='Copied'">Copy</button>
     </div>
 
     <div class="shot" aria-hidden="true">
@@ -138,8 +139,8 @@
   <section id="how">
     <div class="sec-h"><h2>Three steps to feedback an agent understands</h2><p>No screenshots. A frozen, interactive DOM snapshot — so every pin carries a real selector.</p></div>
     <div class="steps">
-      <div class="step"><div class="n">1</div><h3>Capture</h3><p>Extension or <code class="mono">npx pinpoint</code> freezes the page exactly as you see it — logged in, JS-rendered, fonts and all — into one self-contained file.</p></div>
-      <div class="step"><div class="n">2</div><h3>Annotate</h3><p>Drop pins, draw boxes, write comments. Or (soon) just talk while you click around and let Pinpoint transcribe and anchor it.</p></div>
+      <div class="step"><div class="n">1</div><h3>Capture</h3><p>Extension or <code class="mono">npx sharewithagent</code> freezes the page exactly as you see it — logged in, JS-rendered, fonts and all — into one self-contained file.</p></div>
+      <div class="step"><div class="n">2</div><h3>Annotate</h3><p>Drop pins, draw boxes, write comments. Or (soon) just talk while you click around and let ShareWithAgent transcribe and anchor it.</p></div>
       <div class="step"><div class="n">3</div><h3>Hand off</h3><p>Export structured JSON + a markdown digest. As a CLI/skill it streams straight back into your agent’s session — no copy-paste.</p></div>
     </div>
   </section>
@@ -160,7 +161,7 @@
       <p style="color:#cbd5e1;margin:0;max-width:620px">A screenshot tells an agent <i>where</i>. A DOM snapshot tells it <i>what</i>. That difference is the whole product.</p>
       <div class="cols">
         <div><h4 class="bad">Screenshot tools</h4><p>“There’s a problem near coordinate (840, 312).” The agent has to guess which element, then hunt for it in the codebase.</p></div>
-        <div><h4 class="good">Pinpoint</h4><p>“<span class="mono">main &gt; section.hero &gt; a.hero__cta</span>, padding 8px, background #6b7280, contrast too low.” The agent opens the file and fixes it.</p></div>
+        <div><h4 class="good">ShareWithAgent</h4><p>“<span class="mono">main &gt; section.hero &gt; a.hero__cta</span>, padding 8px, background #6b7280, contrast too low.” The agent opens the file and fixes it.</p></div>
       </div>
     </div>
   </section>
@@ -169,13 +170,13 @@
     <div class="charity">
       <h2>The hosted version gives everything away</h2>
       <div class="big">100% → charity</div>
-      <p>Pinpoint is free and open-source forever — self-host it for nothing. The optional hosted instance costs $5/month, and every penny (after card fees) is donated. It’s a tool I built for myself; if it earns, a charity should keep it.</p>
+      <p>ShareWithAgent is free and open-source forever — self-host it for nothing. The optional hosted instance costs $5/month, and every penny (after card fees) is donated. It’s a tool I built for myself; if it earns, a charity should keep it.</p>
     </div>
   </section>
 </div>
 
 <footer>
-  <div class="wrap">Pinpoint · open-source visual feedback for the agent era · MIT · a personal project by Nick Holzherr<br>
+  <div class="wrap">ShareWithAgent · open-source visual feedback for the agent era · MIT · a personal project by Nick Holzherr<br>
   <span style="font-size:12px">Working name — final name &amp; domain TBD.</span></div>
 </footer>
 

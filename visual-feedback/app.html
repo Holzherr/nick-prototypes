@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pinpoint — annotate · v0.1</title>
+<title>ShareWithAgent — annotate · v0.1</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'><circle cx='4.5' cy='5.5' r='2'/><circle cx='4.5' cy='18.5' r='2'/><path d='M6.4 6.5 11.5 9.4M6.4 17.5 11.5 14.6'/><rect x='11.5' y='7.5' width='10' height='9' rx='2.2'/><path d='M16.5 7.5V5'/></svg>" />
 <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
 <style>
   :root { --ink:#0f172a; --sub:#64748b; --line:#e2e8f0; --accent:#4f46e5; --accent2:#6366f1; --bg:#f8fafc; }
@@ -15,7 +16,7 @@
   /* top bar */
   .bar { display:flex; align-items:center; gap:10px; padding:8px 14px; background:#fff; border-bottom:1px solid var(--line); flex:0 0 auto; }
   .brand { font-weight:700; letter-spacing:-0.01em; margin-right:6px; display:flex; align-items:center; gap:7px; }
-  .brand .dot { width:14px; height:14px; border-radius:50%; background:radial-gradient(circle at 35% 35%, var(--accent2), var(--accent)); box-shadow:0 0 0 3px rgba(99,102,241,.18); }
+  .brand .mark { width:20px; height:20px; color:var(--accent); flex:0 0 auto; }
   .grp { display:flex; gap:2px; background:var(--bg); border:1px solid var(--line); border-radius:9px; padding:2px; }
   .grp button { border:none; background:transparent; padding:6px 11px; border-radius:7px; font-size:13px; color:var(--sub); display:flex; align-items:center; gap:6px; }
   .grp button.on { background:#fff; color:var(--ink); box-shadow:0 1px 2px rgba(15,23,42,.08); font-weight:600; }
@@ -87,7 +88,7 @@
 <body>
 
 <div class="bar">
-  <div class="brand"><span class="dot"></span><span id="brandName">Pinpoint</span></div>
+  <div class="brand"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="4.5" cy="5.5" r="2"/><circle cx="4.5" cy="18.5" r="2"/><path d="M6.4 6.5 11.5 9.4M6.4 17.5 11.5 14.6"/><rect x="11.5" y="7.5" width="10" height="9" rx="2.2"/><path d="M16.5 7.5V5"/><circle cx="16.5" cy="4.1" r="0.8" fill="currentColor" stroke="none"/><circle cx="15" cy="11.4" r="0.95" fill="currentColor" stroke="none"/><circle cx="18.5" cy="11.4" r="0.95" fill="currentColor" stroke="none"/><path d="M15 14.2h3.5"/></svg><span id="brandName">ShareWithAgent</span></div>
   <div class="grp" id="tools">
     <button data-tool="select" class="on" title="Select / move (V)">▣ Select</button>
     <button data-tool="pin" title="Drop a pin (P)">📍 Pin</button>
@@ -129,11 +130,11 @@
 
 <div class="loader" id="loader">
   <div class="panel">
-    <h1><span class="brand"><span class="dot"></span></span> Load a page to annotate</h1>
-    <p class="lead">Pinpoint annotates a frozen, self-contained snapshot of a web page — every comment anchors to a real DOM element, so a coding agent gets <i>"button .hero__cta, low contrast"</i>, not "something near (840,312)".</p>
+    <h1><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="4.5" cy="5.5" r="2"/><circle cx="4.5" cy="18.5" r="2"/><path d="M6.4 6.5 11.5 9.4M6.4 17.5 11.5 14.6"/><rect x="11.5" y="7.5" width="10" height="9" rx="2.2"/><path d="M16.5 7.5V5"/><circle cx="16.5" cy="4.1" r="0.8" fill="currentColor" stroke="none"/><circle cx="15" cy="11.4" r="0.95" fill="currentColor" stroke="none"/><circle cx="18.5" cy="11.4" r="0.95" fill="currentColor" stroke="none"/><path d="M15 14.2h3.5"/></svg> Load a page to annotate</h1>
+    <p class="lead">ShareWithAgent annotates a frozen, self-contained snapshot of a web page — every comment anchors to a real DOM element, so a coding agent gets <i>"button .hero__cta, low contrast"</i>, not "something near (840,312)".</p>
     <button class="opt" id="optDemo"><span class="ic">✨</span><span><b>Open the demo page</b><span>A sample pricing page — try it instantly.</span></span></button>
-    <button class="opt" id="optUpload"><span class="ic">📂</span><span><b>Upload a snapshot</b><span>A self-contained .html (e.g. from the Pinpoint extension or the “SingleFile” browser add-on).</span></span></button>
-    <label class="opt" for="urlField" id="optUrl" style="cursor:default"><span class="ic">🌐</span><span><b>Capture a live URL</b><span>Needs the Pinpoint extension or CLI (static site can’t render arbitrary pages). Paste a URL the extension will pick it up.</span><input type="url" id="urlField" placeholder="https://example.com/pricing" /></span></label>
+    <button class="opt" id="optUpload"><span class="ic">📂</span><span><b>Upload a snapshot</b><span>A self-contained .html (e.g. from the ShareWithAgent extension or the “SingleFile” browser add-on).</span></span></button>
+    <label class="opt" for="urlField" id="optUrl" style="cursor:default"><span class="ic">🌐</span><span><b>Capture a live URL</b><span>Needs the ShareWithAgent extension or CLI (static site can’t render arbitrary pages). Paste a URL the extension will pick it up.</span><input type="url" id="urlField" placeholder="https://example.com/pricing" /></span></label>
     <input type="file" id="fileInput" accept=".html,.htm,text/html" class="sr" />
   </div>
 </div>
@@ -175,7 +176,7 @@ body{color:#0f172a;background:#fff}
 </body></html>`;
 
 /* ---------- state ---------- */
-const BRAND = 'Pinpoint';
+const BRAND = 'ShareWithAgent';
 const VIEWPORTS = { desktop:{w:1024,h:720,label:'desktop-1024'}, mobile:{w:390,h:780,label:'mobile-390'} };
 let state = { tool:'select', viewport:'desktop', snapshot:'', pageUrl:'', annotations:[], selected:null, seq:0 };
 let cliReturn = null; // CLI/skill mode endpoint
@@ -217,7 +218,7 @@ function hydrate(data){
 $('#optDemo').onclick = ()=>{ state.pageUrl='https://acme.example/pricing'; loadSnapshot(DEMO_SNAPSHOT); };
 $('#optUpload').onclick = ()=> $('#fileInput').click();
 $('#fileInput').onchange = e => { const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ state.pageUrl=f.name; loadSnapshot(r.result); }; r.readAsText(f); };
-$('#urlField').onkeydown = e => { if(e.key==='Enter'){ toast('Live capture needs the Pinpoint extension/CLI — see the homepage.'); } };
+$('#urlField').onkeydown = e => { if(e.key==='Enter'){ toast('Live capture needs the ShareWithAgent extension/CLI — see the homepage.'); } };
 
 function loadSnapshot(html){
   state.snapshot = html;

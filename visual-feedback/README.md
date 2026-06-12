@@ -1,4 +1,4 @@
-# Pinpoint — visual feedback your coding agent can act on
+# ShareWithAgent — visual feedback your coding agent can act on
 
 > **Working name** (final name + domain TBD — see options below). Open-source, agent-native
 > visual feedback on any web page. Click or speak; get **element-anchored** feedback a coding
@@ -38,7 +38,7 @@ node cli.mjs annotate ./saved-page.html --json # annotate a SingleFile export; p
 ```
 
 ## Open decisions
-- **Name** — working name is "Pinpoint" but it collides (HubSpot Pinpoint, Pindrop). Top
+- **Name** — working name is "ShareWithAgent" but it collides (HubSpot ShareWithAgent, Pindrop). Top
   available candidates: **markrelay** (.com+.io free), **glancepin** (.com free), **sightback**
   (.com/.io/.dev/.app free). Rebrand = change `BRAND` in `app.html` + nav text in `index.html`.
 - **Hosted $5/mo → 100% charity** — route as a *donation* (Every.org / Pledge.to) so it never
