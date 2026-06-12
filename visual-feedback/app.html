@@ -50,7 +50,7 @@
   .overlay.hidemode { cursor:not-allowed; }
   .band { position:absolute; border:2px dashed var(--accent); background:rgba(79,70,229,.08); border-radius:3px; pointer-events:none; z-index:9; display:none; }
   /* inline comment bubble on the page */
-  .inote { position:absolute; transform:translateY(-50%); max-width:230px; background:#fff; border:1px solid var(--line); border-radius:10px; box-shadow:0 4px 18px rgba(15,23,42,.16); padding:8px; z-index:12; pointer-events:auto; font-size:12px; }
+  .inote { position:absolute; transform:translateY(-50%); max-width:230px; background:#fff; border:1px solid var(--line); border-radius:10px; box-shadow:0 6px 22px rgba(15,23,42,.22); padding:8px; z-index:2147483646; pointer-events:auto; font-size:12px; }
   .inote.chip { padding:6px 9px; cursor:pointer; color:var(--ink); white-space:normal; line-height:1.35; border-left:3px solid var(--accent); }
   .inote.chip.resolved { border-left-color:#94a3b8; color:var(--sub); }
   .inote textarea { width:206px; border:1px solid var(--line); border-radius:7px; padding:7px; font-size:12px; font-family:inherit; resize:none; min-height:54px; color:var(--ink); }
@@ -61,18 +61,21 @@
   .inote .ia .done { margin-left:auto; background:var(--accent); color:#fff; }
 
   /* sidebar */
-  .side { flex:0 0 340px; background:#fff; border-left:1px solid var(--line); display:flex; flex-direction:column; min-height:0; }
+  .side { flex:0 0 340px; width:340px; min-width:340px; max-width:340px; background:#fff; border-left:1px solid var(--line); display:flex; flex-direction:column; min-height:0; }
   .side .head { padding:12px 14px; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
   .side .head h2 { margin:0; font-size:13px; font-weight:700; }
   .side .head .count { font-size:12px; color:var(--sub); }
-  .list { flex:1; overflow:auto; padding:10px; display:flex; flex-direction:column; gap:9px; }
+  .list { flex:1; overflow:auto; padding:10px; display:flex; flex-direction:column; gap:9px; min-width:0; }
   .empty { color:var(--sub); font-size:13px; text-align:center; padding:34px 18px; line-height:1.5; }
   .card { border:1px solid var(--line); border-radius:11px; padding:11px; background:#fff; }
   .card.sel { border-color:var(--accent); box-shadow:0 0 0 3px rgba(79,70,229,.1); }
-  .card .top { display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+  .card .top { display:flex; align-items:center; gap:8px; margin-bottom:7px; min-width:0; }
   .card .num { width:20px; height:20px; border-radius:50%; background:var(--accent); color:#fff; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
   .card.resolved .num { background:#94a3b8; }
-  .card .sel-path { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; color:var(--sub); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1; }
+  .card .sel-path { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; color:var(--sub); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1; min-width:0; }
+  .quote { font-size:11.5px; color:var(--ink); background:#fafaff; border-left:3px solid var(--accent2); border-radius:0 6px 6px 0; padding:5px 8px; margin-bottom:6px; line-height:1.4; }
+  .inote .quote { max-width:206px; }
+  .selbtn { position:absolute; z-index:2147483647; background:var(--accent); color:#fff; border:none; border-radius:8px; padding:6px 11px; font-size:12px; font-weight:600; box-shadow:0 4px 14px rgba(79,70,229,.5); pointer-events:auto; cursor:pointer; display:none; transform:translateY(4px); }
   .card textarea { width:100%; border:1px solid var(--line); border-radius:8px; padding:8px; font-size:13px; font-family:inherit; resize:vertical; min-height:46px; color:var(--ink); }
   .card textarea:focus { outline:none; border-color:var(--accent); }
   .card .meta { display:flex; gap:6px; margin-top:7px; flex-wrap:wrap; align-items:center; }
@@ -133,12 +136,12 @@
   <div class="stage" id="stage">
     <div class="frameWrap" id="frameWrap" style="width:1024px;height:720px">
       <iframe id="frame" sandbox="allow-same-origin allow-scripts allow-forms allow-popups" title="Captured page"></iframe>
-      <div class="overlay" id="overlay"><div class="hl" id="hl"></div><div class="band" id="band"></div></div>
+      <div class="overlay" id="overlay"><div class="hl" id="hl"></div><div class="band" id="band"></div><button class="selbtn" id="selbtn">💬 Comment</button></div>
     </div>
   </div>
   <aside class="side">
     <div class="head"><h2>Feedback</h2><span class="count" id="count">0 items</span></div>
-    <div class="list" id="list"><div class="empty">No annotations yet.<br>Pick <b>Pin</b> or <b>Box</b>, then click the page.</div></div>
+    <div class="list" id="list"><div class="empty">No annotations yet.<br><b>Select text</b> to comment, or pick <b>Pin</b> / <b>Box</b> and click the page.</div></div>
   </aside>
 </div>
 
@@ -283,6 +286,24 @@ function wireFrame(){
     else if(state.tool==='box' && drag){ const box={x:Math.min(drag.x,x),y:Math.min(drag.y,y),w:Math.abs(x-drag.x),h:Math.abs(y-drag.y)};
       band.style.display='none'; drag=null; if(box.w>=6 && box.h>=6) addBoxAt(box); }
   });
+
+  // text selection → "Comment" button (Select mode; overlay isn't armed so the iframe gets the selection)
+  const selbtn = $('#selbtn');
+  let pendingSel = null;
+  doc.addEventListener('mouseup', ()=>{
+    if(state.tool!=='select') return;
+    setTimeout(()=>{
+      const sel = doc.getSelection(); const txt = sel && sel.toString().trim();
+      if(!txt || sel.isCollapsed){ selbtn.style.display='none'; pendingSel=null; return; }
+      const range = sel.getRangeAt(0); const r = range.getBoundingClientRect();
+      let el = range.commonAncestorContainer; if(el.nodeType!==1) el = el.parentElement;
+      pendingSel = { el, text: txt.slice(0,400) };
+      selbtn.style.display='block'; selbtn.style.left=Math.max(2, r.right-10)+'px'; selbtn.style.top=(r.bottom)+'px';
+    }, 0);
+  });
+  doc.addEventListener('mousedown', ()=>{ selbtn.style.display='none'; });
+  selbtn.onclick = ()=>{ if(!pendingSel) return; addSelectionNote(pendingSel.el, pendingSel.text);
+    selbtn.style.display='none'; try{ doc.getSelection().removeAllRanges(); }catch(e){} pendingSel=null; };
 }
 
 /* ---------- anchoring ---------- */
@@ -315,6 +336,10 @@ function addPin(el){
   const a={ id:'a'+(++state.seq), type:'pin', comment:'', status:'open', viewport:VIEWPORTS[state.viewport].label, anchor:anchorFor(el) };
   state.annotations.push(a); state.selected=a.id; setTool('select'); renderAll(); focusComment(a.id);
 }
+function addSelectionNote(el, text){
+  const a={ id:'a'+(++state.seq), type:'text', comment:'', status:'open', viewport:VIEWPORTS[state.viewport].label, anchor:{...anchorFor(el), selectedText:text} };
+  state.annotations.push(a); state.selected=a.id; renderAll(); focusComment(a.id);
+}
 function addBoxAt(box){
   const doc=frame.contentDocument;
   const el = doc.elementFromPoint(box.x+box.w/2, box.y+box.h/2) || doc.body;
@@ -340,7 +365,7 @@ function renderOverlay(){
     if(a.id===state.selected){
       const n=document.createElement('div'); n.className='inote'; n.dataset.id=a.id;
       n.style.left=(px+18)+'px'; n.style.top=py+'px';
-      n.innerHTML=`<textarea placeholder="Describe the issue…">${esc(a.comment)}</textarea>
+      n.innerHTML=`${a.anchor.selectedText?`<div class="quote">“${esc(a.anchor.selectedText.slice(0,160))}”</div>`:''}<textarea placeholder="Describe the issue…">${esc(a.comment)}</textarea>
         <div class="ia"><button data-a="resolve">${a.status==='resolved'?'Reopen':'Resolve'}</button><button data-a="del">Delete</button><button data-a="done" class="done">Done</button></div>`;
       const ta=n.querySelector('textarea');
       ta.oninput=()=>{ a.comment=ta.value; const sc=$(`.card[data-id="${a.id}"] textarea`); if(sc) sc.value=ta.value; };
@@ -357,12 +382,12 @@ function renderOverlay(){
 }
 function renderList(){
   const list=$('#list');
-  if(!state.annotations.length){ list.innerHTML='<div class="empty">No annotations yet.<br>Pick <b>Pin</b> or <b>Box</b>, then click the page.</div>'; return; }
+  if(!state.annotations.length){ list.innerHTML='<div class="empty">No annotations yet.<br><b>Select text</b> to comment, or pick <b>Pin</b> / <b>Box</b> and click the page.</div>'; return; }
   list.innerHTML='';
   state.annotations.forEach((a,i)=>{
     const c=document.createElement('div'); c.className='card'+(a.status==='resolved'?' resolved':'')+(a.id===state.selected?' sel':''); c.dataset.id=a.id;
     c.innerHTML=`<div class="top"><span class="num">${i+1}</span><span class="sel-path" title="${esc(a.anchor.selector)}">${esc(a.anchor.selector)}</span></div>
-      <textarea placeholder="Describe the issue…">${esc(a.comment)}</textarea>
+      ${a.anchor.selectedText?`<div class="quote">“${esc(a.anchor.selectedText.slice(0,160))}”</div>`:''}<textarea placeholder="Describe the issue…">${esc(a.comment)}</textarea>
       <div class="meta"><span class="tag">${a.viewport}</span><span class="tag">${a.type}</span>
         <div class="acts"><button data-act="resolve">${a.status==='resolved'?'Reopen':'Resolve'}</button><button data-act="del">Delete</button></div></div>`;
     c.querySelector('textarea').oninput=e=>{ a.comment=e.target.value; const ie=overlay.querySelector(`.inote[data-id="${a.id}"] textarea`); if(ie) ie.value=e.target.value; };
@@ -385,7 +410,8 @@ function toMarkdown(){
   const p=buildPayload(); let s=`# ${BRAND} feedback\n\n**Page:** ${p.url||'(uploaded snapshot)'}  ·  **Viewport:** ${p.viewport}  ·  **${p.annotations.length} item(s)**\n\n`;
   p.annotations.forEach(a=>{ s+=`### ${a.n}. ${a.comment||'(no comment)'} ${a.status==='resolved'?'✅':''}\n`;
     s+=`- **Element:** \`${a.anchor.selector}\`\n`;
-    if(a.anchor.text) s+=`- **Text:** "${a.anchor.text}"\n`;
+    if(a.anchor.selectedText) s+=`- **Selected text:** "${a.anchor.selectedText}"\n`;
+    else if(a.anchor.text) s+=`- **Text:** "${a.anchor.text}"\n`;
     s+=`- **Box:** ${JSON.stringify(a.type==='box'?a.box:a.anchor.boundingBox)}\n`;
     const st=a.anchor.computedStyles; const keys=Object.keys(st).slice(0,6);
     if(keys.length) s+=`- **Styles:** ${keys.map(k=>`${k}: ${st[k]}`).join('; ')}\n`;
