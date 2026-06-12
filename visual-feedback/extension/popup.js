@@ -1,10 +1,10 @@
-/* Pinpoint extension — MVP capture.
+/* ShareWithAgent extension — MVP capture.
  * Best-effort freeze of the current tab (inline same-origin CSS + images), then open the
  * annotator with the snapshot in the URL fragment (#<lz>) — reusing the viewer's hydrate path.
  *
  * NOTE: this is an MVP serializer. For pixel-perfect capture of hard pages (shadow DOM,
  * canvas/WebGL, cross-origin fonts), use the "SingleFile" browser add-on to save a .html and
- * "Upload a snapshot" in the app, or the CLI (`pinpoint annotate <url>`). The roadmap is to
+ * "Upload a snapshot" in the app, or the CLI (`sharewithagent annotate <url>`). The roadmap is to
  * vendor SingleFile here so the extension matches that fidelity.
  */
 const $ = s => document.querySelector(s);
@@ -41,7 +41,7 @@ $('#cap').onclick = async () => {
     const frag = LZString.compressToEncodedURIComponent(JSON.stringify(data));
     const base = $('#viewer').value.trim();
     await chrome.tabs.create({ url: base + '#' + frag });
-    status.textContent = 'Opened in Pinpoint ✓';
+    status.textContent = 'Opened in ShareWithAgent ✓';
   } catch (e) {
     status.textContent = 'Capture failed: ' + e.message;
   }
