@@ -1,0 +1,897 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhotonUVC Vet — trust-optimised concept v0.1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#14162b;
+  --ink-deep:#0b0d1a;
+  --purple:#64399e;
+  --violet:#7d4dc4;
+  --lavender:#bea7de;
+  --pale:#efeaf7;
+  --paper:#ffffff;
+  --off:#f6f4fa;
+  --gold:#fbbc04;
+  --line:rgba(20,22,43,.12);
+  --line-dark:rgba(190,167,222,.22);
+
+  --display:'Outfit',system-ui,sans-serif;
+  --body:'Instrument Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+
+  --gut:clamp(20px,5vw,64px);
+  --max:1180px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+
+/* ---------- shared type ---------- */
+.eyebrow{
+  font-family:var(--mono);
+  font-size:11.5px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--purple);
+  margin:0 0 20px;
+}
+.eyebrow-pale{color:var(--lavender)}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.022em;margin:0}
+h1{font-size:clamp(36px,4.6vw,57px);line-height:1.04;letter-spacing:-.032em}
+h2{font-size:clamp(29px,3.8vw,46px);line-height:1.06}
+h3{font-size:20px;line-height:1.25}
+.lede{font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:#4a4d68;max-width:46ch}
+.lede-pale{color:#b9bcd6}
+
+/* ---------- concept banner ---------- */
+.concept{
+  background:var(--ink-deep);
+  color:#9ea2c4;
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.05em;
+  padding:9px var(--gut);
+  text-align:center;
+}
+.concept strong{color:var(--lavender);font-weight:500}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{
+  max-width:var(--max);margin:0 auto;padding:0 var(--gut);
+  height:74px;display:flex;align-items:center;gap:36px;
+}
+.nav-logo{height:30px;width:auto}
+.nav-links{display:flex;gap:28px;margin-left:auto;font-size:15px}
+.nav-links a{text-decoration:none;color:#4a4d68;transition:color .15s}
+.nav-links a:hover{color:var(--purple)}
+.btn{
+  font-family:var(--display);font-weight:600;font-size:15px;
+  padding:12px 22px;border-radius:999px;border:1px solid transparent;
+  text-decoration:none;display:inline-flex;align-items:center;gap:9px;
+  transition:transform .15s,box-shadow .15s,background .15s;
+  cursor:pointer;
+}
+.btn-solid{background:var(--purple);color:#fff;box-shadow:0 4px 18px rgba(100,57,158,.28)}
+.btn-solid:hover{background:var(--violet);transform:translateY(-1px);box-shadow:0 8px 26px rgba(100,57,158,.36)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--purple);color:var(--purple)}
+.btn-light{background:#fff;color:var(--purple)}
+.btn-light:hover{transform:translateY(-1px)}
+.btn-outline-light{border-color:var(--line-dark);color:#fff}
+.btn-outline-light:hover{border-color:var(--lavender);background:rgba(190,167,222,.1)}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(40px,5vw,68px) 0 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(28px,5vw,60px);align-items:center}
+.hero h1 span{color:var(--purple)}
+.hero .lede{margin:22px 0 30px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+
+.hero-vis{position:relative;display:grid;place-items:center}
+.hero-glow{
+  position:absolute;inset:-18% -12%;
+  background:radial-gradient(ellipse at 50% 48%,rgba(125,77,196,.42),rgba(190,167,222,.2) 44%,transparent 70%);
+  filter:blur(8px);
+}
+.hero-device{
+  position:relative;
+  width:auto;max-width:100%;
+  max-height:min(52vh,440px);
+  filter:drop-shadow(0 26px 46px rgba(20,22,43,.24));
+}
+
+/* trust row */
+.trust{display:flex;gap:26px;flex-wrap:wrap;align-items:center;padding-top:26px;border-top:1px solid var(--line)}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:13.5px;color:#4a4d68;line-height:1.3}
+.trust-item svg{flex:none;color:var(--purple)}
+.trust-item b{font-family:var(--display);font-weight:600;color:var(--ink);display:block;font-size:14.5px}
+
+/* ---------- instrument rule ---------- */
+.instrument{margin-top:clamp(44px,6vw,72px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--off)}
+.instrument-in{
+  max-width:var(--max);margin:0 auto;padding:0 var(--gut);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.spec{padding:26px 0 26px 22px;border-left:1px solid var(--line);position:relative}
+.spec:first-child{border-left:0;padding-left:0}
+.spec::before{
+  content:"";position:absolute;left:-1px;top:26px;width:1px;height:14px;background:var(--purple);
+}
+.spec:first-child::before{display:none}
+.spec-val{font-family:var(--display);font-size:clamp(26px,3vw,34px);font-weight:600;letter-spacing:-.03em;line-height:1}
+.spec-val em{font-style:normal;font-size:.5em;font-weight:500;color:var(--purple);margin-left:3px}
+.spec-key{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#7a7d99;margin-top:9px}
+
+/* ---------- sections ---------- */
+section{padding:clamp(64px,8vw,110px) 0}
+.sec-head{max-width:60ch;margin-bottom:clamp(34px,4vw,52px)}
+.sec-head h2 + .lede{margin-top:18px}
+.dark{background:var(--ink-deep);color:#fff}
+.dark h2{color:#fff}
+.tint{background:var(--off)}
+
+/* ---------- google reviews ---------- */
+.rev-top{display:flex;align-items:flex-end;gap:clamp(20px,4vw,54px);flex-wrap:wrap;margin-bottom:38px}
+.rev-score{display:flex;align-items:center;gap:20px}
+.rev-num{font-family:var(--display);font-size:70px;font-weight:700;line-height:.85;letter-spacing:-.045em}
+.rev-meta{display:flex;flex-direction:column;gap:7px}
+.stars{display:flex;gap:2px}
+.stars svg{color:var(--gold)}
+.rev-count{font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:#7a7d99}
+.rev-badge{display:flex;align-items:center;gap:9px;font-size:14px;color:#4a4d68;padding-bottom:4px}
+.rev-badge svg{flex:none}
+
+.rev-rail{
+  display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);
+  gap:18px;overflow-x:auto;padding-bottom:14px;
+  scroll-snap-type:x mandatory;
+}
+.rev-rail::-webkit-scrollbar{height:6px}
+.rev-rail::-webkit-scrollbar-thumb{background:var(--lavender);border-radius:99px}
+.rev-card{
+  scroll-snap-align:start;
+  background:var(--paper);border:1px solid var(--line);border-radius:16px;
+  padding:24px;display:flex;flex-direction:column;gap:14px;
+}
+.rev-card-head{display:flex;align-items:center;gap:12px}
+.rev-av{
+  width:40px;height:40px;border-radius:50%;flex:none;
+  display:grid;place-items:center;
+  font-family:var(--display);font-weight:600;font-size:16px;color:#fff;
+  background:var(--purple);
+}
+.rev-av-2{background:#8d6bb8}.rev-av-3{background:#4c2b78}
+.rev-av-4{background:#a284cd}.rev-av-5{background:#57307f}
+.rev-name{font-family:var(--display);font-weight:600;font-size:15px;line-height:1.2}
+.rev-role{font-size:12.5px;color:#7a7d99;line-height:1.3}
+.rev-g{margin-left:auto;flex:none}
+.rev-stars-row{display:flex;align-items:center;gap:10px}
+.rev-date{font-family:var(--mono);font-size:11px;color:#9ea1b8}
+.rev-text{font-size:15px;line-height:1.55;color:#3b3e57;margin:0}
+
+/* ---------- field / 20,000 ---------- */
+.field-head{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,60px);align-items:end;margin-bottom:clamp(30px,4vw,44px)}
+.field-head h2 em{font-style:normal;color:var(--lavender)}
+.field-stats{display:flex;gap:34px;flex-wrap:wrap}
+.field-stat b{display:block;font-family:var(--display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}
+.field-stat span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8b8fb0;display:block;margin-top:8px}
+
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tile{
+  position:relative;border-radius:14px;overflow:hidden;
+  background:#16182c;border:1px solid var(--line-dark);
+  aspect-ratio:4/5;
+  transition:transform .25s,border-color .25s;
+}
+.tile:hover{transform:translateY(-3px);border-color:var(--lavender)}
+.tile-wide{grid-column:span 2;aspect-ratio:auto;height:100%}
+.tile svg{width:100%;height:100%;display:block;object-fit:cover}
+.tile-photo{display:grid;place-items:center;background:linear-gradient(160deg,#2a1c46,#14162b)}
+.tile-photo img{max-width:82%;max-height:74%;width:auto;filter:drop-shadow(0 14px 26px rgba(0,0,0,.5))}
+.tile-cap{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:26px 14px 13px;
+  background:linear-gradient(transparent,rgba(11,13,26,.92));
+  display:flex;align-items:flex-end;justify-content:space-between;gap:10px;
+}
+.tile-cap b{font-family:var(--display);font-size:13.5px;font-weight:600;color:#fff;display:block;line-height:1.2}
+.tile-cap span{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:#a49ec2;display:block;margin-top:4px}
+.tile-dur{font-family:var(--mono);font-size:10px;color:#cfc4e6;background:rgba(190,167,222,.16);padding:3px 7px;border-radius:5px;flex:none}
+.play{
+  position:absolute;top:12px;right:12px;
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.14);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.28);
+  display:grid;place-items:center;
+}
+.play svg{width:11px;height:11px;color:#fff}
+.mosaic-note{font-family:var(--mono);font-size:11px;color:#7a7d99;letter-spacing:.04em;margin-top:16px}
+
+/* ---------- evidence ledger ---------- */
+.ledger{border-top:1px solid var(--line)}
+.row{
+  display:grid;grid-template-columns:200px 1fr 300px;
+  gap:clamp(16px,3vw,40px);
+  padding:26px 0;border-bottom:1px solid var(--line);
+  align-items:start;
+  transition:background .18s;
+}
+.row:hover{background:var(--off)}
+.row-num{font-family:var(--display);font-size:clamp(28px,3.4vw,38px);font-weight:600;letter-spacing:-.035em;line-height:1;color:var(--purple)}
+.row-num small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8b8fb0;margin-top:9px;font-weight:400}
+.row-claim{font-size:16px;line-height:1.5;color:#3b3e57;margin:0}
+.row-claim i{font-style:italic}
+.row-cite{font-family:var(--mono);font-size:11.5px;line-height:1.65;color:#7a7d99}
+.row-cite a{color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(100,57,158,.3)}
+.row-cite a:hover{border-bottom-color:var(--purple)}
+.row-cite b{display:block;color:var(--ink);font-weight:500;font-family:var(--body);font-size:13px;margin-bottom:3px}
+.ledger-foot{margin-top:26px;font-size:14px;color:#7a7d99}
+.ledger-foot a{color:var(--purple)}
+
+/* ---------- safety ---------- */
+.safety-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,26px)}
+.qa{
+  background:rgba(190,167,222,.06);
+  border:1px solid var(--line-dark);border-radius:16px;padding:26px;
+}
+.qa h3{color:#fff;margin-bottom:12px;font-size:18px}
+.qa p{margin:0;font-size:15px;line-height:1.6;color:#b9bcd6}
+.qa-tag{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--lavender);margin-bottom:14px}
+
+/* ---------- how ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,34px);counter-reset:step}
+.step{position:relative;padding-top:22px;border-top:2px solid var(--purple)}
+.step::before{
+  counter-increment:step;content:counter(step,decimal-leading-zero);
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--purple);
+  display:block;margin-bottom:12px;
+}
+.step h3{margin-bottom:9px}
+.step p{margin:0;font-size:15px;color:#4a4d68;line-height:1.6}
+
+/* ---------- cta ---------- */
+.cta-band{
+  background:linear-gradient(135deg,#4c2b78,#7d4dc4 62%,#9a6fd8);
+  color:#fff;border-radius:22px;
+  padding:clamp(36px,5vw,60px);
+  display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:center;
+}
+.cta-band h2{color:#fff;max-width:20ch}
+.cta-band p{margin:16px 0 0;color:rgba(255,255,255,.86);max-width:44ch}
+.cta-actions{display:flex;flex-direction:column;gap:11px;align-items:stretch}
+.cta-actions .btn{justify-content:center}
+.cta-fine{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:rgba(255,255,255,.6);text-align:center;margin:4px 0 0}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink-deep);color:#8b8fb0;padding:56px 0 40px;font-size:14px}
+.foot-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+.foot img{height:26px;opacity:.9;margin-bottom:14px}
+.foot-in p{margin:0;max-width:38ch;line-height:1.6}
+.foot-note{
+  margin:38px 0 0;padding-top:20px;border-top:1px solid var(--line-dark);
+  font-family:var(--mono);font-size:11px;line-height:1.75;color:#6d7192;
+  max-width:96ch;
+}
+.foot-note strong{color:var(--lavender);font-weight:500}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-links a{text-decoration:none;color:#8b8fb0}
+.foot-links a:hover{color:var(--lavender)}
+
+/* ---------- responsive ---------- */
+@media (max-width:920px){
+  .hero-grid,.field-head,.cta-band{grid-template-columns:1fr}
+  .hero-vis{order:-1}
+  .hero-device{max-height:min(30vh,250px)}
+  .nav-in .btn{margin-left:auto}
+  .nav-in{gap:16px}
+  .instrument-in{grid-template-columns:repeat(2,1fr)}
+  .spec:nth-child(3){border-left:0;padding-left:0}
+  .spec:nth-child(3)::before{display:none}
+  .safety-grid,.steps{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;gap:14px}
+  .row-num{display:flex;align-items:baseline;gap:12px}
+  .row-num small{margin-top:0}
+  .mosaic{grid-template-columns:repeat(2,1fr);gap:10px}
+  .tile-wide{grid-column:span 1;aspect-ratio:4/5;height:auto}
+  .tile-cap{padding:22px 11px 11px}
+  .tile-cap b{font-size:12px}
+  .tile-cap span{font-size:9px;letter-spacing:.05em}
+  .nav-links{display:none}
+}
+@media (max-width:520px){
+  .instrument-in{grid-template-columns:1fr}
+  .spec{border-left:0;padding-left:0;padding-block:18px;border-top:1px solid var(--line)}
+  .spec:first-child{border-top:0}
+  .spec::before{display:none}
+  .rev-num{font-size:56px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:4px}
+</style>
+
+<div class="concept">
+  Concept mockup by Nick Holzherr — <strong>not affiliated with Photon Therapeutics.</strong>
+  Reviews and the patient count are illustrative placeholders. Research citations are real and linked.
+</div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <img class="nav-logo" src="https://photon-therapeutics.com/wp-content/uploads/2022/05/main.svg" alt="Photon Therapeutics">
+    <div class="nav-links">
+      <a href="#reviews">Reviews</a>
+      <a href="#field">In the field</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#safety">Safety</a>
+    </div>
+    <a class="btn btn-solid" href="#book">Book a demo</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">265 nm ultraviolet C · Veterinary ophthalmology</p>
+      <h1>Five seconds of light.<br>No contact. <span>No resistance.</span></h1>
+      <p class="lede">
+        PhotonUVC Vet treats corneal infection with a single low-dose pulse of 265 nm UVC —
+        the wavelength that breaks microbial DNA. Bacteria cannot develop resistance to it,
+        and it never touches the eye.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#book">Book a clinic demo</a>
+        <a class="btn btn-ghost" href="#evidence">Read the evidence</a>
+      </div>
+
+      <div class="trust">
+        <div class="trust-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v6c0 4.4-2.9 7.9-7 9-4.1-1.1-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span><b>8 peer-reviewed studies</b>All cited below, in full</span>
+        </div>
+        <div class="trust-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.8L7 21l5-2.4L17 21l-1.5-7.2"/></svg>
+          <span><b>Veterinary Marketing Awards</b>Digital &amp; Technology Innovation</span>
+        </div>
+        <div class="trust-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h18v12H3z"/><path d="M3 11h18M8 7V4h8v3"/></svg>
+          <span><b>Designed &amp; built in the UK</b>Shipping to 14 countries</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-vis">
+      <div class="hero-glow"></div>
+      <img class="hero-device" src="https://photon-therapeutics.com/wp-content/uploads/2022/11/device_0003_UVC-Device-Front-Hero-ON-Smallfry.png" alt="PhotonUVC Vet handheld device, emitter illuminated">
+    </div>
+  </div>
+
+  <div class="instrument">
+    <div class="instrument-in">
+      <div class="spec"><div class="spec-val">265<em>nm</em></div><div class="spec-key">Peak emission</div></div>
+      <div class="spec"><div class="spec-val">5<em>sec</em></div><div class="spec-key">Treatment time</div></div>
+      <div class="spec"><div class="spec-val">0<em>mm</em></div><div class="spec-key">Contact with cornea</div></div>
+      <div class="spec"><div class="spec-val">100<em>+</em></div><div class="spec-key">Treatments per charge</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ GOOGLE REVIEWS ============ -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What vets say</p>
+      <h2>Rated 4.9 by the practices already using it</h2>
+    </div>
+
+    <div class="rev-top">
+      <div class="rev-score">
+        <div class="rev-num">4.9</div>
+        <div class="rev-meta">
+          <div class="stars">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          </div>
+          <div class="rev-count">187 Google reviews · verified practices</div>
+        </div>
+      </div>
+      <div class="rev-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 01-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 23.5c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.3 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3A11.5 11.5 0 0012 23.5z"/><path fill="#FBBC05" d="M5.6 14.2a6.9 6.9 0 010-4.4v-3H1.8a11.5 11.5 0 000 10.4l3.8-3z"/><path fill="#EA4335" d="M12 5.1c1.7 0 3.2.6 4.4 1.7l3.3-3.3A11.5 11.5 0 001.8 6.8l3.8 3c.9-2.7 3.4-4.7 6.4-4.7z"/></svg>
+        <span>Reviews collected on Google — unfiltered, unedited</span>
+      </div>
+    </div>
+
+    <div class="rev-rail">
+      <article class="rev-card">
+        <div class="rev-card-head">
+          <div class="rev-av">RM</div>
+          <div>
+            <div class="rev-name">Dr Rachel Mbeki</div>
+            <div class="rev-role">Ashgrove Veterinary Hospital, Bristol</div>
+          </div>
+          <svg class="rev-g" width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 01-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 23.5c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.3 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3A11.5 11.5 0 0012 23.5z"/><path fill="#FBBC05" d="M5.6 14.2a6.9 6.9 0 010-4.4v-3H1.8a11.5 11.5 0 000 10.4l3.8-3z"/><path fill="#EA4335" d="M12 5.1c1.7 0 3.2.6 4.4 1.7l3.3-3.3A11.5 11.5 0 001.8 6.8l3.8 3c.9-2.7 3.4-4.7 6.4-4.7z"/></svg>
+        </div>
+        <div class="rev-stars-row">
+          <div class="stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          </div>
+          <span class="rev-date">2 weeks ago</span>
+        </div>
+        <p class="rev-text">We reach for it before we reach for the culture swab now. A melting ulcer that would normally have meant a week of hourly drops and a worried owner is a five-second treatment and a next-day recheck. Owners see us use it and they trust the plan.</p>
+      </article>
+
+      <article class="rev-card">
+        <div class="rev-card-head">
+          <div class="rev-av rev-av-2">JF</div>
+          <div>
+            <div class="rev-name">James Fenwick MRCVS</div>
+            <div class="rev-role">Northmoor Equine Practice, Yorkshire</div>
+          </div>
+          <svg class="rev-g" width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 01-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 23.5c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.3 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3A11.5 11.5 0 0012 23.5z"/><path fill="#FBBC05" d="M5.6 14.2a6.9 6.9 0 010-4.4v-3H1.8a11.5 11.5 0 000 10.4l3.8-3z"/><path fill="#EA4335" d="M12 5.1c1.7 0 3.2.6 4.4 1.7l3.3-3.3A11.5 11.5 0 001.8 6.8l3.8 3c.9-2.7 3.4-4.7 6.4-4.7z"/></svg>
+        </div>
+        <div class="rev-stars-row">
+          <div class="stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          </div>
+          <span class="rev-date">1 month ago</span>
+        </div>
+        <p class="rev-text">Yard visits are where it earns its keep. No fridge, no mixing, no leaving a bottle with a client who won't use it properly. I treat the horse in the stable and I know the dose was delivered.</p>
+      </article>
+
+      <article class="rev-card">
+        <div class="rev-card-head">
+          <div class="rev-av rev-av-3">SO</div>
+          <div>
+            <div class="rev-name">Dr Sofia Oyelaran</div>
+            <div class="rev-role">Kingsway Small Animal Referrals, Leeds</div>
+          </div>
+          <svg class="rev-g" width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 01-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 23.5c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.3 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3A11.5 11.5 0 0012 23.5z"/><path fill="#FBBC05" d="M5.6 14.2a6.9 6.9 0 010-4.4v-3H1.8a11.5 11.5 0 000 10.4l3.8-3z"/><path fill="#EA4335" d="M12 5.1c1.7 0 3.2.6 4.4 1.7l3.3-3.3A11.5 11.5 0 001.8 6.8l3.8 3c.9-2.7 3.4-4.7 6.4-4.7z"/></svg>
+        </div>
+        <div class="rev-stars-row">
+          <div class="stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          </div>
+          <span class="rev-date">1 month ago</span>
+        </div>
+        <p class="rev-text">I was the sceptic in the practice. What convinced me was the literature, not the sales pitch — I read the murine Pseudomonas paper before we bought. Six months in, our resistant cases are the ones I worry about least.</p>
+      </article>
+
+      <article class="rev-card">
+        <div class="rev-card-head">
+          <div class="rev-av rev-av-4">TN</div>
+          <div>
+            <div class="rev-name">Tomas Novák</div>
+            <div class="rev-role">Practice owner, Veterinární klinika Brno</div>
+          </div>
+          <svg class="rev-g" width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 01-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 23.5c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.3 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3A11.5 11.5 0 0012 23.5z"/><path fill="#FBBC05" d="M5.6 14.2a6.9 6.9 0 010-4.4v-3H1.8a11.5 11.5 0 000 10.4l3.8-3z"/><path fill="#EA4335" d="M12 5.1c1.7 0 3.2.6 4.4 1.7l3.3-3.3A11.5 11.5 0 001.8 6.8l3.8 3c.9-2.7 3.4-4.7 6.4-4.7z"/></svg>
+        </div>
+        <div class="rev-stars-row">
+          <div class="stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          </div>
+          <span class="rev-date">2 months ago</span>
+        </div>
+        <p class="rev-text">Paid for itself in under a year on referred ulcer cases alone. Support answered a Sunday email in twenty minutes. That matters more than the spec sheet.</p>
+      </article>
+
+      <article class="rev-card">
+        <div class="rev-card-head">
+          <div class="rev-av rev-av-5">HA</div>
+          <div>
+            <div class="rev-name">Hannah Ardem RVN</div>
+            <div class="rev-role">Head nurse, Coastway Vets, Brighton</div>
+          </div>
+          <svg class="rev-g" width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 01-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 23.5c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.3 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3A11.5 11.5 0 0012 23.5z"/><path fill="#FBBC05" d="M5.6 14.2a6.9 6.9 0 010-4.4v-3H1.8a11.5 11.5 0 000 10.4l3.8-3z"/><path fill="#EA4335" d="M12 5.1c1.7 0 3.2.6 4.4 1.7l3.3-3.3A11.5 11.5 0 001.8 6.8l3.8 3c.9-2.7 3.4-4.7 6.4-4.7z"/></svg>
+        </div>
+        <div class="rev-stars-row">
+          <div class="stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          </div>
+          <span class="rev-date">3 months ago</span>
+        </div>
+        <p class="rev-text">Training took one lunchtime. Nurses can run it under direction, the animal barely reacts because nothing touches them, and there's no restraint fight. That last part is the bit nobody tells you about.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IN THE FIELD ============ -->
+<section id="field" class="dark">
+  <div class="wrap">
+    <div class="field-head">
+      <div>
+        <p class="eyebrow eyebrow-pale">In the field</p>
+        <h2>Used on <em>20,000 patients</em> — dogs, cats, horses and cattle.</h2>
+      </div>
+      <div class="field-stats">
+        <div class="field-stat"><b>340+</b><span>Practices</span></div>
+        <div class="field-stat"><b>14</b><span>Countries</span></div>
+        <div class="field-stat"><b>4 yrs</b><span>In clinical use</span></div>
+      </div>
+    </div>
+
+    <div class="mosaic">
+      <!-- dog: round pupil -->
+      <div class="tile">
+        <svg viewBox="0 0 200 250" role="img" aria-label="Illustration: UVC beam directed at a dog's eye">
+          <defs>
+            <radialGradient id="g-dog" cx="50%" cy="46%" r="62%">
+              <stop offset="0%" stop-color="#3a2560"/><stop offset="100%" stop-color="#14162b"/>
+            </radialGradient>
+            <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#bea7de" stop-opacity=".55"/>
+              <stop offset="100%" stop-color="#bea7de" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect width="200" height="250" fill="url(#g-dog)"/>
+          <path d="M118 0 L152 0 L118 125 L96 125 Z" fill="url(#beam)"/>
+          <ellipse cx="100" cy="125" rx="62" ry="40" fill="none" stroke="#8f7ab5" stroke-width="2.5"/>
+          <circle cx="100" cy="125" r="30" fill="#2a1c46" stroke="#bea7de" stroke-width="1.6"/>
+          <circle cx="100" cy="125" r="15" fill="#0b0d1a"/>
+          <circle cx="90" cy="115" r="5" fill="#e8ddf7" opacity=".85"/>
+          <path d="M38 125q62 -46 124 0" fill="none" stroke="#5c4a7d" stroke-width="1.2" opacity=".7"/>
+        </svg>
+        <div class="play"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg></div>
+        <div class="tile-cap">
+          <div><b>Labrador · melting ulcer</b><span>ASHGROVE VETERINARY HOSPITAL</span></div>
+          <div class="tile-dur">0:14</div>
+        </div>
+      </div>
+
+      <!-- horse: horizontal pupil, wide tile -->
+      <div class="tile tile-wide">
+        <svg viewBox="0 0 400 250" role="img" aria-label="Illustration: UVC beam directed at a horse's eye">
+          <defs>
+            <radialGradient id="g-horse" cx="50%" cy="48%" r="60%">
+              <stop offset="0%" stop-color="#42295f"/><stop offset="100%" stop-color="#14162b"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="250" fill="url(#g-horse)"/>
+          <path d="M244 0 L296 0 L232 128 L198 128 Z" fill="url(#beam)"/>
+          <ellipse cx="200" cy="128" rx="112" ry="52" fill="none" stroke="#8f7ab5" stroke-width="2.5"/>
+          <ellipse cx="200" cy="128" rx="56" ry="42" fill="#2a1c46" stroke="#bea7de" stroke-width="1.6"/>
+          <rect x="172" y="120" width="56" height="17" rx="8.5" fill="#0b0d1a"/>
+          <circle cx="182" cy="114" r="6" fill="#e8ddf7" opacity=".85"/>
+          <path d="M88 128q112 -62 224 0" fill="none" stroke="#5c4a7d" stroke-width="1.2" opacity=".7"/>
+        </svg>
+        <div class="play"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg></div>
+        <div class="tile-cap">
+          <div><b>Warmblood · keratomycosis, treated on the yard</b><span>NORTHMOOR EQUINE PRACTICE</span></div>
+          <div class="tile-dur">0:31</div>
+        </div>
+      </div>
+
+      <!-- cat: vertical slit -->
+      <div class="tile">
+        <svg viewBox="0 0 200 250" role="img" aria-label="Illustration: UVC beam directed at a cat's eye">
+          <defs>
+            <radialGradient id="g-cat" cx="50%" cy="46%" r="62%">
+              <stop offset="0%" stop-color="#35235a"/><stop offset="100%" stop-color="#14162b"/>
+            </radialGradient>
+          </defs>
+          <rect width="200" height="250" fill="url(#g-cat)"/>
+          <path d="M118 0 L152 0 L118 125 L96 125 Z" fill="url(#beam)"/>
+          <path d="M30 125q70 -56 140 0q-70 56 -140 0z" fill="none" stroke="#8f7ab5" stroke-width="2.5"/>
+          <circle cx="100" cy="125" r="34" fill="#2a1c46" stroke="#bea7de" stroke-width="1.6"/>
+          <ellipse cx="100" cy="125" rx="6.5" ry="27" fill="#0b0d1a"/>
+          <circle cx="88" cy="112" r="5" fill="#e8ddf7" opacity=".85"/>
+        </svg>
+        <div class="play"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg></div>
+        <div class="tile-cap">
+          <div><b>DSH · feline herpetic keratitis</b><span>COASTWAY VETS, BRIGHTON</span></div>
+          <div class="tile-dur">0:09</div>
+        </div>
+      </div>
+
+      <!-- device photo -->
+      <div class="tile tile-photo">
+        <img src="https://photon-therapeutics.com/wp-content/uploads/2022/11/device_0001_UVC-Device-LH-Side-Smallfry.png" alt="PhotonUVC Vet device, side profile">
+        <div class="tile-cap">
+          <div><b>Slit-lamp mount</b><span>IN-CLINIC CONFIGURATION</span></div>
+        </div>
+      </div>
+
+      <!-- cattle: horizontal pupil, wide -->
+      <div class="tile tile-wide">
+        <svg viewBox="0 0 400 250" role="img" aria-label="Illustration: UVC beam directed at a cow's eye">
+          <defs>
+            <radialGradient id="g-cow" cx="50%" cy="48%" r="60%">
+              <stop offset="0%" stop-color="#2f2050"/><stop offset="100%" stop-color="#14162b"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="250" fill="url(#g-cow)"/>
+          <path d="M244 0 L296 0 L232 128 L198 128 Z" fill="url(#beam)"/>
+          <ellipse cx="200" cy="128" rx="104" ry="58" fill="none" stroke="#8f7ab5" stroke-width="2.5"/>
+          <ellipse cx="200" cy="128" rx="52" ry="46" fill="#2a1c46" stroke="#bea7de" stroke-width="1.6"/>
+          <rect x="176" y="121" width="48" height="15" rx="7.5" fill="#0b0d1a"/>
+          <circle cx="185" cy="114" r="6" fill="#e8ddf7" opacity=".85"/>
+          <path d="M96 128q104 -68 208 0" fill="none" stroke="#5c4a7d" stroke-width="1.2" opacity=".7"/>
+        </svg>
+        <div class="play"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg></div>
+        <div class="tile-cap">
+          <div><b>Herd screening · infectious bovine keratoconjunctivitis</b><span>MOUNT PLEASANT FARM VETS</span></div>
+          <div class="tile-dur">1:02</div>
+        </div>
+      </div>
+
+      <!-- exotic: large round pupil -->
+      <div class="tile">
+        <svg viewBox="0 0 200 250" role="img" aria-label="Illustration: UVC beam directed at a rabbit's eye">
+          <defs>
+            <radialGradient id="g-exotic" cx="50%" cy="46%" r="62%">
+              <stop offset="0%" stop-color="#3d2765"/><stop offset="100%" stop-color="#14162b"/>
+            </radialGradient>
+          </defs>
+          <rect width="200" height="250" fill="url(#g-exotic)"/>
+          <path d="M118 0 L152 0 L118 125 L96 125 Z" fill="url(#beam)"/>
+          <circle cx="100" cy="125" r="56" fill="none" stroke="#8f7ab5" stroke-width="2.5"/>
+          <circle cx="100" cy="125" r="40" fill="#2a1c46" stroke="#bea7de" stroke-width="1.6"/>
+          <circle cx="100" cy="125" r="27" fill="#0b0d1a"/>
+          <circle cx="87" cy="110" r="6" fill="#e8ddf7" opacity=".85"/>
+        </svg>
+        <div class="play"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg></div>
+        <div class="tile-cap">
+          <div><b>Rabbit · exotic caseload</b><span>KINGSWAY SMALL ANIMAL REFERRALS</span></div>
+          <div class="tile-dur">0:22</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mosaic-note">Illustrated placeholders — drop real clinic footage into these slots.</p>
+  </div>
+</section>
+
+<!-- ============ EVIDENCE ============ -->
+<section id="evidence">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Backed by research</p>
+      <h2>Every claim on this page traces to a paper you can read.</h2>
+      <p class="lede">Eight peer-reviewed studies across in vitro, ex vivo, in vivo and clinical work. Full citations, journals, and links — not a logo wall.</p>
+    </div>
+
+    <div class="ledger">
+      <div class="row">
+        <div class="row-num">100%<small>Bactericidal</small></div>
+        <p class="row-claim">Every bacterial isolate tested was cleared with a single 15-second UV-C dose at 10&nbsp;mm, in canine corneas with infectious keratitis.</p>
+        <div class="row-cite">
+          <b>Novel treatment of infectious keratitis in canine corneas using ultraviolet C light</b>
+          Turicea et al. · <i>Veterinary Ophthalmology</i> · 2025<br>
+          <a href="https://onlinelibrary.wiley.com/doi/10.1111/vop.13265" target="_blank" rel="noopener">doi:10.1111/vop.13265</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-num">0<small>Colonies at 48 h</small></div>
+        <p class="row-claim">In an in vivo murine model, 265&nbsp;nm UVC eliminated multi-drug-resistant <i>Pseudomonas aeruginosa</i> — no growth at 48 hours, matching ciprofloxacin and ceftazidime.</p>
+        <div class="row-cite">
+          <b>Efficacy of 265 nm UVC light against MDR <i>P. aeruginosa</i> keratitis</b>
+          Gowtham, Sheba, Sharma, Mishra &amp; Bagga · <i>Contact Lens &amp; Anterior Eye</i> 48(4):102417 · 2025<br>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/40221350/" target="_blank" rel="noopener">PMID 40221350</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-num">15 s<small>To break biofilm</small></div>
+        <p class="row-claim">Low-dose 265&nbsp;nm UVC killed <i>P. aeruginosa</i> biofilm — the structure that blunts topical antibiotics — in exposures as short as 15 seconds.</p>
+        <div class="row-cite">
+          <b>In vitro anti-biofilm efficacy of therapeutic low dose 265 nm UVC</b>
+          Marasini, Dean, Swift, Hussan &amp; Craig · <i>J Photochem Photobiol B</i> 263:113091 · 2025<br>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/39787975/" target="_blank" rel="noopener">PMID 39787975</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-num">0 / 48<small>Adverse events</small></div>
+        <p class="row-claim">Across 48 treatment sites in a controlled comparison, UV-C matched povidone-iodine for periocular disinfection with no adverse eyelid effects. 16.7% of PI-treated dogs developed contact dermatitis; none in the UV-C group.</p>
+        <div class="row-cite">
+          <b>Antimicrobial effect of UV-C light vs standard povidone-iodine protocol</b>
+          Treadwell, Sahoo, Bujan, Allbaugh, Stinman &amp; Kubai · <i>Veterinary Ophthalmology</i> 29(2):e70065 · 2026<br>
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12969538/" target="_blank" rel="noopener">PMC12969538</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-num">Broad<small>Spectrum</small></div>
+        <p class="row-claim">Ocular-surface pathogens isolated from veterinary infectious keratitis were assessed against a 265&nbsp;nm device — susceptibility across the species tested, with no resistance mechanism available to them.</p>
+        <div class="row-cite">
+          <b>Assessment of ocular surface pathogen susceptibility to UVC light treatment</b>
+          Williams et al. · <i>Veterinary Ophthalmology</i> · 2026<br>
+          <a href="https://onlinelibrary.wiley.com/doi/10.1111/vop.70214" target="_blank" rel="noopener">doi:10.1111/vop.70214</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-num">Depth<small>Ex vivo, equine</small></div>
+        <p class="row-claim">UV-C inhibited fungal pathogens associated with equine keratomycosis at multiple corneal depths — not just at the surface.</p>
+        <div class="row-cite">
+          <b>UV-C light therapy inhibits pathogens associated with equine keratomycosis at different corneal depths</b>
+          Hoerdemann et al. · <i>Veterinary Ophthalmology</i> · 2026<br>
+          <a href="https://onlinelibrary.wiley.com/doi/10.1111/vop.70110" target="_blank" rel="noopener">doi:10.1111/vop.70110</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-num">DNA<small>Safety assessed</small></div>
+        <p class="row-claim">The therapeutic UVC dose was assessed directly against corneal DNA damage, and separately for safety at the limbus — the two places a clinician worries about first.</p>
+        <div class="row-cite">
+          <b>Effect of therapeutic UVC on corneal DNA</b>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/33610742/" target="_blank" rel="noopener">PMID 33610742</a><br>
+          <b>Safety of therapeutic UVC application at the limbus</b>
+          <i>IOVS</i> · ARVO Journals
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-num">Meta<small>Human review</small></div>
+        <p class="row-claim">A systematic review and meta-analysis of UV application for superficial infection in humans — the wider evidence base this device sits inside.</p>
+        <div class="row-cite">
+          <b>Safety and efficacy of UV application for superficial infections in humans</b>
+          Systematic review &amp; meta-analysis<br>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/33812086/" target="_blank" rel="noopener">PMID 33812086</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="ledger-foot">
+      Want the full dossier? We send the PDFs, including the ones with unfavourable results.
+      <a href="#book">Request the evidence pack →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ============ SAFETY ============ -->
+<section id="safety" class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow eyebrow-pale">The questions vets actually ask</p>
+      <h2>Shining UV into an eye sounds alarming. Here's the honest answer.</h2>
+    </div>
+    <div class="safety-grid">
+      <article class="qa">
+        <div class="qa-tag">Dose</div>
+        <h3>It's a low dose, not a sterilising lamp</h3>
+        <p>The germicidal fixtures you're picturing run for minutes. This is a metered five-second pulse at 265&nbsp;nm — the wavelength where microbial DNA absorbs most strongly and the dose needed is smallest.</p>
+      </article>
+      <article class="qa">
+        <div class="qa-tag">Tissue</div>
+        <h3>UVC is absorbed at the surface</h3>
+        <p>265&nbsp;nm doesn't travel like visible light. It's absorbed in the outermost corneal tissue, which is exactly where infectious keratitis lives — and why safety work has focused on corneal DNA and the limbus. Both are published above.</p>
+      </article>
+      <article class="qa">
+        <div class="qa-tag">Handling</div>
+        <h3>Nothing touches the eye</h3>
+        <p>Non-contact means no applicator on an already-painful cornea, no cross-contamination between patients, and far less restraint. Nurses report animals barely react.</p>
+      </article>
+      <article class="qa">
+        <div class="qa-tag">Resistance</div>
+        <h3>There is no resistance pathway</h3>
+        <p>Antibiotic resistance is a biochemical adaptation. UVC damages DNA directly. A population can't evolve around physics the way it evolves around a molecule.</p>
+      </article>
+      <article class="qa">
+        <div class="qa-tag">Adjunct</div>
+        <h3>It doesn't replace your judgement</h3>
+        <p>Culture and cytology still matter. UVC gives you an immediate broad-spectrum action while you wait for results — most useful in the first 48 hours, when you're guessing.</p>
+      </article>
+      <article class="qa">
+        <div class="qa-tag">Trial</div>
+        <h3>Try it in your own clinic first</h3>
+        <p>Demo units go out with the full paper set. Use it on your own caseload for two weeks. If your team doesn't reach for it, send it back.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW ============ -->
+<section class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">In the consult room</p>
+      <h2>Three steps, under a minute.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3>Position</h3>
+        <p>Hand-held or mounted on your slit lamp. Set the spacer at the working distance and line up on the lesion. No drops, no gel, no contact.</p>
+      </div>
+      <div class="step">
+        <h3>Treat</h3>
+        <p>One press. Five seconds. The device meters the dose itself, so the treatment your nurse delivers is the treatment your ophthalmologist would.</p>
+      </div>
+      <div class="step">
+        <h3>Recheck</h3>
+        <p>Continue your normal protocol and reassess. Most practices recheck at 24 hours and repeat only if the lesion warrants it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section id="book">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>See it on your own caseload.</h2>
+        <p>A two-week in-clinic trial, the full evidence pack, and a real person on the end of the phone. No procurement process to start.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-light" href="mailto:team@photon-therapeutics.com">Book a clinic demo</a>
+        <a class="btn btn-outline-light" href="#evidence">Get the evidence pack</a>
+        <p class="cta-fine">Typical reply within one working day</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <img src="https://photon-therapeutics.com/wp-content/uploads/2022/05/photon-white.svg" alt="Photon Therapeutics">
+        <p>Non-invasive UVC treatment for corneal infection. Founded 2007, London.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#reviews">Reviews</a>
+        <a href="#field">In the field</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#safety">Safety</a>
+        <a href="https://photon-therapeutics.com/" target="_blank" rel="noopener">The real site ↗</a>
+      </div>
+    </div>
+    <p class="foot-note">
+      This page is an unaffiliated design concept built by Nick Holzherr to explore trust and credibility patterns for medical-device marketing.
+      It is not operated by, endorsed by, or connected to Photon Therapeutics Ltd.
+      The Google review scores, review text, reviewer names, practice names, patient counts and deployment figures shown above are <strong>invented placeholders</strong> and describe nothing real.
+      The research citations in the Evidence section are genuine published papers, linked to source.
+      Product images and logo are used for illustration and remain the property of Photon Therapeutics Ltd.
+    </p>
+  </div>
+</footer>
