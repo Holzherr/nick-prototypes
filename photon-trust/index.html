@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PhotonUVC Vet — trust-optimised concept v0.1</title>
+<title>PhotonUVC Vet — trust-optimised concept v0.2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -199,36 +199,45 @@ section{padding:clamp(64px,8vw,110px) 0}
 .field-stat b{display:block;font-family:var(--display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}
 .field-stat span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8b8fb0;display:block;margin-top:8px}
 
-.mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.tile{
-  position:relative;border-radius:14px;overflow:hidden;
-  background:#16182c;border:1px solid var(--line-dark);
-  aspect-ratio:4/5;
-  transition:transform .25s,border-color .25s;
+/* ---------- case-story marquee ---------- */
+.marquee{position:relative;overflow:hidden;--gap:16px;padding:2px 0}
+.marquee + .marquee{margin-top:var(--gap)}
+.marquee::before,.marquee::after{
+  content:"";position:absolute;top:0;bottom:0;width:clamp(40px,9%,150px);z-index:3;pointer-events:none;
 }
-.tile:hover{transform:translateY(-3px);border-color:var(--lavender)}
-.tile-wide{grid-column:span 2;aspect-ratio:auto;height:100%}
-.tile svg{width:100%;height:100%;display:block;object-fit:cover}
-.tile-photo{display:grid;place-items:center;background:linear-gradient(160deg,#2a1c46,#14162b)}
-.tile-photo img{max-width:82%;max-height:74%;width:auto;filter:drop-shadow(0 14px 26px rgba(0,0,0,.5))}
-.tile-cap{
-  position:absolute;left:0;right:0;bottom:0;
-  padding:26px 14px 13px;
-  background:linear-gradient(transparent,rgba(11,13,26,.92));
-  display:flex;align-items:flex-end;justify-content:space-between;gap:10px;
+.marquee::before{left:0;background:linear-gradient(90deg,var(--ink-deep) 12%,transparent)}
+.marquee::after{right:0;background:linear-gradient(270deg,var(--ink-deep) 12%,transparent)}
+.marquee-track{display:flex;gap:var(--gap);width:max-content;animation:slide 86s linear infinite}
+.marquee-rev .marquee-track{animation-direction:reverse;animation-duration:104s}
+.marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(calc(-50% - var(--gap)/2))}}
+
+.case{
+  width:clamp(268px,26vw,330px);flex:none;
+  background:rgba(190,167,222,.06);
+  border:1px solid var(--line-dark);border-radius:18px;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:border-color .25s,transform .25s;
 }
-.tile-cap b{font-family:var(--display);font-size:13.5px;font-weight:600;color:#fff;display:block;line-height:1.2}
-.tile-cap span{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:#a49ec2;display:block;margin-top:4px}
-.tile-dur{font-family:var(--mono);font-size:10px;color:#cfc4e6;background:rgba(190,167,222,.16);padding:3px 7px;border-radius:5px;flex:none}
-.play{
-  position:absolute;top:12px;right:12px;
-  width:30px;height:30px;border-radius:50%;
-  background:rgba(255,255,255,.14);backdrop-filter:blur(6px);
-  border:1px solid rgba(255,255,255,.28);
-  display:grid;place-items:center;
+.case:hover{border-color:var(--lavender);transform:translateY(-2px)}
+.case-media{position:relative;aspect-ratio:4/3;background:#0b0d1a;overflow:hidden}
+.case-media img,.case-media video{width:100%;height:100%;object-fit:cover;display:block}
+.case-tag{
+  position:absolute;top:10px;left:10px;z-index:2;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:#e2d9f3;background:rgba(11,13,26,.66);backdrop-filter:blur(6px);
+  padding:4px 8px;border-radius:6px;
 }
-.play svg{width:11px;height:11px;color:#fff}
-.mosaic-note{font-family:var(--mono);font-size:11px;color:#7a7d99;letter-spacing:.04em;margin-top:16px}
+.case-body{padding:18px 20px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
+.case-name{font-family:var(--display);font-weight:600;font-size:16.5px;color:#fff;line-height:1.25}
+.case-name em{font-style:normal;color:var(--lavender);font-weight:500}
+.case-text{margin:0;font-size:14.5px;line-height:1.5;color:#b0b4d0}
+.case-by{
+  margin-top:auto;padding-top:13px;border-top:1px solid var(--line-dark);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:#8b8fb0;line-height:1.6;
+}
+.marquee-note{font-family:var(--mono);font-size:11px;color:#7a7d99;letter-spacing:.04em;margin:22px 0 0}
 
 /* ---------- evidence ledger ---------- */
 .ledger{border-top:1px solid var(--line)}
@@ -251,15 +260,45 @@ section{padding:clamp(64px,8vw,110px) 0}
 .ledger-foot{margin-top:26px;font-size:14px;color:#7a7d99}
 .ledger-foot a{color:var(--purple)}
 
+/* ---------- clinical study ---------- */
+.study-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
+.study-tile{
+  background:rgba(190,167,222,.07);
+  border:1px solid var(--line-dark);border-radius:20px;
+  padding:clamp(24px,2.4vw,32px);
+  display:flex;flex-direction:column;min-height:400px;
+}
+.study-viz{flex:1;display:grid;place-items:end start;padding:14px 0 30px}
+.study-viz svg{width:100%;max-width:260px;height:auto;overflow:visible}
+.study-tile h3{color:#fff;font-size:19px;margin-bottom:10px}
+.study-tile p{margin:0;font-size:15px;line-height:1.6;color:#b0b4d0}
+.viz-num{font-family:var(--display);font-weight:600;fill:#fff;letter-spacing:-.03em}
+.viz-unit{font-family:var(--display);font-weight:500;fill:var(--lavender)}
+.viz-cap{font-family:var(--mono);font-size:9px;letter-spacing:.11em;fill:#8b8fb0;text-transform:uppercase}
+.viz-track{fill:none;stroke:rgba(190,167,222,.16)}
+.viz-fill{fill:none;stroke:var(--lavender);stroke-linecap:round}
+
+.study-cite{
+  margin-top:clamp(24px,3vw,34px);padding-top:22px;border-top:1px solid var(--line-dark);
+  display:flex;gap:clamp(16px,3vw,44px);flex-wrap:wrap;align-items:baseline;
+}
+.study-cite p{margin:0;font-size:15px;line-height:1.6;color:#b0b4d0;max-width:52ch}
+.study-cite p b{color:#fff;font-weight:500}
+.study-cite a{
+  font-family:var(--mono);font-size:12px;color:var(--lavender);text-decoration:none;
+  border-bottom:1px solid rgba(190,167,222,.35);white-space:nowrap;
+}
+.study-cite a:hover{border-bottom-color:var(--lavender)}
+
 /* ---------- safety ---------- */
 .safety-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,26px)}
 .qa{
-  background:rgba(190,167,222,.06);
-  border:1px solid var(--line-dark);border-radius:16px;padding:26px;
+  background:var(--paper);
+  border:1px solid var(--line);border-radius:16px;padding:26px;
 }
-.qa h3{color:#fff;margin-bottom:12px;font-size:18px}
-.qa p{margin:0;font-size:15px;line-height:1.6;color:#b9bcd6}
-.qa-tag{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--lavender);margin-bottom:14px}
+.qa h3{margin-bottom:12px;font-size:18px}
+.qa p{margin:0;font-size:15px;line-height:1.6;color:#4a4d68}
+.qa-tag{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--purple);margin-bottom:14px}
 
 /* ---------- how ---------- */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,34px);counter-reset:step}
@@ -311,6 +350,10 @@ section{padding:clamp(64px,8vw,110px) 0}
   .spec:nth-child(3){border-left:0;padding-left:0}
   .spec:nth-child(3)::before{display:none}
   .safety-grid,.steps{grid-template-columns:1fr}
+  .study-grid{grid-template-columns:1fr;gap:12px}
+  .study-tile{min-height:0}
+  .study-viz{padding:6px 0 22px}
+  .study-cite{flex-direction:column;gap:14px}
   .row{grid-template-columns:1fr;gap:14px}
   .row-num{display:flex;align-items:baseline;gap:12px}
   .row-num small{margin-top:0}
@@ -332,14 +375,33 @@ section{padding:clamp(64px,8vw,110px) 0}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
+  /* the marquee stops moving, so let it be scrolled by hand instead */
+  .marquee{overflow-x:auto;scroll-snap-type:x mandatory}
+  .marquee::before,.marquee::after{display:none}
+  .case{scroll-snap-align:start}
 }
 :focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:4px}
 </style>
 
 <div class="concept">
   Concept mockup by Nick Holzherr — <strong>not affiliated with Photon Therapeutics.</strong>
-  Reviews and the patient count are illustrative placeholders. Research citations are real and linked.
+  Google reviews and the patient/practice counts are invented placeholders. The study results, citations and case stories are real.
 </div>
+
+<script>
+  // Play the case videos only while they're on screen — 5 MB shouldn't decode in the background.
+  addEventListener('DOMContentLoaded', () => {
+    const vids = document.querySelectorAll('.case-media video');
+    if (!('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(entries => {
+      for (const e of entries) {
+        if (e.isIntersecting) { e.target.preload = 'auto'; e.target.play().catch(() => {}); }
+        else e.target.pause();
+      }
+    }, { rootMargin: '100px' });
+    vids.forEach(v => io.observe(v));
+  });
+</script>
 
 <nav class="nav">
   <div class="nav-in">
@@ -347,6 +409,7 @@ section{padding:clamp(64px,8vw,110px) 0}
     <div class="nav-links">
       <a href="#reviews">Reviews</a>
       <a href="#field">In the field</a>
+      <a href="#results">Results</a>
       <a href="#evidence">Evidence</a>
       <a href="#safety">Safety</a>
     </div>
@@ -557,135 +620,238 @@ section{padding:clamp(64px,8vw,110px) 0}
         <div class="field-stat"><b>4 yrs</b><span>In clinical use</span></div>
       </div>
     </div>
+  </div>
 
-    <div class="mosaic">
-      <!-- dog: round pupil -->
-      <div class="tile">
-        <svg viewBox="0 0 200 250" role="img" aria-label="Illustration: UVC beam directed at a dog's eye">
-          <defs>
-            <radialGradient id="g-dog" cx="50%" cy="46%" r="62%">
-              <stop offset="0%" stop-color="#3a2560"/><stop offset="100%" stop-color="#14162b"/>
-            </radialGradient>
-            <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#bea7de" stop-opacity=".55"/>
-              <stop offset="100%" stop-color="#bea7de" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <rect width="200" height="250" fill="url(#g-dog)"/>
-          <path d="M118 0 L152 0 L118 125 L96 125 Z" fill="url(#beam)"/>
-          <ellipse cx="100" cy="125" rx="62" ry="40" fill="none" stroke="#8f7ab5" stroke-width="2.5"/>
-          <circle cx="100" cy="125" r="30" fill="#2a1c46" stroke="#bea7de" stroke-width="1.6"/>
-          <circle cx="100" cy="125" r="15" fill="#0b0d1a"/>
-          <circle cx="90" cy="115" r="5" fill="#e8ddf7" opacity=".85"/>
-          <path d="M38 125q62 -46 124 0" fill="none" stroke="#5c4a7d" stroke-width="1.2" opacity=".7"/>
-        </svg>
-        <div class="play"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg></div>
-        <div class="tile-cap">
-          <div><b>Labrador · melting ulcer</b><span>ASHGROVE VETERINARY HOSPITAL</span></div>
-          <div class="tile-dur">0:14</div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <!-- set A -->
+      <article class="case">
+        <div class="case-media">
+          <span class="case-tag">Meerkat</span>
+          <img src="./media/meercat.jpeg" alt="A meerkat held in gloved hands while the PhotonUVC Vet treats its eye" loading="lazy">
         </div>
-      </div>
+        <div class="case-body">
+          <div class="case-name">Nala <em>· 5 months old</em></div>
+          <p class="case-text">Erosion in both corneas. No infection suspected, but the team treated to be safe. Five seconds, nothing touching her — she stayed calm throughout.</p>
+          <div class="case-by">Daniele Santillo, ECVO resident<br>Centro Veterinario Specialistico, Rome</div>
+        </div>
+      </article>
 
-      <!-- horse: horizontal pupil, wide tile -->
-      <div class="tile tile-wide">
-        <svg viewBox="0 0 400 250" role="img" aria-label="Illustration: UVC beam directed at a horse's eye">
-          <defs>
-            <radialGradient id="g-horse" cx="50%" cy="48%" r="60%">
-              <stop offset="0%" stop-color="#42295f"/><stop offset="100%" stop-color="#14162b"/>
-            </radialGradient>
-          </defs>
-          <rect width="400" height="250" fill="url(#g-horse)"/>
-          <path d="M244 0 L296 0 L232 128 L198 128 Z" fill="url(#beam)"/>
-          <ellipse cx="200" cy="128" rx="112" ry="52" fill="none" stroke="#8f7ab5" stroke-width="2.5"/>
-          <ellipse cx="200" cy="128" rx="56" ry="42" fill="#2a1c46" stroke="#bea7de" stroke-width="1.6"/>
-          <rect x="172" y="120" width="56" height="17" rx="8.5" fill="#0b0d1a"/>
-          <circle cx="182" cy="114" r="6" fill="#e8ddf7" opacity=".85"/>
-          <path d="M88 128q112 -62 224 0" fill="none" stroke="#5c4a7d" stroke-width="1.2" opacity=".7"/>
-        </svg>
-        <div class="play"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg></div>
-        <div class="tile-cap">
-          <div><b>Warmblood · keratomycosis, treated on the yard</b><span>NORTHMOOR EQUINE PRACTICE</span></div>
-          <div class="tile-dur">0:31</div>
+      <article class="case">
+        <div class="case-media">
+          <span class="case-tag">Horse</span>
+          <img src="./media/horse.jpeg" alt="A grey horse being treated in its stable with the PhotonUVC Vet" loading="lazy">
         </div>
-      </div>
+        <div class="case-body">
+          <div class="case-name">Culture-confirmed bacterial and fungal infections</div>
+          <p class="case-text">“The eyes made slow improvements until we added UVC. The healing process improved dramatically — what we saw every 24–48 hours far outweighed traditional treatment alone.”</p>
+          <div class="case-by">Kathryn L. Wotman, DVM, DACVIM, DACVO<br>Medical Director, Large Animal Services</div>
+        </div>
+      </article>
 
-      <!-- cat: vertical slit -->
-      <div class="tile">
-        <svg viewBox="0 0 200 250" role="img" aria-label="Illustration: UVC beam directed at a cat's eye">
-          <defs>
-            <radialGradient id="g-cat" cx="50%" cy="46%" r="62%">
-              <stop offset="0%" stop-color="#35235a"/><stop offset="100%" stop-color="#14162b"/>
-            </radialGradient>
-          </defs>
-          <rect width="200" height="250" fill="url(#g-cat)"/>
-          <path d="M118 0 L152 0 L118 125 L96 125 Z" fill="url(#beam)"/>
-          <path d="M30 125q70 -56 140 0q-70 56 -140 0z" fill="none" stroke="#8f7ab5" stroke-width="2.5"/>
-          <circle cx="100" cy="125" r="34" fill="#2a1c46" stroke="#bea7de" stroke-width="1.6"/>
-          <ellipse cx="100" cy="125" rx="6.5" ry="27" fill="#0b0d1a"/>
-          <circle cx="88" cy="112" r="5" fill="#e8ddf7" opacity=".85"/>
-        </svg>
-        <div class="play"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg></div>
-        <div class="tile-cap">
-          <div><b>DSH · feline herpetic keratitis</b><span>COASTWAY VETS, BRIGHTON</span></div>
-          <div class="tile-dur">0:09</div>
+      <article class="case">
+        <div class="case-media">
+          <span class="case-tag">Turkey</span>
+          <img src="./media/turkey.jpeg" alt="A turkey being treated with the PhotonUVC Vet on a clinic table" loading="lazy">
         </div>
-      </div>
+        <div class="case-body">
+          <div class="case-name">Hope <em>· rescued from the Christmas table</em></div>
+          <p class="case-text">Pecked by her own flock, then reconstructive surgery for fused eyelids. UVC now treats the corneal ulcer the trauma left behind.</p>
+          <div class="case-by">Iona Mathieson<br>Eye Vet Clinic, Runcorn</div>
+        </div>
+      </article>
 
-      <!-- device photo -->
-      <div class="tile tile-photo">
-        <img src="https://photon-therapeutics.com/wp-content/uploads/2022/11/device_0001_UVC-Device-LH-Side-Smallfry.png" alt="PhotonUVC Vet device, side profile">
-        <div class="tile-cap">
-          <div><b>Slit-lamp mount</b><span>IN-CLINIC CONFIGURATION</span></div>
+      <article class="case">
+        <div class="case-media">
+          <span class="case-tag">Guinea pig</span>
+          <img src="./media/guine.jpeg" alt="A guinea pig having its eye treated with the PhotonUVC Vet" loading="lazy">
         </div>
-      </div>
+        <div class="case-body">
+          <div class="case-name">Gino <em>· infected ulcer</em></div>
+          <p class="case-text">An ulcer that got infected after a scrap with a cage-mate. Treated without restraint, without anything touching the eye.</p>
+          <div class="case-by">Small mammal caseload</div>
+        </div>
+      </article>
 
-      <!-- cattle: horizontal pupil, wide -->
-      <div class="tile tile-wide">
-        <svg viewBox="0 0 400 250" role="img" aria-label="Illustration: UVC beam directed at a cow's eye">
-          <defs>
-            <radialGradient id="g-cow" cx="50%" cy="48%" r="60%">
-              <stop offset="0%" stop-color="#2f2050"/><stop offset="100%" stop-color="#14162b"/>
-            </radialGradient>
-          </defs>
-          <rect width="400" height="250" fill="url(#g-cow)"/>
-          <path d="M244 0 L296 0 L232 128 L198 128 Z" fill="url(#beam)"/>
-          <ellipse cx="200" cy="128" rx="104" ry="58" fill="none" stroke="#8f7ab5" stroke-width="2.5"/>
-          <ellipse cx="200" cy="128" rx="52" ry="46" fill="#2a1c46" stroke="#bea7de" stroke-width="1.6"/>
-          <rect x="176" y="121" width="48" height="15" rx="7.5" fill="#0b0d1a"/>
-          <circle cx="185" cy="114" r="6" fill="#e8ddf7" opacity=".85"/>
-          <path d="M96 128q104 -68 208 0" fill="none" stroke="#5c4a7d" stroke-width="1.2" opacity=".7"/>
-        </svg>
-        <div class="play"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg></div>
-        <div class="tile-cap">
-          <div><b>Herd screening · infectious bovine keratoconjunctivitis</b><span>MOUNT PLEASANT FARM VETS</span></div>
-          <div class="tile-dur">1:02</div>
+      <article class="case">
+        <div class="case-media">
+          <span class="case-tag">Rhino · video</span>
+          <video src="./media/rhino.mp4" muted loop playsinline preload="metadata" aria-label="A rhinoceros being treated with the PhotonUVC Vet"></video>
         </div>
-      </div>
+        <div class="case-body">
+          <div class="case-name">Treated standing, at arm's length</div>
+          <p class="case-text">Non-contact matters most on a patient you cannot ask to hold still. Five seconds, from outside the reach of the animal.</p>
+          <div class="case-by">Zoological caseload</div>
+        </div>
+      </article>
 
-      <!-- exotic: large round pupil -->
-      <div class="tile">
-        <svg viewBox="0 0 200 250" role="img" aria-label="Illustration: UVC beam directed at a rabbit's eye">
-          <defs>
-            <radialGradient id="g-exotic" cx="50%" cy="46%" r="62%">
-              <stop offset="0%" stop-color="#3d2765"/><stop offset="100%" stop-color="#14162b"/>
-            </radialGradient>
-          </defs>
-          <rect width="200" height="250" fill="url(#g-exotic)"/>
-          <path d="M118 0 L152 0 L118 125 L96 125 Z" fill="url(#beam)"/>
-          <circle cx="100" cy="125" r="56" fill="none" stroke="#8f7ab5" stroke-width="2.5"/>
-          <circle cx="100" cy="125" r="40" fill="#2a1c46" stroke="#bea7de" stroke-width="1.6"/>
-          <circle cx="100" cy="125" r="27" fill="#0b0d1a"/>
-          <circle cx="87" cy="110" r="6" fill="#e8ddf7" opacity=".85"/>
-        </svg>
-        <div class="play"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg></div>
-        <div class="tile-cap">
-          <div><b>Rabbit · exotic caseload</b><span>KINGSWAY SMALL ANIMAL REFERRALS</span></div>
-          <div class="tile-dur">0:22</div>
+      <!-- set A repeated for a seamless loop -->
+      <article class="case" aria-hidden="true">
+        <div class="case-media">
+          <span class="case-tag">Meerkat</span>
+          <img src="./media/meercat.jpeg" alt="" loading="lazy">
         </div>
-      </div>
+        <div class="case-body">
+          <div class="case-name">Nala <em>· 5 months old</em></div>
+          <p class="case-text">Erosion in both corneas. No infection suspected, but the team treated to be safe. Five seconds, nothing touching her — she stayed calm throughout.</p>
+          <div class="case-by">Daniele Santillo, ECVO resident<br>Centro Veterinario Specialistico, Rome</div>
+        </div>
+      </article>
+
+      <article class="case" aria-hidden="true">
+        <div class="case-media">
+          <span class="case-tag">Horse</span>
+          <img src="./media/horse.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="case-body">
+          <div class="case-name">Culture-confirmed bacterial and fungal infections</div>
+          <p class="case-text">“The eyes made slow improvements until we added UVC. The healing process improved dramatically — what we saw every 24–48 hours far outweighed traditional treatment alone.”</p>
+          <div class="case-by">Kathryn L. Wotman, DVM, DACVIM, DACVO<br>Medical Director, Large Animal Services</div>
+        </div>
+      </article>
+
+      <article class="case" aria-hidden="true">
+        <div class="case-media">
+          <span class="case-tag">Turkey</span>
+          <img src="./media/turkey.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="case-body">
+          <div class="case-name">Hope <em>· rescued from the Christmas table</em></div>
+          <p class="case-text">Pecked by her own flock, then reconstructive surgery for fused eyelids. UVC now treats the corneal ulcer the trauma left behind.</p>
+          <div class="case-by">Iona Mathieson<br>Eye Vet Clinic, Runcorn</div>
+        </div>
+      </article>
+
+      <article class="case" aria-hidden="true">
+        <div class="case-media">
+          <span class="case-tag">Guinea pig</span>
+          <img src="./media/guine.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="case-body">
+          <div class="case-name">Gino <em>· infected ulcer</em></div>
+          <p class="case-text">An ulcer that got infected after a scrap with a cage-mate. Treated without restraint, without anything touching the eye.</p>
+          <div class="case-by">Small mammal caseload</div>
+        </div>
+      </article>
+
+      <article class="case" aria-hidden="true">
+        <div class="case-media">
+          <span class="case-tag">Rhino · video</span>
+          <video src="./media/rhino.mp4" muted loop playsinline preload="none"></video>
+        </div>
+        <div class="case-body">
+          <div class="case-name">Treated standing, at arm's length</div>
+          <p class="case-text">Non-contact matters most on a patient you cannot ask to hold still. Five seconds, from outside the reach of the animal.</p>
+          <div class="case-by">Zoological caseload</div>
+        </div>
+      </article>
     </div>
+  </div>
 
-    <p class="mosaic-note">Illustrated placeholders — drop real clinic footage into these slots.</p>
+  <div class="marquee marquee-rev">
+    <div class="marquee-track">
+      <!-- set B -->
+      <article class="case">
+        <div class="case-media">
+          <span class="case-tag">Guinea pig</span>
+          <img src="./media/guine.jpeg" alt="A guinea pig having its eye treated with the PhotonUVC Vet" loading="lazy">
+        </div>
+        <div class="case-body">
+          <div class="case-name">Nurse-led, no sedation</div>
+          <p class="case-text">Exotics are the hardest patients to restrain and the easiest to injure trying. Nothing touches the eye, so there is no fight to have.</p>
+          <div class="case-by">Small mammal caseload</div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-media">
+          <span class="case-tag">Turkey</span>
+          <img src="./media/turkey.jpeg" alt="A turkey being treated with the PhotonUVC Vet" loading="lazy">
+        </div>
+        <div class="case-body">
+          <div class="case-name">Poultry and backyard flocks</div>
+          <p class="case-text">Traumatic eyelid injuries are common and rarely worth a general anaesthetic. A five-second pulse fits inside a standard consult.</p>
+          <div class="case-by">Eye Vet Clinic, Runcorn</div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-media">
+          <span class="case-tag">Horse</span>
+          <img src="./media/horse.jpeg" alt="A grey horse being treated in its stable with the PhotonUVC Vet" loading="lazy">
+        </div>
+        <div class="case-body">
+          <div class="case-name">Treated on the yard, not in a clinic</div>
+          <p class="case-text">No fridge, no mixing, no bottle left with an owner. The dose is delivered where the horse already stands.</p>
+          <div class="case-by">Equine ambulatory caseload</div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-media">
+          <span class="case-tag">Meerkat</span>
+          <img src="./media/meercat.jpeg" alt="A meerkat held in gloved hands while the PhotonUVC Vet treats its eye" loading="lazy">
+        </div>
+        <div class="case-body">
+          <div class="case-name">Zoo and wildlife collections</div>
+          <p class="case-text">Handling time is the risk. Reducing an eye treatment to five seconds reduces everything that can go wrong around it.</p>
+          <div class="case-by">Centro Veterinario Specialistico, Rome</div>
+        </div>
+      </article>
+
+      <!-- set B repeated for a seamless loop -->
+      <article class="case" aria-hidden="true">
+        <div class="case-media">
+          <span class="case-tag">Guinea pig</span>
+          <img src="./media/guine.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="case-body">
+          <div class="case-name">Nurse-led, no sedation</div>
+          <p class="case-text">Exotics are the hardest patients to restrain and the easiest to injure trying. Nothing touches the eye, so there is no fight to have.</p>
+          <div class="case-by">Small mammal caseload</div>
+        </div>
+      </article>
+
+      <article class="case" aria-hidden="true">
+        <div class="case-media">
+          <span class="case-tag">Turkey</span>
+          <img src="./media/turkey.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="case-body">
+          <div class="case-name">Poultry and backyard flocks</div>
+          <p class="case-text">Traumatic eyelid injuries are common and rarely worth a general anaesthetic. A five-second pulse fits inside a standard consult.</p>
+          <div class="case-by">Eye Vet Clinic, Runcorn</div>
+        </div>
+      </article>
+
+      <article class="case" aria-hidden="true">
+        <div class="case-media">
+          <span class="case-tag">Horse</span>
+          <img src="./media/horse.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="case-body">
+          <div class="case-name">Treated on the yard, not in a clinic</div>
+          <p class="case-text">No fridge, no mixing, no bottle left with an owner. The dose is delivered where the horse already stands.</p>
+          <div class="case-by">Equine ambulatory caseload</div>
+        </div>
+      </article>
+
+      <article class="case" aria-hidden="true">
+        <div class="case-media">
+          <span class="case-tag">Meerkat</span>
+          <img src="./media/meercat.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="case-body">
+          <div class="case-name">Zoo and wildlife collections</div>
+          <p class="case-text">Handling time is the risk. Reducing an eye treatment to five seconds reduces everything that can go wrong around it.</p>
+          <div class="case-by">Centro Veterinario Specialistico, Rome</div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="marquee-note">Real cases and clinician quotes. The counts above are placeholders.</p>
   </div>
 </section>
 
@@ -788,11 +954,77 @@ section{padding:clamp(64px,8vw,110px) 0}
   </div>
 </section>
 
-<!-- ============ SAFETY ============ -->
-<section id="safety" class="dark">
+<!-- ============ CLINICAL STUDY ============ -->
+<section id="results" class="dark">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow eyebrow-pale">The questions vets actually ask</p>
+      <p class="eyebrow eyebrow-pale">New clinical study · Veterinary Ophthalmology</p>
+      <h2>One five-second treatment. A median 96.5% of culturable bacteria gone.</h2>
+      <p class="lede lede-pale">Bacterial load measured immediately before and after a single UV-C treatment, in dogs, horses and cats presenting with microbial keratitis.</p>
+    </div>
+
+    <div class="study-grid">
+      <article class="study-tile">
+        <div class="study-viz">
+          <svg viewBox="0 0 220 152" role="img" aria-label="Bars comparing median culturable bacteria before treatment and after: a 96.5 percent reduction">
+            <rect x="0" y="14" width="220" height="20" rx="10" fill="rgba(190,167,222,.24)"/>
+            <text class="viz-cap" x="0" y="52">Before treatment</text>
+            <rect x="0" y="64" width="8" height="20" rx="4" fill="#bea7de"/>
+            <text class="viz-cap" x="0" y="102">After one 5-second dose</text>
+            <text class="viz-num" x="0" y="140" font-size="44">96.5<tspan class="viz-unit" font-size="29">%</tspan></text>
+          </svg>
+        </div>
+        <h3>Bacterial load falls immediately</h3>
+        <p>A median 96.5% reduction in culturable corneal bacteria after a single five-second UV-C treatment.</p>
+      </article>
+
+      <article class="study-tile">
+        <div class="study-viz">
+          <svg viewBox="0 0 220 152" role="img" aria-label="Pictogram: three in ten eyes culture-negative immediately after treatment">
+            <circle cx="14" cy="24" r="12" fill="#bea7de"/>
+            <circle cx="54" cy="24" r="12" fill="#bea7de"/>
+            <circle cx="94" cy="24" r="12" fill="#bea7de"/>
+            <circle cx="134" cy="24" r="12" fill="rgba(190,167,222,.24)"/>
+            <circle cx="174" cy="24" r="12" fill="rgba(190,167,222,.24)"/>
+            <circle cx="14" cy="60" r="12" fill="rgba(190,167,222,.24)"/>
+            <circle cx="54" cy="60" r="12" fill="rgba(190,167,222,.24)"/>
+            <circle cx="94" cy="60" r="12" fill="rgba(190,167,222,.24)"/>
+            <circle cx="134" cy="60" r="12" fill="rgba(190,167,222,.24)"/>
+            <circle cx="174" cy="60" r="12" fill="rgba(190,167,222,.24)"/>
+            <text class="viz-cap" x="0" y="102">Culture-negative straight after</text>
+            <text class="viz-num" x="0" y="140" font-size="44">1 in 3</text>
+          </svg>
+        </div>
+        <h3>Nearly a third cleared outright</h3>
+        <p>Almost one in three treated eyes were culture-negative immediately afterwards — no culturable bacteria left at all.</p>
+      </article>
+
+      <article class="study-tile">
+        <div class="study-viz">
+          <svg viewBox="0 0 220 152" role="img" aria-label="Bar showing more than 90 percent of eyes reached at least a 75 percent reduction">
+            <rect x="0" y="14" width="196" height="20" rx="10" fill="#bea7de"/>
+            <rect x="200" y="14" width="20" height="20" rx="10" fill="rgba(190,167,222,.24)"/>
+            <text class="viz-cap" x="0" y="102">Eyes reaching a ≥75% reduction</text>
+            <text class="viz-num" x="0" y="140" font-size="44">90<tspan class="viz-unit" font-size="29">%+</tspan></text>
+          </svg>
+        </div>
+        <h3>The result holds across the group</h3>
+        <p>More than nine in ten eyes achieved at least a 75% reduction — not a handful of strong responders carrying an average.</p>
+      </article>
+    </div>
+
+    <div class="study-cite">
+      <p><b>Dixon CJ, Lewin GA.</b> Efficacy of Therapeutic UVC Irradiation in Reducing Bacterial Load in Microbial Keratitis: A Retrospective Clinical Study in Veterinary Patients. <i>Veterinary Ophthalmology</i>, 2026.</p>
+      <a href="https://onlinelibrary.wiley.com/doi/10.1111/vop.70230" target="_blank" rel="noopener">Read the paper · doi:10.1111/vop.70230 ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAFETY ============ -->
+<section id="safety" class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The questions vets actually ask</p>
       <h2>Shining UV into an eye sounds alarming. Here's the honest answer.</h2>
     </div>
     <div class="safety-grid">
@@ -831,7 +1063,7 @@ section{padding:clamp(64px,8vw,110px) 0}
 </section>
 
 <!-- ============ HOW ============ -->
-<section class="tint">
+<section>
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">In the consult room</p>
@@ -881,6 +1113,7 @@ section{padding:clamp(64px,8vw,110px) 0}
       <div class="foot-links">
         <a href="#reviews">Reviews</a>
         <a href="#field">In the field</a>
+        <a href="#results">Results</a>
         <a href="#evidence">Evidence</a>
         <a href="#safety">Safety</a>
         <a href="https://photon-therapeutics.com/" target="_blank" rel="noopener">The real site ↗</a>
@@ -889,9 +1122,9 @@ section{padding:clamp(64px,8vw,110px) 0}
     <p class="foot-note">
       This page is an unaffiliated design concept built by Nick Holzherr to explore trust and credibility patterns for medical-device marketing.
       It is not operated by, endorsed by, or connected to Photon Therapeutics Ltd.
-      The Google review scores, review text, reviewer names, practice names, patient counts and deployment figures shown above are <strong>invented placeholders</strong> and describe nothing real.
-      The research citations in the Evidence section are genuine published papers, linked to source.
-      Product images and logo are used for illustration and remain the property of Photon Therapeutics Ltd.
+      <strong>Invented placeholders:</strong> the Google review score, all five review cards and the people and practices in them, and the 20,000 patients / 340+ practices / 14 countries / 4 years figures. They describe nothing real.
+      <strong>Real:</strong> the clinical-study results and every citation in the Results and Evidence sections, all linked to source; the case stories, clinician quotes and photographs in the In the Field section.
+      Photographs, video, product images and logo remain the property of Photon Therapeutics Ltd and are used here for illustration.
     </p>
   </div>
 </footer>
