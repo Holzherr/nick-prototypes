@@ -1,6 +1,6 @@
 # PhotonUVC Vet — trust-optimised concept
 
-**v0.3** · live at https://holzherr.github.io/nick-prototypes/photon-trust/
+**v0.4** · live at https://holzherr.github.io/nick-prototypes/photon-trust/
 
 An unaffiliated redesign concept for [photon-therapeutics.com](https://photon-therapeutics.com/),
 built to answer one question: what would this page look like if every element were chosen to make a
@@ -14,18 +14,20 @@ since the real site's GT Walsheim Pro isn't licensable for a prototype.
 
 Sections, in order of the trust argument they make:
 
-1. **Hero** — the claim, plus three credibility chips (peer-reviewed count, award, UK-built).
+1. **Hero** — the claim, three credibility chips (peer-reviewed count, award medal, Union Jack), and
+   a play badge on the device shot that opens Photon's own brand film in a modal.
 2. **Instrument strip** — 265 nm / 5 s / 0 mm / 100+ as hard specs, not marketing adjectives.
 3. **Google reviews** — 4.9 score, real Google `G` mark, five reviews from named practices.
 4. **In the field** — "Used on 20,000 patients", then one auto-scrolling rail of real case stories
    with clinic photos and the rhino treatment video, with prev/next arrows.
 5. **Results** — the Dixon & Lewin clinical study, three large stat tiles.
-6. **Evidence** — a rail of eight publication cards: journal name, publisher icon (Wiley / PubMed /
-   PMC), authors and year, a headline number, a plain-English claim, and the DOI or PMID. The whole
-   card links to the paper.
+6. **Evidence** — a rail of eight publication cards. Big stat, then the takeaway as the headline,
+   then the claim; the paper itself sits at the foot — publisher icon (Wiley / PubMed / PMC),
+   journal and year, the full title clamped to two lines, and the DOI or PMID. Whole card links out.
 7. **Safety Q&A** — the six objections a vet raises before buying, answered directly.
 8. **In the consult room** — three steps. Numbered because it genuinely is a sequence.
-9. **CTA** — two-week in-clinic trial, not "contact us".
+9. **CTA** — two-week in-clinic trial, not "contact us". Every "Book a demo" opens Calendly in a
+   modal rather than a mailto.
 
 ## Real vs placeholder
 
@@ -60,6 +62,10 @@ anyone who might read it as a real claim.
   cancels a smooth scroll.
 - **Evidence rail doesn't auto-advance.** Case stories are ambient; citations are reference material
   a reader stops to check. Arrows and manual scroll only.
+- **The paper goes at the foot of its card.** A vet is sold by the finding, not the masthead — so the
+  stat and the takeaway lead, and the journal, title and identifier sit underneath as the receipt.
+- **Modals load nothing until opened.** Both the 14 MB film and the Calendly iframe keep their URL in
+  `data-src` until first open, so neither costs anything on page load.
 - **A gauge is the wrong mark for 96.5%.** An arc at 96.5% renders as a closed ring and communicates
   nothing. The before/after bar pair shows the actual shape of the result. All three stat tiles then
   use the same rhythm — mark, mono caption, big number — so they read as one system.
@@ -74,6 +80,10 @@ anyone who might read it as a real claim.
 
 ## Known issues
 
+- `media/photon-story.mp4` is 14 MB — Photon's own brand film, downloaded from their site and
+  transcoded 54 MB -> 14 MB at 960x540. It only loads when the hero play badge is clicked.
+- `media/dog.jpg` is Figure 1 of Treadwell et al. (PMC12969538), a two-panel plate; the case card
+  uses `object-position: 74%` to favour the close-up on the right.
 - `media/rhino.mp4` is 5 MB (transcoded from a 30 MB original with `avconvert -p Preset640x480`;
   ffmpeg isn't installed on this machine). It only decodes when scrolled into view, via an
   IntersectionObserver. Re-encode smaller if it ever feels heavy.
