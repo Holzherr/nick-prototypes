@@ -1,6 +1,6 @@
 # PhotonUVC Vet — trust-optimised concept
 
-**v0.2** · live at https://holzherr.github.io/nick-prototypes/photon-trust/
+**v0.3** · live at https://holzherr.github.io/nick-prototypes/photon-trust/
 
 An unaffiliated redesign concept for [photon-therapeutics.com](https://photon-therapeutics.com/),
 built to answer one question: what would this page look like if every element were chosen to make a
@@ -17,11 +17,12 @@ Sections, in order of the trust argument they make:
 1. **Hero** — the claim, plus three credibility chips (peer-reviewed count, award, UK-built).
 2. **Instrument strip** — 265 nm / 5 s / 0 mm / 100+ as hard specs, not marketing adjectives.
 3. **Google reviews** — 4.9 score, real Google `G` mark, five reviews from named practices.
-4. **In the field** — "Used on 20,000 patients", then two auto-scrolling rails of real case stories
-   with clinic photos and the rhino treatment video.
+4. **In the field** — "Used on 20,000 patients", then one auto-scrolling rail of real case stories
+   with clinic photos and the rhino treatment video, with prev/next arrows.
 5. **Results** — the Dixon & Lewin clinical study, three large stat tiles.
-6. **Evidence ledger** — eight peer-reviewed papers, each with a headline number, a plain-English
-   claim, and a full citation linking to the source.
+6. **Evidence** — a rail of eight publication cards: journal name, publisher icon (Wiley / PubMed /
+   PMC), authors and year, a headline number, a plain-English claim, and the DOI or PMID. The whole
+   card links to the paper.
 7. **Safety Q&A** — the six objections a vet raises before buying, answered directly.
 8. **In the consult room** — three steps. Numbered because it genuinely is a sequence.
 9. **CTA** — two-week in-clinic trial, not "contact us".
@@ -51,8 +52,14 @@ anyone who might read it as a real claim.
   why it's persuasive. Eight full citations with PMIDs beats a row of university crests.
 - **Real photos beat any illustration.** v0.1 shipped hand-drawn SVG eyes as media placeholders.
   They looked fine and persuaded nobody. A meerkat under a blue beam does the whole job.
-- **Two rails, opposite directions.** A single marquee reads as a widget; two counter-scrolling rows
-  read as volume of caseload, which is the actual claim being made.
+- **One rail, arrows on both.** Both rails are a scroll container the JS drifts by setting
+  `scrollLeft`, not a CSS `translateX` marquee — a transformed track can't be driven by arrows or a
+  trackpad. The cards are cloned once so the wrap at the halfway point is invisible. `scrollLeft`
+  can't go below 0, so "prev" at the start steps forward one full copy before scrolling back, and
+  wrapping is suppressed for 800 ms after an arrow click because setting `scrollLeft` mid-animation
+  cancels a smooth scroll.
+- **Evidence rail doesn't auto-advance.** Case stories are ambient; citations are reference material
+  a reader stops to check. Arrows and manual scroll only.
 - **A gauge is the wrong mark for 96.5%.** An arc at 96.5% renders as a closed ring and communicates
   nothing. The before/after bar pair shows the actual shape of the result. All three stat tiles then
   use the same rhythm — mark, mono caption, big number — so they read as one system.
@@ -72,6 +79,10 @@ anyone who might read it as a real claim.
   IntersectionObserver. Re-encode smaller if it ever feels heavy.
 - Product images and the logo still hotlink to photon-therapeutics.com. If they add hotlink
   protection the hero breaks; download into `media/` if that happens.
-- Marquee cards pause on hover but have no arrow controls. `prefers-reduced-motion` turns the rails
-  into manually scrollable, snap-aligned rows instead of freezing them.
-- Review rail (Google reviews) scrolls horizontally with no arrow controls either.
+- The case rail pauses on hover, focus, wheel and pointer-down. `prefers-reduced-motion` turns off
+  auto-advance and adds scroll snapping; the arrows still work.
+- The Google reviews rail is still a plain scroll container with no arrows — the two case/evidence
+  rails use the newer `.rail` component.
+- Publisher icons are real favicons downloaded from Wiley, PubMed and PMC into `media/pub/`.
+  ScienceDirect blocked its favicon, so Elsevier-published papers use the PubMed mark (which is also
+  what they link to).

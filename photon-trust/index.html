@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PhotonUVC Vet — trust-optimised concept v0.2</title>
+<title>PhotonUVC Vet — trust-optimised concept v0.3</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -199,18 +199,33 @@ section{padding:clamp(64px,8vw,110px) 0}
 .field-stat b{display:block;font-family:var(--display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}
 .field-stat span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8b8fb0;display:block;margin-top:8px}
 
-/* ---------- case-story marquee ---------- */
-.marquee{position:relative;overflow:hidden;--gap:16px;padding:2px 0}
-.marquee + .marquee{margin-top:var(--gap)}
-.marquee::before,.marquee::after{
-  content:"";position:absolute;top:0;bottom:0;width:clamp(40px,9%,150px);z-index:3;pointer-events:none;
+/* ---------- case-story rail ---------- */
+.rail{position:relative;--gap:16px}
+.rail-viewport{
+  overflow-x:auto;overflow-y:hidden;padding:2px 0;
+  scrollbar-width:none;-ms-overflow-style:none;
+  overscroll-behavior-x:contain;
 }
-.marquee::before{left:0;background:linear-gradient(90deg,var(--ink-deep) 12%,transparent)}
-.marquee::after{right:0;background:linear-gradient(270deg,var(--ink-deep) 12%,transparent)}
-.marquee-track{display:flex;gap:var(--gap);width:max-content;animation:slide 86s linear infinite}
-.marquee-rev .marquee-track{animation-direction:reverse;animation-duration:104s}
-.marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
-@keyframes slide{from{transform:translateX(0)}to{transform:translateX(calc(-50% - var(--gap)/2))}}
+.rail-viewport::-webkit-scrollbar{display:none}
+.rail-track{display:flex;gap:var(--gap);width:max-content}
+.rail::before,.rail::after{
+  content:"";position:absolute;top:0;bottom:0;width:clamp(56px,9%,150px);z-index:3;pointer-events:none;
+}
+.rail::before{left:0;background:linear-gradient(90deg,var(--ink-deep) 14%,transparent)}
+.rail::after{right:0;background:linear-gradient(270deg,var(--ink-deep) 14%,transparent)}
+
+.rail-btn{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:4;
+  width:46px;height:46px;border-radius:50%;padding:0;
+  display:grid;place-items:center;cursor:pointer;
+  background:rgba(11,13,26,.74);backdrop-filter:blur(10px);
+  border:1px solid var(--line-dark);color:var(--lavender);
+  transition:background .18s,border-color .18s,color .18s;
+}
+.rail-btn:hover{background:var(--purple);border-color:var(--purple);color:#fff}
+.rail-btn svg{width:17px;height:17px}
+.rail-prev{left:clamp(8px,1.6vw,24px)}
+.rail-next{right:clamp(8px,1.6vw,24px)}
 
 .case{
   width:clamp(268px,26vw,330px);flex:none;
@@ -237,26 +252,49 @@ section{padding:clamp(64px,8vw,110px) 0}
   font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;
   color:#8b8fb0;line-height:1.6;
 }
-.marquee-note{font-family:var(--mono);font-size:11px;color:#7a7d99;letter-spacing:.04em;margin:22px 0 0}
+.rail-note{font-family:var(--mono);font-size:11px;color:#7a7d99;letter-spacing:.04em;margin:22px 0 0}
 
-/* ---------- evidence ledger ---------- */
-.ledger{border-top:1px solid var(--line)}
-.row{
-  display:grid;grid-template-columns:200px 1fr 300px;
-  gap:clamp(16px,3vw,40px);
-  padding:26px 0;border-bottom:1px solid var(--line);
-  align-items:start;
-  transition:background .18s;
+/* light-surface rail (evidence) */
+.rail-light::before{background:linear-gradient(90deg,var(--paper) 14%,transparent)}
+.rail-light::after{background:linear-gradient(270deg,var(--paper) 14%,transparent)}
+.rail-light .rail-btn{background:rgba(255,255,255,.84);border-color:var(--line);color:var(--purple);box-shadow:0 4px 16px rgba(20,22,43,.1)}
+.rail-light .rail-btn:hover{background:var(--purple);border-color:var(--purple);color:#fff}
+
+/* ---------- publication cards ---------- */
+.pub{
+  width:clamp(276px,25vw,330px);flex:none;
+  background:var(--paper);border:1px solid var(--line);border-radius:18px;
+  padding:24px;text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;gap:14px;
+  transition:border-color .2s,box-shadow .2s,transform .2s;
 }
-.row:hover{background:var(--off)}
-.row-num{font-family:var(--display);font-size:clamp(28px,3.4vw,38px);font-weight:600;letter-spacing:-.035em;line-height:1;color:var(--purple)}
-.row-num small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8b8fb0;margin-top:9px;font-weight:400}
-.row-claim{font-size:16px;line-height:1.5;color:#3b3e57;margin:0}
-.row-claim i{font-style:italic}
-.row-cite{font-family:var(--mono);font-size:11.5px;line-height:1.65;color:#7a7d99}
-.row-cite a{color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(100,57,158,.3)}
-.row-cite a:hover{border-bottom-color:var(--purple)}
-.row-cite b{display:block;color:var(--ink);font-weight:500;font-family:var(--body);font-size:13px;margin-bottom:3px}
+.pub:hover{border-color:var(--lavender);box-shadow:0 10px 30px rgba(100,57,158,.1);transform:translateY(-2px)}
+.pub-head{display:flex;align-items:center;gap:12px}
+.pub-icon{
+  width:38px;height:38px;flex:none;border-radius:9px;
+  object-fit:contain;background:var(--off);border:1px solid var(--line);
+}
+.pub-id{min-width:0}
+.pub-name{font-family:var(--display);font-weight:600;font-size:14.5px;line-height:1.25}
+.pub-meta{font-family:var(--mono);font-size:10px;letter-spacing:.02em;color:#8b8fb0;margin-top:4px;line-height:1.45}
+.pub-stat{
+  font-family:var(--display);font-size:34px;font-weight:600;letter-spacing:-.035em;
+  line-height:1;color:var(--purple);
+}
+.pub-stat small{
+  display:block;font-family:var(--mono);font-size:9.5px;font-weight:400;
+  letter-spacing:.12em;text-transform:uppercase;color:#8b8fb0;margin-top:8px;
+}
+.pub-claim{margin:0;font-size:14.5px;line-height:1.5;color:#3b3e57;flex:1}
+.pub-link{
+  font-family:var(--mono);font-size:11px;color:var(--purple);
+  padding-top:13px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+}
+.pub-link span{opacity:.5}
+.pub:hover .pub-link span{opacity:1}
+
+/* ---------- evidence footer ---------- */
 .ledger-foot{margin-top:26px;font-size:14px;color:#7a7d99}
 .ledger-foot a{color:var(--purple)}
 
@@ -354,14 +392,8 @@ section{padding:clamp(64px,8vw,110px) 0}
   .study-tile{min-height:0}
   .study-viz{padding:6px 0 22px}
   .study-cite{flex-direction:column;gap:14px}
-  .row{grid-template-columns:1fr;gap:14px}
-  .row-num{display:flex;align-items:baseline;gap:12px}
-  .row-num small{margin-top:0}
-  .mosaic{grid-template-columns:repeat(2,1fr);gap:10px}
-  .tile-wide{grid-column:span 1;aspect-ratio:4/5;height:auto}
-  .tile-cap{padding:22px 11px 11px}
-  .tile-cap b{font-size:12px}
-  .tile-cap span{font-size:9px;letter-spacing:.05em}
+  .rail-btn{width:38px;height:38px}
+  .rail-btn svg{width:15px;height:15px}
   .nav-links{display:none}
 }
 @media (max-width:520px){
@@ -375,10 +407,9 @@ section{padding:clamp(64px,8vw,110px) 0}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
-  /* the marquee stops moving, so let it be scrolled by hand instead */
-  .marquee{overflow-x:auto;scroll-snap-type:x mandatory}
-  .marquee::before,.marquee::after{display:none}
-  .case{scroll-snap-align:start}
+  /* auto-advance is off, so the rails become plain scroll-snap rows */
+  .rail-viewport{scroll-snap-type:x mandatory}
+  .case,.pub{scroll-snap-align:start}
 }
 :focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:4px}
 </style>
@@ -389,18 +420,80 @@ section{padding:clamp(64px,8vw,110px) 0}
 </div>
 
 <script>
-  // Play the case videos only while they're on screen — 5 MB shouldn't decode in the background.
-  addEventListener('DOMContentLoaded', () => {
-    const vids = document.querySelectorAll('.case-media video');
-    if (!('IntersectionObserver' in window)) return;
+addEventListener('DOMContentLoaded', () => {
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- rails: duplicate the cards, drift left, wrap seamlessly, arrows to skip ---- */
+  for (const rail of document.querySelectorAll('.rail')) {
+    const view  = rail.querySelector('.rail-viewport');
+    const track = rail.querySelector('.rail-track');
+    const speed = parseFloat(rail.dataset.autoscroll || '0');
+    const cards = [...track.children];
+
+    // A second copy of every card is what makes the wrap invisible.
+    for (const c of cards) {
+      const clone = c.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      if (clone.tagName === 'A') clone.tabIndex = -1;
+      clone.querySelectorAll('a,button').forEach(el => el.tabIndex = -1);
+      track.appendChild(clone);
+    }
+
+    const half = () => track.scrollWidth / 2;
+    const jump = () => (cards[0].offsetWidth + 16) * 2;
+
+    let heldUntil = 0, smoothUntil = 0;
+    const hold = ms => { heldUntil = Math.max(heldUntil, performance.now() + ms); };
+
+    // Wrapping mid-animation cancels a smooth scroll, so hold off while one is running.
+    const wrap = () => {
+      if (performance.now() < smoothUntil) return;
+      if (view.scrollLeft >= half()) view.scrollLeft -= half();
+    };
+
+    const nudge = dir => {
+      hold(1400);
+      // scrollLeft can't go below 0, so step forward one full copy before scrolling back.
+      if (dir < 0 && view.scrollLeft < jump()) view.scrollLeft += half();
+      smoothUntil = performance.now() + 800;
+      view.scrollBy({ left: dir * jump(), behavior: 'smooth' });
+    };
+
+    rail.querySelector('.rail-prev').addEventListener('click', () => nudge(-1));
+    rail.querySelector('.rail-next').addEventListener('click', () => nudge(1));
+
+    view.addEventListener('scroll', wrap, { passive: true });
+    view.addEventListener('pointerdown', () => hold(2500));
+    view.addEventListener('wheel', () => hold(2500), { passive: true });
+    rail.addEventListener('mouseenter', () => hold(Infinity));
+    rail.addEventListener('mouseleave', () => { heldUntil = 0; });
+    rail.addEventListener('focusin',  () => hold(Infinity));
+    rail.addEventListener('focusout', () => { heldUntil = 0; });
+
+    if (!speed || still) continue;
+    let carry = 0;
+    const tick = () => {
+      if (performance.now() > heldUntil) {
+        carry += speed;                 // sub-pixel drift, applied a whole pixel at a time
+        const step = Math.floor(carry);
+        if (step) { carry -= step; view.scrollLeft += step; wrap(); }
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  /* ---- play case videos only while on screen — 5 MB shouldn't decode in the background ---- */
+  if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(entries => {
       for (const e of entries) {
         if (e.isIntersecting) { e.target.preload = 'auto'; e.target.play().catch(() => {}); }
         else e.target.pause();
       }
     }, { rootMargin: '100px' });
-    vids.forEach(v => io.observe(v));
-  });
+    document.querySelectorAll('.case-media video').forEach(v => io.observe(v));
+  }
+});
 </script>
 
 <nav class="nav">
@@ -622,236 +715,128 @@ section{padding:clamp(64px,8vw,110px) 0}
     </div>
   </div>
 
-  <div class="marquee">
-    <div class="marquee-track">
-      <!-- set A -->
-      <article class="case">
-        <div class="case-media">
-          <span class="case-tag">Meerkat</span>
-          <img src="./media/meercat.jpeg" alt="A meerkat held in gloved hands while the PhotonUVC Vet treats its eye" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Nala <em>· 5 months old</em></div>
-          <p class="case-text">Erosion in both corneas. No infection suspected, but the team treated to be safe. Five seconds, nothing touching her — she stayed calm throughout.</p>
-          <div class="case-by">Daniele Santillo, ECVO resident<br>Centro Veterinario Specialistico, Rome</div>
-        </div>
-      </article>
+  <div class="rail" data-autoscroll="0.35">
+    <button class="rail-btn rail-prev" type="button" aria-label="Previous cases">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button class="rail-btn rail-next" type="button" aria-label="More cases">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <div class="rail-viewport">
+      <div class="rail-track">
+        <article class="case">
+          <div class="case-media">
+            <span class="case-tag">Meerkat</span>
+            <img src="./media/meercat.jpeg" alt="A meerkat held in gloved hands while the PhotonUVC Vet treats its eye" loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-name">Nala <em>· 5 months old</em></div>
+            <p class="case-text">Erosion in both corneas. No infection suspected, but the team treated to be safe. Five seconds, nothing touching her — she stayed calm throughout.</p>
+            <div class="case-by">Daniele Santillo, ECVO resident<br>Centro Veterinario Specialistico, Rome</div>
+          </div>
+        </article>
 
-      <article class="case">
-        <div class="case-media">
-          <span class="case-tag">Horse</span>
-          <img src="./media/horse.jpeg" alt="A grey horse being treated in its stable with the PhotonUVC Vet" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Culture-confirmed bacterial and fungal infections</div>
-          <p class="case-text">“The eyes made slow improvements until we added UVC. The healing process improved dramatically — what we saw every 24–48 hours far outweighed traditional treatment alone.”</p>
-          <div class="case-by">Kathryn L. Wotman, DVM, DACVIM, DACVO<br>Medical Director, Large Animal Services</div>
-        </div>
-      </article>
+        <article class="case">
+          <div class="case-media">
+            <span class="case-tag">Horse</span>
+            <img src="./media/horse.jpeg" alt="A grey horse being treated in its stable with the PhotonUVC Vet" loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-name">Culture-confirmed bacterial and fungal infections</div>
+            <p class="case-text">“The eyes made slow improvements until we added UVC. The healing process improved dramatically — what we saw every 24–48 hours far outweighed traditional treatment alone.”</p>
+            <div class="case-by">Kathryn L. Wotman, DVM, DACVIM, DACVO<br>Medical Director, Large Animal Services</div>
+          </div>
+        </article>
 
-      <article class="case">
-        <div class="case-media">
-          <span class="case-tag">Turkey</span>
-          <img src="./media/turkey.jpeg" alt="A turkey being treated with the PhotonUVC Vet on a clinic table" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Hope <em>· rescued from the Christmas table</em></div>
-          <p class="case-text">Pecked by her own flock, then reconstructive surgery for fused eyelids. UVC now treats the corneal ulcer the trauma left behind.</p>
-          <div class="case-by">Iona Mathieson<br>Eye Vet Clinic, Runcorn</div>
-        </div>
-      </article>
+        <article class="case">
+          <div class="case-media">
+            <span class="case-tag">Rhino · video</span>
+            <video src="./media/rhino.mp4" muted loop playsinline preload="metadata" aria-label="A rhinoceros being treated with the PhotonUVC Vet"></video>
+          </div>
+          <div class="case-body">
+            <div class="case-name">Treated standing, at arm's length</div>
+            <p class="case-text">Non-contact matters most on a patient you cannot ask to hold still. Five seconds, from outside the reach of the animal.</p>
+            <div class="case-by">Zoological caseload</div>
+          </div>
+        </article>
 
-      <article class="case">
-        <div class="case-media">
-          <span class="case-tag">Guinea pig</span>
-          <img src="./media/guine.jpeg" alt="A guinea pig having its eye treated with the PhotonUVC Vet" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Gino <em>· infected ulcer</em></div>
-          <p class="case-text">An ulcer that got infected after a scrap with a cage-mate. Treated without restraint, without anything touching the eye.</p>
-          <div class="case-by">Small mammal caseload</div>
-        </div>
-      </article>
+        <article class="case">
+          <div class="case-media">
+            <span class="case-tag">Turkey</span>
+            <img src="./media/turkey.jpeg" alt="A turkey being treated with the PhotonUVC Vet on a clinic table" loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-name">Hope <em>· rescued from the Christmas table</em></div>
+            <p class="case-text">Pecked by her own flock, then reconstructive surgery for fused eyelids. UVC now treats the corneal ulcer the trauma left behind.</p>
+            <div class="case-by">Iona Mathieson<br>Eye Vet Clinic, Runcorn</div>
+          </div>
+        </article>
 
-      <article class="case">
-        <div class="case-media">
-          <span class="case-tag">Rhino · video</span>
-          <video src="./media/rhino.mp4" muted loop playsinline preload="metadata" aria-label="A rhinoceros being treated with the PhotonUVC Vet"></video>
-        </div>
-        <div class="case-body">
-          <div class="case-name">Treated standing, at arm's length</div>
-          <p class="case-text">Non-contact matters most on a patient you cannot ask to hold still. Five seconds, from outside the reach of the animal.</p>
-          <div class="case-by">Zoological caseload</div>
-        </div>
-      </article>
+        <article class="case">
+          <div class="case-media">
+            <span class="case-tag">Guinea pig</span>
+            <img src="./media/guine.jpeg" alt="A guinea pig having its eye treated with the PhotonUVC Vet" loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-name">Gino <em>· infected ulcer</em></div>
+            <p class="case-text">An ulcer that got infected after a scrap with a cage-mate. Treated without restraint, without anything touching the eye.</p>
+            <div class="case-by">Small mammal caseload</div>
+          </div>
+        </article>
 
-      <!-- set A repeated for a seamless loop -->
-      <article class="case" aria-hidden="true">
-        <div class="case-media">
-          <span class="case-tag">Meerkat</span>
-          <img src="./media/meercat.jpeg" alt="" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Nala <em>· 5 months old</em></div>
-          <p class="case-text">Erosion in both corneas. No infection suspected, but the team treated to be safe. Five seconds, nothing touching her — she stayed calm throughout.</p>
-          <div class="case-by">Daniele Santillo, ECVO resident<br>Centro Veterinario Specialistico, Rome</div>
-        </div>
-      </article>
+        <article class="case">
+          <div class="case-media">
+            <span class="case-tag">Horse</span>
+            <img src="./media/horse.jpeg" alt="" loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-name">Treated on the yard, not in a clinic</div>
+            <p class="case-text">No fridge, no mixing, no bottle left with an owner. The dose is delivered where the horse already stands.</p>
+            <div class="case-by">Equine ambulatory caseload</div>
+          </div>
+        </article>
 
-      <article class="case" aria-hidden="true">
-        <div class="case-media">
-          <span class="case-tag">Horse</span>
-          <img src="./media/horse.jpeg" alt="" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Culture-confirmed bacterial and fungal infections</div>
-          <p class="case-text">“The eyes made slow improvements until we added UVC. The healing process improved dramatically — what we saw every 24–48 hours far outweighed traditional treatment alone.”</p>
-          <div class="case-by">Kathryn L. Wotman, DVM, DACVIM, DACVO<br>Medical Director, Large Animal Services</div>
-        </div>
-      </article>
+        <article class="case">
+          <div class="case-media">
+            <span class="case-tag">Guinea pig</span>
+            <img src="./media/guine.jpeg" alt="" loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-name">Nurse-led, no sedation</div>
+            <p class="case-text">Exotics are the hardest patients to restrain and the easiest to injure trying. Nothing touches the eye, so there is no fight to have.</p>
+            <div class="case-by">Small mammal caseload</div>
+          </div>
+        </article>
 
-      <article class="case" aria-hidden="true">
-        <div class="case-media">
-          <span class="case-tag">Turkey</span>
-          <img src="./media/turkey.jpeg" alt="" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Hope <em>· rescued from the Christmas table</em></div>
-          <p class="case-text">Pecked by her own flock, then reconstructive surgery for fused eyelids. UVC now treats the corneal ulcer the trauma left behind.</p>
-          <div class="case-by">Iona Mathieson<br>Eye Vet Clinic, Runcorn</div>
-        </div>
-      </article>
+        <article class="case">
+          <div class="case-media">
+            <span class="case-tag">Meerkat</span>
+            <img src="./media/meercat.jpeg" alt="" loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-name">Zoo and wildlife collections</div>
+            <p class="case-text">Handling time is the risk. Reducing an eye treatment to five seconds reduces everything that can go wrong around it.</p>
+            <div class="case-by">Centro Veterinario Specialistico, Rome</div>
+          </div>
+        </article>
 
-      <article class="case" aria-hidden="true">
-        <div class="case-media">
-          <span class="case-tag">Guinea pig</span>
-          <img src="./media/guine.jpeg" alt="" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Gino <em>· infected ulcer</em></div>
-          <p class="case-text">An ulcer that got infected after a scrap with a cage-mate. Treated without restraint, without anything touching the eye.</p>
-          <div class="case-by">Small mammal caseload</div>
-        </div>
-      </article>
-
-      <article class="case" aria-hidden="true">
-        <div class="case-media">
-          <span class="case-tag">Rhino · video</span>
-          <video src="./media/rhino.mp4" muted loop playsinline preload="none"></video>
-        </div>
-        <div class="case-body">
-          <div class="case-name">Treated standing, at arm's length</div>
-          <p class="case-text">Non-contact matters most on a patient you cannot ask to hold still. Five seconds, from outside the reach of the animal.</p>
-          <div class="case-by">Zoological caseload</div>
-        </div>
-      </article>
-    </div>
-  </div>
-
-  <div class="marquee marquee-rev">
-    <div class="marquee-track">
-      <!-- set B -->
-      <article class="case">
-        <div class="case-media">
-          <span class="case-tag">Guinea pig</span>
-          <img src="./media/guine.jpeg" alt="A guinea pig having its eye treated with the PhotonUVC Vet" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Nurse-led, no sedation</div>
-          <p class="case-text">Exotics are the hardest patients to restrain and the easiest to injure trying. Nothing touches the eye, so there is no fight to have.</p>
-          <div class="case-by">Small mammal caseload</div>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="case-media">
-          <span class="case-tag">Turkey</span>
-          <img src="./media/turkey.jpeg" alt="A turkey being treated with the PhotonUVC Vet" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Poultry and backyard flocks</div>
-          <p class="case-text">Traumatic eyelid injuries are common and rarely worth a general anaesthetic. A five-second pulse fits inside a standard consult.</p>
-          <div class="case-by">Eye Vet Clinic, Runcorn</div>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="case-media">
-          <span class="case-tag">Horse</span>
-          <img src="./media/horse.jpeg" alt="A grey horse being treated in its stable with the PhotonUVC Vet" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Treated on the yard, not in a clinic</div>
-          <p class="case-text">No fridge, no mixing, no bottle left with an owner. The dose is delivered where the horse already stands.</p>
-          <div class="case-by">Equine ambulatory caseload</div>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="case-media">
-          <span class="case-tag">Meerkat</span>
-          <img src="./media/meercat.jpeg" alt="A meerkat held in gloved hands while the PhotonUVC Vet treats its eye" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Zoo and wildlife collections</div>
-          <p class="case-text">Handling time is the risk. Reducing an eye treatment to five seconds reduces everything that can go wrong around it.</p>
-          <div class="case-by">Centro Veterinario Specialistico, Rome</div>
-        </div>
-      </article>
-
-      <!-- set B repeated for a seamless loop -->
-      <article class="case" aria-hidden="true">
-        <div class="case-media">
-          <span class="case-tag">Guinea pig</span>
-          <img src="./media/guine.jpeg" alt="" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Nurse-led, no sedation</div>
-          <p class="case-text">Exotics are the hardest patients to restrain and the easiest to injure trying. Nothing touches the eye, so there is no fight to have.</p>
-          <div class="case-by">Small mammal caseload</div>
-        </div>
-      </article>
-
-      <article class="case" aria-hidden="true">
-        <div class="case-media">
-          <span class="case-tag">Turkey</span>
-          <img src="./media/turkey.jpeg" alt="" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Poultry and backyard flocks</div>
-          <p class="case-text">Traumatic eyelid injuries are common and rarely worth a general anaesthetic. A five-second pulse fits inside a standard consult.</p>
-          <div class="case-by">Eye Vet Clinic, Runcorn</div>
-        </div>
-      </article>
-
-      <article class="case" aria-hidden="true">
-        <div class="case-media">
-          <span class="case-tag">Horse</span>
-          <img src="./media/horse.jpeg" alt="" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Treated on the yard, not in a clinic</div>
-          <p class="case-text">No fridge, no mixing, no bottle left with an owner. The dose is delivered where the horse already stands.</p>
-          <div class="case-by">Equine ambulatory caseload</div>
-        </div>
-      </article>
-
-      <article class="case" aria-hidden="true">
-        <div class="case-media">
-          <span class="case-tag">Meerkat</span>
-          <img src="./media/meercat.jpeg" alt="" loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-name">Zoo and wildlife collections</div>
-          <p class="case-text">Handling time is the risk. Reducing an eye treatment to five seconds reduces everything that can go wrong around it.</p>
-          <div class="case-by">Centro Veterinario Specialistico, Rome</div>
-        </div>
-      </article>
+        <article class="case">
+          <div class="case-media">
+            <span class="case-tag">Turkey</span>
+            <img src="./media/turkey.jpeg" alt="" loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-name">Poultry and backyard flocks</div>
+            <p class="case-text">Traumatic eyelid injuries are common and rarely worth a general anaesthetic. A five-second pulse fits inside a standard consult.</p>
+            <div class="case-by">Eye Vet Clinic, Runcorn</div>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 
   <div class="wrap">
-    <p class="marquee-note">Real cases and clinician quotes. The counts above are placeholders.</p>
+    <p class="rail-note">Real cases and clinician quotes. The counts above are placeholders.</p>
   </div>
 </section>
 
@@ -863,90 +848,127 @@ section{padding:clamp(64px,8vw,110px) 0}
       <h2>Every claim on this page traces to a paper you can read.</h2>
       <p class="lede">Eight peer-reviewed studies across in vitro, ex vivo, in vivo and clinical work. Full citations, journals, and links — not a logo wall.</p>
     </div>
+  </div>
 
-    <div class="ledger">
-      <div class="row">
-        <div class="row-num">100%<small>Bactericidal</small></div>
-        <p class="row-claim">Every bacterial isolate tested was cleared with a single 15-second UV-C dose at 10&nbsp;mm, in canine corneas with infectious keratitis.</p>
-        <div class="row-cite">
-          <b>Novel treatment of infectious keratitis in canine corneas using ultraviolet C light</b>
-          Turicea et al. · <i>Veterinary Ophthalmology</i> · 2025<br>
-          <a href="https://onlinelibrary.wiley.com/doi/10.1111/vop.13265" target="_blank" rel="noopener">doi:10.1111/vop.13265</a>
-        </div>
-      </div>
+  <div class="rail rail-light">
+    <button class="rail-btn rail-prev" type="button" aria-label="Previous papers">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button class="rail-btn rail-next" type="button" aria-label="More papers">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <div class="rail-viewport">
+      <div class="rail-track">
 
-      <div class="row">
-        <div class="row-num">0<small>Colonies at 48 h</small></div>
-        <p class="row-claim">In an in vivo murine model, 265&nbsp;nm UVC eliminated multi-drug-resistant <i>Pseudomonas aeruginosa</i> — no growth at 48 hours, matching ciprofloxacin and ceftazidime.</p>
-        <div class="row-cite">
-          <b>Efficacy of 265 nm UVC light against MDR <i>P. aeruginosa</i> keratitis</b>
-          Gowtham, Sheba, Sharma, Mishra &amp; Bagga · <i>Contact Lens &amp; Anterior Eye</i> 48(4):102417 · 2025<br>
-          <a href="https://pubmed.ncbi.nlm.nih.gov/40221350/" target="_blank" rel="noopener">PMID 40221350</a>
-        </div>
-      </div>
+        <a class="pub" href="https://onlinelibrary.wiley.com/doi/10.1111/vop.13265" target="_blank" rel="noopener">
+          <div class="pub-head">
+            <img class="pub-icon" src="./media/pub/wiley.png" alt="" loading="lazy">
+            <div class="pub-id">
+              <div class="pub-name">Veterinary Ophthalmology</div>
+              <div class="pub-meta">Turicea et al. · 2025</div>
+            </div>
+          </div>
+          <div class="pub-stat">100%<small>Bactericidal</small></div>
+          <p class="pub-claim">Every bacterial isolate tested was cleared with a single 15-second UV-C dose at 10&nbsp;mm, in canine corneas with infectious keratitis.</p>
+          <div class="pub-link">doi:10.1111/vop.13265 <span>↗</span></div>
+        </a>
 
-      <div class="row">
-        <div class="row-num">15 s<small>To break biofilm</small></div>
-        <p class="row-claim">Low-dose 265&nbsp;nm UVC killed <i>P. aeruginosa</i> biofilm — the structure that blunts topical antibiotics — in exposures as short as 15 seconds.</p>
-        <div class="row-cite">
-          <b>In vitro anti-biofilm efficacy of therapeutic low dose 265 nm UVC</b>
-          Marasini, Dean, Swift, Hussan &amp; Craig · <i>J Photochem Photobiol B</i> 263:113091 · 2025<br>
-          <a href="https://pubmed.ncbi.nlm.nih.gov/39787975/" target="_blank" rel="noopener">PMID 39787975</a>
-        </div>
-      </div>
+        <a class="pub" href="https://pubmed.ncbi.nlm.nih.gov/40221350/" target="_blank" rel="noopener">
+          <div class="pub-head">
+            <img class="pub-icon" src="./media/pub/pubmed.png" alt="" loading="lazy">
+            <div class="pub-id">
+              <div class="pub-name">Contact Lens &amp; Anterior Eye</div>
+              <div class="pub-meta">Gowtham, Sheba, Sharma, Mishra &amp; Bagga · 2025</div>
+            </div>
+          </div>
+          <div class="pub-stat">0<small>Colonies at 48 h</small></div>
+          <p class="pub-claim">In an in vivo murine model, 265&nbsp;nm UVC eliminated multi-drug-resistant <i>Pseudomonas aeruginosa</i> — matching ciprofloxacin and ceftazidime.</p>
+          <div class="pub-link">PMID 40221350 <span>↗</span></div>
+        </a>
 
-      <div class="row">
-        <div class="row-num">0 / 48<small>Adverse events</small></div>
-        <p class="row-claim">Across 48 treatment sites in a controlled comparison, UV-C matched povidone-iodine for periocular disinfection with no adverse eyelid effects. 16.7% of PI-treated dogs developed contact dermatitis; none in the UV-C group.</p>
-        <div class="row-cite">
-          <b>Antimicrobial effect of UV-C light vs standard povidone-iodine protocol</b>
-          Treadwell, Sahoo, Bujan, Allbaugh, Stinman &amp; Kubai · <i>Veterinary Ophthalmology</i> 29(2):e70065 · 2026<br>
-          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12969538/" target="_blank" rel="noopener">PMC12969538</a>
-        </div>
-      </div>
+        <a class="pub" href="https://pubmed.ncbi.nlm.nih.gov/39787975/" target="_blank" rel="noopener">
+          <div class="pub-head">
+            <img class="pub-icon" src="./media/pub/pubmed.png" alt="" loading="lazy">
+            <div class="pub-id">
+              <div class="pub-name">J Photochemistry &amp; Photobiology B</div>
+              <div class="pub-meta">Marasini, Dean, Swift, Hussan &amp; Craig · 2025</div>
+            </div>
+          </div>
+          <div class="pub-stat">15 s<small>To break biofilm</small></div>
+          <p class="pub-claim">Low-dose 265&nbsp;nm UVC killed <i>P. aeruginosa</i> biofilm — the structure that blunts topical antibiotics — in exposures as short as 15 seconds.</p>
+          <div class="pub-link">PMID 39787975 <span>↗</span></div>
+        </a>
 
-      <div class="row">
-        <div class="row-num">Broad<small>Spectrum</small></div>
-        <p class="row-claim">Ocular-surface pathogens isolated from veterinary infectious keratitis were assessed against a 265&nbsp;nm device — susceptibility across the species tested, with no resistance mechanism available to them.</p>
-        <div class="row-cite">
-          <b>Assessment of ocular surface pathogen susceptibility to UVC light treatment</b>
-          Williams et al. · <i>Veterinary Ophthalmology</i> · 2026<br>
-          <a href="https://onlinelibrary.wiley.com/doi/10.1111/vop.70214" target="_blank" rel="noopener">doi:10.1111/vop.70214</a>
-        </div>
-      </div>
+        <a class="pub" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12969538/" target="_blank" rel="noopener">
+          <div class="pub-head">
+            <img class="pub-icon" src="./media/pub/pmc.png" alt="" loading="lazy">
+            <div class="pub-id">
+              <div class="pub-name">Veterinary Ophthalmology</div>
+              <div class="pub-meta">Treadwell, Sahoo, Allbaugh &amp; Kubai · 2026</div>
+            </div>
+          </div>
+          <div class="pub-stat">0 / 48<small>Adverse events</small></div>
+          <p class="pub-claim">UV-C matched povidone-iodine for periocular disinfection across 48 sites. 16.7% of PI-treated dogs developed contact dermatitis; none in the UV-C group.</p>
+          <div class="pub-link">PMC12969538 <span>↗</span></div>
+        </a>
 
-      <div class="row">
-        <div class="row-num">Depth<small>Ex vivo, equine</small></div>
-        <p class="row-claim">UV-C inhibited fungal pathogens associated with equine keratomycosis at multiple corneal depths — not just at the surface.</p>
-        <div class="row-cite">
-          <b>UV-C light therapy inhibits pathogens associated with equine keratomycosis at different corneal depths</b>
-          Hoerdemann et al. · <i>Veterinary Ophthalmology</i> · 2026<br>
-          <a href="https://onlinelibrary.wiley.com/doi/10.1111/vop.70110" target="_blank" rel="noopener">doi:10.1111/vop.70110</a>
-        </div>
-      </div>
+        <a class="pub" href="https://onlinelibrary.wiley.com/doi/10.1111/vop.70214" target="_blank" rel="noopener">
+          <div class="pub-head">
+            <img class="pub-icon" src="./media/pub/wiley.png" alt="" loading="lazy">
+            <div class="pub-id">
+              <div class="pub-name">Veterinary Ophthalmology</div>
+              <div class="pub-meta">Williams et al. · 2026</div>
+            </div>
+          </div>
+          <div class="pub-stat">Broad<small>Spectrum</small></div>
+          <p class="pub-claim">Ocular-surface pathogens isolated from veterinary infectious keratitis were susceptible to 265&nbsp;nm — with no resistance mechanism available to them.</p>
+          <div class="pub-link">doi:10.1111/vop.70214 <span>↗</span></div>
+        </a>
 
-      <div class="row">
-        <div class="row-num">DNA<small>Safety assessed</small></div>
-        <p class="row-claim">The therapeutic UVC dose was assessed directly against corneal DNA damage, and separately for safety at the limbus — the two places a clinician worries about first.</p>
-        <div class="row-cite">
-          <b>Effect of therapeutic UVC on corneal DNA</b>
-          <a href="https://pubmed.ncbi.nlm.nih.gov/33610742/" target="_blank" rel="noopener">PMID 33610742</a><br>
-          <b>Safety of therapeutic UVC application at the limbus</b>
-          <i>IOVS</i> · ARVO Journals
-        </div>
-      </div>
+        <a class="pub" href="https://onlinelibrary.wiley.com/doi/10.1111/vop.70110" target="_blank" rel="noopener">
+          <div class="pub-head">
+            <img class="pub-icon" src="./media/pub/wiley.png" alt="" loading="lazy">
+            <div class="pub-id">
+              <div class="pub-name">Veterinary Ophthalmology</div>
+              <div class="pub-meta">Hoerdemann et al. · 2026</div>
+            </div>
+          </div>
+          <div class="pub-stat">Depth<small>Ex vivo, equine</small></div>
+          <p class="pub-claim">UV-C inhibited fungal pathogens associated with equine keratomycosis at multiple corneal depths — not only at the surface.</p>
+          <div class="pub-link">doi:10.1111/vop.70110 <span>↗</span></div>
+        </a>
 
-      <div class="row">
-        <div class="row-num">Meta<small>Human review</small></div>
-        <p class="row-claim">A systematic review and meta-analysis of UV application for superficial infection in humans — the wider evidence base this device sits inside.</p>
-        <div class="row-cite">
-          <b>Safety and efficacy of UV application for superficial infections in humans</b>
-          Systematic review &amp; meta-analysis<br>
-          <a href="https://pubmed.ncbi.nlm.nih.gov/33812086/" target="_blank" rel="noopener">PMID 33812086</a>
-        </div>
+        <a class="pub" href="https://pubmed.ncbi.nlm.nih.gov/33610742/" target="_blank" rel="noopener">
+          <div class="pub-head">
+            <img class="pub-icon" src="./media/pub/pubmed.png" alt="" loading="lazy">
+            <div class="pub-id">
+              <div class="pub-name">The Ocular Surface</div>
+              <div class="pub-meta">Marasini, Mugisho, Rupenthal, Dean &amp; Craig · 2021</div>
+            </div>
+          </div>
+          <div class="pub-stat">DNA<small>Safety assessed</small></div>
+          <p class="pub-claim">The therapeutic UVC dose was assessed directly against corneal DNA damage — the first thing a clinician worries about.</p>
+          <div class="pub-link">PMID 33610742 <span>↗</span></div>
+        </a>
+
+        <a class="pub" href="https://pubmed.ncbi.nlm.nih.gov/33812086/" target="_blank" rel="noopener">
+          <div class="pub-head">
+            <img class="pub-icon" src="./media/pub/pubmed.png" alt="" loading="lazy">
+            <div class="pub-id">
+              <div class="pub-name">The Ocular Surface</div>
+              <div class="pub-meta">Marasini, Zhang, Dean, Swift &amp; Craig · 2021</div>
+            </div>
+          </div>
+          <div class="pub-stat">Meta<small>Human review</small></div>
+          <p class="pub-claim">A systematic review and meta-analysis of UV application for superficial infection in humans — the wider evidence base this device sits inside.</p>
+          <div class="pub-link">PMID 33812086 <span>↗</span></div>
+        </a>
+
       </div>
     </div>
+  </div>
 
+  <div class="wrap">
     <p class="ledger-foot">
       Want the full dossier? We send the PDFs, including the ones with unfavourable results.
       <a href="#book">Request the evidence pack →</a>
