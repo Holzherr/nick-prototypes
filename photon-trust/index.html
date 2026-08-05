@@ -149,7 +149,9 @@ h3{font-size:20px;line-height:1.25}
 
 /* ---------- sections ---------- */
 section{padding:clamp(64px,8vw,110px) 0}
-.sec-head{max-width:60ch;margin-bottom:clamp(34px,4vw,52px)}
+/* `ch` here resolves against this element's 17px body size, not the 46px h2, so it wrapped
+   headings at ~510px. Measure the heading in px and let the lede keep its own 46ch. */
+.sec-head{max-width:min(100%,940px);margin-bottom:clamp(34px,4vw,52px)}
 .sec-head h2 + .lede{margin-top:18px}
 .dark{background:var(--ink-deep);color:#fff}
 .dark h2{color:#fff}
@@ -328,17 +330,21 @@ section{padding:clamp(64px,8vw,110px) 0}
 .viz-track{fill:none;stroke:rgba(190,167,222,.16)}
 .viz-fill{fill:none;stroke:var(--lavender);stroke-linecap:round}
 
-.study-cite{
-  margin-top:clamp(24px,3vw,34px);padding-top:22px;border-top:1px solid var(--line-dark);
-  display:flex;gap:clamp(16px,3vw,44px);flex-wrap:wrap;align-items:baseline;
+/* the paper, repeated at the foot of every stat tile — same shape as the evidence cards */
+.study-src{
+  display:flex;gap:12px;align-items:flex-start;text-decoration:none;color:inherit;
+  margin-top:20px;padding-top:16px;border-top:1px solid var(--line-dark);
 }
-.study-cite p{margin:0;font-size:15px;line-height:1.6;color:#b0b4d0;max-width:52ch}
-.study-cite p b{color:#fff;font-weight:500}
-.study-cite a{
-  font-family:var(--mono);font-size:12px;color:var(--lavender);text-decoration:none;
-  border-bottom:1px solid rgba(190,167,222,.35);white-space:nowrap;
+.study-src .pub-icon{background:rgba(255,255,255,.9);border-color:rgba(255,255,255,.16)}
+.study-src .pub-id{display:flex;flex-direction:column;min-width:0;flex:1}
+.study-src .pub-name{color:#fff}
+.study-src .pub-title{
+  color:#8b8fb0;margin-top:3px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
-.study-cite a:hover{border-bottom-color:var(--lavender)}
+.study-src .pub-ref{color:var(--lavender)}
+.study-src:hover .pub-name{color:var(--lavender)}
+.study-src:hover .pub-ref span{opacity:1}
 
 /* ---------- safety ---------- */
 .safety-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,26px)}
@@ -403,7 +409,6 @@ section{padding:clamp(64px,8vw,110px) 0}
   .study-grid{grid-template-columns:1fr;gap:12px}
   .study-tile{min-height:0}
   .study-viz{padding:6px 0 22px}
-  .study-cite{flex-direction:column;gap:14px}
   .rail-btn{width:38px;height:38px}
   .rail-btn svg{width:15px;height:15px}
   .nav-links{display:none}
@@ -1007,7 +1012,7 @@ addEventListener('DOMContentLoaded', () => {
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Backed by research</p>
-      <h2>Every claim on this page traces to a paper you can read.</h2>
+      <h2>Every claim traces to a paper you can read.</h2>
       <p class="lede">Eight peer-reviewed studies across in vitro, ex vivo, in vivo and clinical work. Full citations, journals, and links — not a logo wall.</p>
     </div>
   </div>
@@ -1168,6 +1173,15 @@ addEventListener('DOMContentLoaded', () => {
         </div>
         <h3>Bacterial load falls immediately</h3>
         <p>A median 96.5% reduction in culturable corneal bacteria after a single five-second UV-C treatment.</p>
+
+        <a class="study-src" href="https://onlinelibrary.wiley.com/doi/10.1111/vop.70230" target="_blank" rel="noopener">
+          <img class="pub-icon" src="./media/pub/wiley.png" alt="" loading="lazy">
+          <span class="pub-id">
+            <span class="pub-name">Veterinary Ophthalmology · 2026</span>
+            <span class="pub-title">Dixon &amp; Lewin. Efficacy of Therapeutic UVC Irradiation in Reducing Bacterial Load in Microbial Keratitis: A Retrospective Clinical Study in Veterinary Patients</span>
+            <span class="pub-ref">doi:10.1111/vop.70230 <span>↗</span></span>
+          </span>
+        </a>
       </article>
 
       <article class="study-tile">
@@ -1189,6 +1203,15 @@ addEventListener('DOMContentLoaded', () => {
         </div>
         <h3>Nearly a third cleared outright</h3>
         <p>Almost one in three treated eyes were culture-negative immediately afterwards — no culturable bacteria left at all.</p>
+
+        <a class="study-src" href="https://onlinelibrary.wiley.com/doi/10.1111/vop.70230" target="_blank" rel="noopener">
+          <img class="pub-icon" src="./media/pub/wiley.png" alt="" loading="lazy">
+          <span class="pub-id">
+            <span class="pub-name">Veterinary Ophthalmology · 2026</span>
+            <span class="pub-title">Dixon &amp; Lewin. Efficacy of Therapeutic UVC Irradiation in Reducing Bacterial Load in Microbial Keratitis: A Retrospective Clinical Study in Veterinary Patients</span>
+            <span class="pub-ref">doi:10.1111/vop.70230 <span>↗</span></span>
+          </span>
+        </a>
       </article>
 
       <article class="study-tile">
@@ -1202,12 +1225,16 @@ addEventListener('DOMContentLoaded', () => {
         </div>
         <h3>The result holds across the group</h3>
         <p>More than nine in ten eyes achieved at least a 75% reduction — not a handful of strong responders carrying an average.</p>
-      </article>
-    </div>
 
-    <div class="study-cite">
-      <p><b>Dixon CJ, Lewin GA.</b> Efficacy of Therapeutic UVC Irradiation in Reducing Bacterial Load in Microbial Keratitis: A Retrospective Clinical Study in Veterinary Patients. <i>Veterinary Ophthalmology</i>, 2026.</p>
-      <a href="https://onlinelibrary.wiley.com/doi/10.1111/vop.70230" target="_blank" rel="noopener">Read the paper · doi:10.1111/vop.70230 ↗</a>
+        <a class="study-src" href="https://onlinelibrary.wiley.com/doi/10.1111/vop.70230" target="_blank" rel="noopener">
+          <img class="pub-icon" src="./media/pub/wiley.png" alt="" loading="lazy">
+          <span class="pub-id">
+            <span class="pub-name">Veterinary Ophthalmology · 2026</span>
+            <span class="pub-title">Dixon &amp; Lewin. Efficacy of Therapeutic UVC Irradiation in Reducing Bacterial Load in Microbial Keratitis: A Retrospective Clinical Study in Veterinary Patients</span>
+            <span class="pub-ref">doi:10.1111/vop.70230 <span>↗</span></span>
+          </span>
+        </a>
+      </article>
     </div>
   </div>
 </section>
