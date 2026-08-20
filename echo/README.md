@@ -8,7 +8,7 @@ Premium black landing page + waitlist for **Echo**, the ambient personal assista
 
 ## Waitlist
 
-The form is **Formspree-ready**: in `index.html`, replace `YOUR_FORM_ID` in the `<form action=…>` with a real [Formspree](https://formspree.io) form id to capture emails server-side. Until then it confirms client-side and records entries in `localStorage` under `echo_waitlist`, so the flow never dead-ends in a demo.
+Both forms POST to **FormSubmit** via a `LEAD_ENDPOINT` assembled at runtime in `index.html` (so the address isn't scrapeable from raw page source). To hide the address entirely, create a [Formspree](https://formspree.io) form and swap `LEAD_ENDPOINT` for `https://formspree.io/f/<id>`. The flow also confirms client-side and records entries in `localStorage` under `echo_waitlist`, so it never dead-ends. The AI review gate is still in local-fallback mode (`AGENT_ENDPOINT = ''`) — deploy `gate/` (Cloudflare Worker) and paste its URL to make it real; the page copy no longer promises live agent review until then.
 
 ## Pages
 
@@ -25,6 +25,8 @@ The form is **Formspree-ready**: in `index.html`, replace `YOUR_FORM_ID` in the 
 - `demo.html` — **interactive, narrated walkthrough**. A mock Echo app with dummy data (Echo + Family/Health/GitLaw/Finance domain agents, role agents, Telegram bridge; Home with HomeCards + "while you slept" brief; Agents → detail; Tasks board; Approvals queue). A guided tour spotlights each section and an animated **"Echo" character narrates** via the browser's built-in **Web Speech API** (free, no key, on-device) with Next/Back/Skip + captions. **Voiceover upgrade path:** populate the `AUDIO` map in the script with pre-rendered files (e.g. ElevenLabs `voice/0.mp3`…) and it plays those instead of the browser voice. Best in Chrome/Edge/Safari.
 
 ## State
+
+v11 — **share-readiness pass.** Scrubbed real data from public pages (real company name + cash figure → fictional "Fernway Ltd · £84,200"; real family/colleague names → fictional; deal names genericized). Waitlist/apply endpoints now assembled at runtime (email no longer in raw page source). Hero eyebrow is "limited seats" (was "by invitation", which contradicted the apply path); gate fineprint no longer promises live agent review while `AGENT_ENDPOINT` is empty. One pricing line added to the access card ($10/mo beta · free open core · £279 Family Hub). All four lab pages carry a "Lab — rough working notes" banner; both demo pages carry an "Illustrative demo" badge.
 
 v10 — **navigation cleanup + blog.** Standardised the top nav across every marketing page (`index`, `faq`, `family-hub`, `components`, `blog`) so they all share the same link set — Home · How it works · Family Space · Live demo · Building blocks · Blog — and every page now reaches every other (previously each page carried a different, partial subset). Expanded the landing-page footer to the same set. Added a **Blog** (`blog.html` + `blog/`): data-driven index, self-contained posts, and a `_template.html` to clone. First post argues the Benedict Evans thesis. The `*-lab.html` pages remain intentionally unlisted.
 
