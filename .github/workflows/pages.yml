@@ -23,7 +23,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
       - name: Check every class used in markup has a CSS rule
         run: node tools/check-css.js 'echo/*.html'
 
@@ -37,13 +37,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: workout-hub-next/package-lock.json
+
+      # workout-hub-next is a Vite + Storybook project; it builds into workout-hub-next/dist
+      # (app at /, Storybook at /storybook/). Everything else on the site is static.
+      - name: Build workout-hub-next
+        working-directory: workout-hub-next
+        run: |
+          npm ci
+          npm test
+          npm run build
+          npm run build-storybook
+
+      - name: Assemble site
+        run: |
+          mkdir _site
+          rsync -a --exclude .git --exclude _site --exclude node_modules --exclude workout-hub-next ./ _site/
+          cp -r workout-hub-next/dist _site/workout-hub-next
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
