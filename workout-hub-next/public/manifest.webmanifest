@@ -1,7 +1,7 @@
 {
   "name": "TigerWorkouts",
   "short_name": "Tiger",
-  "description": "Discover creator workouts, run them with a guided timer, log what you did.",
+  "description": "Creator workouts with a guided timer. Discover one, do it, log what you did.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
