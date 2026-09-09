@@ -58,16 +58,32 @@ Story conventions (from front-law): CSF3, `satisfies Meta<typeof X>`, `title: 'S
 
 ## Status
 
-Scaffold only. The port runs task-by-task against
+Front end ported and covered; the backend half is next. Tasks run against
 `assistant-nick:me/projects/strawberry/2026-09-09-strawberry-migration-plan.md`.
 
 - [x] Task 1 — scaffold on tiger's configs
-- [ ] Task 2 — shared UI primitives + stories
-- [ ] Task 3 — layout, brand, Supabase client
-- [ ] Task 4 — screens and routes
-- [ ] Task 5 — tested helpers
-- [ ] Task 6 — brick stories
+- [x] Task 2 — shared UI primitives + stories
+- [x] Task 3 — layout, brand, Supabase client
+- [x] Task 4 — screens and routes
+- [x] Task 5 — tested helpers
+- [x] Task 6 — brick stories
 - [ ] Task 7 — own Supabase project, household-scoped RLS
 - [ ] Task 8 — edge functions on the Anthropic API, JWT-scoped MCP
 - [ ] Task 9 — data migration, photo storage
 - [ ] Task 10 — PWA assets, preview deploy
+
+Stories cover the primitives, the brand, the app shell, RecipeCard, the meal-plan bricks, the auth
+screens and NotFound. Still to get one: the discover, box, shopping, household and profile screens,
+which fetch on mount and need their data lifted to a props boundary first.
+
+### Known defects carried over from the Lovable app
+
+- `detectCategory` matches keywords as bare substrings and takes the first category that hits, so
+  "tahini" files under Seafood and "frozen peas" under Produce. Pinned in
+  `features/shopping/model.test.ts`; fix by matching on word boundaries and preferring the longest
+  keyword.
+- Every user-owned table is keyed by a free-text `session_id` with `USING (true)` RLS. Task 7
+  replaces it with `household_id` and membership policies; until then the app still points at
+  Lovable's project and its data is world-readable.
+- The `mcp` edge function runs on the service-role key and takes the identity as a tool argument.
+  Task 8 makes it read the caller from the JWT.

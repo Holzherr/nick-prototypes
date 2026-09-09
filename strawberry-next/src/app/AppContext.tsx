@@ -21,7 +21,7 @@ import {
 import { supabase } from "@/shared/supabase/client";
 import { useAuth } from "@/features/auth/AuthContext";
 
-interface ShoppingItem {
+export interface ShoppingItem {
   id: string;
   name: string;
   quantity: string;
@@ -31,14 +31,14 @@ interface ShoppingItem {
   recipe_label?: string | null;
 }
 
-interface Collection {
+export interface Collection {
   id: string;
   name: string;
   recipeIds: string[];
   isPublic: boolean;
 }
 
-interface AppState {
+export interface AppState {
   savedRecipeIds: string[];
   shoppingList: ShoppingItem[];
   collections: Collection[];
@@ -62,7 +62,8 @@ interface AppState {
   refreshAll: () => void;
 }
 
-const AppContext = createContext<AppState | null>(null);
+// Exported so stories can supply a fixed app state without touching Supabase.
+export const AppContext = createContext<AppState | null>(null);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const { user } = useAuth();
