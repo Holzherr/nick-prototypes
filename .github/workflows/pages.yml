@@ -54,11 +54,22 @@ jobs:
           npm run build
           npm run build-storybook
 
+      # qeued-next is the same shape (Vite + Storybook, base /nick-prototypes/qeued-next/).
+      - name: Build qeued-next
+        working-directory: qeued-next
+        run: |
+          npm ci
+          npm test
+          npm run build
+          npm run build-storybook
+
       - name: Assemble site
         run: |
           mkdir _site
-          rsync -a --exclude .git --exclude _site --exclude node_modules --exclude workout-hub-next ./ _site/
+          rsync -a --exclude .git --exclude _site --exclude node_modules --exclude workout-hub-next --exclude qeued-next ./ _site/
           cp -r workout-hub-next/dist _site/workout-hub-next
+          cp -r qeued-next/dist _site/qeued-next
+          cp _site/qeued-next/index.html _site/qeued-next/404.html
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
