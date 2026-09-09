@@ -5,6 +5,7 @@ import { Copy, Link2, Mail, Trash2, UserPlus, Users, Check, Pencil } from "lucid
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
 import { toast } from "sonner";
+import { inviteLink } from "./model";
 
 export default function Household() {
   const { user } = useAuth();
@@ -49,7 +50,7 @@ export default function Household() {
     try {
       const data = await createInvite();
       if (data) {
-        const link = `${window.location.origin}/join/${(data as any).invite_code}`;
+        const link = inviteLink((data as any).invite_code);
         await navigator.clipboard.writeText(link);
         toast.success("Invite link copied to clipboard!");
       }
@@ -70,7 +71,7 @@ export default function Household() {
   };
 
   const handleCopyLink = async (code: string, id: string) => {
-    const link = `${window.location.origin}/join/${code}`;
+    const link = inviteLink(code);
     await navigator.clipboard.writeText(link);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);

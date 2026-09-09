@@ -1,10 +1,9 @@
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Plus, Trash2, Pencil, Check, ChevronDown } from "lucide-react";
 import InlineAIPrompt from "@/features/assistant/AIChatDrawer";
 import { useApp } from "@/app/AppContext";
 import { Checkbox } from "@/shared/components/ui/checkbox";
-import { getFoodEmoji } from "@/features/shopping/foodEmojis";
-import { detectCategory, allCategories } from "@/features/shopping/categoryDetect";
+import { allCategories, detectCategory, getFoodEmoji, isPantryStaple } from "./model";
 
 export default function ShoppingList() {
   const {
@@ -58,22 +57,9 @@ export default function ShoppingList() {
   const checkedItems = shoppingList.filter((i) => i.checked);
 
   // Pantry staples — things you probably already have
-  const pantryStaples = useMemo(() => {
-    const stapleNames = [
-      "salt", "pepper", "black pepper", "oil", "olive oil", "vegetable oil", "cooking oil",
-      "butter", "sugar", "flour", "all-purpose flour", "baking soda", "baking powder",
-      "garlic", "garlic powder", "onion powder", "paprika", "cumin", "oregano", "basil",
-      "thyme", "bay leaf", "bay leaves", "cinnamon", "chili flakes", "red pepper flakes",
-      "soy sauce", "vinegar", "white vinegar", "apple cider vinegar", "honey",
-      "mustard", "ketchup", "mayonnaise", "hot sauce", "worcestershire sauce",
-      "cooking spray", "cornstarch", "vanilla", "vanilla extract", "eggs",
-      "water", "ice", "lemon juice",
-    ];
-    return (name: string) => stapleNames.some(s => name.toLowerCase().trim() === s);
-  }, []);
 
-  const regularUnchecked = uncheckedItems.filter((i) => !pantryStaples(i.name));
-  const stapleUnchecked = uncheckedItems.filter((i) => pantryStaples(i.name));
+  const regularUnchecked = uncheckedItems.filter((i) => !isPantryStaple(i.name));
+  const stapleUnchecked = uncheckedItems.filter((i) => isPantryStaple(i.name));
   const [showStaples, setShowStaples] = useState(true);
 
   // Preview detected category while typing
