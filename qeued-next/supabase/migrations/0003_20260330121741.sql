@@ -1,0 +1,1 @@
+ALTER TABLE public.watch_entries ADD COLUMN notes text;

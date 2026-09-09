@@ -15,7 +15,7 @@ import { Star, Trash2, SkipForward, MessageSquare, Camera, Pencil, Check, Loader
 import FollowListDialog from "@/features/social/FollowListDialog";
 import { useToast } from "@/shared/components/ui/use-toast";
 
-type WatchStatus = "watched" | "watching" | "want_to_watch" | "dropped";
+import { STATUS_LABELS as statusLabels, STATUS_ORDER, sortEntries, type WatchStatus } from "@/features/library/model";
 
 interface SkippedEntry {
   id: string;
@@ -51,13 +51,6 @@ interface Connection {
   invite_code: string | null;
   partner_name?: string;
 }
-
-const statusLabels: Record<WatchStatus, string> = {
-  watched: "Watched",
-  watching: "Watching",
-  want_to_watch: "Want to Watch",
-  dropped: "Dropped",
-};
 
 const EntryCard = ({
   entry, status, onUpdateRating, onUpdateDesireRanking, onUpdateNotes, onUpdateWatchedDate, onUpdateReview, onRemove,
@@ -590,7 +583,7 @@ const ProfilePage = () => {
 
       <Tabs defaultValue="watched">
         <TabsList className="w-full justify-start">
-          {(["watched", "watching", "want_to_watch", "dropped"] as WatchStatus[]).map((s) => (
+          {STATUS_ORDER.map((s) => (
             <TabsTrigger key={s} value={s} className="text-xs sm:text-sm">
               {statusLabels[s]} ({filtered(s).length})
             </TabsTrigger>
@@ -601,16 +594,12 @@ const ProfilePage = () => {
           </TabsTrigger>
         </TabsList>
 
-        {(["watched", "watching", "want_to_watch", "dropped"] as WatchStatus[]).map((status) => (
+        {STATUS_ORDER.map((status) => (
           <TabsContent key={status} value={status} className="space-y-3 mt-4">
             {filtered(status).length === 0 && (
               <p className="text-muted-foreground text-sm py-8 text-center">No titles here yet</p>
             )}
-            {filtered(status)
-              .sort((a, b) => {
-                if (status === "want_to_watch") return (a.desire_ranking || 99) - (b.desire_ranking || 99);
-                return 0;
-              })
+            {sortEntries(filtered(status), status)
               .map((entry) => (
                 <EntryCard key={entry.id} entry={entry} status={status} onUpdateRating={updateRating} onUpdateDesireRanking={updateDesireRanking} onUpdateNotes={updateNotes} onUpdateWatchedDate={updateWatchedDate} onUpdateReview={updateReview} onRemove={removeEntry} />
               ))}
