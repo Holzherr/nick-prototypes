@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { cn } from "@/shared/utils/cn";
+import { feedVerb } from "./model";
 import { Popover, PopoverTrigger, PopoverContent } from "@/shared/components/ui/popover";
 import { useAuth } from "@/features/auth/AuthContext";
 import { supabase } from "@/shared/supabase/client";
@@ -434,7 +435,7 @@ const Index = () => {
           )}
           <div className="space-y-3">
             {followingFeed.map((entry: any) => {
-              const statusLabel = entry.status === "want_to_watch" ? "wants to watch" : entry.status === "watched" ? "watched" : entry.status === "watching" ? "is watching" : "dropped";
+              const statusLabel = feedVerb(entry.status);
               return (
                 <Card key={entry.id}>
                   <CardContent className="py-4 px-4">
