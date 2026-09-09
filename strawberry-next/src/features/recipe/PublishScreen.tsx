@@ -4,6 +4,7 @@ import { Plus, Trash2, GripVertical, X, ImageIcon, Sparkles, Loader2 } from "luc
 import { toast } from "sonner";
 import { supabase } from "@/shared/supabase/client";
 import { cuisines, diets } from "@/shared/data/recipes";
+import { cleanIngredients, cleanSteps } from "./model";
 
 interface IngredientRow {
   name: string;
@@ -101,8 +102,8 @@ export default function Publish() {
           cook_time: cookTime.trim() || null,
           cuisine: cuisine || null,
           diet_tags: dietTags.length > 0 ? dietTags : null,
-          ingredients: ingredients.filter((i) => i.name.trim()).map((i) => ({ name: i.name.trim(), quantity: i.quantity.trim(), category: "Other" })),
-          steps: steps.filter((s) => s.trim()),
+          ingredients: cleanIngredients(ingredients),
+          steps: cleanSteps(steps),
           photo_url: photoPreview || null,
           is_draft: draft,
         })
