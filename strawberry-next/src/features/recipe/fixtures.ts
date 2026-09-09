@@ -1,0 +1,97 @@
+import type { DbRecipe } from '@/shared/api';
+
+const base = {
+  is_draft: false,
+  fiber: null,
+  sugar: null,
+  created_at: '2026-03-01T10:00:00Z',
+  updated_at: '2026-03-01T10:00:00Z',
+};
+
+/** Invented recipes for stories and tests. No real user's data ever lands in this repo. */
+export const recipes: DbRecipe[] = [
+  {
+    ...base,
+    id: 'r1',
+    title: 'Shakshuka',
+    description: 'Eggs poached in a spiced tomato sauce with cumin, paprika and crumbled feta.',
+    author_name: 'Amira Haddad',
+    author_handle: 'amira',
+    photo_url: null,
+    servings: 3,
+    cook_time: '30 min',
+    cuisine: 'Middle Eastern',
+    diet_tags: ['Vegetarian'],
+    ingredients: [
+      { name: 'Tinned tomatoes', quantity: '800 g', category: 'Pantry' },
+      { name: 'Eggs', quantity: '4', category: 'Dairy' },
+      { name: 'Onion', quantity: '1, diced', category: 'Produce' },
+      { name: 'Smoked paprika', quantity: '1 tsp', category: 'Pantry' },
+      { name: 'Feta', quantity: '60 g, crumbled', category: 'Dairy' },
+    ],
+    steps: [
+      'Soften the onion in oil over a medium heat.',
+      'Add the spices, then the tomatoes, and simmer for fifteen minutes.',
+      'Make four wells, crack in the eggs, cover and cook until just set.',
+      'Scatter the feta and serve with bread.',
+    ],
+    save_count: 456,
+    calories: 415,
+    protein: 21,
+    carbs: 24,
+    fat: 26,
+  },
+  {
+    ...base,
+    id: 'r2',
+    title: 'Miso glazed aubergine',
+    description: 'Roasted until collapsing, lacquered with a sweet-salty miso glaze.',
+    author_name: 'Yuki Tanaka',
+    author_handle: 'yuki',
+    photo_url: null,
+    servings: 2,
+    cook_time: '35 min',
+    cuisine: 'Japanese',
+    diet_tags: ['Vegan', 'Gluten-free'],
+    ingredients: [
+      { name: 'Aubergines', quantity: '2', category: 'Produce' },
+      { name: 'White miso', quantity: '3 tbsp', category: 'Pantry' },
+      { name: 'Mirin', quantity: '2 tbsp', category: 'Pantry' },
+    ],
+    steps: [
+      'Score the cut faces and roast for twenty-five minutes.',
+      'Brush with the glaze and grill until blistered.',
+    ],
+    save_count: 312,
+    calories: 280,
+    protein: 6,
+    carbs: 31,
+    fat: 14,
+  },
+  {
+    ...base,
+    id: 'r3',
+    title: 'Brown butter chocolate chip cookies',
+    description: 'Nutty from the browned butter, still soft in the middle.',
+    author_name: 'Luca Rossi',
+    author_handle: 'luca',
+    photo_url: null,
+    servings: 12,
+    cook_time: '30 min',
+    cuisine: 'American',
+    diet_tags: [],
+    ingredients: [
+      { name: 'Butter', quantity: '170 g', category: 'Dairy' },
+      { name: 'Plain flour', quantity: '250 g', category: 'Pantry' },
+      { name: 'Dark chocolate', quantity: '200 g, chopped', category: 'Pantry' },
+    ],
+    steps: ['Brown the butter and cool it.', 'Mix, chill, then bake for eleven minutes.'],
+    save_count: 891,
+    calories: 210,
+    protein: 3,
+    carbs: 26,
+    fat: 11,
+  },
+];
+
+export const [shakshuka, misoAubergine, cookies] = recipes;
