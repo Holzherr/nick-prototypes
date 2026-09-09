@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/shared/components/ui/badge";
 import { Loader2 } from "lucide-react";
 
-type WatchStatus = "watched" | "watching" | "want_to_watch" | "dropped";
+import { STATUS_LABELS as statusLabels, type WatchStatus } from "./model";
 
 interface Props {
   titleId?: string | null;
@@ -22,13 +22,6 @@ interface Props {
   size?: "sm" | "default";
   className?: string;
 }
-
-const statusLabels: Record<WatchStatus, string> = {
-  want_to_watch: "Want to Watch",
-  watching: "Watching",
-  watched: "Watched",
-  dropped: "Dropped",
-};
 
 const AddToWatchlistSelect = ({
   titleId,
