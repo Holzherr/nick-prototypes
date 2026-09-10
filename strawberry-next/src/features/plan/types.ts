@@ -4,7 +4,7 @@ export type ViewMode = 'day' | 'week';
 
 export interface MealPlanItem {
   id: string;
-  session_id: string;
+  household_id: string;
   recipe_id: string | null;
   title: string;
   date: string;

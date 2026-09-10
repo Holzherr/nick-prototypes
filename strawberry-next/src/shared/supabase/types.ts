@@ -1,3 +1,5 @@
+// Hand-patched for migration 0007 (session_id -> household_id, recipes.author_id).
+// Regenerate with `npx supabase gen types typescript --linked` once the project exists.
 export type Json =
   | string
   | number
@@ -53,21 +55,21 @@ export type Database = {
           id: string
           is_public: boolean | null
           name: string
-          session_id: string
+          household_id: string
         }
         Insert: {
           created_at?: string
           id?: string
           is_public?: boolean | null
           name: string
-          session_id?: string
+          household_id?: string
         }
         Update: {
           created_at?: string
           id?: string
           is_public?: boolean | null
           name?: string
-          session_id?: string
+          household_id?: string
         }
         Relationships: []
       }
@@ -179,7 +181,7 @@ export type Database = {
           meal_type: string
           protein: number | null
           recipe_id: string | null
-          session_id: string
+          household_id: string
           title: string
         }
         Insert: {
@@ -192,7 +194,7 @@ export type Database = {
           meal_type?: string
           protein?: number | null
           recipe_id?: string | null
-          session_id?: string
+          household_id?: string
           title: string
         }
         Update: {
@@ -205,7 +207,7 @@ export type Database = {
           meal_type?: string
           protein?: number | null
           recipe_id?: string | null
-          session_id?: string
+          household_id?: string
           title?: string
         }
         Relationships: [
@@ -251,6 +253,7 @@ export type Database = {
       recipes: {
         Row: {
           author_handle: string
+          author_id: string | null
           author_name: string
           calories: number | null
           carbs: number | null
@@ -275,6 +278,7 @@ export type Database = {
         }
         Insert: {
           author_handle?: string
+          author_id?: string | null
           author_name?: string
           calories?: number | null
           carbs?: number | null
@@ -299,6 +303,7 @@ export type Database = {
         }
         Update: {
           author_handle?: string
+          author_id?: string | null
           author_name?: string
           calories?: number | null
           carbs?: number | null
@@ -328,19 +333,19 @@ export type Database = {
           created_at: string
           id: string
           recipe_id: string
-          session_id: string
+          household_id: string
         }
         Insert: {
           created_at?: string
           id?: string
           recipe_id: string
-          session_id?: string
+          household_id?: string
         }
         Update: {
           created_at?: string
           id?: string
           recipe_id?: string
-          session_id?: string
+          household_id?: string
         }
         Relationships: [
           {
@@ -362,7 +367,7 @@ export type Database = {
           quantity: string | null
           recipe_id: string | null
           recipe_label: string | null
-          session_id: string
+          household_id: string
         }
         Insert: {
           category?: string | null
@@ -373,7 +378,7 @@ export type Database = {
           quantity?: string | null
           recipe_id?: string | null
           recipe_label?: string | null
-          session_id?: string
+          household_id?: string
         }
         Update: {
           category?: string | null
@@ -384,7 +389,7 @@ export type Database = {
           quantity?: string | null
           recipe_id?: string | null
           recipe_label?: string | null
-          session_id?: string
+          household_id?: string
         }
         Relationships: [
           {
@@ -406,7 +411,7 @@ export type Database = {
         Returns: string
       }
       can_access_session: {
-        Args: { _session_id: string; _user_id: string }
+        Args: { _household_id: string; _user_id: string }
         Returns: boolean
       }
       get_user_household_id: { Args: { _user_id: string }; Returns: string }
