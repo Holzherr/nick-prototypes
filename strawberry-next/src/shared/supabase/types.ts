@@ -1,5 +1,3 @@
-// Hand-patched for migration 0007 (session_id -> household_id, recipes.author_id).
-// Regenerate with `npx supabase gen types typescript --linked` once the project exists.
 export type Json =
   | string
   | number
@@ -12,7 +10,32 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "14.4"
+    PostgrestVersion: "14.5"
+  }
+  graphql_public: {
+    Tables: {
+      [_ in never]: never
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      graphql: {
+        Args: {
+          extensions?: Json
+          operationName?: string
+          query?: string
+          variables?: Json
+        }
+        Returns: Json
+      }
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
   }
   public: {
     Tables: {
@@ -52,26 +75,34 @@ export type Database = {
       collections: {
         Row: {
           created_at: string
+          household_id: string
           id: string
           is_public: boolean | null
           name: string
-          household_id: string
         }
         Insert: {
           created_at?: string
+          household_id: string
           id?: string
           is_public?: boolean | null
           name: string
-          household_id?: string
         }
         Update: {
           created_at?: string
+          household_id?: string
           id?: string
           is_public?: boolean | null
           name?: string
-          household_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "collections_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       household_invites: {
         Row: {
@@ -177,11 +208,11 @@ export type Database = {
           created_at: string
           date: string
           fat: number | null
+          household_id: string
           id: string
           meal_type: string
           protein: number | null
           recipe_id: string | null
-          household_id: string
           title: string
         }
         Insert: {
@@ -190,11 +221,11 @@ export type Database = {
           created_at?: string
           date: string
           fat?: number | null
+          household_id: string
           id?: string
           meal_type?: string
           protein?: number | null
           recipe_id?: string | null
-          household_id?: string
           title: string
         }
         Update: {
@@ -203,14 +234,21 @@ export type Database = {
           created_at?: string
           date?: string
           fat?: number | null
+          household_id?: string
           id?: string
           meal_type?: string
           protein?: number | null
           recipe_id?: string | null
-          household_id?: string
           title?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "meal_plan_items_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "meal_plan_items_recipe_id_fkey"
             columns: ["recipe_id"]
@@ -331,23 +369,30 @@ export type Database = {
       saved_recipes: {
         Row: {
           created_at: string
+          household_id: string
           id: string
           recipe_id: string
-          household_id: string
         }
         Insert: {
           created_at?: string
+          household_id: string
           id?: string
           recipe_id: string
-          household_id?: string
         }
         Update: {
           created_at?: string
+          household_id?: string
           id?: string
           recipe_id?: string
-          household_id?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "saved_recipes_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "saved_recipes_recipe_id_fkey"
             columns: ["recipe_id"]
@@ -362,36 +407,43 @@ export type Database = {
           category: string | null
           checked: boolean | null
           created_at: string
+          household_id: string
           id: string
           name: string
           quantity: string | null
           recipe_id: string | null
           recipe_label: string | null
-          household_id: string
         }
         Insert: {
           category?: string | null
           checked?: boolean | null
           created_at?: string
+          household_id: string
           id?: string
           name: string
           quantity?: string | null
           recipe_id?: string | null
           recipe_label?: string | null
-          household_id?: string
         }
         Update: {
           category?: string | null
           checked?: boolean | null
           created_at?: string
+          household_id?: string
           id?: string
           name?: string
           quantity?: string | null
           recipe_id?: string | null
           recipe_label?: string | null
-          household_id?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "shopping_list_items_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "shopping_list_items_recipe_id_fkey"
             columns: ["recipe_id"]
@@ -410,15 +462,12 @@ export type Database = {
         Args: { _invite_code: string }
         Returns: string
       }
-      can_access_session: {
-        Args: { _household_id: string; _user_id: string }
-        Returns: boolean
-      }
       get_user_household_id: { Args: { _user_id: string }; Returns: string }
       is_household_member: {
         Args: { _household_id: string; _user_id: string }
         Returns: boolean
       }
+      user_households: { Args: never; Returns: string[] }
     }
     Enums: {
       [_ in never]: never
@@ -437,12 +486,12 @@ export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
         DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -466,11 +515,11 @@ export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -491,11 +540,11 @@ export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -516,11 +565,11 @@ export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
     | { schema: keyof DatabaseWithoutInternals },
-  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+  EnumName extends (DefaultSchemaEnumNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaEnumNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -533,11 +582,11 @@ export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
     | { schema: keyof DatabaseWithoutInternals },
-  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+  CompositeTypeName extends (PublicCompositeTypeNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-    : never = never,
+    : never) = never,
 > = PublicCompositeTypeNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -547,6 +596,9 @@ export type CompositeTypes<
     : never
 
 export const Constants = {
+  graphql_public: {
+    Enums: {},
+  },
   public: {
     Enums: {},
   },
