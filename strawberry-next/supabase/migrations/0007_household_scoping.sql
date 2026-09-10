@@ -30,6 +30,22 @@ AS $$
   SELECT household_id FROM public.household_members WHERE user_id = auth.uid()
 $$;
 
+-- Policies on those four tables reference session_id, so they have to go before the column does.
+DO $$
+DECLARE
+  t text;
+  p record;
+BEGIN
+  FOREACH t IN ARRAY ARRAY['saved_recipes', 'shopping_list_items', 'collections', 'meal_plan_items']
+  LOOP
+    FOR p IN SELECT policyname FROM pg_policies WHERE schemaname = 'public' AND tablename = t
+    LOOP
+      EXECUTE format('DROP POLICY %I ON public.%I', p.policyname, t);
+    END LOOP;
+  END LOOP;
+END;
+$$;
+
 DO $$
 DECLARE
   t text;
@@ -63,15 +79,9 @@ DROP FUNCTION IF EXISTS public.can_access_session(uuid, text);
 DO $$
 DECLARE
   t text;
-  p record;
 BEGIN
   FOREACH t IN ARRAY ARRAY['saved_recipes', 'shopping_list_items', 'collections', 'meal_plan_items']
   LOOP
-    FOR p IN SELECT policyname FROM pg_policies WHERE schemaname = 'public' AND tablename = t
-    LOOP
-      EXECUTE format('DROP POLICY %I ON public.%I', p.policyname, t);
-    END LOOP;
-
     EXECUTE format($f$CREATE POLICY "Household members read" ON public.%I FOR SELECT TO authenticated
                       USING (household_id IN (SELECT public.user_households()))$f$, t);
     EXECUTE format($f$CREATE POLICY "Household members insert" ON public.%I FOR INSERT TO authenticated
