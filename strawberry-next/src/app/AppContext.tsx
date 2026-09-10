@@ -44,7 +44,6 @@ export interface AppState {
   collections: Collection[];
   loading: boolean;
   householdId: string | null;
-  sessionId: string;
   toggleSaveRecipe: (id: string) => void;
   addToShoppingList: (items: { name: string; quantity: string; category: string; recipe_id?: string }[]) => void;
   removeFromShoppingList: (id: string) => void;
@@ -72,39 +71,39 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [collections, setCollections] = useState<Collection[]>([]);
   const [loading, setLoading] = useState(true);
   const [householdId, setHouseholdId] = useState<string | null>(null);
-  const [sessionId, setSessionId] = useState("default");
 
-  // Resolve household ID when user changes
+  // Resolve household ID when user changes. Signed out there is no household, and therefore no
+  // box, list, plan or collections — the old code fell back to a shared "default" bucket that
+  // every signed-in user could read and write.
   useEffect(() => {
     if (!user) {
       setHouseholdId(null);
-      setSessionId("default");
       return;
     }
     (async () => {
       try {
-        const { data } = await supabase.rpc("get_user_household_id", {
-          _user_id: user.id,
-        });
-        if (data) {
-          setHouseholdId(data);
-          setSessionId(data);
-        } else {
-          setSessionId("default");
-        }
-      } catch {
-        setSessionId("default");
+        const { data } = await supabase.rpc("get_user_household_id", { _user_id: user.id });
+        setHouseholdId((data as string | null) ?? null);
+      } catch (e) {
+        console.error("Failed to resolve household:", e);
+        setHouseholdId(null);
       }
     })();
   }, [user]);
 
   const refreshAll = useCallback(async () => {
-    const sid = sessionId;
+    if (!householdId) {
+      setSavedRecipeIds([]);
+      setShoppingList([]);
+      setCollections([]);
+      setLoading(false);
+      return;
+    }
     try {
       const [saved, items, cols] = await Promise.all([
-        fetchSavedRecipeIds(sid),
-        fetchShoppingList(sid),
-        fetchCollections(sid),
+        fetchSavedRecipeIds(householdId),
+        fetchShoppingList(householdId),
+        fetchCollections(householdId),
       ]);
       setSavedRecipeIds(saved);
       setShoppingList(items as ShoppingItem[]);
@@ -114,7 +113,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     } finally {
       setLoading(false);
     }
-  }, [sessionId]);
+  }, [householdId]);
 
   useEffect(() => {
     refreshAll();
@@ -126,13 +125,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
     const channel = supabase
       .channel(`household-${householdId}`)
-      .on("postgres_changes", { event: "*", schema: "public", table: "shopping_list_items", filter: `session_id=eq.${householdId}` }, () => {
+      .on("postgres_changes", { event: "*", schema: "public", table: "shopping_list_items", filter: `household_id=eq.${householdId}` }, () => {
         fetchShoppingList(householdId).then((items) => setShoppingList(items as ShoppingItem[])).catch(console.error);
       })
-      .on("postgres_changes", { event: "*", schema: "public", table: "saved_recipes", filter: `session_id=eq.${householdId}` }, () => {
+      .on("postgres_changes", { event: "*", schema: "public", table: "saved_recipes", filter: `household_id=eq.${householdId}` }, () => {
         fetchSavedRecipeIds(householdId).then(setSavedRecipeIds).catch(console.error);
       })
-      .on("postgres_changes", { event: "*", schema: "public", table: "collections", filter: `session_id=eq.${householdId}` }, () => {
+      .on("postgres_changes", { event: "*", schema: "public", table: "collections", filter: `household_id=eq.${householdId}` }, () => {
         fetchCollections(householdId).then(setCollections).catch(console.error);
       })
       .subscribe();
@@ -143,21 +142,23 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, [householdId]);
 
   const toggleSaveRecipe = useCallback(async (id: string) => {
+    if (!householdId) return;
     const isSaved = savedRecipeIds.includes(id);
     setSavedRecipeIds((prev) => isSaved ? prev.filter((r) => r !== id) : [...prev, id]);
     try {
-      if (isSaved) await unsaveRecipe(id, sessionId);
-      else await saveRecipe(id, sessionId);
+      if (isSaved) await unsaveRecipe(id, householdId);
+      else await saveRecipe(id, householdId);
     } catch { refreshAll(); }
-  }, [savedRecipeIds, refreshAll, sessionId]);
+  }, [savedRecipeIds, refreshAll, householdId]);
 
   const addToShoppingList = useCallback(async (items: { name: string; quantity: string; category: string; recipe_id?: string }[]) => {
+    if (!householdId) return;
     try {
-      await addShoppingItems(items, sessionId);
-      const updated = await fetchShoppingList(sessionId);
+      await addShoppingItems(items, householdId);
+      const updated = await fetchShoppingList(householdId);
       setShoppingList(updated as ShoppingItem[]);
     } catch (e) { console.error(e); }
-  }, [sessionId]);
+  }, [householdId]);
 
   const removeFromShoppingList = useCallback(async (id: string) => {
     setShoppingList((prev) => prev.filter((i) => i.id !== id));
@@ -172,22 +173,25 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, [shoppingList, refreshAll]);
 
   const addManualShoppingItem = useCallback(async (name: string, category: string) => {
+    if (!householdId) return;
     try {
-      await addShoppingItems([{ name, quantity: "", category }], sessionId);
-      const updated = await fetchShoppingList(sessionId);
+      await addShoppingItems([{ name, quantity: "", category }], householdId);
+      const updated = await fetchShoppingList(householdId);
       setShoppingList(updated as ShoppingItem[]);
     } catch (e) { console.error(e); }
-  }, [sessionId]);
+  }, [householdId]);
 
   const clearCheckedItems = useCallback(async () => {
     setShoppingList((prev) => prev.filter((i) => !i.checked));
-    try { await clearCheckedShoppingItems(sessionId); } catch { refreshAll(); }
-  }, [refreshAll, sessionId]);
+    if (!householdId) return;
+    try { await clearCheckedShoppingItems(householdId); } catch { refreshAll(); }
+  }, [refreshAll, householdId]);
 
   const clearAllItems = useCallback(async () => {
     setShoppingList([]);
-    try { await clearAllShoppingItems(sessionId); } catch { refreshAll(); }
-  }, [refreshAll, sessionId]);
+    if (!householdId) return;
+    try { await clearAllShoppingItems(householdId); } catch { refreshAll(); }
+  }, [refreshAll, householdId]);
 
   const updateShoppingItem = useCallback(async (id: string, name: string) => {
     setShoppingList((prev) => prev.map((i) => (i.id === id ? { ...i, name } : i)));
@@ -195,12 +199,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, [refreshAll]);
 
   const createCollection = useCallback(async (name: string) => {
+    if (!householdId) return;
     try {
-      await apiCreateCollection(name, sessionId);
-      const updated = await fetchCollections(sessionId);
+      await apiCreateCollection(name, householdId);
+      const updated = await fetchCollections(householdId);
       setCollections(updated);
     } catch (e) { console.error(e); }
-  }, [sessionId]);
+  }, [householdId]);
 
   const deleteCollection = useCallback(async (id: string) => {
     setCollections((prev) => prev.filter((c) => c.id !== id));
@@ -245,7 +250,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         collections,
         loading,
         householdId,
-        sessionId,
         toggleSaveRecipe,
         addToShoppingList,
         removeFromShoppingList,

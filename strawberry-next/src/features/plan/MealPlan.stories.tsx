@@ -12,11 +12,11 @@ const weekDays = eachDayOfInterval({ start: monday, end: addDays(monday, 6) });
 const day = (n: number) => format(addDays(monday, n), 'yyyy-MM-dd');
 
 const items: MealPlanItem[] = [
-  { id: 'm1', session_id: 'h', recipe_id: 'r1', title: 'Shakshuka', date: day(0), meal_type: 'breakfast', calories: 415, protein: 21, carbs: 24, fat: 26 },
-  { id: 'm2', session_id: 'h', recipe_id: null, title: 'Leftover soup', date: day(0), meal_type: 'lunch', calories: 320, protein: 12, carbs: 30, fat: 14 },
-  { id: 'm3', session_id: 'h', recipe_id: 'r2', title: 'Miso glazed aubergine', date: day(0), meal_type: 'dinner', calories: 280, protein: 6, carbs: 31, fat: 14 },
-  { id: 'm4', session_id: 'h', recipe_id: null, title: 'Porridge', date: day(1), meal_type: 'breakfast', calories: 260, protein: 9, carbs: 44, fat: 5 },
-  { id: 'm5', session_id: 'h', recipe_id: 'r3', title: 'Cookies', date: day(3), meal_type: 'snack', calories: 210, protein: 3, carbs: 26, fat: 11 },
+  { id: 'm1', household_id: 'h', recipe_id: 'r1', title: 'Shakshuka', date: day(0), meal_type: 'breakfast', calories: 415, protein: 21, carbs: 24, fat: 26 },
+  { id: 'm2', household_id: 'h', recipe_id: null, title: 'Leftover soup', date: day(0), meal_type: 'lunch', calories: 320, protein: 12, carbs: 30, fat: 14 },
+  { id: 'm3', household_id: 'h', recipe_id: 'r2', title: 'Miso glazed aubergine', date: day(0), meal_type: 'dinner', calories: 280, protein: 6, carbs: 31, fat: 14 },
+  { id: 'm4', household_id: 'h', recipe_id: null, title: 'Porridge', date: day(1), meal_type: 'breakfast', calories: 260, protein: 9, carbs: 44, fat: 5 },
+  { id: 'm5', household_id: 'h', recipe_id: 'r3', title: 'Cookies', date: day(3), meal_type: 'snack', calories: 210, protein: 3, carbs: 26, fat: 11 },
 ];
 
 const itemsFor = (date: string, mealType: string) =>

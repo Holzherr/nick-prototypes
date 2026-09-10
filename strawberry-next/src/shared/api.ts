@@ -45,36 +45,36 @@ export async function fetchRecipeById(id: string) {
   return data as unknown as DbRecipe;
 }
 
-export async function fetchSavedRecipeIds(sessionId = "default") {
+export async function fetchSavedRecipeIds(householdId: string) {
   const { data, error } = await supabase
     .from("saved_recipes")
     .select("recipe_id")
-    .eq("session_id", sessionId);
+    .eq("household_id", householdId);
   if (error) throw error;
   return (data || []).map((r: any) => r.recipe_id as string);
 }
 
-export async function saveRecipe(recipeId: string, sessionId = "default") {
+export async function saveRecipe(recipeId: string, householdId: string) {
   const { error } = await supabase
     .from("saved_recipes")
-    .upsert({ recipe_id: recipeId, session_id: sessionId }, { onConflict: "recipe_id,session_id" });
+    .upsert({ recipe_id: recipeId, household_id: householdId }, { onConflict: "recipe_id,household_id" });
   if (error) throw error;
 }
 
-export async function unsaveRecipe(recipeId: string, sessionId = "default") {
+export async function unsaveRecipe(recipeId: string, householdId: string) {
   const { error } = await supabase
     .from("saved_recipes")
     .delete()
     .eq("recipe_id", recipeId)
-    .eq("session_id", sessionId);
+    .eq("household_id", householdId);
   if (error) throw error;
 }
 
-export async function fetchShoppingList(sessionId = "default") {
+export async function fetchShoppingList(householdId: string) {
   const { data, error } = await supabase
     .from("shopping_list_items")
     .select("*")
-    .eq("session_id", sessionId)
+    .eq("household_id", householdId)
     .order("category")
     .order("created_at");
   if (error) throw error;
@@ -83,11 +83,11 @@ export async function fetchShoppingList(sessionId = "default") {
 
 export async function addShoppingItems(
   items: { name: string; quantity: string; category: string; recipe_id?: string }[],
-  sessionId = "default"
+  householdId: string
 ) {
   const { error } = await supabase
     .from("shopping_list_items")
-    .insert(items.map((i) => ({ ...i, session_id: sessionId })));
+    .insert(items.map((i) => ({ ...i, household_id: householdId })));
   if (error) throw error;
 }
 
@@ -112,28 +112,28 @@ export async function updateShoppingItemName(id: string, name: string) {
   if (error) throw error;
 }
 
-export async function clearCheckedShoppingItems(sessionId = "default") {
+export async function clearCheckedShoppingItems(householdId: string) {
   const { error } = await supabase
     .from("shopping_list_items")
     .delete()
-    .eq("session_id", sessionId)
+    .eq("household_id", householdId)
     .eq("checked", true);
   if (error) throw error;
 }
 
-export async function clearAllShoppingItems(sessionId = "default") {
+export async function clearAllShoppingItems(householdId: string) {
   const { error } = await supabase
     .from("shopping_list_items")
     .delete()
-    .eq("session_id", sessionId);
+    .eq("household_id", householdId);
   if (error) throw error;
 }
 
-export async function fetchCollections(sessionId = "default") {
+export async function fetchCollections(householdId: string) {
   const { data, error } = await supabase
     .from("collections")
     .select("*, collection_recipes(recipe_id)")
-    .eq("session_id", sessionId);
+    .eq("household_id", householdId);
   if (error) throw error;
   return (data || []).map((c: any) => ({
     id: c.id,
@@ -143,10 +143,10 @@ export async function fetchCollections(sessionId = "default") {
   }));
 }
 
-export async function createCollection(name: string, sessionId = "default") {
+export async function createCollection(name: string, householdId: string) {
   const { data, error } = await supabase
     .from("collections")
-    .insert({ name, session_id: sessionId })
+    .insert({ name, household_id: householdId })
     .select()
     .single();
   if (error) throw error;
