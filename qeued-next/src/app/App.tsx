@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { Toaster as Sonner } from "@/shared/components/ui/sonner";
 import { Toaster } from "@/shared/components/ui/toaster";
 import { TooltipProvider } from "@/shared/components/ui/tooltip";
@@ -34,6 +35,19 @@ const AuthRoute = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
+/** Restores a deep link stashed by the host's 404.html (GitHub Pages only serves a root 404). */
+const RestoreDeepLink = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const path = sessionStorage.getItem("spa-redirect");
+    if (path) {
+      sessionStorage.removeItem("spa-redirect");
+      navigate(path, { replace: true });
+    }
+  }, [navigate]);
+  return null;
+};
+
 const HomeRoute = () => {
   const { user, loading } = useAuth();
   if (loading) return <div className="flex min-h-screen items-center justify-center">Loading...</div>;
@@ -47,6 +61,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <RestoreDeepLink />
         <AuthProvider>
           <Routes>
             <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
