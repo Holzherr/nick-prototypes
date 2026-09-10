@@ -36,27 +36,34 @@ export default function MealPlan() {
   const [dragItem, setDragItem] = useState<MealPlanItem | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const { sessionId } = useApp();
+  const { householdId } = useApp();
 
   const weekStart = startOfWeek(currentDate, { weekStartsOn: 1 });
   const weekEnd = endOfWeek(currentDate, { weekStartsOn: 1 });
   const weekDays = eachDayOfInterval({ start: weekStart, end: weekEnd });
 
   const fetchItems = useCallback(async () => {
+    if (!householdId) {
+      setItems([]);
+      setLoading(false);
+      return;
+    }
     const start = viewMode === "week" ? format(weekStart, "yyyy-MM-dd") : format(currentDate, "yyyy-MM-dd");
     const end = viewMode === "week" ? format(weekEnd, "yyyy-MM-dd") : format(currentDate, "yyyy-MM-dd");
 
     const { data } = await supabase
       .from("meal_plan_items")
       .select("*")
-      .eq("session_id", sessionId)
+      .eq("household_id", householdId)
       .gte("date", start)
       .lte("date", end)
       .order("created_at");
 
     if (data) setItems(data);
     setLoading(false);
-  }, [currentDate, viewMode]);
+  // weekStart/weekEnd derive from currentDate; listing them here would be a new Date each render
+  // and refetch forever.
+  }, [currentDate, viewMode, householdId]);
 
   useEffect(() => {
     fetchItems();
@@ -106,8 +113,10 @@ export default function MealPlan() {
       : newTitle;
     if (!title.trim()) return;
 
+    if (!householdId) return;
+
     const { error } = await supabase.from("meal_plan_items").insert({
-      session_id: sessionId,
+      household_id: householdId,
       recipe_id: selectedRecipeId,
       title: title.trim(),
       date: addTarget.date,

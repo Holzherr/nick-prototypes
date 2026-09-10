@@ -53,7 +53,7 @@ export default function InlineAIPrompt({ context }: { context: ContextKey }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { refreshAll, sessionId } = useApp();
+  const { refreshAll, householdId } = useApp();
 
   const config = contextConfig[activeContext];
 
@@ -96,7 +96,7 @@ export default function InlineAIPrompt({ context }: { context: ContextKey }) {
         body: {
           messages: newMessages.map((m) => ({ role: m.role, content: m.content })),
           context: activeContext,
-          session_id: sessionId,
+          household_id: householdId,
           unit_system: getUnitPreference(),
         },
       });

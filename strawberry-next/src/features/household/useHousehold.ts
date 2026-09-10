@@ -142,8 +142,8 @@ export function useHousehold() {
     []
   );
 
-  // The session_id to use for all data queries (household UUID or 'default' fallback)
-  const sessionId = householdId || "default";
+  // Every data query is scoped by household id. There is deliberately no fallback: signed out, or
+  // before the household resolves, the app shows nothing rather than a bucket shared with everyone.
 
   return {
     householdId,
@@ -151,7 +151,6 @@ export function useHousehold() {
     members,
     invites,
     loading,
-    sessionId,
     renameHousehold,
     createInvite,
     deleteInvite,

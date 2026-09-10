@@ -9,7 +9,6 @@ export const emptyAppState: AppState = {
   collections: [],
   loading: false,
   householdId: null,
-  sessionId: 'story',
   toggleSaveRecipe: noop,
   addToShoppingList: noop,
   removeFromShoppingList: noop,
@@ -46,7 +45,6 @@ export const populatedAppState: AppState = {
   shoppingList,
   collections,
   householdId: 'h_story',
-  sessionId: 'h_story',
 };
 
 /** Storybook decorator: hands a component a fixed app state instead of live Supabase data. */
