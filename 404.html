@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Not found</title>
+  <script>
+    // GitHub Pages only serves a root-level 404.html, so deep links into the React apps below land
+    // here. Stash the requested path and bounce to the app's base; the app restores the route.
+    (function () {
+      var apps = ['/nick-prototypes/qeued-next/'];
+      for (var i = 0; i < apps.length; i++) {
+        if (location.pathname.indexOf(apps[i]) === 0) {
+          sessionStorage.setItem('spa-redirect', location.pathname.slice(apps[i].length - 1) + location.search + location.hash);
+          location.replace(apps[i]);
+          return;
+        }
+      }
+    })();
+  </script>
+</head>
+<body style="font-family: system-ui, sans-serif; padding: 2rem">
+  <h1>404</h1>
+  <p>Nothing here. <a href="/nick-prototypes/">Back to the prototypes index</a>.</p>
+</body>
+</html>

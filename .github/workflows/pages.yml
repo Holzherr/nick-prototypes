@@ -69,7 +69,6 @@ jobs:
           rsync -a --exclude .git --exclude _site --exclude node_modules --exclude workout-hub-next --exclude qeued-next ./ _site/
           cp -r workout-hub-next/dist _site/workout-hub-next
           cp -r qeued-next/dist _site/qeued-next
-          cp _site/qeued-next/index.html _site/qeued-next/404.html
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
