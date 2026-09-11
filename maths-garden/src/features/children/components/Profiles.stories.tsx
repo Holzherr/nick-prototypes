@@ -26,7 +26,7 @@ export const WhoIsPlaying: Story = { args: { profiles: [TARA, { id: 'b', name: '
 export const FirstChild: Story = { args: { profiles: [] } };
 export const SaveFailed: Story = { args: { profiles: [], error: 'Could not save the profile.' } };
 
-export const SignIn: Story = { render: () => <AuthForm mode="sign-in" onModeChange={fn()} onSubmit={fn()} onGoogle={fn()} /> };
+export const SignIn: Story = { render: () => <AuthForm mode="sign-in" onModeChange={fn()} onSubmit={fn()} onGoogle={fn()} onGuest={fn()} /> };
 export const CreateAccount: Story = {
-  render: () => <AuthForm mode="sign-up" onModeChange={fn()} onSubmit={fn()} onGoogle={fn()} notice="Check your email to confirm the account, then sign in." />,
+  render: () => <AuthForm mode="sign-up" onModeChange={fn()} onSubmit={fn()} onGoogle={fn()} onGuest={fn()} notice="Check your email to confirm the account, then sign in." />,
 };

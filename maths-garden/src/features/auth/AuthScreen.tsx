@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { cloudConfigured, supabase } from '@/shared/supabase/client';
 import { AuthForm, type AuthMode } from './AuthForm';
 
-export default function AuthScreen() {
+export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
   const [mode, setMode] = useState<AuthMode>('sign-in');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -38,6 +38,7 @@ export default function AuthScreen() {
   return (
     <AuthForm
       onGoogle={google}
+      onGuest={onGuest}
       mode={mode}
       onModeChange={(next) => {
         setMode(next);
