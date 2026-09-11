@@ -67,10 +67,11 @@ describes the visual layout. `Screens/Garden (playable)` runs the whole child ap
 
 ## Backend
 
-Supabase project `maths-garden` (org "Holzherr Apps", London). Tables: `children`, `maths_rounds`,
-`maths_levels`, `maths_checkins`, `maths_stickers`; RLS gives a parent their own children and those
-children's rows only. Schema changes: add a migration, apply it, update `src/shared/supabase/types.ts`.
-Auth settings live in `supabase/config.toml` (`npx supabase config push`).
+Supabase project `gzdfoptvdocauvgxltjk` (eu-west-1) on its own Supabase account, set up 11 Sep 2026.
+Tables: `children`, `maths_rounds`, `maths_levels`, `maths_checkins`, `maths_stickers`; RLS gives a parent
+their own children and those children's rows only. Schema changes: add a migration, apply it through the
+session pooler (the direct database host is IPv6-only), update `src/shared/supabase/types.ts`. Intended
+auth settings are in `supabase/config.toml`.
 
 ## Next
 
