@@ -6,6 +6,7 @@ import { GameScreen } from '@/features/games/components/GameScreen';
 import { GardenHome } from '@/features/games/components/GardenHome';
 import { GrownUpsGate } from '@/features/games/components/GrownUpsGate';
 import { levelOf, nextLevel, type AnswerRecord, type RoundRecord } from '@/features/games/engine';
+import { breakSuggestion, isPersonalBest, todaySummary, type BreakReason } from '@/features/games/insights';
 import { unlockAudio } from '@/features/games/sound';
 import type { CheckinScores } from '@/features/progress/components/CheckInPanel';
 import { DashboardScreen } from '@/features/progress/components/DashboardScreen';
@@ -18,7 +19,18 @@ import { StickerBookScreen } from '@/features/stickers/components/StickerBookScr
 type Screen =
   | { name: 'home' }
   | { name: 'game'; game: Game; level: number; run: number }
-  | { name: 'end'; game: Game; roundId: string; score: number; total: number; levelUp: boolean; sticker: StickerRecord | null }
+  | {
+      name: 'end';
+      game: Game;
+      roundId: string;
+      score: number;
+      total: number;
+      levelUp: boolean;
+      personalBest: boolean;
+      goal: { done: number; goal: number; justReached: boolean };
+      breakHint: BreakReason | null;
+      sticker: StickerRecord | null;
+    }
   | { name: 'stickers' }
   | { name: 'gate' }
   | { name: 'dashboard' };
@@ -74,13 +86,43 @@ export function GardenApp({ child, repo, onSwitchChild, onSignOut }: GardenAppPr
     setScreen({ name: 'game', game, level: levelOf(latest.current.levels, game), run: runs.current });
   };
 
+  const makeRound = (game: Game, level: number, answers: AnswerRecord[], completed: boolean): RoundRecord => ({
+    id: crypto.randomUUID(),
+    childId: child.id,
+    game: game.id,
+    level,
+    score: answers.filter((a) => a.correct).length,
+    total: answers.length,
+    answers,
+    playedAt: new Date().toISOString(),
+    ...(completed ? {} : { completed: false }),
+  });
+
   const finish = (game: Game, level: number, answers: AnswerRecord[]) => {
-    const score = answers.filter((a) => a.correct).length;
-    const round: RoundRecord = { id: crypto.randomUUID(), childId: child.id, game: game.id, level, score, total: answers.length, answers, playedAt: new Date().toISOString() };
-    const next = nextLevel([...latest.current.rounds, round], game, level);
+    const round = makeRound(game, level, answers, true);
+    const all = [...latest.current.rounds, round];
+    const next = nextLevel(all, game, level);
     apply({ kind: 'round', round });
     if (next !== level) apply({ kind: 'level', childId: child.id, game: game.id, level: next });
-    setScreen({ name: 'end', game, roundId: round.id, score, total: round.total, levelUp: next > level, sticker: null });
+    const day = todaySummary(all);
+    setScreen({
+      name: 'end',
+      game,
+      roundId: round.id,
+      score: round.score,
+      total: round.total,
+      levelUp: next > level,
+      personalBest: isPersonalBest(all, round),
+      goal: { done: day.done, goal: day.goal, justReached: day.done === day.goal },
+      breakHint: breakSuggestion(all),
+      sticker: null,
+    });
+  };
+
+  /** Left mid-round: keep what was answered (it shows frustration patterns), but it never changes the level. */
+  const quit = (game: Game, level: number, answers: AnswerRecord[]) => {
+    if (answers.length) apply({ kind: 'round', round: makeRound(game, level, answers, false) });
+    home();
   };
 
   const pickSticker = (pack: PackId) => {
@@ -93,7 +135,7 @@ export function GardenApp({ child, repo, onSwitchChild, onSignOut }: GardenAppPr
       id: crypto.randomUUID(),
       childId: child.id,
       sticker: drawn.id,
-      shiny: screen.score === screen.total,
+      shiny: screen.score === screen.total || screen.goal.justReached,
       roundId: screen.roundId,
       earnedAt: new Date().toISOString(),
     };
@@ -117,6 +159,7 @@ export function GardenApp({ child, repo, onSwitchChild, onSignOut }: GardenAppPr
           childName={child.name}
           levels={progress.levels}
           stickerCount={progress.stickers.length}
+          today={todaySummary(progress.rounds)}
           onPlay={play}
           onStickers={() => setScreen({ name: 'stickers' })}
           onGrownUps={() => setScreen({ name: 'gate' })}
@@ -130,7 +173,7 @@ export function GardenApp({ child, repo, onSwitchChild, onSignOut }: GardenAppPr
           level={screen.level}
           childName={child.name}
           onFinish={(answers) => finish(screen.game, screen.level, answers)}
-          onHome={home}
+          onHome={(answers) => quit(screen.game, screen.level, answers)}
         />
       );
     case 'end': {
@@ -141,6 +184,9 @@ export function GardenApp({ child, repo, onSwitchChild, onSignOut }: GardenAppPr
           score={screen.score}
           total={screen.total}
           levelUp={screen.levelUp}
+          personalBest={screen.personalBest}
+          goal={screen.goal}
+          breakHint={screen.breakHint}
           sticker={drawn && screen.sticker ? { sticker: drawn, shiny: screen.sticker.shiny } : null}
           onPickPack={pickSticker}
           onAgain={() => play(screen.game)}

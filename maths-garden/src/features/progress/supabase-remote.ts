@@ -20,6 +20,7 @@ const toRound = (row: Row<'maths_rounds'>): RoundRecord | null =>
         total: row.total,
         answers: (row.answers ?? []) as unknown as AnswerRecord[],
         playedAt: row.played_at,
+        ...(row.completed === false ? { completed: false } : {}),
       }
     : null;
 
@@ -77,7 +78,20 @@ export const supabaseRemote: Remote = {
         const r = change.round;
         const { error } = await supabase
           .from('maths_rounds')
-          .upsert({ id: r.id, child_id: r.childId, game: r.game, level: r.level, score: r.score, total: r.total, answers: r.answers as unknown as Json, played_at: r.playedAt }, once);
+          .upsert(
+            {
+              id: r.id,
+              child_id: r.childId,
+              game: r.game,
+              level: r.level,
+              score: r.score,
+              total: r.total,
+              answers: r.answers as unknown as Json,
+              played_at: r.playedAt,
+              completed: r.completed !== false,
+            },
+            once,
+          );
         return raise(error);
       }
       case 'level': {
