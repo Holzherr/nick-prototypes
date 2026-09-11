@@ -1,4 +1,4 @@
-export type PackId = 'unicorn' | 'kpop' | 'ice';
+export type PackId = 'unicorn' | 'kpop' | 'ice' | 'special';
 
 export interface Sticker {
   /** "<pack>/<name>", stored in maths_stickers.sticker; never rename one that has been handed out. */
@@ -62,18 +62,58 @@ export const PACKS: readonly Pack[] = [
   ]),
 ];
 
-const ALL = PACKS.flatMap((p) => p.stickers);
-export const STICKER_TOTAL = ALL.length;
+/** Gold stickers only Nova hands out, at milestones. Never offered in the pack chooser. */
+export const SPECIAL_PACK: Pack = makePack('special', 'Special from Nova', '⭐', 'radial-gradient(circle at 32% 28%, #fffbe6 0%, #ffd66b 50%, #f0a020 100%)', [
+  ['👑', 'golden crown'],
+  ['🏆', 'trophy'],
+  ['💫', 'superstar'],
+  ['🎖️', 'medal'],
+  ['🌠', 'shooting star'],
+  ['🪄', 'magic wand'],
+  ['🦄', 'golden unicorn'],
+  ['🎤', 'star microphone'],
+  ['💎', 'giant gem'],
+  ['🌈', 'golden rainbow'],
+]);
 
-export const packById = (id: PackId): Pack => PACKS.find((p) => p.id === id) ?? PACKS[0];
+const ALL = [...PACKS, SPECIAL_PACK].flatMap((p) => p.stickers);
+/** Different stickers in the regular packs. */
+export const STICKER_TOTAL = PACKS.reduce((sum, p) => sum + p.stickers.length, 0);
+
+export const packById = (id: PackId): Pack => [...PACKS, SPECIAL_PACK].find((p) => p.id === id) ?? PACKS[0];
 export const stickerById = (id: string): Sticker | undefined => ALL.find((s) => s.id === id);
+export const isSpecial = (id: string) => id.startsWith('special/');
+
+const pick = <T>(items: readonly T[], rng: () => number) => items[Math.floor(rng() * items.length)];
 
 /** A sticker from the pack, preferring ones not collected yet; repeats once the pack is complete. */
 export function drawSticker(pack: PackId, owned: readonly string[], rng: () => number = Math.random): Sticker {
   const all = packById(pack).stickers;
   const fresh = all.filter((s) => !owned.includes(s.id));
-  const pool = fresh.length ? fresh : all;
-  return pool[Math.floor(rng() * pool.length)];
+  return pick(fresh.length ? fresh : all, rng);
+}
+
+/**
+ * What a pick from a pack gives: a new sticker while the pack has gaps; once it's complete, sparkly copies
+ * until the sparkly set is done too; after that, repeats.
+ */
+export function drawReward(pack: PackId, records: readonly { sticker: string; shiny: boolean }[], rng: () => number = Math.random) {
+  const all = packById(pack).stickers;
+  const owned = collected(records);
+  const fresh = all.filter((s) => !owned.has(s.id));
+  if (fresh.length) return { sticker: pick(fresh, rng), sparkly: false };
+  const dull = all.filter((s) => !owned.get(s.id)?.shiny);
+  if (dull.length) return { sticker: pick(dull, rng), sparkly: true };
+  return { sticker: pick(all, rng), sparkly: false };
+}
+
+/** How far a pack is collected, normally and sparkly. */
+export function packProgress(pack: Pack, records: readonly { sticker: string; shiny: boolean }[]) {
+  const owned = collected(records);
+  const have = pack.stickers.filter((s) => owned.has(s.id)).length;
+  const sparkly = pack.stickers.filter((s) => owned.get(s.id)?.shiny).length;
+  const total = pack.stickers.length;
+  return { have, sparkly, total, complete: have === total, sparklyComplete: sparkly === total };
 }
 
 /** A fixed tilt per sticker (−8° to 8°), so the book looks hand-stuck but never reshuffles. */

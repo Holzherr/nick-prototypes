@@ -1,6 +1,9 @@
+import { readJSON, writeJSON } from '@/shared/utils/storage';
+
 /**
- * Beeps (Web Audio) and a British voice (speech synthesis). iOS only allows both after a tap, so call
- * unlockAudio() inside the tap handler that starts a game.
+ * Beeps (Web Audio) and speech (the device's own voices). iOS only allows both after a tap, so call
+ * unlockAudio() inside the tap handler that starts a game. Voices differ per device: the best English
+ * voice is picked automatically (downloaded Premium/Enhanced voices first) and a grown-up can override it.
  */
 let ctx: AudioContext | null = null;
 
@@ -42,32 +45,83 @@ export const sounds = {
   pop: (n: number) => tone([520 + n * 90]),
 };
 
-let voice: SpeechSynthesisVoice | null = null;
+export interface VoiceSettings {
+  /** null = pick the best voice automatically. */
+  voiceURI: string | null;
+  rate: number;
+}
 
-const pickVoice = () => {
-  const voices = speechSynthesis.getVoices();
-  voice =
-    voices.find((v) => v.lang === 'en-GB' && /female|Kate|Serena|Stephanie|Martha/i.test(v.name)) ??
-    voices.find((v) => v.lang === 'en-GB') ??
-    voices.find((v) => v.lang.startsWith('en')) ??
-    null;
-};
+const VOICE_KEY = 'maths-garden:voice';
+const NOVELTY = /Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Deranged|Good News|Hysterical|Jester|Junior|Organ|Ralph|Superstar|Trinoids|Whisper|Wobble|Zarvox|Fred|Grandma|Grandpa|Rocko|Shelley|Eddy|Flo|Reed|Sandy/i;
+
+/** Ranking for English voices (−1 = not English or a novelty voice): Premium/Enhanced downloads, then British, then known good names. */
+export function voiceScore(v: { name: string; lang: string }): number {
+  const lang = v.lang.replace('_', '-');
+  if (!lang.toLowerCase().startsWith('en') || NOVELTY.test(v.name)) return -1;
+  let score = lang === 'en-GB' ? 20 : 10;
+  if (/premium/i.test(v.name)) score += 40;
+  else if (/enhanced|neural|natural/i.test(v.name)) score += 30;
+  if (/Serena|Kate|Stephanie|Martha|Libby|Sonia|Arthur|Google UK English Female/i.test(v.name)) score += 5;
+  return score;
+}
+
+let settings: VoiceSettings = { voiceURI: null, rate: 0.9, ...readJSON<Partial<VoiceSettings>>(VOICE_KEY, {}) };
+let voices: SpeechSynthesisVoice[] = [];
+let voice: SpeechSynthesisVoice | null = null;
+const listeners = new Set<() => void>();
 
 const canSpeak = () => typeof window !== 'undefined' && 'speechSynthesis' in window;
 
+export const englishVoices = () => voices.filter((v) => voiceScore(v) >= 0).sort((a, b) => voiceScore(b) - voiceScore(a));
+
+const refresh = () => {
+  voices = canSpeak() ? speechSynthesis.getVoices() : [];
+  voice = voices.find((v) => v.voiceURI === settings.voiceURI) ?? englishVoices()[0] ?? null;
+  for (const listener of listeners) listener();
+};
+
 if (canSpeak()) {
-  speechSynthesis.addEventListener('voiceschanged', pickVoice);
-  pickVoice();
+  speechSynthesis.addEventListener('voiceschanged', refresh);
+  refresh();
 }
+
+export const currentVoice = () => voice;
+export const voiceSettings = () => settings;
+export const onVoicesChanged = (listener: () => void) => {
+  listeners.add(listener);
+  return () => {
+    listeners.delete(listener);
+  };
+};
+
+export function setVoiceSettings(patch: Partial<VoiceSettings>) {
+  settings = { ...settings, ...patch };
+  writeJSON(VOICE_KEY, settings);
+  refresh();
+}
+
+let nameSound: { name: string; soundsLike: string } | null = null;
+
+/** From now on, speak `name` as `soundsLike` (e.g. "Tara" as "Tah-ra"); blank clears it. */
+export function setNameSound(name: string, soundsLike: string | null) {
+  nameSound = soundsLike?.trim() ? { name, soundsLike: soundsLike.trim() } : null;
+}
+
+const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+export const pronounce = (text: string) => (nameSound ? text.replace(new RegExp(`\\b${escapeRegExp(nameSound.name)}\\b`, 'gi'), nameSound.soundsLike) : text);
 
 export function say(text: string) {
   if (!canSpeak()) return;
   try {
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    if (voice) u.voice = voice;
-    u.rate = 0.88;
-    u.pitch = 1.15;
+    const u = new SpeechSynthesisUtterance(pronounce(text));
+    if (voice) {
+      u.voice = voice;
+      u.lang = voice.lang;
+    }
+    u.rate = settings.rate;
+    u.pitch = 1;
     speechSynthesis.speak(u);
   } catch {
     // no voice on this device
