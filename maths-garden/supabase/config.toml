@@ -1,0 +1,15 @@
+project_id = "maths-garden"
+
+# Hosted auth settings, applied with `npx supabase config push --project-ref <ref>` (run `config diff` first).
+[auth]
+site_url = "https://holzherr.github.io/nick-prototypes/maths-garden/"
+additional_redirect_urls = [
+  "https://holzherr.github.io/nick-prototypes/maths-garden/**",
+  "http://localhost:5173/nick-prototypes/maths-garden/**",
+]
+minimum_password_length = 8
+
+[auth.email]
+enable_signup = true
+# Parents sign up and play straight away; the data is scoped to their own children by RLS.
+enable_confirmations = false

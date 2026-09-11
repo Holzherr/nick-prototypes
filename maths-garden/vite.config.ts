@@ -1,0 +1,25 @@
+/// <reference types="vitest/config" />
+import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
+import path from 'node:path';
+
+// Served from GitHub Pages under the repo path (preview) or "/" on a custom domain (VITE_BASE=/).
+// Storybook is built separately into dist/storybook.
+export default defineConfig({
+  define: { __BUILD__: JSON.stringify(Date.now().toString(36)) },
+  base: process.env.VITE_BASE ?? '/nick-prototypes/maths-garden/',
+  plugins: [
+    react(),
+    tailwindcss(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      injectRegister: null, // registered by src/app/update-prompt.tsx with a per-build query
+      manifest: false, // public/manifest.webmanifest is hand-written
+      workbox: { globPatterns: ['**/*.{js,css,html,svg,png,woff2}'], navigateFallbackDenylist: [/\/storybook/] },
+    }),
+  ],
+  resolve: { alias: { '@': path.resolve(import.meta.dirname, 'src') } },
+  test: { environment: 'jsdom', globals: true, setupFiles: ['./src/test/setup.ts'], include: ['src/**/*.test.@(ts|tsx)'] },
+});
