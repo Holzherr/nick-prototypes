@@ -41,7 +41,7 @@ export const SkillRow = ({ game, level, stats, missed, onSetLevel, print }: Skil
     <p className="w-full text-sm text-grape/80">
       {advice(stats, level, game)}{' '}
       <span className="text-grape/55">
-        Numbers up to {game.levels[level]} · {stats?.rounds ?? 0} round{stats?.rounds === 1 ? '' : 's'} counted
+        Numbers up to {game.levels[level].max} · {stats?.rounds ?? 0} round{stats?.rounds === 1 ? '' : 's'} counted
       </span>
       {missed.length > 0 && (
         <>
