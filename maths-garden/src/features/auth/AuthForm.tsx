@@ -11,6 +11,8 @@ export interface AuthFormProps {
   onModeChange: (mode: AuthMode) => void;
   onSubmit: (email: string, password: string) => void;
   onGoogle: () => void;
+  /** Play without an account; progress stays on the device. */
+  onGuest: () => void;
   busy?: boolean;
   error?: string | null;
   notice?: string | null;
@@ -32,7 +34,7 @@ const GoogleMark = () => (
  * Centred cream card: logo, "Grown-ups sign in here", Continue with Google, then email + password with a pink
  * submit, a sign-in/create-account toggle, and a link to the free printables.
  */
-export function AuthForm({ mode, onModeChange, onSubmit, onGoogle, busy = false, error, notice, unavailable }: AuthFormProps) {
+export function AuthForm({ mode, onModeChange, onSubmit, onGoogle, onGuest, busy = false, error, notice, unavailable }: AuthFormProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const submit = (e: FormEvent) => {
@@ -85,6 +87,10 @@ export function AuthForm({ mode, onModeChange, onSubmit, onGoogle, busy = false,
           </a>{' '}
           <span className="text-grape/60">(no sign-in needed)</span>
         </p>
+        <Button variant="quiet" size="md" className="mt-5 w-full" onClick={onGuest}>
+          Guest mode
+        </Button>
+        <p className="mt-2 text-center text-xs text-grape/55">Play now without an account. Progress stays on this device.</p>
       </Card>
     </div>
   );
