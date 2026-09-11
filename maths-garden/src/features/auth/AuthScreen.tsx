@@ -21,8 +21,23 @@ export default function AuthScreen() {
     if (mode === 'sign-up' && !data.session) setNotice('Check your email to confirm the account, then sign in.');
   };
 
+  // Supabase's Google provider; comes back to this app's base URL (nickholzherr.com/maths or the preview).
+  const google = async () => {
+    setBusy(true);
+    setError(null);
+    const { error: oauthError } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: `${location.origin}${import.meta.env.BASE_URL}` },
+    });
+    if (oauthError) {
+      setError(oauthError.message);
+      setBusy(false);
+    }
+  };
+
   return (
     <AuthForm
+      onGoogle={google}
       mode={mode}
       onModeChange={(next) => {
         setMode(next);
