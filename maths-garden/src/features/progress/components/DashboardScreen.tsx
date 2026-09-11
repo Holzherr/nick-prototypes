@@ -35,6 +35,14 @@ export function DashboardScreen({ child, progress, pending, now = new Date(), on
     `${progress.stickers.length} sticker${progress.stickers.length === 1 ? '' : 's'}`,
   ].filter(Boolean);
 
+  const shiftAll = (by: 1 | -1) => {
+    for (const game of GAMES) {
+      const level = levelOf(progress.levels, game);
+      const next = Math.min(Math.max(level + by, 0), game.levels.length - 1);
+      if (next !== level) onSetLevel(game.id, next);
+    }
+  };
+
   return (
     <div className="relative z-10 flex min-h-dvh justify-center px-4 pb-10 pt-[max(24px,env(safe-area-inset-top))]">
       <Card className="w-full max-w-[760px] p-[clamp(20px,4vw,34px)]">
@@ -51,12 +59,21 @@ export function DashboardScreen({ child, progress, pending, now = new Date(), on
         </header>
 
         <p className="mt-5 text-sm text-grape/70">
-          Accuracy over the last 3 rounds of each game. Two rounds in a row at 80%+ moves a game up a level; two under 50% drops it back. Use − / + to override.
+          Accuracy over the last 3 rounds of each game. A perfect round, or two in a row at 80%+, moves a game up a level; two under 50% drops it back. Levels 4
+          and 5 are challenge levels. Use − / + to override.
         </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <Button size="sm" onClick={() => shiftAll(1)}>
+            Make all games harder
+          </Button>
+          <Button variant="quiet" size="sm" onClick={() => shiftAll(-1)}>
+            Easier
+          </Button>
+        </div>
         <div className="mt-1">
           {GAMES.map((game) => {
             const level = levelOf(progress.levels, game);
-            const stage = (level + 1) as StageNumber;
+            const stage = Math.min(level + 1, 3) as StageNumber;
             const skill = skillForGame(game.id);
             const printable = skill && printablesFor(skill.id).find((p) => p.status === 'ready' && p.link && p.stages.includes(stage));
             return (
