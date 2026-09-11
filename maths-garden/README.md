@@ -6,8 +6,10 @@ unlocks the next stage's printables. Built for Tara (4). Started as a single HTM
 chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirror `../qeued-next` and
 `../workout-hub-next` (and GitLaw's front-law repo).
 
-- **App:** https://holzherr.github.io/nick-prototypes/maths-garden/
-- **Free printables (no sign-in):** https://holzherr.github.io/nick-prototypes/maths-garden/#/resources
+- **Live:** https://nickholzherr.com/maths/ (published by `.github/workflows/maths.yml` in Holzherr/nickholzherr.com;
+  run `gh workflow run maths.yml -R Holzherr/nickholzherr.com` after merging here)
+- **Free printables (no sign-in):** https://nickholzherr.com/maths/#/resources
+- **Preview of every merge:** https://holzherr.github.io/nick-prototypes/maths-garden/
 - **Storybook:** https://holzherr.github.io/nick-prototypes/maths-garden/storybook/
 
 ## What it does

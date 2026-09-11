@@ -2,8 +2,9 @@ project_id = "maths-garden"
 
 # Hosted auth settings, applied with `npx supabase config push --project-ref <ref>` (run `config diff` first).
 [auth]
-site_url = "https://holzherr.github.io/nick-prototypes/maths-garden/"
+site_url = "https://nickholzherr.com/maths/"
 additional_redirect_urls = [
+  "https://nickholzherr.com/maths/**",
   "https://holzherr.github.io/nick-prototypes/maths-garden/**",
   "http://localhost:5173/nick-prototypes/maths-garden/**",
 ]
