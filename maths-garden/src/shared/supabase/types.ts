@@ -15,9 +15,9 @@ export type Database = {
         Relationships: [];
       };
       maths_rounds: {
-        Row: { id: string; child_id: string; game: string; level: number; score: number; total: number; answers: Json; played_at: string };
-        Insert: { id?: string; child_id: string; game: string; level: number; score: number; total: number; answers?: Json; played_at?: string };
-        Update: { id?: string; child_id?: string; game?: string; level?: number; score?: number; total?: number; answers?: Json; played_at?: string };
+        Row: { id: string; child_id: string; game: string; level: number; score: number; total: number; answers: Json; played_at: string; completed: boolean };
+        Insert: { id?: string; child_id: string; game: string; level: number; score: number; total: number; answers?: Json; played_at?: string; completed?: boolean };
+        Update: { id?: string; child_id?: string; game?: string; level?: number; score?: number; total?: number; answers?: Json; played_at?: string; completed?: boolean };
         Relationships: [];
       };
       maths_levels: {

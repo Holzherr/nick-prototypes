@@ -1,5 +1,6 @@
 import type { Game } from '@/features/games/catalog';
 import { advice, type SkillStats } from '@/features/games/engine';
+import type { SpeedTrend } from '@/features/games/insights';
 import { Button } from '@/shared/components/ui/button';
 
 export interface SkillRowProps {
@@ -8,12 +9,21 @@ export interface SkillRowProps {
   stats: SkillStats | null;
   missed: readonly { target: string; count: number }[];
   onSetLevel: (level: number) => void;
+  /** Answer speed over the last rounds. */
+  speed?: SpeedTrend | null;
+  /** A habit worth knowing ("touch-counts every object 80% of the time"). */
+  habit?: string | null;
   /** Printables for the current stage, when there are any. */
   print?: { href: string; label: string };
 }
 
-/** One game on the progress screen: skill name, pink accuracy bar with %, − Lv n + stepper; below, the advice line, range and "Often missed". */
-export const SkillRow = ({ game, level, stats, missed, onSetLevel, print }: SkillRowProps) => (
+const PACE_LABEL = { fluent: 'quick', steady: 'steady', slow: 'slow' } as const;
+
+/**
+ * One game on the progress screen: skill name, pink accuracy bar with %, − Lv n + stepper; below, the advice
+ * line, range, answer speed with its trend, habits, "Often missed" and the print link.
+ */
+export const SkillRow = ({ game, level, stats, missed, onSetLevel, speed, habit, print }: SkillRowProps) => (
   <div className="flex flex-wrap items-center gap-x-3.5 gap-y-2 border-b-2 border-dashed border-petal py-3.5">
     <div className="min-w-[150px] flex-1 text-lg font-semibold">
       {game.emoji} {game.skill}
@@ -39,10 +49,18 @@ export const SkillRow = ({ game, level, stats, missed, onSetLevel, print }: Skil
       </Button>
     </div>
     <p className="w-full text-sm text-grape/80">
-      {advice(stats, level, game)}{' '}
+      {advice(stats, level, game, speed?.pace)}{' '}
       <span className="text-grape/55">
         Numbers up to {game.levels[level].max} · {stats?.rounds ?? 0} round{stats?.rounds === 1 ? '' : 's'} counted
       </span>
+      {speed?.ms != null && (
+        <>
+          {' · '}⏱ ~{(speed.ms / 1000).toFixed(1)}s per answer{speed.pace ? ` (${PACE_LABEL[speed.pace]}` : ''}
+          {speed.change && speed.change !== 'steady' ? `, ${speed.change} than before` : ''}
+          {speed.pace ? ')' : ''}
+        </>
+      )}
+      {habit && <> · {habit}</>}
       {missed.length > 0 && (
         <>
           {' · '}

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { gameById, type GameId } from './catalog';
-import { advice, levelOf, nextLevel, oftenMissed, skillStats, weekSummary, type AnswerRecord, type RoundRecord } from './engine';
+import { advice, levelOf, nextLevel, oftenMissed, shouldEase, skillStats, speedOf, streakOf, weekSummary, type AnswerRecord, type RoundRecord } from './engine';
 
 const round = (game: GameId, level: number, score: number, minute: number, answers: AnswerRecord[] = []): RoundRecord => ({
   id: `r${minute}`,
@@ -49,6 +49,32 @@ describe('nextLevel', () => {
   });
 });
 
+describe('speed and within-round rules', () => {
+  const answered = (ms: number, correct = true): AnswerRecord => ({ target: '3', chosen: correct ? '3' : '2', correct, ms });
+  const slow = Array.from({ length: 5 }, () => answered(9000));
+
+  it('holds an accurate but slow round', () => {
+    expect(nextLevel([round('peek', 0, 5, 1, slow)], peek, 0)).toBe(0);
+    expect(nextLevel([round('peek', 0, 4, 1, slow), round('peek', 0, 4, 2, slow)], peek, 0)).toBe(0);
+    expect(nextLevel([round('peek', 0, 5, 1, Array.from({ length: 5 }, () => answered(1500)))], peek, 0)).toBe(1);
+  });
+
+  it('ignores rounds left early', () => {
+    expect(nextLevel([round('peek', 0, 4, 1), { ...round('peek', 0, 5, 2), completed: false }], peek, 0)).toBe(0);
+    expect(skillStats([{ ...round('count', 0, 0, 1), completed: false }], 'count')).toBeNull();
+  });
+
+  it('measures pace against the target', () => {
+    expect(speedOf([round('peek', 0, 3, 1, [answered(1000), answered(2000), answered(3000), answered(9000, false)])])).toEqual({ ms: 2000, ratio: 0.8, pace: 'fluent' });
+  });
+
+  it('eases after two misses and counts streaks', () => {
+    expect(shouldEase([answered(1000), answered(1000, false), answered(1000, false)])).toBe(true);
+    expect(shouldEase([answered(1000, false), answered(1000)])).toBe(false);
+    expect(streakOf([answered(1000, false), answered(1000), answered(1000), answered(1000)])).toBe(3);
+  });
+});
+
 describe('levelOf', () => {
   it('defaults to 0 and clamps overrides to the game', () => {
     expect(levelOf({}, peek)).toBe(0);
@@ -93,6 +119,6 @@ describe('weekSummary', () => {
       { ...round('peek', 0, 5, 3, answers), playedAt: '2026-09-08T09:00:00Z' },
       { ...round('peek', 0, 5, 4, answers), playedAt: '2026-08-20T09:00:00Z' },
     ];
-    expect(weekSummary(rounds, new Date('2026-09-11T12:00:00Z'))).toEqual({ rounds: 3, days: 2, minutes: 2 });
+    expect(weekSummary(rounds, new Date('2026-09-11T12:00:00Z'))).toEqual({ rounds: 3, quit: 0, days: 2, minutes: 2 });
   });
 });

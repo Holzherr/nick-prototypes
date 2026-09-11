@@ -3,11 +3,25 @@ import { skillForGame, type StageNumber } from '@/features/curriculum/skills';
 import { GAMES, type GameId } from '@/features/games/catalog';
 import { printablesFor } from '@/features/resources/catalog';
 import { levelOf, oftenMissed, skillStats, weekSummary } from '@/features/games/engine';
+import { coachingNotes, countingHabit, daysPlayed, levelHistory, replayHabit, speedTrend, todaySummary } from '@/features/games/insights';
 import { Button, buttonVariants } from '@/shared/components/ui/button';
 import { Card } from '@/shared/components/ui/card';
 import type { Progress } from '../model';
 import { CheckInPanel, type CheckinScores } from './CheckInPanel';
+import { MotivationPanel } from './MotivationPanel';
 import { SkillRow } from './SkillRow';
+
+function habitFor(game: GameId, progress: Progress): string | null {
+  if (game === 'count') {
+    const h = countingHabit(progress.rounds);
+    return h ? `touch-counts every object ${h.countedAllPct}% of the time, ${h.tapsPerQuestion} taps per question` : null;
+  }
+  if (game === 'find') {
+    const h = replayHabit(progress.rounds);
+    return h ? `"Hear it again" ${h.perQuestion}× per question` : null;
+  }
+  return null;
+}
 
 export interface DashboardScreenProps {
   child: Child;
@@ -31,7 +45,7 @@ export function DashboardScreen({ child, progress, pending, now = new Date(), on
   const age = ageLabel(child.birthdate, now);
   const summary = [
     age,
-    `This week: ${week.rounds} round${week.rounds === 1 ? '' : 's'} on ${week.days} day${week.days === 1 ? '' : 's'} (~${week.minutes} min)`,
+    `This week: ${week.rounds} round${week.rounds === 1 ? '' : 's'} on ${week.days} day${week.days === 1 ? '' : 's'} (~${week.minutes} min)${week.quit ? `, ${week.quit} left early` : ''}`,
     `${progress.stickers.length} sticker${progress.stickers.length === 1 ? '' : 's'}`,
   ].filter(Boolean);
 
@@ -58,9 +72,17 @@ export function DashboardScreen({ child, progress, pending, now = new Date(), on
           </Button>
         </header>
 
-        <p className="mt-5 text-sm text-grape/70">
-          Accuracy over the last 3 rounds of each game. A perfect round, or two in a row at 80%+, moves a game up a level; two under 50% drops it back. Levels 4
-          and 5 are challenge levels. Use − / + to override.
+        <MotivationPanel
+          today={todaySummary(progress.rounds, now)}
+          daysThisWeek={daysPlayed(progress.rounds, now)}
+          notes={coachingNotes(progress.rounds, GAMES, now)}
+          moves={levelHistory(progress.rounds, GAMES).map((m) => ({ ...m, name: GAMES.find((g) => g.id === m.game)?.name ?? m.game }))}
+        />
+
+        <p className="mt-6 text-sm text-grape/70">
+          Accuracy and answer speed over the last 3 rounds of each game. A quick perfect round, or two in a row at 80%+, moves a game up a level; if both
+          were slow it stays to build speed. Two under 50% drops it back, and after two misses in a row the next question comes from the level below.
+          Levels 4 and 5 are challenge levels. Use − / + to override.
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
           <Button size="sm" onClick={() => shiftAll(1)}>
@@ -83,6 +105,8 @@ export function DashboardScreen({ child, progress, pending, now = new Date(), on
                 level={level}
                 stats={skillStats(progress.rounds, game.id)}
                 missed={oftenMissed(progress.rounds, game.id)}
+                speed={speedTrend(progress.rounds, game.id)}
+                habit={habitFor(game.id, progress)}
                 onSetLevel={(next) => onSetLevel(game.id, next)}
                 print={printable?.link ? { href: printable.link(stage, child.name), label: `Print stage ${stage} ${printable.title.toLowerCase()}` } : undefined}
               />
