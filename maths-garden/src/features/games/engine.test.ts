@@ -16,21 +16,27 @@ const round = (game: GameId, level: number, score: number, minute: number, answe
 const peek = gameById('peek');
 
 describe('nextLevel', () => {
-  it('moves up after two rounds in a row at 80%+', () => {
-    expect(nextLevel([round('peek', 0, 4, 1), round('peek', 0, 5, 2)], peek, 0)).toBe(1);
+  it('moves up straight away after a perfect round', () => {
+    expect(nextLevel([round('peek', 0, 5, 1)], peek, 0)).toBe(1);
+    expect(nextLevel([round('peek', 0, 5, 1), round('peek', 1, 5, 2)], peek, 1)).toBe(2);
   });
 
-  it('needs both rounds at the current level', () => {
-    expect(nextLevel([round('peek', 0, 5, 1), round('peek', 1, 5, 2)], peek, 1)).toBe(1);
+  it('moves up after two rounds in a row at 80%+', () => {
+    expect(nextLevel([round('peek', 0, 4, 1), round('peek', 0, 4, 2)], peek, 0)).toBe(1);
+  });
+
+  it('needs both 80% rounds at the current level', () => {
+    expect(nextLevel([round('peek', 0, 5, 1), round('peek', 1, 4, 2)], peek, 1)).toBe(1);
   });
 
   it('only looks at the same game, in time order', () => {
-    const rounds = [round('peek', 0, 4, 3), round('count', 0, 1, 2), round('peek', 0, 5, 1)];
+    const rounds = [round('peek', 0, 4, 3), round('count', 0, 1, 2), round('peek', 0, 4, 1)];
     expect(nextLevel(rounds, peek, 0)).toBe(1);
   });
 
   it('stops at the top level', () => {
-    expect(nextLevel([round('peek', 2, 5, 1), round('peek', 2, 5, 2)], peek, 2)).toBe(2);
+    const top = peek.levels.length - 1;
+    expect(nextLevel([round('peek', top, 5, 1), round('peek', top, 5, 2)], peek, top)).toBe(top);
   });
 
   it('drops back after two rounds under 50%', () => {
@@ -46,7 +52,7 @@ describe('nextLevel', () => {
 describe('levelOf', () => {
   it('defaults to 0 and clamps overrides to the game', () => {
     expect(levelOf({}, peek)).toBe(0);
-    expect(levelOf({ peek: 9 }, peek)).toBe(2);
+    expect(levelOf({ peek: 9 }, peek)).toBe(peek.levels.length - 1);
   });
 });
 
@@ -60,7 +66,7 @@ describe('skillStats and advice', () => {
   it('matches the iteration rule', () => {
     expect(advice(null, 0, peek)).toMatch(/not played/i);
     expect(advice({ pct: 90, rounds: 3 }, 0, peek)).toMatch(/moves up/);
-    expect(advice({ pct: 90, rounds: 3 }, 2, peek)).toMatch(/top level/i);
+    expect(advice({ pct: 90, rounds: 3 }, peek.levels.length - 1, peek)).toMatch(/top level/i);
     expect(advice({ pct: 60, rounds: 3 }, 1, peek)).toMatch(/keep practising/i);
     expect(advice({ pct: 40, rounds: 3 }, 1, peek)).toMatch(/real objects/);
   });

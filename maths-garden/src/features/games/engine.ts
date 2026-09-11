@@ -33,13 +33,17 @@ const roundsOf = (rounds: readonly RoundRecord[], game: GameId) => rounds.filter
 export const levelOf = (levels: Levels, game: Game) => Math.min(Math.max(levels[game.id] ?? 0, 0), game.levels.length - 1);
 
 /**
- * The level after the latest round. The last two rounds of this game must both be at the current
- * level (so a level change always needs two fresh rounds): both 80%+ moves up, both under 50% drops back.
+ * The level after the latest round. A perfect round at the current level moves up straight away. Otherwise
+ * the last two rounds of this game must both be at the current level: both 80%+ moves up, both under 50%
+ * drops back.
  */
 export function nextLevel(rounds: readonly RoundRecord[], game: Game, level: number): number {
   const recent = roundsOf(rounds, game.id).slice(-STREAK);
+  const top = game.levels.length - 1;
+  const latest = recent.at(-1);
+  if (latest && latest.level === level && latest.total > 0 && latest.score === latest.total && level < top) return level + 1;
   if (recent.length < STREAK || recent.some((r) => r.level !== level)) return level;
-  if (recent.every((r) => accuracy(r) >= LEVEL_UP_AT) && level < game.levels.length - 1) return level + 1;
+  if (recent.every((r) => accuracy(r) >= LEVEL_UP_AT) && level < top) return level + 1;
   if (recent.every((r) => accuracy(r) < DROP_BELOW) && level > 0) return level - 1;
   return level;
 }
@@ -63,7 +67,7 @@ export function advice(stats: SkillStats | null, level: number, game: Game): str
   if (!stats) return 'Not played yet.';
   if (stats.pct >= 80) {
     return level < game.levels.length - 1
-      ? 'Doing great. Two strong rounds in a row moves up a level.'
+      ? 'Doing great. A perfect round, or two in a row at 80%+, moves up a level.'
       : 'Top level. Stretch with bigger numbers using real objects.';
   }
   if (stats.pct >= 50) return 'Nearly there. Keep practising at this level.';

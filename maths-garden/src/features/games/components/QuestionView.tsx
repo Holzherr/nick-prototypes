@@ -37,7 +37,7 @@ const asSide = (c: Choice | null): Side | null => (c === 'left' || c === 'right'
 export function QuestionView({ question, chosen, onAnswer, peekMs = 2000, stepMs = 900 }: QuestionViewProps) {
   switch (question.game) {
     case 'peek':
-      return <Peek q={question} chosen={asNumber(chosen)} onAnswer={onAnswer} peekMs={peekMs} />;
+      return <Peek q={question} chosen={asNumber(chosen)} onAnswer={onAnswer} peekMs={question.peekMs ?? peekMs} />;
     case 'count':
       return <Count q={question} chosen={asNumber(chosen)} onAnswer={onAnswer} />;
     case 'find':
