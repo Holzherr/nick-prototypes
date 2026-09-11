@@ -1,6 +1,7 @@
 import { possessive } from '@/features/children/model';
 import { AppIcon } from '@/shared/brand/AppIcon';
 import { Button } from '@/shared/components/ui/button';
+import { cn } from '@/shared/utils/cn';
 import { GAMES, type Game } from '../catalog';
 import { levelOf, type Levels } from '../engine';
 import { GameTile } from './GameTile';
@@ -9,14 +10,30 @@ export interface GardenHomeProps {
   childName: string;
   levels: Levels;
   stickerCount: number;
+  /** Finished rounds today against the daily goal. */
+  today?: { done: number; goal: number };
   onPlay: (game: Game) => void;
   onStickers: () => void;
   onGrownUps: () => void;
 }
 
-/** Unicorn tile, "Tara's Maths Garden", the five blob-shaped game tiles with level dots; sticker book (📒 n) top right, faint "Grown-ups" bottom right. */
-export const GardenHome = ({ childName, levels, stickerCount, onPlay, onStickers, onGrownUps }: GardenHomeProps) => (
+/**
+ * Unicorn tile, "Tara's Maths Garden", the five blob-shaped game tiles with level dots; daily goal (🎯 n/3)
+ * top left, sticker book (📒 n) top right, faint "Grown-ups" bottom right.
+ */
+export const GardenHome = ({ childName, levels, stickerCount, today, onPlay, onStickers, onGrownUps }: GardenHomeProps) => (
   <main className="relative z-10 flex min-h-dvh flex-col items-center justify-center px-5 pb-20 pt-[max(72px,env(safe-area-inset-top))]">
+    {today && (
+      <p
+        className={cn(
+          'fixed left-5 top-[max(16px,env(safe-area-inset-top))] z-20 flex min-h-[68px] items-center rounded-full px-6 text-[clamp(20px,2.6vw,26px)] font-semibold',
+          today.done >= today.goal ? 'bg-leaf text-white' : 'bg-cream candy-petal [--candy:8px]',
+        )}
+        aria-label={`Daily goal: ${Math.min(today.done, today.goal)} of ${today.goal} rounds`}
+      >
+        🎯 {today.done >= today.goal ? 'Done!' : `${today.done}/${today.goal}`}
+      </p>
+    )}
     <Button
       variant="quiet"
       size="lg"
