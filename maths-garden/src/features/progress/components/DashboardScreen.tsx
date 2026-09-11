@@ -10,6 +10,7 @@ import type { Progress } from '../model';
 import { CheckInPanel, type CheckinScores } from './CheckInPanel';
 import { MotivationPanel } from './MotivationPanel';
 import { SkillRow } from './SkillRow';
+import { VoicePanel } from './VoicePanel';
 
 function habitFor(game: GameId, progress: Progress): string | null {
   if (game === 'count') {
@@ -115,6 +116,8 @@ export function DashboardScreen({ child, progress, pending, now = new Date(), on
         </div>
 
         <CheckInPanel checkins={progress.checkins} onSubmit={onAddCheckin} />
+
+        <VoicePanel childId={child.id} childName={child.name} />
 
         {pending > 0 && (
           <p className="mt-6 rounded-2xl bg-blush px-4 py-3 text-sm text-clay">
