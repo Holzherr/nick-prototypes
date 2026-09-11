@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { AuthProvider, useAuth } from '@/features/auth/AuthContext';
 import AuthScreen from '@/features/auth/AuthScreen';
 import { ProfilesScreen } from '@/features/children/components/ProfilesScreen';
+import type { Child } from '@/features/children/model';
 import { useChildren } from '@/features/children/use-children';
 import { GardenApp } from '@/features/garden/GardenApp';
-import { createRepo } from '@/features/progress/repo';
+import { localRemote } from '@/features/progress/local-remote';
+import { createRepo, type ProgressRepo } from '@/features/progress/repo';
 import { supabaseRemote } from '@/features/progress/supabase-remote';
 import { ResourcesScreen } from '@/features/resources/ResourcesScreen';
 import { optionsFromParams } from '@/features/resources/subitising/cards';
@@ -14,21 +16,34 @@ import { Splash } from '@/shared/layout/Splash';
 import { readJSON, writeJSON } from '@/shared/utils/storage';
 import { useHashRoute } from './use-hash-route';
 
-const repo = createRepo(supabaseRemote, localStorage);
-const ACTIVE_CHILD = 'maths-garden:active-child';
+const cloudRepo = createRepo(supabaseRemote, localStorage);
+// Guest progress has its own outbox so it can never be uploaded against a parent's account.
+const guestRepo = createRepo(localRemote, localStorage, 'maths-garden:guest-outbox');
+const GUEST = 'maths-garden:guest';
+const GUEST_CHILDREN = 'maths-garden:guest-children';
 
-/** Signed in: open the remembered child (or the only one), otherwise ask who's playing. */
-function Family({ userId, email }: { userId: string; email: string }) {
-  const { signOut } = useAuth();
-  const { profiles, loaded, create } = useChildren(userId);
-  const [activeId, setActiveId] = useState<string | null>(() => readJSON(ACTIVE_CHILD, null));
+interface FamilyProps {
+  /** Who is signed in, for the profiles screen footer. */
+  label: string;
+  profiles: Child[];
+  loaded: boolean;
+  create: (input: Omit<Child, 'id'>) => Promise<Child>;
+  repo: ProgressRepo;
+  /** Where this device remembers the last child. */
+  activeKey: string;
+  onSignOut: () => void;
+}
+
+/** Open the remembered child (or the only one), otherwise ask who's playing. */
+function Family({ label, profiles, loaded, create, repo, activeKey, onSignOut }: FamilyProps) {
+  const [activeId, setActiveId] = useState<string | null>(() => readJSON(activeKey, null));
   const [choosing, setChoosing] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const open = (id: string | null) => {
     setActiveId(id);
-    writeJSON(ACTIVE_CHILD, id);
+    writeJSON(activeKey, id);
     setChoosing(false);
   };
 
@@ -43,7 +58,7 @@ function Family({ userId, email }: { userId: string; email: string }) {
         onSwitchChild={() => setChoosing(true)}
         onSignOut={() => {
           open(null);
-          void signOut();
+          onSignOut();
         }}
       />
     );
@@ -52,7 +67,7 @@ function Family({ userId, email }: { userId: string; email: string }) {
   return (
     <ProfilesScreen
       profiles={profiles}
-      email={email}
+      email={label}
       busy={busy}
       error={error}
       onPick={(child) => open(child.id)}
@@ -70,16 +85,63 @@ function Family({ userId, email }: { userId: string; email: string }) {
           setBusy(false);
         }
       }}
+      onSignOut={onSignOut}
+    />
+  );
+}
+
+function CloudFamily({ userId, email }: { userId: string; email: string }) {
+  const { signOut } = useAuth();
+  const { profiles, loaded, create } = useChildren(userId);
+  return (
+    <Family
+      label={email}
+      profiles={profiles}
+      loaded={loaded}
+      create={create}
+      repo={cloudRepo}
+      activeKey="maths-garden:active-child"
       onSignOut={() => void signOut()}
+    />
+  );
+}
+
+/** No account: profiles and progress live only in this device's storage. */
+function GuestFamily({ onExit }: { onExit: () => void }) {
+  const [profiles, setProfiles] = useState<Child[]>(() => readJSON(GUEST_CHILDREN, []));
+  const create = async (input: Omit<Child, 'id'>) => {
+    const child: Child = { id: crypto.randomUUID(), ...input };
+    setProfiles((current) => {
+      const next = [...current, child];
+      writeJSON(GUEST_CHILDREN, next);
+      return next;
+    });
+    return child;
+  };
+  return (
+    <Family
+      label="a guest (saved on this device only)"
+      profiles={profiles}
+      loaded
+      create={create}
+      repo={guestRepo}
+      activeKey="maths-garden:guest-active-child"
+      onSignOut={onExit}
     />
   );
 }
 
 function Root() {
   const { user, loading } = useAuth();
+  const [guest, setGuest] = useState(() => readJSON(GUEST, false));
+  const setGuestMode = (on: boolean) => {
+    setGuest(on);
+    writeJSON(GUEST, on || null);
+  };
+  if (guest) return <GuestFamily onExit={() => setGuestMode(false)} />;
   if (loading) return <Splash />;
-  if (!user) return <AuthScreen />;
-  return <Family key={user.id} userId={user.id} email={user.email ?? ''} />;
+  if (!user) return <AuthScreen onGuest={() => setGuestMode(true)} />;
+  return <CloudFamily key={user.id} userId={user.id} email={user.email ?? ''} />;
 }
 
 export default function App() {

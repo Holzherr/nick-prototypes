@@ -2,8 +2,8 @@ import { applyChange, childOf, emptyProgress, PermanentError, type Change, type 
 
 type KeyValue = Pick<Storage, 'getItem' | 'setItem'>;
 
-const OUTBOX = 'maths-garden:outbox';
-const cacheKey = (childId: string) => `maths-garden:progress:${childId}`;
+const DEFAULT_OUTBOX = 'maths-garden:outbox';
+export const cacheKey = (childId: string) => `maths-garden:progress:${childId}`;
 
 export interface ProgressRepo {
   /** What this device last saw for the child; instant, works offline. */
@@ -20,7 +20,7 @@ export interface ProgressRepo {
  * Offline-first progress store: a per-child cache plus one outbox in local storage. The iPad can
  * lose signal mid-game; nothing is lost, it uploads on the next save or app start.
  */
-export function createRepo(remote: Remote, storage: KeyValue): ProgressRepo {
+export function createRepo(remote: Remote, storage: KeyValue, OUTBOX = DEFAULT_OUTBOX): ProgressRepo {
   const read = <T>(key: string, fallback: T): T => {
     try {
       const raw = storage.getItem(key);
