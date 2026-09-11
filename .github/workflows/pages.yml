@@ -63,12 +63,22 @@ jobs:
           npm run build
           npm run build-storybook
 
+      # maths-garden is the same shape again (base /nick-prototypes/maths-garden/).
+      - name: Build maths-garden
+        working-directory: maths-garden
+        run: |
+          npm ci
+          npm test
+          npm run build
+          npm run build-storybook
+
       - name: Assemble site
         run: |
           mkdir _site
-          rsync -a --exclude .git --exclude _site --exclude node_modules --exclude workout-hub-next --exclude qeued-next ./ _site/
+          rsync -a --exclude .git --exclude _site --exclude node_modules --exclude workout-hub-next --exclude qeued-next --exclude maths-garden ./ _site/
           cp -r workout-hub-next/dist _site/workout-hub-next
           cp -r qeued-next/dist _site/qeued-next
+          cp -r maths-garden/dist _site/maths-garden
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
