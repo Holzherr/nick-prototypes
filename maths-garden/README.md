@@ -10,7 +10,7 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   run `gh workflow run maths.yml -R Holzherr/nickholzherr.com` after merging here)
 - **Homepage (signed out):** https://nickholzherr.com/maths/#/home · **sign in:** `#/login` · **the app:** `#/app`
 - **Free printables (no sign-in):** https://nickholzherr.com/maths/#/resources
-- **Guides:** `#/guides/stages` and `#/guides/gamified-learning`
+- **Guides:** `#/guides/stages`, `#/guides/gamified-learning` and `#/guides/how-it-scores`
 - **Preview of every merge:** https://holzherr.github.io/nick-prototypes/maths-garden/
 - **Storybook:** https://holzherr.github.io/nick-prototypes/maths-garden/storybook/
 
@@ -86,11 +86,11 @@ src/
   features/progress/      model (rounds, levels, level events), repo (outbox; tested), supabase-remote, memory-remote, probes, fixtures,
                           history (charts data; tested), charts (hand-drawn SVG), ScoringDiagram, ProgressScreen, SkillRow, CheckInPanel, DashboardScreen
   features/garden/        GardenApp (home, game, end, garden, report, sticker book, gate, grown-ups), garden-state (tested), GardenScene/GardenScreen
-  features/curriculum/    skills.ts: six skills × three stages, linked to games and probes
+  features/curriculum/    skills.ts: nine skills × three stages (with typical ages), linked to games and probes
   features/marketing/     articles (the three guides + sources), faq, menu (printables by skill; tested), HomeScreen, ArticleScreen, MarketingLayout
   features/report/        report (verdicts, recommendations; tested), report-email (html + text; tested), send-report, ReportScreen
   features/resources/     catalog, ResourcesScreen, A4Page, qr (QR path + absolute links), pack (stage pack),
-                          subitising/ (patterns, cards, card maker), sheets/ (catalog, five sheet makers, SheetScreen)
+                          subitising/ (patterns, cards, card maker), sheets/ (catalog, eight sheet makers, SheetScreen)
 supabase/                 config.toml, migrations/, functions/send-report (emails the report to the signed-in parent)
 tools/                    icon-square.svg + render-icons.sh (PNG icons via headless Chrome)
 ```
