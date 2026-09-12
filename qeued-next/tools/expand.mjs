@@ -93,6 +93,29 @@ const posterFrom = async (html) => {
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
+ * Runs `worker` over `items` with a fixed number in flight.
+ *
+ * Building a catalogue of thousands one page at a time takes hours of waiting on the
+ * network for a machine that is otherwise idle. A few at once is both much faster and
+ * still gentle — each worker keeps its own pause, so the request rate is the concurrency
+ * divided by the pause, not a burst.
+ */
+const pooled = async (items, concurrency, worker) => {
+  const queue = [...items.entries()];
+  const results = new Array(items.length);
+  const runners = Array.from({ length: Math.min(concurrency, items.length) }, async () => {
+    for (;;) {
+      const next = queue.shift();
+      if (!next) return;
+      const [index, item] = next;
+      results[index] = await worker(item);
+    }
+  });
+  await Promise.all(runners);
+  return results;
+};
+
+/**
  * Fetch a candidate page and return its schema.org record, or null if it isn't there.
  * A bulk run trips rate limiting, and a throttled response is indistinguishable from a
  * missing page unless we retry — so a non-404 failure is given a second chance.
@@ -184,6 +207,7 @@ const gatherPath = flagValue('gather');
 const sqlPath = flagValue('sql');
 const fromPath = flagValue('from');
 const missesPath = flagValue('misses');
+const concurrency = Math.max(1, Number(flagValue('concurrency') ?? 4));
 if (!KEY && !gatherPath && !sqlPath) throw new Error('Missing SUPABASE_SERVICE_ROLE_KEY (or pass --gather/--sql)');
 
 const quote = (value) => `'${String(value).replace(/'/g, "''")}'`;
@@ -257,14 +281,15 @@ const run = async () => {
   let updated = 0;
   let missed = 0;
 
-  for (const entry of batch) {
+  /** Everything that only reads: the page, the poster, and the facts on it. */
+  const fetchOne = async (entry) => {
     await pause(400);
     const resolved = await resolveTitle(entry);
     if (!resolved) {
       missed += 1;
       misses.push({ name: entry.name, year: entry.year, type: entry.type, error: 'no page matched' });
       console.log(`  ?  ${entry.name} (${entry.year}) — no page matched`);
-      continue;
+      return null;
     }
 
     const { node, html, url } = resolved;
@@ -293,12 +318,24 @@ const run = async () => {
     if (!fields.year) delete fields.year;
 
     const slug = `${slugify(entry.name)}-${fields.year ?? entry.year}`;
-    if (gatherPath) {
-      gathered.push({ slug, url, fields });
-      console.log(`  +  ${entry.name} (${fields.year})${poster ? '' : ' — NO POSTER'}`);
-      added += 1;
-      continue;
+    console.log(`  +  ${entry.name} (${fields.year})${poster ? '' : ' — NO POSTER'}`);
+    added += 1;
+    return { entry, slug, url, fields };
+  };
+
+  // Reading is safe to do several at a time; writing is not, so only the gather path uses
+  // the pool and the write path keeps its one-at-a-time loop.
+  if (gatherPath) {
+    const found = await pooled(batch, concurrency, fetchOne);
+    for (const record of found) {
+      if (record) gathered.push({ slug: record.slug, url: record.url, fields: record.fields });
     }
+  }
+
+  for (const entry of gatherPath ? [] : batch) {
+    const record = await fetchOne(entry);
+    if (!record) continue;
+    const { slug, url, fields } = record;
 
     const key = `${normalise(entry.name)}|${fields.year ?? entry.year}`;
     const existingId = seen.get(key);

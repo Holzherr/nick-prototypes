@@ -195,11 +195,15 @@ Deno.serve(async (req) => {
 
     // Only catalogued rows are candidates. Unverified import residue is real enough to
     // match a name and not real enough to recommend.
+    //
+    // Synopses are deliberately not fetched here. They are the largest field by far and the
+    // only consumer is the prompt, which sees a hundred or so titles — pulling them for the
+    // whole catalogue would mean megabytes read on every request to use a fraction of one.
     const { data: catalogue } = await supabase
       .from('titles')
-      .select('id, slug, name, year, type, genres, tones, themes, synopsis, certification, runtime_minutes, seasons, imdb_rating, image_url, title_availability(provider)')
+      .select('id, slug, name, year, type, genres, tones, themes, certification, runtime_minutes, seasons, imdb_rating, image_url, title_availability(provider)')
       .gt('catalogue_version', 0)
-      .limit(2000);
+      .limit(5000);
 
     const excluded = new Set((hasExclusions ? exclude_titles : []).map((t: string) => String(t).toLowerCase()));
     const eligible = (catalogue ?? [])
@@ -232,6 +236,17 @@ Deno.serve(async (req) => {
     const step = Math.max(1, Math.floor(rest.length / EXPLORATION_SLICE));
     for (let i = 0; i < rest.length && shortlist.length < CANDIDATE_LIMIT; i += step) shortlist.push(rest[i].row);
     const candidates = shortlist;
+
+    // Now that the shortlist is short, the synopses are worth reading: they are what lets the
+    // model tell two thrillers apart.
+    if (mode === 'refresh') {
+      const { data: prose } = await supabase
+        .from('titles')
+        .select('id, synopsis')
+        .in('id', candidates.map((t: Row) => t.id));
+      const synopsisById = new Map((prose ?? []).map((row: Row) => [row.id, row.synopsis]));
+      for (const candidate of candidates) candidate.synopsis = synopsisById.get(candidate.id) ?? null;
+    }
 
     let notes = '';
     if (mood && moodDescriptions[mood]) notes += `\nMood wanted: ${moodDescriptions[mood]}`;
