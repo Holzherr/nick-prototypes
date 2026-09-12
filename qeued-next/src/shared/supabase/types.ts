@@ -63,6 +63,82 @@ export type Database = {
         }
         Relationships: []
       }
+      agent_activity: {
+        Row: {
+          created_at: string
+          id: string
+          profile_id: string | null
+          summary: string | null
+          tool: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          profile_id?: string | null
+          summary?: string | null
+          tool: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          profile_id?: string | null
+          summary?: string | null
+          tool?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "agent_activity_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      agent_tokens: {
+        Row: {
+          created_at: string
+          expires_at: string | null
+          id: string
+          label: string | null
+          last_used_at: string | null
+          profile_id: string
+          revoked_at: string | null
+          scopes: string[]
+          token_hash: string
+        }
+        Insert: {
+          created_at?: string
+          expires_at?: string | null
+          id?: string
+          label?: string | null
+          last_used_at?: string | null
+          profile_id: string
+          revoked_at?: string | null
+          scopes?: string[]
+          token_hash: string
+        }
+        Update: {
+          created_at?: string
+          expires_at?: string | null
+          id?: string
+          label?: string | null
+          last_used_at?: string | null
+          profile_id?: string
+          revoked_at?: string | null
+          scopes?: string[]
+          token_hash?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "agent_tokens_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       ai_cache: {
         Row: {
           cache_key: string
@@ -202,6 +278,7 @@ export type Database = {
         Row: {
           avatar_url: string | null
           bio: string | null
+          claim_code: string | null
           colour: string | null
           created_at: string
           id: string
@@ -209,6 +286,8 @@ export type Database = {
           max_certification: string | null
           name: string | null
           owner_user_id: string | null
+          provisioned_at: string | null
+          provisioned_by: string | null
           updated_at: string
           user_id: string | null
           username: string | null
@@ -216,6 +295,7 @@ export type Database = {
         Insert: {
           avatar_url?: string | null
           bio?: string | null
+          claim_code?: string | null
           colour?: string | null
           created_at?: string
           id?: string
@@ -223,6 +303,8 @@ export type Database = {
           max_certification?: string | null
           name?: string | null
           owner_user_id?: string | null
+          provisioned_at?: string | null
+          provisioned_by?: string | null
           updated_at?: string
           user_id?: string | null
           username?: string | null
@@ -230,6 +312,7 @@ export type Database = {
         Update: {
           avatar_url?: string | null
           bio?: string | null
+          claim_code?: string | null
           colour?: string | null
           created_at?: string
           id?: string
@@ -237,6 +320,8 @@ export type Database = {
           max_certification?: string | null
           name?: string | null
           owner_user_id?: string | null
+          provisioned_at?: string | null
+          provisioned_by?: string | null
           updated_at?: string
           user_id?: string | null
           username?: string | null
@@ -513,7 +598,7 @@ export type Database = {
           status: Database["public"]["Enums"]["watch_status"]
           title_id: string
           updated_at: string
-          user_id: string
+          user_id: string | null
           watched_date: string | null
           watched_rating: number | null
         }
@@ -527,7 +612,7 @@ export type Database = {
           status?: Database["public"]["Enums"]["watch_status"]
           title_id: string
           updated_at?: string
-          user_id: string
+          user_id?: string | null
           watched_date?: string | null
           watched_rating?: number | null
         }
@@ -541,7 +626,7 @@ export type Database = {
           status?: Database["public"]["Enums"]["watch_status"]
           title_id?: string
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
           watched_date?: string | null
           watched_rating?: number | null
         }
@@ -575,6 +660,7 @@ export type Database = {
         Args: { p_profile_id: string; p_user_id: string }
         Returns: boolean
       }
+      claim_profile: { Args: { p_claim_code: string }; Returns: string }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
