@@ -222,7 +222,7 @@ export default function App() {
       <FloatingHearts />
       <Root
         startGame={isGameId(asked) ? asked : undefined}
-        wantsApp={path === '/login' || path === '/app' || path.startsWith('/play/')}
+        wantsApp={path === '/login' || path === '/app' || path === '/grown-ups' || path.startsWith('/play/')}
         wantsLogin={path === '/login'}
       />
     </AuthProvider>
