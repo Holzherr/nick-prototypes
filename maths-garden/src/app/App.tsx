@@ -169,9 +169,14 @@ function Root({ startGame, wantsApp }: { startGame?: GameId; wantsApp: boolean }
     setGuest(on);
     writeJSON(GUEST, on || null);
   };
-  if (guest) return <GuestFamily onExit={() => setGuestMode(false)} startGame={startGame} />;
+  // A live session wins over the guest flag. That flag is sticky: tapping "carry on without an account"
+  // once left it set for good, so every later open rendered the guest app even with an account signed in
+  // underneath — no account name on the grown-ups screen, and no offer to bring the play across, because
+  // GuestFamily passes allowGuestImport={false}. Nothing is lost by preferring the account: GardenApp
+  // offers the guest play on the way in. The cost is that a guest waits on the session check, a local read.
   if (loading) return <Splash />;
   if (user) return <CloudFamily key={user.id} userId={user.id} email={user.email ?? ''} startGame={startGame} />;
+  if (guest) return <GuestFamily onExit={() => setGuestMode(false)} startGame={startGame} />;
   if (wantsApp) return <AuthScreen onGuest={() => setGuestMode(true)} />;
   return (
     <MarketingLayout>
