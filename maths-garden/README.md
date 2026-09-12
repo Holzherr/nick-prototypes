@@ -25,8 +25,14 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   opens straight into the games. Signed-in and guest sessions skip the homepage entirely.
 - **Parent account** (Supabase email + password) with **child profiles**. The device remembers the child
   and opens straight into their garden; the parent stays signed in.
-- **Five games**, five questions a round, three levels each: Quick Peek (subitising), Count With Me, Find
-  the Number, Which Has More?, One More Unicorn. Spoken prompts in a British voice, stars, praise by name.
+- **Eight games**, five questions a round, five levels each: Quick Peek (subitising), Count With Me, Find
+  the Number, Which Has More?, One More Unicorn, **Make Ten** (number bonds, on a five/ten frame and then
+  without one), **One Fewer** (taking away, watching balloons go) and **Ten and Some More** (the teens as
+  ten-and-something). Spoken prompts in a British voice, stars, praise by name.
+- **Home leads with one suggested game** (`features/games/recommend.ts`) and its reason, with the rest
+  behind "Or pick another game": never played wins outright, then not played today, weak accuracy,
+  staleness, and a boost when one good round would level it up — minus whatever was just played, so the
+  suggestion moves on by itself.
 - **Levelling:** two rounds in a row at 80%+ moves a game up; two under 50% drops it back
   (`features/games/engine.ts`). Game level n = printable stage n (`features/curriculum/skills.ts`).
 - **Stickers:** after every finished round the child picks a pack (Unicorns, K-pop Hunters, Ice Queen) and
@@ -36,7 +42,9 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   stickers a unicorn. It grows along the bottom of the home screen and opens full size when tapped. Derived
   from the round log, so it is identical on every device.
 - **Grown-ups screen** (behind a sum): accuracy per skill, often-missed numbers, level overrides, a weekly
-  check-in with six parent-scored probes, print links, and the tutor report.
+  check-in with nine parent-scored probes, print links, and the tutor report. Playing without an account it
+  offers **"Sign in to save progress"** rather than "Sign out" — the old label read as destructive and kept
+  people in guest mode.
 - **Tutor report** (`features/report/`): a verdict and a plain-English note per skill, what to print next
   and why, off-screen practice for the weakest skills, and warning signs. Printable, and **emailed to the
   parent whenever a game crosses into a new printable stage** ("Tara has moved up to stage 2 in Counting
@@ -55,8 +63,9 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
 - **Offline-first:** every write lands in local storage first and uploads when there is signal
   (`features/progress/repo.ts`).
 - **Printables** (`#/resources`, public, no sign-in): the Quick Peek dot card maker, plus counting mats,
-  numeral cards + tracing + a number hunt, more-or-fewer cards, the one-more-unicorn story board and the
-  number track race (`#/resources/sheet?id=…&stage=…&name=…&icon=…`). Every sheet starts with a how-to page
+  numeral cards + tracing + a number hunt, more-or-fewer cards, the one-more-unicorn story board, **bond
+  frames**, **balloons that float away**, **ten-and-some-more cards** and the number track race
+  (`#/resources/sheet?id=…&stage=…&name=…&icon=…`). Every sheet starts with a how-to page
   and carries a **QR code that opens the game checking the same skill** (`#/play/<game>`). "Print this
   stage's pack" (`#/resources/pack?…`) prints the whole set at the child's current stages.
 

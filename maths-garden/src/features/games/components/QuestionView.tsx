@@ -5,6 +5,7 @@ import { numberWord, say, sounds } from '../sound';
 import { AnswerRow } from './AnswerRow';
 import { CompareSides } from './CompareSides';
 import { DotCard } from './DotCard';
+import { FrameCard } from './FrameCard';
 import { ObjectCard } from './ObjectCard';
 
 type Q<G extends Question['game']> = Extract<Question, { game: G }>;
@@ -61,6 +62,12 @@ export function QuestionView({ question, chosen, onAnswer, peekMs = 2000, stepMs
       return <More q={question} chosen={asSide(chosen)} onAnswer={onAnswer} />;
     case 'add':
       return <Add q={question} chosen={asNumber(chosen)} onAnswer={onAnswer} stepMs={stepMs} onReady={onReady} />;
+    case 'bond':
+      return <Bond q={question} chosen={asNumber(chosen)} onAnswer={onAnswer} />;
+    case 'fewer':
+      return <Fewer q={question} chosen={asNumber(chosen)} onAnswer={onAnswer} stepMs={stepMs} onReady={onReady} />;
+    case 'teen':
+      return <Teen q={question} chosen={asNumber(chosen)} onAnswer={onAnswer} />;
   }
 }
 
@@ -181,6 +188,102 @@ function Add({ q, chosen, onAnswer, stepMs, onReady }: { q: Q<'add'>; chosen: nu
     <Stage prompt={`You have ${numberWord(q.base)}… here ${comes(q.extra)} ${numberWord(q.extra)} more!`}>
       <ObjectCard emoji="🦄" count={q.base + arrived} popFrom={q.base} />
       {ready ? <AnswerRow options={q.options} answer={q.answer} chosen={chosen} onPick={onAnswer} /> : <AnswerSpace />}
+    </Stage>
+  );
+}
+
+function Bond({ q, chosen, onAnswer }: { q: Q<'bond'>; chosen: number | null; onAnswer: (n: number) => void }) {
+  useEffect(() => {
+    say(
+      q.frame
+        ? `${numberWord(q.shown)} in the frame. How many more to make ${numberWord(q.whole)}?`
+        : `${numberWord(q.shown)}. How many more to make ${numberWord(q.whole)}?`,
+    );
+  }, [q]);
+  return (
+    <Stage
+      prompt={
+        <>
+          {q.shown} and how many more make <b className="text-raspberry">{q.whole}</b>?
+        </>
+      }
+    >
+      {q.frame ? (
+        <FrameCard capacity={q.whole <= 5 ? 5 : 10} filled={q.shown} asking />
+      ) : (
+        <p className="text-[clamp(56px,12vw,104px)] font-bold leading-none text-raspberry">
+          {q.shown} + <span className="text-bubble">?</span> = {q.whole}
+        </p>
+      )}
+      <AnswerRow options={q.options} answer={q.answer} chosen={chosen} onPick={onAnswer} />
+    </Stage>
+  );
+}
+
+const balloons = (n: number) => `${numberWord(n)} balloon${n === 1 ? '' : 's'}`;
+const floats = (n: number) => (n === 1 ? 'floats' : 'float');
+
+function Fewer({ q, chosen, onAnswer, stepMs, onReady }: { q: Q<'fewer'>; chosen: number | null; onAnswer: (n: number) => void; stepMs: number; onReady?: () => void }) {
+  const [gone, setGone] = useState(0);
+  const [ready, setReady] = useState(false);
+  const readyCallback = useLatest(onReady);
+  useEffect(() => {
+    say(`You have ${balloons(q.base)}. Watch! ${numberWord(q.taken)} ${floats(q.taken)} away.`);
+  }, [q]);
+  useEffect(() => {
+    if (gone < q.taken) {
+      const t = window.setTimeout(
+        () => {
+          sounds.pop(gone);
+          setGone(gone + 1);
+        },
+        gone === 0 ? stepMs * 2.5 : stepMs,
+      );
+      return () => window.clearTimeout(t);
+    }
+    const t = window.setTimeout(() => {
+      setReady(true);
+      readyCallback.current?.();
+      say('How many are left?');
+    }, 600);
+    return () => window.clearTimeout(t);
+  }, [gone, q.taken, stepMs, readyCallback]);
+  return (
+    <Stage prompt={`You have ${numberWord(q.base)}… ${numberWord(q.taken)} ${floats(q.taken)} away!`}>
+      <ObjectCard emoji={q.emoji} count={q.base - gone} />
+      {ready ? <AnswerRow options={q.options} answer={q.answer} chosen={chosen} onPick={onAnswer} /> : <AnswerSpace />}
+    </Stage>
+  );
+}
+
+function Teen({ q, chosen, onAnswer }: { q: Q<'teen'>; chosen: number | null; onAnswer: (n: number) => void }) {
+  useEffect(() => {
+    say(q.frame ? 'A full ten, and some more. How many altogether?' : `Ten and ${numberWord(q.extra)}. How many is that?`);
+  }, [q]);
+  return (
+    <Stage
+      prompt={
+        <>
+          Ten and <b className="text-raspberry">{q.extra}</b> more… how many?
+        </>
+      }
+    >
+      {q.frame ? (
+        <div className="flex flex-wrap items-center justify-center gap-[clamp(8px,2vw,18px)]">
+          <FrameCard capacity={10} filled={10} emoji="🟣" />
+          <span className="text-[clamp(28px,5vw,44px)] font-bold text-grape/60">and</span>
+          <div className="flex max-w-[220px] flex-wrap justify-center gap-1.5">
+            {Array.from({ length: q.extra }, (_, i) => (
+              <span key={i} className="text-[clamp(30px,6vw,52px)] leading-none">
+                🟣
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <p className="text-[clamp(48px,10vw,88px)] font-bold leading-none text-raspberry">10 + {q.extra} = ?</p>
+      )}
+      <AnswerRow options={q.options} answer={q.answer} chosen={chosen} onPick={onAnswer} />
     </Stage>
   );
 }

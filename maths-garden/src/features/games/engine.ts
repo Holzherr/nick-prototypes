@@ -71,6 +71,13 @@ export function targetMs(game: GameId, target: string): number {
       return 2500;
     case 'add':
       return 3000;
+    // Bonds are a recall question once the frame goes: worth a little longer before it counts as slow.
+    case 'bond':
+      return 3500;
+    case 'fewer':
+      return 3000;
+    case 'teen':
+      return 3000;
   }
 }
 

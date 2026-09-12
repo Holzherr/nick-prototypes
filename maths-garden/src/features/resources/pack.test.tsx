@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { SKILLS } from '@/features/curriculum/skills';
 import { packFromParams, packLink } from './pack';
 import { PackScreen } from './PackScreen';
 
@@ -9,14 +10,20 @@ import { PackScreen } from './PackScreen';
  */
 describe('stage pack', () => {
   it('round-trips through its link', () => {
-    const options = { name: 'Tara', icon: '🦄', stages: { subitising: 2, counting: 1, numerals: 3, comparison: 2, adding: 1, rote: 2 } as const };
+    const options = {
+      name: 'Tara',
+      icon: '🦄',
+      stages: { subitising: 2, counting: 1, numerals: 3, comparison: 2, adding: 1, bonds: 2, subtracting: 1, teens: 3, rote: 2 } as const,
+    };
     expect(packFromParams(new URLSearchParams(packLink(options).split('?')[1]))).toEqual(options);
   });
 
   it('defaults to stage 1 when the link says nothing', () => {
     const { name, icon, stages } = packFromParams(new URLSearchParams());
     expect({ name, icon }).toEqual({ name: '', icon: '🦄' });
-    expect(Object.values(stages)).toEqual([1, 1, 1, 1, 1, 1]);
+    // Every skill gets a stage, so this keeps up as skills are added.
+    expect(Object.keys(stages)).toHaveLength(SKILLS.length);
+    expect(Object.values(stages).every((stage) => stage === 1)).toBe(true);
   });
 
   it('builds every sheet at every stage without hanging', () => {

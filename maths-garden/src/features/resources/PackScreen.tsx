@@ -4,12 +4,15 @@ import { Logo } from '@/shared/brand/Logo';
 import { Button } from '@/shared/components/ui/button';
 import { A4Page } from './A4Page';
 import { SHEET_FOR_SKILL, type PackOptions } from './pack';
+import { BondFrames } from './sheets/BondFrames';
 import { SHEETS } from './sheets/catalog';
 import { CountingMats } from './sheets/CountingMats';
 import { GuideSheet } from './sheets/GuideSheet';
 import { MoreOrFewer } from './sheets/MoreOrFewer';
 import { NumberTrack } from './sheets/NumberTrack';
 import { NumeralCards } from './sheets/NumeralCards';
+import { TakeAwayStories } from './sheets/TakeAwayStories';
+import { TeenFrames } from './sheets/TeenFrames';
 import { UnicornStories } from './sheets/UnicornStories';
 import { buildCards, DEFAULT_OPTIONS, paginate } from './subitising/cards';
 import { PrintSheet } from './subitising/PrintSheet';
@@ -19,6 +22,9 @@ const VIEWS = {
   'numeral-cards': NumeralCards,
   'more-or-fewer': MoreOrFewer,
   'unicorn-stories': UnicornStories,
+  'bond-frames': BondFrames,
+  'take-away-stories': TakeAwayStories,
+  'teen-frames': TeenFrames,
   'number-track': NumberTrack,
 };
 

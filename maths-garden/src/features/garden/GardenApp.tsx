@@ -59,6 +59,8 @@ export interface GardenAppProps {
   repo: ProgressRepo;
   /** Signed in: offer to copy guest-mode play on this device onto the child's account. */
   allowGuestImport?: boolean;
+  /** No account at all: the grown-ups screen offers signing in, not signing out. */
+  guestMode?: boolean;
   /** Opened from a QR code on a printable: start this game as soon as the child's garden opens. */
   startGame?: GameId;
   /** The signed-in parent's address; tutor reports are emailed there. */
@@ -77,7 +79,7 @@ const today = () => {
  * screen. Nova pops up over home or the end screen when a milestone is owed a special sticker, at most once
  * between games.
  */
-export function GardenApp({ child, repo, allowGuestImport = false, startGame, parentEmail, onSwitchChild, onSignOut }: GardenAppProps) {
+export function GardenApp({ child, repo, allowGuestImport = false, guestMode = false, startGame, parentEmail, onSwitchChild, onSignOut }: GardenAppProps) {
   const [progress, setProgress] = useState(() => repo.cached(child.id));
   const [pending, setPending] = useState(() => repo.pending());
   const [screen, setScreen] = useState<Screen>({ name: 'home' });
@@ -323,6 +325,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, startGame, pa
             child={child}
             progress={progress}
             pending={pending}
+            guestMode={guestMode}
             guest={
               allowGuestImport && (guests.length > 0 || importing.done)
                 ? { profiles: guests, busy: importing.busy, imported: importing.done, onImport: importGuest, onDismiss: () => setGuests([]) }
