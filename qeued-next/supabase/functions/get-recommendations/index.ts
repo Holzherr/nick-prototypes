@@ -1,7 +1,7 @@
 import { corsHeaders, json } from '../_shared/cors.ts';
 import { serviceClient } from '../_shared/db.ts';
 import { MODELS, callTool, claudeErrorResponse } from '../_shared/claude.ts';
-import { type Axes, type Candidate, buildSlate, combineScore, genreMix } from '../_shared/ranking.ts';
+import { type Axes, type Candidate, buildSlate, combineScore, genreMix, heuristicAxes } from '../_shared/ranking.ts';
 
 /**
  * Recommends out of Qeued's own catalogue, and returns real rows.
@@ -31,7 +31,12 @@ type Rec = {
   runtime_minutes: number | null;
   providers: string[];
 };
-type Result = { personal: Rec[]; shared: Rec[] | null };
+type Result = {
+  personal: Rec[];
+  shared: Rec[] | null;
+  /** False when the slate was ranked from saved data alone, with no model involved. */
+  scored?: boolean;
+};
 
 /** How much of the catalogue to put in front of the model in one pass. */
 const CANDIDATE_LIMIT = 120;
@@ -89,10 +94,57 @@ const toHistory = (rows: Row[] | null) =>
 const providersOf = (row: Row): string[] =>
   [...new Set((row.title_availability ?? []).map((a: { provider: string }) => a.provider))] as string[];
 
+/**
+ * Turns scored candidates into the response. Shared by both paths, because a heuristic
+ * slate and a model-scored one differ only in where the axes came from — the calibration,
+ * de-duplication and wildcard slot are the same either way.
+ */
+const slateFrom = (
+  pool: Candidate[],
+  candidates: Row[],
+  history: { genres: string[]; status?: string; rating?: number | null }[],
+  partnerHistory: { genres: string[]; status?: string; rating?: number | null }[] | null,
+): Result => {
+  const rowById = new Map(candidates.map((t: Row) => [t.id, t]));
+
+  const toRec = (c: Candidate): Rec => {
+    const row = rowById.get(c.id!);
+    return {
+      title_id: c.id!,
+      slug: row?.slug ?? null,
+      title: c.name,
+      type: (c.type ?? 'movie') as 'movie' | 'series',
+      year: c.year ?? 0,
+      genres: c.genres,
+      imdb_rating: row?.imdb_rating ?? 0,
+      match_score: Math.round(combineScore(c.axes)),
+      explanation: c.explanation ?? '',
+      image_url: row?.image_url ?? null,
+      certification: row?.certification ?? null,
+      runtime_minutes: row?.runtime_minutes ?? null,
+      providers: c.providers ?? [],
+    };
+  };
+
+  // The wildcard rides along as the last pick: exploration is a slot, not an accident.
+  const slate = (size: number, viewerHistory: typeof history) => {
+    if (!pool.length) return [];
+    const { picks, wildcard } = buildSlate(pool, viewerHistory, { size: size - 1 });
+    return [...picks, ...(wildcard ? [wildcard] : [])].map(toRec);
+  };
+
+  const result: Result = {
+    personal: slate(PERSONAL_SLATE, history),
+    shared: partnerHistory ? slate(SHARED_SLATE, [...history, ...partnerHistory]) : null,
+  };
+  if (!result.shared) delete result.shared;
+  return result;
+};
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: corsHeaders });
   try {
-    const { user_id, profile_id, partner_id, exclude_titles, mood, type_filter, time_filter } = await req.json();
+    const { user_id, profile_id, partner_id, exclude_titles, mood, type_filter, time_filter, mode } = await req.json();
     if (!user_id) return json({ error: 'user_id required' }, 400);
 
     const supabase = serviceClient();
@@ -155,6 +207,26 @@ Deno.serve(async (req) => {
       ? `Viewer A has watched: ${JSON.stringify(history)}\nViewer B has watched: ${JSON.stringify(partnerHistory)}`
       : `They have watched: ${JSON.stringify(history)}`;
 
+    const viewerMix = genreMix(history.map((h) => ({ genres: h.genres, status: h.status, rating: h.rating })));
+
+    if (mode !== 'refresh') {
+      // Nothing cached and no permission to spend a minute of the user's time: rank what we
+      // hold. The scheduled refresh replaces this with model scores.
+      const pool: Candidate[] = candidates.map((row: Row) => ({
+        id: row.id,
+        name: row.name,
+        year: row.year,
+        type: row.type,
+        genres: row.genres ?? [],
+        axes: heuristicAxes(row, viewerMix),
+        explanation: '',
+        providers: providersOf(row),
+      }));
+      const result = slateFrom(pool, candidates, history, partnerHistory);
+      result.scored = false;
+      return json(result);
+    }
+
     const scored = await callTool<{ scores: { ref: number; explanation: string; axes: Axes }[] }>({
       model: MODELS.smart,
       system:
@@ -197,42 +269,8 @@ Deno.serve(async (req) => {
       };
     });
 
-    const rowById = new Map(candidates.map((t: Row) => [t.id, t]));
-    const toRec = (c: Candidate): Rec => {
-      const row = rowById.get(c.id!);
-      return {
-        title_id: c.id!,
-        slug: row?.slug ?? null,
-        title: c.name,
-        type: (c.type ?? 'movie') as 'movie' | 'series',
-        year: c.year ?? 0,
-        genres: c.genres,
-        imdb_rating: row?.imdb_rating ?? 0,
-        match_score: Math.round(combineScore(c.axes)),
-        explanation: c.explanation ?? '',
-        image_url: row?.image_url ?? null,
-        certification: row?.certification ?? null,
-        runtime_minutes: row?.runtime_minutes ?? null,
-        providers: c.providers ?? [],
-      };
-    };
-
-    // The wildcard rides along as the last pick: exploration is a slot, not an accident.
-    const slateFor = (size: number, viewerHistory: ReturnType<typeof toHistory>) => {
-      if (!pool.length) return [];
-      const { picks, wildcard } = buildSlate(
-        pool,
-        viewerHistory.map((h) => ({ genres: h.genres, status: h.status, rating: h.rating })),
-        { size: size - 1 },
-      );
-      return [...picks, ...(wildcard ? [wildcard] : [])].map(toRec);
-    };
-
-    const result: Result = {
-      personal: slateFor(PERSONAL_SLATE, history),
-      shared: partnerHistory ? slateFor(SHARED_SLATE, [...history, ...partnerHistory]) : null,
-    };
-    if (!result.shared) delete (result as Partial<Result>).shared;
+    const result = slateFrom(pool, candidates, history, partnerHistory);
+    result.scored = true;
 
     // Genre mix of what shipped, so drift away from the viewer's own mix shows up in logs.
     console.log('slate mix', JSON.stringify(genreMix(result.personal.map((r) => ({ genres: r.genres })))));
