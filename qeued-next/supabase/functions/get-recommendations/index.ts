@@ -1,7 +1,16 @@
 import { corsHeaders, json } from '../_shared/cors.ts';
 import { serviceClient } from '../_shared/db.ts';
 import { MODELS, callTool, claudeErrorResponse } from '../_shared/claude.ts';
-import { type Axes, type Candidate, buildSlate, combineScore, genreMix, heuristicAxes } from '../_shared/ranking.ts';
+import {
+  type Axes,
+  type Candidate,
+  type ViewerProfile,
+  buildSlate,
+  combineScore,
+  genreMix,
+  heuristicAxes,
+  tagMix,
+} from '../_shared/ranking.ts';
 
 /**
  * Recommends out of Qeued's own catalogue, and returns real rows.
@@ -89,6 +98,8 @@ const toHistory = (rows: Row[] | null) =>
     status: e.status,
     rating: e.watched_rating,
     genres: e.title?.genres ?? [],
+    tones: e.title?.tones ?? [],
+    themes: e.title?.themes ?? [],
   }));
 
 const providersOf = (row: Row): string[] =>
@@ -160,7 +171,7 @@ Deno.serve(async (req) => {
       if (cached && new Date(cached.expires_at) > new Date()) return json(cached.response_data);
     }
 
-    const entryColumns = 'status, watched_rating, title_id, title:titles(name, genres)';
+    const entryColumns = 'status, watched_rating, title_id, title:titles(name, genres, tones, themes)';
     const { data: entries } = await supabase
       .from('watch_entries')
       .select(entryColumns)
@@ -178,7 +189,7 @@ Deno.serve(async (req) => {
     // match a name and not real enough to recommend.
     const { data: catalogue } = await supabase
       .from('titles')
-      .select('id, slug, name, year, type, genres, synopsis, certification, runtime_minutes, seasons, imdb_rating, image_url, title_availability(provider)')
+      .select('id, slug, name, year, type, genres, tones, themes, synopsis, certification, runtime_minutes, seasons, imdb_rating, image_url, title_availability(provider)')
       .gt('catalogue_version', 0)
       .limit(400);
 
@@ -200,7 +211,10 @@ Deno.serve(async (req) => {
       .map((t: Row, i: number) =>
         `${i}. ${t.name} (${t.year ?? '?'}) — ${t.type}, ${(t.genres ?? []).join('/')}` +
         `${t.certification ? `, ${t.certification}` : ''}${t.runtime_minutes ? `, ${t.runtime_minutes} min` : ''}` +
-        `${t.seasons ? `, ${t.seasons} season(s)` : ''}${t.synopsis ? `\n   ${t.synopsis}` : ''}`,
+        `${t.seasons ? `, ${t.seasons} season(s)` : ''}` +
+        `${(t.tones ?? []).length ? `\n   tone: ${(t.tones ?? []).join(', ')}` : ''}` +
+        `${(t.themes ?? []).length ? `\n   about: ${(t.themes ?? []).join(', ')}` : ''}` +
+        `${t.synopsis ? `\n   ${t.synopsis}` : ''}`,
       )
       .join('\n');
 
@@ -208,7 +222,15 @@ Deno.serve(async (req) => {
       ? `Viewer A has watched: ${JSON.stringify(history)}\nViewer B has watched: ${JSON.stringify(partnerHistory)}`
       : `They have watched: ${JSON.stringify(history)}`;
 
-    const viewerMix = genreMix(history.map((h) => ({ genres: h.genres, status: h.status, rating: h.rating })));
+    // Three distributions over the same watch history: what they pick, how it feels, and
+    // what it is about. Tone and theme are only populated for titles the catalogue has
+    // tagged, and heuristicAxes falls back to genre for anything that is not.
+    const weightOf = (h: { status?: string; rating?: number | null }) => ({ status: h.status, rating: h.rating });
+    const viewerMix: ViewerProfile = {
+      genres: tagMix(history.map((h) => ({ ...weightOf(h), tags: h.genres }))),
+      tones: tagMix(history.map((h) => ({ ...weightOf(h), tags: h.tones }))),
+      themes: tagMix(history.map((h) => ({ ...weightOf(h), tags: h.themes }))),
+    };
 
     if (mode !== 'refresh') {
       // Nothing cached and no permission to spend a minute of the user's time: rank what we

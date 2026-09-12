@@ -36,6 +36,9 @@ const jsonLd = (title, stats) => {
     description: title.synopsis ?? undefined,
     datePublished: title.year ? String(title.year) : undefined,
     genre: title.genres?.length ? title.genres : undefined,
+    // Our own tone and theme tags. keywords is the only schema.org field that carries
+    // "what it feels like and what it is about" without pretending to be a genre.
+    keywords: [...(title.tones ?? []), ...(title.themes ?? [])].join(', ') || undefined,
     contentRating: title.certification ?? undefined,
     image: title.image_url ?? undefined,
     url: `${SITE}/titles/${title.slug}`,
@@ -79,6 +82,7 @@ const page = (shell, title, stats) => {
     title.runtime_minutes ? `${title.runtime_minutes} min` : null,
     title.seasons ? `${title.seasons} season${title.seasons > 1 ? 's' : ''}` : null,
     title.genres?.join(', '),
+    title.tones?.length ? title.tones.join(', ') : null,
   ].filter(Boolean);
 
   const head = [
@@ -124,7 +128,7 @@ const run = async () => {
   const titles = [];
   for (let from = 0; ; from += PAGE) {
     const page = await rest(
-      'titles?select=id,slug,name,year,type,genres,synopsis,certification,runtime_minutes,seasons,episodes,director,cast_members,image_url' +
+      'titles?select=id,slug,name,year,type,genres,tones,themes,synopsis,certification,runtime_minutes,seasons,episodes,director,cast_members,image_url' +
         `&catalogue_version=gt.0&order=name.asc&offset=${from}&limit=${PAGE}`,
     );
     titles.push(...page);

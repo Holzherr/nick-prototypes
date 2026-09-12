@@ -189,4 +189,35 @@ describe('heuristicAxes', () => {
   it('works with no history at all', () => {
     expect(() => heuristicAxes({ genres: ['Drama'] }, {})).not.toThrow();
   });
+
+  // The reason the columns exist: genre alone cannot separate these two.
+  it('separates two same-genre titles by tone', () => {
+    const viewer = { genres: mix, tones: { bleak: 0.7, tense: 0.3 } };
+    const bleak = heuristicAxes({ genres: ['Drama'], tones: ['bleak'] }, viewer);
+    const warm = heuristicAxes({ genres: ['Drama'], tones: ['warm'] }, viewer);
+    expect(bleak.tone).toBeGreaterThan(warm.tone);
+  });
+
+  it('reads theme from themes rather than genre when the title is tagged', () => {
+    const viewer = { genres: mix, themes: { espionage: 0.8, family: 0.2 } };
+    const spy = heuristicAxes({ genres: ['Drama'], themes: ['espionage'] }, viewer);
+    const other = heuristicAxes({ genres: ['Drama'], themes: ['addiction'] }, viewer);
+    expect(spy.theme).toBeGreaterThan(other.theme);
+    expect(other.novelty).toBeGreaterThan(spy.novelty);
+  });
+
+  it('falls back to genre for a title the catalogue has not tagged yet', () => {
+    const viewer = { genres: mix, tones: { bleak: 1 }, themes: { espionage: 1 } };
+    const untagged = heuristicAxes({ genres: ['Thriller'] }, viewer);
+    const genreOnly = heuristicAxes({ genres: ['Thriller'] }, mix);
+    expect(untagged.tone).toBe(genreOnly.tone);
+    expect(untagged.theme).toBe(genreOnly.theme);
+  });
+
+  it('falls back to genre when the viewer has no tagged history', () => {
+    const viewer = { genres: mix, tones: {}, themes: {} };
+    expect(heuristicAxes({ genres: ['Thriller'], tones: ['bleak'] }, viewer).tone).toBe(
+      heuristicAxes({ genres: ['Thriller'] }, mix).tone,
+    );
+  });
 });
