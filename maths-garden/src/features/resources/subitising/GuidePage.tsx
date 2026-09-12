@@ -1,4 +1,5 @@
 import { possessive } from '@/features/children/model';
+import { stageAge } from '@/features/curriculum/skills';
 import { STAGES, type CardOptions } from './cards';
 import { A4Page } from './PrintSheet';
 
@@ -21,9 +22,10 @@ export function GuidePage({ options }: { options: CardOptions }) {
           <p className="text-[4mm] font-semibold uppercase tracking-wide text-bubble">Maths Garden · free printable</p>
           <h1 className="text-[11mm] font-bold leading-tight text-raspberry">{title}</h1>
           <p className="mt-[2mm] text-[5mm] font-semibold">
-            Stage {options.stage} · numbers {stage.label}
+            Stage {options.stage} · numbers {stage.label} · usually ages {stageAge('subitising', options.stage)}
           </p>
           <p>{stage.goal}</p>
+          <p className="text-grape/70">Ages are typical, not a target: start where your child gets about four out of five right.</p>
         </div>
 
         <div>
