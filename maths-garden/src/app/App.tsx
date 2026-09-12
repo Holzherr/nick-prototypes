@@ -162,7 +162,7 @@ function GuestFamily({ onExit, startGame }: { onExit: () => void; startGame?: Ga
  * landed, which is what the iPad's home-screen icon does. A signed-out visitor gets the homepage instead,
  * unless they asked for the app or the sign-in page.
  */
-function Root({ startGame, wantsApp }: { startGame?: GameId; wantsApp: boolean }) {
+function Root({ startGame, wantsApp, wantsLogin }: { startGame?: GameId; wantsApp: boolean; wantsLogin: boolean }) {
   const { user, loading } = useAuth();
   const [guest, setGuest] = useState(() => readJSON(GUEST, false));
   const setGuestMode = (on: boolean) => {
@@ -176,7 +176,10 @@ function Root({ startGame, wantsApp }: { startGame?: GameId; wantsApp: boolean }
   // offers the guest play on the way in. The cost is that a guest waits on the session check, a local read.
   if (loading) return <Splash />;
   if (user) return <CloudFamily key={user.id} userId={user.id} email={user.email ?? ''} startGame={startGame} />;
-  if (guest) return <GuestFamily onExit={() => setGuestMode(false)} startGame={startGame} />;
+  // Asking for #/login is asking for the sign-in form, so it beats the flag too. While the flag swallowed
+  // that route the form could not be reached at all: the only way back to it was "Sign in to save →" on
+  // the grown-ups screen, behind the sum — which is the last place a parent looking to sign in would look.
+  if (guest && !wantsLogin) return <GuestFamily onExit={() => setGuestMode(false)} startGame={startGame} />;
   if (wantsApp) return <AuthScreen onGuest={() => setGuestMode(true)} />;
   return (
     <MarketingLayout>
@@ -217,7 +220,11 @@ export default function App() {
   return (
     <AuthProvider>
       <FloatingHearts />
-      <Root startGame={isGameId(asked) ? asked : undefined} wantsApp={path === '/login' || path === '/app' || path.startsWith('/play/')} />
+      <Root
+        startGame={isGameId(asked) ? asked : undefined}
+        wantsApp={path === '/login' || path === '/app' || path.startsWith('/play/')}
+        wantsLogin={path === '/login'}
+      />
     </AuthProvider>
   );
 }
