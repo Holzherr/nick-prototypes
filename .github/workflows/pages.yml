@@ -64,10 +64,14 @@ jobs:
           npm run build-storybook
 
       # maths-garden is the same shape again (base /nick-prototypes/maths-garden/).
+      # check-types and lint were missing here: a type error or a lint regression could reach main and
+      # only surface later at build time, or on a device.
       - name: Build maths-garden
         working-directory: maths-garden
         run: |
           npm ci
+          npm run check-types
+          npm run lint
           npm test
           npm run build
           npm run build-storybook
