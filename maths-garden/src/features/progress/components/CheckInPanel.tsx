@@ -10,6 +10,8 @@ export interface CheckInPanelProps {
   checkins: readonly CheckinRecord[];
   onSubmit: (scores: CheckinScores, note: string) => void;
   initiallyOpen?: boolean;
+  /** Inside a Section on the grown-ups screen: drop the heading and blurb the section already provides. */
+  bare?: boolean;
 }
 
 const shortDate = (ymd: string) => new Date(`${ymd}T12:00:00`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
@@ -18,7 +20,7 @@ const shortDate = (ymd: string) => new Date(`${ymd}T12:00:00`).toLocaleDateStrin
  * "Weekly check-in": closed, one line per probe with the last four scores as a trend ("14 → 17");
  * open, a form with each probe's instructions and a number box (blank = skipped) plus a note.
  */
-export function CheckInPanel({ checkins, onSubmit, initiallyOpen = false }: CheckInPanelProps) {
+export function CheckInPanel({ checkins, onSubmit, initiallyOpen = false, bare = false }: CheckInPanelProps) {
   const [open, setOpen] = useState(initiallyOpen);
   const [scores, setScores] = useState<Partial<Record<ProbeId, string>>>({});
   const [note, setNote] = useState('');
@@ -38,18 +40,22 @@ export function CheckInPanel({ checkins, onSubmit, initiallyOpen = false }: Chec
   };
 
   return (
-    <section className="mt-8">
+    <section className={bare ? undefined : 'mt-8'}>
+      {/* Bare drops the heading, but "Log a check-in" must survive it: it is the only way to open the form. */}
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h3 className="text-2xl font-semibold text-raspberry">Weekly check-in</h3>
+        {!bare && <h3 className="text-2xl font-semibold text-raspberry">Weekly check-in</h3>}
         {!open && (
           <Button size="sm" onClick={() => setOpen(true)}>
             Log a check-in
           </Button>
         )}
       </div>
-      <p className="mt-1 text-sm text-grape/70">
-        Five minutes with real objects once a week, away from the iPad. Shows whether the screen skills carry over, and covers rote counting, which no game tests.
-      </p>
+      {!bare && (
+        <p className="mt-1 text-sm text-grape/70">
+          Five minutes with real objects once a week, away from the iPad. Shows whether the screen skills carry over, and covers rote counting, which no game
+          tests.
+        </p>
+      )}
       {open ? (
         <form onSubmit={submit} className="mt-4 flex flex-col gap-3">
           {PROBES.map((p) => (
