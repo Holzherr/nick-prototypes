@@ -6,7 +6,7 @@ import type { ProbeId } from '@/features/progress/probes';
  * game checks it on an iPad or phone, and levelling up in the game (level index = stage − 1) unlocks the
  * next stage's printables.
  */
-export type SkillId = 'subitising' | 'counting' | 'numerals' | 'comparison' | 'adding' | 'rote';
+export type SkillId = 'subitising' | 'counting' | 'numerals' | 'comparison' | 'adding' | 'bonds' | 'subtracting' | 'teens' | 'rote';
 export type StageNumber = 1 | 2 | 3;
 
 export interface SkillStage {
@@ -89,6 +89,42 @@ export const SKILLS: readonly Skill[] = [
       { stage: 1, range: 'within 5', goal: '“One more” and “two more” with objects.', age: '4–5' },
       { stage: 2, range: 'within 8', goal: 'Counts on from the first group instead of starting again.', age: '5–6' },
       { stage: 3, range: 'within 10', goal: 'Adds 1–3 on to any number up to 10.', age: '6–7' },
+    ],
+  },
+  {
+    id: 'bonds',
+    name: 'Number bonds',
+    emoji: '🧩',
+    game: 'bond',
+    probe: 'bonds',
+    stages: [
+      { stage: 1, range: 'to 5', goal: 'Knows the pairs that make 5, with a frame to look at.', age: '4–5' },
+      { stage: 2, range: 'to 10', goal: 'Finds the missing part of 10 on a ten frame.', age: '5–6' },
+      { stage: 3, range: 'to 10, in her head', goal: 'Says what goes with a number to make 10 without seeing it.', age: '6–7' },
+    ],
+  },
+  {
+    id: 'subtracting',
+    name: 'Taking away',
+    emoji: '🎈',
+    game: 'fewer',
+    probe: 'fewer',
+    stages: [
+      { stage: 1, range: 'within 5', goal: 'One fewer, with objects she can see go.', age: '4–5' },
+      { stage: 2, range: 'within 8', goal: 'Counts back one or two instead of recounting what is left.', age: '5–6' },
+      { stage: 3, range: 'within 10', goal: 'Takes one to three away from any number up to ten.', age: '6–7' },
+    ],
+  },
+  {
+    id: 'teens',
+    name: 'Teen numbers',
+    emoji: '🔟',
+    game: 'teen',
+    probe: 'teens',
+    stages: [
+      { stage: 1, range: '11–15', goal: 'Sees a full ten and some more, and says the teen number.', age: '4–5' },
+      { stage: 2, range: '11–19', goal: 'Knows thirteen is ten and three, not three and ten.', age: '5–6' },
+      { stage: 3, range: '11–20', goal: 'Says the teen number without a frame to count.', age: '6–7' },
     ],
   },
   {

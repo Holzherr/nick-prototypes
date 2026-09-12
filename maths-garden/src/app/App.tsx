@@ -42,6 +42,8 @@ interface FamilyProps {
   activeKey: string;
   /** Signed in: the grown-ups screen offers to bring guest-mode play into the account. */
   allowGuestImport?: boolean;
+  /** No account: the grown-ups screen offers signing in rather than signing out. */
+  guestMode?: boolean;
   /** Opened from a QR code on a printable: start this game straight away. */
   startGame?: GameId;
   /** The signed-in parent's address, for emailed tutor reports. */
@@ -50,7 +52,7 @@ interface FamilyProps {
 }
 
 /** Open the remembered child (or the only one), otherwise ask who's playing. */
-function Family({ label, profiles, loaded, create, repo, activeKey, allowGuestImport, startGame, parentEmail, onSignOut }: FamilyProps) {
+function Family({ label, profiles, loaded, create, repo, activeKey, allowGuestImport, guestMode, startGame, parentEmail, onSignOut }: FamilyProps) {
   const [activeId, setActiveId] = useState<string | null>(() => readJSON(activeKey, null));
   const [choosing, setChoosing] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -71,6 +73,7 @@ function Family({ label, profiles, loaded, create, repo, activeKey, allowGuestIm
         child={active}
         repo={repo}
         allowGuestImport={allowGuestImport}
+        guestMode={guestMode}
         startGame={startGame}
         parentEmail={parentEmail}
         onSwitchChild={() => setChoosing(true)}
@@ -147,6 +150,7 @@ function GuestFamily({ onExit, startGame }: { onExit: () => void; startGame?: Ga
       create={create}
       repo={guestRepo}
       activeKey="maths-garden:guest-active-child"
+      guestMode
       startGame={startGame}
       onSignOut={onExit}
     />

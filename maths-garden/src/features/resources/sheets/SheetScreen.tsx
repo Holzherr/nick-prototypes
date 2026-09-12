@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Logo } from '@/shared/brand/Logo';
+import { BondFrames } from './BondFrames';
 import { SHEETS, type SheetId, type SheetOptions } from './catalog';
 import { CountingMats } from './CountingMats';
 import { GuideSheet } from './GuideSheet';
@@ -7,6 +8,8 @@ import { MoreOrFewer } from './MoreOrFewer';
 import { NumberTrack } from './NumberTrack';
 import { NumeralCards } from './NumeralCards';
 import { SheetOptionsPanel } from './SheetOptionsPanel';
+import { TakeAwayStories } from './TakeAwayStories';
+import { TeenFrames } from './TeenFrames';
 import { UnicornStories } from './UnicornStories';
 
 const VIEWS = {
@@ -14,6 +17,9 @@ const VIEWS = {
   'numeral-cards': NumeralCards,
   'more-or-fewer': MoreOrFewer,
   'unicorn-stories': UnicornStories,
+  'bond-frames': BondFrames,
+  'take-away-stories': TakeAwayStories,
+  'teen-frames': TeenFrames,
   'number-track': NumberTrack,
 } satisfies Record<SheetId, unknown>;
 
@@ -23,6 +29,9 @@ const PAGES: Record<SheetId, (to: number) => number> = {
   'numeral-cards': (to) => 3 + Math.ceil((to + 1) / 8),
   'more-or-fewer': () => 3,
   'unicorn-stories': () => 4,
+  'bond-frames': (to) => 2 + Math.ceil((to - 1) / 5),
+  'take-away-stories': () => 4,
+  'teen-frames': (to) => 2 + Math.ceil((to - 10) / 4),
   'number-track': () => 3,
 };
 

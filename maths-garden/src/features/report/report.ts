@@ -64,6 +64,9 @@ const PRACTICE: Record<SkillId, string> = {
   numerals: 'Spot numbers on front doors, buses and lift buttons and say them together.',
   comparison: 'Two piles of raisins: “who has more?” Then make them the same.',
   adding: 'Three toys, then one more arrives: “how many now?” Nudge her to count on instead of starting again.',
+  bonds: 'Put five raisins out and cover some with your hand: “how many am I hiding?” Then let her hide them from you.',
+  subtracting: 'Five grapes, eat one in front of her: “how many left?” Eating them is the whole point.',
+  teens: 'Line up ten pasta pieces, then put three beside them: “ten and three makes…?” Always say it that way round.',
   rote: 'Count to 20 going up the stairs, then count back from 10 like a rocket launch.',
 };
 
