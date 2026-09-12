@@ -281,7 +281,13 @@ const callTool = async (
     );
   }
 
-  if (!auth) return toolResult('Not connected to a Qeued profile. Provide a bearer token, or call provision_account.', true);
+  if (!auth) {
+    return toolResult(
+      'Not connected to a Qeued profile. Connect via OAuth (see ' + SITE + '/.well-known/oauth-protected-resource), ' +
+        'provide a bearer token, or call provision_account for a user who has no account yet.',
+      true,
+    );
+  }
   const { profile, scopes } = auth;
   const canWrite = scopes.includes('write');
 
@@ -501,6 +507,22 @@ Deno.serve(async (req) => {
         const toolName = String((params as Json)?.name ?? '');
         const args = ((params as Json)?.arguments ?? {}) as Json;
         const auth = await authenticate(req);
+
+        // provision_account is the one tool that works without a credential, since it exists
+        // to create one. Everything else gets the discovery challenge.
+        if (!auth && toolName !== 'provision_account' && req.headers.get('authorization')) {
+          return new Response(
+            JSON.stringify({ jsonrpc: '2.0', id, error: { code: -32001, message: 'Invalid or expired token' } }),
+            {
+              status: 401,
+              headers: {
+                ...corsHeaders,
+                'Content-Type': 'application/json',
+                'WWW-Authenticate': `Bearer resource_metadata="${SITE}/.well-known/oauth-protected-resource"`,
+              },
+            },
+          );
+        }
         return rpcResult(id, await callTool(toolName, args, auth, origin));
       }
 

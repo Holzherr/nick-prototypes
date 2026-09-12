@@ -192,6 +192,42 @@ const run = async () => {
   );
 
   await mkdir(join(DIST, '.well-known'), { recursive: true });
+
+  // OAuth discovery. The endpoints run as edge functions, so these documents name absolute
+  // URLs — the metadata has to be served from the issuer, which is this site.
+  const OAUTH_BASE = 'https://piwfcsvnxcmxmvfhgtbk.supabase.co/functions/v1/oauth';
+  await writeFile(
+    join(DIST, '.well-known', 'oauth-authorization-server'),
+    JSON.stringify(
+      {
+        issuer: SITE,
+        authorization_endpoint: `${OAUTH_BASE}/authorize`,
+        token_endpoint: `${OAUTH_BASE}/token`,
+        registration_endpoint: `${OAUTH_BASE}/register`,
+        scopes_supported: ['read', 'write'],
+        response_types_supported: ['code'],
+        grant_types_supported: ['authorization_code'],
+        code_challenge_methods_supported: ['S256'],
+        token_endpoint_auth_methods_supported: ['none'],
+        service_documentation: `${SITE}/agents`,
+      },
+      null,
+      2,
+    ) + '\n',
+  );
+  await writeFile(
+    join(DIST, '.well-known', 'oauth-protected-resource'),
+    JSON.stringify(
+      {
+        resource: MCP_ENDPOINT,
+        authorization_servers: [SITE],
+        scopes_supported: ['read', 'write'],
+        resource_documentation: `${SITE}/agents`,
+      },
+      null,
+      2,
+    ) + '\n',
+  );
   await writeFile(
     join(DIST, '.well-known', 'mcp.json'),
     JSON.stringify(
@@ -202,7 +238,11 @@ const run = async () => {
         endpoint: MCP_ENDPOINT,
         transport: 'streamable-http',
         protocolVersion: '2025-06-18',
-        authentication: { type: 'bearer', description: 'Issue a token at https://qeued.com/agents, or call provision_account for a new user.' },
+        authentication: {
+          type: 'oauth2',
+          authorization_servers: [SITE],
+          description: 'Register as a client and send the user through the approval screen, or issue a token by hand at https://qeued.com/agents.',
+        },
         documentation: `${SITE}/agents`,
       },
       null,

@@ -15,6 +15,7 @@ import QueueSortPage from "@/features/queue/QueueSortScreen";
 import HouseholdPage from "@/features/household/HouseholdScreen";
 import AgentsPage from "@/features/agents/AgentsScreen";
 import ClaimPage from "@/features/agents/ClaimScreen";
+import ConnectPage from "@/features/agents/ConnectScreen";
 import ProfilePage from "@/features/social/ProfileScreen";
 import PublicProfilePage from "@/features/social/PublicProfileScreen";
 import LandingPage from "@/features/landing/LandingScreen";
@@ -74,6 +75,7 @@ const App = () => (
             <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
             <Route path="/" element={<HomeRoute />} />
             <Route path="/titles/:slug" element={<PublicTitlePage />} />
+          <Route path="/connect" element={<ConnectPage />} />
           <Route path="/claim/:code" element={<ClaimPage />} />
           <Route path="/agents" element={<ProtectedRoute><AgentsPage /></ProtectedRoute>} />
           <Route path="/household" element={<ProtectedRoute><HouseholdPage /></ProtectedRoute>} />
