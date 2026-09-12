@@ -111,7 +111,8 @@ function Count({ q, chosen, onAnswer, onTap }: { q: Q<'count'>; chosen: number |
 }
 
 function Find({ q, chosen, onAnswer, onReplay }: { q: Q<'find'>; chosen: number | null; onAnswer: (n: number) => void; onReplay?: () => void }) {
-  const speak = useCallback(() => say(`Find the number ${numberWord(q.answer)}. ${numberWord(q.answer)}!`), [q.answer]);
+  // Said once. "Hear it again" is there for a repeat, and saying it twice unprompted just talks over her.
+  const speak = useCallback(() => say(`Find the number ${numberWord(q.answer)}.`), [q.answer]);
   useEffect(() => {
     speak();
   }, [speak]);

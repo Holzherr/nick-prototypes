@@ -27,6 +27,7 @@ import { NovaCelebration } from '@/features/stickers/components/NovaCelebration'
 import { StickerBookScreen } from '@/features/stickers/components/StickerBookScreen';
 import { drawSpecial, pendingMilestone } from '@/features/stickers/milestones';
 import { readJSON } from '@/shared/utils/storage';
+import { ImportPromptScreen } from '@/features/progress/components/ImportPromptScreen';
 import { GardenScreen } from './components/GardenScreen';
 import { gardenNews, gardenOf, type Garden } from './garden-state';
 
@@ -48,6 +49,7 @@ type Screen =
       gardenBefore: Garden;
     }
   | { name: 'garden' }
+  | { name: 'import' }
   | { name: 'report' }
   | { name: 'history' }
   | { name: 'stickers' }
@@ -82,7 +84,10 @@ const today = () => {
 export function GardenApp({ child, repo, allowGuestImport = false, guestMode = false, startGame, parentEmail, onSwitchChild, onSignOut }: GardenAppProps) {
   const [progress, setProgress] = useState(() => repo.cached(child.id));
   const [pending, setPending] = useState(() => repo.pending());
-  const [screen, setScreen] = useState<Screen>({ name: 'home' });
+  // Guest play belongs to a different child id, so once you sign in it vanishes from view. Offering it
+  // here — before the garden, not behind the grown-ups sum — is the difference between "moved across" and
+  // "the app lost it".
+  const [screen, setScreen] = useState<Screen>(() => (allowGuestImport && guestProfiles().length > 0 ? { name: 'import' } : { name: 'home' }));
   const [celebration, setCelebration] = useState<{ line: string; reward: { sticker: Sticker; sparkly: boolean } } | null>(null);
   const [novaDone, setNovaDone] = useState(false);
   const [guests, setGuests] = useState<GuestProfile[]>(() => (allowGuestImport ? guestProfiles() : []));
@@ -305,6 +310,19 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
       }
       case 'garden':
         return <GardenScreen childName={child.name} garden={garden} onHome={home} />;
+      case 'import':
+        return (
+          <ImportPromptScreen
+            childName={child.name}
+            childAvatar={child.avatar}
+            profiles={guests}
+            busy={importing.busy}
+            imported={importing.done}
+            onImport={importGuest}
+            onSkip={home}
+            onDone={home}
+          />
+        );
       case 'report':
         return (
           <ReportScreen
