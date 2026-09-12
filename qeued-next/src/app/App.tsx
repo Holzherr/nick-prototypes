@@ -9,6 +9,7 @@ import Layout from "@/shared/layout/Layout";
 import Index from "@/features/library/HomeScreen";
 import Auth from "@/features/auth/AuthScreen";
 import SearchPage from "@/features/discover/SearchScreen";
+import TonightPage from "@/features/tonight/TonightScreen";
 import ProfilePage from "@/features/social/ProfileScreen";
 import PublicProfilePage from "@/features/social/PublicProfileScreen";
 import InvitePage from "@/features/social/InviteScreen";
@@ -66,7 +67,8 @@ const App = () => (
           <Routes>
             <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
             <Route path="/" element={<HomeRoute />} />
-            <Route path="/search" element={<ProtectedRoute><SearchPage /></ProtectedRoute>} />
+            <Route path="/tonight" element={<ProtectedRoute><TonightPage /></ProtectedRoute>} />
+          <Route path="/search" element={<ProtectedRoute><SearchPage /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
             <Route path="/invite" element={<InvitePage />} />
             <Route path="/p/:username" element={<PublicProfilePage />} />
