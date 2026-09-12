@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { guestProfiles } from '@/features/progress/guest';
 import { cloudConfigured, supabase } from '@/shared/supabase/client';
 import { AuthForm, type AuthMode } from './AuthForm';
 
 export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
   const [mode, setMode] = useState<AuthMode>('sign-in');
+  // Read once: it only changes by playing, which cannot happen from this screen.
+  const [guests] = useState(() => guestProfiles());
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
@@ -39,6 +42,7 @@ export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
     <AuthForm
       onGoogle={google}
       onGuest={onGuest}
+      guestProfiles={guests}
       mode={mode}
       onModeChange={(next) => {
         setMode(next);

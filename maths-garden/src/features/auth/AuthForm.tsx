@@ -1,8 +1,10 @@
 import { useState, type FormEvent } from 'react';
+import type { GuestProfile } from '@/features/progress/guest';
 import { Logo } from '@/shared/brand/Logo';
 import { Button } from '@/shared/components/ui/button';
 import { Card } from '@/shared/components/ui/card';
 import { Input } from '@/shared/components/ui/input';
+import { GuestDataPanel } from './GuestDataPanel';
 
 export type AuthMode = 'sign-in' | 'sign-up';
 
@@ -13,6 +15,8 @@ export interface AuthFormProps {
   onGoogle: () => void;
   /** Play without an account; progress stays on the device. */
   onGuest: () => void;
+  /** Guest play already on this device, so the card can say where it is instead of looking like it is gone. */
+  guestProfiles?: readonly GuestProfile[];
   busy?: boolean;
   error?: string | null;
   notice?: string | null;
@@ -37,8 +41,11 @@ const GoogleMark = () => (
  * The password can be revealed, because typing one blind on an iPad is how people get locked out. A space
  * at either end is called out separately: autofill adds them, they are rejected, and they stay invisible
  * even when the password is shown.
+ *
+ * When this device has guest play on it, the card says so before you sign in — signing in opens an account
+ * child with no history, and without that the play looks deleted at the worst possible moment.
  */
-export function AuthForm({ mode, onModeChange, onSubmit, onGoogle, onGuest, busy = false, error, notice, unavailable }: AuthFormProps) {
+export function AuthForm({ mode, onModeChange, onSubmit, onGoogle, onGuest, guestProfiles = [], busy = false, error, notice, unavailable }: AuthFormProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [show, setShow] = useState(false);
@@ -124,16 +131,22 @@ export function AuthForm({ mode, onModeChange, onSubmit, onGoogle, onGuest, busy
             {mode === 'sign-in' ? 'Create an account' : 'Sign in'}
           </button>
         </p>
+        <GuestDataPanel profiles={guestProfiles} onContinueAsGuest={onGuest} />
+
         <p className="mt-4 border-t-2 border-dashed border-petal pt-4 text-center text-sm">
           <a href="#/resources" className="font-semibold text-raspberry underline">
             🖨 Free printable maths cards
           </a>{' '}
           <span className="text-grape/60">(no sign-in needed)</span>
         </p>
-        <Button variant="quiet" size="md" className="mt-5 w-full" onClick={onGuest}>
-          Guest mode
-        </Button>
-        <p className="mt-2 text-center text-xs text-grape/55">Play now without an account. Progress stays on this device.</p>
+        {guestProfiles.length === 0 && (
+          <>
+            <Button variant="quiet" size="md" className="mt-5 w-full" onClick={onGuest}>
+              Guest mode
+            </Button>
+            <p className="mt-2 text-center text-xs text-grape/55">Play now without an account. Progress stays on this device.</p>
+          </>
+        )}
       </Card>
     </div>
   );
