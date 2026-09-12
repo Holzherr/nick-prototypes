@@ -5,6 +5,7 @@
  *   node tools/candidates.mjs import <file.json…>   add proposals, skipping what is held
  *   node tools/candidates.mjs next <n> [out.json]   the n most-wanted pending titles
  *   node tools/candidates.mjs reconcile             mark as held anything now in the catalogue
+ *   node tools/candidates.mjs retry                 requeue retired ones after a resolver fix
  *   node tools/candidates.mjs fail <file.json>      record names that resolved to no page
  *   node tools/candidates.mjs stats                 what is left, by priority
  *
@@ -160,6 +161,20 @@ const fail = async (file) => {
   console.log(`Recorded ${records.length} unresolved candidate(s). A second failure retires one.`);
 };
 
+/**
+ * Puts retired candidates back in the queue.
+ *
+ * A candidate is retired after two failures, which is right when the resolver is a constant.
+ * It is not when the resolver improves: every title that failed for a reason since fixed is
+ * sitting there marked impossible. Run this after changing how titles are resolved.
+ */
+const retry = async () => {
+  const reset = await exec(
+    `update public.catalogue_candidates set status = 'pending', attempts = 0, last_error = null, updated_at = now() where status = 'failed';`,
+  );
+  console.log(`Requeued: ${reset}`);
+};
+
 const stats = async () => {
   const rows = await query(
     `select status, priority, count(*)::int as titles from public.catalogue_candidates group by 1, 2 order by 1, 2 desc`,
@@ -175,12 +190,13 @@ const commands = {
   import: () => importCandidates(args),
   next: () => next(args[0] ?? 100, args[1]),
   reconcile,
+  retry,
   fail: () => fail(args[0]),
   stats,
 };
 
 if (!commands[command]) {
-  console.log('Usage: candidates.mjs import <files…> | next <n> [out] | reconcile | fail <file> | stats');
+  console.log('Usage: candidates.mjs import <files…> | next <n> [out] | reconcile | retry | fail <file> | stats');
   process.exit(1);
 }
 await commands[command]();
