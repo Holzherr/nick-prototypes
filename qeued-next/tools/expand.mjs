@@ -217,12 +217,20 @@ const searchForPage = async (name, year, type) => {
     // English name — Demon Slayer comes back as "Kimetsu no Yaiba" at /demon-slayer-…, and
     // Man with a Movie Camera as "Chelovek s kino-apparatom". Either may be the match.
     const names = [normalise(node.content.title), normalise(node.content.fullPath.split('/').pop() ?? '')];
-    const sameYear =
-      year && node.content.originalReleaseYear
-        ? Math.abs(node.content.originalReleaseYear - year) <= (type === 'series' ? 1 : 2)
-        : false;
     if (!names.some(related)) continue;
-    if (sameYear || (!year && names.includes(wantedName))) return `https://www.justwatch.com${node.content.fullPath}`;
+
+    // An exact title match can tolerate the usual year drift. A partial one cannot: "The
+    // Hunting" is a prefix of "The Hunting Ground", and two years of slack was enough to
+    // accept the wrong film. Where the names only overlap, the year has to agree exactly.
+    const exactName = names.includes(wantedName);
+    const theirYear = node.content.originalReleaseYear;
+    if (!year) {
+      if (exactName) return `https://www.justwatch.com${node.content.fullPath}`;
+      continue;
+    }
+    if (!theirYear) continue;
+    const slack = exactName ? (type === 'series' ? 1 : 2) : 0;
+    if (Math.abs(theirYear - year) <= slack) return `https://www.justwatch.com${node.content.fullPath}`;
   }
   return null;
 };
