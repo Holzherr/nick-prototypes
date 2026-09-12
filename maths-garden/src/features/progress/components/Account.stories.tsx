@@ -10,7 +10,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'On the grown-ups screen: whether this is a signed-in session or a guest one, which account, and whether anything is still waiting to upload. With a single child the app opens straight into her garden, so the profiles screen never appears — without this there was nowhere at all to see who was signed in.',
+          'Leads the grown-ups screen: a full-width status bar saying signed in or guest, then the account address at heading size, then whether anything is still waiting to upload. With a single child the app opens straight into her garden, so the profiles screen never appears — without this there was nowhere at all to see who was signed in. The status was previously a small pale pill with the address inside a sentence, which read as a footnote beside the buttons under it.',
       },
     },
   },
