@@ -47,9 +47,20 @@ const normalise = (value) =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
-/** Apostrophes vanish rather than becoming separators: "Winter's Bone" is winters-bone. */
+/**
+ * Apostrophes vanish rather than becoming separators, so "Winter's Bone" is winters-bone.
+ *
+ * Accents are folded for the same reason: without that, every non-alphanumeric character
+ * becomes a hyphen and Amélie is filed at am-lie, Tár at t-r, Caché at cach.
+ */
 const slugify = (value) =>
-  String(value).toLowerCase().replace(/['\u2019]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  String(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/['\u2019]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
 
 /** "PT1H48M0S" → 108. Series durations are per episode, which is what we want. */
 const minutesFrom = (duration) => {
