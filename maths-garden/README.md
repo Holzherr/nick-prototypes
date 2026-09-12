@@ -17,9 +17,10 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
 ## What it does
 
 - **Public homepage** (`features/marketing/`): a signed-out visitor at `#/` gets the value proposition, the
-  print → check → move up → print next loop, every printable grouped by skill, the games, an FAQ and two
+  print → check → move up → print next loop, every printable grouped by skill, the games, an FAQ and three
   research-backed guides (the stages of early maths and reading; whether gamified learning works, including
-  the evidence against it). Claims and sources live in `articles.ts` and `faq.ts`, not in components.
+  the evidence against it; and how this app scores a child and decides when to move up). Claims and sources
+  live in `articles.ts` and `faq.ts`, not in components.
   Signing in moved to `#/login`; `#/app` forces the app and is the PWA `start_url`, so the iPad icon still
   opens straight into the games. Signed-in and guest sessions skip the homepage entirely.
 - **Parent account** (Supabase email + password) with **child profiles**. The device remembers the child
@@ -40,6 +41,15 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   and why, off-screen practice for the weakest skills, and warning signs. Printable, and **emailed to the
   parent whenever a game crosses into a new printable stage** ("Tara has moved up to stage 2 in Counting
   objects") with links to the sheets that suit her weakest skills.
+- **Progress over time** (`features/progress/history.ts`, `ProgressScreen`): totals, accuracy and
+  seconds-per-answer by week, a square per day for the last eight weeks, and per skill a level ladder,
+  weekly accuracy and every number asked coloured by how it goes. Charts are hand-drawn SVG — no charting
+  library for five shapes. **Level changes are recorded as events** (`maths_level_events`: from, to, reason
+  earned/dropped/manual/import), because `maths_levels` only holds the current level; history for older play
+  falls back to inferring changes from the level of the next round, and says so. Rounds also store
+  `levelMax`, so difficulty stays readable when levels are retuned.
+- **How the scoring works** is one component (`ScoringDiagram`) shared by that screen and the
+  `#/guides/how-it-scores` guide, so the explanation cannot drift from the code.
 - **Guest import:** play from guest mode on the device can be copied onto an account child from the
   grown-ups screen. Records keep their ids, so importing twice changes nothing.
 - **Offline-first:** every write lands in local storage first and uploads when there is signal
@@ -64,10 +74,11 @@ src/
   features/children/      model (age), api, use-children (cached), ChildForm, ProfilesScreen
   features/games/         catalog, questions (tested), engine (levels, stats; tested), sound, components/
   features/stickers/      catalog (packs, draw; tested), StickerBadge, PackChooser, StickerReveal, StickerBookScreen
-  features/progress/      model, repo (outbox; tested), supabase-remote, memory-remote, probes, fixtures, SkillRow, CheckInPanel, DashboardScreen
+  features/progress/      model (rounds, levels, level events), repo (outbox; tested), supabase-remote, memory-remote, probes, fixtures,
+                          history (charts data; tested), charts (hand-drawn SVG), ScoringDiagram, ProgressScreen, SkillRow, CheckInPanel, DashboardScreen
   features/garden/        GardenApp (home, game, end, garden, report, sticker book, gate, grown-ups), garden-state (tested), GardenScene/GardenScreen
   features/curriculum/    skills.ts: six skills × three stages, linked to games and probes
-  features/marketing/     articles (the two guides + sources), faq, menu (printables by skill; tested), HomeScreen, ArticleScreen, MarketingLayout
+  features/marketing/     articles (the three guides + sources), faq, menu (printables by skill; tested), HomeScreen, ArticleScreen, MarketingLayout
   features/report/        report (verdicts, recommendations; tested), report-email (html + text; tested), send-report, ReportScreen
   features/resources/     catalog, ResourcesScreen, A4Page, qr (QR path + absolute links), pack (stage pack),
                           subitising/ (patterns, cards, card maker), sheets/ (catalog, five sheet makers, SheetScreen)
@@ -91,10 +102,14 @@ describes the visual layout. `Screens/Garden (playable)` runs the whole child ap
 ## Backend
 
 Supabase project `gzdfoptvdocauvgxltjk` (eu-west-1) on its own Supabase account, set up 11 Sep 2026.
-Tables: `children`, `maths_rounds`, `maths_levels`, `maths_checkins`, `maths_stickers`; RLS gives a parent
-their own children and those children's rows only. Schema changes: add a migration, apply it through the
-session pooler (the direct database host is IPv6-only), update `src/shared/supabase/types.ts`. Intended
-auth settings are in `supabase/config.toml`.
+Tables: `children`, `maths_rounds`, `maths_levels`, `maths_level_events`, `maths_checkins`,
+`maths_stickers`; RLS gives a parent their own children and those children's rows only. Schema changes: add
+a migration, apply it through the session pooler (the direct database host is IPv6-only), update
+`src/shared/supabase/types.ts`. Intended auth settings are in `supabase/config.toml`.
+
+Migrations 0001–0003 are applied. 0003 adds `maths_level_events` (every level change with its reason) and
+`maths_rounds.level_max`; the app degrades gracefully if a history table is missing, so code can ship before
+a migration runs.
 
 **Report email.** `supabase/functions/send-report` posts the report to Resend. It takes the address from
 the caller's own session, so it can only ever email the signed-in parent. Until it is deployed the app
