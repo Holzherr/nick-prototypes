@@ -1,0 +1,111 @@
+[
+  {
+    "slug": "coda-2021",
+    "reason": "JustWatch resolved /movie/coda to the 2019 film about a concert pianist, so the director, cast and runtime belong to a different film with the same name.",
+    "fields": {
+      "runtime_minutes": 111,
+      "director": "Sian Heder",
+      "cast_members": [
+        "Emilia Jones",
+        "Troy Kotsur",
+        "Marlee Matlin",
+        "Daniel Durant",
+        "Eugenio Derbez",
+        "Ferdia Walsh-Peelo"
+      ]
+    }
+  },
+  {
+    "slug": "millers-crossing-1990",
+    "reason": "Stored as 185 minutes; the film is 115. Off by more than an edition difference could explain.",
+    "fields": {
+      "runtime_minutes": 115
+    }
+  },
+  {
+    "slug": "firefly-2002",
+    "reason": "Tagged Animation. It is live action.",
+    "remove_genres": [
+      "Animation"
+    ]
+  },
+  {
+    "slug": "atlanta-2016",
+    "reason": "Tagged Reality TV. It is scripted.",
+    "remove_genres": [
+      "Reality TV"
+    ]
+  },
+  {
+    "slug": "once-upon-a-time-in-america-1984",
+    "reason": "Stored as the 139-minute 1984 US theatrical cut, which has not been the released version for decades.",
+    "fields": {
+      "runtime_minutes": 229
+    }
+  },
+  {
+    "slug": "hero-2002",
+    "reason": "Tagged Animation. It is live action.",
+    "remove_genres": [
+      "Animation"
+    ]
+  },
+  {
+    "slug": "house-of-the-dragon-2022",
+    "reason": "Tagged Science-Fiction. It is fantasy.",
+    "remove_genres": [
+      "Science-Fiction"
+    ]
+  },
+  {
+    "slug": "invasion-2021",
+    "reason": "Tagged Fantasy. It is science fiction.",
+    "remove_genres": [
+      "Fantasy"
+    ]
+  },
+  {
+    "slug": "paths-of-glory-1957",
+    "reason": "Tagged Documentary and Music & Musical. It is a war drama.",
+    "remove_genres": [
+      "Documentary",
+      "Music & Musical"
+    ]
+  },
+  {
+    "slug": "the-girl-with-the-dragon-tattoo-2011",
+    "reason": "The record is the 2009 Swedish film — Oplev directing, Nyqvist and Rapace, 152 minutes — filed under the year of Fincher's remake. The slug moves with the year.",
+    "fields": {
+      "year": 2009,
+      "slug": "the-girl-with-the-dragon-tattoo-2009"
+    }
+  },
+  {
+    "slug": "the-good-the-bad-and-the-ugly-1966",
+    "reason": "Title lost its commas in the scrape.",
+    "fields": {
+      "name": "The Good, the Bad and the Ugly"
+    }
+  },
+  {
+    "slug": "veep-2012",
+    "reason": "Tagged War & Military. It is a political satire set entirely in Washington.",
+    "remove_genres": [
+      "War & Military"
+    ]
+  },
+  {
+    "slug": "tales-from-the-loop-2020",
+    "reason": "Cast list contains \"Roger Clown\", which is not a person — the scrape corrupted a name.",
+    "fields": {
+      "cast_members": [
+        "Rebecca Hall",
+        "Jonathan Pryce",
+        "Duncan Joiner",
+        "Daniel Zolghadri",
+        "Paul Schneider",
+        "Ato Essandoh"
+      ]
+    }
+  }
+]

@@ -49,22 +49,30 @@ export const combineScore = (axes: Axes, weights: Weights = DEFAULT_WEIGHTS): nu
 };
 
 /**
- * The viewer's genre distribution, weighted so a 5-star rating counts more than an
- * unrated watch and a dropped title counts against. Normalised to sum to 1.
+ * A weighted distribution over whatever tags are handed in, normalised to sum to 1.
+ *
+ * Weighting is the point: a 5-star watch says more about taste than an unrated one, and a
+ * dropped title is evidence against rather than for. A title's weight is split across its
+ * tags so a six-genre film does not count six times.
  */
-export const genreMix = (
-  entries: { genres: string[]; status?: string; rating?: number | null }[],
+export const tagMix = (
+  entries: { tags: string[]; status?: string; rating?: number | null }[],
 ): Record<string, number> => {
   const counts: Record<string, number> = {};
   for (const entry of entries) {
     const weight = entry.status === 'dropped' ? 0.2 : (entry.rating ?? 3) / 3;
-    const share = entry.genres.length ? weight / entry.genres.length : 0;
-    for (const genre of entry.genres) counts[genre] = (counts[genre] ?? 0) + share;
+    const share = entry.tags.length ? weight / entry.tags.length : 0;
+    for (const tag of entry.tags) counts[tag] = (counts[tag] ?? 0) + share;
   }
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
   if (!total) return {};
-  return Object.fromEntries(Object.entries(counts).map(([g, c]) => [g, c / total]));
+  return Object.fromEntries(Object.entries(counts).map(([t, c]) => [t, c / total]));
 };
+
+/** The same distribution over genres, which is how the calibration layer reads taste. */
+export const genreMix = (
+  entries: { genres: string[]; status?: string; rating?: number | null }[],
+): Record<string, number> => tagMix(entries.map((e) => ({ ...e, tags: e.genres })));
 
 /** KL divergence of the slate's genre mix from the viewer's, smoothed so zeroes are finite. */
 export const calibrationError = (
@@ -188,23 +196,56 @@ export const buildSlate = (
   return { picks, wildcard };
 };
 
+/** What we know about a viewer's taste, as three distributions over the same evidence. */
+export type ViewerProfile = {
+  genres: Record<string, number>;
+  tones?: Record<string, number>;
+  themes?: Record<string, number>;
+};
+
+/**
+ * How far inside a viewer's taste a set of tags sits, as 0-100.
+ *
+ * The multiplier converts a share into a score: a title carrying two or three of the tags
+ * a viewer returns to most should read as a strong fit without every tag having to match.
+ * It is a tuning constant, not a measurement.
+ */
+const fitFrom = (tags: string[], mix: Record<string, number>, multiplier: number): number | null => {
+  if (!tags.length || !Object.keys(mix).length) return null;
+  return clamp(Math.round(tags.reduce((sum, tag) => sum + (mix[tag] ?? 0), 0) * multiplier));
+};
+
 /**
  * Axes derived from saved data alone, with no model involved.
  *
  * The scored slate is the good one, but generating it costs a large model call, so it is
  * produced on a schedule rather than while someone waits. This is what the app serves in
- * the meantime: genre overlap against what the viewer actually finishes, quality from the
- * rating we hold, and effort from runtime and season count. Same axes, same ranking, so a
- * heuristic slate and a scored one are interchangeable — one is simply better informed.
+ * the meantime: quality from the rating we hold, effort from runtime and season count, and
+ * fit from the tone and theme tags the catalogue carries. Genre stands in for either of
+ * those where a title is not tagged yet, which is the old behaviour and a worse one —
+ * genre cannot separate a bleak procedural from a warm comedy once both are "Drama".
  */
 export const heuristicAxes = (
-  row: { genres?: string[] | null; imdb_rating?: number | null; runtime_minutes?: number | null; seasons?: number | null; type?: string | null },
-  viewerMix: Record<string, number>,
+  row: {
+    genres?: string[] | null;
+    tones?: string[] | null;
+    themes?: string[] | null;
+    imdb_rating?: number | null;
+    runtime_minutes?: number | null;
+    seasons?: number | null;
+    type?: string | null;
+  },
+  viewer: ViewerProfile | Record<string, number>,
 ): Axes => {
-  const genres = row.genres ?? [];
+  // Callers held a bare genre distribution before tone and theme were data; both still work.
+  const profile: ViewerProfile = 'genres' in viewer && typeof viewer.genres === 'object'
+    ? (viewer as ViewerProfile)
+    : { genres: viewer as Record<string, number> };
+
   // Share of the viewer's taste this title sits inside: 1 means every genre they watch.
-  const overlap = genres.reduce((sum, genre) => sum + (viewerMix[genre] ?? 0), 0);
-  const fit = clamp(Math.round(overlap * 180), 0, 100);
+  const genreFit = fitFrom(row.genres ?? [], profile.genres, 180) ?? 0;
+  const toneFit = fitFrom(row.tones ?? [], profile.tones ?? {}, 200) ?? genreFit;
+  const themeFit = fitFrom(row.themes ?? [], profile.themes ?? {}, 230) ?? genreFit;
 
   // No rating held is not evidence of a bad title, so it sits mid-scale rather than at zero.
   const craft = row.imdb_rating ? clamp(Math.round((row.imdb_rating / 10) * 100)) : 55;
@@ -215,10 +256,12 @@ export const heuristicAxes = (
   const effort = clamp(Math.round(100 - Math.min(100, (minutes / 1800) * 100)));
 
   return {
-    tone: fit,
-    theme: fit,
+    tone: toneFit,
+    theme: themeFit,
     craft,
-    novelty: clamp(100 - fit),
+    // Unfamiliar subject matter, not unfamiliar genre: the question is whether they have
+    // been here before, and theme answers it more precisely than genre does.
+    novelty: clamp(100 - themeFit),
     effort,
   };
 };
