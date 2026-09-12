@@ -75,5 +75,27 @@
     "fields": {
       "director": "Greg Whiteley"
     }
+  },
+  {
+    "slug": "foyl-s-war-2002",
+    "reason": "Our own candidate list spelled it \"Foylés War\", and the name we propose is the name that gets stored, so the typo reached the slug.",
+    "fields": {
+      "name": "Foyle's War",
+      "slug": "foyles-war-2002"
+    }
+  },
+  {
+    "slug": "carry-on-regardless-1961",
+    "reason": "Credited to both Thomas brothers; the Carry On films were Gerald's alone.",
+    "fields": {
+      "director": "Gerald Thomas"
+    }
+  },
+  {
+    "slug": "a-christmas-story-1983",
+    "reason": "Second director credit is not a credit on this film.",
+    "fields": {
+      "director": "Bob Clark"
+    }
   }
 ]
