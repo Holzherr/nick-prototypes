@@ -60,7 +60,7 @@ const PublicProfilePage = () => {
     setLoading(true);
     const { data: prof } = await supabase
       .from("profiles")
-      .select("user_id, name, is_public, username, bio, avatar_url")
+      .select("id, user_id, name, is_public, username, bio, avatar_url")
       .eq("username", username!)
       .single();
 
@@ -83,16 +83,16 @@ const PublicProfilePage = () => {
     const entriesPromise = supabase
       .from("watch_entries")
       .select("id, title_id, status, watched_rating, watched_date, review, notes, title:titles(name, type, genres, imdb_rating, year, image_url)")
-      .eq("user_id", prof.user_id)
+      .eq("profile_id", prof.id)
       .order("updated_at", { ascending: false });
     const followersPromise = supabase
       .from("follows")
       .select("id", { count: "exact", head: true })
-      .eq("following_id", prof.user_id);
+      .eq("following_id", prof.user_id!);
     const followingPromise = supabase
       .from("follows")
       .select("id", { count: "exact", head: true })
-      .eq("follower_id", prof.user_id);
+      .eq("follower_id", prof.user_id!);
 
     const [entriesRes, followersRes, followingRes] = await Promise.all([
       entriesPromise, followersPromise, followingPromise,
@@ -107,7 +107,7 @@ const PublicProfilePage = () => {
         .from("follows")
         .select("id")
         .eq("follower_id", user.id)
-        .eq("following_id", prof.user_id)
+        .eq("following_id", prof.user_id!)
         .maybeSingle();
       setIsFollowing(!!followData);
     }

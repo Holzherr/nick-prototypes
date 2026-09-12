@@ -5,11 +5,13 @@ import { Toaster as Sonner } from "@/shared/components/ui/sonner";
 import { Toaster } from "@/shared/components/ui/toaster";
 import { TooltipProvider } from "@/shared/components/ui/tooltip";
 import { AuthProvider, useAuth } from "@/features/auth/AuthContext";
+import { ProfileProvider } from "@/features/household/ProfileContext";
 import Layout from "@/shared/layout/Layout";
 import Index from "@/features/library/HomeScreen";
 import Auth from "@/features/auth/AuthScreen";
 import SearchPage from "@/features/discover/SearchScreen";
 import TonightPage from "@/features/tonight/TonightScreen";
+import HouseholdPage from "@/features/household/HouseholdScreen";
 import ProfilePage from "@/features/social/ProfileScreen";
 import PublicProfilePage from "@/features/social/PublicProfileScreen";
 import InvitePage from "@/features/social/InviteScreen";
@@ -64,10 +66,12 @@ const App = () => (
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <RestoreDeepLink />
         <AuthProvider>
+      <ProfileProvider>
           <Routes>
             <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
             <Route path="/" element={<HomeRoute />} />
-            <Route path="/tonight" element={<ProtectedRoute><TonightPage /></ProtectedRoute>} />
+            <Route path="/household" element={<ProtectedRoute><HouseholdPage /></ProtectedRoute>} />
+          <Route path="/tonight" element={<ProtectedRoute><TonightPage /></ProtectedRoute>} />
           <Route path="/search" element={<ProtectedRoute><SearchPage /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
             <Route path="/invite" element={<InvitePage />} />
@@ -78,7 +82,8 @@ const App = () => (
             <Route path="/actor/:id" element={<ActorPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </AuthProvider>
+        </ProfileProvider>
+    </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

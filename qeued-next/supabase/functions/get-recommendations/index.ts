@@ -132,26 +132,26 @@ const scorePool = async (
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: corsHeaders });
   try {
-    const { user_id, partner_id, exclude_titles, mood, type_filter, time_filter } = await req.json();
+    const { user_id, profile_id, partner_id, exclude_titles, mood, type_filter, time_filter } = await req.json();
     if (!user_id) return json({ error: 'user_id required' }, 400);
 
     const supabase = serviceClient();
     const hasExclusions = Array.isArray(exclude_titles) && exclude_titles.length > 0;
     const filterSuffix = [mood, type_filter, time_filter].filter(Boolean).join(':');
     const cacheKey = partner_id
-      ? `recs2:${[user_id, partner_id].sort().join(':')}${filterSuffix ? `:${filterSuffix}` : ''}`
-      : `recs2:${user_id}${filterSuffix ? `:${filterSuffix}` : ''}`;
+      ? `recs2:${[profile_id ?? user_id, partner_id].sort().join(':')}${filterSuffix ? `:${filterSuffix}` : ''}`
+      : `recs2:${profile_id ?? user_id}${filterSuffix ? `:${filterSuffix}` : ''}`;
     if (!hasExclusions) {
       const { data: cached } = await supabase.from('ai_cache').select('response_data, expires_at').eq('cache_key', cacheKey).single();
       if (cached && new Date(cached.expires_at) > new Date()) return json(cached.response_data);
     }
 
     const entryColumns = 'status, watched_rating, title:titles(name, type, genres, imdb_rating)';
-    const { data: entries } = await supabase.from('watch_entries').select(entryColumns).eq('user_id', user_id);
+    const { data: entries } = await supabase.from('watch_entries').select(entryColumns).eq(profile_id ? 'profile_id' : 'user_id', profile_id ?? user_id);
     const history = toHistory(entries);
     let partnerHistory: ReturnType<typeof toHistory> | null = null;
     if (partner_id) {
-      const { data } = await supabase.from('watch_entries').select(entryColumns).eq('user_id', partner_id);
+      const { data } = await supabase.from('watch_entries').select(entryColumns).eq('profile_id', partner_id);
       partnerHistory = toHistory(data);
     }
 

@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/features/auth/AuthContext";
+import { useProfile } from "@/features/household/ProfileContext";
 import { supabase } from "@/shared/supabase/client";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
@@ -193,6 +194,7 @@ const EntryCard = ({
 
 const ProfilePage = () => {
   const { user } = useAuth();
+  const { active } = useProfile();
   const { toast } = useToast();
   const [entries, setEntries] = useState<WatchEntry[]>([]);
   const [, setLoading] = useState(true);
@@ -246,7 +248,7 @@ const ProfilePage = () => {
     const { data } = await supabase
       .from("watch_entries")
       .select("id, status, watched_rating, desire_ranking, notes, watched_date, review, title:titles(id, name, type, genres, imdb_rating, year, image_url)")
-      .eq("user_id", user!.id)
+      .eq("profile_id", active!.id)
       .order("updated_at", { ascending: false });
     setEntries((data as any) || []);
     setLoading(false);

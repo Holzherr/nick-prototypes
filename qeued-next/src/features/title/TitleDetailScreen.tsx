@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/shared/supabase/client";
 import { useAuth } from "@/features/auth/AuthContext";
+import { useProfile } from "@/features/household/ProfileContext";
 import PublicHeader from "@/shared/layout/PublicHeader";
 import Layout from "@/shared/layout/Layout";
 import { Card, CardContent } from "@/shared/components/ui/card";
@@ -42,6 +43,7 @@ interface ActorData {
 const TitleDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const { user } = useAuth();
+  const { active } = useProfile();
   const { toast } = useToast();
   const navigate = useNavigate();
   const [title, setTitle] = useState<TitleData | null>(null);
@@ -73,11 +75,11 @@ const TitleDetailPage = () => {
     setTitle(titleData);
     setLoading(false);
 
-    if (user) {
+    if (user && active) {
       const { data: entry } = await supabase
         .from("watch_entries")
         .select("status, watched_rating")
-        .eq("user_id", user.id)
+        .eq("profile_id", active.id)
         .eq("title_id", id!)
         .maybeSingle();
       if (entry) {
@@ -106,15 +108,15 @@ const TitleDetailPage = () => {
   };
 
   const addToList = async (status: WatchStatus) => {
-    if (!user) {
+    if (!user || !active) {
       navigate("/auth");
       return;
     }
     if (!title) return;
 
     const { error } = await supabase.from("watch_entries").upsert(
-      { user_id: user.id, title_id: title.id, status },
-      { onConflict: "user_id,title_id" }
+      { user_id: user.id, profile_id: active.id, title_id: title.id, status },
+      { onConflict: "profile_id,title_id" }
     );
     if (error) {
       toast({ title: "Error", description: error.message, variant: "destructive" });
