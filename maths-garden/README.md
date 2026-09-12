@@ -117,6 +117,16 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   no import offer, since guest mode passes `allowGuestImport={false}`. `#/login` beats the flag as well:
   while it did not, the sign-in form could not be reached at all from a device that had ever tapped guest
   mode, and the only route back to it was "Sign in to save →" on the grown-ups screen, behind the sum.
+- **Two tests earn their place by reproducing bugs that shipped green.** `app/routing.test.tsx` mounts the
+  real `App` with a mocked Supabase session and checks what an open of the app lands on: a live session must
+  beat the sticky guest flag, and `#/login` must reach the sign-in form even when that flag is set. Both of
+  those broke in production, neither could be caught below `Root`, and the second made signing in impossible
+  from any device that had ever tapped guest mode. `features/garden/import-flow.test.tsx` mounts `GardenApp`
+  against `memoryRemote` with guest keys in local storage and walks the import: the offer comes before the
+  garden, names the rounds and stickers, copies them keeping their ids, and stops offering once they have
+  landed — decided by comparing records, never by a flag, because a flag is what hid a child's play for good.
+  No browser runner: the app already runs against an in-memory server (`GardenApp.stories.tsx` does the same),
+  so these are plain vitest files that cost nothing in CI.
 - **Offline-first:** every write lands in local storage first and uploads when there is signal
   (`features/progress/repo.ts`).
 - **Printables** (`#/resources`, public, no sign-in): the Quick Peek dot card maker, plus counting mats,
