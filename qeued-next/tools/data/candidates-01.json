@@ -1,0 +1,1282 @@
+[
+  {
+    "name": "Intolerance",
+    "year": 1916,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "D.W. Griffith epic, monumental silent cinema landmark"
+  },
+  {
+    "name": "Battleship Potemkin",
+    "year": 1925,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Eisenstein's revolutionary montage manifesto"
+  },
+  {
+    "name": "Metropolis",
+    "year": 1927,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Lang's dystopian sci-fi epic; visual mastery"
+  },
+  {
+    "name": "Man with a Movie Camera",
+    "year": 1929,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Vertov's avant-garde documentary experiment"
+  },
+  {
+    "name": "M",
+    "year": 1931,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Lang's first sound masterpiece; psychological thriller"
+  },
+  {
+    "name": "Frankenstein",
+    "year": 1931,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Whale's Universal horror icon; cultural landmark"
+  },
+  {
+    "name": "City Lights",
+    "year": 1931,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Chaplin's Tramp masterpiece; late silent perfection"
+  },
+  {
+    "name": "The Maltese Falcon",
+    "year": 1941,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Huston's noir prototype; Bogart definitive role"
+  },
+  {
+    "name": "The Big Sleep",
+    "year": 1946,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Hawks' noir with Bogart/Bacall chemistry"
+  },
+  {
+    "name": "The Killers",
+    "year": 1946,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Siodmak's Hemingway noir; post-WWII crime film"
+  },
+  {
+    "name": "A Streetcar Named Desire",
+    "year": 1951,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Kazan's Williams adaptation; Brando performance"
+  },
+  {
+    "name": "The Asphalt Jungle",
+    "year": 1950,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Huston's heist film template; archetypal blueprint"
+  },
+  {
+    "name": "Gun Crazy",
+    "year": 1950,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Lovers-on-the-run prototype; balletic violence"
+  },
+  {
+    "name": "In a Lonely Place",
+    "year": 1950,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Ray's psychological noir; Bogart's darkest role"
+  },
+  {
+    "name": "The Big Heat",
+    "year": 1953,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Lang's revenge noir; visually stunning drama"
+  },
+  {
+    "name": "The Leopard",
+    "year": 1963,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Visconti's Sicilian epic; Lampedusa adaptation"
+  },
+  {
+    "name": "Dr. Strangelove",
+    "year": 1964,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Kubrick's Cold War satire; dark comedy masterwork"
+  },
+  {
+    "name": "My Fair Lady",
+    "year": 1964,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Cukor's musical triumph; Lerner/Loewe perfection"
+  },
+  {
+    "name": "Cabinet of Dr. Caligari",
+    "year": 1920,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "German Expressionism prototype; nightmare design"
+  },
+  {
+    "name": "Pandora's Box",
+    "year": 1929,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Pabst's Weimar tragedy; Louise Brooks iconic"
+  },
+  {
+    "name": "The Phantom Carriage",
+    "year": 1921,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Sj\u00f6str\u00f6m's Swedish ghost story; visual poetry"
+  },
+  {
+    "name": "Greed",
+    "year": 1924,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Stroheim's epic tragedy; detailed filmmaking"
+  },
+  {
+    "name": "Variety",
+    "year": 1925,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Dupont's Expressionist circus drama"
+  },
+  {
+    "name": "The Crowd",
+    "year": 1928,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Vidor's urban realism; ordinary life tragedy"
+  },
+  {
+    "name": "Sunrise",
+    "year": 1927,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Murnau's Expressionist masterpiece; visual innovation"
+  },
+  {
+    "name": "The Golem",
+    "year": 1920,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Wegener's Jewish folklore; Expressionism legend"
+  },
+  {
+    "name": "Dracula",
+    "year": 1931,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Browning's Universal horror; Lugosi iconic"
+  },
+  {
+    "name": "42nd Street",
+    "year": 1933,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Dwan's Depression musical; backstage drama"
+  },
+  {
+    "name": "King Kong",
+    "year": 1933,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Cooper/Schoedsack's stop-motion monster epic"
+  },
+  {
+    "name": "It Happened One Night",
+    "year": 1934,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Capra's romantic comedy classic; chemistry icon"
+  },
+  {
+    "name": "The Thin Man",
+    "year": 1934,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Van Dyke's witty detective; Powell/Loy pair"
+  },
+  {
+    "name": "Top Hat",
+    "year": 1935,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Sandrich's Astaire/Rogers musical masterpiece"
+  },
+  {
+    "name": "Modern Times",
+    "year": 1936,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Chaplin's industrialisation satire; social poetry"
+  },
+  {
+    "name": "The Great Dictator",
+    "year": 1940,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Chaplin's Hitler satire; political courage"
+  },
+  {
+    "name": "Mr. Smith Goes to Washington",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Capra's idealistic Americana; Stewart hero"
+  },
+  {
+    "name": "The Wizard of Oz",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Fleming's musical fantasy; Technicolor classic"
+  },
+  {
+    "name": "Gone with the Wind",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Epic romance; Civil War spectacle"
+  },
+  {
+    "name": "The Blue Angel",
+    "year": 1930,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Sternberg's German/US co-production; Dietrich"
+  },
+  {
+    "name": "Red River",
+    "year": 1948,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Hawks' Western epic; Wayne/Clift generational"
+  },
+  {
+    "name": "Rebel Without a Cause",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Ray's teenage angst; James Dean defining"
+  },
+  {
+    "name": "The Man with the Golden Arm",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Preminger's heroin addiction; Sinatra drama"
+  },
+  {
+    "name": "Gigi",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Minnelli's Belle \u00c9poque musical masterpiece"
+  },
+  {
+    "name": "Blow-Up",
+    "year": 1966,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Antonioni's swinging London; mystery"
+  },
+  {
+    "name": "The Manchurian Candidate",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Frankenheimer's Cold War brainwashing"
+  },
+  {
+    "name": "Lolita",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Kubrick's Nabokov adaptation; taboo romance"
+  },
+  {
+    "name": "Breakfast at Tiffany's",
+    "year": 1961,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Edwards' Capote romance; Audrey Hepburn"
+  },
+  {
+    "name": "The Hustler",
+    "year": 1961,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Rossen's pool-hall tragedy; Newman competitive"
+  },
+  {
+    "name": "Last Year at Marienbad",
+    "year": 1961,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Resnais' memory/unreality puzzle; experimental"
+  },
+  {
+    "name": "A Shot in the Dark",
+    "year": 1964,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Edwards' Pink Panther mystery; Sellers"
+  },
+  {
+    "name": "The Pink Panther",
+    "year": 1963,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Edwards' Sellers slapstick detective farce"
+  },
+  {
+    "name": "The Great Escape",
+    "year": 1963,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Sturges' POW adventure; Mcqueen ensemble"
+  },
+  {
+    "name": "From Russia with Love",
+    "year": 1963,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Young's second Bond; spy-craft tradition"
+  },
+  {
+    "name": "In the Heat of the Night",
+    "year": 1967,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Jewison's Southern race-crime; Poitier"
+  },
+  {
+    "name": "Bonnie and Clyde",
+    "year": 1967,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Penn's Depression gangsters; violence innovation"
+  },
+  {
+    "name": "Point Blank",
+    "year": 1967,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Boorman's modern noir; Marvin visual style"
+  },
+  {
+    "name": "Guess Who's Coming to Dinner",
+    "year": 1967,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Kramer's race-relations drama; trio"
+  },
+  {
+    "name": "Bullitt",
+    "year": 1968,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Yates' McQueen car-chase; San Francisco landmark"
+  },
+  {
+    "name": "Planet of the Apes",
+    "year": 1968,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Schaffner's reverse-society sci-fi; twist"
+  },
+  {
+    "name": "The Thomas Crown Affair",
+    "year": 1968,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Jewison's heist romance; split-screen style"
+  },
+  {
+    "name": "Easy Rider",
+    "year": 1969,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Hopper's motorcycle road film; counterculture"
+  },
+  {
+    "name": "Midnight Cowboy",
+    "year": 1969,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Schlesinger's NYC hustler; urban degradation"
+  },
+  {
+    "name": "The Italian Job",
+    "year": 1969,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Collinson's heist caper; Mini Cooper iconic"
+  },
+  {
+    "name": "Z",
+    "year": 1969,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Costa-Gavras' Greek-junta thriller; political"
+  },
+  {
+    "name": "The Lion in Winter",
+    "year": 1968,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Harvey's royal family; Hepburn/O'Toole verbal"
+  },
+  {
+    "name": "Repulsion",
+    "year": 1965,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Polanski's psychological horror; Deneuve"
+  },
+  {
+    "name": "Alphaville",
+    "year": 1965,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Godard's sci-fi film noir; dystopian"
+  },
+  {
+    "name": "Andrei Rublev",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Tarkovsky's icon-painter; spiritual struggle"
+  },
+  {
+    "name": "Closely Watched Trains",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Menzel's Czech New Wave; WWII station"
+  },
+  {
+    "name": "Shoot the Piano Player",
+    "year": 1960,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Truffaut's noir/comedy hybrid; Aznavour"
+  },
+  {
+    "name": "La Jet\u00e9e",
+    "year": 1962,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Marker's time-travel photo-montage; poetry"
+  },
+  {
+    "name": "Pierrot le Fou",
+    "year": 1965,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Godard's lovers-on-run colour; pop-art"
+  },
+  {
+    "name": "Contempt",
+    "year": 1963,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Godard's filmmaking marriage; Moretti"
+  },
+  {
+    "name": "Vivre sa Vie",
+    "year": 1962,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Godard's working-girl prostitution; street"
+  },
+  {
+    "name": "Le Samoura\u00ef",
+    "year": 1967,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Melville's silent hitman noir; Delon"
+  },
+  {
+    "name": "Army of Shadows",
+    "year": 1969,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Melville's French Resistance; WWII"
+  },
+  {
+    "name": "Ashes and Diamonds",
+    "year": 1958,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Wajda's Polish post-war; rebel Warsaw"
+  },
+  {
+    "name": "Knife in the Water",
+    "year": 1962,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Polanski's yacht trio tension; chamber"
+  },
+  {
+    "name": "Apparajito",
+    "year": 1956,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Ray's Apu continuation; spiritual journey"
+  },
+  {
+    "name": "The World of Apu",
+    "year": 1959,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Ray's Apu trilogy finale; marriage"
+  },
+  {
+    "name": "Charulata",
+    "year": 1964,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Ray's Tagore adaptation; wife awakening"
+  },
+  {
+    "name": "Two Women",
+    "year": 1960,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "De Sica's WWII Italian women; Sophia"
+  },
+  {
+    "name": "L'Aventura",
+    "year": 1960,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Antonioni's woman-disappearance mystery"
+  },
+  {
+    "name": "La Notte",
+    "year": 1961,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Antonioni's Milan couple; alienation"
+  },
+  {
+    "name": "The Red Desert",
+    "year": 1964,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Antonioni's Varda colour-pollution"
+  },
+  {
+    "name": "Umberto D.",
+    "year": 1952,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "De Sica's pensioner dignity; neorealism"
+  },
+  {
+    "name": "Miracle in Milan",
+    "year": 1951,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "De Sica's slum-fantasy; magical realism"
+  },
+  {
+    "name": "Shoeshine",
+    "year": 1946,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "De Sica's street-boys; neorealism innocence"
+  },
+  {
+    "name": "Les Enfants du Paradis",
+    "year": 1945,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Carn\u00e9's theatre/lover mystery; French cinema"
+  },
+  {
+    "name": "Diaboliques",
+    "year": 1955,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Clouzot's bathtub horror; French thriller"
+  },
+  {
+    "name": "The Wages of Fear",
+    "year": 1953,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Clouzot's dynamite-truck; tension masterpiece"
+  },
+  {
+    "name": "The Producers",
+    "year": 1967,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Brooks' Broadway flop; Mostel comedy"
+  },
+  {
+    "name": "The Exterminating Angel",
+    "year": 1962,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Bu\u00f1uel's trapped dinner-party; surrealist"
+  },
+  {
+    "name": "Viridiana",
+    "year": 1961,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Bu\u00f1uel's Spanish convent; blasphemous"
+  },
+  {
+    "name": "Los Olvidados",
+    "year": 1950,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Bu\u00f1uel's Mexico street-urchins; neorealist"
+  },
+  {
+    "name": "Un Chien Andalou",
+    "year": 1929,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Bu\u00f1uel's surrealist eyeball shock; landmark"
+  },
+  {
+    "name": "Orph\u00e9e",
+    "year": 1950,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Cocteau's Orpheus contemporary; poetic"
+  },
+  {
+    "name": "Shadow of a Doubt",
+    "year": 1943,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Hitchcock's uncle serial-killer; American"
+  },
+  {
+    "name": "Marnie",
+    "year": 1964,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Hitchcock's troubled thief; trauma"
+  },
+  {
+    "name": "Spellbound",
+    "year": 1945,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Hitchcock's amnesia psychoanalysis; dream"
+  },
+  {
+    "name": "The Man Who Shot Liberty Valance",
+    "year": 1962,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Ford's Western myth-making; Wayne legend"
+  },
+  {
+    "name": "Stagecoach",
+    "year": 1939,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Ford's Western adventure; Monument Valley"
+  },
+  {
+    "name": "My Darling Clementine",
+    "year": 1946,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Ford's Tombstone OK Corral; Wyatt Earp"
+  },
+  {
+    "name": "The Searchers",
+    "year": 1956,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Ford's obsessive Comanche quest; Wayne"
+  },
+  {
+    "name": "Rio Bravo",
+    "year": 1959,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Hawks' Western siege; Wayne/Dean isolation"
+  },
+  {
+    "name": "Rio Grande",
+    "year": 1950,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Ford's cavalry Western; family/duty"
+  },
+  {
+    "name": "Johnny Guitar",
+    "year": 1954,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Ray's gender-subversive Western; woman"
+  },
+  {
+    "name": "The Big Country",
+    "year": 1958,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Wyler's Western epic; family feud"
+  },
+  {
+    "name": "Bad Day at Black Rock",
+    "year": 1955,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Sturges' desert Western mystery; stranger"
+  },
+  {
+    "name": "The Ox-Bow Incident",
+    "year": 1943,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Wellman's lynch-mob Western; justice"
+  },
+  {
+    "name": "Support Your Local Sheriff!",
+    "year": 1969,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Kennedy Western comedy; Garner charm"
+  },
+  {
+    "name": "Bob le Flambeur",
+    "year": 1956,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Melville's Paris gambler noir; thief"
+  },
+  {
+    "name": "The War Is Over",
+    "year": 1966,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Resnais' Spanish Civil War memory; exile"
+  },
+  {
+    "name": "Shadows",
+    "year": 1959,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Cassavetes' jazz-improvised indie; race"
+  },
+  {
+    "name": "The Magnificent Ambersons",
+    "year": 1942,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Welles' American family decline; tragedy"
+  },
+  {
+    "name": "The Docks of New York",
+    "year": 1928,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Sternberg's waterfront romance; expressionist"
+  },
+  {
+    "name": "Lonesome",
+    "year": 1928,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Borzage's silent street-level romance; visual poetry"
+  },
+  {
+    "name": "The Lodger",
+    "year": 1927,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Hitchcock's first thriller; silent serial killer"
+  },
+  {
+    "name": "Berlin: Symphony of a Great City",
+    "year": 1927,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Ruttmann's city symphony; urban documentary"
+  },
+  {
+    "name": "The Last Laugh",
+    "year": 1924,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Murnau's silent tragedy; innovative camera"
+  },
+  {
+    "name": "Tabu",
+    "year": 1931,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Murnau/Flaherty South Pacific romance"
+  },
+  {
+    "name": "Black Cat",
+    "year": 1934,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Ulmer's Universal horror; Lugosi/Karloff"
+  },
+  {
+    "name": "Captain Blood",
+    "year": 1935,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Curtiz's swashbuckler; Errol Flynn debut"
+  },
+  {
+    "name": "Swing Time",
+    "year": 1936,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Donen's Astaire/Rogers romantic musical"
+  },
+  {
+    "name": "Shall We Dance",
+    "year": 1937,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Sandrich's Astaire/Rogers pair musical"
+  },
+  {
+    "name": "The Women",
+    "year": 1939,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Cukor's all-female catty drama"
+  },
+  {
+    "name": "Pride and Prejudice",
+    "year": 1940,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Leonard's Austen adaptation; Garson/Olivier"
+  },
+  {
+    "name": "Rebecca",
+    "year": 1940,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Hitchcock's du Maurier adaptation; mystery"
+  },
+  {
+    "name": "The Palm Beach Story",
+    "year": 1942,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Sturges' screwball romance; Preston Sturges"
+  },
+  {
+    "name": "The Big Parade",
+    "year": 1925,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Vidor's WWI epic; silent war masterpiece"
+  },
+  {
+    "name": "Applause",
+    "year": 1929,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Mamoulian's backstage talkies debut"
+  },
+  {
+    "name": "Morocco",
+    "year": 1930,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Sternberg's Dietrich/Cooper romance"
+  },
+  {
+    "name": "Dance, Fools, Dance",
+    "year": 1931,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Beaumont's Crawford newspaper crime"
+  },
+  {
+    "name": "The Public Enemy",
+    "year": 1931,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Wellman's gangster; Cagney breakout"
+  },
+  {
+    "name": "Arrowsmith",
+    "year": 1931,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Ford's Sinclair adaptation; scientist"
+  },
+  {
+    "name": "The Vampire Bat",
+    "year": 1933,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Strayer's horror mystery; Atwill"
+  },
+  {
+    "name": "The Invisible Man",
+    "year": 1933,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Whale's Wells adaptation; invisible effects"
+  },
+  {
+    "name": "Dinner at Eight",
+    "year": 1933,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Cukor's ensemble dinner party; stars"
+  },
+  {
+    "name": "Alice Adams",
+    "year": 1935,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Stevens' Booth Tarkington adaptation"
+  },
+  {
+    "name": "Naughty Marietta",
+    "year": 1935,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Van Dyke operetta; Eddy/MacDonald"
+  },
+  {
+    "name": "Follow the Fleet",
+    "year": 1936,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Sandrich's Astaire/Rogers nautical musical"
+  },
+  {
+    "name": "Show Boat",
+    "year": 1936,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Whale's Kern operetta; showboat melodrama"
+  },
+  {
+    "name": "A Star Is Born",
+    "year": 1937,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Wellman's Hollywood rise/fall; Gaynor"
+  },
+  {
+    "name": "Topper",
+    "year": 1937,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "McLeod's ghost comedy; Cary Grant"
+  },
+  {
+    "name": "The Awful Truth",
+    "year": 1937,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "McCarey's screwball divorce comedy"
+  },
+  {
+    "name": "Jezebel",
+    "year": 1938,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Wyler's ante-bellum South; Bette Davis"
+  },
+  {
+    "name": "Angels with Dirty Faces",
+    "year": 1938,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Curtiz's gangster/priest; Cagney/Bogart"
+  },
+  {
+    "name": "Bringing Up Baby",
+    "year": 1938,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-pre1970",
+    "why": "Hawks' screwball masterpiece; Grant/Hepburn"
+  },
+  {
+    "name": "The Lady Eve",
+    "year": 1941,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Sturges' con-artist romance; Stanwyck"
+  },
+  {
+    "name": "Sullivan's Travels",
+    "year": 1941,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Sturges' Hollywood satire; director comedy"
+  },
+  {
+    "name": "Sergeant York",
+    "year": 1941,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Hawks' WWI hero; Gary Cooper"
+  },
+  {
+    "name": "Yankee Doodle Dandy",
+    "year": 1942,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Curtiz's Cohan musical biopic; James Cagney"
+  },
+  {
+    "name": "Ball of Fire",
+    "year": 1941,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Hawks' professor/showgirl; Cooper/Stanwyck"
+  },
+  {
+    "name": "Laura",
+    "year": 1944,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Preminger's murder mystery; noir portrait"
+  },
+  {
+    "name": "Murder, My Sweet",
+    "year": 1944,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Dmytryk's Chandler noir; Powell transformation"
+  },
+  {
+    "name": "Gentlemen Prefer Blondes",
+    "year": 1953,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-pre1970",
+    "why": "Hawks' musical; Marilyn Monroe diamond"
+  },
+  {
+    "name": "How to Marry a Millionaire",
+    "year": 1953,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Negulesco's gold-digger Technicolor"
+  },
+  {
+    "name": "Niagara",
+    "year": 1953,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Hathaway's noir Falls; Marilyn Monroe"
+  },
+  {
+    "name": "The Barefoot Contessa",
+    "year": 1954,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Mankiewicz's Hollywood starlet; Ava Gardner"
+  },
+  {
+    "name": "Intolerance: Love's Struggle Throughout the Ages",
+    "year": 1916,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-pre1970",
+    "why": "Full Griffith title; epic early cinema"
+  },
+  {
+    "name": "Girl Shy",
+    "year": 1924,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-pre1970",
+    "why": "Lloyd's silent comedy; campus romp"
+  }
+]

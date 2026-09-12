@@ -183,6 +183,7 @@ const limit = flagValue('limit') ? Number(flagValue('limit')) : null;
 const gatherPath = flagValue('gather');
 const sqlPath = flagValue('sql');
 const fromPath = flagValue('from');
+const missesPath = flagValue('misses');
 if (!KEY && !gatherPath && !sqlPath) throw new Error('Missing SUPABASE_SERVICE_ROLE_KEY (or pass --gather/--sql)');
 
 const quote = (value) => `'${String(value).replace(/'/g, "''")}'`;
@@ -250,6 +251,7 @@ const run = async () => {
   const existing = gatherPath ? [] : await rest('titles?select=id,name,year');
   const seen = new Map(existing.map((t) => [`${normalise(t.name)}|${t.year}`, t.id]));
   const gathered = [];
+  const misses = [];
 
   let added = 0;
   let updated = 0;
@@ -260,6 +262,7 @@ const run = async () => {
     const resolved = await resolveTitle(entry);
     if (!resolved) {
       missed += 1;
+      misses.push({ name: entry.name, year: entry.year, type: entry.type, error: 'no page matched' });
       console.log(`  ?  ${entry.name} (${entry.year}) — no page matched`);
       continue;
     }
@@ -336,6 +339,10 @@ const run = async () => {
       });
     }
   }
+
+  // A run of several hundred always has misses, and a terminal is the wrong place to keep
+  // them: written down, the queue can retire the names that have no page and retry the rest.
+  if (missesPath) await writeFile(missesPath, JSON.stringify(misses, null, 1));
 
   if (gatherPath) {
     await writeFile(gatherPath, JSON.stringify(gathered, null, 1));

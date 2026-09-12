@@ -1,0 +1,1442 @@
+[
+  {
+    "name": "Planet Earth",
+    "year": 2006,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "BBC landmark nature series; David Attenborough; foundational"
+  },
+  {
+    "name": "The Blue Planet",
+    "year": 2001,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Oceanic BBC masterpiece; Attenborough narrates; world-defining"
+  },
+  {
+    "name": "Life",
+    "year": 2009,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "BBC natural history epic; Attenborough; extraordinary animal behavior"
+  },
+  {
+    "name": "Frozen Planet",
+    "year": 2011,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Arctic and Antarctic BBC series; Attenborough; polar exploration"
+  },
+  {
+    "name": "Cosmos: A Journey Through Space and Time",
+    "year": 1980,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Carl Sagan original; canonical science television"
+  },
+  {
+    "name": "Our Planet",
+    "year": 2019,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Netflix/Attenborough; climate and nature; contemporary"
+  },
+  {
+    "name": "Jiro Dreams of Sushi",
+    "year": 2010,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "David Gelb portrait; sushi master; meditative masterpiece"
+  },
+  {
+    "name": "The Cove",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Dolphin hunting expos\u00e9; activism; Oscar winner"
+  },
+  {
+    "name": "An Inconvenient Truth",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Al Gore climate change; Academy Award; landmark"
+  },
+  {
+    "name": "March of the Penguins",
+    "year": 2005,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Emperor penguin journey; Morgan Freeman; Oscar winner"
+  },
+  {
+    "name": "Blackfish",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "SeaWorld orca expos\u00e9; animal welfare impact"
+  },
+  {
+    "name": "Chasing Coral",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Coral bleaching investigation; Netflix; ocean crisis"
+  },
+  {
+    "name": "Virunga",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Congo gorillas; conservation rangers; Netflix"
+  },
+  {
+    "name": "Mission Blue",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Sylvia Earle ocean explorer; marine conservation"
+  },
+  {
+    "name": "The Ivory Game",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Elephant poaching; conservation conflict; Netflix"
+  },
+  {
+    "name": "Fyre: The Greatest Party That Never Happened",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Festival fraud; social media culture; Netflix"
+  },
+  {
+    "name": "The Last Waltz",
+    "year": 1978,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "The Band farewell concert; Martin Scorsese; music landmark"
+  },
+  {
+    "name": "Woodstock",
+    "year": 1970,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "1969 festival; music history; iconic"
+  },
+  {
+    "name": "Monterey Pop",
+    "year": 1968,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "1967 festival; Hendrix, Joplin; music milestone"
+  },
+  {
+    "name": "Chef's Table",
+    "year": 2015,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Netflix culinary series; fine dining profiles"
+  },
+  {
+    "name": "Harlan County USA",
+    "year": 1976,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Coal mining strike; Oscar winner; classic"
+  },
+  {
+    "name": "Nanook of the North",
+    "year": 1922,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Inuit life; silent film pioneer; foundational"
+  },
+  {
+    "name": "Man with a Movie Camera",
+    "year": 1929,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Soviet silent city; Vertov experimental; landmark"
+  },
+  {
+    "name": "Night and Fog",
+    "year": 1956,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Holocaust; Alain Resnais; profound"
+  },
+  {
+    "name": "Triumph of the Will",
+    "year": 1935,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Nazi rally film; Leni Riefenstahl; controversial history"
+  },
+  {
+    "name": "Seven Up!",
+    "year": 1964,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Class in Britain; generational series; foundational"
+  },
+  {
+    "name": "Grey Gardens",
+    "year": 1975,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Eccentric family portrait; Maysles brothers; cult classic"
+  },
+  {
+    "name": "OJ: Made in America",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Simpson trial; race in America; ESPN"
+  },
+  {
+    "name": "David Attenborough: A Life on Our Planet",
+    "year": 2020,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Attenborough retrospective; climate; Netflix"
+  },
+  {
+    "name": "Seven Worlds, One Planet",
+    "year": 2019,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "BBC continent-by-continent; Attenborough"
+  },
+  {
+    "name": "Dynasties",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Animal families; BBC; Attenborough"
+  },
+  {
+    "name": "David Attenborough's Green Planet",
+    "year": 2022,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Plant life; BBC; Attenborough; botanical"
+  },
+  {
+    "name": "Don't Look Back",
+    "year": 1967,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Bob Dylan tour; DA Pennebaker; music icon"
+  },
+  {
+    "name": "Gimme Shelter",
+    "year": 1970,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Rolling Stones Altamont; violence; Maysles"
+  },
+  {
+    "name": "The Century of Self",
+    "year": 2002,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Adam Curtis; propaganda psychology; landmark"
+  },
+  {
+    "name": "The Power of Nightmares",
+    "year": 2004,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Adam Curtis; fear; politics; geopolitical"
+  },
+  {
+    "name": "Tiger King: Murder, Mayhem and Madness",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Netflix crime saga; Joe Exotic; phenomenon"
+  },
+  {
+    "name": "RBG",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Ruth Bader Ginsburg; legal pioneering; portrait"
+  },
+  {
+    "name": "Shine a Light",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Rolling Stones; Martin Scorsese concert film"
+  },
+  {
+    "name": "Rattle and Hum",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "U2 Joshua Tree tour; concert documentary"
+  },
+  {
+    "name": "Shut Up and Sing",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Dixie Chicks controversy; free speech; music"
+  },
+  {
+    "name": "Kurt Cobain: Montage of Heck",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Nirvana founder; biography; animation"
+  },
+  {
+    "name": "Janis: Little Girl Blue",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Janis Joplin portrait; music history"
+  },
+  {
+    "name": "The Toys That Made Us",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Netflix toy history series; nostalgia; cultural"
+  },
+  {
+    "name": "Abstract: The Art of Design",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Netflix design profiles; creative process"
+  },
+  {
+    "name": "Salt, Fat, Acid, Heat",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Samin Nosrat cooking series; food science; Netflix"
+  },
+  {
+    "name": "Street Food",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Netflix street vendors; cultural food; Asia"
+  },
+  {
+    "name": "The High Score",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Netflix video game history; eight episodes"
+  },
+  {
+    "name": "Pumped: The Life and Times of Arnold Schwarzenegger",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Bodybuilding to cinema; portrait documentary"
+  },
+  {
+    "name": "Last Chance U",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "NCAA football; systemic inequality; Netflix"
+  },
+  {
+    "name": "Drive to Survive",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Formula One; Netflix; behind-the-scenes"
+  },
+  {
+    "name": "Faces Places",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Agn\u00e8s Varda street art; JR; French cinema"
+  },
+  {
+    "name": "Bowling for Columbine",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Michael Moore gun violence; Oscar winner"
+  },
+  {
+    "name": "Fahrenheit 9/11",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Michael Moore Iraq War; Palme d'Or"
+  },
+  {
+    "name": "Super Size Me",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "McDonald's diet experiment; viral impact"
+  },
+  {
+    "name": "The Look of Silence",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Indonesia genocide aftermath; Oppenheimer sequel"
+  },
+  {
+    "name": "The Two Escobars",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Colombian soccer; cocaine; ESPN"
+  },
+  {
+    "name": "The Staircase",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Michael Peterson murder; HBO Max"
+  },
+  {
+    "name": "Don't Fuck with Cats",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Internet manhunt; true crime; Netflix"
+  },
+  {
+    "name": "In the Shadow of the Moon",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Philadelphia serial killer 1979-2005; Netflix"
+  },
+  {
+    "name": "The Night Stalker",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Richard Ramirez true crime; Oxygen"
+  },
+  {
+    "name": "Becoming",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Michelle Obama memoir; Netflix"
+  },
+  {
+    "name": "The Social Dilemma",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Tech industry critique; Netflix; social media"
+  },
+  {
+    "name": "The Great Hack",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Cambridge Analytica; Netflix; data privacy"
+  },
+  {
+    "name": "Enron: Smartest Guys in the Room",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Corporate fraud; financial collapse"
+  },
+  {
+    "name": "Keep Sweet: Pray and Obey",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "FLDS cult; Netflix documentary"
+  },
+  {
+    "name": "LulaLaRoe",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "MLM cult; Amazon Prime; expos\u00e9"
+  },
+  {
+    "name": "The Most Dangerous Man in America",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Daniel Ellsberg Pentagon Papers"
+  },
+  {
+    "name": "Page One: Inside the New York Times",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Journalism; media; institutional"
+  },
+  {
+    "name": "Requiem for the American Dream",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Noam Chomsky political economy"
+  },
+  {
+    "name": "Rumble: The Indians Who Rocked the World",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Indigenous musicians; music history; Netflix"
+  },
+  {
+    "name": "The Death of Yugoslavia",
+    "year": 1995,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Yugoslav wars; BBC; geo-political"
+  },
+  {
+    "name": "Srebrenica: A Cry From the Grave",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Bosnian genocide; BBC; war crimes"
+  },
+  {
+    "name": "Varda by Agn\u00e8s",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Agn\u00e8s Varda self-portrait; French New Wave"
+  },
+  {
+    "name": "Harry & Meghan",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Royal documentary; Netflix; controversial"
+  },
+  {
+    "name": "McCartney 3, 2, 1",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Paul McCartney with Rick Rubin; music"
+  },
+  {
+    "name": "Some Kind of Monster",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Metallica; therapy; Joe Berlinger; institutional"
+  },
+  {
+    "name": "Decline of Western Civilization",
+    "year": 1981,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "LA punk; Penelope Spheeris; cult classic"
+  },
+  {
+    "name": "One Planet",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "BBC nature series; conservation"
+  },
+  {
+    "name": "The Mating Game",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Animal reproduction; BBC; contemporary"
+  },
+  {
+    "name": "Perfect Planet",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Earth systems; BBC; Attenborough"
+  },
+  {
+    "name": "Planet Earth: One Planet",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Earth locations; BBC comprehensive"
+  },
+  {
+    "name": "Wham!",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "George Michael Wham!; music doc; Andrew Ridgeley"
+  },
+  {
+    "name": "I Love You, Now Die",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Michelle Carter texting murder; HBO"
+  },
+  {
+    "name": "Killer Inside: The Mind of Aaron Hernandez",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "NFL murder; Hernandez; true crime"
+  },
+  {
+    "name": "Chef's Table: Pastry",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Dessert artisans; Netflix; culinary"
+  },
+  {
+    "name": "Chef's Table: BBQ",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Barbecue masters; Netflix; regional cuisines"
+  },
+  {
+    "name": "This Is Spinal Tap",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Rock satire mockumentary; cult classic"
+  },
+  {
+    "name": "Waiting for Superman",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Education reform; Davis Guggenheim"
+  },
+  {
+    "name": "Titicut Follies",
+    "year": 1967,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Asylum conditions; Frederick Wiseman; landmark"
+  },
+  {
+    "name": "Salesman",
+    "year": 1969,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Bible salesmen; Maysles; American life"
+  },
+  {
+    "name": "Primary",
+    "year": 1960,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Kennedy primary; cin\u00e9ma v\u00e9rit\u00e9; politics"
+  },
+  {
+    "name": "Sympathy for the Devil",
+    "year": 1968,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Rolling Stones; Jean-Luc Godard; experimental"
+  },
+  {
+    "name": "Hype!",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Seattle grunge scene; Douglas Coupland; music history"
+  },
+  {
+    "name": "Before the Flood",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Climate change; Leonardo DiCaprio; environmental"
+  },
+  {
+    "name": "Inside the NFL",
+    "year": 1977,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "NFL documentary series; sports analysis; longrunning"
+  },
+  {
+    "name": "The Last Chance U: Basketball",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "NCAA basketball; systemic issues; Netflix"
+  },
+  {
+    "name": "Attica",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Prison uprising; archive; Showtime"
+  },
+  {
+    "name": "Jodorowsky's Dune",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Failed sci-fi epic; artistic vision; Frank Pavich"
+  },
+  {
+    "name": "72 Meters",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Rugby World Cup; sports documentary"
+  },
+  {
+    "name": "Hooligan",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Football ultras; British hooliganism culture"
+  },
+  {
+    "name": "The Toys That Made Us: Hello Kitty",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Toy icon history; nostalgia"
+  },
+  {
+    "name": "Laura Poitras All the Light",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Iraq War veteran; Poitras documentary"
+  },
+  {
+    "name": "The Revisionaries",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Texas textbook battles; education"
+  },
+  {
+    "name": "The Toys That Made Us: Barbie",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Toy icon history; Netflix"
+  },
+  {
+    "name": "Stacey Dooley Investigates",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "BBC investigative journalist; global issues"
+  },
+  {
+    "name": "Cin\u00e9ma V\u00e9rit\u00e9",
+    "year": 1960,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "French observational cinema; Rouch; experimental"
+  },
+  {
+    "name": "The Toys That Made Us: Star Wars",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Star Wars toys; Netflix nostalgia"
+  },
+  {
+    "name": "The Toys That Made Us: Super Mario",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Video game history; Nintendo"
+  },
+  {
+    "name": "Bully",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "School bullying; Lee Hirsch"
+  },
+  {
+    "name": "The Bleeding Edge",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Medical device industry; Netflix"
+  },
+  {
+    "name": "Forks Over Knives",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Plant-based diet advocacy"
+  },
+  {
+    "name": "Cowspiracy",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Environmental impact livestock; Netflix"
+  },
+  {
+    "name": "What the Health",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Health advocacy; diet; Netflix"
+  },
+  {
+    "name": "The War on Drugs: One Hundred Years of Prohibition",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Drug policy history"
+  },
+  {
+    "name": "The Lady Killers",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Female serial killers; true crime"
+  },
+  {
+    "name": "Nostalgia de la luz (Nostalgia for the Light)",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Chilean desert; memory; astronomy; Guzm\u00e1n"
+  },
+  {
+    "name": "Atacama",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Chilean desert missing persons; families"
+  },
+  {
+    "name": "Blackpink: Light Up the Sky",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "K-pop phenomenon; Netflix"
+  },
+  {
+    "name": "A Band Apart: Metallica",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Metallica documentary; metal history"
+  },
+  {
+    "name": "Decline of Western Civilization Part II",
+    "year": 1988,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "LA hair metal; Spheeris; music history"
+  },
+  {
+    "name": "The Decline of Western Civilization Part III",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "LA punk/goth continuations; Spheeris"
+  },
+  {
+    "name": "Coded: Hidden Genius of Film",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Film criticism; cinema language; AFI"
+  },
+  {
+    "name": "The Toys That Made Us: Toys",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Toy culture anthology; Netflix"
+  },
+  {
+    "name": "The Art of the Heist",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Art theft documentaries; Netflix anthology"
+  },
+  {
+    "name": "Con Man",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Con artists; true crime; Netflix"
+  },
+  {
+    "name": "Killer Ratings",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Brazilian TV host murder; true crime"
+  },
+  {
+    "name": "Tasting History with Max Miller",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "History through food; YouTube/streaming"
+  },
+  {
+    "name": "Stanley Tucci: Searching for Italy",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Food travelogue; CNN; cultural"
+  },
+  {
+    "name": "Becoming Bond",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "George Lazenby; James Bond; actor story"
+  },
+  {
+    "name": "The Toys That Made Us: He-Man and the Masters of the Universe",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Action figure history; 1980s toys"
+  },
+  {
+    "name": "Banksy Does New York",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Street artist; art; residency; HBO"
+  },
+  {
+    "name": "In Jackson Heights",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Queens neighborhood; Frederick Wiseman documentary"
+  },
+  {
+    "name": "Anvil! The Story of Anvil",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Heavy metal band; perseverance; cult"
+  },
+  {
+    "name": "2040",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Environmental future; Australian director Damon Gameau"
+  },
+  {
+    "name": "HBO Real Sports",
+    "year": 1995,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Sports journalism anthology; HBO; investigations"
+  },
+  {
+    "name": "Hypernormalization",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Adam Curtis political essay; BBC; experimental"
+  },
+  {
+    "name": "Can't Get You Out of My Head",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Adam Curtis power essay; BBC; political"
+  },
+  {
+    "name": "The Toys That Made Us: Hot Wheels",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Toy cars; Mattel history"
+  },
+  {
+    "name": "Carts of Darkness",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Homeless people; Vancouver carts; indie"
+  },
+  {
+    "name": "The Toys That Made Us: Transformers",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Robot toys; 1980s; action figures"
+  },
+  {
+    "name": "The Battered Bastards of Baseball",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Independent baseball; family team"
+  },
+  {
+    "name": "Indie Game: The Movie",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Video game developers; creative process"
+  },
+  {
+    "name": "Casting JonBenet",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Unsolved child murder; casting film"
+  },
+  {
+    "name": "In Pursuit of Silence",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Quiet spaces; sound; contemporary"
+  },
+  {
+    "name": "The Toys That Made Us: Nintendo",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Video game company history; iconic"
+  },
+  {
+    "name": "Word Wars",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Scrabble champions; competitive games"
+  },
+  {
+    "name": "Defying Gravity",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Female acrobats; circus arts; achievement"
+  },
+  {
+    "name": "The Toys That Made Us: Tamagotchi",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Virtual pet toy; 1990s technology"
+  },
+  {
+    "name": "The Toys That Made Us: GI Joe",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Military action figure; Hasbro; toy culture"
+  },
+  {
+    "name": "The Toys That Made Us: Lego",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Construction toy history; Danish innovation"
+  },
+  {
+    "name": "Gideon's Army",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Public defenders; justice system; legal"
+  },
+  {
+    "name": "Becoming a Champion",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Sports mentorship; youth athletics"
+  },
+  {
+    "name": "An Injury to One",
+    "year": 2002,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Labor history; mining Montana"
+  },
+  {
+    "name": "The Human Experiment",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Chemicals in consumer products; environmental"
+  },
+  {
+    "name": "Food Matters",
+    "year": 2008,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Nutrition documentary; alternative health"
+  },
+  {
+    "name": "Stealing Sheep",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Music piracy; copyright; indie"
+  },
+  {
+    "name": "The Beauty of Transience",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Japanese aesthetics; art"
+  },
+  {
+    "name": "Visions of the City",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Cinematic cities; architecture; experimental"
+  },
+  {
+    "name": "Breakfast with the Arts",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "ARTE interviews; culture"
+  },
+  {
+    "name": "Girls on the Line",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Women switchboard operators; telecom history"
+  },
+  {
+    "name": "Sculptors in Stone",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Khipu recordings; anthropology; arts"
+  },
+  {
+    "name": "Secrets of Britain's River Palaces",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Thames architecture; British heritage"
+  },
+  {
+    "name": "The Meritocracy Trap",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Educational inequality; economics"
+  },
+  {
+    "name": "The Highest Tide",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Marine biology; tides; science"
+  },
+  {
+    "name": "The Invisible Billion-Dollar Company",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Amazon profiteering; documentary"
+  },
+  {
+    "name": "Never Stop Dreaming: The Life and Legacy of Ryan Hreljac",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Water activist child; humanitarian"
+  },
+  {
+    "name": "The 17 Remaining Questions About the Crime Nobody Saw",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Unsolved crime analysis; mystery"
+  },
+  {
+    "name": "The Toys That Made Us: My Little Pony",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Toy nostalgia; 1980s; Netflix"
+  },
+  {
+    "name": "The Toys That Made Us: Care Bears",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Toy history; nostalgia; 1980s"
+  },
+  {
+    "name": "Searching for the Wrong-Eyed Jesus",
+    "year": 2005,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Americana roots music; indie doc"
+  },
+  {
+    "name": "Endgame",
+    "year": 2009,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Climate change negotiation; documentary"
+  },
+  {
+    "name": "My Brother Tom",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Mental health; family; indie documentary"
+  },
+  {
+    "name": "Hippo: The Hippo Whisperers",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Wildlife conservation; Africa; nature"
+  },
+  {
+    "name": "The Toys That Made Us: Polly Pocket",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Toy history; 1990s nostalgia; compact toys"
+  },
+  {
+    "name": "The Toys That Made Us: Evel Knievel",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Daredevil toy; 1970s; Netflix"
+  },
+  {
+    "name": "This is Gwar",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Shock rock band; Gwar history"
+  },
+  {
+    "name": "A Sad Mist Descends Over the Land of Magical Creatures",
+    "year": 2001,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "documentary",
+    "why": "Obscure; skip if unsure."
+  },
+  {
+    "name": "Jail Time",
+    "year": 2008,
+    "type": "series",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Documentaries of lives in prison system; reality"
+  },
+  {
+    "name": "The Toys That Made Us: Strawberry Shortcake",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "1980s toy nostalgia"
+  }
+]

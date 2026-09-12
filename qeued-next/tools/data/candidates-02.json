@@ -1,0 +1,1282 @@
+[
+  {
+    "name": "Star Wars",
+    "year": 1977,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Blockbuster phenomenon; changed cinema"
+  },
+  {
+    "name": "Annie Hall",
+    "year": 1977,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Woody Allen masterpiece; won Best Picture"
+  },
+  {
+    "name": "The Deer Hunter",
+    "year": 1978,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Vietnam epic; Best Picture winner"
+  },
+  {
+    "name": "Kramer vs. Kramer",
+    "year": 1979,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Meryl Streep custody drama; Best Picture"
+  },
+  {
+    "name": "The Empire Strikes Back",
+    "year": 1980,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Finest blockbuster sequel ever made"
+  },
+  {
+    "name": "Return of the Jedi",
+    "year": 1983,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Star Wars trilogy completion; legendary"
+  },
+  {
+    "name": "The Terminator",
+    "year": 1984,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "James Cameron action classic"
+  },
+  {
+    "name": "Back to the Future",
+    "year": 1985,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Beloved blockbuster; perfect screenplay"
+  },
+  {
+    "name": "Platoon",
+    "year": 1986,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Oliver Stone Vietnam masterpiece"
+  },
+  {
+    "name": "The Fly",
+    "year": 1986,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Cronenberg body horror masterpiece"
+  },
+  {
+    "name": "Brazil",
+    "year": 1985,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Gilliam dystopian masterpiece"
+  },
+  {
+    "name": "The Last Emperor",
+    "year": 1987,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Bernardo Bertolucci epic; won Best Picture"
+  },
+  {
+    "name": "Die Hard",
+    "year": 1988,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Action template that defined genre"
+  },
+  {
+    "name": "Who Framed Roger Rabbit",
+    "year": 1988,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Innovative live-action animation hybrid"
+  },
+  {
+    "name": "Rain Man",
+    "year": 1988,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Won Best Picture; Cruise-Hoffman"
+  },
+  {
+    "name": "Batman",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Tim Burton gothic; Nicholson Joker"
+  },
+  {
+    "name": "When Harry Met Sally",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Romantic comedy archetype; masterpiece"
+  },
+  {
+    "name": "Indiana Jones and the Last Crusade",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Spielberg adventure; Sean Connery"
+  },
+  {
+    "name": "Do the Right Thing",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Spike Lee summer block party"
+  },
+  {
+    "name": "The Abyss",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Cameron underwater sci-fi epic"
+  },
+  {
+    "name": "Field of Dreams",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Baseball-fantasy allegory; American mythology"
+  },
+  {
+    "name": "Driving Miss Daisy",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Won Best Picture; race relations"
+  },
+  {
+    "name": "Ghostbusters",
+    "year": 1984,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Comedy classic; Murray Aykroyd"
+  },
+  {
+    "name": "Out of Africa",
+    "year": 1985,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Won Best Picture; colonial romance"
+  },
+  {
+    "name": "Gremlins",
+    "year": 1984,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Spielberg creature feature; dark humor"
+  },
+  {
+    "name": "Wall Street",
+    "year": 1987,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Oliver Stone greed allegory"
+  },
+  {
+    "name": "Blue Velvet",
+    "year": 1986,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Lynch masterpiece; small-town darkness"
+  },
+  {
+    "name": "Heaven Can Wait",
+    "year": 1978,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Beatty Henry football"
+  },
+  {
+    "name": "Sorcerer",
+    "year": 1977,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Friedkin existential thriller"
+  },
+  {
+    "name": "Eraserhead",
+    "year": 1977,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Lynch surrealist body-horror"
+  },
+  {
+    "name": "An American Werewolf in London",
+    "year": 1981,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Landis horror-comedy"
+  },
+  {
+    "name": "The Evil Dead",
+    "year": 1981,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-70s80s",
+    "why": "Sam Raimi cabin horror"
+  },
+  {
+    "name": "Pretty in Pink",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "John Hughes teen classic"
+  },
+  {
+    "name": "Ferris Bueller's Day Off",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Hughes teen comedy; beloved"
+  },
+  {
+    "name": "The Breakfast Club",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Hughes ensemble; defining teen drama"
+  },
+  {
+    "name": "Weird Science",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Hughes teen sci-fi; computer woman"
+  },
+  {
+    "name": "Cocoon",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Ron Howard sci-fi; aging"
+  },
+  {
+    "name": "Mask",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Jim Carrey breakout; Bogdanovich"
+  },
+  {
+    "name": "Witness",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Harrison Ford Amish thriller"
+  },
+  {
+    "name": "Mad Max Beyond Thunderdome",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Miller post-apocalyptic; Tina Turner"
+  },
+  {
+    "name": "The Color Purple",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Spielberg race drama"
+  },
+  {
+    "name": "Crocodile Dundee",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Paul Hogan Australian action"
+  },
+  {
+    "name": "Top Gun",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Military blockbuster; Cruise Harris"
+  },
+  {
+    "name": "Highlander",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Immortal swordsmen action fantasy"
+  },
+  {
+    "name": "Big Trouble in Little China",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Carpenter action-fantasy; Chinatown"
+  },
+  {
+    "name": "The Killing Fields",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Cambodia genocide drama"
+  },
+  {
+    "name": "Splash",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Ron Howard mermaid romance"
+  },
+  {
+    "name": "Amadeus",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Won Best Picture; Mozart"
+  },
+  {
+    "name": "Beverly Hills Cop",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Eddie Murphy breakthrough buddy"
+  },
+  {
+    "name": "Footloose",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Teen dance rebellion; Bacon"
+  },
+  {
+    "name": "Sixteen Candles",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Hughes romantic comedy"
+  },
+  {
+    "name": "The Right Stuff",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "NASA astronaut epic"
+  },
+  {
+    "name": "Flashdance",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Dance-thriller; female protagonist"
+  },
+  {
+    "name": "Silkwood",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Meryl Streep nuclear whistleblower"
+  },
+  {
+    "name": "Christine",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Carpenter killer car"
+  },
+  {
+    "name": "The Outsiders",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Coppola teen gang drama"
+  },
+  {
+    "name": "Trading Places",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Landis comedy; Murphy Aykroyd"
+  },
+  {
+    "name": "The Big Chill",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Ensemble reunion drama"
+  },
+  {
+    "name": "Gorky Park",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Cold War thriller; Moscow"
+  },
+  {
+    "name": "Tootsie",
+    "year": 1982,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Hoffman drag comedy masterpiece"
+  },
+  {
+    "name": "Gandhi",
+    "year": 1982,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Ben Kingsley epic"
+  },
+  {
+    "name": "Missing",
+    "year": 1982,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Costa-Gavras Chile thriller"
+  },
+  {
+    "name": "The Year of Living Dangerously",
+    "year": 1982,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Weir Indonesia political"
+  },
+  {
+    "name": "Pink Floyd The Wall",
+    "year": 1982,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Rock opera animation"
+  },
+  {
+    "name": "The Verdict",
+    "year": 1982,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Paul Newman legal drama"
+  },
+  {
+    "name": "Diner",
+    "year": 1982,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Levinson ensemble; 1959 Baltimore"
+  },
+  {
+    "name": "First Blood",
+    "year": 1982,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Rambo origin; Stallone"
+  },
+  {
+    "name": "Caddyshack",
+    "year": 1980,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Sports comedy; Chevy Chase"
+  },
+  {
+    "name": "American Gigolo",
+    "year": 1980,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Friedkin neo-noir; Richard Gere"
+  },
+  {
+    "name": "Altered States",
+    "year": 1980,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Ken Russell drug sci-fi"
+  },
+  {
+    "name": "Heaven's Gate",
+    "year": 1980,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Cimino Western epic"
+  },
+  {
+    "name": "Fame",
+    "year": 1980,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Musical drama school"
+  },
+  {
+    "name": "Hair",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Forman 60s rock musical"
+  },
+  {
+    "name": "The Warriors",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Walter Hill gang epic"
+  },
+  {
+    "name": "Manhattan",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Woody Allen romance drama"
+  },
+  {
+    "name": "The China Syndrome",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Nuclear thriller; prescient"
+  },
+  {
+    "name": "Tess",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Polanski Hardy adaptation"
+  },
+  {
+    "name": "Being There",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Ashby Sellers wisdom-fool"
+  },
+  {
+    "name": "The Black Stallion",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Boy-horse adventure"
+  },
+  {
+    "name": "The Jerk",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Martin comedy masterpiece"
+  },
+  {
+    "name": "Grease",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Musical high school"
+  },
+  {
+    "name": "Invasion of the Body Snatchers",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Kaufman sci-fi paranoia"
+  },
+  {
+    "name": "Days of Heaven",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Malick pastoral poetry"
+  },
+  {
+    "name": "Superman",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Donner superhero landmark"
+  },
+  {
+    "name": "Midnight Express",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Parker Turkish prison"
+  },
+  {
+    "name": "Blue Collar",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-70s80s",
+    "why": "Schrader factory blues"
+  },
+  {
+    "name": "Zardoz",
+    "year": 1974,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Boorman surreal sci-fi"
+  },
+  {
+    "name": "The Last Wave",
+    "year": 1977,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Weir Aboriginal mysticism"
+  },
+  {
+    "name": "Black Sunday",
+    "year": 1977,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Frankenheimer political thriller"
+  },
+  {
+    "name": "The Spy Who Loved Me",
+    "year": 1977,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Moore Bond; Jaws"
+  },
+  {
+    "name": "Forbidden World",
+    "year": 1982,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Sci-fi creature feature"
+  },
+  {
+    "name": "Looker",
+    "year": 1981,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Crichton model murders"
+  },
+  {
+    "name": "Porky's",
+    "year": 1981,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Hertzfeld teen sex-comedy"
+  },
+  {
+    "name": "Xtro",
+    "year": 1983,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Davenport alien body-horror"
+  },
+  {
+    "name": "Possession",
+    "year": 1981,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Zulawski marital horror"
+  },
+  {
+    "name": "Ruthless People",
+    "year": 1986,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Zucker kidnapping comedy"
+  },
+  {
+    "name": "Real Genius",
+    "year": 1985,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Coolidge teen sci-fi"
+  },
+  {
+    "name": "St. Elmo's Fire",
+    "year": 1985,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Schumacher grad ensemble"
+  },
+  {
+    "name": "Vagabond",
+    "year": 1985,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Varda French drifter"
+  },
+  {
+    "name": "The Go-Between",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Losey Edwardian memory"
+  },
+  {
+    "name": "Summer of '42",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Mulligan coming-of-age"
+  },
+  {
+    "name": "The Hospital",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Hiller medical satire"
+  },
+  {
+    "name": "Two-Lane Blacktop",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Hellman road racing"
+  },
+  {
+    "name": "Johnny Got His Gun",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Dalton Trumbo WWI"
+  },
+  {
+    "name": "Jabberwocky",
+    "year": 1977,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Gilliam fantasy monster"
+  },
+  {
+    "name": "Looking for Mr. Goodbar",
+    "year": 1977,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Diane Keaton 70s"
+  },
+  {
+    "name": "Piranhas",
+    "year": 1978,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Joe Dante creature"
+  },
+  {
+    "name": "Convoy",
+    "year": 1978,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Peckinpah trucker road"
+  },
+  {
+    "name": "Coming Home",
+    "year": 1978,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Jon Voight Vietnam"
+  },
+  {
+    "name": "An Unmarried Woman",
+    "year": 1978,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Mazursky post-divorce"
+  },
+  {
+    "name": "The 'Burbs",
+    "year": 1989,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Dante suburban comedy"
+  },
+  {
+    "name": "Uncle Buck",
+    "year": 1989,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Hughes candy-uncle"
+  },
+  {
+    "name": "Ghostbusters II",
+    "year": 1989,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Reitman sequel"
+  },
+  {
+    "name": "The Killer",
+    "year": 1989,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Fincher stylish thriller"
+  },
+  {
+    "name": "Flash Gordon",
+    "year": 1980,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Hodges campy space-opera"
+  },
+  {
+    "name": "A Little Romance",
+    "year": 1979,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Bogdanovich Paris romance"
+  },
+  {
+    "name": "Eating Raoul",
+    "year": 1982,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Bartel cannibal satire"
+  },
+  {
+    "name": "Cat People",
+    "year": 1982,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Schrader cat-woman"
+  },
+  {
+    "name": "Melvin and Howard",
+    "year": 1980,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Demme Hughes will"
+  },
+  {
+    "name": "Popeye",
+    "year": 1980,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Altman Popeye Robin Williams"
+  },
+  {
+    "name": "Cruising",
+    "year": 1980,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Friedkin gay underworld"
+  },
+  {
+    "name": "Urban Cowboy",
+    "year": 1980,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Travolta Texas country"
+  },
+  {
+    "name": "Brubaker",
+    "year": 1980,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Redford prison reform"
+  },
+  {
+    "name": "The Long Riders",
+    "year": 1980,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Walter Hill Jesse James"
+  },
+  {
+    "name": "Hopscotch",
+    "year": 1980,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Matthau spy-caper"
+  },
+  {
+    "name": "Poltergeist",
+    "year": 1982,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Spielberg suburban haunting"
+  },
+  {
+    "name": "48 Hrs.",
+    "year": 1982,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Walter Hill buddy action"
+  },
+  {
+    "name": "Tron",
+    "year": 1982,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Lisberger computer sci-fi"
+  },
+  {
+    "name": "The Dark Crystal",
+    "year": 1982,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Henson puppet fantasy"
+  },
+  {
+    "name": "Videodrome",
+    "year": 1983,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Cronenberg media nightmare"
+  },
+  {
+    "name": "Escape from New York",
+    "year": 1981,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Carpenter dystopian action"
+  },
+  {
+    "name": "Dirty Harry",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Siegel Eastwood cop-thriller"
+  },
+  {
+    "name": "Walkabout",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Roeg Australian desert"
+  },
+  {
+    "name": "McCabe & Mrs. Miller",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Altman revisionist Western"
+  },
+  {
+    "name": "Straw Dogs",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Peckinpah home invasion"
+  },
+  {
+    "name": "The Last Picture Show",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-70s80s",
+    "why": "Bogdanovich Texas decline"
+  },
+  {
+    "name": "Venom",
+    "year": 1981,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Haggard snake thriller"
+  },
+  {
+    "name": "Q: The Winged Serpent",
+    "year": 1982,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Cohen NYC monster"
+  },
+  {
+    "name": "Orca",
+    "year": 1977,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Anderson killer whale"
+  },
+  {
+    "name": "Sunshine Boys",
+    "year": 1975,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Ross comedy"
+  },
+  {
+    "name": "Movie Movie",
+    "year": 1978,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Donen black-white homage"
+  },
+  {
+    "name": "Goin' South",
+    "year": 1978,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Nicholson Western"
+  },
+  {
+    "name": "Eyes of Laura Mars",
+    "year": 1978,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Kershner fashion thriller"
+  },
+  {
+    "name": "I Wanna Hold Your Hand",
+    "year": 1978,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Zemeckis Beatles mania"
+  },
+  {
+    "name": "House Calls",
+    "year": 1978,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Walters Matthau romance"
+  },
+  {
+    "name": "Hooper",
+    "year": 1978,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Needham stunt-man"
+  },
+  {
+    "name": "The Brink's Job",
+    "year": 1978,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Friedkin Boston robbery"
+  },
+  {
+    "name": "The Main Event",
+    "year": 1979,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Streisand Stallone boxing"
+  },
+  {
+    "name": "Starting Over",
+    "year": 1979,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Bergen Reynolds divorce"
+  },
+  {
+    "name": "Any Which Way You Can",
+    "year": 1980,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Eastwood orangutan sequel"
+  },
+  {
+    "name": "Seems Like Old Times",
+    "year": 1980,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Hawn Chase romantic"
+  },
+  {
+    "name": "The Final Countdown",
+    "year": 1980,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Time-travel USS Nimitz"
+  },
+  {
+    "name": "Shaft",
+    "year": 1971,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Gordon Parks blaxploitation"
+  },
+  {
+    "name": "Heathers",
+    "year": 1989,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Lehmann dark teen-comedy"
+  },
+  {
+    "name": "Say Anything",
+    "year": 1989,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Crowe Cusack romance"
+  },
+  {
+    "name": "Parenthood",
+    "year": 1989,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Howard ensemble family"
+  },
+  {
+    "name": "Steel Magnolias",
+    "year": 1989,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-70s80s",
+    "why": "Ross Southern women"
+  },
+  {
+    "name": "Thank God It's Friday",
+    "year": 1978,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "film-70s80s",
+    "why": "Disco nightclub Donna Summer"
+  },
+  {
+    "name": "Sgt. Pepper's Lonely Hearts",
+    "year": 1978,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "film-70s80s",
+    "why": "Beatles musical extravaganza"
+  },
+  {
+    "name": "Sunburn",
+    "year": 1979,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "film-70s80s",
+    "why": "Fawcett tropical spy"
+  }
+]

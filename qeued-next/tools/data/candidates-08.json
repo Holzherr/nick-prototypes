@@ -1,0 +1,1154 @@
+[
+  {
+    "name": "Nausicaa of the Valley of the Wind",
+    "year": 1984,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Miyazaki's epic fantasy; foundational Japanese animation"
+  },
+  {
+    "name": "Laputa: Castle in the Sky",
+    "year": 1986,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Ghibli masterwork; timeless adventure and world-building"
+  },
+  {
+    "name": "Kiki's Delivery Service",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Ghibli classic; coming-of-age rite of passage film"
+  },
+  {
+    "name": "Howl's Moving Castle",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Ghibli romance; visually stunning and emotionally resonant"
+  },
+  {
+    "name": "The Wind Rises",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Miyazaki's final film; biographical historical animation"
+  },
+  {
+    "name": "Fantastic Planet",
+    "year": 1973,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Laloux sci-fi masterpiece; surreal stop-motion landmark"
+  },
+  {
+    "name": "Millennium Actress",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Satoshi Kon's masterpiece; innovative narrative structure"
+  },
+  {
+    "name": "Tokyo Godfathers",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Kon's compassionate action-drama; unique anime perspective"
+  },
+  {
+    "name": "The Girl Who Leapt Through Time",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Mamoru Hosoda breakthrough; time-travel coming-of-age"
+  },
+  {
+    "name": "Summer Wars",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Hosoda's epic; virtual reality meets family drama"
+  },
+  {
+    "name": "Sword of the Stranger",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Masahiro Ando's samurai epic; fluid action animation"
+  },
+  {
+    "name": "In This Corner of the World",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Mizoguchi's WWII anime; intimate historical narrative"
+  },
+  {
+    "name": "Coraline",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Laika's stop-motion classic; dark family fantasy"
+  },
+  {
+    "name": "Kubo and the Two Strings",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Laika stop-motion epic; Japanese mythology adventure"
+  },
+  {
+    "name": "Up",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Pixar's journey; old man and boy adventure"
+  },
+  {
+    "name": "Ratatouille",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Pixar masterpiece; chef rat finds purpose and passion"
+  },
+  {
+    "name": "Coco",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Pixar's Day of Dead epic; music and family legacy"
+  },
+  {
+    "name": "Inside Out",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Pixar's emotion masterwork; clever psychology adventure"
+  },
+  {
+    "name": "Soul",
+    "year": 2020,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Pixar's jazz odyssey; purpose and soul exploration"
+  },
+  {
+    "name": "Moana",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Disney Pacific epic; ocean wayfinding and destiny"
+  },
+  {
+    "name": "Frozen",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Disney phenomenon; sisterhood and self-acceptance"
+  },
+  {
+    "name": "The Lion King",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Disney animation apex; Shakespeare-inspired epic"
+  },
+  {
+    "name": "Beauty and the Beast",
+    "year": 1991,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Disney musical; tale as old as time masterpiece"
+  },
+  {
+    "name": "Aladdin",
+    "year": 1992,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Disney adventure-comedy; Genie steals every scene"
+  },
+  {
+    "name": "The Secret of Kells",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Irish animated fantasy; Celtic mythology and magic"
+  },
+  {
+    "name": "Song of the Sea",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Cartoon Saloon's Irish selkie tale; poetic folklore"
+  },
+  {
+    "name": "Waltz with Bashir",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Folman's animated documentary; Lebanon war memory"
+  },
+  {
+    "name": "Loving Vincent",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-film",
+    "why": "Van Gogh painted feature; museum animation"
+  },
+  {
+    "name": "How to Train Your Dragon",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "DreamWorks adventure; boy bonds with dragon"
+  },
+  {
+    "name": "How to Train Your Dragon 2",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "DreamWorks epic sequel; mother and dragons return"
+  },
+  {
+    "name": "How to Train Your Dragon: The Hidden World",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Trilogy conclusion; dragons and belonging"
+  },
+  {
+    "name": "Kung Fu Panda",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "DreamWorks comedy-action; panda becomes warrior"
+  },
+  {
+    "name": "Kung Fu Panda 2",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "DreamWorks sequel; stylish action and family"
+  },
+  {
+    "name": "Shrek",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "DreamWorks fairy-tale subversion; Fiona and ogre love"
+  },
+  {
+    "name": "Shrek 2",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "DreamWorks sequel; Shrek visits in-laws comedy"
+  },
+  {
+    "name": "The Prince of Egypt",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "DreamWorks biblical epic; Moses and Ramesses"
+  },
+  {
+    "name": "Kirikou and the Sorceress",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Michel Ocelot's African fairy tale; bold colors"
+  },
+  {
+    "name": "The King and the Mockingbird",
+    "year": 1980,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Grimault's masterpiece; European animation classic"
+  },
+  {
+    "name": "Anomalisa",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Kaufman and Duke's stop-motion; human connection"
+  },
+  {
+    "name": "The Corpse Bride",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Burton and Selick's stop-motion gothic; zombie love"
+  },
+  {
+    "name": "Encanto",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Disney Colombian magical family; music-driven"
+  },
+  {
+    "name": "Tangled",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Disney Rapunzel; hair and adventure romance"
+  },
+  {
+    "name": "The Princess and the Frog",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Disney bayou fantasy; prince and voodoo"
+  },
+  {
+    "name": "Cinderella",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Disney classic; magical transformation tale"
+  },
+  {
+    "name": "Sleeping Beauty",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Disney's gothic dark princess; Maleficent dominates"
+  },
+  {
+    "name": "The Little Mermaid",
+    "year": 1989,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Disney under the sea; Ariel's voice and whimsy"
+  },
+  {
+    "name": "Finding Nemo",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Pixar's ocean adventure; father-son quest"
+  },
+  {
+    "name": "Finding Dory",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Pixar's Dory origin; memory and family themes"
+  },
+  {
+    "name": "Monsters, Inc.",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Pixar's monster workplace; Boo and Sulley love"
+  },
+  {
+    "name": "The Incredibles",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Pixar superhero family; Syndrome's revenge"
+  },
+  {
+    "name": "Brave",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Pixar's Scottish princess; mother-daughter archery"
+  },
+  {
+    "name": "Toy Story 2",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Pixar's toy collector episode; Jessie's past"
+  },
+  {
+    "name": "Toy Story 3",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Pixar daycare nightmare; growing up separation"
+  },
+  {
+    "name": "Rango",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Gore Verbinski western; chameleon lawman"
+  },
+  {
+    "name": "The Breadwinner",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Irish-Canadian Afghan girl; Taliban resistance"
+  },
+  {
+    "name": "Weathering with You",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Shinkai Tokyo rain romance; weather-changing girl"
+  },
+  {
+    "name": "Wolf Children",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Hosoda motherhood epic; werewolf children upbringing"
+  },
+  {
+    "name": "The Boy and the Heron",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Miyazaki mythology; boy-heron journey to sister"
+  },
+  {
+    "name": "Porco Rosso",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Miyazaki pig pilot; Adriatic Sea adventure"
+  },
+  {
+    "name": "Zootopia",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Disney animals; cop and con buddy detective"
+  },
+  {
+    "name": "The Lego Movie",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Animated construction block hero adventure"
+  },
+  {
+    "name": "Raya and the Last Dragon",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Disney Southeast Asian dragon-finder"
+  },
+  {
+    "name": "Incredibles 2",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Pixar superhero family; mom takes spotlight"
+  },
+  {
+    "name": "The Hunchback of Notre Dame",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Disney Paris cathedral; Quasimodo's redemption"
+  },
+  {
+    "name": "Guillermo del Toro's Pinocchio",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-film",
+    "why": "Del Toro stop-motion; fascist Italy reimagined"
+  },
+  {
+    "name": "Felidae",
+    "year": 1994,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "German noir animated cat; mystery and darkness"
+  },
+  {
+    "name": "Dilili in Paris",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Ocelot's Belle \u00c9poque adventure; girl fights evil"
+  },
+  {
+    "name": "Frankenweenie",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Burton's stop-motion; boy revives dead dog"
+  },
+  {
+    "name": "ParaNorman",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Laika stop-motion; boy talks to ghosts"
+  },
+  {
+    "name": "The Boxtrolls",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Laika's stop-motion; underground trolls and cheese"
+  },
+  {
+    "name": "Missing Link",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Laika stop-motion adventure; bigfoot finds home"
+  },
+  {
+    "name": "Luca",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Pixar Italian boy-sea-monster friendship"
+  },
+  {
+    "name": "Turning Red",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Pixar's panda transformation; teenage girl agency"
+  },
+  {
+    "name": "Elemental",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Pixar fire-water chemistry; unlikely friendship"
+  },
+  {
+    "name": "Cars",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Pixar racing comedy; small town charm"
+  },
+  {
+    "name": "Toy Story 4",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Pixar's melancholy goodbye; Woody finds purpose"
+  },
+  {
+    "name": "Despicable Me",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Illumination villain-family comedy; Gru and daughters"
+  },
+  {
+    "name": "Despicable Me 2",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Illumination espionage; Gru falls in love"
+  },
+  {
+    "name": "Sing",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Illumination karaoke competition; diverse animal cast"
+  },
+  {
+    "name": "Arthur Christmas",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Aardman North Pole; Santa's tech-geek son"
+  },
+  {
+    "name": "Chicken Run",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Aardman Great Escape parody; chickens flee pie"
+  },
+  {
+    "name": "Shaun the Sheep Movie",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Aardman wordless farm adventure; sheep capers"
+  },
+  {
+    "name": "Chico & Rita",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Cuban animated jazz romance; hand-drawn elegance"
+  },
+  {
+    "name": "Madagascar",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "DreamWorks zoo animals; Africa adventure"
+  },
+  {
+    "name": "The Croods",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "DreamWorks caveman family; colorful prehistoric world"
+  },
+  {
+    "name": "Antz",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "DreamWorks ant colony satire; Woody Allen voice"
+  },
+  {
+    "name": "Garden of Words",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Shinkai rainy garden romance; teacher-student moments"
+  },
+  {
+    "name": "5 Centimeters per Second",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Shinkai bittersweet romance; distance and time"
+  },
+  {
+    "name": "Mirai",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Hosoda time-travel family; older sister from future"
+  },
+  {
+    "name": "Belle",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Hosoda virtual idol; metaverse mystery-thriller"
+  },
+  {
+    "name": "Redline",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Takeshi Koike space race; hand-drawn kinetic art"
+  },
+  {
+    "name": "Pom Poko",
+    "year": 1994,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Ghibli tanuki city fight; shapeshifting eco-fable"
+  },
+  {
+    "name": "The Castle of Cagliostro",
+    "year": 1979,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Miyazaki Lupin heist; romantic Italian adventure"
+  },
+  {
+    "name": "A Scanner Darkly",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Linklater rotoscope; Philip K Dick paranoia"
+  },
+  {
+    "name": "Waking Life",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Linklater rotoscope; lucid dream philosophical"
+  },
+  {
+    "name": "South Park: Bigger Longer & Uncut",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "South Park musical; Canadian invasion satire"
+  },
+  {
+    "name": "The Illusionist",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Chomet wordless romance; Edinburgh magician"
+  },
+  {
+    "name": "Ghost in the Shell 2: Innocence",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Oshii android philosophy; philosophical thriller"
+  },
+  {
+    "name": "Tale of Tales",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Norstein-style animation; Russian fairy tales"
+  },
+  {
+    "name": "Atlantis: The Lost Empire",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Disney underwater city; science adventure"
+  },
+  {
+    "name": "Treasure Planet",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Disney Treasure Island; space sailing adventure"
+  },
+  {
+    "name": "Anastasia",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Fox Russian princess; Romanov mystery"
+  },
+  {
+    "name": "Rio",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Blue Sky parrot carnival; tropical adventure"
+  },
+  {
+    "name": "Hotel Transylvania",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Sony monster resort; vampire father's vacation"
+  },
+  {
+    "name": "Megamind",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "DreamWorks villain hero; Metro City mayhem"
+  },
+  {
+    "name": "Migration",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-film",
+    "why": "Illumination bird journey; family adventure"
+  },
+  {
+    "name": "Lightyear",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Pixar Buzz Lightyear origin; space ranger epic"
+  },
+  {
+    "name": "Minions",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Illumination prequel; yellow gibberish chaos"
+  },
+  {
+    "name": "Sing 2",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Illumination sequel; Vegas showstopper dreams"
+  },
+  {
+    "name": "The Secret Life of Pets",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Illumination apartment animals; New York adventure"
+  },
+  {
+    "name": "Early Man",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Aardman caveman; football and stone age"
+  },
+  {
+    "name": "The Pirates! Band of Misfits",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Aardman pirate comedy; Polly and taxidermy"
+  },
+  {
+    "name": "Shaun the Sheep Movie: Farmageddon",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Aardman alien farm comedy; Shaun meets extraterrestrial"
+  },
+  {
+    "name": "Flushed Away",
+    "year": 2006,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Aardman-DreamWorks sewer adventure; rat meets toad"
+  },
+  {
+    "name": "Madagascar 3: Europe's Most Wanted",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "DreamWorks circus romp; Paris and Venice"
+  },
+  {
+    "name": "The Croods: A New Age",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "DreamWorks sequel; two families meet paradise"
+  },
+  {
+    "name": "Home",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "DreamWorks alien-girl friendship; purple Oh"
+  },
+  {
+    "name": "Turbo",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "DreamWorks snail racer; Indianapolis 500 dream"
+  },
+  {
+    "name": "A Letter to Momo",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Hiroyuki Okiura Shinto spirits; island recovery"
+  },
+  {
+    "name": "Children of the Sea",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Ayuri Yoshinaga aquatic mystery; mermaid boys"
+  },
+  {
+    "name": "Fire and Ice",
+    "year": 1983,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Bakshi-Frazetta rotoscope fantasy; sword-sorcery"
+  },
+  {
+    "name": "Heavy Metal",
+    "year": 1981,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Adult animated anthology; rock music and sci-fi"
+  },
+  {
+    "name": "Time Masters",
+    "year": 1982,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Laloux sci-fi animation; space rescue mission"
+  },
+  {
+    "name": "Sausage Party",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Adult animation grocery aisle; R-rated comedy"
+  },
+  {
+    "name": "Mad God",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Tippett practical stop-motion; industrial nightmare"
+  },
+  {
+    "name": "Boy and the World",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Brazilian wordless animation; journey and loss"
+  },
+  {
+    "name": "Promare",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Imaishi anime film; firefighter-pyro action"
+  },
+  {
+    "name": "Bubble",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Tachikawa Tokyo sci-fi; gravity bubbles romance"
+  },
+  {
+    "name": "The Orphanage",
+    "year": 2006,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Spanish horror animation; child mystery"
+  },
+  {
+    "name": "Robin Robin",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Aardman-Netflix stop-motion; robin heist"
+  },
+  {
+    "name": "Rio 2",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Blue Sky sequel; Amazon rainforest journey"
+  },
+  {
+    "name": "Storks",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Warner Bros baby delivery; forest adventure"
+  },
+  {
+    "name": "The Swan Princess",
+    "year": 1994,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-film",
+    "why": "Non-Disney fairy tale; prince and swan"
+  },
+  {
+    "name": "Spirit Untamed",
+    "year": 2021,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "animation-film",
+    "why": "DreamWorks western girl-horse bond"
+  },
+  {
+    "name": "The King of Thorn",
+    "year": 2009,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "animation-film",
+    "why": "Japanese sci-fi animation; nanomachine mystery"
+  },
+  {
+    "name": "Dorohedoro",
+    "year": 2020,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "animation-film",
+    "why": "CGI anime; dystopian cauldron town"
+  },
+  {
+    "name": "Wings",
+    "year": 1966,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "animation-film",
+    "why": "Soviet animation; little bird adventure"
+  },
+  {
+    "name": "A.I. Love You",
+    "year": 1994,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "animation-film",
+    "why": "Kazuyoshi Katayama romantic comedy; AI girlfriend"
+  },
+  {
+    "name": "The Tail",
+    "year": 2021,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "animation-film",
+    "why": "Chinese animation; fox spirit mythology"
+  },
+  {
+    "name": "Hilda and the Mountain King",
+    "year": 2023,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "animation-film",
+    "why": "Netflix animated feature; elf and demons"
+  },
+  {
+    "name": "Have a Nice Day",
+    "year": 2017,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "animation-film",
+    "why": "Chinese cut-paper animation; debt collection"
+  },
+  {
+    "name": "Dead Leaves",
+    "year": 2004,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "animation-film",
+    "why": "Imaishi kinetic animation; asylum escape"
+  },
+  {
+    "name": "Psycho-Pass 3: First Inspector",
+    "year": 2020,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "animation-film",
+    "why": "Japanese anime cyberpunk; justice system"
+  },
+  {
+    "name": "The King's Avatar",
+    "year": 2019,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "animation-film",
+    "why": "Chinese esports anime film; gaming world"
+  }
+]
