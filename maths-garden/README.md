@@ -41,8 +41,17 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   game, open as wide as the round was good — ten stickers bring a butterfly, the daily goal a rainbow, 50
   stickers a unicorn. It grows along the bottom of the home screen and opens full size when tapped. Derived
   from the round log, so it is identical on every device.
-- **Grown-ups screen** (behind a sum, remembered for ten minutes so signing in doesn't ask twice): an
-  **account panel** leading the screen — a full-width "☁️ Signed in" or "📱 Guest — this device only" bar,
+- **Grown-ups screen** (`#/grown-ups`, behind a sum): the one in-app screen with a hash of its own, so a
+  parent reading it can refresh — or link straight to it — instead of being dropped back into the child's
+  garden; the rest are steps in a child's play, where a refresh should not resume a half-finished round. The
+  hash is swapped with `replaceState`, so Back leaves the app rather than walking these screens. Passing the
+  sum is remembered for ten minutes in **`sessionStorage`**: signing in from this screen rebuilds the whole
+  tree, and a refresh throws away every module, so a module variable meant answering a second sum to get
+  back to the screen you were already on. sessionStorage survives both and still dies with the tab, so a
+  child opening the app fresh meets the gate. The footer prints the **build id** — a device can serve a
+  cached build for days with nothing on screen to say so (an iPad served the first build for hours while
+  fixes were published over it), and one glance now answers it. Leading the screen is an
+  **account panel** — a full-width "☁️ Signed in" or "📱 Guest — this device only" bar,
   then the account address at heading size, whether anything is still waiting to upload, switch child, sign
   in or out. The panel exists because with a single child the app opens straight into her garden, so
   `ProfilesScreen` (the only other place naming the account) never renders, and there was no way to tell a
