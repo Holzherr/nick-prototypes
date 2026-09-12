@@ -41,10 +41,12 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   game, open as wide as the round was good — ten stickers bring a butterfly, the daily goal a rainbow, 50
   stickers a unicorn. It grows along the bottom of the home screen and opens full size when tapped. Derived
   from the round log, so it is identical on every device.
-- **Grown-ups screen** (behind a sum): accuracy per skill, often-missed numbers, level overrides, a weekly
-  check-in with nine parent-scored probes, print links, and the tutor report. Playing without an account it
-  offers **"Sign in to save progress"** rather than "Sign out" — the old label read as destructive and kept
-  people in guest mode.
+- **Grown-ups screen** (behind a sum): an **account panel** at the top — signed in as whom, or "📱 This
+  device only", whether anything is still waiting to upload, switch child, sign in or out — then accuracy
+  per skill, often-missed numbers, level overrides, a weekly check-in with nine parent-scored probes, print
+  links and the tutor report. The panel exists because with a single child the app opens straight into her
+  garden, so `ProfilesScreen` (the only other place naming the account) never renders, and there was no way
+  to tell a signed-in session from a guest one.
 - **Tutor report** (`features/report/`): a verdict and a plain-English note per skill, what to print next
   and why, off-screen practice for the weakest skills, and warning signs. Printable, and **emailed to the
   parent whenever a game crosses into a new printable stage** ("Tara has moved up to stage 2 in Counting
