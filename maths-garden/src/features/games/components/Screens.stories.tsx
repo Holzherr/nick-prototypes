@@ -29,6 +29,11 @@ type Story = StoryObj<typeof meta>;
 export const Home: Story = { args: { recommended: recommendGame([], { peek: 1, find: 2 }, GAMES) } };
 export const HomeEveryGame: Story = { name: 'Home (all games open)', args: { recommended: undefined } };
 
+export const HomeWindDown: Story = {
+  name: 'Home (played a lot today)',
+  args: { recommended: recommendGame([], { peek: 1, find: 2 }, GAMES), windDown: 'lots', onGarden: fn() },
+};
+
 export const Game: Story = {
   render: () => (
     <GameScreen
