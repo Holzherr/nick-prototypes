@@ -30,6 +30,8 @@ interface TitleData {
   cast_members: string[] | null;
   runtime_minutes: number | null;
   enriched: boolean;
+  catalogue_version?: number | null;
+  synopsis?: string | null;
 }
 
 interface ActorData {
@@ -88,18 +90,34 @@ const TitleDetailPage = () => {
       }
     }
 
-    // Load or enrich
-    setEnriching(!titleData.enriched);
+    // Cast comes from the record, not a lookup.
+    const { data: castRows } = await supabase
+      .from("title_actors")
+      .select("character_name, display_order, actors(id, name, bio, image_url)")
+      .eq("title_id", id!)
+      .order("display_order", { ascending: true });
+    if (castRows?.length) {
+      setActors(
+        castRows
+          // deno-lint-ignore no-explicit-any
+          .map((row: any) => row.actors && { ...row.actors, character_name: row.character_name })
+          .filter(Boolean) as ActorData[],
+      );
+    }
+
+    // Research on demand only, and only for a record we have not already written. The
+    // page never waits on it: a catalogued title is complete, and opening one should cost
+    // a navigation rather than a model call.
+    const complete = (titleData.catalogue_version ?? 0) > 0 && Boolean(titleData.synopsis);
+    if (complete) return;
+
+    setEnriching(true);
     try {
       const { data: enrichRes } = await supabase.functions.invoke("enrich-title", {
         body: { title_id: id },
       });
-      if (enrichRes?.title) {
-        setTitle(enrichRes.title as TitleData);
-      }
-      if (enrichRes?.actors) {
-        setActors(enrichRes.actors as ActorData[]);
-      }
+      if (enrichRes?.title) setTitle(enrichRes.title as TitleData);
+      if (enrichRes?.actors?.length) setActors(enrichRes.actors as ActorData[]);
     } catch (e) {
       console.error("Enrichment failed:", e);
     } finally {
@@ -216,8 +234,8 @@ const TitleDetailPage = () => {
                 ))}
               </div>
 
-              {title.description && (
-                <p className="text-sm text-muted-foreground leading-relaxed">{title.description}</p>
+              {(title.synopsis || title.description) && (
+                <p className="text-sm text-muted-foreground leading-relaxed">{title.synopsis || title.description}</p>
               )}
 
               {/* Director */}

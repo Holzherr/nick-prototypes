@@ -1,30 +1,40 @@
 import { corsHeaders, json } from '../_shared/cors.ts';
 import { serviceClient } from '../_shared/db.ts';
 import { MODELS, callTool, claudeErrorResponse } from '../_shared/claude.ts';
-import { fetchPosterUrl } from '../_shared/posters.ts';
 import { type Axes, type Candidate, buildSlate, combineScore, genreMix } from '../_shared/ranking.ts';
 
 /**
- * The model proposes and scores a pool; this function selects the slate.
+ * Recommends out of Qeued's own catalogue, and returns real rows.
  *
- * Asking a model for "8 recommendations" gives an unrepeatable answer nobody can tune.
- * Instead it scores a wide pool on interpretable axes, and _shared/ranking.ts decides
- * what ships — calibrated to the viewer's real genre mix and de-duplicated. The score
- * the UI shows is then something we computed, and can explain.
+ * Two things this deliberately does not do. It does not ask the model to name titles — it
+ * hands over the catalogue and asks for scores, so every recommendation is a row that
+ * already has a poster, a synopsis and cited facts. And it fetches nothing at request
+ * time: posters and metadata come from the record rather than a lookup.
+ *
+ * The payoff is in the client. A recommendation carries its title_id, so opening one is a
+ * navigation rather than a round trip — the previous flow had to call the search function,
+ * and with it the model, on every single click just to work out which title was tapped.
  */
 
 type Rec = {
-  title: string; type: 'movie' | 'series'; year: number; genres: string[];
-  imdb_rating: number; match_score: number; explanation: string; image_url?: string | null;
+  title_id: string;
+  slug: string | null;
+  title: string;
+  type: 'movie' | 'series';
+  year: number;
+  genres: string[];
+  imdb_rating: number;
+  match_score: number;
+  explanation: string;
+  image_url: string | null;
+  certification: string | null;
+  runtime_minutes: number | null;
+  providers: string[];
 };
 type Result = { personal: Rec[]; shared: Rec[] | null };
 
-type Scored = {
-  title: string; type: 'movie' | 'series'; year: number; genres: string[];
-  imdb_rating: number; explanation: string; axes: Axes;
-};
-
-const POOL_SIZE = 24;
+/** How much of the catalogue to put in front of the model in one pass. */
+const CANDIDATE_LIMIT = 120;
 const PERSONAL_SLATE = 8;
 const SHARED_SLATE = 5;
 
@@ -42,18 +52,15 @@ const axisSchema = {
   additionalProperties: false,
 } as const;
 
-const candidateSchema = {
+/** Candidates are scored by index: it keeps the response small and the ids exact. */
+const scoreSchema = {
   type: 'object',
   properties: {
-    title: { type: 'string' },
-    type: { type: 'string', enum: ['movie', 'series'] },
-    year: { type: 'integer' },
-    genres: { type: 'array', items: { type: 'string' } },
-    imdb_rating: { type: 'number' },
+    ref: { type: 'integer', description: 'The candidate number given in the list.' },
     explanation: { type: 'string', description: 'One sentence, addressed to the viewer, on why this fits them.' },
     axes: axisSchema,
   },
-  required: ['title', 'type', 'year', 'genres', 'imdb_rating', 'explanation', 'axes'],
+  required: ['ref', 'explanation', 'axes'],
   additionalProperties: false,
 } as const;
 
@@ -69,65 +76,18 @@ const timeDescriptions: Record<string, string> = {
 };
 
 // deno-lint-ignore no-explicit-any
-const toHistory = (rows: any[] | null) =>
+type Row = any;
+
+const toHistory = (rows: Row[] | null) =>
   (rows || []).map((e) => ({
     title: e.title?.name,
     status: e.status,
     rating: e.watched_rating,
     genres: e.title?.genres ?? [],
-    imdb: e.title?.imdb_rating,
   }));
 
-const scorePool = async (
-  history: ReturnType<typeof toHistory>,
-  partnerHistory: ReturnType<typeof toHistory> | null,
-  catalogue: { name: string; year: number | null; type: string; genres: string[] }[],
-  notes: string,
-  exclude: string[],
-): Promise<{ personal: Scored[]; shared: Scored[] | null }> => {
-  const excludeNote = exclude.length
-    ? `\n\nNever propose these — already seen or skipped: ${exclude.join(', ')}`
-    : '';
-  const catalogueNote = catalogue.length
-    ? `\n\nQeued already holds records for these, so prefer them where they genuinely fit — ` +
-      `we can tell the viewer exactly where to watch them: ${catalogue.map((c) => `${c.name} (${c.year ?? '?'})`).join(', ')}`
-    : '';
-
-  const audience = partnerHistory
-    ? `Viewer A history: ${JSON.stringify(history)}\nViewer B history: ${JSON.stringify(partnerHistory)}`
-    : `Viewer history: ${JSON.stringify(history)}`;
-
-  return await callTool<{ personal: Scored[]; shared: Scored[] | null }>({
-    model: MODELS.smart,
-    system:
-      'You propose and score candidates for a personal watchlist app. You do not choose the final list — ' +
-      'a ranking layer does that from your scores, so score honestly and spread the axes out. ' +
-      'A candidate that is excellent but a poor fit should score high craft and low tone. Real titles with accurate data only. ' +
-      'Always use the propose tool.',
-    user:
-      `${audience}\n\n` +
-      `Propose ${POOL_SIZE} candidates this viewer has not seen, scored on every axis. ` +
-      `Spread them deliberately: include some safe matches, some that stretch their taste, and some outside their usual genres — ` +
-      `the ranking layer needs range to choose from, and a pool of near-identical thrillers gives it nothing to do.` +
-      (partnerHistory
-        ? ` Also propose ${POOL_SIZE} candidates in "shared" that both viewers would enjoy, scored the same way.`
-        : ' Set shared to null.') +
-      `${notes}${catalogueNote}${excludeNote}`,
-    tool: {
-      name: 'propose',
-      description: 'Return a scored pool of candidates',
-      input_schema: {
-        type: 'object',
-        properties: {
-          personal: { type: 'array', items: candidateSchema },
-          shared: { type: ['array', 'null'], items: candidateSchema },
-        },
-        required: ['personal', 'shared'],
-        additionalProperties: false,
-      },
-    },
-  });
-};
+const providersOf = (row: Row): string[] =>
+  [...new Set((row.title_availability ?? []).map((a: { provider: string }) => a.provider))] as string[];
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: corsHeaders });
@@ -138,75 +98,130 @@ Deno.serve(async (req) => {
     const supabase = serviceClient();
     const hasExclusions = Array.isArray(exclude_titles) && exclude_titles.length > 0;
     const filterSuffix = [mood, type_filter, time_filter].filter(Boolean).join(':');
+    const who = profile_id ?? user_id;
     const cacheKey = partner_id
-      ? `recs2:${[profile_id ?? user_id, partner_id].sort().join(':')}${filterSuffix ? `:${filterSuffix}` : ''}`
-      : `recs2:${profile_id ?? user_id}${filterSuffix ? `:${filterSuffix}` : ''}`;
+      ? `recs3:${[who, partner_id].sort().join(':')}${filterSuffix ? `:${filterSuffix}` : ''}`
+      : `recs3:${who}${filterSuffix ? `:${filterSuffix}` : ''}`;
     if (!hasExclusions) {
       const { data: cached } = await supabase.from('ai_cache').select('response_data, expires_at').eq('cache_key', cacheKey).single();
       if (cached && new Date(cached.expires_at) > new Date()) return json(cached.response_data);
     }
 
-    const entryColumns = 'status, watched_rating, title:titles(name, type, genres, imdb_rating)';
-    const { data: entries } = await supabase.from('watch_entries').select(entryColumns).eq(profile_id ? 'profile_id' : 'user_id', profile_id ?? user_id);
+    const entryColumns = 'status, watched_rating, title_id, title:titles(name, genres)';
+    const { data: entries } = await supabase
+      .from('watch_entries')
+      .select(entryColumns)
+      .eq(profile_id ? 'profile_id' : 'user_id', who);
     const history = toHistory(entries);
+    const ownTitleIds = new Set((entries ?? []).map((e: Row) => e.title_id));
+
     let partnerHistory: ReturnType<typeof toHistory> | null = null;
     if (partner_id) {
       const { data } = await supabase.from('watch_entries').select(entryColumns).eq('profile_id', partner_id);
       partnerHistory = toHistory(data);
     }
 
-    // Titles we hold records for and this viewer has no entry against: we know where to
-    // watch these, so they are worth more than a title we would have to describe blind.
-    const seen = new Set(history.map((h) => h.title));
-    const { data: catalogueRows } = await supabase
+    // Only catalogued rows are candidates. Unverified import residue is real enough to
+    // match a name and not real enough to recommend.
+    const { data: catalogue } = await supabase
       .from('titles')
-      .select('id, name, year, type, genres, synopsis, title_availability(provider, offer_type)')
+      .select('id, slug, name, year, type, genres, synopsis, certification, runtime_minutes, seasons, imdb_rating, image_url, title_availability(provider)')
       .gt('catalogue_version', 0)
-      .limit(200);
-    const catalogue = (catalogueRows ?? []).filter((t) => !seen.has(t.name));
-    const providersByName = new Map<string, string[]>(
-      catalogue.map((t) => [
-        t.name,
-        // deno-lint-ignore no-explicit-any
-        [...new Set(((t as any).title_availability ?? []).map((a: any) => a.provider))] as string[],
-      ]),
-    );
+      .limit(400);
+
+    const excluded = new Set((hasExclusions ? exclude_titles : []).map((t: string) => String(t).toLowerCase()));
+    const candidates = (catalogue ?? [])
+      .filter((t: Row) => !ownTitleIds.has(t.id) && !excluded.has(String(t.name).toLowerCase()))
+      .filter((t: Row) => (type_filter ? t.type === type_filter : true))
+      .slice(0, CANDIDATE_LIMIT);
+
+    if (!candidates.length) {
+      return json({ personal: [], shared: null, note: 'Nothing left in the catalogue for this profile.' });
+    }
 
     let notes = '';
     if (mood && moodDescriptions[mood]) notes += `\nMood wanted: ${moodDescriptions[mood]}`;
-    if (type_filter) notes += `\nType: ${type_filter === 'movie' ? 'films only' : 'series only'}`;
-    if (time_filter && timeDescriptions[time_filter]) notes += `\nLength: ${timeDescriptions[time_filter]}`;
+    if (time_filter && timeDescriptions[time_filter]) notes += `\nLength wanted: ${timeDescriptions[time_filter]}`;
 
-    const pool = await scorePool(
-      history,
-      partnerHistory,
-      catalogue.map((t) => ({ name: t.name, year: t.year, type: t.type, genres: t.genres ?? [] })),
-      notes,
-      hasExclusions ? exclude_titles : [],
-    );
+    const list = candidates
+      .map((t: Row, i: number) =>
+        `${i}. ${t.name} (${t.year ?? '?'}) — ${t.type}, ${(t.genres ?? []).join('/')}` +
+        `${t.certification ? `, ${t.certification}` : ''}${t.runtime_minutes ? `, ${t.runtime_minutes} min` : ''}` +
+        `${t.seasons ? `, ${t.seasons} season(s)` : ''}${t.synopsis ? `\n   ${t.synopsis}` : ''}`,
+      )
+      .join('\n');
 
-    const toCandidate = (s: Scored): Candidate => ({
-      name: s.title, year: s.year, type: s.type, genres: s.genres, axes: s.axes,
-      providers: providersByName.get(s.title), explanation: s.explanation,
+    const audience = partnerHistory
+      ? `Viewer A has watched: ${JSON.stringify(history)}\nViewer B has watched: ${JSON.stringify(partnerHistory)}`
+      : `They have watched: ${JSON.stringify(history)}`;
+
+    const scored = await callTool<{ scores: { ref: number; explanation: string; axes: Axes }[] }>({
+      model: MODELS.smart,
+      system:
+        'You score candidates for a personal watchlist app. You do not choose the final list — a ranking layer ' +
+        'does that from your scores, so score honestly and spread the axes out. A candidate that is excellent but ' +
+        'a poor fit for this viewer should score high craft and low tone. Always use the score tool.',
+      user:
+        `${audience}\n\n` +
+        `Score every candidate below for this viewer. Use the candidate's number as "ref".${notes}\n\n` +
+        `Candidates:\n${list}`,
+      tool: {
+        name: 'score',
+        description: 'Score each candidate by its number',
+        input_schema: {
+          type: 'object',
+          properties: { scores: { type: 'array', items: scoreSchema } },
+          required: ['scores'],
+          additionalProperties: false,
+        },
+      },
+      maxTokens: 16384,
     });
-    const toRec = (c: Candidate): Rec => {
-      const source = [...(pool.personal ?? []), ...(pool.shared ?? [])].find((s) => s.title === c.name);
+
+    const byRef = new Map<number, { explanation: string; axes: Axes }>();
+    for (const score of scored.scores ?? []) {
+      if (candidates[score.ref]) byRef.set(score.ref, { explanation: score.explanation, axes: score.axes });
+    }
+
+    const pool: Candidate[] = [...byRef.entries()].map(([ref, score]) => {
+      const row = candidates[ref];
       return {
+        id: row.id,
+        name: row.name,
+        year: row.year,
+        type: row.type,
+        genres: row.genres ?? [],
+        axes: score.axes,
+        explanation: score.explanation,
+        providers: providersOf(row),
+      };
+    });
+
+    const rowById = new Map(candidates.map((t: Row) => [t.id, t]));
+    const toRec = (c: Candidate): Rec => {
+      const row = rowById.get(c.id!);
+      return {
+        title_id: c.id!,
+        slug: row?.slug ?? null,
         title: c.name,
         type: (c.type ?? 'movie') as 'movie' | 'series',
         year: c.year ?? 0,
         genres: c.genres,
-        imdb_rating: source?.imdb_rating ?? 0,
+        imdb_rating: row?.imdb_rating ?? 0,
         match_score: Math.round(combineScore(c.axes)),
         explanation: c.explanation ?? '',
+        image_url: row?.image_url ?? null,
+        certification: row?.certification ?? null,
+        runtime_minutes: row?.runtime_minutes ?? null,
+        providers: c.providers ?? [],
       };
     };
 
     // The wildcard rides along as the last pick: exploration is a slot, not an accident.
-    const slateFor = (scored: Scored[] | null, size: number, viewerHistory: ReturnType<typeof toHistory>) => {
-      if (!scored?.length) return [];
+    const slateFor = (size: number, viewerHistory: ReturnType<typeof toHistory>) => {
+      if (!pool.length) return [];
       const { picks, wildcard } = buildSlate(
-        scored.map(toCandidate),
+        pool,
         viewerHistory.map((h) => ({ genres: h.genres, status: h.status, rating: h.rating })),
         { size: size - 1 },
       );
@@ -214,21 +229,16 @@ Deno.serve(async (req) => {
     };
 
     const result: Result = {
-      personal: slateFor(pool.personal, PERSONAL_SLATE, history),
-      shared: partnerHistory ? slateFor(pool.shared, SHARED_SLATE, [...history, ...partnerHistory]) : null,
+      personal: slateFor(PERSONAL_SLATE, history),
+      shared: partnerHistory ? slateFor(SHARED_SLATE, [...history, ...partnerHistory]) : null,
     };
+    if (!result.shared) delete (result as Partial<Result>).shared;
 
-    const withPosters = (items: Rec[]) =>
-      Promise.all(items.map(async (item) => ({ ...item, image_url: await fetchPosterUrl(item.title, item.type, item.year) })));
-    result.personal = await withPosters(result.personal);
-    if (result.shared) result.shared = await withPosters(result.shared);
-    else delete (result as Partial<Result>).shared;
-
-    // Genre mix of what shipped, so a drift away from the viewer's own mix is visible in logs.
+    // Genre mix of what shipped, so drift away from the viewer's own mix shows up in logs.
     console.log('slate mix', JSON.stringify(genreMix(result.personal.map((r) => ({ genres: r.genres })))));
 
     await supabase.from('ai_cache').upsert(
-      { cache_key: cacheKey, response_data: result, expires_at: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString() },
+      { cache_key: cacheKey, response_data: result, expires_at: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString() },
       { onConflict: 'cache_key' },
     );
     return json(result);
