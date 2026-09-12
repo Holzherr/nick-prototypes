@@ -73,11 +73,19 @@ const sourceFiles =
           .filter((name) => /^(synopses|tags)-.*\.json$/.test(name))
           .map((name) => join(here, 'data', name));
 
+const WRITABLE = ['synopsis', 'runtime_minutes', 'seasons', 'episodes', 'countries', 'languages', 'tones', 'themes'];
+
 // Prose and tags are written separately and merged per title, so each file can carry only
 // the fields it is responsible for.
+//
+// A directory of research usually also holds the files the researchers were given, and those
+// look enough like results to be read as them. A file carrying none of the fields this writes
+// is one of those, and is skipped.
 const records = new Map();
 for (const file of sourceFiles) {
-  for (const record of JSON.parse(readFileSync(file, 'utf8'))) {
+  const rows = JSON.parse(readFileSync(file, 'utf8'));
+  if (!rows.some((row) => row && WRITABLE.some((field) => row[field] !== undefined))) continue;
+  for (const record of rows) {
     if (record?.slug) records.set(record.slug, { ...(records.get(record.slug) ?? {}), ...record });
   }
 }

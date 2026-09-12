@@ -34,7 +34,9 @@ const shapes = {
   tags: {
     columns:
       "'slug', slug, 'name', name, 'year', year, 'type', type, 'genres', genres, 'synopsis', synopsis",
-    where: 'cardinality(tones) = 0',
+    // A tagger reads the synopsis to decide what a title is about, so anything still waiting
+    // on one is not ready to be tagged. It comes back round once the prose is written.
+    where: 'cardinality(tones) = 0 and synopsis is not null',
     chunk: 100,
   },
 };
