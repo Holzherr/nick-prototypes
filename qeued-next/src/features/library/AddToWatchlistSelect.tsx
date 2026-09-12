@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/shared/supabase/client";
 import { useAuth } from "@/features/auth/AuthContext";
+import { useProfile } from "@/features/household/ProfileContext";
 import { useToast } from "@/shared/components/ui/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/components/ui/select";
 import { Badge } from "@/shared/components/ui/badge";
@@ -33,6 +34,7 @@ const AddToWatchlistSelect = ({
   className = "",
 }: Props) => {
   const { user } = useAuth();
+  const { active } = useProfile();
   const { toast } = useToast();
   const navigate = useNavigate();
   const [saving, setSaving] = useState(false);
@@ -42,7 +44,7 @@ const AddToWatchlistSelect = ({
   }
 
   const handleChange = async (status: WatchStatus) => {
-    if (!user) {
+    if (!user || !active) {
       navigate("/auth");
       return;
     }
@@ -59,8 +61,8 @@ const AddToWatchlistSelect = ({
       }
 
       const { error } = await supabase.from("watch_entries").upsert(
-        { user_id: user.id, title_id: resolvedId, status },
-        { onConflict: "user_id,title_id" }
+        { user_id: user.id, profile_id: active.id, title_id: resolvedId, status },
+        { onConflict: "profile_id,title_id" }
       );
       if (error) throw error;
 

@@ -135,38 +135,110 @@ export type Database = {
         }
         Relationships: []
       }
+      group_members: {
+        Row: {
+          created_at: string
+          group_id: string
+          id: string
+          profile_id: string
+          role: string
+        }
+        Insert: {
+          created_at?: string
+          group_id: string
+          id?: string
+          profile_id: string
+          role?: string
+        }
+        Update: {
+          created_at?: string
+          group_id?: string
+          id?: string
+          profile_id?: string
+          role?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "group_members_group_id_fkey"
+            columns: ["group_id"]
+            isOneToOne: false
+            referencedRelation: "groups"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "group_members_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      groups: {
+        Row: {
+          created_at: string
+          id: string
+          invite_code: string
+          name: string
+          owner_user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          invite_code?: string
+          name: string
+          owner_user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          invite_code?: string
+          name?: string
+          owner_user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
           bio: string | null
+          colour: string | null
           created_at: string
           id: string
           is_public: boolean
+          max_certification: string | null
           name: string | null
+          owner_user_id: string | null
           updated_at: string
-          user_id: string
+          user_id: string | null
           username: string | null
         }
         Insert: {
           avatar_url?: string | null
           bio?: string | null
+          colour?: string | null
           created_at?: string
           id?: string
           is_public?: boolean
+          max_certification?: string | null
           name?: string | null
+          owner_user_id?: string | null
           updated_at?: string
-          user_id: string
+          user_id?: string | null
           username?: string | null
         }
         Update: {
           avatar_url?: string | null
           bio?: string | null
+          colour?: string | null
           created_at?: string
           id?: string
           is_public?: boolean
+          max_certification?: string | null
           name?: string | null
+          owner_user_id?: string | null
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
           username?: string | null
         }
         Relationships: []
@@ -234,58 +306,179 @@ export type Database = {
           },
         ]
       }
+      title_availability: {
+        Row: {
+          checked_at: string
+          expires_at: string
+          id: string
+          note: string | null
+          offer_type: string
+          provider: string
+          region: string
+          title_id: string
+          url: string | null
+        }
+        Insert: {
+          checked_at?: string
+          expires_at?: string
+          id?: string
+          note?: string | null
+          offer_type: string
+          provider: string
+          region?: string
+          title_id: string
+          url?: string | null
+        }
+        Update: {
+          checked_at?: string
+          expires_at?: string
+          id?: string
+          note?: string | null
+          offer_type?: string
+          provider?: string
+          region?: string
+          title_id?: string
+          url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "title_availability_title_id_fkey"
+            columns: ["title_id"]
+            isOneToOne: false
+            referencedRelation: "titles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      title_sources: {
+        Row: {
+          field: string
+          id: string
+          retrieved_at: string
+          source_name: string | null
+          source_url: string
+          title_id: string
+        }
+        Insert: {
+          field: string
+          id?: string
+          retrieved_at?: string
+          source_name?: string | null
+          source_url: string
+          title_id: string
+        }
+        Update: {
+          field?: string
+          id?: string
+          retrieved_at?: string
+          source_name?: string | null
+          source_url?: string
+          title_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "title_sources_title_id_fkey"
+            columns: ["title_id"]
+            isOneToOne: false
+            referencedRelation: "titles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       titles: {
         Row: {
           cast_members: string[] | null
+          catalogue_version: number
+          catalogued_at: string | null
+          certification: string | null
+          countries: string[]
           created_at: string
           description: string | null
           director: string | null
           enriched: boolean
+          episodes: number | null
           genres: string[]
           id: string
+          image_attribution: string | null
+          image_license: string | null
+          image_source_url: string | null
           image_url: string | null
           imdb_rating: number | null
           imdb_url: string | null
+          languages: string[]
           name: string
+          production_status: string | null
           rt_rating: number | null
           rt_url: string | null
           runtime_minutes: number | null
+          seasons: number | null
+          slug: string | null
+          synopsis: string | null
+          tagline: string | null
           type: Database["public"]["Enums"]["title_type"]
           year: number | null
         }
         Insert: {
           cast_members?: string[] | null
+          catalogue_version?: number
+          catalogued_at?: string | null
+          certification?: string | null
+          countries?: string[]
           created_at?: string
           description?: string | null
           director?: string | null
           enriched?: boolean
+          episodes?: number | null
           genres?: string[]
           id?: string
+          image_attribution?: string | null
+          image_license?: string | null
+          image_source_url?: string | null
           image_url?: string | null
           imdb_rating?: number | null
           imdb_url?: string | null
+          languages?: string[]
           name: string
+          production_status?: string | null
           rt_rating?: number | null
           rt_url?: string | null
           runtime_minutes?: number | null
+          seasons?: number | null
+          slug?: string | null
+          synopsis?: string | null
+          tagline?: string | null
           type?: Database["public"]["Enums"]["title_type"]
           year?: number | null
         }
         Update: {
           cast_members?: string[] | null
+          catalogue_version?: number
+          catalogued_at?: string | null
+          certification?: string | null
+          countries?: string[]
           created_at?: string
           description?: string | null
           director?: string | null
           enriched?: boolean
+          episodes?: number | null
           genres?: string[]
           id?: string
+          image_attribution?: string | null
+          image_license?: string | null
+          image_source_url?: string | null
           image_url?: string | null
           imdb_rating?: number | null
           imdb_url?: string | null
+          languages?: string[]
           name?: string
+          production_status?: string | null
           rt_rating?: number | null
           rt_url?: string | null
           runtime_minutes?: number | null
+          seasons?: number | null
+          slug?: string | null
+          synopsis?: string | null
+          tagline?: string | null
           type?: Database["public"]["Enums"]["title_type"]
           year?: number | null
         }
@@ -315,6 +508,7 @@ export type Database = {
           desire_ranking: number | null
           id: string
           notes: string | null
+          profile_id: string
           review: string | null
           status: Database["public"]["Enums"]["watch_status"]
           title_id: string
@@ -328,6 +522,7 @@ export type Database = {
           desire_ranking?: number | null
           id?: string
           notes?: string | null
+          profile_id: string
           review?: string | null
           status?: Database["public"]["Enums"]["watch_status"]
           title_id: string
@@ -341,6 +536,7 @@ export type Database = {
           desire_ranking?: number | null
           id?: string
           notes?: string | null
+          profile_id?: string
           review?: string | null
           status?: Database["public"]["Enums"]["watch_status"]
           title_id?: string
@@ -350,6 +546,13 @@ export type Database = {
           watched_rating?: number | null
         }
         Relationships: [
+          {
+            foreignKeyName: "watch_entries_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "watch_entries_title_id_fkey"
             columns: ["title_id"]
@@ -364,6 +567,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      account_in_group: {
+        Args: { p_group_id: string; p_user_id: string }
+        Returns: boolean
+      }
+      account_shares_group_with_profile: {
+        Args: { p_profile_id: string; p_user_id: string }
+        Returns: boolean
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -371,6 +582,7 @@ export type Database = {
         }
         Returns: boolean
       }
+      title_slug: { Args: { p_name: string; p_year: number }; Returns: string }
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"

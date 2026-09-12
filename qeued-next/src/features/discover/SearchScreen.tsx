@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/features/auth/AuthContext";
+import { useProfile } from "@/features/household/ProfileContext";
 import { supabase } from "@/shared/supabase/client";
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
@@ -26,6 +27,7 @@ interface TitleResult {
 
 const SearchPage = () => {
   const { user } = useAuth();
+  const { active } = useProfile();
   const { toast } = useToast();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<TitleResult[]>([]);
@@ -50,12 +52,12 @@ const SearchPage = () => {
   };
 
   const addToWatchlist = async (title: TitleResult, status: WatchStatus) => {
-    if (!title.id || !user) return;
+    if (!title.id || !user || !active) return;
 
     try {
       const { error } = await supabase.from("watch_entries").upsert(
-        { user_id: user.id, title_id: title.id, status },
-        { onConflict: "user_id,title_id" }
+        { user_id: user.id, profile_id: active.id, title_id: title.id, status },
+        { onConflict: "profile_id,title_id" }
       );
       if (error) throw error;
 

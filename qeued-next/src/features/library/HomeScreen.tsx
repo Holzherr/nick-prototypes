@@ -3,6 +3,7 @@ import { cn } from "@/shared/utils/cn";
 import { feedVerb } from "./model";
 import { Popover, PopoverTrigger, PopoverContent } from "@/shared/components/ui/popover";
 import { useAuth } from "@/features/auth/AuthContext";
+import { useProfile } from "@/features/household/ProfileContext";
 import { supabase } from "@/shared/supabase/client";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
@@ -64,6 +65,7 @@ const setCachedRecs = (personal: Recommendation[], shared: Recommendation[], fil
 
 const Index = () => {
   const { user } = useAuth();
+  const { active } = useProfile();
   const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
   const [sharedRecs, setSharedRecs] = useState<Recommendation[]>([]);
   const [loading, setLoading] = useState(true);
@@ -91,7 +93,7 @@ const Index = () => {
     const { count } = await supabase
       .from("watch_entries")
       .select("*", { count: "exact", head: true })
-      .eq("user_id", user!.id);
+      .eq("profile_id", active!.id);
     setWatchCount(count || 0);
     if ((count || 0) > 0) {
       // Try cache first
@@ -113,7 +115,7 @@ const Index = () => {
       supabase
         .from("watch_entries")
         .select("title_id, titles(name)")
-        .eq("user_id", user!.id),
+        .eq("profile_id", active!.id),
       supabase
         .from("skipped_recommendations")
         .select("title_name")
