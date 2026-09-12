@@ -1,13 +1,16 @@
 import { ageLabel, possessive, type Child } from '@/features/children/model';
-import { skillForGame, type StageNumber } from '@/features/curriculum/skills';
-import { GAMES, type GameId } from '@/features/games/catalog';
+import { skillForGame, SKILLS, type SkillId, type StageNumber } from '@/features/curriculum/skills';
+import { GAMES, gameById, type GameId } from '@/features/games/catalog';
+import { stageOf } from '@/features/report/report';
 import { printablesFor } from '@/features/resources/catalog';
+import { packLink } from '@/features/resources/pack';
 import { levelOf, oftenMissed, skillStats, weekSummary } from '@/features/games/engine';
 import { coachingNotes, countingHabit, daysPlayed, levelHistory, replayHabit, speedTrend, todaySummary } from '@/features/games/insights';
 import { Button, buttonVariants } from '@/shared/components/ui/button';
 import { Card } from '@/shared/components/ui/card';
 import type { Progress } from '../model';
 import { CheckInPanel, type CheckinScores } from './CheckInPanel';
+import { ImportGuestPanel, type ImportGuestPanelProps } from './ImportGuestPanel';
 import { MotivationPanel } from './MotivationPanel';
 import { SkillRow } from './SkillRow';
 import { VoicePanel } from './VoicePanel';
@@ -30,7 +33,11 @@ export interface DashboardScreenProps {
   /** Changes still waiting to upload. */
   pending: number;
   now?: Date;
+  /** Guest-mode play sitting on this device, when the parent is signed in. */
+  guest?: Omit<ImportGuestPanelProps, 'childName'>;
   onSetLevel: (game: GameId, level: number) => void;
+  /** Opens the tutor report (what she is good at, what to print next). */
+  onReport?: () => void;
   onAddCheckin: (scores: CheckinScores, note: string) => void;
   onSwitchChild: () => void;
   onSignOut: () => void;
@@ -41,7 +48,19 @@ export interface DashboardScreenProps {
  * Grown-ups screen on one cream card: "Tara's progress" with age, this week's rounds/days/minutes and
  * sticker count; the levelling rule; a SkillRow per game; the weekly check-in; then switch child / sign out.
  */
-export function DashboardScreen({ child, progress, pending, now = new Date(), onSetLevel, onAddCheckin, onSwitchChild, onSignOut, onClose }: DashboardScreenProps) {
+export function DashboardScreen({
+  child,
+  progress,
+  pending,
+  now = new Date(),
+  guest,
+  onSetLevel,
+  onReport,
+  onAddCheckin,
+  onSwitchChild,
+  onSignOut,
+  onClose,
+}: DashboardScreenProps) {
   const week = weekSummary(progress.rounds, now);
   const age = ageLabel(child.birthdate, now);
   const summary = [
@@ -49,6 +68,9 @@ export function DashboardScreen({ child, progress, pending, now = new Date(), on
     `This week: ${week.rounds} round${week.rounds === 1 ? '' : 's'} on ${week.days} day${week.days === 1 ? '' : 's'} (~${week.minutes} min)${week.quit ? `, ${week.quit} left early` : ''}`,
     `${progress.stickers.length} sticker${progress.stickers.length === 1 ? '' : 's'}`,
   ].filter(Boolean);
+
+  const stages = Object.fromEntries(SKILLS.map((skill) => [skill.id, skill.game ? stageOf(levelOf(progress.levels, gameById(skill.game))) : 1])) as Record<SkillId, StageNumber>;
+  const pack = packLink({ name: child.name, icon: child.avatar, stages });
 
   const shiftAll = (by: 1 | -1) => {
     for (const game of GAMES) {
@@ -72,6 +94,19 @@ export function DashboardScreen({ child, progress, pending, now = new Date(), on
             Close
           </Button>
         </header>
+
+        <div className="mt-5 flex flex-wrap gap-2">
+          {onReport && (
+            <Button size="sm" onClick={onReport}>
+              📋 Tutor report
+            </Button>
+          )}
+          <a href={pack} className={buttonVariants({ variant: 'quiet', size: 'sm' })}>
+            🖨 Print this stage’s pack
+          </a>
+        </div>
+
+        {guest && <ImportGuestPanel childName={child.name} {...guest} />}
 
         <MotivationPanel
           today={todaySummary(progress.rounds, now)}

@@ -4,11 +4,16 @@ import AuthScreen from '@/features/auth/AuthScreen';
 import { ProfilesScreen } from '@/features/children/components/ProfilesScreen';
 import type { Child } from '@/features/children/model';
 import { useChildren } from '@/features/children/use-children';
+import { isGameId, type GameId } from '@/features/games/catalog';
 import { GardenApp } from '@/features/garden/GardenApp';
 import { localRemote } from '@/features/progress/local-remote';
 import { createRepo, type ProgressRepo } from '@/features/progress/repo';
 import { supabaseRemote } from '@/features/progress/supabase-remote';
+import { packFromParams } from '@/features/resources/pack';
+import { PackScreen } from '@/features/resources/PackScreen';
 import { ResourcesScreen } from '@/features/resources/ResourcesScreen';
+import { sheetOptionsFromParams } from '@/features/resources/sheets/catalog';
+import { SheetScreen } from '@/features/resources/sheets/SheetScreen';
 import { optionsFromParams } from '@/features/resources/subitising/cards';
 import { SubitisingCardsScreen } from '@/features/resources/subitising/SubitisingCardsScreen';
 import { FloatingHearts } from '@/shared/layout/FloatingHearts';
@@ -31,11 +36,17 @@ interface FamilyProps {
   repo: ProgressRepo;
   /** Where this device remembers the last child. */
   activeKey: string;
+  /** Signed in: the grown-ups screen offers to bring guest-mode play into the account. */
+  allowGuestImport?: boolean;
+  /** Opened from a QR code on a printable: start this game straight away. */
+  startGame?: GameId;
+  /** The signed-in parent's address, for emailed tutor reports. */
+  parentEmail?: string;
   onSignOut: () => void;
 }
 
 /** Open the remembered child (or the only one), otherwise ask who's playing. */
-function Family({ label, profiles, loaded, create, repo, activeKey, onSignOut }: FamilyProps) {
+function Family({ label, profiles, loaded, create, repo, activeKey, allowGuestImport, startGame, parentEmail, onSignOut }: FamilyProps) {
   const [activeId, setActiveId] = useState<string | null>(() => readJSON(activeKey, null));
   const [choosing, setChoosing] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -55,6 +66,9 @@ function Family({ label, profiles, loaded, create, repo, activeKey, onSignOut }:
         key={active.id}
         child={active}
         repo={repo}
+        allowGuestImport={allowGuestImport}
+        startGame={startGame}
+        parentEmail={parentEmail}
         onSwitchChild={() => setChoosing(true)}
         onSignOut={() => {
           open(null);
@@ -90,7 +104,7 @@ function Family({ label, profiles, loaded, create, repo, activeKey, onSignOut }:
   );
 }
 
-function CloudFamily({ userId, email }: { userId: string; email: string }) {
+function CloudFamily({ userId, email, startGame }: { userId: string; email: string; startGame?: GameId }) {
   const { signOut } = useAuth();
   const { profiles, loaded, create } = useChildren(userId);
   return (
@@ -101,13 +115,16 @@ function CloudFamily({ userId, email }: { userId: string; email: string }) {
       create={create}
       repo={cloudRepo}
       activeKey="maths-garden:active-child"
+      allowGuestImport
+      startGame={startGame}
+      parentEmail={email}
       onSignOut={() => void signOut()}
     />
   );
 }
 
 /** No account: profiles and progress live only in this device's storage. */
-function GuestFamily({ onExit }: { onExit: () => void }) {
+function GuestFamily({ onExit, startGame }: { onExit: () => void; startGame?: GameId }) {
   const [profiles, setProfiles] = useState<Child[]>(() => readJSON(GUEST_CHILDREN, []));
   const create = async (input: Omit<Child, 'id'>) => {
     const child: Child = { id: crypto.randomUUID(), ...input };
@@ -126,22 +143,30 @@ function GuestFamily({ onExit }: { onExit: () => void }) {
       create={create}
       repo={guestRepo}
       activeKey="maths-garden:guest-active-child"
+      startGame={startGame}
       onSignOut={onExit}
     />
   );
 }
 
-function Root() {
+function Root({ startGame }: { startGame?: GameId }) {
   const { user, loading } = useAuth();
   const [guest, setGuest] = useState(() => readJSON(GUEST, false));
   const setGuestMode = (on: boolean) => {
     setGuest(on);
     writeJSON(GUEST, on || null);
   };
-  if (guest) return <GuestFamily onExit={() => setGuestMode(false)} />;
+  if (guest) return <GuestFamily onExit={() => setGuestMode(false)} startGame={startGame} />;
   if (loading) return <Splash />;
   if (!user) return <AuthScreen onGuest={() => setGuestMode(true)} />;
-  return <CloudFamily key={user.id} userId={user.id} email={user.email ?? ''} />;
+  return <CloudFamily key={user.id} userId={user.id} email={user.email ?? ''} startGame={startGame} />;
+}
+
+function Printables({ path, params }: { path: string; params: URLSearchParams }) {
+  if (path === '/resources/subitising-cards') return <SubitisingCardsScreen key={params.toString()} initial={optionsFromParams(params)} />;
+  if (path === '/resources/sheet') return <SheetScreen key={params.toString()} initial={sheetOptionsFromParams(params)} />;
+  if (path === '/resources/pack') return <PackScreen key={params.toString()} options={packFromParams(params)} />;
+  return <ResourcesScreen />;
 }
 
 export default function App() {
@@ -150,14 +175,16 @@ export default function App() {
     return (
       <>
         <FloatingHearts />
-        {path === '/resources/subitising-cards' ? <SubitisingCardsScreen key={params.toString()} initial={optionsFromParams(params)} /> : <ResourcesScreen />}
+        <Printables path={path} params={params} />
       </>
     );
   }
+  // #/play/count — the QR code on a printable opens the game that checks the same skill.
+  const asked = path.startsWith('/play/') ? path.slice('/play/'.length) : '';
   return (
     <AuthProvider>
       <FloatingHearts />
-      <Root />
+      <Root startGame={isGameId(asked) ? asked : undefined} />
     </AuthProvider>
   );
 }
