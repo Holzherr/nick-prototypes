@@ -182,6 +182,7 @@ const findTitle = async (name: string, year?: number) => {
   let query = db
     .from('titles')
     .select('id, name, year, type, genres, synopsis, certification, runtime_minutes, seasons, image_url, title_availability(provider, offer_type, url)')
+    .gt('catalogue_version', 0)
     .ilike('name', `%${escaped}%`)
     .limit(5);
   if (year) query = query.eq('year', year);
@@ -280,6 +281,7 @@ const callTool = async (
       const { data } = await db
         .from('titles')
         .select('name, year, type, genres, synopsis, certification')
+        .gt('catalogue_version', 0)
         .ilike('name', `%${String(args.query ?? '').replace(/[%,()]/g, ' ').trim()}%`)
         .limit(limit);
       if (!data?.length) return toolResult('Nothing in the catalogue matches that yet.');

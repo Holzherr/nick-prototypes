@@ -125,7 +125,7 @@ const write = async (path, { dryRun }) => {
     written += 1;
 
     for (const source of record.sources ?? []) {
-      await rest('title_sources', {
+      await rest('title_sources?on_conflict=title_id,field,source_url', {
         method: 'POST',
         headers: { Prefer: 'resolution=merge-duplicates' },
         body: JSON.stringify({ title_id: titleId, field: source.field, source_url: source.url, source_name: source.name ?? null }),
