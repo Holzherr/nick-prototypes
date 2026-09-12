@@ -2,7 +2,7 @@
   "name": "Maths Garden",
   "short_name": "Maths Garden",
   "description": "Pink maths games for four-year-olds, with scores a grown-up can track.",
-  "start_url": "./",
+  "start_url": "./#/app",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffe9f1",

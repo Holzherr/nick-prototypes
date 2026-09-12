@@ -8,12 +8,20 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
 
 - **Live:** https://nickholzherr.com/maths/ (published by `.github/workflows/maths.yml` in Holzherr/nickholzherr.com;
   run `gh workflow run maths.yml -R Holzherr/nickholzherr.com` after merging here)
+- **Homepage (signed out):** https://nickholzherr.com/maths/#/home · **sign in:** `#/login` · **the app:** `#/app`
 - **Free printables (no sign-in):** https://nickholzherr.com/maths/#/resources
+- **Guides:** `#/guides/stages` and `#/guides/gamified-learning`
 - **Preview of every merge:** https://holzherr.github.io/nick-prototypes/maths-garden/
 - **Storybook:** https://holzherr.github.io/nick-prototypes/maths-garden/storybook/
 
 ## What it does
 
+- **Public homepage** (`features/marketing/`): a signed-out visitor at `#/` gets the value proposition, the
+  print → check → move up → print next loop, every printable grouped by skill, the games, an FAQ and two
+  research-backed guides (the stages of early maths and reading; whether gamified learning works, including
+  the evidence against it). Claims and sources live in `articles.ts` and `faq.ts`, not in components.
+  Signing in moved to `#/login`; `#/app` forces the app and is the PWA `start_url`, so the iPad icon still
+  opens straight into the games. Signed-in and guest sessions skip the homepage entirely.
 - **Parent account** (Supabase email + password) with **child profiles**. The device remembers the child
   and opens straight into their garden; the parent stays signed in.
 - **Five games**, five questions a round, three levels each: Quick Peek (subitising), Count With Me, Find
@@ -59,6 +67,7 @@ src/
   features/progress/      model, repo (outbox; tested), supabase-remote, memory-remote, probes, fixtures, SkillRow, CheckInPanel, DashboardScreen
   features/garden/        GardenApp (home, game, end, garden, report, sticker book, gate, grown-ups), garden-state (tested), GardenScene/GardenScreen
   features/curriculum/    skills.ts: six skills × three stages, linked to games and probes
+  features/marketing/     articles (the two guides + sources), faq, menu (printables by skill; tested), HomeScreen, ArticleScreen, MarketingLayout
   features/report/        report (verdicts, recommendations; tested), report-email (html + text; tested), send-report, ReportScreen
   features/resources/     catalog, ResourcesScreen, A4Page, qr (QR path + absolute links), pack (stage pack),
                           subitising/ (patterns, cards, card maker), sheets/ (catalog, five sheet makers, SheetScreen)

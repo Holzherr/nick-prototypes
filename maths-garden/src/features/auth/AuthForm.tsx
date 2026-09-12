@@ -44,7 +44,10 @@ export function AuthForm({ mode, onModeChange, onSubmit, onGoogle, onGuest, busy
   return (
     <div className="relative z-10 flex min-h-dvh items-center justify-center px-5 py-10">
       <Card className="w-full max-w-[440px]">
-        <div className="flex justify-center">
+        <a href="#/home" className="text-sm font-semibold text-raspberry hover:underline">
+          ← Maths Garden
+        </a>
+        <div className="mt-2 flex justify-center">
           <Logo size={52} />
         </div>
         <p className="mt-3 text-center text-grape/70">Grown-ups sign in here. Your child plays without needing to, and this device stays signed in.</p>

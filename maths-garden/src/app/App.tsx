@@ -6,6 +6,10 @@ import type { Child } from '@/features/children/model';
 import { useChildren } from '@/features/children/use-children';
 import { isGameId, type GameId } from '@/features/games/catalog';
 import { GardenApp } from '@/features/garden/GardenApp';
+import { articleBySlug } from '@/features/marketing/articles';
+import { ArticleScreen } from '@/features/marketing/components/ArticleScreen';
+import { HomeScreen } from '@/features/marketing/components/HomeScreen';
+import { MarketingLayout } from '@/features/marketing/components/MarketingLayout';
 import { localRemote } from '@/features/progress/local-remote';
 import { createRepo, type ProgressRepo } from '@/features/progress/repo';
 import { supabaseRemote } from '@/features/progress/supabase-remote';
@@ -149,7 +153,12 @@ function GuestFamily({ onExit, startGame }: { onExit: () => void; startGame?: Ga
   );
 }
 
-function Root({ startGame }: { startGame?: GameId }) {
+/**
+ * Signed in — or already playing as a guest — the app opens straight into the child's garden wherever they
+ * landed, which is what the iPad's home-screen icon does. A signed-out visitor gets the homepage instead,
+ * unless they asked for the app or the sign-in page.
+ */
+function Root({ startGame, wantsApp }: { startGame?: GameId; wantsApp: boolean }) {
   const { user, loading } = useAuth();
   const [guest, setGuest] = useState(() => readJSON(GUEST, false));
   const setGuestMode = (on: boolean) => {
@@ -158,8 +167,13 @@ function Root({ startGame }: { startGame?: GameId }) {
   };
   if (guest) return <GuestFamily onExit={() => setGuestMode(false)} startGame={startGame} />;
   if (loading) return <Splash />;
-  if (!user) return <AuthScreen onGuest={() => setGuestMode(true)} />;
-  return <CloudFamily key={user.id} userId={user.id} email={user.email ?? ''} startGame={startGame} />;
+  if (user) return <CloudFamily key={user.id} userId={user.id} email={user.email ?? ''} startGame={startGame} />;
+  if (wantsApp) return <AuthScreen onGuest={() => setGuestMode(true)} />;
+  return (
+    <MarketingLayout>
+      <HomeScreen />
+    </MarketingLayout>
+  );
 }
 
 function Printables({ path, params }: { path: string; params: URLSearchParams }) {
@@ -179,12 +193,22 @@ export default function App() {
       </>
     );
   }
+  // The public pages need no account, so they never wait on a session.
+  if (path === '/home' || path.startsWith('/guides')) {
+    const article = articleBySlug(path.replace('/guides/', ''));
+    return (
+      <>
+        <FloatingHearts />
+        <MarketingLayout>{article ? <ArticleScreen article={article} /> : <HomeScreen />}</MarketingLayout>
+      </>
+    );
+  }
   // #/play/count — the QR code on a printable opens the game that checks the same skill.
   const asked = path.startsWith('/play/') ? path.slice('/play/'.length) : '';
   return (
     <AuthProvider>
       <FloatingHearts />
-      <Root startGame={isGameId(asked) ? asked : undefined} />
+      <Root startGame={isGameId(asked) ? asked : undefined} wantsApp={path === '/login' || path === '/app' || path.startsWith('/play/')} />
     </AuthProvider>
   );
 }
