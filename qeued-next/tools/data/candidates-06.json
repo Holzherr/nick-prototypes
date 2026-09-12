@@ -1,0 +1,1282 @@
+[
+  {
+    "name": "Spider-Man: No Way Home",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "MCU blockbuster defining era"
+  },
+  {
+    "name": "Top Gun: Maverick",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Sequel blockbuster era-defining"
+  },
+  {
+    "name": "Avatar: The Way of Water",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Cameron visual spectacle"
+  },
+  {
+    "name": "Barbie",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Gerwig cultural phenomenon"
+  },
+  {
+    "name": "Inside Out 2",
+    "year": 2024,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Pixar emotional blockbuster"
+  },
+  {
+    "name": "Oppenheimer",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Nolan atomic bomb biography"
+  },
+  {
+    "name": "The Power of the Dog",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Campion psychological masterpiece"
+  },
+  {
+    "name": "Nomadland",
+    "year": 2020,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Zhao roadside America epic"
+  },
+  {
+    "name": "Don't Look Up",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "McKay Netflix satire phenomenon"
+  },
+  {
+    "name": "West Side Story",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Spielberg reimagines classic"
+  },
+  {
+    "name": "Dune",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Villeneuve epic adaptation"
+  },
+  {
+    "name": "Everything Everywhere All at Once",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Daniels multiverse masterpiece"
+  },
+  {
+    "name": "Killers of the Flower Moon",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Scorsese Osage murders epic"
+  },
+  {
+    "name": "Godzilla Minus One",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Japanese post-war monster"
+  },
+  {
+    "name": "Poor Things",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Yorgos gothic romance"
+  },
+  {
+    "name": "Dune: Part Two",
+    "year": 2024,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Villeneuve continues epic"
+  },
+  {
+    "name": "Deadpool & Wolverine",
+    "year": 2024,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Marvel cross-over blockbuster"
+  },
+  {
+    "name": "Parasite",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Boon-joon-ho's class masterpiece"
+  },
+  {
+    "name": "No Time to Die",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Bond 007 final mission"
+  },
+  {
+    "name": "The Batman",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Reeves dark detective noir"
+  },
+  {
+    "name": "Nope",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Jordan Peele UFO western"
+  },
+  {
+    "name": "Minari",
+    "year": 2020,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Lee Isaac Chung immigrant dream"
+  },
+  {
+    "name": "Anatomy of a Fall",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Justine Triet courtroom thriller"
+  },
+  {
+    "name": "Past Lives",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Celine Song soul-mates meditation"
+  },
+  {
+    "name": "Aftersun",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Charlotte Wells father-daughter"
+  },
+  {
+    "name": "T\u00e1r",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Todd Field power and music"
+  },
+  {
+    "name": "Licorice Pizza",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "PTA 1970s LA romance"
+  },
+  {
+    "name": "The Fabelmans",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Spielberg semi-autobiographical"
+  },
+  {
+    "name": "Drive My Car",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Hamaguchi intimate drama"
+  },
+  {
+    "name": "CODA",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Heder Deaf family coming-of-age"
+  },
+  {
+    "name": "Worst Person in the World",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Trier modern malaise"
+  },
+  {
+    "name": "Joker: Folie \u00e0 Deux",
+    "year": 2024,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2020s",
+    "why": "Phillips psychological musical"
+  },
+  {
+    "name": "Promising Young Woman",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Fennell revenge thriller"
+  },
+  {
+    "name": "The Trial of the Chicago 7",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Sorkin political courtroom"
+  },
+  {
+    "name": "Saint Maud",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "British psychological horror"
+  },
+  {
+    "name": "Black Panther: Wakanda Forever",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "MCU emotional tribute"
+  },
+  {
+    "name": "American Fiction",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Cord Jefferson satirical debut"
+  },
+  {
+    "name": "The Iron Claw",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Krogh wrestling dynasty"
+  },
+  {
+    "name": "Civil War",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "A24 war journalism spectacle"
+  },
+  {
+    "name": "Alien: Romulus",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Fede Alvarez sci-fi horror"
+  },
+  {
+    "name": "Nosferatu",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Eggers gothic vampire"
+  },
+  {
+    "name": "Wicked",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Musical stage adaptation"
+  },
+  {
+    "name": "Conclave",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Vatican thriller politics"
+  },
+  {
+    "name": "Anora",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Korine sex worker Shakespeare"
+  },
+  {
+    "name": "The Substance",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Fargeat body horror metaphor"
+  },
+  {
+    "name": "Nickel Boys",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Rachael Morgan reform school"
+  },
+  {
+    "name": "I'm Still Here",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Brazilian family survival"
+  },
+  {
+    "name": "No Other Land",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Palestinian resistance doc"
+  },
+  {
+    "name": "A Real Pain",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Jesse Eisenberg family trip"
+  },
+  {
+    "name": "Challengers",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Guadagnino tennis love"
+  },
+  {
+    "name": "The Brutalist",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Brady Corbet ambitious epic"
+  },
+  {
+    "name": "Ripley",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Netflix thriller series"
+  },
+  {
+    "name": "Mank",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Fincher Citizen Kane writing"
+  },
+  {
+    "name": "Another Round",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Vinterberg booze experiment"
+  },
+  {
+    "name": "Sound of Metal",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Darius Marder drummer deafness"
+  },
+  {
+    "name": "Once Upon a Time in Hollywood",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Tarantino 1969 Hollywood"
+  },
+  {
+    "name": "The Green Knight",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Lowery dreamlike legend"
+  },
+  {
+    "name": "The Last Duel",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Scott medieval trial"
+  },
+  {
+    "name": "Flee",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Jonas Poher Rahbek refugee"
+  },
+  {
+    "name": "The Lighthouse",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Eggers hallucinatory maritime"
+  },
+  {
+    "name": "Bacurau",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Brazilian sci-fi western"
+  },
+  {
+    "name": "The Worst Person in the World",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Trier modern malaise comedy"
+  },
+  {
+    "name": "Close",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Petersen Belgian friendship"
+  },
+  {
+    "name": "RRR",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Indian action spectacle"
+  },
+  {
+    "name": "The Zone of Interest",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Holocaust proximity horror"
+  },
+  {
+    "name": "The Boy and the Heron",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Miyazaki wartime fantasy"
+  },
+  {
+    "name": "Fire of Love",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Sara Dosa volcano romance"
+  },
+  {
+    "name": "Navalny",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Putin critic documentary"
+  },
+  {
+    "name": "Free Solo",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Climber documentary thriller"
+  },
+  {
+    "name": "The White Robot",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Animated found-family sci-fi"
+  },
+  {
+    "name": "Flow",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Latvian silent animals"
+  },
+  {
+    "name": "Kinds of Kindness",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Yorgos Lanthimos triptych"
+  },
+  {
+    "name": "Hamnet",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Shakespeare family illness"
+  },
+  {
+    "name": "Armageddon Time",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Gray coming-of-age Reagan"
+  },
+  {
+    "name": "Slow Horses",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2020s",
+    "why": "Gary Oldman spy thriller series"
+  },
+  {
+    "name": "Palm Springs",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Time loop romance sci-fi"
+  },
+  {
+    "name": "First Cow",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Reichardt frontier drama"
+  },
+  {
+    "name": "The Vast of Night",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "1950s UFO mystery indie"
+  },
+  {
+    "name": "Never Rarely Sometimes Always",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Coming-of-age indie"
+  },
+  {
+    "name": "Babyteeth",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Australian family drama"
+  },
+  {
+    "name": "C'mon C'mon",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Baumbach monochrome road"
+  },
+  {
+    "name": "Petite Maman",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Sciamma magical realist"
+  },
+  {
+    "name": "Eternals",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "MCU epic spanning millennia"
+  },
+  {
+    "name": "Shang-Chi and the Legend of the Ten Rings",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "MCU martial arts"
+  },
+  {
+    "name": "Black Widow",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "MCU spy thriller"
+  },
+  {
+    "name": "Ghostbusters: Afterlife",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Supernatural legacy"
+  },
+  {
+    "name": "The French Dispatch",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Anderson newspaper"
+  },
+  {
+    "name": "Luca",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Pixar Italian seaside"
+  },
+  {
+    "name": "Raya and the Last Dragon",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Disney Asian fantasy"
+  },
+  {
+    "name": "Encanto",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Disney musical magic"
+  },
+  {
+    "name": "The Mitchell's vs. The Machines",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "AI apocalypse animation"
+  },
+  {
+    "name": "Doctor Strange in the Multiverse of Madness",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Raimi horror MCU"
+  },
+  {
+    "name": "Thor: Love and Thunder",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "MCU comedy action"
+  },
+  {
+    "name": "Bullet Train",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Leitch stylish action"
+  },
+  {
+    "name": "Turning Red",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Pixar mother-daughter"
+  },
+  {
+    "name": "May December",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Haynes age-gap study"
+  },
+  {
+    "name": "Priscilla",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Sofia Coppola portrait"
+  },
+  {
+    "name": "Perfect Days",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Wenders Tokyo"
+  },
+  {
+    "name": "Nimona",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Netflix fantasy quest"
+  },
+  {
+    "name": "The Boys in the Boat",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Clooney Depression rowing"
+  },
+  {
+    "name": "Blue Jean",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "1980s LGBT British"
+  },
+  {
+    "name": "Sing Sing",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Documentary-drama"
+  },
+  {
+    "name": "A Quiet Place: Day One",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Creature prequel"
+  },
+  {
+    "name": "Heretic",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Religious thriller"
+  },
+  {
+    "name": "Twisters",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Storm-chasing action"
+  },
+  {
+    "name": "Queer",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Luca Guadagnino"
+  },
+  {
+    "name": "Call Jane",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Abortion rights drama"
+  },
+  {
+    "name": "Minions: The Rise of Gru",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Animated prequel"
+  },
+  {
+    "name": "The Super Mario Bros. Movie",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Video game animation"
+  },
+  {
+    "name": "Elemental",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Pixar romance"
+  },
+  {
+    "name": "Collective",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Romanian corruption doc"
+  },
+  {
+    "name": "Finch",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Post-apocalyptic road"
+  },
+  {
+    "name": "Relic",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Australian dementia horror"
+  },
+  {
+    "name": "Dick Johnson Is Dead",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Experimental aging doc"
+  },
+  {
+    "name": "Lamb",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Icelandic folk horror"
+  },
+  {
+    "name": "Men",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Garland folk horror"
+  },
+  {
+    "name": "Holy Spider",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Iranian crime drama"
+  },
+  {
+    "name": "Passages",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Relationship rupture"
+  },
+  {
+    "name": "All Fours",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Balagov infidelity"
+  },
+  {
+    "name": "Beau Is Afraid",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Aster anxiety odyssey"
+  },
+  {
+    "name": "Under Paris",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "French creature"
+  },
+  {
+    "name": "Megalopolis",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Coppola architectural"
+  },
+  {
+    "name": "Didi",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Sean Baker NYC street"
+  },
+  {
+    "name": "Love Lies Bleeding",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Lesbian noir A24"
+  },
+  {
+    "name": "Gloria",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Argentinian coming-of-age"
+  },
+  {
+    "name": "Sear",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Psycho-thriller"
+  },
+  {
+    "name": "Violent Night",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Action Santa"
+  },
+  {
+    "name": "EO",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Polish donkey"
+  },
+  {
+    "name": "Brian and Charles",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Welsh robot"
+  },
+  {
+    "name": "The Eternal Daughter",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "British gothic"
+  },
+  {
+    "name": "Master",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Harvard racism"
+  },
+  {
+    "name": "Saint Omer",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "French experimental"
+  },
+  {
+    "name": "Bodies Bodies Bodies",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Gen Z slasher"
+  },
+  {
+    "name": "Nocebo",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Psychosomatic horror"
+  },
+  {
+    "name": "Bottoms",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Teen queer comedy"
+  },
+  {
+    "name": "Dream Scenario",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Gondry Cage surreal"
+  },
+  {
+    "name": "Shortcomings",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "San Francisco romance"
+  },
+  {
+    "name": "All Light Will End in Darkness",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Iranian sci-fi"
+  },
+  {
+    "name": "As It Is in Heaven",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Danish marriage"
+  },
+  {
+    "name": "Bull",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Independent western"
+  },
+  {
+    "name": "Coup!",
+    "year": 2023,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "film-2020s",
+    "why": "Tanzanian thriller"
+  },
+  {
+    "name": "Happiness Runs",
+    "year": 2021,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "film-2020s",
+    "why": "Vietnamese peace"
+  },
+  {
+    "name": "We're All Going to the World's Fair",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Internet horror"
+  },
+  {
+    "name": "The Killing of Two Lovers",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Domestic thriller"
+  },
+  {
+    "name": "Free Guy",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Video game comedy"
+  },
+  {
+    "name": "Red Notice",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Netflix heist"
+  },
+  {
+    "name": "Jungle Cruise",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Adventure action"
+  },
+  {
+    "name": "The Boss Baby: Family Business",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Animated sequel"
+  },
+  {
+    "name": "Sing 2",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Animal pop-star"
+  },
+  {
+    "name": "The Card Counter",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Schrader noir"
+  },
+  {
+    "name": "The Fall",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Icelandic thriller"
+  },
+  {
+    "name": "All the Old Knives",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Spy thriller"
+  },
+  {
+    "name": "The Sky Is Everywhere",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Grief musical"
+  },
+  {
+    "name": "A Love Song",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Wyoming romance"
+  },
+  {
+    "name": "The Eternal Memory",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Chilean revolutionary"
+  },
+  {
+    "name": "Wish",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2020s",
+    "why": "Disney musical"
+  },
+  {
+    "name": "Close Your Eyes",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Meta cinema"
+  },
+  {
+    "name": "A Different Man",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Body-swap drama"
+  },
+  {
+    "name": "Mami Wata",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Nigerian mermaid fantasy"
+  },
+  {
+    "name": "Benediction",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2020s",
+    "why": "Terence Davies poet"
+  }
+]
