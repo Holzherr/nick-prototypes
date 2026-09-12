@@ -6,6 +6,8 @@ export interface MotivationPanelProps {
   notes: readonly string[];
   /** Recent level changes, newest first. */
   moves: readonly { name: string; from: number; to: number; at: string }[];
+  /** Inside a Section on the grown-ups screen: drop the card and heading the section already provides. */
+  bare?: boolean;
 }
 
 const when = (iso: string) => new Date(iso).toLocaleString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
@@ -14,9 +16,9 @@ const when = (iso: string) => new Date(iso).toLocaleString('en-GB', { weekday: '
  * Blush panel on the grown-ups screen: chips for today's rounds against the goal, rounds left early and days
  * played this week; 💡 coaching notes (or an all-clear line); then the latest level moves with ⬆️/⬇️.
  */
-export const MotivationPanel = ({ today, daysThisWeek, notes, moves }: MotivationPanelProps) => (
-  <section className="mt-6 rounded-[28px] bg-blush/70 p-5">
-    <h3 className="text-2xl font-semibold text-raspberry">Motivation</h3>
+export const MotivationPanel = ({ today, daysThisWeek, notes, moves, bare = false }: MotivationPanelProps) => (
+  <section className={bare ? undefined : 'mt-6 rounded-[28px] bg-blush/70 p-5'}>
+    {!bare && <h3 className="text-2xl font-semibold text-raspberry">Motivation</h3>}
     <div className="mt-2 flex flex-wrap gap-2 text-sm">
       <span className="rounded-full bg-cream px-3 py-1">
         🎯 Today {today.done} of {today.goal} rounds

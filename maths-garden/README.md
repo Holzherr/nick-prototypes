@@ -44,12 +44,15 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
 - **Grown-ups screen** (behind a sum, remembered for ten minutes so signing in doesn't ask twice): an
   **account panel** leading the screen — a full-width "☁️ Signed in" or "📱 Guest — this device only" bar,
   then the account address at heading size, whether anything is still waiting to upload, switch child, sign
-  in or out — then accuracy per skill, often-missed numbers, level overrides, a weekly check-in with nine
-  parent-scored probes, print links and the tutor report. The panel exists because with a single child the
-  app opens straight into her garden, so `ProfilesScreen` (the only other place naming the account) never
-  renders, and there was no way to tell a signed-in session from a guest one. It leads rather than sits
-  inline because as a pale pill with the address inside a sentence it read as a footnote, and "am I signed
-  in, and as whom?" still took a paragraph to answer.
+  in or out. The panel exists because with a single child the app opens straight into her garden, so
+  `ProfilesScreen` (the only other place naming the account) never renders, and there was no way to tell a
+  signed-in session from a guest one. It leads rather than sits inline because as a pale pill with the
+  address inside a sentence it read as a footnote, and "am I signed in, and as whom?" still took a paragraph
+  to answer. Everything under it is a tap-to-open `Section` — how it's going, skills and levels, the weekly
+  check-in, voice and name — each stating what it holds in one line ("6 of 8 games played · levels 1–3"), so
+  the screen is readable without opening anything. Expanded, all of it ran for several phone-heights and
+  whatever you came for was rarely on screen. The import offer is deliberately **not** behind a section: the
+  point of it is to be seen without going looking.
 - **Tutor report** (`features/report/`): a verdict and a plain-English note per skill, what to print next
   and why, off-screen practice for the weakest skills, and warning signs. Printable, and **emailed to the
   parent whenever a game crosses into a new printable stage** ("Tara has moved up to stage 2 in Counting
