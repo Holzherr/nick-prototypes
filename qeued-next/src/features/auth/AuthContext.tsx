@@ -29,30 +29,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setLoading(false);
 
         if (_event === "SIGNED_IN" && session) {
-          // Process pending follow from public profile
-          const pendingFollow = localStorage.getItem("pending_follow");
-          if (pendingFollow) {
-            localStorage.removeItem("pending_follow");
-            supabase
-              .from("follows")
-              .select("id")
-              .eq("follower_id", session.user.id)
-              .eq("following_id", pendingFollow)
-              .maybeSingle()
-              .then(({ data }) => {
-                if (!data) {
-                  supabase
-                    .from("follows")
-                    .insert({ follower_id: session.user.id, following_id: pendingFollow })
-                    .then(() => {});
-                }
-              });
-          }
-
-          // Refresh popular cache on sign-in (runs in background)
-          supabase.functions.invoke("get-popular", {
-            body: { refresh: true },
-          }).catch(() => {});
         }
       }
     );

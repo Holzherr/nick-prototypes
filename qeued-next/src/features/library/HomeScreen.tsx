@@ -1,15 +1,12 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { cn } from "@/shared/utils/cn";
-import { feedVerb } from "./model";
 import { Popover, PopoverTrigger, PopoverContent } from "@/shared/components/ui/popover";
 import { useAuth } from "@/features/auth/AuthContext";
 import { useProfile } from "@/features/household/ProfileContext";
 import { supabase } from "@/shared/supabase/client";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
-import { Tabs, TabsList, TabsTrigger } from "@/shared/components/ui/tabs";
-import { Avatar, AvatarImage, AvatarFallback } from "@/shared/components/ui/avatar";
-import { Sparkles, Users, Film, Plus, Loader2, Star, SlidersHorizontal } from "lucide-react";
+import { Sparkles, Users, Film, Plus, Loader2, SlidersHorizontal } from "lucide-react";
 import { Link } from "react-router-dom";
 import RecommendationCard, { type Recommendation } from "@/features/recommend/RecommendationCard";
 
@@ -72,9 +69,6 @@ const Index = () => {
   const [loadingMore, setLoadingMore] = useState(false);
   const [watchCount, setWatchCount] = useState<number | null>(null);
   const loadingRef = useRef(false);
-  const [feedTab, setFeedTab] = useState<"recs" | "following">("recs");
-  const [followingFeed, setFollowingFeed] = useState<any[]>([]);
-  const [followingLoading, setFollowingLoading] = useState(false);
 
   // Filters
   const [mood, setMood] = useState("");
@@ -222,44 +216,6 @@ const Index = () => {
 
   const hasFilters = mood || type || time;
 
-  const loadFollowingFeed = async () => {
-    setFollowingLoading(true);
-    try {
-      const { data: follows } = await supabase
-        .from("follows")
-        .select("following_id")
-        .eq("follower_id", user!.id);
-      if (!follows || follows.length === 0) {
-        setFollowingFeed([]);
-        setFollowingLoading(false);
-        return;
-      }
-      const followingIds = follows.map((f: any) => f.following_id);
-      const { data: entries } = await supabase
-        .from("watch_entries")
-        .select("id, status, watched_rating, watched_date, review, updated_at, user_id, title:titles(id, name, type, genres, imdb_rating, year, image_url)")
-        .in("user_id", followingIds)
-        .order("updated_at", { ascending: false })
-        .limit(50);
-      // Enrich with profile info
-      const userIds = [...new Set((entries || []).map((e: any) => e.user_id))];
-      const { data: profiles } = await supabase
-        .from("profiles")
-        .select("user_id, name, username, avatar_url")
-        .in("user_id", userIds);
-      const profileMap = new Map((profiles || []).map((p: any) => [p.user_id, p]));
-      setFollowingFeed((entries || []).map((e: any) => ({ ...e, profile: profileMap.get(e.user_id) })));
-    } catch (e) {
-      console.error("Failed to load following feed", e);
-    }
-    setFollowingLoading(false);
-  };
-
-  useEffect(() => {
-    if (feedTab === "following" && followingFeed.length === 0 && user) {
-      loadFollowingFeed();
-    }
-  }, [feedTab]);
 
   return (
     <div className="space-y-8 pb-20">
@@ -292,27 +248,19 @@ const Index = () => {
 
       {/* Filters are now inside the feed toggle header */}
 
-      {loading && feedTab === "recs" && (
+      {loading && (
         <div className="flex justify-center py-12">
           <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
         </div>
       )}
 
-      {/* Feed toggle */}
       {watchCount! > 0 && (
-        <Tabs value={feedTab} onValueChange={(v) => setFeedTab(v as "recs" | "following")}>
+        <div>
           <div className="flex items-center gap-2 mb-4">
-            <TabsList>
-              <TabsTrigger value="recs" className="gap-1.5">
-                <Sparkles className="h-4 w-4" /> Recommended
-              </TabsTrigger>
-              <TabsTrigger value="following" className="gap-1.5">
-                <Users className="h-4 w-4" /> Following
-              </TabsTrigger>
-            </TabsList>
+            <h2 className="flex items-center gap-1.5 text-lg font-semibold">
+              <Sparkles className="h-4 w-4" /> Recommended
+            </h2>
             <div className="ml-auto flex items-center gap-1.5">
-              {feedTab === "recs" && (
-                <>
                   <Popover>
                     <PopoverTrigger asChild>
                       <Button variant={hasFilters ? "default" : "outline"} size="sm" className="gap-1.5">
@@ -370,15 +318,13 @@ const Index = () => {
                       Refresh
                     </Button>
                   )}
-                </>
-              )}
             </div>
           </div>
-        </Tabs>
+        </div>
       )}
 
       {/* Recommendations feed */}
-      {feedTab === "recs" && recommendations.length > 0 && (
+      {recommendations.length > 0 && (
         <section>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {recommendations.map((rec, i) => (
@@ -399,7 +345,7 @@ const Index = () => {
         </section>
       )}
 
-      {feedTab === "recs" && sharedRecs.length > 0 && (
+      {sharedRecs.length > 0 && (
         <section>
           <div className="flex items-center gap-2 mb-4">
             <Users className="h-5 w-5 text-primary" />
@@ -420,67 +366,7 @@ const Index = () => {
         </section>
       )}
 
-      {/* Following feed */}
-      {feedTab === "following" && (
-        <section>
-          {followingLoading && (
-            <div className="flex justify-center py-12">
-              <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-            </div>
-          )}
-          {!followingLoading && followingFeed.length === 0 && (
-            <div className="text-center py-12">
-              <Users className="h-10 w-10 text-muted-foreground mx-auto mb-3" />
-              <p className="text-muted-foreground text-sm">No recent activity from people you follow.</p>
-              <p className="text-muted-foreground text-xs mt-1">Follow users from their profiles to see their activity here.</p>
-            </div>
-          )}
-          <div className="space-y-3">
-            {followingFeed.map((entry: any) => {
-              const statusLabel = feedVerb(entry.status);
-              return (
-                <Card key={entry.id}>
-                  <CardContent className="py-4 px-4">
-                    <div className="flex items-start gap-3">
-                      <Link to={entry.profile?.username ? `/p/${entry.profile.username}` : "#"}>
-                        <Avatar className="h-8 w-8">
-                          {entry.profile?.avatar_url && <AvatarImage src={entry.profile.avatar_url} />}
-                          <AvatarFallback className="text-xs">{(entry.profile?.name || "?")[0]?.toUpperCase()}</AvatarFallback>
-                        </Avatar>
-                      </Link>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm">
-                          <Link to={entry.profile?.username ? `/p/${entry.profile.username}` : "#"} className="font-medium hover:underline">{entry.profile?.name || "Someone"}</Link>
-                          {" "}<span className="text-muted-foreground">{statusLabel}</span>
-                        </p>
-                        <div className="flex items-center gap-3 mt-2">
-                          {entry.title?.image_url && (
-                            <img src={entry.title.image_url} alt="" className="h-14 w-10 rounded object-cover shrink-0" />
-                          )}
-                          <div className="min-w-0">
-                            <Link to={`/title/${entry.title?.id}`} className="font-medium text-sm hover:underline">{entry.title?.name}</Link>
-                            <div className="flex items-center gap-2 mt-0.5">
-                              <span className="text-xs text-muted-foreground">{entry.title?.type === "series" ? "Series" : "Movie"} · {entry.title?.year}</span>
-                              {entry.title?.imdb_rating && (
-                                <span className="flex items-center gap-0.5 text-xs"><Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />{entry.title.imdb_rating}</span>
-                              )}
-                              {entry.watched_rating && <span className="text-xs">{"⭐".repeat(entry.watched_rating)}</span>}
-                            </div>
-                            {entry.review && <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{entry.review}</p>}
-                          </div>
-                        </div>
-                      </div>
-                      <span className="text-xs text-muted-foreground shrink-0">{new Date(entry.updated_at).toLocaleDateString()}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      {feedTab === "recs" && watchCount! > 0 && recommendations.length === 0 && !loading && (
+      {watchCount! > 0 && recommendations.length === 0 && !loading && (
         <div className="text-center py-8">
           <Button onClick={() => loadRecommendations()} disabled={loading}>
             <Sparkles className="mr-2 h-4 w-4" />
