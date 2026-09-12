@@ -1,0 +1,1262 @@
+[
+ {
+  "name": "Senna",
+  "year": 2010,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Formula 1 legend told entirely in archive footage"
+ },
+ {
+  "name": "Man on Wire",
+  "year": 2008,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Heist-movie retelling of the World Trade Center wire walk"
+ },
+ {
+  "name": "Grizzly Man",
+  "year": 2005,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Herzog on obsession and a man eaten by his own myth"
+ },
+ {
+  "name": "The Act of Killing",
+  "year": 2012,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Indonesian death-squad leaders restage their murders as genre cinema"
+ },
+ {
+  "name": "Amy",
+  "year": 2015,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Asif Kapadia's devastating Winehouse portrait"
+ },
+ {
+  "name": "Searching for Sugar Man",
+  "year": 2012,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Detroit folk singer who became a superstar without knowing"
+ },
+ {
+  "name": "Free Solo",
+  "year": 2018,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "El Capitan without a rope, on Disney+"
+ },
+ {
+  "name": "Icarus",
+  "year": 2017,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Amateur doping experiment turns into the Russian state scandal"
+ },
+ {
+  "name": "Apollo 11",
+  "year": 2019,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Restored 70mm mission footage, no narration"
+ },
+ {
+  "name": "Citizenfour",
+  "year": 2014,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "The Snowden leak filmed as it happened"
+ },
+ {
+  "name": "13th",
+  "year": 2016,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "DuVernay on the constitutional line from slavery to mass incarceration"
+ },
+ {
+  "name": "American Factory",
+  "year": 2019,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Chinese glass plant in Ohio; two work cultures collide"
+ },
+ {
+  "name": "Exit Through the Gift Shop",
+  "year": 2010,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Banksy's prank on the street-art market"
+ },
+ {
+  "name": "Touching the Void",
+  "year": 2003,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "British mountaineering survival account, unbearably tense"
+ },
+ {
+  "name": "Hoop Dreams",
+  "year": 1994,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Five years with two Chicago teenagers chasing the NBA"
+ },
+ {
+  "name": "Shoah",
+  "year": 1985,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Lanzmann's nine-hour Holocaust testimony, the canonical documentary"
+ },
+ {
+  "name": "Stop Making Sense",
+  "year": 1984,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Demme's Talking Heads film, the best concert movie ever made"
+ },
+ {
+  "name": "When We Were Kings",
+  "year": 1996,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Ali vs Foreman in Kinshasa"
+ },
+ {
+  "name": "Fire of Love",
+  "year": 2022,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Volcanologist couple's own footage, narrated as a love story"
+ },
+ {
+  "name": "My Octopus Teacher",
+  "year": 2020,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "A year in a Cape kelp forest, Netflix"
+ },
+ {
+  "name": "Three Identical Strangers",
+  "year": 2018,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Triplets separated at birth, and the study behind it"
+ },
+ {
+  "name": "Navalny",
+  "year": 2022,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Novichok investigation filmed in real time"
+ },
+ {
+  "name": "No Other Land",
+  "year": 2024,
+  "type": "movie",
+  "bucket": "documentary",
+  "why": "Oscar-winning Palestinian-Israeli co-directed record of Masafer Yatta"
+ },
+ {
+  "name": "The Last Dance",
+  "year": 2020,
+  "type": "series",
+  "bucket": "documentary",
+  "why": "Jordan's final Bulls season with full archive access"
+ },
+ {
+  "name": "Planet Earth II",
+  "year": 2016,
+  "type": "series",
+  "bucket": "documentary",
+  "why": "Attenborough landmark, the iguana-and-snakes benchmark"
+ },
+ {
+  "name": "Blue Planet II",
+  "year": 2017,
+  "type": "series",
+  "bucket": "documentary",
+  "why": "Ocean series that changed UK plastics policy"
+ },
+ {
+  "name": "Making a Murderer",
+  "year": 2015,
+  "type": "series",
+  "bucket": "documentary",
+  "why": "The true-crime series that set the template"
+ },
+ {
+  "name": "Wild Wild Country",
+  "year": 2018,
+  "type": "series",
+  "bucket": "documentary",
+  "why": "Oregon cult, bioterror attack, extraordinary archive"
+ },
+ {
+  "name": "The Jinx: The Life and Deaths of Robert Durst",
+  "year": 2015,
+  "type": "series",
+  "bucket": "documentary",
+  "why": "Ends with the most famous confession in documentary"
+ },
+ {
+  "name": "The Beatles: Get Back",
+  "year": 2021,
+  "type": "series",
+  "bucket": "documentary",
+  "why": "Jackson's restoration of the Let It Be sessions"
+ },
+ {
+  "name": "Spider-Man: Into the Spider-Verse",
+  "year": 2018,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Reinvented what mainstream animation can look like"
+ },
+ {
+  "name": "Spider-Man: Across the Spider-Verse",
+  "year": 2023,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Six art styles in one film, wilder than the first"
+ },
+ {
+  "name": "WALL-E",
+  "year": 2008,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Forty near-silent opening minutes, Pixar's bravest"
+ },
+ {
+  "name": "Ratatouille",
+  "year": 2007,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Brad Bird's case for the artist from nowhere"
+ },
+ {
+  "name": "Toy Story",
+  "year": 1995,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "The film that started computer animation as an art form"
+ },
+ {
+  "name": "Your Name",
+  "year": 2016,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Shinkai body-swap romance, the anime crossover hit"
+ },
+ {
+  "name": "A Silent Voice",
+  "year": 2016,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Bullying and atonement, quietly brutal"
+ },
+ {
+  "name": "Ghost in the Shell",
+  "year": 1995,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Cyberpunk touchstone the catalogue's sci-fi shelf is missing"
+ },
+ {
+  "name": "The Iron Giant",
+  "year": 1999,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Brad Bird's Cold War fable, hand-drawn"
+ },
+ {
+  "name": "Persepolis",
+  "year": 2007,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Satrapi's Tehran childhood in stark black and white"
+ },
+ {
+  "name": "Waltz with Bashir",
+  "year": 2008,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Animated documentary about repressed Lebanon war memory"
+ },
+ {
+  "name": "Flee",
+  "year": 2021,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Afghan refugee testimony animated to protect the subject"
+ },
+ {
+  "name": "Wolfwalkers",
+  "year": 2020,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Cartoon Saloon's Kilkenny folk tale, Apple TV+"
+ },
+ {
+  "name": "Klaus",
+  "year": 2019,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Netflix's hand-drawn Santa origin, genuinely great"
+ },
+ {
+  "name": "Wallace & Gromit: The Wrong Trousers",
+  "year": 1993,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Aardman's peak, and a perfect heist film"
+ },
+ {
+  "name": "The Triplets of Belleville",
+  "year": 2003,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Nearly wordless French oddity, Tour de France kidnap plot"
+ },
+ {
+  "name": "The Tale of the Princess Kaguya",
+  "year": 2013,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Takahata's charcoal-line Ghibli masterpiece, not Miyazaki"
+ },
+ {
+  "name": "The Boy and the Heron",
+  "year": 2023,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Miyazaki's late, strange, autobiographical one"
+ },
+ {
+  "name": "Flow",
+  "year": 2024,
+  "type": "movie",
+  "bucket": "animation",
+  "why": "Dialogue-free Latvian animal odyssey, Oscar winner"
+ },
+ {
+  "name": "Arcane",
+  "year": 2021,
+  "type": "series",
+  "bucket": "animation",
+  "why": "Painted-look Netflix series that outclasses its source game"
+ },
+ {
+  "name": "Cowboy Bebop",
+  "year": 1998,
+  "type": "series",
+  "bucket": "animation",
+  "why": "Jazz-scored space western, the gateway anime series"
+ },
+ {
+  "name": "Neon Genesis Evangelion",
+  "year": 1995,
+  "type": "series",
+  "bucket": "animation",
+  "why": "Mecha series that turned into a psychological breakdown"
+ },
+ {
+  "name": "Avatar: The Last Airbender",
+  "year": 2005,
+  "type": "series",
+  "bucket": "animation",
+  "why": "Serialised fantasy that works for adults"
+ },
+ {
+  "name": "Attack on Titan",
+  "year": 2013,
+  "type": "series",
+  "bucket": "animation",
+  "why": "Bleak, escalating, the defining modern shonen"
+ },
+ {
+  "name": "Fullmetal Alchemist: Brotherhood",
+  "year": 2009,
+  "type": "series",
+  "bucket": "animation",
+  "why": "Complete, tightly plotted, the anime consensus pick"
+ },
+ {
+  "name": "Some Like It Hot",
+  "year": 1959,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Wilder's farce, still the funniest studio comedy"
+ },
+ {
+  "name": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+  "year": 1964,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Kubrick's nuclear satire, war-room perfect"
+ },
+ {
+  "name": "The Apartment",
+  "year": 1960,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Office comedy with real cruelty underneath"
+ },
+ {
+  "name": "Monty Python and the Holy Grail",
+  "year": 1975,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "The British comedy reference point"
+ },
+ {
+  "name": "Monty Python's Life of Brian",
+  "year": 1979,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Sharper and better structured than Grail"
+ },
+ {
+  "name": "Airplane!",
+  "year": 1980,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Joke density nobody has matched"
+ },
+ {
+  "name": "Local Hero",
+  "year": 1983,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Forsyth's Scottish oil-town charmer"
+ },
+ {
+  "name": "Withnail and I",
+  "year": 1987,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Cult British comedy of squalor and failure"
+ },
+ {
+  "name": "Groundhog Day",
+  "year": 1993,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "High-concept comedy that earns its philosophy"
+ },
+ {
+  "name": "Four Weddings and a Funeral",
+  "year": 1994,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "The Britcom export that defined a decade"
+ },
+ {
+  "name": "Clueless",
+  "year": 1995,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Austen in Beverly Hills, smarter than remembered"
+ },
+ {
+  "name": "Shaun of the Dead",
+  "year": 2004,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Horror-comedy that works fully as both"
+ },
+ {
+  "name": "Hot Fuzz",
+  "year": 2007,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Village-England action parody, endlessly rewatchable"
+ },
+ {
+  "name": "Bridesmaids",
+  "year": 2011,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "The mainstream comedy that reset the form"
+ },
+ {
+  "name": "The Nice Guys",
+  "year": 2016,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Shane Black's 70s LA buddy comedy, underseen"
+ },
+ {
+  "name": "Paddington 2",
+  "year": 2017,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "The rare family film adults rate highest"
+ },
+ {
+  "name": "Booksmart",
+  "year": 2019,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "One-night teen comedy with real craft"
+ },
+ {
+  "name": "Jojo Rabbit",
+  "year": 2019,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Waititi's Nazi-era satire with a serious core"
+ },
+ {
+  "name": "The Ladykillers",
+  "year": 1955,
+  "type": "movie",
+  "bucket": "comedy",
+  "why": "Ealing black comedy, Guinness at his sliest"
+ },
+ {
+  "name": "Yes Minister",
+  "year": 1980,
+  "type": "series",
+  "bucket": "comedy",
+  "why": "Whitehall satire that politicians still quote"
+ },
+ {
+  "name": "Only Fools and Horses",
+  "year": 1981,
+  "type": "series",
+  "bucket": "comedy",
+  "why": "The British sitcom canon, absent here"
+ },
+ {
+  "name": "I'm Alan Partridge",
+  "year": 1997,
+  "type": "series",
+  "bucket": "comedy",
+  "why": "Coogan's masterpiece of English humiliation"
+ },
+ {
+  "name": "Spaced",
+  "year": 1999,
+  "type": "series",
+  "bucket": "comedy",
+  "why": "Edgar Wright's flatshare sitcom, culture-quoting and fast"
+ },
+ {
+  "name": "Gavin & Stacey",
+  "year": 2007,
+  "type": "series",
+  "bucket": "comedy",
+  "why": "Warm, broad, very well written"
+ },
+ {
+  "name": "Toast of London",
+  "year": 2012,
+  "type": "series",
+  "bucket": "comedy",
+  "why": "Matt Berry absurdism, a perfect half-hour"
+ },
+ {
+  "name": "Inside No. 9",
+  "year": 2014,
+  "type": "series",
+  "bucket": "comedy",
+  "why": "Comedy-horror anthology, every episode a different form"
+ },
+ {
+  "name": "Schitt's Creek",
+  "year": 2015,
+  "type": "series",
+  "bucket": "comedy",
+  "why": "Slow-burn sitcom that becomes genuinely moving"
+ },
+ {
+  "name": "The Good Place",
+  "year": 2016,
+  "type": "series",
+  "bucket": "comedy",
+  "why": "Sitcom built on moral philosophy, properly plotted"
+ },
+ {
+  "name": "What We Do in the Shadows",
+  "year": 2019,
+  "type": "series",
+  "bucket": "comedy",
+  "why": "Vampire mockumentary, the best joke-per-minute sitcom running"
+ },
+ {
+  "name": "Stath Lets Flats",
+  "year": 2018,
+  "type": "series",
+  "bucket": "comedy",
+  "why": "Channel 4 cringe comedy, wildly funny"
+ },
+ {
+  "name": "Cinema Paradiso",
+  "year": 1988,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Italian; the sentimental-cinema classic"
+ },
+ {
+  "name": "8 1/2",
+  "year": 1963,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Italian; Fellini's film about not being able to make a film"
+ },
+ {
+  "name": "Gomorrah",
+  "year": 2014,
+  "type": "series",
+  "bucket": "non-english",
+  "why": "Italian; Naples crime series, colder than any US equivalent"
+ },
+ {
+  "name": "All About My Mother",
+  "year": 1999,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Spanish; Almodovar's melodrama of grief and reinvention"
+ },
+ {
+  "name": "The Secret in Their Eyes",
+  "year": 2009,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Argentinian; cold-case thriller, Oscar winner"
+ },
+ {
+  "name": "Wild Tales",
+  "year": 2014,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Argentinian; six revenge stories, very funny and vicious"
+ },
+ {
+  "name": "Y Tu Mama Tambien",
+  "year": 2001,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Mexican; Cuaron road movie with a political undertow"
+ },
+ {
+  "name": "Amores Perros",
+  "year": 2000,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Mexican; Inarritu's braided Mexico City debut"
+ },
+ {
+  "name": "RRR",
+  "year": 2022,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Telugu; enormous, sincere, gloriously excessive"
+ },
+ {
+  "name": "Lagaan",
+  "year": 2001,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Hindi; cricket epic that also fixes the musical gap"
+ },
+ {
+  "name": "Pather Panchali",
+  "year": 1955,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Bengali; Ray's debut, the great humanist film"
+ },
+ {
+  "name": "Sacred Games",
+  "year": 2018,
+  "type": "series",
+  "bucket": "non-english",
+  "why": "Hindi; Mumbai crime series, Netflix's first Indian original"
+ },
+ {
+  "name": "Cold War",
+  "year": 2018,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Polish; Pawlikowski's decade-spanning romance in monochrome"
+ },
+ {
+  "name": "Ida",
+  "year": 2013,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Polish; novice nun confronts wartime family history"
+ },
+ {
+  "name": "4 Months, 3 Weeks and 2 Days",
+  "year": 2007,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Romanian; the New Wave's pitiless centrepiece"
+ },
+ {
+  "name": "Force Majeure",
+  "year": 2014,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Swedish; an avalanche destroys a marriage, excruciating and funny"
+ },
+ {
+  "name": "The Worst Person in the World",
+  "year": 2021,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Norwegian; the best recent film about being thirty"
+ },
+ {
+  "name": "Another Round",
+  "year": 2020,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Danish; Mikkelsen and a drinking experiment, Oscar winner"
+ },
+ {
+  "name": "Trapped",
+  "year": 2015,
+  "type": "series",
+  "bucket": "non-english",
+  "why": "Icelandic; snowbound small-town crime, BBC Four staple"
+ },
+ {
+  "name": "Uncle Boonmee Who Can Recall His Past Lives",
+  "year": 2010,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Thai; Palme d'Or winner, pure MUBI territory"
+ },
+ {
+  "name": "Yi Yi",
+  "year": 2000,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Taiwanese; three generations of a Taipei family, quietly monumental"
+ },
+ {
+  "name": "Farewell My Concubine",
+  "year": 1993,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Mandarin; Peking opera across fifty years of Chinese history"
+ },
+ {
+  "name": "Raise the Red Lantern",
+  "year": 1991,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Mandarin; Zhang Yimou's formal, furious concubine drama"
+ },
+ {
+  "name": "Monster",
+  "year": 2023,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Japanese; Kore-eda tells one story three times"
+ },
+ {
+  "name": "Tampopo",
+  "year": 1985,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Japanese; ramen western, joyful and odd"
+ },
+ {
+  "name": "Godzilla Minus One",
+  "year": 2023,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Japanese; postwar trauma plus the best kaiju film in decades"
+ },
+ {
+  "name": "Once Upon a Time in Anatolia",
+  "year": 2011,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Turkish; nocturnal police procedural as existential drift"
+ },
+ {
+  "name": "Atlantics",
+  "year": 2019,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Wolof/French; Dakar ghost story about migration, on Netflix"
+ },
+ {
+  "name": "Deutschland 83",
+  "year": 2015,
+  "type": "series",
+  "bucket": "non-english",
+  "why": "German; Cold War spy series with a pop soundtrack"
+ },
+ {
+  "name": "Close",
+  "year": 2022,
+  "type": "movie",
+  "bucket": "non-english",
+  "why": "Flemish; boyhood friendship and its rupture, Dhont"
+ },
+ {
+  "name": "The Exorcist",
+  "year": 1973,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "The genre's biggest absence from the catalogue"
+ },
+ {
+  "name": "Rosemary's Baby",
+  "year": 1968,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Paranoia horror, barely any gore"
+ },
+ {
+  "name": "Don't Look Now",
+  "year": 1973,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Roeg's Venice grief thriller, British canon"
+ },
+ {
+  "name": "The Wicker Man",
+  "year": 1973,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "The folk-horror original"
+ },
+ {
+  "name": "Halloween",
+  "year": 1978,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Carpenter's slasher blueprint"
+ },
+ {
+  "name": "The Texas Chain Saw Massacre",
+  "year": 1974,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Documentary-grimy and still unmatched"
+ },
+ {
+  "name": "Suspiria",
+  "year": 1977,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Argento's colour and Goblin score, Italian giallo peak"
+ },
+ {
+  "name": "Carrie",
+  "year": 1976,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "De Palma and King, tragedy before horror"
+ },
+ {
+  "name": "Evil Dead II",
+  "year": 1987,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Slapstick splatter, Raimi at full tilt"
+ },
+ {
+  "name": "Ringu",
+  "year": 1998,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Japanese; the J-horror wave in one film"
+ },
+ {
+  "name": "28 Days Later",
+  "year": 2002,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Boyle's empty-London infection film"
+ },
+ {
+  "name": "The Descent",
+  "year": 2005,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "British caving horror, genuinely claustrophobic"
+ },
+ {
+  "name": "Let the Right One In",
+  "year": 2008,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Swedish; vampire film as a story about bullying"
+ },
+ {
+  "name": "The Others",
+  "year": 2001,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Spanish-made gothic with Kidman, immaculate"
+ },
+ {
+  "name": "It Follows",
+  "year": 2014,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "One rule, perfectly executed, great synth score"
+ },
+ {
+  "name": "The Babadook",
+  "year": 2014,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Australian; grief as a monster in the house"
+ },
+ {
+  "name": "The Witch",
+  "year": 2015,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Eggers' 1630s New England, period-accurate dread"
+ },
+ {
+  "name": "Hereditary",
+  "year": 2018,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Family-trauma horror, the modern benchmark"
+ },
+ {
+  "name": "Talk to Me",
+  "year": 2022,
+  "type": "movie",
+  "bucket": "horror",
+  "why": "Australian; possession-as-party-game, sharp and nasty"
+ },
+ {
+  "name": "The Haunting of Hill House",
+  "year": 2018,
+  "type": "series",
+  "bucket": "horror",
+  "why": "Flanagan's family drama disguised as a ghost story"
+ },
+ {
+  "name": "Brief Encounter",
+  "year": 1945,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Lean's restrained British romance, 1940s gap"
+ },
+ {
+  "name": "It's a Wonderful Life",
+  "year": 1946,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Darker than its reputation, Capra's best"
+ },
+ {
+  "name": "A Matter of Life and Death",
+  "year": 1946,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Powell and Pressburger's Technicolor afterlife trial"
+ },
+ {
+  "name": "The Red Shoes",
+  "year": 1948,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Ballet melodrama, the great British colour film"
+ },
+ {
+  "name": "Kind Hearts and Coronets",
+  "year": 1949,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Ealing's murder comedy, Guinness in eight roles"
+ },
+ {
+  "name": "All About Eve",
+  "year": 1950,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Theatre backbiting, the most quotable script of the era"
+ },
+ {
+  "name": "Singin' in the Rain",
+  "year": 1952,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "The musical the catalogue conspicuously lacks"
+ },
+ {
+  "name": "Roman Holiday",
+  "year": 1953,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Hepburn in Rome, romantic comedy with a real ending"
+ },
+ {
+  "name": "On the Waterfront",
+  "year": 1954,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Brando, the docks, the contender speech"
+ },
+ {
+  "name": "The Seventh Seal",
+  "year": 1957,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Swedish; Bergman's chess game with Death"
+ },
+ {
+  "name": "West Side Story",
+  "year": 1961,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Musical staple, Bernstein and Robbins"
+ },
+ {
+  "name": "Jules and Jim",
+  "year": 1962,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "French; Truffaut's freewheeling triangle"
+ },
+ {
+  "name": "The Graduate",
+  "year": 1967,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Late-60s alienation and a Simon & Garfunkel score"
+ },
+ {
+  "name": "Butch Cassidy and the Sundance Kid",
+  "year": 1969,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Buddy western, easy pleasure"
+ },
+ {
+  "name": "Kes",
+  "year": 1969,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Loach's Barnsley boy and his kestrel, British social-realist root"
+ },
+ {
+  "name": "Get Carter",
+  "year": 1971,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Caine in Newcastle, brutal British noir"
+ },
+ {
+  "name": "The French Connection",
+  "year": 1971,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Friedkin's grimy chase film, 70s New York"
+ },
+ {
+  "name": "Cabaret",
+  "year": 1972,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Musical with fascism rising outside the club"
+ },
+ {
+  "name": "Nashville",
+  "year": 1975,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Altman's twenty-four-character American mosaic"
+ },
+ {
+  "name": "Stalker",
+  "year": 1979,
+  "type": "movie",
+  "bucket": "pre-1990",
+  "why": "Russian; Tarkovsky's Zone, the other great sci-fi"
+ },
+ {
+  "name": "Conclave",
+  "year": 2024,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Papal election as procedural thriller"
+ },
+ {
+  "name": "Anora",
+  "year": 2024,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Baker's Palme d'Or and Best Picture winner"
+ },
+ {
+  "name": "The Brutalist",
+  "year": 2024,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Postwar architect epic shot on VistaVision"
+ },
+ {
+  "name": "A Real Pain",
+  "year": 2024,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Eisenberg and Culkin on a Poland heritage tour"
+ },
+ {
+  "name": "Nickel Boys",
+  "year": 2024,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "First-person camera adaptation of Whitehead's novel"
+ },
+ {
+  "name": "Challengers",
+  "year": 2024,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Guadagnino tennis triangle with a Reznor score"
+ },
+ {
+  "name": "The Wild Robot",
+  "year": 2024,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "DreamWorks' painterly return to hand-crafted looks"
+ },
+ {
+  "name": "Wicked",
+  "year": 2024,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Fills the musical gap with the biggest one going"
+ },
+ {
+  "name": "I'm Still Here",
+  "year": 2024,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Portuguese; Brazilian dictatorship drama, Oscar winner"
+ },
+ {
+  "name": "Nosferatu",
+  "year": 2024,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Eggers' gothic remake, the horror end of recent releases"
+ },
+ {
+  "name": "One Battle After Another",
+  "year": 2025,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Paul Thomas Anderson's biggest, funniest film"
+ },
+ {
+  "name": "Weapons",
+  "year": 2025,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Cregger's ensemble horror, the 2025 genre hit"
+ },
+ {
+  "name": "KPop Demon Hunters",
+  "year": 2025,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Netflix's runaway animated musical"
+ },
+ {
+  "name": "Sentimental Value",
+  "year": 2025,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Norwegian; Joachim Trier follow-up to Worst Person"
+ },
+ {
+  "name": "Hamnet",
+  "year": 2025,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Zhao adapts O'Farrell; Buckley and Mescal"
+ },
+ {
+  "name": "The Ballad of Wallis Island",
+  "year": 2025,
+  "type": "movie",
+  "bucket": "2024-2026",
+  "why": "Small British comedy about a folk duo reunion"
+ },
+ {
+  "name": "Shogun",
+  "year": 2024,
+  "type": "series",
+  "bucket": "2024-2026",
+  "why": "Mostly-Japanese-language epic, swept the Emmys"
+ },
+ {
+  "name": "Ripley",
+  "year": 2024,
+  "type": "series",
+  "bucket": "2024-2026",
+  "why": "Zaillian's monochrome Highsmith, beautiful and slow"
+ },
+ {
+  "name": "The Penguin",
+  "year": 2024,
+  "type": "series",
+  "bucket": "2024-2026",
+  "why": "Gotham crime drama that works without Batman"
+ },
+ {
+  "name": "Ludwig",
+  "year": 2024,
+  "type": "series",
+  "bucket": "2024-2026",
+  "why": "BBC puzzle-setter detective comedy-drama"
+ },
+ {
+  "name": "Adolescence",
+  "year": 2025,
+  "type": "series",
+  "bucket": "2024-2026",
+  "why": "Four one-take episodes, the UK's biggest drama in years"
+ },
+ {
+  "name": "The Pitt",
+  "year": 2025,
+  "type": "series",
+  "bucket": "2024-2026",
+  "why": "Real-time ER shift, on HBO Max via Sky/NOW"
+ },
+ {
+  "name": "The Studio",
+  "year": 2025,
+  "type": "series",
+  "bucket": "2024-2026",
+  "why": "Rogen's Hollywood satire, long-take comedy"
+ },
+ {
+  "name": "Pluribus",
+  "year": 2025,
+  "type": "series",
+  "bucket": "2024-2026",
+  "why": "Gilligan and Seehorn's sci-fi, Apple TV"
+ },
+ {
+  "name": "Half Man",
+  "year": 2026,
+  "type": "series",
+  "bucket": "2024-2026",
+  "why": "Richard Gadd's BBC/HBO follow-up to Baby Reindeer"
+ }
+]

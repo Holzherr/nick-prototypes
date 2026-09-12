@@ -85,6 +85,17 @@ counts — and it only ever fills a field that is empty, so a hand-edit always s
 `tidy` is the only script that overwrites, which is why every overwrite is listed by hand in a
 corrections file with the reason it is wrong.
 
+`enrich` and `tidy` also take `--sql <file>`, which writes the statements instead of issuing
+them and needs no service key — apply them over the connection the CLI already has:
+
+```
+node tools/enrich.mjs --sql /tmp/enrich.sql
+npx supabase db query -f /tmp/enrich.sql --db-url "$QEUED_DB_URL"
+```
+
+The query channel sends a file as a single statement, so `enrich` emits one `UPDATE … FROM
+(VALUES …)` and `tidy` emits one `DO` block. Either way the whole wave lands or none of it does.
+
 Tone and theme use closed vocabularies, listed in migration `0018` and enforced by `enrich.mjs`
 before anything is written. They exist because genre cannot separate a bleak procedural from a
 warm family comedy once both are filed under Drama, and the ranker needs that distinction.
