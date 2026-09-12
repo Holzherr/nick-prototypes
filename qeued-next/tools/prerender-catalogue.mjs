@@ -21,10 +21,21 @@ const KEY = process.env.SUPABASE_ANON_KEY;
 const escape = (value) =>
   String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-const rest = async (path) => {
+/**
+ * A gateway timeout here fails the whole deploy, and it is the one failure that says nothing
+ * about the request — the same page succeeds a moment later. Retried with backoff; a 4xx is
+ * a real error and is raised immediately.
+ */
+const rest = async (path, attempt = 0) => {
   const res = await fetch(`${URL_BASE}/rest/v1/${path}`, { headers: { apikey: KEY, Authorization: `Bearer ${KEY}` } });
-  if (!res.ok) throw new Error(`GET ${path} → ${res.status} ${await res.text()}`);
-  return res.json();
+  if (res.ok) return res.json();
+  const body = await res.text();
+  if (res.status >= 500 && attempt < 4) {
+    console.log(`  retrying after ${res.status} on ${path.slice(0, 60)}…`);
+    await new Promise((resolve) => setTimeout(resolve, 2000 * (attempt + 1)));
+    return rest(path, attempt + 1);
+  }
+  throw new Error(`GET ${path} → ${res.status} ${body}`);
 };
 
 /** schema.org so search engines and agents can read the record without parsing prose. */
@@ -129,7 +140,7 @@ const run = async () => {
   for (let from = 0; ; from += PAGE) {
     const page = await rest(
       'titles?select=id,slug,name,year,type,genres,tones,themes,synopsis,certification,runtime_minutes,seasons,episodes,director,cast_members,image_url' +
-        `&catalogue_version=gt.0&order=name.asc&offset=${from}&limit=${PAGE}`,
+        `&catalogue_version=gt.0&order=slug.asc&offset=${from}&limit=${PAGE}`,
     );
     titles.push(...page);
     if (page.length < PAGE) break;
