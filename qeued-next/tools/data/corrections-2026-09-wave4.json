@@ -115,5 +115,19 @@
       "year": 2013,
       "slug": "the-kingdom-of-dreams-and-madness-2013"
     }
+  },
+  {
+    "slug": "mccabe-mrs-miller-1971",
+    "reason": "Tagged Documentary. It is a western drama.",
+    "remove_genres": [
+      "Documentary"
+    ]
+  },
+  {
+    "slug": "st-elmos-fire-1985",
+    "reason": "Tagged Documentary. It is an ensemble drama.",
+    "remove_genres": [
+      "Documentary"
+    ]
   }
 ]
