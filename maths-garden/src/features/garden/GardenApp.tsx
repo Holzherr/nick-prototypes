@@ -3,7 +3,7 @@ import type { Child } from '@/features/children/model';
 import { skillForGame, type StageNumber } from '@/features/curriculum/skills';
 import { GAMES, gameById, type Game, type GameId } from '@/features/games/catalog';
 import { EndScreen } from '@/features/games/components/EndScreen';
-import { GameScreen } from '@/features/games/components/GameScreen';
+import { GameScreen, type PausedRound } from '@/features/games/components/GameScreen';
 import { GardenHome } from '@/features/games/components/GardenHome';
 import { GrownUpsGate, grownUpsPassed } from '@/features/games/components/GrownUpsGate';
 import { levelOf, nextLevel, type AnswerRecord, type RoundRecord } from '@/features/games/engine';
@@ -103,6 +103,8 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
   });
   const [celebration, setCelebration] = useState<{ line: string; reward: { sticker: Sticker; sparkly: boolean } } | null>(null);
   const [novaDone, setNovaDone] = useState(false);
+  // A round left part-way through. Held here rather than in GameScreen, which dies the moment she leaves.
+  const [paused, setPaused] = useState<({ game: Game; level: number } & PausedRound) | null>(null);
   const [guestsDismissed, setGuestsDismissed] = useState(false);
   const [importing, setImporting] = useState<{ busy: boolean; done: { name: string; rounds: number; stickers: number } | null }>({ busy: false, done: null });
   const [emailing, setEmailing] = useState<{ busy: boolean; sent: boolean; error: string | null }>({ busy: false, sent: false, error: null });
@@ -156,6 +158,8 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
 
   const play = (game: Game) => {
     unlockAudio();
+    // Starting something else is the moment the paused round is really given up: record what was answered.
+    if (paused && paused.game.id !== game.id) dropPaused();
     runs.current += 1;
     setNovaDone(false);
     setScreen({ name: 'game', game, level: levelOf(latest.current.levels, game), run: runs.current });
@@ -200,10 +204,29 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
     });
   };
 
-  /** Left mid-round: keep what was answered (it shows frustration patterns), but it never changes the level. */
-  const quit = (game: Game, level: number, answers: AnswerRecord[]) => {
-    if (answers.length) apply({ kind: 'round', round: makeRound(game, level, answers, false) });
+  /**
+   * Left mid-round. The 🏠 button sits at a child's fingertip and fires on one tap, so this used to bin a
+   * half-finished round with no way back. Leaving now pauses: nothing is written, home offers to carry on,
+   * and the round is only recorded as abandoned once she actually starts something else — which keeps the
+   * frustration signal without a stray tap costing her the round.
+   */
+  const quit = (game: Game, level: number, round: PausedRound) => {
+    setPaused({ game, level, ...round });
     home();
+  };
+
+  /** Give up on the paused round for real: record what was answered, so quitting still shows in the log. */
+  const dropPaused = () => {
+    if (paused && paused.answers.length) apply({ kind: 'round', round: makeRound(paused.game, paused.level, paused.answers, false) });
+    setPaused(null);
+  };
+
+  const resumePaused = () => {
+    if (!paused) return;
+    unlockAudio();
+    runs.current += 1;
+    setNovaDone(false);
+    setScreen({ name: 'game', game: paused.game, level: paused.level, run: runs.current });
   };
 
   const addSticker = (sticker: Sticker, shiny: boolean, roundId: string | null): StickerRecord => {
@@ -295,6 +318,9 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             today={todaySummary(progress.rounds)}
             garden={garden}
             recommended={recommendGame(progress.rounds, progress.levels, GAMES)}
+            paused={paused ? { game: paused.game, answered: paused.answers.length, total: paused.questions.length } : null}
+            onResume={resumePaused}
+            onDropPaused={dropPaused}
             onPlay={play}
             onStickers={() => setScreen({ name: 'stickers' })}
             onGarden={() => setScreen({ name: 'garden' })}
@@ -308,8 +334,12 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             game={screen.game}
             level={screen.level}
             childName={child.name}
-            onFinish={(answers) => finish(screen.game, screen.level, answers)}
-            onHome={(answers) => quit(screen.game, screen.level, answers)}
+            resume={paused && paused.game.id === screen.game.id ? { questions: paused.questions, index: paused.index, answers: paused.answers } : undefined}
+            onFinish={(answers) => {
+              setPaused(null);
+              finish(screen.game, screen.level, answers);
+            }}
+            onHome={(round) => quit(screen.game, screen.level, round)}
           />
         );
       case 'end': {

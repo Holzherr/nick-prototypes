@@ -20,6 +20,10 @@ export interface GardenHomeProps {
   garden?: Garden;
   /** The game to lead with; without it every tile is shown at once. */
   recommended?: Recommendation;
+  /** A round she left part-way through, offered above everything else so it is never lost by accident. */
+  paused?: { game: Game; answered: number; total: number } | null;
+  onResume?: () => void;
+  onDropPaused?: () => void;
   onPlay: (game: Game) => void;
   onStickers: () => void;
   onGarden?: () => void;
@@ -31,12 +35,50 @@ export interface GardenHomeProps {
  * behind "Or pick another game". Daily goal (🎯 n/3) top left, sticker book (📒 n) top right, the garden
  * growing along the bottom, faint "Grown-ups" bottom right.
  */
-export function GardenHome({ childName, levels, stickerCount, today, garden, recommended, onPlay, onStickers, onGarden, onGrownUps }: GardenHomeProps) {
+export function GardenHome({
+  childName,
+  levels,
+  stickerCount,
+  today,
+  garden,
+  recommended,
+  paused = null,
+  onResume,
+  onDropPaused,
+  onPlay,
+  onStickers,
+  onGarden,
+  onGrownUps,
+}: GardenHomeProps) {
   const [showAll, setShowAll] = useState(!recommended);
   const others = recommended ? GAMES.filter((game) => game.id !== recommended.game.id) : GAMES;
 
+  // Above everything, including the suggested game: a half-finished round is the one thing on this screen
+  // she did not choose to leave behind, so it must not be something to scroll for.
+  const pausedCard = paused && onResume && (
+    <section className="mb-5 w-full max-w-[440px] rounded-[28px] bg-sunny/30 p-4 text-center">
+      <p className="text-[clamp(18px,2.6vw,22px)] font-semibold text-grape">
+        {paused.game.emoji} You were playing {paused.game.name}
+      </p>
+      <p className="mt-0.5 text-grape/70">
+        {paused.answered} of {paused.total} done — carry on where you stopped?
+      </p>
+      <div className="mt-3 flex flex-wrap justify-center gap-3">
+        <Button size="lg" onClick={onResume}>
+          Carry on 💗
+        </Button>
+        {onDropPaused && (
+          <Button variant="quiet" size="lg" onClick={onDropPaused}>
+            Start something else
+          </Button>
+        )}
+      </div>
+    </section>
+  );
+
   return (
     <main className="relative z-10 flex min-h-dvh flex-col items-center justify-center px-5 pb-[24vh] pt-[max(72px,env(safe-area-inset-top))]">
+      {pausedCard}
       {today && (
         <p
           className={cn(
