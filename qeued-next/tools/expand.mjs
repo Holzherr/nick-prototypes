@@ -117,15 +117,17 @@ const fetchRecord = async (url, attempt = 0) => {
  * year appended; anything whose name or year disagrees with the page is rejected rather
  * than guessed at.
  */
-const resolveTitle = async ({ name, year, type }) => {
+const resolveTitle = async ({ name, year, type, url: given }) => {
   const path = type === 'series' ? 'tv-series' : 'movie';
   const base = slugify(name);
   // Some pages file a work under its subtitle ("Dune: Part One") or drop a leading article.
   const withoutArticle = base.replace(/^(the|a|an)-/, '');
-  const candidates = [...new Set([base, `${base}-${year}`, withoutArticle, `${withoutArticle}-${year}`])];
+  const slugs = [...new Set([base, `${base}-${year}`, withoutArticle, `${withoutArticle}-${year}`])];
+  // A record may carry the page's address outright, for the titles whose slug is not
+  // derivable from the name. It is tried first and still has to pass the same checks.
+  const candidates = [...(given ? [given] : []), ...slugs.map((slug) => `https://www.justwatch.com/uk/${path}/${slug}`)];
 
-  for (const slug of candidates) {
-    const url = `https://www.justwatch.com/uk/${path}/${slug}`;
+  for (const url of candidates) {
     const found = await fetchRecord(url);
     if (!found) continue;
 
