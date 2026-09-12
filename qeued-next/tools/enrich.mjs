@@ -28,9 +28,13 @@ const here = dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
 const fileIndex = args.indexOf('--file');
+const dirIndex = args.indexOf('--dir');
+const applyDirect = args.includes('--apply');
 const sqlIndex = args.indexOf('--sql');
 const sqlPath = sqlIndex === -1 ? null : args[sqlIndex + 1];
-if (!KEY && !sqlPath) throw new Error('Missing SUPABASE_SERVICE_ROLE_KEY (or pass --sql <file>)');
+if (!KEY && !sqlPath && !applyDirect) {
+  throw new Error('Missing SUPABASE_SERVICE_ROLE_KEY (or pass --sql <file>, or --apply)');
+}
 
 /**
  * The tag vocabularies, repeated here from migration 0018 so a bad tag is caught before it
@@ -59,11 +63,15 @@ const rest = async (path, init = {}) => {
 
 /** Files to apply: one named explicitly, or every written-entry file in data/. */
 const sourceFiles =
-  fileIndex === -1
-    ? readdirSync(join(here, 'data'))
-        .filter((name) => /^(synopses|tags)-.*\.json$/.test(name))
-        .map((name) => join(here, 'data', name))
-    : [join(here, args[fileIndex + 1])];
+  dirIndex !== -1
+    ? readdirSync(args[dirIndex + 1])
+        .filter((name) => name.endsWith('.json'))
+        .map((name) => join(args[dirIndex + 1], name))
+    : fileIndex !== -1
+      ? [join(here, args[fileIndex + 1])]
+      : readdirSync(join(here, 'data'))
+          .filter((name) => /^(synopses|tags)-.*\.json$/.test(name))
+          .map((name) => join(here, 'data', name));
 
 // Prose and tags are written separately and merged per title, so each file can carry only
 // the fields it is responsible for.
@@ -131,11 +139,17 @@ const singleStatement = (rows) => {
   ].join('\n');
 };
 
-if (sqlPath) {
+if (sqlPath || applyDirect) {
   const rows = [...records.values()];
-  writeFileSync(sqlPath, singleStatement(rows));
-  console.log(`Wrote one statement covering ${rows.length} title(s) to ${sqlPath}.`);
-  console.log(`Apply with: npx supabase db query -f ${sqlPath} --db-url "$QEUED_DB_URL"`);
+  const sql = singleStatement(rows);
+  if (applyDirect) {
+    const { exec } = await import('./db.mjs');
+    console.log(`Applying ${rows.length} title(s): ${await exec(sql)}`);
+  } else {
+    writeFileSync(sqlPath, sql);
+    console.log(`Wrote one statement covering ${rows.length} title(s) to ${sqlPath}.`);
+    console.log(`Apply with: npx supabase db query -f ${sqlPath} --db-url "$QEUED_DB_URL"`);
+  }
 } else {
 
 const titles = await rest(
