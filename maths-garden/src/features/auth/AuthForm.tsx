@@ -33,10 +33,16 @@ const GoogleMark = () => (
 /**
  * Centred cream card: logo, "Grown-ups sign in here", Continue with Google, then email + password with a pink
  * submit, a sign-in/create-account toggle, and a link to the free printables.
+ *
+ * The password can be revealed, because typing one blind on an iPad is how people get locked out. A space
+ * at either end is called out separately: autofill adds them, they are rejected, and they stay invisible
+ * even when the password is shown.
  */
 export function AuthForm({ mode, onModeChange, onSubmit, onGoogle, onGuest, busy = false, error, notice, unavailable }: AuthFormProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [show, setShow] = useState(false);
+  const padded = password !== password.trim();
   const submit = (e: FormEvent) => {
     e.preventDefault();
     onSubmit(email.trim(), password);
@@ -61,16 +67,50 @@ export function AuthForm({ mode, onModeChange, onSubmit, onGoogle, onGuest, busy
           <span className="h-0.5 flex-1 bg-petal" />
         </div>
         <form onSubmit={submit} className="mt-4 flex flex-col gap-3">
-          <Input type="email" placeholder="Email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           <Input
-            type="password"
-            placeholder="Password"
-            autoComplete={mode === 'sign-in' ? 'current-password' : 'new-password'}
-            minLength={8}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            type="email"
+            placeholder="Email"
+            autoComplete="email"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
+          <div className="relative">
+            <Input
+              type={show ? 'text' : 'password'}
+              placeholder="Password"
+              autoComplete={mode === 'sign-in' ? 'current-password' : 'new-password'}
+              autoCapitalize="none"
+              autoCorrect="off"
+              spellCheck={false}
+              // Only a new password has to meet the length rule; an older account may have a shorter one.
+              {...(mode === 'sign-up' ? { minLength: 8 } : {})}
+              className="pr-14"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button
+              type="button"
+              onClick={() => setShow((current) => !current)}
+              aria-label={show ? 'Hide password' : 'Show password'}
+              aria-pressed={show}
+              className="absolute right-1 top-1 flex h-10 w-12 items-center justify-center rounded-xl text-xl transition-colors hover:bg-blush"
+            >
+              {show ? '🙈' : '👁'}
+            </button>
+          </div>
+          {padded && (
+            <p className="text-sm font-medium text-clay">
+              There’s a space at the {password !== password.trimStart() ? 'start' : 'end'} — autofill does that, and it will be rejected.{' '}
+              <button type="button" className="font-semibold text-raspberry underline" onClick={() => setPassword(password.trim())}>
+                Remove it
+              </button>
+            </p>
+          )}
           {error && <p className="text-sm font-medium text-raspberry">{error}</p>}
           {notice && <p className="text-sm font-medium text-leaf-deep">{notice}</p>}
           {unavailable && <p className="text-sm text-clay">{unavailable}</p>}
