@@ -7,8 +7,17 @@ import { Button } from '@/shared/components/ui/button';
 import { cn } from '@/shared/utils/cn';
 import { GAMES, type Game } from '../catalog';
 import { levelOf, type Levels } from '../engine';
+import type { BreakReason } from '../insights';
 import type { Recommendation } from '../recommend';
 import { GameTile, LevelDots } from './GameTile';
+
+/** What to say to the child when stopping would be better than another round. Her words, not the parent's. */
+const WIND_DOWN: Record<BreakReason, string> = {
+  lots: 'You have played lots today. Shall we look at your garden instead?',
+  struggling: 'Those were tricky ones! Let’s stop on a win and play again later.',
+  quitting: 'Shall we do something else for a bit?',
+  slowing: 'That was a big think! Time for a rest.',
+};
 
 export interface GardenHomeProps {
   childName: string;
@@ -24,6 +33,12 @@ export interface GardenHomeProps {
   paused?: { game: Game; answered: number; total: number } | null;
   onResume?: () => void;
   onDropPaused?: () => void;
+  /**
+   * Why stopping would be better than another round, or null. Home used to look identical at round 21 as at
+   * round 1: the end screen flipped its buttons and said "time for a little break", then handed her back to
+   * a screen whose loudest element was "play this one". The nudge only works if this screen changes too.
+   */
+  windDown?: BreakReason | null;
   onPlay: (game: Game) => void;
   onStickers: () => void;
   onGarden?: () => void;
@@ -45,6 +60,7 @@ export function GardenHome({
   paused = null,
   onResume,
   onDropPaused,
+  windDown = null,
   onPlay,
   onStickers,
   onGarden,
@@ -103,9 +119,26 @@ export function GardenHome({
       <AppIcon size={68} className="mb-2" />
       <h1 className="text-center text-[clamp(30px,5vw,52px)] font-bold leading-tight text-raspberry">{possessive(childName)} Maths Garden</h1>
 
+      {windDown && (
+        <section className="mb-4 w-full max-w-[440px] rounded-[28px] bg-leaf/15 p-5 text-center">
+          <p className="text-[clamp(20px,3vw,26px)] font-semibold text-leaf-deep">🌈 What a lot of playing!</p>
+          <p className="mt-1 text-grape/75">{WIND_DOWN[windDown]}</p>
+          <div className="mt-3 flex flex-wrap justify-center gap-3">
+            {onGarden && (
+              <Button size="lg" onClick={onGarden}>
+                See my garden 🌷
+              </Button>
+            )}
+            <Button variant="quiet" size="lg" onClick={onStickers}>
+              My stickers 📒
+            </Button>
+          </div>
+        </section>
+      )}
+
       {recommended ? (
         <>
-          <p className="mb-4 mt-1 text-center text-xl font-medium text-grape/75">Let’s play this one! 🌸</p>
+          <p className="mb-4 mt-1 text-center text-xl font-medium text-grape/75">{windDown ? 'Or one more if you like 💗' : 'Let’s play this one! 🌸'}</p>
           <button
             type="button"
             onClick={() => onPlay(recommended.game)}

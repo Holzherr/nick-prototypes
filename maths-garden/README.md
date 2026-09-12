@@ -61,6 +61,14 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   offering a four-year-old something she cannot have is worse than meeting the pack when it arrives. Pack and
   sticker ids are a contract (`maths_stickers.sticker` stores `"<pack>/<name>"`), so they are covered by a
   test and must never be renamed.
+- **Winding down** (`breakSuggestion` → `GardenHome`): after eight finished rounds in a day — or two poor
+  rounds, two quits, or a sudden slow-down — home leads with "What a lot of playing!" and offers the garden
+  and the sticker book, and the suggested game drops to "Or one more if you like". The signal already
+  existed and did nothing: the end screen flipped its buttons and said "time for a little break", then
+  returned her to a home screen identical to round one, whose loudest element was "Let's play this one!".
+  Tara did 21 rounds in a day against a goal of 3, so `breakSuggestion` had been returning `lots` for her
+  last thirteen rounds with no visible effect. It stays a nudge, never a cap: blocking a four-year-old
+  mid-flow is a worse moment than letting her choose, and the wording is aimed at her rather than the parent.
 - **The garden** (`features/garden/garden-state.ts`): every finished round plants a flower — species by
   game, open as wide as the round was good — ten stickers bring a butterfly, the daily goal a rainbow, 50
   stickers a unicorn. It grows along the bottom of the home screen and opens full size when tapped. Derived
