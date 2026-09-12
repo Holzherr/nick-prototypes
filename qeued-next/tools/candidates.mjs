@@ -112,10 +112,15 @@ const importCandidates = async (files) => {
   console.log(`Queued ${fresh.length}: ${written}`);
 };
 
+/**
+ * Untried titles before retries: a title that missed once keeps its place in the queue, and
+ * without this it comes back in the very next wave — spending a fetch on the same failure
+ * before anything new has been tried.
+ */
 const next = async (count, out) => {
   const rows = await queryJson(
-    `select json_agg(json_build_object('name', name, 'year', year, 'type', type, 'url', source_url) order by priority desc, created_at) as data
-     from (select * from public.catalogue_candidates where status = 'pending' order by priority desc, created_at limit ${Number(count)}) q`,
+    `select json_agg(json_build_object('name', name, 'year', year, 'type', type, 'url', source_url) order by priority desc, attempts, created_at) as data
+     from (select * from public.catalogue_candidates where status = 'pending' order by priority desc, attempts, created_at limit ${Number(count)}) q`,
   );
   const path = out ?? 'candidates-batch.json';
   await writeFile(path, JSON.stringify(rows, null, 1));

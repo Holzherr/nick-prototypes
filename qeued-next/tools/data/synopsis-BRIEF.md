@@ -51,6 +51,12 @@ Rules:
   happens in it is not.
 - For a series, describe the show's premise, not season one's plot arc, unless the
   seasons are unconnected anthologies (then say so).
+- For a documentary, sentence one says what it is actually about and how it is made — who
+  is filmed, over what span, from whose side. Never "a documentary exploring…".
+- The `name` is the title Qeued uses, which is the one a British viewer would say. The
+  scraped facts beside it sometimes come from a page filed under the original title
+  (Cinema Paradiso as "Nuovo Cinema Paradiso", Trapped as "Ófærð"). Write for the work the
+  name refers to.
 - Do not start two consecutive synopses with the same construction.
 
 ### Facts (best effort, null when unsure)
