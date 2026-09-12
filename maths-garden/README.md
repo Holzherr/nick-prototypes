@@ -22,13 +22,25 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   (`features/games/engine.ts`). Game level n = printable stage n (`features/curriculum/skills.ts`).
 - **Stickers:** after every finished round the child picks a pack (Unicorns, K-pop Hunters, Ice Queen) and
   gets a sticker for their sticker book; perfect rounds give sparkly ones. Emoji art only, no film characters.
+- **The garden** (`features/garden/garden-state.ts`): every finished round plants a flower — species by
+  game, open as wide as the round was good — ten stickers bring a butterfly, the daily goal a rainbow, 50
+  stickers a unicorn. It grows along the bottom of the home screen and opens full size when tapped. Derived
+  from the round log, so it is identical on every device.
 - **Grown-ups screen** (behind a sum): accuracy per skill, often-missed numbers, level overrides, a weekly
-  check-in with six parent-scored probes, and a print link for the current stage.
+  check-in with six parent-scored probes, print links, and the tutor report.
+- **Tutor report** (`features/report/`): a verdict and a plain-English note per skill, what to print next
+  and why, off-screen practice for the weakest skills, and warning signs. Printable, and **emailed to the
+  parent whenever a game crosses into a new printable stage** ("Tara has moved up to stage 2 in Counting
+  objects") with links to the sheets that suit her weakest skills.
+- **Guest import:** play from guest mode on the device can be copied onto an account child from the
+  grown-ups screen. Records keep their ids, so importing twice changes nothing.
 - **Offline-first:** every write lands in local storage first and uploads when there is signal
   (`features/progress/repo.ts`).
-- **Printables** (`#/resources`, public): the Quick Peek dot card maker — name, picture, stage, five
-  patterns, answers on the back (mirrored for double-sided printing), numeral cards, a how-to page, 8 or 2
-  cards per A4 page. The Quick Peek game draws the same patterns.
+- **Printables** (`#/resources`, public, no sign-in): the Quick Peek dot card maker, plus counting mats,
+  numeral cards + tracing + a number hunt, more-or-fewer cards, the one-more-unicorn story board and the
+  number track race (`#/resources/sheet?id=…&stage=…&name=…&icon=…`). Every sheet starts with a how-to page
+  and carries a **QR code that opens the game checking the same skill** (`#/play/<game>`). "Print this
+  stage's pack" (`#/resources/pack?…`) prints the whole set at the child's current stages.
 
 ## Layout
 
@@ -45,10 +57,12 @@ src/
   features/games/         catalog, questions (tested), engine (levels, stats; tested), sound, components/
   features/stickers/      catalog (packs, draw; tested), StickerBadge, PackChooser, StickerReveal, StickerBookScreen
   features/progress/      model, repo (outbox; tested), supabase-remote, memory-remote, probes, fixtures, SkillRow, CheckInPanel, DashboardScreen
-  features/garden/        GardenApp: one child's app (home, game, end + sticker, sticker book, gate, grown-ups)
+  features/garden/        GardenApp (home, game, end, garden, report, sticker book, gate, grown-ups), garden-state (tested), GardenScene/GardenScreen
   features/curriculum/    skills.ts: six skills × three stages, linked to games and probes
-  features/resources/     catalog (printables, ready/planned), ResourcesScreen, subitising/ (patterns, cards, card maker)
-supabase/                 config.toml, migrations/0001_init.sql
+  features/report/        report (verdicts, recommendations; tested), report-email (html + text; tested), send-report, ReportScreen
+  features/resources/     catalog, ResourcesScreen, A4Page, qr (QR path + absolute links), pack (stage pack),
+                          subitising/ (patterns, cards, card maker), sheets/ (catalog, five sheet makers, SheetScreen)
+supabase/                 config.toml, migrations/, functions/send-report (emails the report to the signed-in parent)
 tools/                    icon-square.svg + render-icons.sh (PNG icons via headless Chrome)
 ```
 
@@ -73,8 +87,19 @@ their own children and those children's rows only. Schema changes: add a migrati
 session pooler (the direct database host is IPv6-only), update `src/shared/supabase/types.ts`. Intended
 auth settings are in `supabase/config.toml`.
 
+**Report email.** `supabase/functions/send-report` posts the report to Resend. It takes the address from
+the caller's own session, so it can only ever email the signed-in parent. Until it is deployed the app
+still shows the report; sending just fails quietly.
+
+```
+npx supabase functions deploy send-report --project-ref gzdfoptvdocauvgxltjk
+npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboarding@resend.dev>'
+```
+
 ## Next
 
-- More printables for every skill and stage: provider research and work plan in the assistant repo,
-  `me/projects/maths-garden/`.
-- A custom domain and deploy repo (the Qeued/TigerWorkouts pattern) if it goes beyond family use.
+- Deploy `send-report` and set the Resend key, so stage-up emails actually go out.
+- More sheets per stage (cut-and-stick, dot-to-dot, ten-frame bonds): provider research and work plan in
+  the assistant repo, `me/projects/maths-garden/`.
+- Games for the gaps: number bonds, teen numbers and place value, ordering, shapes and patterns.
+- A daily quest round drawn from the weakest skills, instead of five silos.

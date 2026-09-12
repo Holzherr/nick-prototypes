@@ -1,4 +1,6 @@
 import { possessive } from '@/features/children/model';
+import type { Garden } from '@/features/garden/garden-state';
+import { GardenScene } from '@/features/garden/components/GardenScene';
 import { AppIcon } from '@/shared/brand/AppIcon';
 import { Button } from '@/shared/components/ui/button';
 import { cn } from '@/shared/utils/cn';
@@ -12,17 +14,20 @@ export interface GardenHomeProps {
   stickerCount: number;
   /** Finished rounds today against the daily goal. */
   today?: { done: number; goal: number };
+  /** The garden growing along the bottom of the screen; tapping it opens the full garden. */
+  garden?: Garden;
   onPlay: (game: Game) => void;
   onStickers: () => void;
+  onGarden?: () => void;
   onGrownUps: () => void;
 }
 
 /**
  * Unicorn tile, "Tara's Maths Garden", the five blob-shaped game tiles with level dots; daily goal (🎯 n/3)
- * top left, sticker book (📒 n) top right, faint "Grown-ups" bottom right.
+ * top left, sticker book (📒 n) top right, the garden growing along the bottom, faint "Grown-ups" bottom right.
  */
-export const GardenHome = ({ childName, levels, stickerCount, today, onPlay, onStickers, onGrownUps }: GardenHomeProps) => (
-  <main className="relative z-10 flex min-h-dvh flex-col items-center justify-center px-5 pb-20 pt-[max(72px,env(safe-area-inset-top))]">
+export const GardenHome = ({ childName, levels, stickerCount, today, garden, onPlay, onStickers, onGarden, onGrownUps }: GardenHomeProps) => (
+  <main className="relative z-10 flex min-h-dvh flex-col items-center justify-center px-5 pb-[24vh] pt-[max(72px,env(safe-area-inset-top))]">
     {today && (
       <p
         className={cn(
@@ -51,6 +56,16 @@ export const GardenHome = ({ childName, levels, stickerCount, today, onPlay, onS
         <GameTile key={game.id} game={game} level={levelOf(levels, game)} shape={i} onClick={() => onPlay(game)} />
       ))}
     </div>
+    {garden && (
+      <button
+        type="button"
+        onClick={onGarden}
+        aria-label={`My garden: ${garden.plants.length} flowers`}
+        className="fixed inset-x-0 bottom-0 -z-10 w-full cursor-pointer print:hidden"
+      >
+        <GardenScene garden={garden} variant="strip" />
+      </button>
+    )}
     <Button variant="ghost" className="fixed bottom-[max(14px,env(safe-area-inset-bottom))] right-4" onClick={onGrownUps}>
       ⚙️ Grown-ups
     </Button>
