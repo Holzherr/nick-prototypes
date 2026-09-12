@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/shared/supabase/client";
 import { useAuth } from "@/features/auth/AuthContext";
+import ProgressControl from "@/features/queue/ProgressControl";
 import { useProfile } from "@/features/household/ProfileContext";
 import PublicHeader from "@/shared/layout/PublicHeader";
 import Layout from "@/shared/layout/Layout";
@@ -32,6 +33,8 @@ interface TitleData {
   enriched: boolean;
   catalogue_version?: number | null;
   synopsis?: string | null;
+  seasons?: number | null;
+  episodes?: number | null;
 }
 
 interface ActorData {
@@ -55,6 +58,33 @@ const TitleDetailPage = () => {
   const [userRating, setUserRating] = useState<number | null>(null);
   const [enriching, setEnriching] = useState(false);
   const [actors, setActors] = useState<ActorData[]>([]);
+  const [entryId, setEntryId] = useState<string | null>(null);
+  const [progress, setProgress] = useState<{ current_season: number | null; current_episode: number | null }>({
+    current_season: null,
+    current_episode: null,
+  });
+
+  /** Asked the moment something is marked watched — five of twenty-one ratings exist because
+   *  nothing ever asked. */
+  const rate = async (rating: number) => {
+    if (!entryId) return;
+    setUserRating(rating);
+    await supabase
+      .from("watch_entries")
+      .update({ watched_rating: rating, watched_date: new Date().toISOString().slice(0, 10) })
+      .eq("id", entryId);
+  };
+
+  /** Episode position lives on the entry, so it needs one to write to. */
+  const saveProgress = async (next: { current_season: number; current_episode: number }) => {
+    if (!entryId) return;
+    setProgress(next);
+    await supabase
+      .from("watch_entries")
+      .update({ ...next, progress_updated_at: new Date().toISOString(), status: "watching" })
+      .eq("id", entryId);
+    setUserStatus("watching");
+  };
 
   useEffect(() => {
     if (id) loadTitle();
@@ -80,13 +110,15 @@ const TitleDetailPage = () => {
     if (user && active) {
       const { data: entry } = await supabase
         .from("watch_entries")
-        .select("status, watched_rating")
+        .select("id, status, watched_rating, current_season, current_episode")
         .eq("profile_id", active.id)
         .eq("title_id", id!)
         .maybeSingle();
       if (entry) {
         setUserStatus(entry.status as WatchStatus);
         setUserRating(entry.watched_rating);
+        setEntryId(entry.id as string);
+        setProgress({ current_season: entry.current_season ?? null, current_episode: entry.current_episode ?? null });
       }
     }
 
@@ -295,7 +327,7 @@ const TitleDetailPage = () => {
                 <div className="space-y-2">
                   <p className="text-sm font-medium">
                     Your status: <Badge variant="outline">{userStatus.replace(/_/g, " ")}</Badge>
-                    {userRating && <span className="ml-2">· Rated {userRating}/10</span>}
+                    {userRating && <span className="ml-2">· Rated {userRating}/5</span>}
                   </p>
                   <Select value={userStatus} onValueChange={(v) => addToList(v as WatchStatus)}>
                     <SelectTrigger className="w-48">
@@ -308,6 +340,29 @@ const TitleDetailPage = () => {
                       <SelectItem value="dropped">Dropped</SelectItem>
                     </SelectContent>
                   </Select>
+
+                  {title.type === "series" && userStatus !== "dropped" && (
+                    <ProgressControl progress={{ ...progress, seasons: title.seasons, episodes: title.episodes }} onChange={saveProgress} />
+                  )}
+
+                  {userStatus === "watched" && !userRating && (
+                    <div className="flex items-center gap-2 rounded-lg border bg-muted/40 p-3">
+                      <span className="text-sm">How was it?</span>
+                      <div className="flex gap-1">
+                        {[1, 2, 3, 4, 5].map((n) => (
+                          <button
+                            key={n}
+                            type="button"
+                            aria-label={`Rate ${n} out of 5`}
+                            onClick={() => rate(n)}
+                            className="text-muted-foreground transition hover:text-yellow-500"
+                          >
+                            <Star className="h-5 w-5" />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="space-y-2">

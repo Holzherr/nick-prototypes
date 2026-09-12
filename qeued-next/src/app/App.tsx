@@ -11,6 +11,7 @@ import Index from "@/features/library/HomeScreen";
 import Auth from "@/features/auth/AuthScreen";
 import SearchPage from "@/features/discover/SearchScreen";
 import TonightPage from "@/features/tonight/TonightScreen";
+import QueueSortPage from "@/features/queue/QueueSortScreen";
 import HouseholdPage from "@/features/household/HouseholdScreen";
 import AgentsPage from "@/features/agents/AgentsScreen";
 import ClaimPage from "@/features/agents/ClaimScreen";
@@ -76,6 +77,7 @@ const App = () => (
           <Route path="/claim/:code" element={<ClaimPage />} />
           <Route path="/agents" element={<ProtectedRoute><AgentsPage /></ProtectedRoute>} />
           <Route path="/household" element={<ProtectedRoute><HouseholdPage /></ProtectedRoute>} />
+          <Route path="/sort" element={<ProtectedRoute><QueueSortPage /></ProtectedRoute>} />
           <Route path="/tonight" element={<ProtectedRoute><TonightPage /></ProtectedRoute>} />
           <Route path="/search" element={<ProtectedRoute><SearchPage /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
