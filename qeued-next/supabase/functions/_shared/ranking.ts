@@ -187,3 +187,38 @@ export const buildSlate = (
     .sort((a, b) => b.axes.novelty - a.axes.novelty)[0] ?? null;
   return { picks, wildcard };
 };
+
+/**
+ * Axes derived from saved data alone, with no model involved.
+ *
+ * The scored slate is the good one, but generating it costs a large model call, so it is
+ * produced on a schedule rather than while someone waits. This is what the app serves in
+ * the meantime: genre overlap against what the viewer actually finishes, quality from the
+ * rating we hold, and effort from runtime and season count. Same axes, same ranking, so a
+ * heuristic slate and a scored one are interchangeable — one is simply better informed.
+ */
+export const heuristicAxes = (
+  row: { genres?: string[] | null; imdb_rating?: number | null; runtime_minutes?: number | null; seasons?: number | null; type?: string | null },
+  viewerMix: Record<string, number>,
+): Axes => {
+  const genres = row.genres ?? [];
+  // Share of the viewer's taste this title sits inside: 1 means every genre they watch.
+  const overlap = genres.reduce((sum, genre) => sum + (viewerMix[genre] ?? 0), 0);
+  const fit = clamp(Math.round(overlap * 180), 0, 100);
+
+  // No rating held is not evidence of a bad title, so it sits mid-scale rather than at zero.
+  const craft = row.imdb_rating ? clamp(Math.round((row.imdb_rating / 10) * 100)) : 55;
+
+  // Effort is how much the title asks before it pays off: one film is easy, six seasons is not.
+  const episodes = (row.seasons ?? (row.type === 'series' ? 1 : 0)) * 8;
+  const minutes = (row.runtime_minutes ?? (row.type === 'series' ? 50 : 110)) * Math.max(1, episodes || 1);
+  const effort = clamp(Math.round(100 - Math.min(100, (minutes / 1800) * 100)));
+
+  return {
+    tone: fit,
+    theme: fit,
+    craft,
+    novelty: clamp(100 - fit),
+    effort,
+  };
+};

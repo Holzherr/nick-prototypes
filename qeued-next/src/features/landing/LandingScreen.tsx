@@ -8,13 +8,16 @@ import { Button } from "@/shared/components/ui/button";
 import { Star, Loader2, ArrowRight, Users } from "lucide-react";
 import AddToWatchlistSelect from "@/features/library/AddToWatchlistSelect";
 
+/** A catalogue row, shown as-is — the landing page reads saved data, never a model. */
 interface PopularTitle {
-  title: string;
+  id: string;
+  slug: string | null;
+  name: string;
   type: "movie" | "series";
-  year: number;
+  year: number | null;
   genres: string[];
-  imdb_rating: number;
-  description: string;
+  imdb_rating: number | null;
+  synopsis: string | null;
   image_url: string | null;
 }
 
@@ -38,7 +41,13 @@ const LandingPage = () => {
   const loadPopular = async () => {
     try {
       const [popularRes, peopleRes] = await Promise.all([
-        supabase.functions.invoke("get-popular", { body: {} }),
+        supabase
+          .from("titles")
+          .select("id, slug, name, year, type, genres, synopsis, image_url, imdb_rating")
+          .gt("catalogue_version", 0)
+          .not("image_url", "is", null)
+          .order("catalogued_at", { ascending: false })
+          .limit(12),
         supabase
           .from("profiles")
           .select("user_id, name, username, avatar_url")
@@ -47,7 +56,7 @@ const LandingPage = () => {
           .order("created_at", { ascending: false })
           .limit(8),
       ]);
-      if (popularRes.data?.titles) setTitles(popularRes.data.titles);
+      if (popularRes.data) setTitles(popularRes.data as PopularTitle[]);
       if (peopleRes.data) setPeople(peopleRes.data as PublicProfile[]);
     } catch (e) {
       console.error("Failed to load landing data", e);
@@ -91,14 +100,14 @@ const LandingPage = () => {
           </div>
         ) : (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {titles.map((t, i) => (
-              <Card key={`${t.title}-${i}`} className="overflow-hidden hover:shadow-md transition-shadow">
+            {titles.map((t) => (
+              <Card key={t.id} className="overflow-hidden hover:shadow-md transition-shadow">
                 <CardContent className="p-0">
                   <div className="flex gap-3 p-4">
                     {t.image_url ? (
                       <img
                         src={t.image_url}
-                        alt={t.title}
+                        alt={t.name}
                         className="h-24 w-16 rounded object-cover shrink-0"
                       />
                     ) : (
@@ -107,7 +116,7 @@ const LandingPage = () => {
                       </div>
                     )}
                     <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-sm truncate">{t.title}</p>
+                      <p className="font-semibold text-sm truncate">{t.name}</p>
                       <div className="flex items-center gap-2 mt-1">
                         <span className="text-xs text-muted-foreground">
                           {t.type === "series" ? "Series" : "Movie"} · {t.year}
@@ -120,7 +129,7 @@ const LandingPage = () => {
                         )}
                       </div>
                       <p className="text-xs text-muted-foreground mt-1.5 line-clamp-2">
-                        {t.description}
+                        {t.synopsis}
                       </p>
                       <div className="flex gap-1 mt-1.5 flex-wrap">
                         {t.genres.slice(0, 3).map((g) => (
@@ -131,7 +140,8 @@ const LandingPage = () => {
                       </div>
                       <div className="mt-2">
                         <AddToWatchlistSelect
-                          titleName={t.title}
+                          titleName={t.name}
+                          titleId={t.id}
                           size="sm"
                         />
                       </div>

@@ -12,8 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/components/ui
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/components/ui/select";
 import { Switch } from "@/shared/components/ui/switch";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/shared/components/ui/dialog";
-import { Star, Trash2, SkipForward, MessageSquare, Camera, Pencil, Check, Loader2, Share2, Globe, Lock, Copy, Users } from "lucide-react";
-import FollowListDialog from "@/features/social/FollowListDialog";
+import { Star, Trash2, SkipForward, MessageSquare, Camera, Pencil, Loader2, Share2, Globe, Lock, Copy } from "lucide-react";
 import { useToast } from "@/shared/components/ui/use-toast";
 
 import { STATUS_LABELS as statusLabels, STATUS_ORDER, sortEntries, type WatchStatus } from "@/features/library/model";
@@ -42,15 +41,6 @@ interface WatchEntry {
     year: number | null;
     image_url: string | null;
   };
-}
-
-interface Connection {
-  id: string;
-  user_1: string;
-  user_2: string;
-  status: "pending" | "accepted";
-  invite_code: string | null;
-  partner_name?: string;
 }
 
 const EntryCard = ({
@@ -210,19 +200,12 @@ const ProfilePage = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Social
-  const [followerCount, setFollowerCount] = useState(0);
-  const [followingCount, setFollowingCount] = useState(0);
-  const [connections, setConnections] = useState<Connection[]>([]);
-  const [inviteCode, setInviteCode] = useState("");
-  const [joiningFriend, setJoiningFriend] = useState(false);
 
   useEffect(() => {
     if (user) {
       loadProfile();
       loadEntries();
       loadSkipped();
-      loadConnections();
-      loadFollowCounts();
     }
   }, [user]);
 
@@ -231,18 +214,10 @@ const ProfilePage = () => {
       .from("profiles")
       .select("name, avatar_url, bio, username, is_public")
       .eq("user_id", user!.id)
-      .single();
+      .maybeSingle();
     if (data) setProfile(data as any);
   };
 
-  const loadFollowCounts = async () => {
-    const [{ count: followers }, { count: following }] = await Promise.all([
-      supabase.from("follows").select("id", { count: "exact", head: true }).eq("following_id", user!.id),
-      supabase.from("follows").select("id", { count: "exact", head: true }).eq("follower_id", user!.id),
-    ]);
-    setFollowerCount(followers || 0);
-    setFollowingCount(following || 0);
-  };
 
   const loadEntries = async () => {
     const { data } = await supabase
@@ -264,22 +239,6 @@ const ProfilePage = () => {
     setSkipped((data as any) || []);
   };
 
-  const loadConnections = async () => {
-    const { data } = await supabase
-      .from("connections")
-      .select("*")
-      .or(`user_1.eq.${user!.id},user_2.eq.${user!.id}`);
-    if (data) {
-      const enriched = await Promise.all(
-        data.map(async (conn) => {
-          const partnerId = conn.user_1 === user!.id ? conn.user_2 : conn.user_1;
-          const { data: prof } = await supabase.from("profiles").select("name").eq("user_id", partnerId).single();
-          return { ...conn, partner_name: prof?.name || "Unknown" };
-        })
-      );
-      setConnections(enriched);
-    }
-  };
 
   const togglePublic = async (checked: boolean) => {
     setProfile((p) => ({ ...p, is_public: checked }));
@@ -348,35 +307,9 @@ const ProfilePage = () => {
     toast({ title: "Removed from skipped" });
   };
 
-  const acceptInvite = async () => {
-    if (!inviteCode.trim()) return;
-    setJoiningFriend(true);
-    try {
-      const partnerId = inviteCode.trim();
-      if (partnerId === user!.id) {
-        toast({ title: "Error", description: "You can't connect with yourself!", variant: "destructive" });
-        return;
-      }
-      const { error } = await supabase.from("connections").insert({ user_1: partnerId, user_2: user!.id, status: "accepted" });
-      if (error) throw error;
-      toast({ title: "Connected!", description: "You're now connected for shared recommendations." });
-      setInviteCode("");
-      loadConnections();
-    } catch (e: any) {
-      toast({ title: "Error", description: e.message, variant: "destructive" });
-    } finally {
-      setJoiningFriend(false);
-    }
-  };
 
   const profileUrl = profile.username ? `https://qeued.com/p/${profile.username}` : null;
-  const inviteUrl = `${window.location.origin}/invite`;
-  const shareMessage = `Hey! Join me on Qeued — we can share movie & TV recommendations. Here's my invite code:\n\n${user?.id}\n\nGo to ${inviteUrl} to connect, or sign up and paste the code on your profile.`;
 
-  const copyShareMessage = () => {
-    navigator.clipboard.writeText(shareMessage);
-    toast({ title: "Invite message copied!" });
-  };
 
   const copyProfileUrl = () => {
     if (profileUrl) {
@@ -528,33 +461,13 @@ const ProfilePage = () => {
                     </div>
                   )}
                   <div>
-                    <label className="text-sm font-medium mb-1.5 block">Invite a friend</label>
-                    <Textarea value={shareMessage} readOnly className="text-xs font-mono min-h-[100px] resize-none" />
-                    <Button variant="outline" size="sm" className="mt-2 w-full" onClick={copyShareMessage}>
-                      <Copy className="h-4 w-4 mr-1.5" /> Copy invite message
-                    </Button>
+                    <label className="text-sm font-medium mb-1.5 block">Watching with other people</label>
+                    <p className="text-sm text-muted-foreground">
+                      Households and shared queues live on{" "}
+                      <Link to="/household" className="underline">Household</Link> — create a group there and
+                      share its invite code.
+                    </p>
                   </div>
-                  <div>
-                    <label className="text-sm font-medium mb-1.5 block">Join a friend (paste their invite code)</label>
-                    <div className="flex gap-2">
-                      <Input placeholder="Paste invite code..." value={inviteCode} onChange={(e) => setInviteCode(e.target.value)} className="font-mono text-xs" />
-                      <Button onClick={acceptInvite} disabled={joiningFriend}><Check className="h-4 w-4" /></Button>
-                    </div>
-                  </div>
-                  {connections.length > 0 && (
-                    <div>
-                      <label className="text-sm font-medium mb-1.5 block">Your connections</label>
-                      <div className="space-y-1.5">
-                        {connections.map((conn) => (
-                          <div key={conn.id} className="flex items-center gap-2 text-sm">
-                            <Users className="h-3.5 w-3.5 text-primary" />
-                            <span>{conn.partner_name}</span>
-                            <Badge variant={conn.status === "accepted" ? "default" : "secondary"} className="text-[10px] ml-auto">{conn.status}</Badge>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
               </DialogContent>
             </Dialog>
@@ -564,15 +477,6 @@ const ProfilePage = () => {
             <p className="text-sm text-muted-foreground leading-relaxed mt-1">{profile.bio}</p>
           )}
 
-          {/* Stats row */}
-          <div className="flex items-center gap-4 mt-3 text-sm text-muted-foreground">
-            <FollowListDialog userId={user!.id} type="followers" count={followerCount}>
-              <button className="hover:underline"><strong className="text-foreground">{followerCount}</strong> followers</button>
-            </FollowListDialog>
-            <FollowListDialog userId={user!.id} type="following" count={followingCount}>
-              <button className="hover:underline"><strong className="text-foreground">{followingCount}</strong> following</button>
-            </FollowListDialog>
-          </div>
           {genres.length > 0 && (
             <div className="flex items-center gap-1 mt-2">
               {genres.map((g) => (

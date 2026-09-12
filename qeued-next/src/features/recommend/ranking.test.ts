@@ -8,6 +8,7 @@ import {
   combineScore,
   diversify,
   genreMix,
+  heuristicAxes,
   watchableNow,
 } from '../../../supabase/functions/_shared/ranking';
 
@@ -149,5 +150,43 @@ describe('buildSlate', () => {
 
   it('handles an empty candidate pool', () => {
     expect(buildSlate([], history)).toEqual({ picks: [], wildcard: null });
+  });
+});
+
+describe('heuristicAxes', () => {
+  const mix = { Thriller: 0.6, 'Sci-Fi': 0.3, Comedy: 0.1 };
+
+  it('scores a title in the viewer’s main genre above one outside it', () => {
+    const inside = heuristicAxes({ genres: ['Thriller'] }, mix);
+    const outside = heuristicAxes({ genres: ['Documentary'] }, mix);
+    expect(inside.theme).toBeGreaterThan(outside.theme);
+  });
+
+  it('treats an unfamiliar genre as novel', () => {
+    expect(heuristicAxes({ genres: ['Documentary'] }, mix).novelty).toBeGreaterThan(
+      heuristicAxes({ genres: ['Thriller'] }, mix).novelty,
+    );
+  });
+
+  it('rates a film easier to start than a six-season series', () => {
+    const film = heuristicAxes({ genres: [], type: 'movie', runtime_minutes: 100 }, mix);
+    const long = heuristicAxes({ genres: [], type: 'series', runtime_minutes: 55, seasons: 6 }, mix);
+    expect(film.effort).toBeGreaterThan(long.effort);
+  });
+
+  it('puts a title with no rating held mid-scale rather than at zero', () => {
+    expect(heuristicAxes({ genres: [] }, mix).craft).toBe(55);
+  });
+
+  it('keeps every axis within range', () => {
+    const axes = heuristicAxes({ genres: ['Thriller', 'Sci-Fi'], imdb_rating: 9.5, runtime_minutes: 30 }, mix);
+    for (const value of Object.values(axes)) {
+      expect(value).toBeGreaterThanOrEqual(0);
+      expect(value).toBeLessThanOrEqual(100);
+    }
+  });
+
+  it('works with no history at all', () => {
+    expect(() => heuristicAxes({ genres: ['Drama'] }, {})).not.toThrow();
   });
 });

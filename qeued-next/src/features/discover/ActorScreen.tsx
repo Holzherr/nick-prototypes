@@ -43,7 +43,7 @@ const ActorPage = () => {
       .from("actors")
       .select("*")
       .eq("id", id!)
-      .single();
+      .maybeSingle();
 
     if (error || !actorData) {
       setLoading(false);

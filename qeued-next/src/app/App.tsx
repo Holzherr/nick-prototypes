@@ -16,7 +16,6 @@ import AgentsPage from "@/features/agents/AgentsScreen";
 import ClaimPage from "@/features/agents/ClaimScreen";
 import ProfilePage from "@/features/social/ProfileScreen";
 import PublicProfilePage from "@/features/social/PublicProfileScreen";
-import InvitePage from "@/features/social/InviteScreen";
 import LandingPage from "@/features/landing/LandingScreen";
 import ExplorePage from "@/features/discover/ExploreScreen";
 import TitleDetailPage from "@/features/title/TitleDetailScreen";
@@ -80,7 +79,6 @@ const App = () => (
           <Route path="/tonight" element={<ProtectedRoute><TonightPage /></ProtectedRoute>} />
           <Route path="/search" element={<ProtectedRoute><SearchPage /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
-            <Route path="/invite" element={<InvitePage />} />
             <Route path="/p/:username" element={<PublicProfilePage />} />
             <Route path="/explore" element={<ExplorePage />} />
             <Route path="/title/:id" element={<TitleDetailPage />} />

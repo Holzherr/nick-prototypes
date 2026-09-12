@@ -65,7 +65,7 @@ const TitleDetailPage = () => {
       .from("titles")
       .select("*")
       .eq("id", id!)
-      .single();
+      .maybeSingle();
 
     if (error || !data) {
       setNotFound(true);
