@@ -109,13 +109,63 @@ export function setNameSound(name: string, soundsLike: string | null) {
 
 const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-export const pronounce = (text: string) => (nameSound ? text.replace(new RegExp(`\\b${escapeRegExp(nameSound.name)}\\b`, 'gi'), nameSound.soundsLike) : text);
+const swap = (text: string, name: string, soundsLike: string) => text.replace(new RegExp(`\\b${escapeRegExp(name)}\\b`, 'gi'), soundsLike);
 
-export function say(text: string) {
+export const pronounce = (text: string) => (nameSound ? swap(text, nameSound.name, nameSound.soundsLike) : text);
+
+/**
+ * Respellings to try for a name, best guess first.
+ *
+ * There is no phoneme control to reach for: Safari's speech API takes no SSML and no IPA, so respelling the
+ * word is the only lever, and which respelling works depends on the voice installed on the device. That
+ * cannot be decided in code — but the shortlist can be, and a grown-up settles it by ear in two taps.
+ *
+ * The vowel pairs are the ones that actually shift an English voice: doubling a consonant shortens the
+ * vowel before it ("Tarra"), an h lengthens it ("Tahra"), and a hyphen forces two beats ("Tah-ra").
+ */
+export function nameCandidates(name: string): string[] {
+  const trimmed = name.trim();
+  if (!trimmed) return [];
+  const out = [trimmed];
+  const add = (s: string) => {
+    if (s && s.toLowerCase() !== trimmed.toLowerCase() && !out.some((x) => x.toLowerCase() === s.toLowerCase())) out.push(s);
+  };
+
+  // a-stem names ("Tara", "Sara", "Clara") are the common case: short-a and long-a both sound wrong by turns.
+  const m = /^([A-Za-z]+?)([aeiou])([a-z]+)$/i.exec(trimmed);
+  if (m) {
+    const [, head, vowel, tail] = m;
+    add(`${head}${vowel}h${tail}`); // Tahra — lengthen
+    add(`${head}${vowel}${tail[0]}${tail}`); // Tarra — shorten
+    add(`${head}${vowel}h-${tail}`); // Tah-ra — two beats
+    add(`${head}${vowel}-${tail}`); // Ta-ra
+  }
+
+  // Names ending on the vowel ("Bo", "Mia", "Noa") match nothing above — the regex needs a letter after it.
+  // Left alone they offered no alternative at all, which is the one case where the chooser is useless.
+  const ending = /^([A-Za-z]*?)([aeiou])$/i.exec(trimmed);
+  if (ending) {
+    const [, head, vowel] = ending;
+    add(`${head}${vowel}h`); // Boh — hold the vowel
+    add(`${head}${vowel}${vowel}`); // Boo — longer still
+  }
+
+  add(trimmed.toUpperCase());
+  return out.slice(0, 5);
+}
+
+/** Speak `text` with `name` respelled as `soundsLike`, without saving that choice. For trying candidates. */
+export function sayAs(text: string, name: string, soundsLike: string) {
+  speak(soundsLike.trim() ? swap(text, name, soundsLike.trim()) : text);
+}
+
+export const say = (text: string) => speak(pronounce(text));
+
+function speak(text: string) {
   if (!canSpeak()) return;
   try {
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(pronounce(text));
+    const u = new SpeechSynthesisUtterance(text);
     if (voice) {
       u.voice = voice;
       u.lang = voice.lang;

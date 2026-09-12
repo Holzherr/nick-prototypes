@@ -29,6 +29,13 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   the Number, Which Has More?, One More Unicorn, **Make Ten** (number bonds, on a five/ten frame and then
   without one), **One Fewer** (taking away, watching balloons go) and **Ten and Some More** (the teens as
   ten-and-something). Spoken prompts in a British voice, stars, praise by name.
+- **Saying the name right** (`features/games/sound.ts`): the best English voice is picked automatically —
+  downloaded Premium/Enhanced first, then en-GB, novelty voices excluded — but a name still lands wrong as
+  often as not. There is no phoneme control to reach for: Safari's speech API takes neither SSML nor IPA, so
+  respelling the word is the only lever, and which respelling works depends on the voice installed on that
+  device. `nameCandidates` offers a shortlist instead of guessing — the name as written, then a longer vowel
+  ("Tahra"), a shorter one ("Tarra") and a two-beat form ("Tah-ra") — and the grown-ups screen speaks each on
+  tap, so it is settled by ear in two taps. Typing a spelling by hand still works.
 - **Home leads with one suggested game** (`features/games/recommend.ts`) and its reason, with the rest
   behind "Or pick another game": never played wins outright, then not played today, weak accuracy,
   staleness, and a boost when one good round would level it up — minus whatever was just played, so the
