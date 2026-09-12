@@ -1,4 +1,5 @@
 import { possessive } from '@/features/children/model';
+import { stageAge } from '@/features/curriculum/skills';
 import { gameById } from '@/features/games/catalog';
 import { A4Page } from '../A4Page';
 import { appUrl } from '../qr';
@@ -22,9 +23,10 @@ export function GuideSheet({ meta, options }: { meta: SheetMeta; options: SheetO
           <p className="text-[4mm] font-semibold uppercase tracking-wide text-bubble">Maths Garden · free printable</p>
           <h1 className="text-[11mm] font-bold leading-tight text-raspberry">{sheetTitle(meta, options.name)}</h1>
           <p className="mt-[2mm] text-[5mm] font-semibold">
-            Stage {options.stage} · {stage.label}
+            Stage {options.stage} · {stage.label} · usually ages {stageAge(meta.skill, options.stage)}
           </p>
           <p>{stage.goal}</p>
+          <p className="text-grape/70">Ages are typical, not a target: start where your child gets about four out of five right.</p>
         </div>
 
         <div>

@@ -13,6 +13,11 @@ export interface SkillStage {
   stage: StageNumber;
   range: string;
   goal: string;
+  /**
+   * The age most children are working on this, as a guide only. The spread between two entirely typical
+   * children is well over a year, and a child is usually on different stages for different skills.
+   */
+  age: string;
 }
 
 export interface Skill {
@@ -33,9 +38,9 @@ export const SKILLS: readonly Skill[] = [
     game: 'peek',
     probe: 'subitising',
     stages: [
-      { stage: 1, range: '1–3', goal: 'Says 1, 2 or 3 at a glance, without counting.' },
-      { stage: 2, range: '1–5', goal: 'Up to 5 at a glance in dice, scattered, row and five-frame patterns.' },
-      { stage: 3, range: '6–10', goal: 'Sees 6–10 as two small groups or a ten frame.' },
+      { stage: 1, range: '1–3', goal: 'Says 1, 2 or 3 at a glance, without counting.', age: '3–4' },
+      { stage: 2, range: '1–5', goal: 'Up to 5 at a glance in dice, scattered, row and five-frame patterns.', age: '4–5' },
+      { stage: 3, range: '6–10', goal: 'Sees 6–10 as two small groups or a ten frame.', age: '5–6' },
     ],
   },
   {
@@ -45,9 +50,9 @@ export const SKILLS: readonly Skill[] = [
     game: 'count',
     probe: 'objects',
     stages: [
-      { stage: 1, range: '1–5', goal: 'Touches each object once, one number per touch; the last number says how many.' },
-      { stage: 2, range: '1–8', goal: 'Keeps track of what has been counted in a messy group.' },
-      { stage: 3, range: '1–12', goal: 'Counts past 10 accurately and counts out a number asked for.' },
+      { stage: 1, range: '1–5', goal: 'Touches each object once, one number per touch; the last number says how many.', age: '3–4' },
+      { stage: 2, range: '1–8', goal: 'Keeps track of what has been counted in a messy group.', age: '4–5' },
+      { stage: 3, range: '1–12', goal: 'Counts past 10 accurately and counts out a number asked for.', age: '5–6' },
     ],
   },
   {
@@ -57,9 +62,9 @@ export const SKILLS: readonly Skill[] = [
     game: 'find',
     probe: 'numerals',
     stages: [
-      { stage: 1, range: '0–5', goal: 'Names and finds the numerals 0–5.' },
-      { stage: 2, range: '0–10', goal: 'Names and finds 0–10, including 6 and 9.' },
-      { stage: 3, range: '0–20', goal: 'Reads the teens without swapping digits (12 vs 21).' },
+      { stage: 1, range: '0–5', goal: 'Names and finds the numerals 0–5.', age: '3–4' },
+      { stage: 2, range: '0–10', goal: 'Names and finds 0–10, including 6 and 9.', age: '4–5' },
+      { stage: 3, range: '0–20', goal: 'Reads the teens without swapping digits (12 vs 21).', age: '5–6' },
     ],
   },
   {
@@ -69,9 +74,9 @@ export const SKILLS: readonly Skill[] = [
     game: 'more',
     probe: 'compare',
     stages: [
-      { stage: 1, range: '1–5', goal: 'Spots which group has more when the difference is clear.' },
-      { stage: 2, range: '1–8', goal: 'Compares close numbers and says “more”, “fewer”, “the same”.' },
-      { stage: 3, range: '1–12', goal: 'Compares groups that look different (big spread vs small tight).' },
+      { stage: 1, range: '1–5', goal: 'Spots which group has more when the difference is clear.', age: '3–4' },
+      { stage: 2, range: '1–8', goal: 'Compares close numbers and says “more”, “fewer”, “the same”.', age: '4–5' },
+      { stage: 3, range: '1–12', goal: 'Compares groups that look different (big spread vs small tight).', age: '5–6' },
     ],
   },
   {
@@ -81,9 +86,9 @@ export const SKILLS: readonly Skill[] = [
     game: 'add',
     probe: 'adding',
     stages: [
-      { stage: 1, range: 'within 5', goal: '“One more” and “two more” with objects.' },
-      { stage: 2, range: 'within 8', goal: 'Counts on from the first group instead of starting again.' },
-      { stage: 3, range: 'within 10', goal: 'Adds 1–3 on to any number up to 10.' },
+      { stage: 1, range: 'within 5', goal: '“One more” and “two more” with objects.', age: '4–5' },
+      { stage: 2, range: 'within 8', goal: 'Counts on from the first group instead of starting again.', age: '5–6' },
+      { stage: 3, range: 'within 10', goal: 'Adds 1–3 on to any number up to 10.', age: '6–7' },
     ],
   },
   {
@@ -93,11 +98,16 @@ export const SKILLS: readonly Skill[] = [
     game: null,
     probe: 'rote',
     stages: [
-      { stage: 1, range: 'to 10', goal: 'Says the numbers to 10 in order.' },
-      { stage: 2, range: 'to 20', goal: 'Counts to 20 including the teens.' },
-      { stage: 3, range: 'to 30, back from 10', goal: 'Counts to 30 and back from 10 (rocket countdown).' },
+      { stage: 1, range: 'to 10', goal: 'Says the numbers to 10 in order.', age: '3–4' },
+      { stage: 2, range: 'to 20', goal: 'Counts to 20 including the teens.', age: '4–5' },
+      { stage: 3, range: 'to 30, back from 10', goal: 'Counts to 30 and back from 10 (rocket countdown).', age: '5–6' },
     ],
   },
 ];
 
 export const skillForGame = (game: GameId): Skill | undefined => SKILLS.find((s) => s.game === game);
+
+export const skillById = (id: SkillId): Skill | undefined => SKILLS.find((s) => s.id === id);
+
+/** The typical age for one stage of one skill ("4–5"), for labelling printables and stage pickers. */
+export const stageAge = (skill: SkillId, stage: StageNumber): string => skillById(skill)?.stages[stage - 1].age ?? '';
