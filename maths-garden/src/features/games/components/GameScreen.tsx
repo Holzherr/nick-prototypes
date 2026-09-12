@@ -8,15 +8,24 @@ import { Burst } from './Burst';
 import { QuestionView } from './QuestionView';
 import { StarRow } from './StarRow';
 
+/** A round left part-way through, enough to carry on exactly where it stopped. */
+export interface PausedRound {
+  questions: Question[];
+  index: number;
+  answers: AnswerRecord[];
+}
+
 export interface GameScreenProps {
   game: Game;
   level: number;
   childName: string;
   /** Fixed questions (stories, tests); otherwise a random round for the level. */
   questions?: Question[];
+  /** Carrying on a paused round: same questions, same place, same answers. */
+  resume?: PausedRound;
   onFinish: (answers: AnswerRecord[]) => void;
-  /** Left mid-round, with the answers given so far. */
-  onHome: (answersSoFar: AnswerRecord[]) => void;
+  /** Left mid-round, with everything needed to carry on later. */
+  onHome: (paused: PausedRound) => void;
 }
 
 /**
@@ -24,10 +33,10 @@ export interface GameScreenProps {
  * after each tap. Logs answer time, whole-question time, counting taps and replays per question; says
  * "Three in a row!" on streaks; after two misses in a row, asks the next question from the level below.
  */
-export function GameScreen({ game, level, childName, questions: preset, onFinish, onHome }: GameScreenProps) {
-  const [questions, setQuestions] = useState(() => preset ?? makeRound(game.id, game.levels[level]));
-  const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState<AnswerRecord[]>([]);
+export function GameScreen({ game, level, childName, questions: preset, resume, onFinish, onHome }: GameScreenProps) {
+  const [questions, setQuestions] = useState(() => resume?.questions ?? preset ?? makeRound(game.id, game.levels[level]));
+  const [index, setIndex] = useState(resume?.index ?? 0);
+  const [answers, setAnswers] = useState<AnswerRecord[]>(resume?.answers ?? []);
   const [chosen, setChosen] = useState<Choice | null>(null);
   const eased = useRef(new Set<number>());
   const track = useRef({ shownAt: 0, readyAt: 0, taps: 0, counted: 0, replays: 0 });
@@ -89,7 +98,9 @@ export function GameScreen({ game, level, childName, questions: preset, onFinish
           onClick={() => {
             hush();
             window.clearTimeout(timer.current);
-            onHome(answers);
+            // Hand back the whole round, not just the answers: leaving is a pause, so home can offer to
+            // carry on from this exact question rather than throwing the round away on one stray tap.
+            onHome({ questions, index, answers });
           }}
         >
           🏠

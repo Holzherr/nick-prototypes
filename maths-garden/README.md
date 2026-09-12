@@ -36,6 +36,13 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   device. `nameCandidates` offers a shortlist instead of guessing — the name as written, then a longer vowel
   ("Tahra"), a shorter one ("Tarra") and a two-beat form ("Tah-ra") — and the grown-ups screen speaks each on
   tap, so it is settled by ear in two taps. Typing a spelling by hand still works.
+- **Leaving a round pauses it** (`GameScreen` → `GardenApp`): the 🏠 button sits at a child's fingertip and
+  fires on one tap, and it used to bin a half-finished round with no way back. It now hands the whole round
+  out — questions, place and answers — which `GardenApp` holds (above `GameScreen`, which dies on exit), and
+  home offers "Carry on" above everything else. The round is only written as abandoned when she actually
+  starts a different game, so the frustration signal survives without a stray tap costing her the round.
+  Abandoned rounds never counted towards levels or accuracy anyway — `roundsOf` filters on `finished` — they
+  only show as "n left early" in the week summary.
 - **Home leads with one suggested game** (`features/games/recommend.ts`) and its reason, with the rest
   behind "Or pick another game": never played wins outright, then not played today, weak accuracy,
   staleness, and a boost when one good round would level it up — minus whatever was just played, so the
