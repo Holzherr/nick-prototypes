@@ -68,7 +68,9 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   Records keep their ids, so importing twice changes nothing. A live session beats the `maths-garden:guest`
   flag in `app/App.tsx`: that flag is sticky, and while it was checked first, one tap of "carry on without
   an account" left every later open showing the guest app over a signed-in session — no account name, and
-  no import offer, since guest mode passes `allowGuestImport={false}`.
+  no import offer, since guest mode passes `allowGuestImport={false}`. `#/login` beats the flag as well:
+  while it did not, the sign-in form could not be reached at all from a device that had ever tapped guest
+  mode, and the only route back to it was "Sign in to save →" on the grown-ups screen, behind the sum.
 - **Offline-first:** every write lands in local storage first and uploads when there is signal
   (`features/progress/repo.ts`).
 - **Printables** (`#/resources`, public, no sign-in): the Quick Peek dot card maker, plus counting mats,
