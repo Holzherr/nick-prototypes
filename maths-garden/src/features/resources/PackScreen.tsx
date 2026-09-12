@@ -65,7 +65,7 @@ export function PackScreen({ options }: { options: PackOptions }) {
                     {skill.emoji} {skill.name}
                   </span>
                   <span>
-                    Stage {stages[skill.id]} · {skill.stages[stages[skill.id] - 1].range}
+                    Stage {stages[skill.id]} · {skill.stages[stages[skill.id] - 1].range} · usually {skill.stages[stages[skill.id] - 1].age}
                   </span>
                 </li>
               ))}

@@ -26,6 +26,11 @@ export function ResourcesScreen() {
         <p className="mt-2 max-w-[640px] text-lg text-grape/80">
           Cards and games for early maths, ages 3–6. Personalise them with your child’s name and a favourite picture. Free, no sign-up, no paywall.
         </p>
+        <p className="mt-4 max-w-[640px] rounded-[24px] bg-cream p-4 text-grape/80 candy-petal [--candy:6px]">
+          <b>Stages, not school years.</b> The ages below are what is typical, not a target — the spread between two perfectly normal children is well over a
+          year, and most children sit on different stages for different skills (counting to 12 while still adding within 5). Start at the stage your child gets
+          about four out of five right, and move up when that feels easy.
+        </p>
 
         <ol className="mt-8 grid gap-4 sm:grid-cols-3">
           {STEPS.map(([emoji, title, text], i) => (
@@ -45,33 +50,48 @@ export function ResourcesScreen() {
               <h2 className="text-2xl font-semibold text-raspberry">
                 {skill.emoji} {skill.name}
               </h2>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {skill.stages.map((s) => (
-                  <span key={s.stage} className="rounded-full bg-blush px-3 py-1 text-sm" title={s.goal}>
-                    Stage {s.stage} · {s.range}
-                  </span>
-                ))}
-              </div>
-              <ul className="mt-4 flex flex-col gap-3">
-                {printablesFor(skill.id).map((p) => (
-                  <li key={p.id} className={cn('flex flex-wrap items-center justify-between gap-3 rounded-2xl p-4', p.status === 'ready' ? 'bg-petal/50' : 'bg-blush/60')}>
-                    <div className="min-w-[220px] flex-1">
-                      <b className="text-lg">{p.title}</b>
-                      <p className="text-sm text-grape/75">{p.description}</p>
-                    </div>
-                    {p.status === 'ready' && p.link ? (
-                      <div className="flex flex-wrap gap-2">
-                        {p.stages.map((stage) => (
-                          <a key={stage} href={p.link?.(stage)} className={buttonVariants({ size: 'sm' })}>
-                            Stage {stage}
-                          </a>
-                        ))}
+              <p className="mt-1 text-sm text-grape/70">
+                {printablesFor(skill.id)
+                  .filter((p) => p.status === 'ready')
+                  .map((p) => p.description)
+                  .join(' ')}
+              </p>
+
+              <div className="mt-4 grid gap-3 md:grid-cols-3">
+                {skill.stages.map((s) => {
+                  const ready = printablesFor(skill.id).filter((p) => p.status === 'ready' && p.link && p.stages.includes(s.stage));
+                  return (
+                    <div key={s.stage} className="flex flex-col rounded-[24px] bg-petal/40 p-4">
+                      <div className="flex items-baseline justify-between gap-2">
+                        <b className="text-lg">Stage {s.stage}</b>
+                        <span className="rounded-full bg-cream px-2.5 py-0.5 text-sm font-semibold text-grape/80">usually {s.age}</span>
                       </div>
-                    ) : (
-                      <span className="rounded-full bg-white px-3 py-1 text-sm text-grape/60">Coming soon</span>
-                    )}
-                  </li>
-                ))}
+                      <p className="mt-0.5 text-sm font-semibold text-raspberry">{s.range}</p>
+                      <p className="mt-1 flex-1 text-sm text-grape/80">{s.goal}</p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {ready.length ? (
+                          ready.map((p) => (
+                            <a key={p.id} href={p.link?.(s.stage)} className={buttonVariants({ size: 'sm' })}>
+                              🖨 Print
+                            </a>
+                          ))
+                        ) : (
+                          <span className="rounded-full bg-white px-3 py-1 text-sm text-grape/60">Coming soon</span>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <ul className={cn('mt-3 flex flex-col gap-2', 'text-sm text-grape/70')}>
+                {printablesFor(skill.id)
+                  .filter((p) => p.status !== 'ready')
+                  .map((p) => (
+                    <li key={p.id} className="rounded-2xl bg-blush/60 p-3">
+                      <b>{p.title}</b> — {p.description} <span className="text-grape/55">(coming soon)</span>
+                    </li>
+                  ))}
               </ul>
             </section>
           ))}

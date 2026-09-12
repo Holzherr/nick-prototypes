@@ -1,3 +1,4 @@
+import { stageAge } from '@/features/curriculum/skills';
 import { Button } from '@/shared/components/ui/button';
 import { Card } from '@/shared/components/ui/card';
 import { Input } from '@/shared/components/ui/input';
@@ -59,7 +60,7 @@ export function CardOptionsPanel({ options, onChange, cardCount, pageCount, onPr
         <div className="flex flex-col gap-2">
           {([1, 2, 3] as Stage[]).map((s) => (
             <button key={s} type="button" aria-pressed={options.stage === s} className={chip(options.stage === s)} onClick={() => set({ stage: s })}>
-              <b>Stage {s}</b> · {STAGES[s].label}
+              <b>Stage {s}</b> · {STAGES[s].label} <span className="text-grape/60">· usually {stageAge('subitising', s)}</span>
               <span className="block text-sm text-grape/70">{STAGES[s].goal}</span>
             </button>
           ))}

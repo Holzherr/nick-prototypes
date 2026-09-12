@@ -1,3 +1,4 @@
+import { stageAge } from '@/features/curriculum/skills';
 import { GAMES } from '@/features/games/catalog';
 import { AppIcon } from '@/shared/brand/AppIcon';
 import { buttonVariants } from '@/shared/components/ui/button';
@@ -100,7 +101,8 @@ export function HomeScreen() {
       <Section id="printables" className="mt-16">
         <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">Free resources</h2>
         <p className="mx-auto mt-2 max-w-[620px] text-center text-grape/75">
-          Every sheet is personalised with your child’s name and a picture they like, in three stages. No sign-in, no email, no watermark.
+          Every sheet is personalised with your child’s name and a picture they like, in three stages. The ages are typical, not targets — most children are on
+          different stages for different skills. No sign-in, no email, no watermark.
         </p>
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {RESOURCE_MENU.map(({ skill, printables }) => (
@@ -115,7 +117,7 @@ export function HomeScreen() {
                   <div className="mt-2 flex flex-wrap gap-2">
                     {printable.stages.map((stage) => (
                       <a key={stage} href={printable.link?.(stage)} className={buttonVariants({ variant: 'quiet', size: 'sm' })}>
-                        Stage {stage}
+                        Stage {stage} · {stageAge(skill.id, stage)}
                       </a>
                     ))}
                   </div>
