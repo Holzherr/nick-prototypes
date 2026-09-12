@@ -1,3 +1,4 @@
+import { ScoringDiagram } from '@/features/progress/components/ScoringDiagram';
 import { buttonVariants } from '@/shared/components/ui/button';
 import { ARTICLES, type Article, type Block } from '../articles';
 
@@ -28,6 +29,8 @@ function Piece({ block }: { block: Block }) {
           ))}
         </div>
       );
+    case 'diagram':
+      return <ScoringDiagram className="mt-6" />;
     case 'callout':
       return (
         <aside className="mt-6 rounded-[24px] bg-blush p-5">
