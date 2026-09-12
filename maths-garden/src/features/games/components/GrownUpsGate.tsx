@@ -10,15 +10,35 @@ export interface GrownUpsGateProps {
 }
 
 const WINDOW = 10 * 60_000;
-let passedAt = 0;
+const PASSED_KEY = 'maths-garden:grown-ups-passed';
 
 /**
- * Whether the sum was answered recently enough to skip. Module state, so it survives a remount of the
- * garden — signing in from the grown-ups screen rebuilds the whole tree, which used to mean answering a
- * second sum to get back to the screen you were already on. It dies with the tab, and expires after ten
- * minutes, so a child who picks the iPad up later still meets the gate.
+ * When the sum was last answered. Kept in sessionStorage rather than a module variable: module state dies
+ * with the document, so reloading the grown-ups screen asked for the sum again — the screen survived the
+ * refresh but the pass did not. sessionStorage survives a reload, is private to the tab, and is dropped when
+ * the tab closes, so a child opening the app fresh still meets the gate.
+ *
+ * Both ends swallow errors on purpose. Safari throws on storage access in private mode, and a gate that
+ * throws would take the whole grown-ups screen down; failing closed just means asking the sum again.
  */
-export const grownUpsPassed = () => Date.now() - passedAt < WINDOW;
+const readPassedAt = (): number => {
+  try {
+    return Number(sessionStorage.getItem(PASSED_KEY)) || 0;
+  } catch {
+    return 0;
+  }
+};
+
+const writePassedAt = (at: number) => {
+  try {
+    sessionStorage.setItem(PASSED_KEY, String(at));
+  } catch {
+    // Best effort: the gate simply asks again.
+  }
+};
+
+/** Whether the sum was answered recently enough to skip — across a reload, for ten minutes. */
+export const grownUpsPassed = () => Date.now() - readPassedAt() < WINDOW;
 
 /** "Grown-ups only — What is 7 + 5?" with three round answers; a wrong tap goes back home. Sums a four-year-old can't do yet. */
 export function GrownUpsGate({ onPass, onCancel, rng = Math.random }: GrownUpsGateProps) {
@@ -47,7 +67,7 @@ export function GrownUpsGate({ onPass, onCancel, rng = Math.random }: GrownUpsGa
               className="size-[84px] text-4xl"
               onClick={() => {
                 if (n !== sum.a + sum.b) return onCancel();
-                passedAt = Date.now();
+                writePassedAt(Date.now());
                 onPass();
               }}
             >
