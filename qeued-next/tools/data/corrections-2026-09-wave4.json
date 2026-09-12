@@ -1,0 +1,79 @@
+[
+  {
+    "slug": "the-cabinet-of-dr-caligari-1920",
+    "reason": "Tagged Documentary. It is a silent horror film.",
+    "remove_genres": [
+      "Documentary"
+    ]
+  },
+  {
+    "slug": "seabiscuit-2003",
+    "reason": "Tagged Documentary. It is a drama.",
+    "remove_genres": [
+      "Documentary"
+    ]
+  },
+  {
+    "slug": "children-of-heaven-1997",
+    "reason": "Tagged Documentary. It is a drama.",
+    "remove_genres": [
+      "Documentary"
+    ]
+  },
+  {
+    "slug": "dead-ringers-1988",
+    "reason": "Tagged Documentary. It is a psychological thriller.",
+    "remove_genres": [
+      "Documentary"
+    ]
+  },
+  {
+    "slug": "fill-the-void-2012",
+    "reason": "Tagged Documentary. It is a drama.",
+    "remove_genres": [
+      "Documentary"
+    ]
+  },
+  {
+    "slug": "over-the-garden-wall-2014",
+    "reason": "Director field held the supervising director; the creator is Patrick McHale.",
+    "fields": {
+      "director": "Patrick McHale"
+    }
+  },
+  {
+    "slug": "city-lights-1931",
+    "reason": "Stored as 123 minutes; the film runs 87, and 123 matches no known cut.",
+    "fields": {
+      "runtime_minutes": 87
+    }
+  },
+  {
+    "slug": "grey-gardens-1975",
+    "reason": "Co-director recorded as \"Ellen Giffard\"; she is Ellen Hovde.",
+    "fields": {
+      "director": "Albert Maysles, David Maysles, Ellen Hovde, Muffie Meyer"
+    }
+  },
+  {
+    "slug": "carlos-2010",
+    "reason": "Stored as 640 minutes, which matches neither the 330-minute extended cut nor the 165-minute theatrical one.",
+    "fields": {
+      "runtime_minutes": 330
+    }
+  },
+  {
+    "slug": "the-machine-2013",
+    "reason": "Tagged Documentary. It is a science-fiction drama.",
+    "remove_genres": [
+      "Documentary"
+    ]
+  },
+  {
+    "slug": "last-chance-u-2016",
+    "reason": "Director recorded as Luke Lorentzen, a different documentarian; the series is Greg Whiteley's.",
+    "fields": {
+      "director": "Greg Whiteley"
+    }
+  }
+]
