@@ -204,8 +204,11 @@ export function DashboardScreen({
             🖨 Free printables
           </a>
           {/* A device can sit on a cached build for days with no way to tell from the screen. One glance
-              here says which build it is actually running, which is otherwise pure guesswork. */}
-          <p className="text-xs text-grape/45">Build {__BUILD__}</p>
+              here says which build it is actually running, which is otherwise pure guesswork — and the
+              link opens everything else worth knowing about this device. */}
+          <a href="#/diagnostics" className="text-xs text-grape/45 underline">
+            Build {__BUILD__} · about this device
+          </a>
         </footer>
       </Card>
     </div>
