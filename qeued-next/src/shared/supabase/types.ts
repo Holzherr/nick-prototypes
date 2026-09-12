@@ -97,6 +97,7 @@ export type Database = {
       }
       agent_tokens: {
         Row: {
+          client_id: string | null
           created_at: string
           expires_at: string | null
           id: string
@@ -108,6 +109,7 @@ export type Database = {
           token_hash: string
         }
         Insert: {
+          client_id?: string | null
           created_at?: string
           expires_at?: string | null
           id?: string
@@ -119,6 +121,7 @@ export type Database = {
           token_hash: string
         }
         Update: {
+          client_id?: string | null
           created_at?: string
           expires_at?: string | null
           id?: string
@@ -130,6 +133,13 @@ export type Database = {
           token_hash?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "agent_tokens_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "oauth_clients"
+            referencedColumns: ["client_id"]
+          },
           {
             foreignKeyName: "agent_tokens_profile_id_fkey"
             columns: ["profile_id"]
@@ -273,6 +283,84 @@ export type Database = {
           owner_user_id?: string
         }
         Relationships: []
+      }
+      oauth_clients: {
+        Row: {
+          client_id: string
+          client_name: string | null
+          created_at: string
+          last_used_at: string | null
+          redirect_uris: string[]
+        }
+        Insert: {
+          client_id: string
+          client_name?: string | null
+          created_at?: string
+          last_used_at?: string | null
+          redirect_uris: string[]
+        }
+        Update: {
+          client_id?: string
+          client_name?: string | null
+          created_at?: string
+          last_used_at?: string | null
+          redirect_uris?: string[]
+        }
+        Relationships: []
+      }
+      oauth_codes: {
+        Row: {
+          client_id: string
+          code: string
+          code_challenge: string
+          code_challenge_method: string
+          created_at: string
+          expires_at: string
+          profile_id: string
+          redirect_uri: string
+          scopes: string[]
+          used_at: string | null
+        }
+        Insert: {
+          client_id: string
+          code: string
+          code_challenge: string
+          code_challenge_method?: string
+          created_at?: string
+          expires_at?: string
+          profile_id: string
+          redirect_uri: string
+          scopes?: string[]
+          used_at?: string | null
+        }
+        Update: {
+          client_id?: string
+          code?: string
+          code_challenge?: string
+          code_challenge_method?: string
+          created_at?: string
+          expires_at?: string
+          profile_id?: string
+          redirect_uri?: string
+          scopes?: string[]
+          used_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "oauth_codes_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "oauth_clients"
+            referencedColumns: ["client_id"]
+          },
+          {
+            foreignKeyName: "oauth_codes_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       profiles: {
         Row: {
@@ -768,6 +856,15 @@ export type Database = {
         Returns: boolean
       }
       claim_profile: { Args: { p_claim_code: string }; Returns: string }
+      create_oauth_code: {
+        Args: {
+          p_client_id: string
+          p_code_challenge: string
+          p_profile_id: string
+          p_redirect_uri: string
+        }
+        Returns: string
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
