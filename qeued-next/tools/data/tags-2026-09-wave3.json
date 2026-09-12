@@ -1,0 +1,2345 @@
+[
+ {
+  "slug": "13th-2016",
+  "tones": [
+   "bleak",
+   "earnest"
+  ],
+  "themes": [
+   "race",
+   "justice",
+   "history",
+   "politics"
+  ]
+ },
+ {
+  "slug": "28-days-later-2002",
+  "tones": [
+   "tense",
+   "bleak"
+  ],
+  "themes": [
+   "survival",
+   "isolation",
+   "power"
+  ]
+ },
+ {
+  "slug": "4-months-3-weeks-and-2-days-2007",
+  "tones": [
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "friendship",
+   "politics",
+   "class"
+  ]
+ },
+ {
+  "slug": "8-1-2-1963",
+  "tones": [
+   "playful",
+   "melancholy"
+  ],
+  "themes": [
+   "art",
+   "memory",
+   "marriage"
+  ]
+ },
+ {
+  "slug": "a-matter-of-life-and-death-1946",
+  "tones": [
+   "romantic",
+   "playful",
+   "uplifting"
+  ],
+  "themes": [
+   "war",
+   "faith",
+   "justice"
+  ]
+ },
+ {
+  "slug": "a-real-pain-2024",
+  "tones": [
+   "funny",
+   "melancholy"
+  ],
+  "themes": [
+   "family",
+   "grief",
+   "history"
+  ]
+ },
+ {
+  "slug": "a-silent-voice-2016",
+  "tones": [
+   "melancholy",
+   "earnest"
+  ],
+  "themes": [
+   "coming-of-age",
+   "friendship",
+   "identity"
+  ]
+ },
+ {
+  "slug": "adolescence-2025",
+  "tones": [
+   "tense",
+   "bleak"
+  ],
+  "themes": [
+   "crime",
+   "family",
+   "parenthood",
+   "justice"
+  ]
+ },
+ {
+  "slug": "airplane-1980",
+  "tones": [
+   "absurd",
+   "funny"
+  ],
+  "themes": [
+   "survival",
+   "workplace"
+  ]
+ },
+ {
+  "slug": "all-about-eve-1950",
+  "tones": [
+   "funny",
+   "cool"
+  ],
+  "themes": [
+   "ambition",
+   "art",
+   "power"
+  ]
+ },
+ {
+  "slug": "all-about-my-mother-1999",
+  "tones": [
+   "warm",
+   "melancholy"
+  ],
+  "themes": [
+   "grief",
+   "parenthood",
+   "identity",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "american-factory-2019",
+  "tones": [
+   "tense",
+   "earnest"
+  ],
+  "themes": [
+   "workplace",
+   "class",
+   "money",
+   "politics"
+  ]
+ },
+ {
+  "slug": "amores-perros-2000",
+  "tones": [
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "class",
+   "crime",
+   "family"
+  ]
+ },
+ {
+  "slug": "amy-2015",
+  "tones": [
+   "bleak",
+   "melancholy"
+  ],
+  "themes": [
+   "music",
+   "addiction",
+   "family"
+  ]
+ },
+ {
+  "slug": "anora-2024",
+  "tones": [
+   "funny",
+   "melancholy"
+  ],
+  "themes": [
+   "class",
+   "money",
+   "marriage"
+  ]
+ },
+ {
+  "slug": "another-round-2020",
+  "tones": [
+   "funny",
+   "melancholy"
+  ],
+  "themes": [
+   "addiction",
+   "friendship",
+   "marriage"
+  ]
+ },
+ {
+  "slug": "apollo-11-2019",
+  "tones": [
+   "uplifting",
+   "tense"
+  ],
+  "themes": [
+   "history",
+   "technology",
+   "ambition"
+  ]
+ },
+ {
+  "slug": "arcane-2021",
+  "tones": [
+   "tense",
+   "melancholy"
+  ],
+  "themes": [
+   "family",
+   "class",
+   "power",
+   "technology"
+  ]
+ },
+ {
+  "slug": "atlantics-2019",
+  "tones": [
+   "unsettling",
+   "melancholy",
+   "romantic"
+  ],
+  "themes": [
+   "class",
+   "money",
+   "grief"
+  ]
+ },
+ {
+  "slug": "attack-on-titan-2013",
+  "tones": [
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "war",
+   "survival",
+   "revenge",
+   "power"
+  ]
+ },
+ {
+  "slug": "avatar-the-last-airbender-2005",
+  "tones": [
+   "playful",
+   "earnest"
+  ],
+  "themes": [
+   "war",
+   "coming-of-age",
+   "identity",
+   "power"
+  ]
+ },
+ {
+  "slug": "blue-planet-ii-2017",
+  "tones": [
+   "uplifting",
+   "earnest"
+  ],
+  "themes": [
+   "nature",
+   "survival"
+  ]
+ },
+ {
+  "slug": "booksmart-2019",
+  "tones": [
+   "funny",
+   "warm"
+  ],
+  "themes": [
+   "friendship",
+   "coming-of-age",
+   "ambition"
+  ]
+ },
+ {
+  "slug": "bridesmaids-2011",
+  "tones": [
+   "funny",
+   "melancholy"
+  ],
+  "themes": [
+   "friendship",
+   "marriage",
+   "class"
+  ]
+ },
+ {
+  "slug": "brief-encounter-1945",
+  "tones": [
+   "melancholy",
+   "romantic"
+  ],
+  "themes": [
+   "marriage",
+   "class"
+  ]
+ },
+ {
+  "slug": "broadchurch-2013",
+  "tones": [
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "crime",
+   "grief",
+   "family",
+   "justice"
+  ]
+ },
+ {
+  "slug": "butch-cassidy-and-the-sundance-kid-1969",
+  "tones": [
+   "funny",
+   "cool",
+   "melancholy"
+  ],
+  "themes": [
+   "friendship",
+   "crime",
+   "survival"
+  ]
+ },
+ {
+  "slug": "cabaret-1972",
+  "tones": [
+   "cool",
+   "unsettling",
+   "melancholy"
+  ],
+  "themes": [
+   "politics",
+   "music",
+   "history",
+   "identity"
+  ]
+ },
+ {
+  "slug": "carrie-1976",
+  "tones": [
+   "unsettling",
+   "bleak"
+  ],
+  "themes": [
+   "coming-of-age",
+   "revenge",
+   "faith",
+   "family"
+  ]
+ },
+ {
+  "slug": "challengers-2024",
+  "tones": [
+   "tense",
+   "playful",
+   "romantic"
+  ],
+  "themes": [
+   "sport",
+   "ambition",
+   "friendship",
+   "marriage"
+  ]
+ },
+ {
+  "slug": "cinema-paradiso-1988",
+  "tones": [
+   "warm",
+   "melancholy"
+  ],
+  "themes": [
+   "memory",
+   "friendship",
+   "art",
+   "coming-of-age"
+  ]
+ },
+ {
+  "slug": "citizenfour-2014",
+  "tones": [
+   "tense",
+   "unsettling"
+  ],
+  "themes": [
+   "espionage",
+   "politics",
+   "technology",
+   "power"
+  ]
+ },
+ {
+  "slug": "close-2022",
+  "tones": [
+   "melancholy",
+   "bleak"
+  ],
+  "themes": [
+   "friendship",
+   "coming-of-age",
+   "grief",
+   "identity"
+  ]
+ },
+ {
+  "slug": "clueless-1995",
+  "tones": [
+   "funny",
+   "playful",
+   "warm"
+  ],
+  "themes": [
+   "class",
+   "coming-of-age",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "cold-war-2018",
+  "tones": [
+   "melancholy",
+   "cool",
+   "romantic"
+  ],
+  "themes": [
+   "politics",
+   "music",
+   "history"
+  ]
+ },
+ {
+  "slug": "conclave-2024",
+  "tones": [
+   "tense",
+   "cool"
+  ],
+  "themes": [
+   "faith",
+   "power",
+   "politics"
+  ]
+ },
+ {
+  "slug": "cowboy-bebop-1998",
+  "tones": [
+   "cool",
+   "melancholy"
+  ],
+  "themes": [
+   "crime",
+   "friendship",
+   "memory",
+   "isolation"
+  ]
+ },
+ {
+  "slug": "deutschland-83-2015",
+  "tones": [
+   "tense",
+   "playful"
+  ],
+  "themes": [
+   "espionage",
+   "politics",
+   "family"
+  ]
+ },
+ {
+  "slug": "dont-look-now-1973",
+  "tones": [
+   "unsettling",
+   "melancholy"
+  ],
+  "themes": [
+   "grief",
+   "marriage",
+   "memory"
+  ]
+ },
+ {
+  "slug": "dr-strangelove-or-how-i-learned-to-stop-worrying-and-love-the-bomb-1964",
+  "tones": [
+   "absurd",
+   "funny",
+   "unsettling"
+  ],
+  "themes": [
+   "war",
+   "politics",
+   "power",
+   "technology"
+  ]
+ },
+ {
+  "slug": "dune-2021",
+  "tones": [
+   "tense",
+   "cool"
+  ],
+  "themes": [
+   "power",
+   "politics",
+   "family",
+   "faith"
+  ]
+ },
+ {
+  "slug": "evil-dead-ii-1987",
+  "tones": [
+   "absurd",
+   "funny",
+   "unsettling"
+  ],
+  "themes": [
+   "survival",
+   "isolation"
+  ]
+ },
+ {
+  "slug": "exit-through-the-gift-shop-2010",
+  "tones": [
+   "funny",
+   "playful"
+  ],
+  "themes": [
+   "art",
+   "money",
+   "identity"
+  ]
+ },
+ {
+  "slug": "farewell-my-concubine-1993",
+  "tones": [
+   "melancholy",
+   "bleak"
+  ],
+  "themes": [
+   "history",
+   "art",
+   "identity",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "fire-of-love-2022",
+  "tones": [
+   "playful",
+   "melancholy"
+  ],
+  "themes": [
+   "nature",
+   "marriage",
+   "ambition"
+  ]
+ },
+ {
+  "slug": "flee-2021",
+  "tones": [
+   "melancholy",
+   "tense"
+  ],
+  "themes": [
+   "memory",
+   "identity",
+   "family",
+   "survival"
+  ]
+ },
+ {
+  "slug": "flow-2024",
+  "tones": [
+   "tense",
+   "uplifting"
+  ],
+  "themes": [
+   "nature",
+   "survival",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "force-majeure-2014",
+  "tones": [
+   "funny",
+   "unsettling"
+  ],
+  "themes": [
+   "marriage",
+   "family",
+   "identity"
+  ]
+ },
+ {
+  "slug": "four-weddings-and-a-funeral-1994",
+  "tones": [
+   "funny",
+   "romantic",
+   "melancholy"
+  ],
+  "themes": [
+   "friendship",
+   "marriage",
+   "grief"
+  ]
+ },
+ {
+  "slug": "free-solo-2018",
+  "tones": [
+   "tense",
+   "earnest"
+  ],
+  "themes": [
+   "sport",
+   "ambition",
+   "nature"
+  ]
+ },
+ {
+  "slug": "fullmetal-alchemist-brotherhood-2009",
+  "tones": [
+   "earnest",
+   "tense"
+  ],
+  "themes": [
+   "family",
+   "grief",
+   "war",
+   "power"
+  ]
+ },
+ {
+  "slug": "futureworld-1976",
+  "tones": [
+   "tense",
+   "unsettling"
+  ],
+  "themes": [
+   "technology",
+   "identity",
+   "power"
+  ]
+ },
+ {
+  "slug": "gavin-stacey-2007",
+  "tones": [
+   "warm",
+   "funny"
+  ],
+  "themes": [
+   "family",
+   "friendship",
+   "marriage"
+  ]
+ },
+ {
+  "slug": "get-carter-1971",
+  "tones": [
+   "bleak",
+   "cool"
+  ],
+  "themes": [
+   "revenge",
+   "crime",
+   "family"
+  ]
+ },
+ {
+  "slug": "ghost-in-the-shell-1995",
+  "tones": [
+   "cool",
+   "unsettling",
+   "melancholy"
+  ],
+  "themes": [
+   "identity",
+   "technology",
+   "memory"
+  ]
+ },
+ {
+  "slug": "godzilla-minus-one-2023",
+  "tones": [
+   "tense",
+   "earnest",
+   "melancholy"
+  ],
+  "themes": [
+   "war",
+   "survival",
+   "grief"
+  ]
+ },
+ {
+  "slug": "gomorrah-2014",
+  "tones": [
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "crime",
+   "family",
+   "power"
+  ]
+ },
+ {
+  "slug": "grizzly-man-2005",
+  "tones": [
+   "unsettling",
+   "melancholy"
+  ],
+  "themes": [
+   "nature",
+   "isolation",
+   "identity"
+  ]
+ },
+ {
+  "slug": "groundhog-day-1993",
+  "tones": [
+   "funny",
+   "melancholy",
+   "warm"
+  ],
+  "themes": [
+   "identity",
+   "isolation"
+  ]
+ },
+ {
+  "slug": "half-man-2026",
+  "tones": [
+   "bleak",
+   "unsettling"
+  ],
+  "themes": [
+   "family",
+   "friendship",
+   "identity"
+  ]
+ },
+ {
+  "slug": "halloween-1978",
+  "tones": [
+   "tense",
+   "unsettling"
+  ],
+  "themes": [
+   "survival",
+   "isolation"
+  ]
+ },
+ {
+  "slug": "hamnet-2025",
+  "tones": [
+   "melancholy",
+   "earnest"
+  ],
+  "themes": [
+   "grief",
+   "parenthood",
+   "marriage",
+   "art"
+  ]
+ },
+ {
+  "slug": "hereditary-2018",
+  "tones": [
+   "unsettling",
+   "bleak"
+  ],
+  "themes": [
+   "family",
+   "grief",
+   "faith"
+  ]
+ },
+ {
+  "slug": "hoop-dreams-1994",
+  "tones": [
+   "earnest",
+   "melancholy"
+  ],
+  "themes": [
+   "sport",
+   "class",
+   "family",
+   "race"
+  ]
+ },
+ {
+  "slug": "hot-fuzz-2007",
+  "tones": [
+   "funny",
+   "playful"
+  ],
+  "themes": [
+   "friendship",
+   "crime",
+   "workplace"
+  ]
+ },
+ {
+  "slug": "icarus-2017",
+  "tones": [
+   "tense",
+   "unsettling"
+  ],
+  "themes": [
+   "sport",
+   "politics",
+   "justice"
+  ]
+ },
+ {
+  "slug": "ida-2013",
+  "tones": [
+   "bleak",
+   "melancholy"
+  ],
+  "themes": [
+   "faith",
+   "identity",
+   "history",
+   "grief"
+  ]
+ },
+ {
+  "slug": "im-alan-partridge-1997",
+  "tones": [
+   "funny",
+   "melancholy"
+  ],
+  "themes": [
+   "workplace",
+   "isolation",
+   "ambition"
+  ]
+ },
+ {
+  "slug": "im-still-here-2024",
+  "tones": [
+   "melancholy",
+   "tense"
+  ],
+  "themes": [
+   "politics",
+   "family",
+   "grief",
+   "history"
+  ]
+ },
+ {
+  "slug": "inside-no-9-2014",
+  "tones": [
+   "unsettling",
+   "playful",
+   "funny"
+  ],
+  "themes": [
+   "crime",
+   "identity"
+  ]
+ },
+ {
+  "slug": "it-follows-2014",
+  "tones": [
+   "unsettling",
+   "tense"
+  ],
+  "themes": [
+   "survival",
+   "coming-of-age",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "its-a-wonderful-life-1946",
+  "tones": [
+   "warm",
+   "melancholy",
+   "uplifting"
+  ],
+  "themes": [
+   "family",
+   "money",
+   "class"
+  ]
+ },
+ {
+  "slug": "jojo-rabbit-2019",
+  "tones": [
+   "funny",
+   "earnest",
+   "melancholy"
+  ],
+  "themes": [
+   "war",
+   "coming-of-age",
+   "family"
+  ]
+ },
+ {
+  "slug": "jules-and-jim-1962",
+  "tones": [
+   "playful",
+   "melancholy",
+   "romantic"
+  ],
+  "themes": [
+   "friendship",
+   "marriage"
+  ]
+ },
+ {
+  "slug": "kes-1969",
+  "tones": [
+   "bleak",
+   "melancholy"
+  ],
+  "themes": [
+   "class",
+   "coming-of-age",
+   "nature",
+   "family"
+  ]
+ },
+ {
+  "slug": "kind-hearts-and-coronets-1949",
+  "tones": [
+   "funny",
+   "cool"
+  ],
+  "themes": [
+   "class",
+   "revenge",
+   "crime"
+  ]
+ },
+ {
+  "slug": "klaus-2019",
+  "tones": [
+   "warm",
+   "funny",
+   "uplifting"
+  ],
+  "themes": [
+   "friendship",
+   "grief",
+   "family"
+  ]
+ },
+ {
+  "slug": "kpop-demon-hunters-2025",
+  "tones": [
+   "playful",
+   "funny",
+   "uplifting"
+  ],
+  "themes": [
+   "music",
+   "friendship",
+   "identity"
+  ]
+ },
+ {
+  "slug": "lagaan-2001",
+  "tones": [
+   "uplifting",
+   "earnest"
+  ],
+  "themes": [
+   "sport",
+   "class",
+   "politics",
+   "history"
+  ]
+ },
+ {
+  "slug": "let-the-right-one-in-2008",
+  "tones": [
+   "unsettling",
+   "melancholy"
+  ],
+  "themes": [
+   "friendship",
+   "coming-of-age",
+   "isolation"
+  ]
+ },
+ {
+  "slug": "local-hero-1983",
+  "tones": [
+   "warm",
+   "funny",
+   "melancholy"
+  ],
+  "themes": [
+   "money",
+   "nature",
+   "identity"
+  ]
+ },
+ {
+  "slug": "lost-in-space-2018",
+  "tones": [
+   "tense",
+   "earnest"
+  ],
+  "themes": [
+   "family",
+   "survival",
+   "technology"
+  ]
+ },
+ {
+  "slug": "ludwig-2024",
+  "tones": [
+   "funny",
+   "warm"
+  ],
+  "themes": [
+   "crime",
+   "family",
+   "grief",
+   "identity"
+  ]
+ },
+ {
+  "slug": "making-a-murderer-2015",
+  "tones": [
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "justice",
+   "class",
+   "crime"
+  ]
+ },
+ {
+  "slug": "man-on-wire-2008",
+  "tones": [
+   "playful",
+   "tense"
+  ],
+  "themes": [
+   "ambition",
+   "art",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "money-heist-2017",
+  "tones": [
+   "tense",
+   "playful"
+  ],
+  "themes": [
+   "crime",
+   "money",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "monster-2023",
+  "tones": [
+   "melancholy",
+   "unsettling"
+  ],
+  "themes": [
+   "parenthood",
+   "coming-of-age",
+   "identity"
+  ]
+ },
+ {
+  "slug": "monty-python-and-the-holy-grail-1975",
+  "tones": [
+   "absurd",
+   "funny",
+   "playful"
+  ],
+  "themes": [
+   "faith",
+   "power"
+  ]
+ },
+ {
+  "slug": "monty-pythons-life-of-brian-1979",
+  "tones": [
+   "absurd",
+   "funny"
+  ],
+  "themes": [
+   "faith",
+   "politics",
+   "identity"
+  ]
+ },
+ {
+  "slug": "my-octopus-teacher-2020",
+  "tones": [
+   "earnest",
+   "warm"
+  ],
+  "themes": [
+   "nature",
+   "isolation",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "nashville-1975",
+  "tones": [
+   "melancholy",
+   "funny"
+  ],
+  "themes": [
+   "music",
+   "ambition",
+   "politics"
+  ]
+ },
+ {
+  "slug": "navalny-2022",
+  "tones": [
+   "tense",
+   "earnest"
+  ],
+  "themes": [
+   "politics",
+   "power",
+   "justice"
+  ]
+ },
+ {
+  "slug": "neon-genesis-evangelion-1995",
+  "tones": [
+   "bleak",
+   "unsettling",
+   "melancholy"
+  ],
+  "themes": [
+   "identity",
+   "isolation",
+   "parenthood",
+   "faith"
+  ]
+ },
+ {
+  "slug": "nickel-boys-2024",
+  "tones": [
+   "bleak",
+   "melancholy"
+  ],
+  "themes": [
+   "race",
+   "friendship",
+   "justice",
+   "memory"
+  ]
+ },
+ {
+  "slug": "no-other-land-2024",
+  "tones": [
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "politics",
+   "justice",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "no-time-to-die-2021",
+  "tones": [
+   "tense",
+   "melancholy"
+  ],
+  "themes": [
+   "espionage",
+   "family"
+  ]
+ },
+ {
+  "slug": "nosferatu-2024",
+  "tones": [
+   "unsettling",
+   "bleak"
+  ],
+  "themes": [
+   "marriage",
+   "power",
+   "faith"
+  ]
+ },
+ {
+  "slug": "on-the-waterfront-1954",
+  "tones": [
+   "tense",
+   "earnest"
+  ],
+  "themes": [
+   "crime",
+   "justice",
+   "class"
+  ]
+ },
+ {
+  "slug": "once-upon-a-time-in-anatolia-2011",
+  "tones": [
+   "melancholy",
+   "bleak"
+  ],
+  "themes": [
+   "crime",
+   "justice",
+   "memory"
+  ]
+ },
+ {
+  "slug": "one-battle-after-another-2025",
+  "tones": [
+   "tense",
+   "funny"
+  ],
+  "themes": [
+   "politics",
+   "parenthood",
+   "family"
+  ]
+ },
+ {
+  "slug": "only-fools-and-horses-1981",
+  "tones": [
+   "funny",
+   "warm",
+   "melancholy"
+  ],
+  "themes": [
+   "family",
+   "class",
+   "money"
+  ]
+ },
+ {
+  "slug": "paddington-2-2017",
+  "tones": [
+   "warm",
+   "funny",
+   "uplifting"
+  ],
+  "themes": [
+   "family",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "pather-panchali-1955",
+  "tones": [
+   "melancholy",
+   "earnest"
+  ],
+  "themes": [
+   "family",
+   "class",
+   "coming-of-age",
+   "grief"
+  ]
+ },
+ {
+  "slug": "persepolis-2007",
+  "tones": [
+   "melancholy",
+   "funny"
+  ],
+  "themes": [
+   "coming-of-age",
+   "politics",
+   "identity",
+   "history"
+  ]
+ },
+ {
+  "slug": "planet-earth-ii-2016",
+  "tones": [
+   "uplifting",
+   "tense"
+  ],
+  "themes": [
+   "nature",
+   "survival"
+  ]
+ },
+ {
+  "slug": "pluribus-2025",
+  "tones": [
+   "unsettling",
+   "funny"
+  ],
+  "themes": [
+   "isolation",
+   "identity",
+   "power"
+  ]
+ },
+ {
+  "slug": "raise-the-red-lantern-1991",
+  "tones": [
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "marriage",
+   "power",
+   "class"
+  ]
+ },
+ {
+  "slug": "ratatouille-2007",
+  "tones": [
+   "warm",
+   "funny",
+   "uplifting"
+  ],
+  "themes": [
+   "art",
+   "ambition",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "ringu-1998",
+  "tones": [
+   "unsettling",
+   "tense"
+  ],
+  "themes": [
+   "survival",
+   "parenthood"
+  ]
+ },
+ {
+  "slug": "ripley-2024",
+  "tones": [
+   "cool",
+   "tense"
+  ],
+  "themes": [
+   "crime",
+   "identity",
+   "class"
+  ]
+ },
+ {
+  "slug": "roman-holiday-1953",
+  "tones": [
+   "romantic",
+   "warm",
+   "melancholy"
+  ],
+  "themes": [
+   "identity",
+   "ambition",
+   "class"
+  ]
+ },
+ {
+  "slug": "rosemarys-baby-1968",
+  "tones": [
+   "unsettling",
+   "tense"
+  ],
+  "themes": [
+   "marriage",
+   "parenthood",
+   "faith",
+   "power"
+  ]
+ },
+ {
+  "slug": "rrr-2022",
+  "tones": [
+   "earnest",
+   "playful"
+  ],
+  "themes": [
+   "friendship",
+   "power",
+   "politics"
+  ]
+ },
+ {
+  "slug": "sacred-games-2018",
+  "tones": [
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "crime",
+   "power",
+   "politics",
+   "faith"
+  ]
+ },
+ {
+  "slug": "schitts-creek-2015",
+  "tones": [
+   "warm",
+   "funny"
+  ],
+  "themes": [
+   "family",
+   "class",
+   "identity"
+  ]
+ },
+ {
+  "slug": "searching-for-sugar-man-2012",
+  "tones": [
+   "uplifting",
+   "melancholy"
+  ],
+  "themes": [
+   "music",
+   "identity"
+  ]
+ },
+ {
+  "slug": "senna-2010",
+  "tones": [
+   "tense",
+   "earnest"
+  ],
+  "themes": [
+   "sport",
+   "ambition",
+   "faith"
+  ]
+ },
+ {
+  "slug": "sentimental-value-2025",
+  "tones": [
+   "melancholy",
+   "warm",
+   "funny"
+  ],
+  "themes": [
+   "family",
+   "art",
+   "memory"
+  ]
+ },
+ {
+  "slug": "shaun-of-the-dead-2004",
+  "tones": [
+   "funny",
+   "warm"
+  ],
+  "themes": [
+   "friendship",
+   "survival"
+  ]
+ },
+ {
+  "slug": "shoah-1985",
+  "tones": [
+   "bleak",
+   "unsettling"
+  ],
+  "themes": [
+   "history",
+   "memory",
+   "war"
+  ]
+ },
+ {
+  "slug": "shogun-2024",
+  "tones": [
+   "tense",
+   "cool"
+  ],
+  "themes": [
+   "power",
+   "politics",
+   "history"
+  ]
+ },
+ {
+  "slug": "singin-in-the-rain-1952",
+  "tones": [
+   "playful",
+   "funny",
+   "uplifting"
+  ],
+  "themes": [
+   "music",
+   "art",
+   "technology"
+  ]
+ },
+ {
+  "slug": "solos-2021",
+  "tones": [
+   "melancholy",
+   "unsettling"
+  ],
+  "themes": [
+   "technology",
+   "identity",
+   "memory",
+   "isolation"
+  ]
+ },
+ {
+  "slug": "some-like-it-hot-1959",
+  "tones": [
+   "funny",
+   "playful"
+  ],
+  "themes": [
+   "identity",
+   "crime",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "spaced-1999",
+  "tones": [
+   "funny",
+   "playful"
+  ],
+  "themes": [
+   "friendship",
+   "coming-of-age"
+  ]
+ },
+ {
+  "slug": "spider-man-across-the-spider-verse-2023",
+  "tones": [
+   "tense",
+   "playful"
+  ],
+  "themes": [
+   "identity",
+   "family",
+   "grief"
+  ]
+ },
+ {
+  "slug": "spider-man-into-the-spider-verse-2018",
+  "tones": [
+   "playful",
+   "warm",
+   "uplifting"
+  ],
+  "themes": [
+   "identity",
+   "coming-of-age",
+   "family",
+   "grief"
+  ]
+ },
+ {
+  "slug": "stalker-1979",
+  "tones": [
+   "bleak",
+   "melancholy",
+   "unsettling"
+  ],
+  "themes": [
+   "faith",
+   "identity",
+   "isolation"
+  ]
+ },
+ {
+  "slug": "stath-lets-flats-2018",
+  "tones": [
+   "funny",
+   "absurd",
+   "melancholy"
+  ],
+  "themes": [
+   "family",
+   "workplace",
+   "ambition"
+  ]
+ },
+ {
+  "slug": "stop-making-sense-1984",
+  "tones": [
+   "playful",
+   "uplifting"
+  ],
+  "themes": [
+   "music",
+   "art"
+  ]
+ },
+ {
+  "slug": "suspiria-1977",
+  "tones": [
+   "unsettling",
+   "tense"
+  ],
+  "themes": [
+   "survival",
+   "power"
+  ]
+ },
+ {
+  "slug": "talk-to-me-2022",
+  "tones": [
+   "unsettling",
+   "tense"
+  ],
+  "themes": [
+   "grief",
+   "addiction",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "tampopo-1985",
+  "tones": [
+   "playful",
+   "funny",
+   "warm"
+  ],
+  "themes": [
+   "ambition",
+   "workplace"
+  ]
+ },
+ {
+  "slug": "the-act-of-killing-2012",
+  "tones": [
+   "unsettling",
+   "bleak"
+  ],
+  "themes": [
+   "history",
+   "politics",
+   "justice"
+  ]
+ },
+ {
+  "slug": "the-apartment-1960",
+  "tones": [
+   "funny",
+   "melancholy",
+   "warm"
+  ],
+  "themes": [
+   "workplace",
+   "ambition",
+   "isolation"
+  ]
+ },
+ {
+  "slug": "the-babadook-2014",
+  "tones": [
+   "unsettling",
+   "bleak"
+  ],
+  "themes": [
+   "grief",
+   "parenthood",
+   "family"
+  ]
+ },
+ {
+  "slug": "the-ballad-of-wallis-island-2025",
+  "tones": [
+   "funny",
+   "melancholy",
+   "warm"
+  ],
+  "themes": [
+   "grief",
+   "music",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "the-beatles-get-back-2021",
+  "tones": [
+   "warm",
+   "playful"
+  ],
+  "themes": [
+   "music",
+   "friendship",
+   "art"
+  ]
+ },
+ {
+  "slug": "the-boy-and-the-heron-2023",
+  "tones": [
+   "melancholy",
+   "unsettling"
+  ],
+  "themes": [
+   "grief",
+   "family",
+   "memory"
+  ]
+ },
+ {
+  "slug": "the-brutalist-2024",
+  "tones": [
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "art",
+   "power",
+   "class"
+  ]
+ },
+ {
+  "slug": "the-constant-gardener-2005",
+  "tones": [
+   "tense",
+   "melancholy"
+  ],
+  "themes": [
+   "marriage",
+   "grief",
+   "justice"
+  ]
+ },
+ {
+  "slug": "the-descent-2005",
+  "tones": [
+   "tense",
+   "bleak"
+  ],
+  "themes": [
+   "survival",
+   "friendship",
+   "grief"
+  ]
+ },
+ {
+  "slug": "the-diplomat-2023",
+  "tones": [
+   "tense",
+   "funny"
+  ],
+  "themes": [
+   "politics",
+   "marriage",
+   "workplace",
+   "power"
+  ]
+ },
+ {
+  "slug": "the-exorcist-1973",
+  "tones": [
+   "unsettling",
+   "bleak"
+  ],
+  "themes": [
+   "faith",
+   "parenthood",
+   "family"
+  ]
+ },
+ {
+  "slug": "the-french-connection-1971",
+  "tones": [
+   "tense",
+   "bleak",
+   "cool"
+  ],
+  "themes": [
+   "crime",
+   "justice",
+   "ambition"
+  ]
+ },
+ {
+  "slug": "the-good-place-2016",
+  "tones": [
+   "funny",
+   "warm",
+   "uplifting"
+  ],
+  "themes": [
+   "identity",
+   "friendship",
+   "faith"
+  ]
+ },
+ {
+  "slug": "the-graduate-1967",
+  "tones": [
+   "melancholy",
+   "funny",
+   "cool"
+  ],
+  "themes": [
+   "coming-of-age",
+   "isolation",
+   "class"
+  ]
+ },
+ {
+  "slug": "the-haunting-of-hill-house-2018",
+  "tones": [
+   "unsettling",
+   "melancholy",
+   "tense"
+  ],
+  "themes": [
+   "family",
+   "grief",
+   "memory"
+  ]
+ },
+ {
+  "slug": "the-iron-giant-1999",
+  "tones": [
+   "warm",
+   "earnest",
+   "melancholy"
+  ],
+  "themes": [
+   "friendship",
+   "identity",
+   "war"
+  ]
+ },
+ {
+  "slug": "the-jinx-the-life-and-deaths-of-robert-durst-2015",
+  "tones": [
+   "unsettling",
+   "tense"
+  ],
+  "themes": [
+   "crime",
+   "justice",
+   "money"
+  ]
+ },
+ {
+  "slug": "the-ladykillers-1955",
+  "tones": [
+   "funny",
+   "playful",
+   "absurd"
+  ],
+  "themes": [
+   "crime",
+   "money",
+   "class"
+  ]
+ },
+ {
+  "slug": "the-last-dance-2020",
+  "tones": [
+   "tense",
+   "earnest"
+  ],
+  "themes": [
+   "sport",
+   "ambition",
+   "power"
+  ]
+ },
+ {
+  "slug": "the-nice-guys-2016",
+  "tones": [
+   "funny",
+   "cool",
+   "playful"
+  ],
+  "themes": [
+   "crime",
+   "friendship",
+   "parenthood"
+  ]
+ },
+ {
+  "slug": "the-others-2001",
+  "tones": [
+   "unsettling",
+   "melancholy",
+   "tense"
+  ],
+  "themes": [
+   "family",
+   "grief",
+   "isolation"
+  ]
+ },
+ {
+  "slug": "the-penguin-2024",
+  "tones": [
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "crime",
+   "power",
+   "ambition",
+   "family"
+  ]
+ },
+ {
+  "slug": "the-pitt-2025",
+  "tones": [
+   "tense",
+   "earnest",
+   "bleak"
+  ],
+  "themes": [
+   "workplace",
+   "grief"
+  ]
+ },
+ {
+  "slug": "the-red-shoes-1948",
+  "tones": [
+   "melancholy",
+   "romantic",
+   "cool"
+  ],
+  "themes": [
+   "art",
+   "ambition",
+   "power"
+  ]
+ },
+ {
+  "slug": "the-secret-in-their-eyes-2009",
+  "tones": [
+   "melancholy",
+   "tense",
+   "romantic"
+  ],
+  "themes": [
+   "justice",
+   "memory",
+   "crime"
+  ]
+ },
+ {
+  "slug": "the-seventh-seal-1957",
+  "tones": [
+   "melancholy",
+   "bleak"
+  ],
+  "themes": [
+   "faith",
+   "survival"
+  ]
+ },
+ {
+  "slug": "the-studio-2025",
+  "tones": [
+   "funny",
+   "tense",
+   "absurd"
+  ],
+  "themes": [
+   "workplace",
+   "art",
+   "ambition",
+   "power"
+  ]
+ },
+ {
+  "slug": "the-tale-of-the-princess-kaguya-2013",
+  "tones": [
+   "melancholy",
+   "warm"
+  ],
+  "themes": [
+   "parenthood",
+   "family",
+   "class"
+  ]
+ },
+ {
+  "slug": "the-texas-chain-saw-massacre-1974",
+  "tones": [
+   "unsettling",
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "survival",
+   "family"
+  ]
+ },
+ {
+  "slug": "the-triplets-of-belleville-2003",
+  "tones": [
+   "playful",
+   "absurd",
+   "melancholy"
+  ],
+  "themes": [
+   "family",
+   "sport",
+   "music"
+  ]
+ },
+ {
+  "slug": "the-wicker-man-1973",
+  "tones": [
+   "unsettling",
+   "tense"
+  ],
+  "themes": [
+   "faith",
+   "isolation"
+  ]
+ },
+ {
+  "slug": "the-wild-robot-2024",
+  "tones": [
+   "warm",
+   "uplifting",
+   "melancholy"
+  ],
+  "themes": [
+   "parenthood",
+   "nature",
+   "identity",
+   "technology"
+  ]
+ },
+ {
+  "slug": "the-witch-2015",
+  "tones": [
+   "unsettling",
+   "bleak"
+  ],
+  "themes": [
+   "faith",
+   "family",
+   "isolation",
+   "coming-of-age"
+  ]
+ },
+ {
+  "slug": "the-worst-person-in-the-world-2021",
+  "tones": [
+   "melancholy",
+   "funny",
+   "romantic"
+  ],
+  "themes": [
+   "identity",
+   "ambition",
+   "coming-of-age"
+  ]
+ },
+ {
+  "slug": "three-identical-strangers-2018",
+  "tones": [
+   "unsettling",
+   "melancholy"
+  ],
+  "themes": [
+   "family",
+   "identity",
+   "grief"
+  ]
+ },
+ {
+  "slug": "toast-of-london-2012",
+  "tones": [
+   "absurd",
+   "funny"
+  ],
+  "themes": [
+   "workplace",
+   "art",
+   "ambition"
+  ]
+ },
+ {
+  "slug": "touching-the-void-2003",
+  "tones": [
+   "tense",
+   "bleak"
+  ],
+  "themes": [
+   "survival",
+   "nature",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "toy-story-1995",
+  "tones": [
+   "playful",
+   "funny",
+   "warm"
+  ],
+  "themes": [
+   "friendship",
+   "identity"
+  ]
+ },
+ {
+  "slug": "trapped-2015",
+  "tones": [
+   "bleak",
+   "tense"
+  ],
+  "themes": [
+   "crime",
+   "isolation",
+   "justice"
+  ]
+ },
+ {
+  "slug": "uncle-boonmee-who-can-recall-his-past-lives-2010",
+  "tones": [
+   "melancholy",
+   "unsettling"
+  ],
+  "themes": [
+   "memory",
+   "grief",
+   "nature"
+  ]
+ },
+ {
+  "slug": "wall-e-2008",
+  "tones": [
+   "warm",
+   "playful",
+   "melancholy"
+  ],
+  "themes": [
+   "technology",
+   "nature",
+   "isolation"
+  ]
+ },
+ {
+  "slug": "wallace-gromit-the-wrong-trousers-1993",
+  "tones": [
+   "playful",
+   "funny",
+   "tense"
+  ],
+  "themes": [
+   "crime",
+   "friendship"
+  ]
+ },
+ {
+  "slug": "waltz-with-bashir-2008",
+  "tones": [
+   "bleak",
+   "unsettling"
+  ],
+  "themes": [
+   "war",
+   "memory",
+   "history"
+  ]
+ },
+ {
+  "slug": "weapons-2025",
+  "tones": [
+   "unsettling",
+   "tense",
+   "funny"
+  ],
+  "themes": [
+   "family",
+   "grief",
+   "parenthood"
+  ]
+ },
+ {
+  "slug": "west-side-story-1961",
+  "tones": [
+   "romantic",
+   "tense",
+   "melancholy"
+  ],
+  "themes": [
+   "race",
+   "class",
+   "revenge"
+  ]
+ },
+ {
+  "slug": "what-we-do-in-the-shadows-2019",
+  "tones": [
+   "funny",
+   "absurd",
+   "playful"
+  ],
+  "themes": [
+   "friendship",
+   "identity"
+  ]
+ },
+ {
+  "slug": "when-we-were-kings-1996",
+  "tones": [
+   "uplifting",
+   "earnest",
+   "cool"
+  ],
+  "themes": [
+   "sport",
+   "race",
+   "history"
+  ]
+ },
+ {
+  "slug": "wicked-2024",
+  "tones": [
+   "earnest",
+   "uplifting",
+   "romantic"
+  ],
+  "themes": [
+   "friendship",
+   "identity",
+   "politics"
+  ]
+ },
+ {
+  "slug": "wild-tales-2014",
+  "tones": [
+   "funny",
+   "tense",
+   "absurd"
+  ],
+  "themes": [
+   "revenge",
+   "class",
+   "money"
+  ]
+ },
+ {
+  "slug": "wild-wild-country-2018",
+  "tones": [
+   "unsettling",
+   "tense"
+  ],
+  "themes": [
+   "faith",
+   "power",
+   "crime"
+  ]
+ },
+ {
+  "slug": "withnail-and-i-1987",
+  "tones": [
+   "funny",
+   "melancholy"
+  ],
+  "themes": [
+   "friendship",
+   "addiction",
+   "class"
+  ]
+ },
+ {
+  "slug": "wolfwalkers-2020",
+  "tones": [
+   "warm",
+   "playful",
+   "tense"
+  ],
+  "themes": [
+   "nature",
+   "friendship",
+   "identity"
+  ]
+ },
+ {
+  "slug": "y-tu-mama-tambien-2001",
+  "tones": [
+   "playful",
+   "melancholy"
+  ],
+  "themes": [
+   "coming-of-age",
+   "friendship",
+   "class"
+  ]
+ },
+ {
+  "slug": "yes-minister-1980",
+  "tones": [
+   "funny",
+   "playful"
+  ],
+  "themes": [
+   "politics",
+   "power",
+   "workplace"
+  ]
+ },
+ {
+  "slug": "yi-yi-2000",
+  "tones": [
+   "melancholy",
+   "warm"
+  ],
+  "themes": [
+   "family",
+   "marriage",
+   "memory"
+  ]
+ },
+ {
+  "slug": "your-name-2016",
+  "tones": [
+   "romantic",
+   "melancholy",
+   "uplifting"
+  ],
+  "themes": [
+   "identity",
+   "memory",
+   "grief"
+  ]
+ }
+]

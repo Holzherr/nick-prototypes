@@ -47,8 +47,16 @@ type Result = {
   scored?: boolean;
 };
 
-/** How much of the catalogue to put in front of the model in one pass. */
+/**
+ * How much of the catalogue to put in front of the model in one pass, and how that shortlist
+ * is chosen. Truncating the catalogue meant the same first N rows were the only titles that
+ * could ever be recommended; retrieval now ranks the whole catalogue cheaply and the model
+ * only ever sees the shortlist. The exploration slice matters as much as the top slice — a
+ * shortlist made purely of best-fit titles can only ever confirm what the ranker already
+ * believes.
+ */
 const CANDIDATE_LIMIT = 120;
+const EXPLORATION_SLICE = 40;
 const PERSONAL_SLATE = 8;
 const SHARED_SLATE = 5;
 
@@ -191,17 +199,39 @@ Deno.serve(async (req) => {
       .from('titles')
       .select('id, slug, name, year, type, genres, tones, themes, synopsis, certification, runtime_minutes, seasons, imdb_rating, image_url, title_availability(provider)')
       .gt('catalogue_version', 0)
-      .limit(400);
+      .limit(2000);
 
     const excluded = new Set((hasExclusions ? exclude_titles : []).map((t: string) => String(t).toLowerCase()));
-    const candidates = (catalogue ?? [])
+    const eligible = (catalogue ?? [])
       .filter((t: Row) => !ownTitleIds.has(t.id) && !excluded.has(String(t.name).toLowerCase()))
-      .filter((t: Row) => (type_filter ? t.type === type_filter : true))
-      .slice(0, CANDIDATE_LIMIT);
+      .filter((t: Row) => (type_filter ? t.type === type_filter : true));
 
-    if (!candidates.length) {
+    if (!eligible.length) {
       return json({ personal: [], shared: null, note: 'Nothing left in the catalogue for this profile.' });
     }
+
+    // Three distributions over the same watch history: what they pick, how it feels, and
+    // what it is about. Tone and theme are only populated for titles the catalogue has
+    // tagged, and heuristicAxes falls back to genre for anything that is not.
+    const weightOf = (h: { status?: string; rating?: number | null }) => ({ status: h.status, rating: h.rating });
+    const viewerMix: ViewerProfile = {
+      genres: tagMix(history.map((h) => ({ ...weightOf(h), tags: h.genres }))),
+      tones: tagMix(history.map((h) => ({ ...weightOf(h), tags: h.tones }))),
+      themes: tagMix(history.map((h) => ({ ...weightOf(h), tags: h.themes }))),
+    };
+
+    // Retrieval: score the whole eligible catalogue from saved data, cheaply.
+    const withAxes = eligible.map((row: Row) => ({ row, axes: heuristicAxes(row, viewerMix) }));
+    withAxes.sort((a, b) => combineScore(b.axes) - combineScore(a.axes));
+
+    // The shortlist the model sees: the best fits, plus a slice from further down so the
+    // shortlist can still surprise. Without the second slice, retrieval can only ever hand
+    // the model titles it already thinks are right.
+    const shortlist = withAxes.slice(0, CANDIDATE_LIMIT - EXPLORATION_SLICE).map((c) => c.row);
+    const rest = withAxes.slice(CANDIDATE_LIMIT - EXPLORATION_SLICE);
+    const step = Math.max(1, Math.floor(rest.length / EXPLORATION_SLICE));
+    for (let i = 0; i < rest.length && shortlist.length < CANDIDATE_LIMIT; i += step) shortlist.push(rest[i].row);
+    const candidates = shortlist;
 
     let notes = '';
     if (mood && moodDescriptions[mood]) notes += `\nMood wanted: ${moodDescriptions[mood]}`;
@@ -222,30 +252,21 @@ Deno.serve(async (req) => {
       ? `Viewer A has watched: ${JSON.stringify(history)}\nViewer B has watched: ${JSON.stringify(partnerHistory)}`
       : `They have watched: ${JSON.stringify(history)}`;
 
-    // Three distributions over the same watch history: what they pick, how it feels, and
-    // what it is about. Tone and theme are only populated for titles the catalogue has
-    // tagged, and heuristicAxes falls back to genre for anything that is not.
-    const weightOf = (h: { status?: string; rating?: number | null }) => ({ status: h.status, rating: h.rating });
-    const viewerMix: ViewerProfile = {
-      genres: tagMix(history.map((h) => ({ ...weightOf(h), tags: h.genres }))),
-      tones: tagMix(history.map((h) => ({ ...weightOf(h), tags: h.tones }))),
-      themes: tagMix(history.map((h) => ({ ...weightOf(h), tags: h.themes }))),
-    };
 
     if (mode !== 'refresh') {
       // Nothing cached and no permission to spend a minute of the user's time: rank what we
       // hold. The scheduled refresh replaces this with model scores.
-      const pool: Candidate[] = candidates.map((row: Row) => ({
+      const pool: Candidate[] = withAxes.map(({ row, axes }) => ({
         id: row.id,
         name: row.name,
         year: row.year,
         type: row.type,
         genres: row.genres ?? [],
-        axes: heuristicAxes(row, viewerMix),
+        axes,
         explanation: '',
         providers: providersOf(row),
       }));
-      const result = slateFrom(pool, candidates, history, partnerHistory);
+      const result = slateFrom(pool, eligible, history, partnerHistory);
       result.scored = false;
       return json(result);
     }

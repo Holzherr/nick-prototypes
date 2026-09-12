@@ -43,7 +43,8 @@ const TONES = new Set(
 );
 const THEMES = new Set(
   ('family marriage parenthood friendship coming-of-age grief class politics war crime justice revenge survival ' +
-    'workplace ambition faith technology identity memory addiction art money power isolation espionage').split(' '),
+    'workplace ambition faith technology identity memory addiction art money power isolation espionage ' +
+    'nature sport music history race').split(' '),
 );
 
 const rest = async (path, init = {}) => {
