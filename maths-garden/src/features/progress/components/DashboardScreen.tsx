@@ -38,6 +38,8 @@ export interface DashboardScreenProps {
   onSetLevel: (game: GameId, level: number) => void;
   /** Opens the tutor report (what she is good at, what to print next). */
   onReport?: () => void;
+  /** Opens the charts: accuracy and speed by week, days played, level moves. */
+  onHistory?: () => void;
   onAddCheckin: (scores: CheckinScores, note: string) => void;
   onSwitchChild: () => void;
   onSignOut: () => void;
@@ -56,6 +58,7 @@ export function DashboardScreen({
   guest,
   onSetLevel,
   onReport,
+  onHistory,
   onAddCheckin,
   onSwitchChild,
   onSignOut,
@@ -99,6 +102,11 @@ export function DashboardScreen({
           {onReport && (
             <Button size="sm" onClick={onReport}>
               📋 Tutor report
+            </Button>
+          )}
+          {onHistory && (
+            <Button variant="quiet" size="sm" onClick={onHistory}>
+              📈 Progress over time
             </Button>
           )}
           <a href={pack} className={buttonVariants({ variant: 'quiet', size: 'sm' })}>

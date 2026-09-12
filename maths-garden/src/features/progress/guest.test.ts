@@ -19,9 +19,9 @@ const round = (id: string, childId: string, playedAt: string): RoundRecord => ({
 const sticker = (id: string, childId: string): StickerRecord => ({ id, childId, sticker: 'unicorn/rainbow', shiny: true, roundId: null, earnedAt: '2026-09-11T17:00:00Z' });
 
 const guestProgress = (): Progress => ({
+  ...emptyProgress(),
   rounds: [round('r1', 'guest-1', '2026-09-10T17:00:00Z'), round('r2', 'guest-1', '2026-09-11T17:30:00Z')],
   levels: { peek: 2, count: 1 },
-  checkins: [],
   stickers: [sticker('s1', 'guest-1')],
 });
 

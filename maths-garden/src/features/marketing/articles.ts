@@ -9,7 +9,9 @@ export type Block =
   | { kind: 'list'; items: string[] }
   | { kind: 'steps'; items: { title: string; text: string }[] }
   | { kind: 'callout'; title: string; text: string }
-  | { kind: 'table'; caption?: string; head: string[]; rows: string[][] };
+  | { kind: 'table'; caption?: string; head: string[]; rows: string[][] }
+  /** The scoring and levelling diagram, shared with the progress screen so they can never drift apart. */
+  | { kind: 'diagram' };
 
 export interface Reference {
   text: string;
@@ -301,6 +303,77 @@ const GAMIFIED: Article = {
   ],
 };
 
-export const ARTICLES: readonly Article[] = [STAGES, GAMIFIED];
+const SCORING: Article = {
+  slug: 'how-it-scores',
+  title: 'How it scores your child, and decides when to move up',
+  standfirst:
+    'No black box: five rules, two measurements and a round of five questions. Here is exactly what is measured, what moves a level, what is stored, and what the charts in the grown-ups screen are showing you.',
+  emoji: '📈',
+  minutes: 7,
+  updated: '2026-09-12',
+  blocks: [
+    {
+      kind: 'p',
+      text: 'Most children’s apps either level up on a timer or keep the logic hidden. This one keeps it simple enough to print on a card, because a parent should be able to disagree with it. A round is five questions. Every answer is marked right or wrong and timed from the moment the answer buttons appear. Those two numbers — accuracy and speed — decide everything.',
+    },
+    { kind: 'h', text: 'The whole thing on one page' },
+    { kind: 'diagram' },
+    { kind: 'h', text: 'Why speed is in there at all' },
+    {
+      kind: 'p',
+      text: 'Because accuracy alone hides the difference between knowing something and working it out. A child who counts on her fingers every time gets five out of five and is not fluent; the same child a month later answers in two seconds because the fact is simply known. Moving her up on accuracy alone would take away the practice that builds that fluency. So a perfect round moves up immediately — unless the answers were slow, in which case the level holds and the questions stay where they are until they come faster.',
+    },
+    {
+      kind: 'p',
+      text: 'The target time varies by question. Counting eight butterflies should take longer than recognising three dots, so the expected time for Count With Me grows with the number, while Quick Peek expects an answer in about two and a half seconds — if you are counting the dots, you are not subitising them.',
+    },
+    { kind: 'h', text: 'Why it aims for about four out of five' },
+    {
+      kind: 'p',
+      text: 'The rules keep a child hovering around 80% right, which is deliberate. Work that is too easy teaches nothing and bores; work that is mostly wrong teaches that maths is something you fail at. Robert and Elizabeth Bjork’s work on "desirable difficulties" is the useful framing here: the conditions that make practice feel harder in the moment — spacing it out, mixing things up, having to retrieve rather than recognise — are often the ones that make it stick. Short rounds a few times a week beat one long session for the same reason.',
+    },
+    {
+      kind: 'callout',
+      title: 'What a level is not',
+      text: 'It is not a score, a rank or a year group. Levels 1–3 map onto the three printable stages, and levels 4 and 5 are stretch. A child is routinely on level 3 for counting and level 1 for adding — that is normal and the app treats each skill separately.',
+    },
+    { kind: 'h', text: 'What is actually stored' },
+    {
+      kind: 'p',
+      text: 'Enough to draw an honest picture, and nothing else. For each round: which game, which level, the score, when it was played, whether it was finished, and the biggest number that level could ask. For each question: what was asked, what was tapped, right or wrong, how long the answer took, and — where the game has them — how many objects were touched while counting or how often the number was replayed. Level changes are recorded as events, with whether the rule earned it, a poor run dropped it, or a grown-up overrode it.',
+    },
+    {
+      kind: 'p',
+      text: 'There are no adverts, no analytics and no third parties. A child needs no email address and no surname. Guest mode keeps everything on the device and sends nothing anywhere.',
+    },
+    { kind: 'h', text: 'What the charts show' },
+    {
+      kind: 'steps',
+      items: [
+        { title: 'Accuracy by week', text: 'The share of questions right, bucketed by week. It should stay roughly flat around 80% — because when it climbs, the level moves up and the questions get harder again.' },
+        { title: 'Seconds per answer', text: 'The median time to answer. This is the line that should fall. A falling time at steady accuracy is fluency, and it is the clearest evidence of real progress.' },
+        { title: 'Days played', text: 'A square per day. Frequency matters far more than session length at this age, so gaps are more informative than any single score.' },
+        { title: 'Level over time', text: 'Where each skill has sat, and every move with its reason. Drops are not failures — they are the app putting the work back where it belongs.' },
+        { title: 'Every number asked', text: 'Each number your child has been asked, coloured by how it goes. This is the most directly useful panel: it tells you what to put on the table tonight.' },
+      ],
+    },
+    {
+      kind: 'callout',
+      title: 'If you disagree with it',
+      text: 'Override it. The grown-ups screen has − / + per skill and a "make everything harder" button, and your change is recorded as yours rather than quietly overwritten by the next round. You know things the round log does not.',
+    },
+  ],
+  references: [
+    { text: 'Bjork, R. & Bjork, E. — Desirable difficulties: making learning conditions harder to make learning last', href: 'https://bjorklab.psych.ucla.edu/research/' },
+    { text: 'Cepeda, N. et al. (2006). Distributed practice in verbal recall tasks: a review and quantitative synthesis. Psychological Bulletin', href: 'https://pubmed.ncbi.nlm.nih.gov/16719566/' },
+    { text: 'Education Endowment Foundation — Feedback (Teaching and Learning Toolkit)', href: 'https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback' },
+    {
+      text: 'Clements, D. & Sarama, J. — Learning trajectories in early mathematics, the sequence the levels follow',
+      href: 'https://www.child-encyclopedia.com/pdf/expert/numeracy/according-experts/learning-trajectories-early-mathematics-sequences-acquisition-and',
+    },
+  ],
+};
+
+export const ARTICLES: readonly Article[] = [STAGES, GAMIFIED, SCORING];
 
 export const articleBySlug = (slug: string): Article | undefined => ARTICLES.find((a) => a.slug === slug);
