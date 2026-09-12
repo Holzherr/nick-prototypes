@@ -97,5 +97,23 @@
     "fields": {
       "director": "Bob Clark"
     }
+  },
+  {
+    "slug": "the-hunting-2013",
+    "reason": "Our list asked for \"The Hunting\" (2013) and the resolver accepted The Hunting Ground (2015) on a prefix match with two years of slack. The record is that film; the name and year now say so.",
+    "fields": {
+      "name": "The Hunting Ground",
+      "year": 2015,
+      "slug": "the-hunting-ground-2015"
+    }
+  },
+  {
+    "slug": "the-kingdom-2011",
+    "reason": "Same over-match: the record is the Ghibli documentary The Kingdom of Dreams and Madness (2013).",
+    "fields": {
+      "name": "The Kingdom of Dreams and Madness",
+      "year": 2013,
+      "slug": "the-kingdom-of-dreams-and-madness-2013"
+    }
   }
 ]
