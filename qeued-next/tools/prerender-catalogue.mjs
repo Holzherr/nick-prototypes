@@ -118,13 +118,38 @@ const run = async () => {
   if (!KEY) throw new Error('Missing SUPABASE_ANON_KEY');
   const shell = await readFile(join(DIST, 'index.html'), 'utf8');
 
-  const titles = await rest(
-    'titles?select=id,slug,name,year,type,genres,synopsis,certification,runtime_minutes,seasons,episodes,director,cast_members,image_url,title_availability(provider,offer_type),title_sources(field,source_url,source_name)&catalogue_version=gt.0&order=name.asc',
-  );
+  // Paginated, and the joins fetched separately: one request for 464 titles with nested
+  // availability and citations times the gateway out now that there are thousands of each.
+  const PAGE = 100;
+  const titles = [];
+  for (let from = 0; ; from += PAGE) {
+    const page = await rest(
+      'titles?select=id,slug,name,year,type,genres,synopsis,certification,runtime_minutes,seasons,episodes,director,cast_members,image_url' +
+        `&catalogue_version=gt.0&order=name.asc&offset=${from}&limit=${PAGE}`,
+    );
+    titles.push(...page);
+    if (page.length < PAGE) break;
+  }
+
+  const attach = async (table, columns, key) => {
+    const byTitle = new Map();
+    for (let from = 0; ; from += 1000) {
+      const rows = await rest(`${table}?select=title_id,${columns}&order=title_id.asc&offset=${from}&limit=1000`);
+      for (const row of rows) {
+        if (!byTitle.has(row.title_id)) byTitle.set(row.title_id, []);
+        byTitle.get(row.title_id).push(row);
+      }
+      if (rows.length < 1000) break;
+    }
+    for (const title of titles) title[key] = byTitle.get(title.id) ?? [];
+  };
+
+  await attach('title_availability?removed_at=is.null', 'provider,offer_type', 'title_availability');
+  await attach('title_sources', 'field,source_url,source_name', 'title_sources');
 
   // Aggregate signal, never anyone's individual history: a count and a mean, and only once
   // enough people have watched it that neither points at a person.
-  const entries = await rest('watch_entries?select=title_id,status,watched_rating');
+  const entries = await rest('watch_entries?select=title_id,status,watched_rating&status=eq.watched&limit=5000');
   const stats = new Map();
   for (const entry of entries) {
     if (entry.status !== 'watched') continue;
