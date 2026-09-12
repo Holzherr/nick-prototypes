@@ -63,11 +63,19 @@ if (!drops.length || !apply) {
   process.exit(0);
 }
 
-// The candidate row that produced the dropped title points at it; clearing the link rather
-// than the row keeps the proposal's history, and reconcile will re-point it at the keeper.
+// The candidate row that produced the dropped title has to point at the keeper instead.
+// Setting it back to pending looks tidier and is wrong: the next wave re-fetches the same
+// title under the same year and puts the duplicate straight back.
 await exec(
   block([
-    ...drops.map((d) => `update public.catalogue_candidates set title_id = null, status = 'pending' where title_id = ${quote(d.id)};`),
+    ...pairs
+      .filter((pair) => drops.some((d) => d.id === pair.a.id || d.id === pair.b.id))
+      .flatMap((pair) => {
+        const [keep, drop] = [pair.a, pair.b].sort(richer);
+        return drops.some((d) => d.id === drop.id)
+          ? [`update public.catalogue_candidates set title_id = ${quote(keep.id)}, status = 'held' where title_id = ${quote(drop.id)};`]
+          : [];
+      }),
     ...drops.map((d) => `delete from public.titles where id = ${quote(d.id)};`),
   ]),
 );
