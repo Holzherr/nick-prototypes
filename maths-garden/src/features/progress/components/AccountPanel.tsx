@@ -15,28 +15,29 @@ export interface AccountPanelProps {
  * Who is signed in, and whether this child's play is actually safe. With one child the app opens straight
  * into her garden, so the profiles screen never appears — which left no way at all to tell a signed-in
  * session from a guest one, or to see which account you were on.
+ *
+ * The status leads the screen. It used to be a small pale pill with the address buried mid-sentence, which
+ * read as a footnote next to the buttons below it — a parent glancing at this screen could not answer "am I
+ * signed in, and as whom?" without reading a paragraph. Now the state is a full-width bar and the account
+ * name is the largest thing in the panel, so the answer arrives before anything else on the page.
  */
 export function AccountPanel({ email, pending, onSwitchChild, onSignOut }: AccountPanelProps) {
   const signedIn = Boolean(email);
   return (
-    <section className={cn('mt-6 rounded-[28px] p-5', signedIn ? 'bg-leaf/10' : 'bg-sunny/25')}>
-      <div className="flex flex-wrap items-start justify-between gap-3">
+    <section className={cn('mt-6 overflow-hidden rounded-[28px]', signedIn ? 'bg-leaf/10' : 'bg-sunny/25')}>
+      <p className={cn('px-5 py-2 text-sm font-bold tracking-wide', signedIn ? 'bg-leaf text-white' : 'bg-sunny text-grape')}>
+        {signedIn ? '☁️ Signed in' : '📱 Guest — this device only'}
+      </p>
+      <div className="flex flex-wrap items-start justify-between gap-3 p-5">
         <div className="min-w-[220px] flex-1">
-          <h3 className="flex items-center gap-2 text-xl font-semibold text-raspberry">
-            <span className={cn('rounded-full px-3 py-0.5 text-sm font-bold', signedIn ? 'bg-leaf text-white' : 'bg-sunny text-grape')}>
-              {signedIn ? '☁️ Signed in' : '📱 This device only'}
-            </span>
-          </h3>
-          <p className="mt-1.5 text-sm text-grape/80">
-            {signedIn ? (
-              <>
-                Account <b className="break-all">{email}</b>. Her rounds, levels and stickers are saved to it and follow her to any device you sign in on.
-              </>
-            ) : (
-              <>Playing as a guest. Everything is saved on this device only — if the iPad is cleared or the browser data is wiped, it goes with it.</>
-            )}
+          <p className="text-xs font-semibold uppercase tracking-wide text-grape/55">{signedIn ? 'Account' : 'No account'}</p>
+          <p className={cn('mt-0.5 break-all text-xl font-semibold', signedIn ? 'text-raspberry' : 'text-grape/75')}>{signedIn ? email : 'Not signed in'}</p>
+          <p className="mt-2 text-sm text-grape/80">
+            {signedIn
+              ? 'Her rounds, levels and stickers are saved to this account and follow her to any device you sign in on.'
+              : 'Everything is saved on this device only — if the iPad is cleared or the browser data is wiped, it goes with it.'}
           </p>
-          <p className={cn('mt-1.5 text-sm font-medium', pending > 0 ? 'text-clay' : 'text-leaf-deep')}>
+          <p className={cn('mt-1.5 text-sm font-medium', !signedIn ? 'text-grape/80' : pending > 0 ? 'text-clay' : 'text-leaf-deep')}>
             {!signedIn
               ? 'Sign in and this play can come with you — nothing is lost.'
               : pending > 0
