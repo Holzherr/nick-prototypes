@@ -13,6 +13,7 @@ import { AccountPanel } from './AccountPanel';
 import { CheckInPanel, type CheckinScores } from './CheckInPanel';
 import { ImportGuestPanel, type ImportGuestPanelProps } from './ImportGuestPanel';
 import { MotivationPanel } from './MotivationPanel';
+import { Section } from './Section';
 import { SkillRow } from './SkillRow';
 import { VoicePanel } from './VoicePanel';
 
@@ -82,6 +83,22 @@ export function DashboardScreen({
   const stages = Object.fromEntries(SKILLS.map((skill) => [skill.id, skill.game ? stageOf(levelOf(progress.levels, gameById(skill.game))) : 1])) as Record<SkillId, StageNumber>;
   const pack = packLink({ name: child.name, icon: child.avatar, stages });
 
+  // Each shut section says what it holds, so the screen can be read without opening anything.
+  const today = todaySummary(progress.rounds, now);
+  const daysThisWeek = daysPlayed(progress.rounds, now);
+  const motivationSummary = `${today.done} of ${today.goal} rounds today · played ${daysThisWeek} of the last 7 days`;
+
+  const gamesPlayed = new Set(progress.rounds.map((round) => round.game));
+  const levels = GAMES.map((game) => levelOf(progress.levels, game) + 1);
+  const skillsSummary = gamesPlayed.size
+    ? `${gamesPlayed.size} of ${GAMES.length} games played · levels ${Math.min(...levels)}–${Math.max(...levels)}`
+    : `${GAMES.length} games, none played yet · set levels by hand`;
+
+  const lastCheckin = progress.checkins.reduce<string | null>((latest, c) => (latest === null || c.takenOn > latest ? c.takenOn : latest), null);
+  const checkinSummary = lastCheckin
+    ? `Last done ${new Date(`${lastCheckin}T12:00:00`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}`
+    : 'Five minutes with real objects, away from the iPad';
+
   const shiftAll = (by: 1 | -1) => {
     for (const game of GAMES) {
       const level = levelOf(progress.levels, game);
@@ -107,6 +124,9 @@ export function DashboardScreen({
 
         <AccountPanel email={guestMode ? undefined : parentEmail} pending={pending} onSwitchChild={onSwitchChild} onSignOut={onSignOut} />
 
+        {/* Never behind a card: the whole point of the offer is that it is seen without going looking. */}
+        {guest && <ImportGuestPanel childName={child.name} {...guest} />}
+
         <div className="mt-5 flex flex-wrap gap-2">
           {onReport && (
             <Button size="sm" onClick={onReport}>
@@ -123,53 +143,60 @@ export function DashboardScreen({
           </a>
         </div>
 
-        {guest && <ImportGuestPanel childName={child.name} {...guest} />}
+        <Section icon="🎯" title="How it's going" summary={motivationSummary} defaultOpen>
+          <MotivationPanel
+            today={todaySummary(progress.rounds, now)}
+            daysThisWeek={daysPlayed(progress.rounds, now)}
+            notes={coachingNotes(progress.rounds, GAMES, now)}
+            moves={levelHistory(progress.rounds, GAMES).map((m) => ({ ...m, name: GAMES.find((g) => g.id === m.game)?.name ?? m.game }))}
+            bare
+          />
+        </Section>
 
-        <MotivationPanel
-          today={todaySummary(progress.rounds, now)}
-          daysThisWeek={daysPlayed(progress.rounds, now)}
-          notes={coachingNotes(progress.rounds, GAMES, now)}
-          moves={levelHistory(progress.rounds, GAMES).map((m) => ({ ...m, name: GAMES.find((g) => g.id === m.game)?.name ?? m.game }))}
-        />
+        <Section icon="📊" title="Skills and levels" summary={skillsSummary}>
+          <p className="text-sm text-grape/70">
+            Accuracy and answer speed over the last 3 rounds of each game. A quick perfect round, or two in a row at 80%+, moves a game up a level; if both
+            were slow it stays to build speed. Two under 50% drops it back, and after two misses in a row the next question comes from the level below.
+            Levels 4 and 5 are challenge levels. Use − / + to override.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Button size="sm" onClick={() => shiftAll(1)}>
+              Make all games harder
+            </Button>
+            <Button variant="quiet" size="sm" onClick={() => shiftAll(-1)}>
+              Easier
+            </Button>
+          </div>
+          <div className="mt-1">
+            {GAMES.map((game) => {
+              const level = levelOf(progress.levels, game);
+              const stage = Math.min(level + 1, 3) as StageNumber;
+              const skill = skillForGame(game.id);
+              const printable = skill && printablesFor(skill.id).find((p) => p.status === 'ready' && p.link && p.stages.includes(stage));
+              return (
+                <SkillRow
+                  key={game.id}
+                  game={game}
+                  level={level}
+                  stats={skillStats(progress.rounds, game.id)}
+                  missed={oftenMissed(progress.rounds, game.id)}
+                  speed={speedTrend(progress.rounds, game.id)}
+                  habit={habitFor(game.id, progress)}
+                  onSetLevel={(next) => onSetLevel(game.id, next)}
+                  print={printable?.link ? { href: printable.link(stage, child.name), label: `Print stage ${stage} ${printable.title.toLowerCase()}` } : undefined}
+                />
+              );
+            })}
+          </div>
+        </Section>
 
-        <p className="mt-6 text-sm text-grape/70">
-          Accuracy and answer speed over the last 3 rounds of each game. A quick perfect round, or two in a row at 80%+, moves a game up a level; if both
-          were slow it stays to build speed. Two under 50% drops it back, and after two misses in a row the next question comes from the level below.
-          Levels 4 and 5 are challenge levels. Use − / + to override.
-        </p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <Button size="sm" onClick={() => shiftAll(1)}>
-            Make all games harder
-          </Button>
-          <Button variant="quiet" size="sm" onClick={() => shiftAll(-1)}>
-            Easier
-          </Button>
-        </div>
-        <div className="mt-1">
-          {GAMES.map((game) => {
-            const level = levelOf(progress.levels, game);
-            const stage = Math.min(level + 1, 3) as StageNumber;
-            const skill = skillForGame(game.id);
-            const printable = skill && printablesFor(skill.id).find((p) => p.status === 'ready' && p.link && p.stages.includes(stage));
-            return (
-              <SkillRow
-                key={game.id}
-                game={game}
-                level={level}
-                stats={skillStats(progress.rounds, game.id)}
-                missed={oftenMissed(progress.rounds, game.id)}
-                speed={speedTrend(progress.rounds, game.id)}
-                habit={habitFor(game.id, progress)}
-                onSetLevel={(next) => onSetLevel(game.id, next)}
-                print={printable?.link ? { href: printable.link(stage, child.name), label: `Print stage ${stage} ${printable.title.toLowerCase()}` } : undefined}
-              />
-            );
-          })}
-        </div>
+        <Section icon="📝" title="Weekly check-in" summary={checkinSummary}>
+          <CheckInPanel checkins={progress.checkins} onSubmit={onAddCheckin} bare />
+        </Section>
 
-        <CheckInPanel checkins={progress.checkins} onSubmit={onAddCheckin} />
-
-        <VoicePanel childId={child.id} childName={child.name} />
+        <Section icon="🔊" title="Voice and name" summary={`How the app says ${child.name}'s name, and which voice it uses`}>
+          <VoicePanel childId={child.id} childName={child.name} bare />
+        </Section>
 
         {/* Account, sync state, switch child and sign in/out all live in the panel at the top. */}
         <footer className="mt-8 flex flex-wrap justify-center gap-3">

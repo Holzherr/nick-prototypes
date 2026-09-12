@@ -11,7 +11,7 @@ export const nameSoundKey = (childId: string) => `maths-garden:say-name:${childI
  * Voice settings on the grown-ups screen: a picker of this device's English voices (best first), a speed
  * slider, a "how to say the name" box, and a test button. Everything is saved on this device.
  */
-export function VoicePanel({ childId, childName }: { childId: string; childName: string }) {
+export function VoicePanel({ childId, childName, bare = false }: { childId: string; childName: string; bare?: boolean }) {
   const [voices, setVoices] = useState(englishVoices);
   const [rate, setRate] = useState(() => voiceSettings().rate);
   const [voiceURI, setVoiceURI] = useState(() => currentVoice()?.voiceURI ?? '');
@@ -27,8 +27,8 @@ export function VoicePanel({ childId, childName }: { childId: string; childName:
   );
 
   return (
-    <section className="mt-8">
-      <h3 className="text-2xl font-semibold text-raspberry">Voice</h3>
+    <section className={bare ? undefined : 'mt-8'}>
+      {!bare && <h3 className="text-2xl font-semibold text-raspberry">Voice</h3>}
       <p className="mt-1 text-sm text-grape/70">
         Voices come from this device. For a natural voice on an iPad: Settings → Accessibility → Spoken Content → Voices → English (UK), download one marked
         Enhanced or Premium, then pick it here.
