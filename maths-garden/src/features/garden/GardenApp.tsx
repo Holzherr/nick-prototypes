@@ -13,7 +13,7 @@ import { setNameSound, unlockAudio } from '@/features/games/sound';
 import type { CheckinScores } from '@/features/progress/components/CheckInPanel';
 import { DashboardScreen } from '@/features/progress/components/DashboardScreen';
 import { nameSoundKey } from '@/features/progress/components/VoicePanel';
-import { guestProfiles, importChanges, markImported, type GuestProfile } from '@/features/progress/guest';
+import { guestProfilesToImport, importChanges, type GuestProfile } from '@/features/progress/guest';
 import { applyChange, levelChange, type Change, type StickerRecord } from '@/features/progress/model';
 import { ProgressScreen } from '@/features/progress/components/ProgressScreen';
 import { PROBES } from '@/features/progress/probes';
@@ -86,11 +86,13 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
   const [pending, setPending] = useState(() => repo.pending());
   // Guest play belongs to a different child id, so once you sign in it vanishes from view. Offering it
   // here — before the garden, not behind the grown-ups sum — is the difference between "moved across" and
-  // "the app lost it".
-  const [screen, setScreen] = useState<Screen>(() => (allowGuestImport && guestProfiles().length > 0 ? { name: 'import' } : { name: 'home' }));
+  // "the app lost it". Whether there is anything to offer is decided by comparing records, never by a flag.
+  const [screen, setScreen] = useState<Screen>(() =>
+    allowGuestImport && guestProfilesToImport(repo.cached(child.id), child.id).length > 0 ? { name: 'import' } : { name: 'home' },
+  );
   const [celebration, setCelebration] = useState<{ line: string; reward: { sticker: Sticker; sparkly: boolean } } | null>(null);
   const [novaDone, setNovaDone] = useState(false);
-  const [guests, setGuests] = useState<GuestProfile[]>(() => (allowGuestImport ? guestProfiles() : []));
+  const [guestsDismissed, setGuestsDismissed] = useState(false);
   const [importing, setImporting] = useState<{ busy: boolean; done: { name: string; rounds: number; stickers: number } | null }>({ busy: false, done: null });
   const [emailing, setEmailing] = useState<{ busy: boolean; sent: boolean; error: string | null }>({ busy: false, sent: false, error: null });
   const latest = useRef(progress);
@@ -219,12 +221,14 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
     setEmailing({ busy: false, sent: result.ok, error: result.ok ? null : (result.error ?? 'Could not send it. Try again later.') });
   };
 
-  /** Copy a guest profile's play onto this child. Every record keeps its id, so a repeat is a no-op. */
+  /**
+   * Copy a guest profile's play onto this child. Every record keeps its id, so a repeat is a no-op — and
+   * the offer disappears on its own once the records are here, rather than because a flag was ticked.
+   */
   const importGuest = (profile: GuestProfile) => {
     setImporting({ busy: true, done: null });
-    for (const change of importChanges(profile.progress, latest.current, child.id)) apply(change);
-    markImported(profile.child.id);
-    setGuests(guestProfiles());
+    const changes = importChanges(profile.progress, latest.current, child.id);
+    for (const change of changes) apply(change);
     setImporting({ busy: false, done: { name: profile.child.name, rounds: profile.rounds, stickers: profile.stickers } });
   };
 
@@ -238,6 +242,8 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
   };
 
   const garden = gardenOf(progress);
+  // Recomputed from what this child actually has, so it empties itself as the imported records land.
+  const guests = allowGuestImport && !guestsDismissed ? guestProfilesToImport(progress, child.id) : [];
   const owed = pendingMilestone(progress.stickers, progress.levels, GAMES);
   const novaMoment = screen.name === 'home' || (screen.name === 'end' && screen.sticker !== null);
   const nova =
@@ -344,9 +350,10 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             progress={progress}
             pending={pending}
             guestMode={guestMode}
+            parentEmail={parentEmail}
             guest={
               allowGuestImport && (guests.length > 0 || importing.done)
-                ? { profiles: guests, busy: importing.busy, imported: importing.done, onImport: importGuest, onDismiss: () => setGuests([]) }
+                ? { profiles: guests, busy: importing.busy, imported: importing.done, onImport: importGuest, onDismiss: () => setGuestsDismissed(true) }
                 : undefined
             }
             onSetLevel={(game, level) => apply(levelChange(child.id, game, levelOf(latest.current.levels, gameById(game)), level, 'manual'))}

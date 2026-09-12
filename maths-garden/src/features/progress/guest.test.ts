@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import type { RoundRecord } from '@/features/games/engine';
 import { writeJSON } from '@/shared/utils/storage';
-import { guestProfiles, GUEST_CHILDREN, importChanges, markImported } from './guest';
+import { guestProfiles, guestProfilesToImport, GUEST_CHILDREN, importChanges } from './guest';
 import { applyChange, emptyProgress, type Progress, type StickerRecord } from './model';
 import { cacheKey } from './repo';
 
@@ -41,11 +41,20 @@ describe('guest import', () => {
     expect(only).toMatchObject({ rounds: 2, stickers: 1, days: 2, lastPlayed: '2026-09-11T17:30:00Z' });
   });
 
-  it('stops offering a profile once it has been imported', () => {
+  it('offers a profile until its records are actually on the child, then stops', () => {
     writeJSON(GUEST_CHILDREN, [{ id: 'guest-1', name: 'Tara', birthdate: null, avatar: '🦄' }]);
     writeJSON(cacheKey('guest-1'), guestProgress());
-    markImported('guest-1');
-    expect(guestProfiles()).toEqual([]);
+
+    // Nothing imported yet: offered.
+    expect(guestProfilesToImport(emptyProgress(), 'tara')).toHaveLength(1);
+
+    // Once every record is on the child there is nothing left to bring across, so the offer goes by itself.
+    const imported = importChanges(guestProgress(), emptyProgress(), 'tara').reduce(applyChange, emptyProgress());
+    expect(guestProfilesToImport(imported, 'tara')).toEqual([]);
+
+    // A half-finished import keeps being offered — which a flag written on tap could never do.
+    const partial = importChanges(guestProgress(), emptyProgress(), 'tara').slice(0, 1).reduce(applyChange, emptyProgress());
+    expect(guestProfilesToImport(partial, 'tara')).toHaveLength(1);
   });
 
   it('re-keys rounds, stickers and levels onto the account child', () => {
