@@ -12,12 +12,15 @@ import Auth from "@/features/auth/AuthScreen";
 import SearchPage from "@/features/discover/SearchScreen";
 import TonightPage from "@/features/tonight/TonightScreen";
 import HouseholdPage from "@/features/household/HouseholdScreen";
+import AgentsPage from "@/features/agents/AgentsScreen";
+import ClaimPage from "@/features/agents/ClaimScreen";
 import ProfilePage from "@/features/social/ProfileScreen";
 import PublicProfilePage from "@/features/social/PublicProfileScreen";
 import InvitePage from "@/features/social/InviteScreen";
 import LandingPage from "@/features/landing/LandingScreen";
 import ExplorePage from "@/features/discover/ExploreScreen";
 import TitleDetailPage from "@/features/title/TitleDetailScreen";
+import PublicTitlePage from "@/features/title/PublicTitleScreen";
 import GenrePage from "@/features/discover/GenreScreen";
 import ActorPage from "@/features/discover/ActorScreen";
 import NotFound from "@/features/landing/NotFound";
@@ -70,7 +73,10 @@ const App = () => (
           <Routes>
             <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
             <Route path="/" element={<HomeRoute />} />
-            <Route path="/household" element={<ProtectedRoute><HouseholdPage /></ProtectedRoute>} />
+            <Route path="/titles/:slug" element={<PublicTitlePage />} />
+          <Route path="/claim/:code" element={<ClaimPage />} />
+          <Route path="/agents" element={<ProtectedRoute><AgentsPage /></ProtectedRoute>} />
+          <Route path="/household" element={<ProtectedRoute><HouseholdPage /></ProtectedRoute>} />
           <Route path="/tonight" element={<ProtectedRoute><TonightPage /></ProtectedRoute>} />
           <Route path="/search" element={<ProtectedRoute><SearchPage /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
