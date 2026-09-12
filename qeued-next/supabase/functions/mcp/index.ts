@@ -95,6 +95,7 @@ const TOOLS = [
         title: { type: 'string', description: 'Name of the film or series.' },
         year: { type: 'integer', description: 'Release year, when the user gave one — it disambiguates remakes.' },
         note: { type: 'string', description: 'Anything the user said about why they want it.' },
+        type: { type: 'string', enum: ['movie', 'series'], description: 'Say which when you know — a title we do not hold yet is recorded as a film unless told otherwise.' },
       },
       required: ['title'],
       additionalProperties: false,
@@ -120,6 +121,22 @@ const TOOLS = [
         review: { type: 'string', description: 'What the user said about it, in their words.' },
       },
       required: ['title'],
+      additionalProperties: false,
+    },
+  },
+  {
+    name: 'set_progress',
+    description:
+      "Record how far through a series the user is. Give the last season and episode they watched, not the next one. " +
+      'Use this whenever they mention watching episodes — it is what makes "what should I put on" answerable.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        title: { type: 'string' },
+        season: { type: 'integer', description: 'Season number of the last episode watched.' },
+        episode: { type: 'integer', description: 'Episode number within that season.' },
+      },
+      required: ['title', 'season', 'episode'],
       additionalProperties: false,
     },
   },
@@ -329,7 +346,7 @@ const callTool = async (
         // pipeline fill it in. The user's intent is captured either way.
         const { data: created, error } = await db
           .from('titles')
-          .insert({ name: name_, year: year ?? null, type: 'movie', genres: [] })
+          .insert({ name: name_, year: year ?? null, type: args.type === 'series' ? 'series' : 'movie', genres: [] })
           .select('id, name, year, type, title_availability(provider, offer_type, url)')
           .single();
         if (error) return toolResult(`Could not add that: ${error.message}`, true);
@@ -371,6 +388,30 @@ const callTool = async (
       if (error) return toolResult(`Could not record that: ${error.message}`, true);
       await logActivity(profile.id, 'mark_watched', `Marked ${title.name} watched${rating ? ` (${rating}/5)` : ''}`);
       return toolResult(`Recorded ${title.name} as watched${rating ? `, rated ${rating}/5` : ''}.`);
+    }
+
+    case 'set_progress': {
+      if (!canWrite) return toolResult('This token is read-only.', true);
+      const title = await findTitle(String(args.title ?? ''));
+      if (!title) return toolResult('Could not find that title.', true);
+      const season = Math.max(1, Number(args.season ?? 1));
+      const episode = Math.max(1, Number(args.episode ?? 1));
+
+      const { error } = await db.from('watch_entries').upsert(
+        {
+          profile_id: profile.id,
+          user_id: profile.user_id,
+          title_id: title.id,
+          status: 'watching',
+          current_season: season,
+          current_episode: episode,
+          progress_updated_at: new Date().toISOString(),
+        },
+        { onConflict: 'profile_id,title_id' },
+      );
+      if (error) return toolResult(`Could not record that: ${error.message}`, true);
+      await logActivity(profile.id, 'set_progress', `${title.name} at S${season} E${episode}`);
+      return toolResult(`Recorded ${title.name} at season ${season}, episode ${episode}. Next up is S${season} E${episode + 1}.`);
     }
 
     case 'whats_on_tonight': {

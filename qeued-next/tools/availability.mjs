@@ -5,8 +5,12 @@
  * Reads the page already cited for the title, so no searching or guessing is involved, and
  * takes the offers from the rendered markup: each offer block names its provider and says
  * whether it is a rental, a purchase, included with a subscription, free, or a cinema
- * listing. Results replace whatever was there for the region — a provider that dropped a
- * title has to disappear, not linger.
+ * listing.
+ *
+ * Rows are not replaced wholesale. An offer still there has its last_seen_at moved forward,
+ * a new one is inserted, and one that has gone is stamped removed_at rather than deleted —
+ * because "just landed on Netflix" and "no longer streaming" are the most useful things this
+ * data can say, and both are invisible if each refresh erases the last.
  *
  *   SUPABASE_SERVICE_ROLE_KEY=… node tools/availability.mjs [--limit N] [--stale] [--dry-run]
  *
@@ -149,20 +153,45 @@ const run = async () => {
       continue;
     }
 
-    await rest(`title_availability?title_id=eq.${title.id}&region=eq.GB`, { method: 'DELETE' });
+    const existing = await rest(`title_availability?select=id,provider,offer_type,removed_at&title_id=eq.${title.id}&region=eq.GB`);
+    const now = new Date().toISOString();
+    const seenKeys = new Set(parsed.map((o) => `${o.provider}|${o.offerType}`));
+
     for (const offer of parsed) {
-      await rest('title_availability', {
-        method: 'POST',
-        body: JSON.stringify({
-          title_id: title.id,
-          region: 'GB',
-          provider: offer.provider,
-          offer_type: offer.offerType,
-          url: page,
-          note: offer.price,
-        }),
-      });
+      const match = existing.find((row) => row.provider === offer.provider && row.offer_type === offer.offerType);
+      if (match) {
+        // Back after a gap counts as newly available again, so first_seen_at resets.
+        await rest(`title_availability?id=eq.${match.id}`, {
+          method: 'PATCH',
+          body: JSON.stringify({
+            last_seen_at: now,
+            removed_at: null,
+            note: offer.price,
+            ...(match.removed_at ? { first_seen_at: now } : {}),
+            expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+          }),
+        });
+      } else {
+        await rest('title_availability', {
+          method: 'POST',
+          body: JSON.stringify({
+            title_id: title.id,
+            region: 'GB',
+            provider: offer.provider,
+            offer_type: offer.offerType,
+            url: page,
+            note: offer.price,
+            first_seen_at: now,
+            last_seen_at: now,
+          }),
+        });
+      }
       offers += 1;
+    }
+
+    for (const row of existing) {
+      if (seenKeys.has(`${row.provider}|${row.offer_type}`) || row.removed_at) continue;
+      await rest(`title_availability?id=eq.${row.id}`, { method: 'PATCH', body: JSON.stringify({ removed_at: now }) });
     }
     await rest('title_sources?on_conflict=title_id,field,source_url', {
       method: 'POST',
