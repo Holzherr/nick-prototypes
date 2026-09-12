@@ -74,9 +74,14 @@ if (sqlPath) {
     return sql;
   };
 
+  // The same mapping expand.mjs applies to a fresh page, for rows that predate it. The
+  // compound labels matter most: "Mystery & Thriller" and "Thriller" were two shelves.
   const canonicalGenreSql =
     `case lower(${decode('raw')}) ` +
-    `when 'sci-fi' then 'Science-Fiction' when 'science fiction' then 'Science-Fiction' ` +
+    `when 'sci-fi' then 'Science-Fiction' ` +
+    `when 'science fiction' then 'Science-Fiction' ` +
+    `when 'mystery & thriller' then 'Thriller' ` +
+    `when 'action & adventure' then 'Action' ` +
     `else ${decode('raw')} end`;
 
   const statements = [
@@ -133,7 +138,13 @@ const bySlug = new Map(titles.map((row) => [row.slug, row]));
  * taste in half for no reason: 91 titles are "Science-Fiction" and 7 are "Sci-Fi". Only
  * exact duplicates are merged here — a rare genre is not the same thing as a wrong one.
  */
-const GENRE_ALIASES = { 'sci-fi': 'Science-Fiction', 'science fiction': 'Science-Fiction', 'music &amp; musical': 'Music & Musical' };
+const GENRE_ALIASES = {
+  'sci-fi': 'Science-Fiction',
+  'science fiction': 'Science-Fiction',
+  'music &amp; musical': 'Music & Musical',
+  'mystery & thriller': 'Thriller',
+  'action & adventure': 'Action',
+};
 const canonicalGenre = (genre) => GENRE_ALIASES[String(genre).trim().toLowerCase()] ?? String(genre).replace(/&amp;/g, '&').trim();
 
 // Order-preserving: the first credited name is the lead, and that order is worth keeping.
