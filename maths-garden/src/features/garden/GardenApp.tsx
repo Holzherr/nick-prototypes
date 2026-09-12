@@ -56,6 +56,12 @@ type Screen =
   | { name: 'gate' }
   | { name: 'dashboard' };
 
+/** The one in-app screen with a hash of its own, so a grown-up can reload it (and link straight to it). */
+export const GROWN_UPS_PATH = '/grown-ups';
+
+/** Swap the hash without a navigation, so back still leaves the app rather than walking these screens. */
+const setHash = (path: string) => window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#${path}`);
+
 export interface GardenAppProps {
   child: Child;
   repo: ProgressRepo;
@@ -87,9 +93,14 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
   // Guest play belongs to a different child id, so once you sign in it vanishes from view. Offering it
   // here — before the garden, not behind the grown-ups sum — is the difference between "moved across" and
   // "the app lost it". Whether there is anything to offer is decided by comparing records, never by a flag.
-  const [screen, setScreen] = useState<Screen>(() =>
-    allowGuestImport && guestProfilesToImport(repo.cached(child.id), child.id).length > 0 ? { name: 'import' } : { name: 'home' },
-  );
+  // The grown-ups screen is the one screen worth surviving a reload: a parent reading it and pulling to
+  // refresh used to land back in the child's garden and have to answer the sum again. It is the only screen
+  // in the hash, because the rest are steps in a child's play — a refresh mid-round should not resume it.
+  const [screen, setScreen] = useState<Screen>(() => {
+    if (allowGuestImport && guestProfilesToImport(repo.cached(child.id), child.id).length > 0) return { name: 'import' };
+    if (window.location.hash.replace(/^#/, '').split('?')[0] === GROWN_UPS_PATH) return grownUpsPassed() ? { name: 'dashboard' } : { name: 'gate' };
+    return { name: 'home' };
+  });
   const [celebration, setCelebration] = useState<{ line: string; reward: { sticker: Sticker; sparkly: boolean } } | null>(null);
   const [novaDone, setNovaDone] = useState(false);
   const [guestsDismissed, setGuestsDismissed] = useState(false);
@@ -133,7 +144,15 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
     void repo.apply(change).finally(() => setPending(repo.pending()));
   };
 
-  const home = () => setScreen({ name: 'home' });
+  const home = () => {
+    setHash('/app');
+    setScreen({ name: 'home' });
+  };
+
+  const grownUps = () => {
+    setHash(GROWN_UPS_PATH);
+    setScreen(grownUpsPassed() ? { name: 'dashboard' } : { name: 'gate' });
+  };
 
   const play = (game: Game) => {
     unlockAudio();
@@ -279,7 +298,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             onPlay={play}
             onStickers={() => setScreen({ name: 'stickers' })}
             onGarden={() => setScreen({ name: 'garden' })}
-            onGrownUps={() => setScreen(grownUpsPassed() ? { name: 'dashboard' } : { name: 'gate' })}
+            onGrownUps={grownUps}
           />
         );
       case 'game':
