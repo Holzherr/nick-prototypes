@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 import { PACKS } from '@/features/stickers/catalog';
-import { gameById } from '../catalog';
+import { gameById, GAMES } from '../catalog';
+import { recommendGame } from '../recommend';
 import { EndScreen } from './EndScreen';
 import { GameScreen } from './GameScreen';
 import { GardenHome } from './GardenHome';
@@ -15,7 +16,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The child-facing screens. Home: unicorn tile, "Tara’s Maths Garden", five game tiles, sticker count top right, faint Grown-ups bottom right. Game: home button, star row, one question at a time. End: stars, score line, optional "New level unlocked!", then the sticker pack chooser; after picking, the sticker pops in with Play again / My stickers / All games. Gate: "Grown-ups only — What is 7 + 5?".',
+          'The child-facing screens. Home: unicorn tile, "Tara’s Maths Garden", one big suggested game with the reason under it ("Not played yet today", "One good round to level up!") and the rest behind "Or pick another game"; sticker count top right, faint Grown-ups bottom right. Game: home button, star row, one question at a time. End: stars, score line, optional "New level unlocked!", then the sticker pack chooser; after picking, the sticker pops in with Play again / My stickers / All games. Gate: "Grown-ups only — What is 7 + 5?".',
       },
     },
   },
@@ -25,7 +26,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Home: Story = {};
+export const Home: Story = { args: { recommended: recommendGame([], { peek: 1, find: 2 }, GAMES) } };
+export const HomeEveryGame: Story = { name: 'Home (all games open)', args: { recommended: undefined } };
 
 export const Game: Story = {
   render: () => (

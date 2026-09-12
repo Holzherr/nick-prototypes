@@ -8,6 +8,7 @@ import { GardenHome } from '@/features/games/components/GardenHome';
 import { GrownUpsGate } from '@/features/games/components/GrownUpsGate';
 import { levelOf, nextLevel, type AnswerRecord, type RoundRecord } from '@/features/games/engine';
 import { breakSuggestion, isPersonalBest, todaySummary, type BreakReason } from '@/features/games/insights';
+import { recommendGame } from '@/features/games/recommend';
 import { setNameSound, unlockAudio } from '@/features/games/sound';
 import type { CheckinScores } from '@/features/progress/components/CheckInPanel';
 import { DashboardScreen } from '@/features/progress/components/DashboardScreen';
@@ -261,6 +262,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, startGame, pa
             stickerCount={progress.stickers.length}
             today={todaySummary(progress.rounds)}
             garden={garden}
+            recommended={recommendGame(progress.rounds, progress.levels, GAMES)}
             onPlay={play}
             onStickers={() => setScreen({ name: 'stickers' })}
             onGarden={() => setScreen({ name: 'garden' })}
