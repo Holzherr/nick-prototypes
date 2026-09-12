@@ -5,7 +5,7 @@ import { GAMES, gameById, type Game, type GameId } from '@/features/games/catalo
 import { EndScreen } from '@/features/games/components/EndScreen';
 import { GameScreen } from '@/features/games/components/GameScreen';
 import { GardenHome } from '@/features/games/components/GardenHome';
-import { GrownUpsGate } from '@/features/games/components/GrownUpsGate';
+import { GrownUpsGate, grownUpsPassed } from '@/features/games/components/GrownUpsGate';
 import { levelOf, nextLevel, type AnswerRecord, type RoundRecord } from '@/features/games/engine';
 import { breakSuggestion, isPersonalBest, todaySummary, type BreakReason } from '@/features/games/insights';
 import { recommendGame } from '@/features/games/recommend';
@@ -279,7 +279,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             onPlay={play}
             onStickers={() => setScreen({ name: 'stickers' })}
             onGarden={() => setScreen({ name: 'garden' })}
-            onGrownUps={() => setScreen({ name: 'gate' })}
+            onGrownUps={() => setScreen(grownUpsPassed() ? { name: 'dashboard' } : { name: 'gate' })}
           />
         );
       case 'game':
