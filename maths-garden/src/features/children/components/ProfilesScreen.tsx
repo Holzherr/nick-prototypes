@@ -64,12 +64,15 @@ export function ProfilesScreen({ profiles, email, busy, error, onPick, onCreate,
           </>
         )}
 
-        <p className="mt-8 text-sm text-grape/60">
-          Signed in as {email} ·{' '}
-          <button type="button" className="underline" onClick={onSignOut}>
-            Sign out
-          </button>
-        </p>
+        <div className="mt-8 rounded-[24px] bg-blush/70 p-4 text-left">
+          <p className="text-xs font-semibold uppercase tracking-wide text-bubble">Account</p>
+          <div className="mt-1 flex flex-wrap items-center justify-between gap-2">
+            <p className="min-w-[180px] flex-1 break-all text-sm text-grape/85">{email}</p>
+            <Button variant="quiet" size="sm" onClick={onSignOut}>
+              Sign out
+            </Button>
+          </div>
+        </div>
       </Card>
     </div>
   );

@@ -9,6 +9,7 @@ import { coachingNotes, countingHabit, daysPlayed, levelHistory, replayHabit, sp
 import { Button, buttonVariants } from '@/shared/components/ui/button';
 import { Card } from '@/shared/components/ui/card';
 import type { Progress } from '../model';
+import { AccountPanel } from './AccountPanel';
 import { CheckInPanel, type CheckinScores } from './CheckInPanel';
 import { ImportGuestPanel, type ImportGuestPanelProps } from './ImportGuestPanel';
 import { MotivationPanel } from './MotivationPanel';
@@ -37,6 +38,8 @@ export interface DashboardScreenProps {
   guest?: Omit<ImportGuestPanelProps, 'childName'>;
   /** Playing without an account: there is nothing to sign out of, so the footer offers signing in. */
   guestMode?: boolean;
+  /** The signed-in parent's address, shown so a signed-in session is tellable from a guest one. */
+  parentEmail?: string;
   onSetLevel: (game: GameId, level: number) => void;
   /** Opens the tutor report (what she is good at, what to print next). */
   onReport?: () => void;
@@ -59,6 +62,7 @@ export function DashboardScreen({
   now = new Date(),
   guest,
   guestMode = false,
+  parentEmail,
   onSetLevel,
   onReport,
   onHistory,
@@ -100,6 +104,8 @@ export function DashboardScreen({
             Close
           </Button>
         </header>
+
+        <AccountPanel email={guestMode ? undefined : parentEmail} pending={pending} onSwitchChild={onSwitchChild} onSignOut={onSignOut} />
 
         <div className="mt-5 flex flex-wrap gap-2">
           {onReport && (
@@ -165,33 +171,12 @@ export function DashboardScreen({
 
         <VoicePanel childId={child.id} childName={child.name} />
 
-        {pending > 0 && (
-          <p className="mt-6 rounded-2xl bg-blush px-4 py-3 text-sm text-clay">
-            {pending} change{pending === 1 ? '' : 's'} saved on this iPad, waiting to upload. They sync when it is back online.
-          </p>
-        )}
-
+        {/* Account, sync state, switch child and sign in/out all live in the panel at the top. */}
         <footer className="mt-8 flex flex-wrap justify-center gap-3">
           <a href="#/resources" className={buttonVariants({ variant: 'quiet' })}>
             🖨 Free printables
           </a>
-          <Button variant="quiet" onClick={onSwitchChild}>
-            Switch or add child
-          </Button>
-          {guestMode ? (
-            <Button onClick={onSignOut}>Sign in to save progress →</Button>
-          ) : (
-            <Button variant="ghost" onClick={onSignOut}>
-              Sign out
-            </Button>
-          )}
         </footer>
-        {guestMode && (
-          <p className="mt-3 text-center text-sm text-grape/70">
-            Playing as a guest: everything is on this device only. Signing in keeps it safe, syncs it to your other devices — and offers to bring this play with
-            it. Nothing is lost by signing in.
-          </p>
-        )}
       </Card>
     </div>
   );
