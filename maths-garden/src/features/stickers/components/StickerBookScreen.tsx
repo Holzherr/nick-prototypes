@@ -1,13 +1,15 @@
 import { possessive } from '@/features/children/model';
 import type { StickerRecord } from '@/features/progress/model';
 import { Button } from '@/shared/components/ui/button';
-import { collected, isSpecial, packProgress, PACKS, SPECIAL_PACK, STICKER_TOTAL, type Pack } from '../catalog';
+import { collected, isSpecial, packProgress, SPECIAL_PACK, stickerTotal, unlockedPacks, type Pack } from '../catalog';
 import { NovaAvatar } from './NovaCelebration';
 import { EmptySlot, StickerBadge } from './StickerBadge';
 
 export interface StickerBookScreenProps {
   childName: string;
   stickers: readonly StickerRecord[];
+  /** Best printable stage reached in any game; packs above it are not in the book yet. */
+  stage?: number;
   onHome: () => void;
 }
 
@@ -16,7 +18,7 @@ export interface StickerBookScreenProps {
  * per pack: collected stickers (with ×n and sparkle), dashed "?" slots, a green "Complete!" badge and the
  * sparkly count that becomes the next goal.
  */
-export function StickerBookScreen({ childName, stickers, onHome }: StickerBookScreenProps) {
+export function StickerBookScreen({ childName, stickers, stage = 1, onHome }: StickerBookScreenProps) {
   const owned = collected(stickers);
   const regular = stickers.filter((s) => !isSpecial(s.sticker));
   const special = stickers.length - regular.length;
@@ -45,7 +47,7 @@ export function StickerBookScreen({ childName, stickers, onHome }: StickerBookSc
           <p className="text-lg text-grape/70">
             {stickers.length === 0
               ? 'Finish a game to get your first sticker!'
-              : `${regular.length} sticker${regular.length === 1 ? '' : 's'} · ${different} of ${STICKER_TOTAL} different${special ? ` · ${special} special` : ''}`}
+              : `${regular.length} sticker${regular.length === 1 ? '' : 's'} · ${different} of ${stickerTotal(stage)} different${special ? ` · ${special} special` : ''}`}
           </p>
         </div>
       </header>
@@ -61,7 +63,7 @@ export function StickerBookScreen({ childName, stickers, onHome }: StickerBookSc
             </>,
             true,
           )}
-        {PACKS.map((pack) => {
+        {unlockedPacks(stage).map((pack) => {
           const p = packProgress(pack, regular);
           return page(
             pack,

@@ -1,4 +1,6 @@
-export type PackId = 'unicorn' | 'kpop' | 'ice' | 'special';
+import type { StageNumber } from '@/features/curriculum/skills';
+
+export type PackId = 'unicorn' | 'kpop' | 'ice' | 'space' | 'sea' | 'dino' | 'special';
 
 export interface Sticker {
   /** "<pack>/<name>", stored in maths_stickers.sticker; never rename one that has been handed out. */
@@ -14,23 +16,34 @@ export interface Pack {
   cover: string;
   /** CSS background of the sticker disc. */
   background: string;
+  /**
+   * The printable stage a child must have reached in some game before this pack appears.
+   *
+   * Three packs of eight looked like a fortnight of collecting and lasted two days: the unicorn and K-pop
+   * packs were both complete — and sparkly-complete — by the second evening, after which every draw could
+   * only hand back a duplicate. Tying the later packs to stages means the collection grows because she got
+   * better, not because she kept tapping.
+   */
+  unlockAt: StageNumber;
   stickers: readonly Sticker[];
 }
 
-const makePack = (id: PackId, name: string, cover: string, background: string, items: readonly (readonly [string, string])[]): Pack => ({
+const makePack = (id: PackId, name: string, cover: string, background: string, unlockAt: StageNumber, items: readonly (readonly [string, string])[]): Pack => ({
   id,
   name,
   cover,
   background,
+  unlockAt,
   stickers: items.map(([emoji, stickerName]) => ({ id: `${id}/${stickerName.replace(/\s+/g, '-')}`, pack: id, emoji, name: stickerName })),
 });
 
 /**
- * The three packs offered after every finished game. Emoji art only: the K-pop and ice packs are
- * themed on the films without using the characters themselves.
+ * The packs offered after a finished game. Emoji art only: the K-pop and ice packs are themed on the films
+ * without using the characters themselves. The first three are open from the start; the rest unlock as she
+ * reaches later stages, so there is always something left to collect.
  */
 export const PACKS: readonly Pack[] = [
-  makePack('unicorn', 'Unicorns', '🦄', 'radial-gradient(circle at 32% 28%, #ffffff 0%, #ffd3e4 48%, #d9b8ff 100%)', [
+  makePack('unicorn', 'Unicorns', '🦄', 'radial-gradient(circle at 32% 28%, #ffffff 0%, #ffd3e4 48%, #d9b8ff 100%)', 1, [
     ['🦄', 'unicorn'],
     ['🌈', 'rainbow'],
     ['🌟', 'star'],
@@ -40,7 +53,7 @@ export const PACKS: readonly Pack[] = [
     ['🦋', 'butterfly'],
     ['🍭', 'lollipop'],
   ]),
-  makePack('kpop', 'K-pop Hunters', '🎤', 'radial-gradient(circle at 32% 28%, #ffe3f6 0%, #e08cff 48%, #6a2bd1 100%)', [
+  makePack('kpop', 'K-pop Hunters', '🎤', 'radial-gradient(circle at 32% 28%, #ffe3f6 0%, #e08cff 48%, #6a2bd1 100%)', 1, [
     ['🎤', 'microphone'],
     ['⚔️', 'swords'],
     ['⚡', 'lightning'],
@@ -50,7 +63,7 @@ export const PACKS: readonly Pack[] = [
     ['🎶', 'music'],
     ['🔥', 'fire'],
   ]),
-  makePack('ice', 'Ice Queen', '❄️', 'radial-gradient(circle at 32% 28%, #ffffff 0%, #d4f1ff 48%, #7cc6f2 100%)', [
+  makePack('ice', 'Ice Queen', '❄️', 'radial-gradient(circle at 32% 28%, #ffffff 0%, #d4f1ff 48%, #7cc6f2 100%)', 1, [
     ['❄️', 'snowflake'],
     ['⛄', 'snowman'],
     ['👑', 'crown'],
@@ -60,10 +73,40 @@ export const PACKS: readonly Pack[] = [
     ['🧊', 'ice cube'],
     ['🌨️', 'snow cloud'],
   ]),
+  makePack('space', 'Space', '🚀', 'radial-gradient(circle at 32% 28%, #eef2ff 0%, #9aa8ff 48%, #2b2f77 100%)', 2, [
+    ['🚀', 'rocket'],
+    ['🪐', 'planet'],
+    ['👩‍🚀', 'astronaut'],
+    ['🛸', 'saucer'],
+    ['☄️', 'comet'],
+    ['🌕', 'full moon'],
+    ['🛰️', 'satellite'],
+    ['👽', 'alien'],
+  ]),
+  makePack('sea', 'Under the Sea', '🐠', 'radial-gradient(circle at 32% 28%, #e7fbff 0%, #7fd8ea 48%, #14708f 100%)', 2, [
+    ['🐠', 'fish'],
+    ['🐙', 'octopus'],
+    ['🐬', 'dolphin'],
+    ['🐳', 'whale'],
+    ['🦀', 'crab'],
+    ['🐚', 'shell'],
+    ['🌊', 'wave'],
+    ['🐢', 'turtle'],
+  ]),
+  makePack('dino', 'Dinosaurs', '🦕', 'radial-gradient(circle at 32% 28%, #f2ffe9 0%, #a9d98a 48%, #3f6b2a 100%)', 3, [
+    ['🦕', 'long neck'],
+    ['🦖', 'big teeth'],
+    ['🥚', 'egg'],
+    ['🌋', 'volcano'],
+    ['🦴', 'bone'],
+    ['🐊', 'snapper'],
+    ['🌿', 'fern'],
+    ['🪨', 'rock'],
+  ]),
 ];
 
 /** Gold stickers only Nova hands out, at milestones. Never offered in the pack chooser. */
-export const SPECIAL_PACK: Pack = makePack('special', 'Special from Nova', '⭐', 'radial-gradient(circle at 32% 28%, #fffbe6 0%, #ffd66b 50%, #f0a020 100%)', [
+export const SPECIAL_PACK: Pack = makePack('special', 'Special from Nova', '⭐', 'radial-gradient(circle at 32% 28%, #fffbe6 0%, #ffd66b 50%, #f0a020 100%)', 1, [
   ['👑', 'golden crown'],
   ['🏆', 'trophy'],
   ['💫', 'superstar'],
@@ -77,8 +120,18 @@ export const SPECIAL_PACK: Pack = makePack('special', 'Special from Nova', '⭐'
 ]);
 
 const ALL = [...PACKS, SPECIAL_PACK].flatMap((p) => p.stickers);
-/** Different stickers in the regular packs. */
+/** Different stickers in every regular pack, locked ones included. */
 export const STICKER_TOTAL = PACKS.reduce((sum, p) => sum + p.stickers.length, 0);
+
+/** The packs a child can choose from, given the best stage she has reached in any game. */
+export const unlockedPacks = (stage: number): readonly Pack[] => PACKS.filter((p) => p.unlockAt <= stage);
+
+/**
+ * How many different stickers are collectable at this stage. The sticker book counts against this, not
+ * STICKER_TOTAL: a locked pack must add nothing, or finishing every pack you can reach would still read as
+ * half a collection — the opposite of the point.
+ */
+export const stickerTotal = (stage: number): number => unlockedPacks(stage).reduce((sum, p) => sum + p.stickers.length, 0);
 
 export const packById = (id: PackId): Pack => [...PACKS, SPECIAL_PACK].find((p) => p.id === id) ?? PACKS[0];
 export const stickerById = (id: string): Sticker | undefined => ALL.find((s) => s.id === id);

@@ -1,12 +1,17 @@
-import { PACKS, type PackId } from '../catalog';
+import { unlockedPacks, type PackId } from '../catalog';
 import { StickerBadge } from './StickerBadge';
 
-/** "Choose a sticker!" and one cream card per pack, each showing a fan of three of its stickers and the pack name. */
-export const PackChooser = ({ onPick }: { onPick: (pack: PackId) => void }) => (
+/**
+ * "Choose a sticker!" and one cream card per pack she has unlocked, each showing a fan of three of its
+ * stickers and the pack name. Locked packs are deliberately not shown here: the chooser appears seconds
+ * after a round, and a four-year-old being offered something she cannot have is a worse moment than simply
+ * meeting the new pack when it arrives.
+ */
+export const PackChooser = ({ stage = 1, onPick }: { stage?: number; onPick: (pack: PackId) => void }) => (
   <section className="flex flex-col items-center gap-4">
     <h2 className="text-[clamp(22px,3.4vw,30px)] font-semibold">Choose a sticker!</h2>
     <div className="flex flex-wrap justify-center gap-[clamp(12px,2.5vw,22px)]">
-      {PACKS.map((pack) => (
+      {unlockedPacks(stage).map((pack) => (
         <button
           key={pack.id}
           type="button"
