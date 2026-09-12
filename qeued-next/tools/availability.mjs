@@ -63,6 +63,19 @@ const rest = async (path, init = {}) => {
 
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+/** A fixed number of page reads in flight, each keeping its own pause. See expand.mjs. */
+const pooled = async (items, concurrency, worker) => {
+  const queue = [...items];
+  const runners = Array.from({ length: Math.min(concurrency, items.length) }, async () => {
+    for (;;) {
+      const item = queue.shift();
+      if (!item) return;
+      await worker(item);
+    }
+  });
+  await Promise.all(runners);
+};
+
 /**
  * Pull the offers out of a title page.
  *
@@ -109,6 +122,7 @@ const gatherPath = flagValue('gather');
 const sqlPath = flagValue('sql');
 const fromPath = flagValue('from');
 const onlyPath = flagValue('only');
+const concurrency = Math.max(1, Number(flagValue('concurrency') ?? 4));
 if (!KEY && !sqlPath && !gatherPath) throw new Error('Missing SUPABASE_SERVICE_ROLE_KEY (or pass --gather/--sql)');
 
 const quote = (value) => `'${String(value).replace(/'/g, "''")}'`;
@@ -206,7 +220,7 @@ const run = async () => {
   let noPage = 0;
   const collected = [];
 
-  for (const title of batch) {
+  const readOne = async (title) => {
     // The page we already cited: availability came from there, so it is the right source.
     const page =
       title.image_source_url?.includes('justwatch') ? title.image_source_url
@@ -214,7 +228,7 @@ const run = async () => {
     if (!page) {
       noPage += 1;
       console.log(`  ?  ${title.name} — no cited page`);
-      continue;
+      return;
     }
 
     await pause(400);
@@ -223,18 +237,18 @@ const run = async () => {
       const res = await fetch(page, { headers: { 'User-Agent': BROWSER_UA } });
       if (!res.ok) {
         console.log(`  ✗  ${title.name} — ${res.status}`);
-        continue;
+        return;
       }
       html = await res.text();
     } catch (e) {
       console.log(`  ✗  ${title.name} — ${e.message}`);
-      continue;
+      return;
     }
 
     const parsed = offersFrom(html);
     if (!parsed.length) {
       console.log(`  —  ${title.name} — no offers listed`);
-      continue;
+      return;
     }
 
     if (gatherPath) {
@@ -242,12 +256,12 @@ const run = async () => {
       offers += parsed.length;
       filled += 1;
       console.log(`  ✓  ${title.name} — ${parsed.length} offer(s)`);
-      continue;
+      return;
     }
 
     if (dryRun) {
       console.log(`  ${title.name}: ${parsed.map((o) => `${o.provider} (${o.offerType})`).join(', ')}`);
-      continue;
+      return;
     }
 
     const existing = await rest(`title_availability?select=id,provider,offer_type,removed_at&title_id=eq.${title.id}&region=eq.GB`);
@@ -297,7 +311,11 @@ const run = async () => {
     });
     filled += 1;
     console.log(`  ✓  ${title.name} — ${parsed.length} offer(s)`);
-  }
+  };
+
+  // Reads go several at a time; the write path stays sequential.
+  if (gatherPath) await pooled(batch, concurrency, readOne);
+  else for (const title of batch) await readOne(title);
 
   if (gatherPath) {
     (await import('node:fs')).writeFileSync(gatherPath, JSON.stringify(collected, null, 1));
