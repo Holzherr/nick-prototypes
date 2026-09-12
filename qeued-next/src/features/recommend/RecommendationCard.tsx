@@ -7,8 +7,12 @@ import { Star, X, SkipForward } from "lucide-react";
 import { supabase } from "@/shared/supabase/client";
 import { useToast } from "@/shared/components/ui/use-toast";
 import AddToWatchlistSelect from "@/features/library/AddToWatchlistSelect";
+import { useProfile } from "@/features/household/ProfileContext";
 
 export interface Recommendation {
+  /** Present for anything out of our catalogue, which is everything the engine returns now. */
+  title_id?: string;
+  slug?: string | null;
   title: string;
   genres: string[];
   imdb_rating: number;
@@ -16,7 +20,11 @@ export interface Recommendation {
   explanation: string;
   type: string;
   year: number;
-  image_url?: string;
+  image_url?: string | null;
+  certification?: string | null;
+  runtime_minutes?: number | null;
+  /** Where it streams in the UK, already loaded — no lookup on render. */
+  providers?: string[];
 }
 
 type CardState = "default" | "rating" | "saving";
@@ -32,56 +40,49 @@ interface Props {
 const RecommendationCard = ({ rec, userId, onRemoved, onNeedMore }: Props) => {
   const { toast } = useToast();
   const navigate = useNavigate();
+  const { active } = useProfile();
   const [state, setState] = useState<CardState>("default");
   const [saving, setSaving] = useState(false);
 
-  const resolveTitleId = async (): Promise<string | null> => {
-    // Try exact match first
-    const { data: existing } = await supabase
-      .from("titles")
-      .select("id")
-      .ilike("name", rec.title)
-      .limit(1)
-      .single();
-
-    if (existing?.id) return existing.id;
-
-    // Use search to create the title in DB via AI
-    const { data } = await supabase.functions.invoke("search-titles", {
-      body: { query: rec.title },
-    });
-
-    const titles = data?.titles || [];
-    // Try exact match first, then partial match
-    const exact = titles.find(
-      (t: any) => t.name?.toLowerCase() === rec.title.toLowerCase()
-    );
-    if (exact?.id) return exact.id;
-
-    // Take first result if available (AI searched for this title)
-    if (titles.length > 0 && titles[0]?.id) return titles[0].id;
-
-    return null;
+  /**
+   * Recommendations come out of the catalogue and carry their own id, so this costs nothing.
+   * The name lookup is a fallback for anything cached before the engine started returning
+   * ids — it is a round trip, which is why the engine no longer produces bare names.
+   */
+  const ensureTitleId = async (): Promise<string | null> => {
+    if (rec.title_id) return rec.title_id;
+    const { data } = await supabase.from("titles").select("id").ilike("name", rec.title).limit(1).maybeSingle();
+    return data?.id ?? null;
   };
 
   const goToTitle = async () => {
-    const titleId = await resolveTitleId();
-    if (titleId) navigate(`/title/${titleId}`);
+    const titleId = await ensureTitleId();
+    if (titleId) {
+      navigate(`/title/${titleId}`);
+      return;
+    }
+    toast({ title: "Not in the catalogue yet", description: rec.title });
   };
 
   const submitRating = async (rating: number) => {
     setSaving(true);
     try {
-      const titleId = await resolveTitleId();
-      if (!titleId) return;
+      const titleId = await ensureTitleId();
+      if (!titleId || !active) return;
 
-      await supabase
-        .from("watch_entries")
-        .update({ watched_rating: rating })
-        .eq("user_id", userId)
-        .eq("title_id", titleId);
+      await supabase.from("watch_entries").upsert(
+        {
+          profile_id: active.id,
+          user_id: userId,
+          title_id: titleId,
+          status: "watched",
+          watched_rating: rating,
+          watched_date: new Date().toISOString().slice(0, 10),
+        },
+        { onConflict: "profile_id,title_id" },
+      );
 
-      toast({ title: `Rated ${rating}/10`, description: rec.title });
+      toast({ title: `Rated ${rating}/5`, description: rec.title });
       onRemoved();
       onNeedMore();
     } catch (e: any) {
@@ -124,7 +125,7 @@ const RecommendationCard = ({ rec, userId, onRemoved, onNeedMore }: Props) => {
         <CardContent className="space-y-3">
           <p className="text-sm font-medium">How would you rate it?</p>
           <div className="flex flex-wrap gap-1.5">
-            {Array.from({ length: 10 }, (_, i) => i + 1).map((n) => (
+            {Array.from({ length: 5 }, (_, i) => i + 1).map((n) => (
               <Button
                 key={n}
                 size="sm"
@@ -156,7 +157,13 @@ const RecommendationCard = ({ rec, userId, onRemoved, onNeedMore }: Props) => {
   return (
     <Card className="hover:shadow-md transition-shadow overflow-hidden">
       {rec.image_url && (
-        <div className="relative w-full h-44 bg-muted">
+        <div
+          role="link"
+          tabIndex={0}
+          onClick={goToTitle}
+          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); void goToTitle(); } }}
+          className="relative w-full h-44 cursor-pointer bg-muted"
+        >
           <img
             src={rec.image_url}
             alt={rec.title}
@@ -198,11 +205,15 @@ const RecommendationCard = ({ rec, userId, onRemoved, onNeedMore }: Props) => {
           <span className="ml-auto text-xs text-muted-foreground">{rec.match_score}% match</span>
         </div>
         <p className="text-sm text-muted-foreground line-clamp-2">{rec.explanation}</p>
+        {rec.providers?.length ? (
+          <p className="truncate text-xs text-muted-foreground">On {rec.providers.slice(0, 3).join(", ")}</p>
+        ) : null}
         <div className="flex gap-1.5 pt-1 items-center">
           <div className="flex-1 min-w-0">
             <AddToWatchlistSelect
               titleName={rec.title}
-              resolveTitleId={resolveTitleId}
+              titleId={rec.title_id}
+              resolveTitleId={ensureTitleId}
               onStatusChange={(status) => {
                 if (status === "watched") {
                   setState("rating");
