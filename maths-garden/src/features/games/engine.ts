@@ -31,6 +31,11 @@ export interface RoundRecord {
   playedAt: string;
   /** false when the child left mid-round; missing means finished. */
   completed?: boolean;
+  /**
+   * The biggest number this level could ask, recorded with the round. Levels get retuned and new ones get
+   * added, so difficulty has to stay readable later without depending on today's catalogue.
+   */
+  levelMax?: number;
 }
 
 export type Levels = Partial<Record<GameId, number>>;

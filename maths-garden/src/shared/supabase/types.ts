@@ -1,4 +1,4 @@
-// Written by hand to match supabase/migrations/0001_init.sql. Once the project is linked, regenerate:
+// Written by hand to match supabase/migrations/. Once the project is linked, regenerate:
 // npx supabase gen types typescript --linked > src/shared/supabase/types.ts
 export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
 
@@ -15,15 +15,54 @@ export type Database = {
         Relationships: [];
       };
       maths_rounds: {
-        Row: { id: string; child_id: string; game: string; level: number; score: number; total: number; answers: Json; played_at: string; completed: boolean };
-        Insert: { id?: string; child_id: string; game: string; level: number; score: number; total: number; answers?: Json; played_at?: string; completed?: boolean };
-        Update: { id?: string; child_id?: string; game?: string; level?: number; score?: number; total?: number; answers?: Json; played_at?: string; completed?: boolean };
+        Row: {
+          id: string;
+          child_id: string;
+          game: string;
+          level: number;
+          score: number;
+          total: number;
+          answers: Json;
+          played_at: string;
+          completed: boolean;
+          level_max: number | null;
+        };
+        Insert: {
+          id?: string;
+          child_id: string;
+          game: string;
+          level: number;
+          score: number;
+          total: number;
+          answers?: Json;
+          played_at?: string;
+          completed?: boolean;
+          level_max?: number | null;
+        };
+        Update: {
+          id?: string;
+          child_id?: string;
+          game?: string;
+          level?: number;
+          score?: number;
+          total?: number;
+          answers?: Json;
+          played_at?: string;
+          completed?: boolean;
+          level_max?: number | null;
+        };
         Relationships: [];
       };
       maths_levels: {
         Row: { child_id: string; game: string; level: number; updated_at: string };
         Insert: { child_id: string; game: string; level?: number; updated_at?: string };
         Update: { child_id?: string; game?: string; level?: number; updated_at?: string };
+        Relationships: [];
+      };
+      maths_level_events: {
+        Row: { id: string; child_id: string; game: string; from_level: number; to_level: number; reason: string; at: string };
+        Insert: { id?: string; child_id: string; game: string; from_level: number; to_level: number; reason?: string; at?: string };
+        Update: { id?: string; child_id?: string; game?: string; from_level?: number; to_level?: number; reason?: string; at?: string };
         Relationships: [];
       };
       maths_checkins: {

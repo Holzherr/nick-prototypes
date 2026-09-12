@@ -13,7 +13,8 @@ import type { CheckinScores } from '@/features/progress/components/CheckInPanel'
 import { DashboardScreen } from '@/features/progress/components/DashboardScreen';
 import { nameSoundKey } from '@/features/progress/components/VoicePanel';
 import { guestProfiles, importChanges, markImported, type GuestProfile } from '@/features/progress/guest';
-import { applyChange, type Change, type StickerRecord } from '@/features/progress/model';
+import { applyChange, levelChange, type Change, type StickerRecord } from '@/features/progress/model';
+import { ProgressScreen } from '@/features/progress/components/ProgressScreen';
 import { PROBES } from '@/features/progress/probes';
 import type { ProgressRepo } from '@/features/progress/repo';
 import { buildReport, stageOf } from '@/features/report/report';
@@ -47,6 +48,7 @@ type Screen =
     }
   | { name: 'garden' }
   | { name: 'report' }
+  | { name: 'history' }
   | { name: 'stickers' }
   | { name: 'gate' }
   | { name: 'dashboard' };
@@ -140,6 +142,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, startGame, pa
     answers,
     playedAt: new Date().toISOString(),
     ...(completed ? {} : { completed: false }),
+    levelMax: game.levels[level]?.max,
   });
 
   const finish = (game: Game, level: number, answers: AnswerRecord[]) => {
@@ -149,7 +152,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, startGame, pa
     const next = nextLevel(all, game, level);
     apply({ kind: 'round', round });
     if (next !== level) {
-      apply({ kind: 'level', childId: child.id, game: game.id, level: next });
+      apply(levelChange(child.id, game.id, level, next, next > level ? 'earned' : 'dropped'));
       if (stageOf(next) > stageOf(level)) void emailStageUp(game, stageOf(next));
     }
     const day = todaySummary(all);
@@ -306,6 +309,8 @@ export function GardenApp({ child, repo, allowGuestImport = false, startGame, pa
             onClose={() => setScreen({ name: 'dashboard' })}
           />
         );
+      case 'history':
+        return <ProgressScreen child={child} progress={progress} onClose={() => setScreen({ name: 'dashboard' })} />;
       case 'stickers':
         return <StickerBookScreen childName={child.name} stickers={progress.stickers} onHome={home} />;
       case 'gate':
@@ -321,8 +326,9 @@ export function GardenApp({ child, repo, allowGuestImport = false, startGame, pa
                 ? { profiles: guests, busy: importing.busy, imported: importing.done, onImport: importGuest, onDismiss: () => setGuests([]) }
                 : undefined
             }
-            onSetLevel={(game, level) => apply({ kind: 'level', childId: child.id, game, level })}
+            onSetLevel={(game, level) => apply(levelChange(child.id, game, levelOf(latest.current.levels, gameById(game)), level, 'manual'))}
             onReport={() => setScreen({ name: 'report' })}
+            onHistory={() => setScreen({ name: 'history' })}
             onAddCheckin={addCheckin}
             onSwitchChild={onSwitchChild}
             onSignOut={onSignOut}
