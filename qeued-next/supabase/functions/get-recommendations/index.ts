@@ -154,7 +154,8 @@ Deno.serve(async (req) => {
     const cacheKey = partner_id
       ? `recs3:${[who, partner_id].sort().join(':')}${filterSuffix ? `:${filterSuffix}` : ''}`
       : `recs3:${who}${filterSuffix ? `:${filterSuffix}` : ''}`;
-    if (!hasExclusions) {
+    // A refresh exists to replace the cached slate, so it must not be served one.
+    if (!hasExclusions && mode !== 'refresh') {
       const { data: cached } = await supabase.from('ai_cache').select('response_data, expires_at').eq('cache_key', cacheKey).single();
       if (cached && new Date(cached.expires_at) > new Date()) return json(cached.response_data);
     }
