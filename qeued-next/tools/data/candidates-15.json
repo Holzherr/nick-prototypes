@@ -1,0 +1,1362 @@
+[
+  {
+    "name": "The Host",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Bong Joon-ho monster thriller; Korean sci-fi landmark"
+  },
+  {
+    "name": "Mother",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Bong Joon-ho; Korean masterpiece of maternal obsession"
+  },
+  {
+    "name": "The Wailing",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Korean horror mystery; Cannes nominee, genre-bending"
+  },
+  {
+    "name": "Snowpiercer",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Bong Joon-ho dystopian action-thriller; global phenomenon"
+  },
+  {
+    "name": "Joint Security Area",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Korean war drama; landmark North/South Korea film"
+  },
+  {
+    "name": "My Sassy Girl",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Romantic comedy hit; defined Korean rom-com genre"
+  },
+  {
+    "name": "Spring, Summer, Fall, Winter... and Spring",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean meditation on life; temple-set meditation film"
+  },
+  {
+    "name": "Save the Green Planet!",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean dark comedy sci-fi; cult following"
+  },
+  {
+    "name": "Sympathy for Mr. Vengeance",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Park Chan-wook vengeance trilogy opener; visceral"
+  },
+  {
+    "name": "Sympathy for Lady Vengeance",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Park Chan-wook trilogy closer; visually stunning"
+  },
+  {
+    "name": "Assassination",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean period action-thriller; colonial-era resistance"
+  },
+  {
+    "name": "A Taxi Driver",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean historical drama; Gwangju uprising"
+  },
+  {
+    "name": "1987: When the Day Comes",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean pro-democracy thriller; historic uprising film"
+  },
+  {
+    "name": "Chaser",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean thriller; serial killer pursuit film"
+  },
+  {
+    "name": "Daisy",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean romantic drama; love across time"
+  },
+  {
+    "name": "A Quiet Family",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean dark comedy; Ryoo Seung-wan debut"
+  },
+  {
+    "name": "The Merciless",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean crime thriller; prison violence"
+  },
+  {
+    "name": "Coin Locker Girl",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean revenge drama; abandoned orphan story"
+  },
+  {
+    "name": "Fabricated City",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean hacker thriller; gamer revenge plot"
+  },
+  {
+    "name": "The Thieves",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean heist comedy; ensemble cast"
+  },
+  {
+    "name": "Along with the Gods: The Two Worlds",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean fantasy afterlife epic; fantasy spectacle"
+  },
+  {
+    "name": "The Tower",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean disaster thriller; burning skyscraper"
+  },
+  {
+    "name": "Hush",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean thriller; home invasion psychological"
+  },
+  {
+    "name": "The Outlaw",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean western-influenced action; bandit romance"
+  },
+  {
+    "name": "Intimate Strangers",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean romantic thriller; mistaken identity"
+  },
+  {
+    "name": "The Deal",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean crime thriller; money laundering"
+  },
+  {
+    "name": "Asura",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean crime epic; corruption spiral"
+  },
+  {
+    "name": "Midnight Runners",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean action comedy; female cop buddies"
+  },
+  {
+    "name": "Cart",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean social drama; supermarket strike"
+  },
+  {
+    "name": "The Attorney",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean legal drama; dictatorship regime"
+  },
+  {
+    "name": "Kill It",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean crime thriller series; hitman drama"
+  },
+  {
+    "name": "Crash Landing on You",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean romantic comedy; inter-Korea romance"
+  },
+  {
+    "name": "My Love from the Star",
+    "year": 2013,
+    "type": "series",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean fantasy romance; time-travel romance"
+  },
+  {
+    "name": "Boys Over Flowers",
+    "year": 2009,
+    "type": "series",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean romantic drama; school romance phenomenon"
+  },
+  {
+    "name": "Search: WWW",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean workplace drama; tech industry"
+  },
+  {
+    "name": "Moonlight Drawn by Clouds",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean period romance; crown prince drama"
+  },
+  {
+    "name": "Something in the Rain",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean romantic drama; office romance"
+  },
+  {
+    "name": "While You Were Sleeping",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean romantic thriller; prophetic dreaming"
+  },
+  {
+    "name": "Strong Woman Do Bong Soon",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean romantic action comedy; superhuman strength"
+  },
+  {
+    "name": "Just Between Lovers",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean romantic drama; trauma survivors"
+  },
+  {
+    "name": "Chicago Typewriter",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean romantic fantasy; writer reincarnation"
+  },
+  {
+    "name": "W",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean romantic thriller; webtoon crossover"
+  },
+  {
+    "name": "Healer",
+    "year": 2014,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean action romance; journalist meets spy"
+  },
+  {
+    "name": "I Can Hear Your Voice",
+    "year": 2013,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean legal romance; mind-reading protagonist"
+  },
+  {
+    "name": "Gu Family Book",
+    "year": 2013,
+    "type": "series",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean historical fantasy; goblin romance"
+  },
+  {
+    "name": "Tale of the Nine-Tailed",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean historical fantasy; mythology-based"
+  },
+  {
+    "name": "18 Again",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean fantasy romance; age reversal"
+  },
+  {
+    "name": "Twilight Samurai",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Japanese period drama; end-of-samurai era"
+  },
+  {
+    "name": "Eureka",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Japanese existential thriller; cab driver mystery"
+  },
+  {
+    "name": "Godzilla Minus One",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Japanese kaiju epic; Oscars nominated"
+  },
+  {
+    "name": "Drive My Car",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Japanese drama; Palme d'Or winner"
+  },
+  {
+    "name": "In the Mood for Love",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Hong Kong romantic drama; visual masterpiece"
+  },
+  {
+    "name": "Shoplifters",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Japanese family drama; Palme d'Or winner"
+  },
+  {
+    "name": "Ringu",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Japanese horror classic; curse via videotape"
+  },
+  {
+    "name": "Tampopo",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Japanese experimental comedy; ramen movie"
+  },
+  {
+    "name": "The Boy and the Heron",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Japanese animated fantasy; Studio Ghibli epic"
+  },
+  {
+    "name": "A Tale of Two Sisters",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean gothic horror; sister tragedy"
+  },
+  {
+    "name": "Aftersun",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Hong Kong-shot father-daughter drama"
+  },
+  {
+    "name": "2046",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Hong Kong sci-fi romance; Wong Kar-wai masterwork"
+  },
+  {
+    "name": "Red Sorghum",
+    "year": 1987,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Chinese epic; Zhang Yimou debut"
+  },
+  {
+    "name": "Life is Beautiful",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Chinese romantic comedy; Shanghai setting"
+  },
+  {
+    "name": "Chungking Express",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Hong Kong romance; Wong Kar-wai classic"
+  },
+  {
+    "name": "Spring Fever",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Taiwanese LGBT drama; forbidden relationship"
+  },
+  {
+    "name": "Apur Sansar",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Indian drama; Satyajit Ray trilogy finale"
+  },
+  {
+    "name": "Gangs of Wasseypur",
+    "year": 2012,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Indian crime saga; two-part epic"
+  },
+  {
+    "name": "An Actor Prepares",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Indian Malayalam drama; Mohanlal actor film"
+  },
+  {
+    "name": "Ong Bak",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Thai martial arts action; temple statue recovery"
+  },
+  {
+    "name": "The Raid",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Indonesian action masterpiece; brutal combat"
+  },
+  {
+    "name": "The Handmaiden",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Korean period thriller; con-artist lesbian drama"
+  },
+  {
+    "name": "Parasite",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Korean thriller; Palme d'Or and Oscars winner"
+  },
+  {
+    "name": "Oldboy",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Korean revenge thriller; corridor fight iconic"
+  },
+  {
+    "name": "Memento",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Taiwanese-influenced thriller; memory non-linearity"
+  },
+  {
+    "name": "Eastern Promises",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Russian-Asian crime drama; Russian mafia"
+  },
+  {
+    "name": "Crouching Tiger Hidden Dragon",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Hong Kong wuxia masterpiece; global phenomenon"
+  },
+  {
+    "name": "Hard Boiled",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Hong Kong action classic; John Woo gunplay"
+  },
+  {
+    "name": "Infernal Affairs",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Hong Kong cop thriller; mole infiltration"
+  },
+  {
+    "name": "Hero",
+    "year": 2002,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Chinese martial arts epic; Qin dynasty"
+  },
+  {
+    "name": "Raise the Red Lantern",
+    "year": 1991,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Chinese period drama; concubine politics"
+  },
+  {
+    "name": "Farewell My Concubine",
+    "year": 1993,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Chinese epic; Peking Opera lovers"
+  },
+  {
+    "name": "Pather Panchali",
+    "year": 1955,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Indian Bengali masterpiece; neorealist classic"
+  },
+  {
+    "name": "Lagaan",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Indian Hindi epic; cricket colonial drama"
+  },
+  {
+    "name": "RRR",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Indian Telugu action spectacle; global hit"
+  },
+  {
+    "name": "Ikiru",
+    "year": 1952,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Japanese existential drama; Kurosawa masterpiece"
+  },
+  {
+    "name": "Rashomon",
+    "year": 1950,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Japanese psychological drama; Kurosawa masterpiece"
+  },
+  {
+    "name": "Ran",
+    "year": 1985,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Japanese epic; King Lear adaptation"
+  },
+  {
+    "name": "Harakiri",
+    "year": 1962,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Japanese samurai tragedy; ritual suicide"
+  },
+  {
+    "name": "Tokyo Story",
+    "year": 1953,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Japanese family drama; Ozu masterpiece"
+  },
+  {
+    "name": "Uncle Boonmee Who Can Recall His Past Lives",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Thai meditative ghost film; memory and death"
+  },
+  {
+    "name": "Salvage",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Thai mystery supernatural; atmospheric"
+  },
+  {
+    "name": "The Legend of Suriyothai",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Thai historical epic; Ayutthaya kingdom"
+  },
+  {
+    "name": "Only God Forgives",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Thai-set noir revenge; Refn visuals"
+  },
+  {
+    "name": "Burning",
+    "year": 2018,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "asia",
+    "why": "Korean literary mystery; Murakami adaptation"
+  },
+  {
+    "name": "Train to Busan",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean zombie thriller; train-set action"
+  },
+  {
+    "name": "Kingdom",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean historical zombie series; Joseon dynasty"
+  },
+  {
+    "name": "My Mister",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean workplace drama; human connection"
+  },
+  {
+    "name": "Squid Game",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean dystopian thriller; global phenomenon"
+  },
+  {
+    "name": "Sacred Games",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Indian Hindi crime thriller; Mumbai underworld"
+  },
+  {
+    "name": "After Life",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Japanese comedy-drama; life after death"
+  },
+  {
+    "name": "Alice in Borderland",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Japanese dystopian thriller; survival games"
+  },
+  {
+    "name": "Giri/Haji",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Japanese UK noir; cultural mystery"
+  },
+  {
+    "name": "Yi Yi",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Taiwanese family epic; Yang's masterpiece"
+  },
+  {
+    "name": "Chocolat",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean chocolate shop romance; comfort drama"
+  },
+  {
+    "name": "Wedding Dress",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean time-loop romance; wedding dress legacy"
+  },
+  {
+    "name": "200 Pounds Beauty",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean beauty body-swap comedy; transformation"
+  },
+  {
+    "name": "Porterhouse Blue",
+    "year": 2004,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Thai period comedy-drama; cultural clash"
+  },
+  {
+    "name": "Crazy Rich Asians",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Singapore-set romance; wealth and identity"
+  },
+  {
+    "name": "Crazy Ex-Girlfriend",
+    "year": 2015,
+    "type": "series",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Philippines-born Asian-American musical comedy"
+  },
+  {
+    "name": "Everything Everywhere All at Once",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Asian-American sci-fi epic; multiverse adventure"
+  },
+  {
+    "name": "Past Lives",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean-American romance; reincarnation love"
+  },
+  {
+    "name": "Minari",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean-American family drama; rural life"
+  },
+  {
+    "name": "The Piano Teacher",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Austrian but Asia-focused; Haneke psychological"
+  },
+  {
+    "name": "Talk to Me",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Australian but Asian setting horror; séance"
+  },
+  {
+    "name": "About Elly",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Iranian mystery drama; Farhadi masterpiece"
+  },
+  {
+    "name": "Snow Flower and the Secret Fan",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Chinese historical drama; women friendship"
+  },
+  {
+    "name": "The Grandmaster",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Chinese martial arts; Wong Kar-wai visual"
+  },
+  {
+    "name": "Ip Man",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Hong Kong martial arts; martial arts teacher"
+  },
+  {
+    "name": "Kung Fu Hustle",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Hong Kong action comedy; Stephen Chow"
+  },
+  {
+    "name": "Love Letter",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Japanese romantic drama; snow-covered town mystery"
+  },
+  {
+    "name": "Pulse",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Japanese horror; internet-based supernatural"
+  },
+  {
+    "name": "Battle Royale",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Japanese dystopian thriller; student survival"
+  },
+  {
+    "name": "Kagemusha",
+    "year": 1980,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Japanese samurai epic; double impersonation"
+  },
+  {
+    "name": "Seppuku",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Japanese period drama; ritual honor death"
+  },
+  {
+    "name": "Sword of Doom",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Japanese samurai noir; existential swordsman"
+  },
+  {
+    "name": "In the Realm of the Senses",
+    "year": 1976,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Japanese erotic drama; obsessive passion"
+  },
+  {
+    "name": "Audition",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Japanese horror thriller; deceptive romance"
+  },
+  {
+    "name": "Ichi the Killer",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Japanese ultraviolent action; yakuza crime"
+  },
+  {
+    "name": "Dolls",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Japanese romantic fantasy; puppet-like love"
+  },
+  {
+    "name": "Tokyo Drifter",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Japanese neo-noir; stylish yakuza film"
+  },
+  {
+    "name": "Three...Extremes",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Hong Kong/Korea horror anthology; extreme tales"
+  },
+  {
+    "name": "All About Lily Chou-Chou",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Japanese cyber-bullying drama; school cruelty"
+  },
+  {
+    "name": "Sympathy for the Devil",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean thriller; escaped prisoner pursued"
+  },
+  {
+    "name": "Confidential Assignment",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean action thriller; North meets South"
+  },
+  {
+    "name": "The Battleship Island",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean historical action; Japanese occupation"
+  },
+  {
+    "name": "Warriors of the Dawn",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean historical action; Imjin War"
+  },
+  {
+    "name": "I'm a Cyborg, But That's OK",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean sci-fi romance; mental hospital love"
+  },
+  {
+    "name": "Thirst",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Korean vampire thriller; Park Chan-wook"
+  },
+  {
+    "name": "Housemate",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean thriller; roommate suspense"
+  },
+  {
+    "name": "Intimate Enemies",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean drama; WWI prisoner reconciliation"
+  },
+  {
+    "name": "The Watcher",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean crime thriller; serial killer observer"
+  },
+  {
+    "name": "Two Seconds of Love",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean romantic drama; brief encounter"
+  },
+  {
+    "name": "Barking Dogs Never Bite",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean dark comedy; animal cruelty theme"
+  },
+  {
+    "name": "The Foul King",
+    "year": 2000,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean sports comedy; professional wrestling"
+  },
+  {
+    "name": "Lover's Concerto",
+    "year": 1997,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean romantic comedy; time-travel romance"
+  },
+  {
+    "name": "Once Upon a Time in High School",
+    "year": 2004,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean comedy-action; school bullying revenge"
+  },
+  {
+    "name": "Take Off",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean thriller; cross-dressing survival"
+  },
+  {
+    "name": "The Culprit",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean crime thriller; hit-and-run drama"
+  },
+  {
+    "name": "The Vanished",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean thriller; kidnapped daughter mystery"
+  },
+  {
+    "name": "Descendants of the Sun",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean war romance series; military medic"
+  },
+  {
+    "name": "Romance is a Bonus Book",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean workplace romance; second-chance love"
+  },
+  {
+    "name": "Her Private Life",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean office romance; K-pop fan secret"
+  },
+  {
+    "name": "The Uncanny Counter",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean supernatural action; demon hunters"
+  },
+  {
+    "name": "Black",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean romantic thriller; grim reaper drama"
+  },
+  {
+    "name": "Angel's Last Mission: Love",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean fantasy romance; fallen angel"
+  },
+  {
+    "name": "The Guest",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean occult thriller; possessed priest"
+  },
+  {
+    "name": "Sweet Revenge",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean revenge drama; inheritance plot"
+  },
+  {
+    "name": "In Good Shape",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Korean sports romance; gym trainer love"
+  },
+  {
+    "name": "Jinn",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean horror fantasy; wish-granting supernatural"
+  },
+  {
+    "name": "Vanishing Twin",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Chinese horror; body-swap twin drama"
+  },
+  {
+    "name": "Kung Fu Master",
+    "year": 1979,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Hong Kong martial arts; Jackie Chan early work"
+  },
+  {
+    "name": "Police Story",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Hong Kong action classic; Jackie Chan signature"
+  },
+  {
+    "name": "Drunken Master",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Hong Kong kung fu comedy; Jackie Chan breakout"
+  },
+  {
+    "name": "Piku",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Indian Hindi drama; father-daughter road trip"
+  },
+  {
+    "name": "Rang De Basanti",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Indian Hindi thriller; youth activism"
+  },
+  {
+    "name": "3 Idiots",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Indian Hindi comedy; education philosophy"
+  },
+  {
+    "name": "Dilwale Dulhania Le Jayenge",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Indian Hindi romance; iconic Bollywood"
+  },
+  {
+    "name": "Requiem for a Dream",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Bangkok-set addiction drama; Aronofsky"
+  },
+  {
+    "name": "The Housemaid",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Korean thriller; supernatural maid mystery"
+  },
+  {
+    "name": "A Brighter Summer Day",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "asia",
+    "why": "Taiwanese epic drama; gang violence epic"
+  },
+  {
+    "name": "Wandering Earth",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "asia",
+    "why": "Chinese sci-fi epic; planet escape"
+  },
+  {
+    "name": "Escape Room",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "asia",
+    "why": "Thai puzzle thriller; escape mystery"
+  }
+]

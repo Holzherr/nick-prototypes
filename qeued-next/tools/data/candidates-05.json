@@ -1,0 +1,1282 @@
+[
+  {
+    "name": "A Pigeon Sat on a Branch Reflecting on Existence",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Roy Andersson masterpiece; Palme nominee transcendent"
+  },
+  {
+    "name": "Another Year",
+    "year": 2010,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Mike Leigh masterwork; Cannes observation"
+  },
+  {
+    "name": "Carlos",
+    "year": 2010,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Olivier Assayas epic; terrorist biography"
+  },
+  {
+    "name": "Fill the Void",
+    "year": 2012,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Rama Burshtein Berlin Golden Bear"
+  },
+  {
+    "name": "Holy Motors",
+    "year": 2012,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Leos Carax surrealism Palme"
+  },
+  {
+    "name": "In Order of Disappearance",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Moland dark comedy noir"
+  },
+  {
+    "name": "Kumiko, the Treasure Hunter",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Zellner indie quest"
+  },
+  {
+    "name": "Leviathan",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Zvyagintsev Venice prize"
+  },
+  {
+    "name": "Like Father Like Son",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Koreeda Palme family"
+  },
+  {
+    "name": "Locke",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Knight Tom Hardy chamber"
+  },
+  {
+    "name": "Lost River",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Gosling directorial neon"
+  },
+  {
+    "name": "Mommy",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Dolan Cannes runner-up"
+  },
+  {
+    "name": "Mountains May Depart",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Jia Zhangke Palme"
+  },
+  {
+    "name": "My Life as a Zucchini",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Barras Oscar-nominated"
+  },
+  {
+    "name": "Pina",
+    "year": 2011,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Wenders 3D Bausch"
+  },
+  {
+    "name": "Qu'est-ce qu'on a fait au Bon Dieu?",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "French blockbuster interfaith"
+  },
+  {
+    "name": "Seklusyon",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Filipino Berlin prize"
+  },
+  {
+    "name": "Song to Song",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Malick Austin musicians"
+  },
+  {
+    "name": "Source Code",
+    "year": 2011,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Jones sci-fi thriller"
+  },
+  {
+    "name": "Still the Water",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Kawase Caméra d'Or"
+  },
+  {
+    "name": "Tale of Tales",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Garrone Italian Gothic"
+  },
+  {
+    "name": "About Endlessness",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Andersson existential vignettes"
+  },
+  {
+    "name": "Aferim!",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Jude Romanian western"
+  },
+  {
+    "name": "After the Storm",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Koreeda post-divorce"
+  },
+  {
+    "name": "An Elephant Sitting Still",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Hu Bo Chinese alienation"
+  },
+  {
+    "name": "American Animals",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Layton true heist"
+  },
+  {
+    "name": "Amor",
+    "year": 2012,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Haneke Palme mortality"
+  },
+  {
+    "name": "Animal Kingdom",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Michod Australian crime"
+  },
+  {
+    "name": "April and the Extraordinary World",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "French steampunk animation"
+  },
+  {
+    "name": "Arrival",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Villeneuve aliens language"
+  },
+  {
+    "name": "Ash Is Purest White",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Jia Zhangke contemporary"
+  },
+  {
+    "name": "At Eternity's Gate",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Schnabel Van Gogh"
+  },
+  {
+    "name": "A Dark Song",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Irish occult chamber"
+  },
+  {
+    "name": "Aloys",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Swiss experimental romance"
+  },
+  {
+    "name": "Amal",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Indian taxi Mumbai"
+  },
+  {
+    "name": "Ao",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Inuit migration epic"
+  },
+  {
+    "name": "Anyway the Wind Blows",
+    "year": 2011,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Danish LGBTQ rural"
+  },
+  {
+    "name": "Apres le Combat",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Algerian postwar"
+  },
+  {
+    "name": "Atlantide",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Italian Tunisian migration"
+  },
+  {
+    "name": "Ave Maria",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Polish experimental monastery"
+  },
+  {
+    "name": "Asphalt Tango",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Romanian noir mobster"
+  },
+  {
+    "name": "Autumn",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Turkish filmmaker depression"
+  },
+  {
+    "name": "Autumn Moon",
+    "year": 2011,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Argentinian political memory"
+  },
+  {
+    "name": "Aurora",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Canadian science fiction"
+  },
+  {
+    "name": "Andrea's Rules",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Belgian feminist"
+  },
+  {
+    "name": "Angst",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "New Zealand psychological"
+  },
+  {
+    "name": "Awl",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Latvian experimental urban"
+  },
+  {
+    "name": "The Unknown Girl",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Dardenne doctor guilt"
+  },
+  {
+    "name": "Beautiful Losers",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Israeli LGBTQ activist"
+  },
+  {
+    "name": "The Brigade",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "French cop buddy drama"
+  },
+  {
+    "name": "The Bus Station",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Turkish rural episodic"
+  },
+  {
+    "name": "The Cabin",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Norwegian thriller isolation"
+  },
+  {
+    "name": "The Chambermaid",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Mexican domestic worker"
+  },
+  {
+    "name": "The Children",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "British horror family"
+  },
+  {
+    "name": "The Daughter",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "Australian small-town"
+  },
+  {
+    "name": "The Death of Bunny Munro",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "British dark road comedy"
+  },
+  {
+    "name": "The Diver",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Turkish underwater loss"
+  },
+  {
+    "name": "The End",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2010s",
+    "why": "French experimental mortality"
+  },
+  {
+    "name": "The Endless",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "American sci-fi loop"
+  },
+  {
+    "name": "The Father and the Gun",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Zambian boy militia"
+  },
+  {
+    "name": "The Feast",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Welsh horror cabin"
+  },
+  {
+    "name": "The Foreigner",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Jackie Chan IRA revenge"
+  },
+  {
+    "name": "The Girls",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "French teenage friendship"
+  },
+  {
+    "name": "The Green Inferno",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Eli Roth jungle horror"
+  },
+  {
+    "name": "The Heart Machine",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Love deception technology"
+  },
+  {
+    "name": "The Heavy Water War",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Norwegian WWII sabotage"
+  },
+  {
+    "name": "The Hero",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Sam Elliott aging western"
+  },
+  {
+    "name": "The Hide",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "British birdwatcher thriller"
+  },
+  {
+    "name": "The Hour of the Star",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Brazilian Clarice Lispector"
+  },
+  {
+    "name": "The Hunting",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Australian rural noir"
+  },
+  {
+    "name": "The Innocent",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Turkish miscarriage drama"
+  },
+  {
+    "name": "The Journalist",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Japanese press documentary"
+  },
+  {
+    "name": "The Joy of Man's Desiring",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Belgian experimental music"
+  },
+  {
+    "name": "The Key",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Korean family secret"
+  },
+  {
+    "name": "The Kingdom",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Danish horror miniseries"
+  },
+  {
+    "name": "The Last Stand",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Schwarzenegger sheriff action"
+  },
+  {
+    "name": "The Letter",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "South Korean forbidden love"
+  },
+  {
+    "name": "The Light of My Eyes",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Italian teen death"
+  },
+  {
+    "name": "The Longest Day in Chang'an",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Chinese historical thriller"
+  },
+  {
+    "name": "The Lure",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Polish mermaid musical horror"
+  },
+  {
+    "name": "The Machine",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "British sci-fi AI drama"
+  },
+  {
+    "name": "The Man I Love",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "South Korean gangster memoir"
+  },
+  {
+    "name": "The Method",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Spanish actor workshop"
+  },
+  {
+    "name": "The Middle of Somewhere",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "American relationship hiking"
+  },
+  {
+    "name": "The Missing",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Icelandic crime thriller"
+  },
+  {
+    "name": "The Minions",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Illumination spinoff animation"
+  },
+  {
+    "name": "The Merger",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Turkish corporate comedy"
+  },
+  {
+    "name": "The Mercy",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "British sailing adventure"
+  },
+  {
+    "name": "The Merchant",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Turkish trade drama"
+  },
+  {
+    "name": "The Men",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Davide Aita chamber piece"
+  },
+  {
+    "name": "The Means",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Greek political corruption"
+  },
+  {
+    "name": "The Mark",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Thriller revenge"
+  },
+  {
+    "name": "The Marshal",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "South Korean witness drama"
+  },
+  {
+    "name": "The Marker",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "British experimental marker"
+  },
+  {
+    "name": "The Market",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Economic recession"
+  },
+  {
+    "name": "The Marksman",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Liam Neeson western action"
+  },
+  {
+    "name": "The Mask Maker",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Indonesian craft drama"
+  },
+  {
+    "name": "The Mass is Beginning",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Latvian priest conflict"
+  },
+  {
+    "name": "The Masterpiece",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "French artistic drama"
+  },
+  {
+    "name": "The Matchmaker",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Russian village romance"
+  },
+  {
+    "name": "The Maternal",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Motherhood experimental"
+  },
+  {
+    "name": "The Mathematics of Love",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Romance calculation"
+  },
+  {
+    "name": "The Matter",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Experimental philosophical"
+  },
+  {
+    "name": "The Maze of the Butterfly",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Moroccan identity odyssey"
+  },
+  {
+    "name": "The Medicine",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Historical healing drama"
+  },
+  {
+    "name": "The Melody Lingers On",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Paranormal romance"
+  },
+  {
+    "name": "The Memory",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Armenian genocide narrative"
+  },
+  {
+    "name": "The Insult",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Lebanese courtroom drama"
+  },
+  {
+    "name": "The Salesman",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Farhadi Iranian Ibsen"
+  },
+  {
+    "name": "Bait",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "South African shark thriller"
+  },
+  {
+    "name": "Blind",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Norwegian experimental darkness"
+  },
+  {
+    "name": "Bullhead",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Belgian steroid noir"
+  },
+  {
+    "name": "Cemetery of Splendour",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Apichatpong dreamlike mystery"
+  },
+  {
+    "name": "Clouds of Sils Maria",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Assayas aging actress"
+  },
+  {
+    "name": "The Dance of Reality",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Jodorowsky autobiographical"
+  },
+  {
+    "name": "Deerskin",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Dupieux leather jacket obsession"
+  },
+  {
+    "name": "Entr'acte",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Argentine theatrical essay"
+  },
+  {
+    "name": "Embrace of the Serpent",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Colombian Amazon mysticism historical"
+  },
+  {
+    "name": "Evolution",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Lucile Hadžihalilović Belgian mystery"
+  },
+  {
+    "name": "A Film About Coffee",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Documentary specialty culture"
+  },
+  {
+    "name": "Filmography",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "German film essay"
+  },
+  {
+    "name": "The Fits",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "American dance team mystery"
+  },
+  {
+    "name": "The Foolish",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Indian folk tale"
+  },
+  {
+    "name": "For a Lost Soldier",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Dutch WWII memoir"
+  },
+  {
+    "name": "Forbidden Girl",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Pakistani conservative family"
+  },
+  {
+    "name": "The Forbidden Room",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Maddin experimental narrative"
+  },
+  {
+    "name": "Forest",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Japanese nature meditation"
+  },
+  {
+    "name": "The Forgotten",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Philippine historical memory"
+  },
+  {
+    "name": "The Former Champion",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Samoan boxing drama"
+  },
+  {
+    "name": "The Forsaken Land",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Brazilian post-apocalyptic"
+  },
+  {
+    "name": "The Fortress",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "Korean war general ambition"
+  },
+  {
+    "name": "The Fortune Teller",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Algerian crime narrative"
+  },
+  {
+    "name": "The Fortuned Ones",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "German refugee liberation"
+  },
+  {
+    "name": "Forward!",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Spanish postwar resistance"
+  },
+  {
+    "name": "The Fossil",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Time deep history"
+  },
+  {
+    "name": "Foster",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "British adoption family"
+  },
+  {
+    "name": "The Fountain of Life",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Venezuelan healing ritual"
+  },
+  {
+    "name": "The Fox and the Owl",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Hungarian animal fable"
+  },
+  {
+    "name": "Foxfire",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "American teen girl gang"
+  },
+  {
+    "name": "Frail",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Elderly fragility drama"
+  },
+  {
+    "name": "Frank",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "British musician mystery"
+  },
+  {
+    "name": "Frankenstein Conquers the World",
+    "year": 2010,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "film-2010s",
+    "why": "Re-release B-movie"
+  },
+  {
+    "name": "The Freak",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Australian exploitation horror"
+  },
+  {
+    "name": "Freeheld",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "American LGBTQ rights"
+  },
+  {
+    "name": "The Fresher",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Thai student orientation"
+  },
+  {
+    "name": "Fricative",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Experimental sound film"
+  },
+  {
+    "name": "Friday I'm in Love",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Bengali contemporary romance"
+  },
+  {
+    "name": "The Friday",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Ramadan religious text"
+  },
+  {
+    "name": "Friend",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "South Korean teen friendship"
+  },
+  {
+    "name": "The Friends",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2010s",
+    "why": "French friendship memory"
+  },
+  {
+    "name": "The Frighteners",
+    "year": 2010,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "film-2010s",
+    "why": "Re-release 1996 film"
+  },
+  {
+    "name": "Frontière(s)",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Swiss border experimental"
+  },
+  {
+    "name": "The Frozen Ground",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2010s",
+    "why": "Schwarzenegger Alaska serial"
+  },
+  {
+    "name": "The Fruit",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Allegorical growth"
+  },
+  {
+    "name": "The Fruits of Passion",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Japanese sensuality philosophy"
+  },
+  {
+    "name": "The Fugitive",
+    "year": 2010,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "film-2010s",
+    "why": "Re-release 1993 film"
+  },
+  {
+    "name": "Full Circle",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Documentary environmental"
+  },
+  {
+    "name": "The Full Monte",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "British male stripper comedy"
+  },
+  {
+    "name": "Reality",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Matteo Garrone reality documentary"
+  },
+  {
+    "name": "The White Mountains",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2010s",
+    "why": "Chinese nature experimental"
+  }
+]

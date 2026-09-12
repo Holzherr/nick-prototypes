@@ -67,7 +67,29 @@ story only for their first frame.
 ## The catalogue
 
 Qeued holds its own records rather than licensing a feed, so the scripts in `tools/` are how
-the catalogue gets built and kept honest. All of them need `SUPABASE_SERVICE_ROLE_KEY` in the
+the catalogue gets built and kept honest.
+
+### Growing it
+
+What the catalogue should hold but does not yet is a table, not a file:
+`catalogue_candidates`, one row per wanted title, carrying how badly it is wanted and whether
+it has been fetched. That is what makes the expansion resumable — interrupt it anywhere and
+the next run picks up what is still pending, having skipped what already landed.
+
+```
+node tools/candidates.mjs import proposals-*.json   # queue them, skipping what is held
+node tools/wave.mjs --size 150                      # fetch the 150 most-wanted, end to end
+node tools/candidates.mjs stats                     # what is left, by priority
+```
+
+`wave.mjs` is the whole loop: take the most-wanted pending titles, read each page, write the
+facts and the UK offers, then reconcile — what landed becomes `held`, what could not be
+resolved gets an attempt recorded and is retired on the second failure, so the next list of
+proposals does not keep re-suggesting a title that has no UK page.
+
+Proposals come from `tools/data/candidates-*.json`, written by research rather than by hand.
+They overlap heavily, which is fine: import is an upsert on name, year and type, and the
+second proposal of the same title raises its priority rather than adding a row. All of them need `SUPABASE_SERVICE_ROLE_KEY` in the
 environment and all of them take `--dry-run`. Run them in this order for a new wave:
 
 ```
@@ -85,9 +107,19 @@ counts — and it only ever fills a field that is empty, so a hand-edit always s
 `tidy` is the only script that overwrites, which is why every overwrite is listed by hand in a
 corrections file with the reason it is wrong.
 
-None of them need a service key. Each writes its statements to a file instead, and the
-Supabase CLI applies them over the connection it already holds — which matters because both
-repositories are public and the key should not sit on disk:
+### The steps, and why they are separate
+
+None of them need a service key. `tools/db.mjs` runs SQL over the connection the Supabase CLI
+already holds, which matters because both repositories are public and the key should not sit
+on disk. Set it once:
+
+```
+export QEUED_DB_URL="postgresql://postgres.<ref>:<password>@<region>.pooler.supabase.com:5432/postgres"
+```
+
+The CLI sends a file as a SINGLE prepared statement, so anything needing more than one
+statement goes inside a `do $$ … $$` block — which has the useful side effect of making a
+batch land whole or not at all. The tools can also emit their SQL to a file for review:
 
 ```
 node tools/expand.mjs wave.json --gather gathered.json     # the slow half: reads pages only

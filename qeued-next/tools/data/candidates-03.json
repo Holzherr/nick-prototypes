@@ -1,0 +1,1282 @@
+[
+  {
+    "name": "Slacker",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Richard Linklater indie landmark; downtown Austin life."
+  },
+  {
+    "name": "Dick Tracy",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Warren Beatty comic-book noir; striking visual style."
+  },
+  {
+    "name": "Days of Thunder",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Racing drama; Cruise and Cruise in hot cars."
+  },
+  {
+    "name": "Die Hard 2: Die Harder",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Christmas action sequel; airport chaos."
+  },
+  {
+    "name": "Edward Scissorhands",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Tim Burton fairy tale; Depp's signature role."
+  },
+  {
+    "name": "Bullet in the Head",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "John Woo wartime trio; Hong Kong action-drama."
+  },
+  {
+    "name": "Close-Up",
+    "year": 1990,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Kiarostami meta-cinema; obsession with cinema itself."
+  },
+  {
+    "name": "The Swordsman",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Hong Kong wuxia; Jet Li's rise begins."
+  },
+  {
+    "name": "A Prophet",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "French crime actor drama."
+  },
+  {
+    "name": "My Own Private Idaho",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Van Sant queer cinema; Keanu and Phoenix hustlers."
+  },
+  {
+    "name": "Riff-Raff",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Ken Loach social realism; London working class."
+  },
+  {
+    "name": "A Scene at the Sea",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Takeshi Kitano wordless; deaf surfer couple."
+  },
+  {
+    "name": "High Heels",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Almod\u00f3var melodrama; mother-daughter duel."
+  },
+  {
+    "name": "Tie Me Up! Tie Me Down!",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Almod\u00f3var provocateur; Banderas and Maura."
+  },
+  {
+    "name": "The Bodyguard",
+    "year": 1992,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Houston and Costner; iconic love ballad."
+  },
+  {
+    "name": "Strictly Ballroom",
+    "year": 1992,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Baz Luhrmann debut; flamboyant dance romance."
+  },
+  {
+    "name": "The Crying Game",
+    "year": 1992,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Neil Jordan political thriller; twist ending."
+  },
+  {
+    "name": "Boiling Point",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Takeshi Kitano cops vs. yakuza; violent."
+  },
+  {
+    "name": "Glengarry Glen Ross",
+    "year": 1992,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Mamet sales pitch; Arkin, Harris, Lemmon."
+  },
+  {
+    "name": "Gavin & Stacey spin-off",
+    "year": 1992,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "film-1990s",
+    "why": "British comedy sketch."
+  },
+  {
+    "name": "Once Upon a Time in China",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Tsui Hark Jet Li wuxia; kung-fu spectacle."
+  },
+  {
+    "name": "Police Story 3: Supercop",
+    "year": 1992,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Jackie Chan stunt work; Hong Kong action."
+  },
+  {
+    "name": "Drunken Master 2",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Jackie Chan martial arts; Lau Kar-leung."
+  },
+  {
+    "name": "Kika",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Almod\u00f3var pop tragedy; Veruschka mayhem."
+  },
+  {
+    "name": "Sonatine",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Takeshi Kitano yakuza ballet; Okinawa."
+  },
+  {
+    "name": "Getting Any?",
+    "year": 1994,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Takeshi Kitano sex farce; crude comedy."
+  },
+  {
+    "name": "Clerks",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Kevin Smith convenience-store indie; cult hit."
+  },
+  {
+    "name": "Mallrats",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Kevin Smith mall hangout; comedy sequel."
+  },
+  {
+    "name": "The Story of Qiu Ju",
+    "year": 1991,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Zhang Yimou fifth-generation China; peasant justice."
+  },
+  {
+    "name": "To Live",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Zhang Yimou epic; family across revolutions."
+  },
+  {
+    "name": "Shanghai Triad",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Zhang Yimou colour and crime; 1930s Shanghai."
+  },
+  {
+    "name": "The Emperor's Shadow",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Zhou Xiaowen fifth-generation; art vs. empire."
+  },
+  {
+    "name": "The White Balloon",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Kiarostami childhood; Tehran street-film."
+  },
+  {
+    "name": "A Moment of Innocence",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Kiarostami meta-drama; director and actor."
+  },
+  {
+    "name": "Through the Olive Trees",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Kiarostami earthquake recovery; film crew."
+  },
+  {
+    "name": "Taste of Cherry",
+    "year": 1997,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Kiarostami suicidal driver; Tehran roads."
+  },
+  {
+    "name": "Kids",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Harmony Korine transgressive youth; NYC."
+  },
+  {
+    "name": "Chasing Amy",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Kevin Smith comic-shop romance; LGBTQ+"
+  },
+  {
+    "name": "Dogma",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Kevin Smith religious satire; angels and demons."
+  },
+  {
+    "name": "Hard Eight",
+    "year": 1996,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Paul Thomas Anderson debut; Vegas mentorship."
+  },
+  {
+    "name": "The Hudsucker Proxy",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Coen Brothers screwball; innocent CEO."
+  },
+  {
+    "name": "Kids Return",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Takeshi Kitano ex-thugs reconnect; wistful."
+  },
+  {
+    "name": "Fireworks",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Takeshi Kitano noir lovers; Tokyo night."
+  },
+  {
+    "name": "Exotica",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Egoyan strip-club interweave; Canadian mystery."
+  },
+  {
+    "name": "The Sweet Hereafter",
+    "year": 1997,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Egoyan school-bus tragedy; grief framework."
+  },
+  {
+    "name": "M. Butterfly",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Cronenberg gender deception; Jeremy Irons."
+  },
+  {
+    "name": "Crash",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Cronenberg car-crash erotica; transgressive."
+  },
+  {
+    "name": "Naked Lunch",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Cronenberg Burroughs surreal; typewriter bug."
+  },
+  {
+    "name": "Ashes of Time",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Wong Kar-wai wuxia; ethereal swordsmen."
+  },
+  {
+    "name": "Fallen Angels",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Wong Kar-wai assassin lovers; Hong Kong neon."
+  },
+  {
+    "name": "The Game",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Fincher reality thriller; Fincher and Douglas."
+  },
+  {
+    "name": "Fire Walk with Me",
+    "year": 1992,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Lynch Twin Peaks prequel; Laura Palmer."
+  },
+  {
+    "name": "The Straight Story",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Lynch G-rated Americana; Iowa journey."
+  },
+  {
+    "name": "Festen (The Celebration)",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Vinterberg Dogme dinner party; family secrets."
+  },
+  {
+    "name": "The Idiots",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Von Trier Dogme provocation; fake retardation."
+  },
+  {
+    "name": "Funny Games",
+    "year": 1997,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Haneke home-invasion; meta-violence critique."
+  },
+  {
+    "name": "The Player",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Altman Hollywood satire; pitch-perfect."
+  },
+  {
+    "name": "Short Cuts",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Altman LA mosaic; Carver stories."
+  },
+  {
+    "name": "Cookie's Fortune",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Altman Southern Gothic; Mississippi mystery."
+  },
+  {
+    "name": "Cry-Baby",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "John Waters 1950s teen camp; Depp drape."
+  },
+  {
+    "name": "Serial Mom",
+    "year": 1994,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Waters housewife slasher; Kathleen Turner mayhem."
+  },
+  {
+    "name": "Pecker",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Waters Baltimore photographer; family chaos."
+  },
+  {
+    "name": "Dead Man",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Jarmusch Western; Johnny Depp and Neil Young."
+  },
+  {
+    "name": "I Stand Alone",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "No\u00e9 monologue rage; misogynist butcher."
+  },
+  {
+    "name": "S. Darling",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Denis French actress mystery; Paris romance."
+  },
+  {
+    "name": "I Can't Sleep",
+    "year": 1994,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Denis Paris heat; serial killer backdrop."
+  },
+  {
+    "name": "Like Water for Chocolate",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Arau Mexican magic-realist romance."
+  },
+  {
+    "name": "Strawberry and Chocolate",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Alea Cuban LGBTQ+ friendship; revolution."
+  },
+  {
+    "name": "Muriel's Wedding",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Hogan Australian bride; Mamma Mia precursor."
+  },
+  {
+    "name": "Priscilla, Queen of the Desert",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Elliot Terezakis drag road trip; Outback."
+  },
+  {
+    "name": "Two Hands",
+    "year": 1999,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Australian crime; Heath Ledger debut."
+  },
+  {
+    "name": "Iron Monkey",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Yuen Woo-ping wuxia; flying monk."
+  },
+  {
+    "name": "The Bride with White Hair",
+    "year": 1993,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Ronny Yu fantasy romance; swordplay."
+  },
+  {
+    "name": "First Strike",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Jackie Chan globe-trotting; stunts galore."
+  },
+  {
+    "name": "Rumble in the Bronx",
+    "year": 1995,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Jackie Chan US intro; Bronx action."
+  },
+  {
+    "name": "Black Mask",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Jet Li superhero martial arts; Hong Kong."
+  },
+  {
+    "name": "Fist of Legend",
+    "year": 1994,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Jet Li kung-fu revenge; Shanghai."
+  },
+  {
+    "name": "Bodyguard from Beijing",
+    "year": 1994,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Jet Li bodyguard action."
+  },
+  {
+    "name": "The Master",
+    "year": 1992,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Jet Li wuxia kung-fu film."
+  },
+  {
+    "name": "Broken Arrow",
+    "year": 1996,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Woo nuclear-bomb action; Travolta, Cage."
+  },
+  {
+    "name": "Face/Off",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Woo face-swap action; Cage, Travolta swapped."
+  },
+  {
+    "name": "Trainspotting",
+    "year": 1996,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Boyle Edinburgh heroin; Renton descent."
+  },
+  {
+    "name": "Shallow Grave",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Boyle debut flatmates; murder mystery."
+  },
+  {
+    "name": "The Full Monty",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Cattaneo Sheffield steel-town strippers."
+  },
+  {
+    "name": "Brassed Off",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Herman coal miners and brass band."
+  },
+  {
+    "name": "Secrets & Lies",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Leigh British family reunited; emotional."
+  },
+  {
+    "name": "Land and Freedom",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Loach Spanish Civil War; political drama."
+  },
+  {
+    "name": "Beautiful Thing",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Jamaican-British teenagers; South London."
+  },
+  {
+    "name": "Bhaji on the Beach",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Chadha British-Indian women; seaside outing."
+  },
+  {
+    "name": "My Son the Fanatic",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Kureishi Bradford radicalization; family."
+  },
+  {
+    "name": "Margaret's Museum",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Grenier Nova Scotia coal mining."
+  },
+  {
+    "name": "Little Voice",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Deakins Yorkshire singer; Michael Caine."
+  },
+  {
+    "name": "Mrs. Brown",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Madden Queen Victoria and groom; Scotland."
+  },
+  {
+    "name": "Elizabeth",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Kapur Tudor epic; Cate Blanchett."
+  },
+  {
+    "name": "Sunshine",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Szab\u00f3 Hungarian-Jewish family; Holocaust."
+  },
+  {
+    "name": "Dreaming of Joseph Lees",
+    "year": 1999,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Winnick period drama; Somerset."
+  },
+  {
+    "name": "East is East",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "O'Donnell British-Pakistani family; Manchester."
+  },
+  {
+    "name": "Topsy-Turvy",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Gilbert and Sullivan operetta chaos."
+  },
+  {
+    "name": "Career Girls",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Leigh university pals reunion; London."
+  },
+  {
+    "name": "Naked",
+    "year": 1993,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Leigh bitter misanthrope; London walk."
+  },
+  {
+    "name": "Tiananmen Square",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "British political documentary."
+  },
+  {
+    "name": "Live Flesh",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Almod\u00f3var Madrid revenge; Francesc Rabal."
+  },
+  {
+    "name": "Chinese Box",
+    "year": 1997,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Hongkong 1997 handover; Cusack, Gong."
+  },
+  {
+    "name": "Porco Rosso",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Miyazaki Studio Ghibli; flying pig pilot."
+  },
+  {
+    "name": "Whisper of the Heart",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Yoshifumi Studio Ghibli; Tokyo teenagers."
+  },
+  {
+    "name": "Ninja Scroll",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Yoshiaki Kawajiri anime samurai; gorgeous."
+  },
+  {
+    "name": "Street Fighter II",
+    "year": 1994,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Anime video-game adaptation; tournament."
+  },
+  {
+    "name": "Patlabor 2: The Movie",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Oshii anime political thriller; military."
+  },
+  {
+    "name": "Audition",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Miike Japanese horror-romance; torture."
+  },
+  {
+    "name": "Wild Zero",
+    "year": 1999,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Iguchi Japanese punk-zombie madness."
+  },
+  {
+    "name": "Suzaku",
+    "year": 1998,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Koreeda Okinawa island family."
+  },
+  {
+    "name": "Not One Less",
+    "year": 1999,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Zhang Yimou rural teacher; documentary style."
+  },
+  {
+    "name": "Boiling Point",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Kitano yakuza violence; Tokyo streets."
+  },
+  {
+    "name": "Crimson Gold",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Kiarostami Iranian taxi driver; Tehran."
+  },
+  {
+    "name": "The Silence",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Panahi Iranian boy; silence theme."
+  },
+  {
+    "name": "Children of Heaven",
+    "year": 1997,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Majidi Iranian sibling shoes; emotional."
+  },
+  {
+    "name": "The Double Life of V\u00e9ronique",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Kie\u015blowski Polish twins; mystical."
+  },
+  {
+    "name": "Three Colors: Blue",
+    "year": 1993,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Kie\u015blowski French freedom; Juliette Binoche."
+  },
+  {
+    "name": "Three Colors: White",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Kie\u015blowski Polish immigrant; equality."
+  },
+  {
+    "name": "Three Colors: Red",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Kie\u015blowski Swiss fate; Ir\u00e8ne Jacob."
+  },
+  {
+    "name": "No Smoking",
+    "year": 1993,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Kie\u015blowski parallel worlds; cigarettes."
+  },
+  {
+    "name": "Kolja",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Svirak Czech cellist; Soviet orphan."
+  },
+  {
+    "name": "Life is Beautiful",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Benigni Holocaust comedy; love conquers."
+  },
+  {
+    "name": "Killer",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Sokolov Polish hitman; moral."
+  },
+  {
+    "name": "Forrest Gump",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Zemeckis decades-spanning innocence epic."
+  },
+  {
+    "name": "The Shawshank Redemption",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Darabont King prison redemption; iconic."
+  },
+  {
+    "name": "The Green Mile",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Darabont King prison magic; emotional."
+  },
+  {
+    "name": "The Sixth Sense",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Shyamalan boy-sees-dead twist."
+  },
+  {
+    "name": "Titanic",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Cameron sinking-ship romance; blockbuster."
+  },
+  {
+    "name": "The Truman Show",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Weir enclosed-world reality show."
+  },
+  {
+    "name": "Deep Blue Sea",
+    "year": 1999,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Renny Harlin shark horror; underwater base."
+  },
+  {
+    "name": "The World Is Not Enough",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Apted Bond oil-pipeline thriller."
+  },
+  {
+    "name": "Notting Hill",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Michell Roberts bookshop romance; London."
+  },
+  {
+    "name": "Shakespeare in Love",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Madden playwright-muse romance; Elizabethan."
+  },
+  {
+    "name": "Austin Powers: International Man of Mystery",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Roach spy comedy; groovy."
+  },
+  {
+    "name": "Austin Powers: The Spy Who Shagged Me",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Roach sequel time-travel; spy parody."
+  },
+  {
+    "name": "The Mummy",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Sommers adventure-romance; Egypt."
+  },
+  {
+    "name": "Entrapment",
+    "year": 1999,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Hambley heist romance; Connery, Zeta-Jones."
+  },
+  {
+    "name": "Double Jeopardy",
+    "year": 1999,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Beresford prison escape thriller."
+  },
+  {
+    "name": "South Park: Bigger, Longer & Uncut",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Parker, Stone animated musical satire."
+  },
+  {
+    "name": "American Beauty",
+    "year": 1999,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Mendes suburban malaise; Spacey Burnham."
+  },
+  {
+    "name": "Three Kings",
+    "year": 1999,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Russell Gulf War soldiers and gold."
+  },
+  {
+    "name": "The Insider",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Mann tobacco-industry whistleblower epic."
+  },
+  {
+    "name": "Summer of Sam",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Spike Lee Son of Sam panic; NYC."
+  },
+  {
+    "name": "Go",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Tarsem Vegas club multi-narrative."
+  },
+  {
+    "name": "Boys Don't Cry",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Pierce transgender Nebraska tragedy."
+  },
+  {
+    "name": "The Limey",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Soderbergh British ex-con revenge; LA."
+  },
+  {
+    "name": "Out of Sight",
+    "year": 1998,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Soderbergh Elmore Leonard cops-robbers."
+  },
+  {
+    "name": "In & Out",
+    "year": 1997,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Oz high-school teacher outing comedy."
+  },
+  {
+    "name": "Welcome to the Dollhouse",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Solondz New Jersey school-girl bullying."
+  },
+  {
+    "name": "Safe",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Haynes environmental illness psychological."
+  },
+  {
+    "name": "Trust",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Hartley Long Island rage; deadpan."
+  },
+  {
+    "name": "Arizona Dream",
+    "year": 1992,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Egoyan Depp Faye Dunaway desert noir."
+  },
+  {
+    "name": "My Own Private Idaho",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Van Sant street kids narcoleptic wandering."
+  },
+  {
+    "name": "Even Cowgirls Get the Blues",
+    "year": 1994,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Van Sant Robbins transgender hitchhiker."
+  },
+  {
+    "name": "To Die For",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Van Sant Kidman TV-obsessed murderer."
+  },
+  {
+    "name": "Sunday",
+    "year": 1997,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Hartley Manhattan priest and homeless."
+  },
+  {
+    "name": "Next Stop Wonderland",
+    "year": 1998,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Anderson Boston matchmaker romantic comedy."
+  },
+  {
+    "name": "Guncrazy",
+    "year": 1992,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Kaplan lovers-on-run indie crime."
+  },
+  {
+    "name": "Slacker spin-off works",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Indies spin-off filmmaking."
+  }
+]
