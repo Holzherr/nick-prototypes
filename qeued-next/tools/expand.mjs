@@ -10,14 +10,20 @@
  *
  *   SUPABASE_SERVICE_ROLE_KEY=… node tools/expand.mjs titles.json [--dry-run] [--limit N]
  *
+ * The slow half is the network, so it can be run on its own and written later — which also
+ * means a failed write costs no re-scraping, and no service key is needed at all:
+ *
+ *   node tools/expand.mjs titles.json --gather gathered.json
+ *   node tools/expand.mjs --sql wave.sql --from gathered.json
+ *   npx supabase db query -f wave.sql --db-url "$QEUED_DB_URL"
+ *
  * Input is a JSON array of { name, year, type } — the script resolves each to a page,
  * verifies the name and year match what came back, and skips anything it cannot confirm.
  */
-import { readFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 
 const URL_BASE = process.env.SUPABASE_URL ?? 'https://piwfcsvnxcmxmvfhgtbk.supabase.co';
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-if (!KEY) throw new Error('Missing SUPABASE_SERVICE_ROLE_KEY');
 
 const BROWSER_UA =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36';
@@ -33,7 +39,14 @@ const rest = async (path, init = {}) => {
   return text ? JSON.parse(text) : null;
 };
 
-const normalise = (value) => String(value ?? '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+/** Diacritics are folded, so a page filed as "Shōgun" still matches a list saying "Shogun". */
+const normalise = (value) =>
+  String(value ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
 /** Apostrophes vanish rather than becoming separators: "Winter's Bone" is winters-bone. */
 const slugify = (value) =>
   String(value).toLowerCase().replace(/['\u2019]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -100,16 +113,20 @@ const fetchRecord = async (url, attempt = 0) => {
     await pause(2000 * (attempt + 1));
     return fetchRecord(url, attempt + 1);
   }
-  const block = [...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)][0]?.[1];
-  if (!block) return null;
-  let graph;
-  try {
-    graph = JSON.parse(block);
-  } catch {
-    return null;
+  // Two things made real pages look missing: only the first block was read, and the tag was
+  // expected to start with its type attribute — JustWatch puts data-vue-meta first, so every
+  // page it server-renders that way was skipped.
+  for (const match of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+    let graph;
+    try {
+      graph = JSON.parse(match[1]);
+    } catch {
+      continue;
+    }
+    const found = (graph['@graph'] ?? [graph]).find((n) => n['@type'] === 'Movie' || n['@type'] === 'TVSeries');
+    if (found) return { node: found, html };
   }
-  const node = (graph['@graph'] ?? [graph]).find((n) => n['@type'] === 'Movie' || n['@type'] === 'TVSeries');
-  return node ? { node, html } : null;
+  return null;
 };
 
 /**
@@ -132,6 +149,15 @@ const resolveTitle = async ({ name, year, type, url: given }) => {
     if (!found) continue;
 
     const { node } = found;
+    // A record that names its page has already been resolved deliberately, and the page's
+    // own title is often the original-language one — "Cinema Paradiso" is filed as "Nuovo
+    // Cinema Paradiso", "Trapped" as "Ófærð". Trust the address, still check the year.
+    if (given && url === given) {
+      const pageYear = Number(String(node.dateCreated ?? '').slice(0, 4));
+      if (year && pageYear && Math.abs(pageYear - year) > (type === 'series' ? 1 : 2)) continue;
+      return { url, ...found };
+    }
+
     // An exact name, or ours followed by a subtitle: "Dune" may be filed as "Dune: Part One".
     const pageName = normalise(node.name);
     const wanted = normalise(name);
@@ -146,18 +172,84 @@ const resolveTitle = async ({ name, year, type, url: given }) => {
 };
 
 const args = process.argv.slice(2);
-const input = args.find((a) => !a.startsWith('--'));
+const flagValue = (name) => {
+  const index = args.indexOf(`--${name}`);
+  return index === -1 ? null : args[index + 1];
+};
+const flagValues = new Set(['limit', 'gather', 'sql', 'from'].map(flagValue).filter(Boolean));
+const input = args.find((a) => !a.startsWith('--') && !flagValues.has(a));
 const dryRun = args.includes('--dry-run');
-const limitIndex = args.indexOf('--limit');
-const limit = limitIndex === -1 ? null : Number(args[limitIndex + 1]);
+const limit = flagValue('limit') ? Number(flagValue('limit')) : null;
+const gatherPath = flagValue('gather');
+const sqlPath = flagValue('sql');
+const fromPath = flagValue('from');
+if (!KEY && !gatherPath && !sqlPath) throw new Error('Missing SUPABASE_SERVICE_ROLE_KEY (or pass --gather/--sql)');
+
+const quote = (value) => `'${String(value).replace(/'/g, "''")}'`;
+const sqlValue = (value) => {
+  if (value === null || value === undefined) return 'null';
+  if (Array.isArray(value)) return value.length ? `ARRAY[${value.map(quote).join(', ')}]::text[]` : `'{}'::text[]`;
+  if (typeof value === 'number') return String(value);
+  return quote(value);
+};
+
+/**
+ * Gathered records become one INSERT each plus its citations, inside a DO block: the query
+ * channel takes a file as a single statement, and a wave should land whole or not at all.
+ *
+ * A title already present is updated rather than duplicated — the slug is the identity, and
+ * re-running a wave after fixing one entry must not leave two rows behind.
+ */
+const sqlForGathered = (records) => {
+  const statements = [];
+  for (const { slug, url, fields } of records) {
+    const columns = Object.keys(fields);
+    // A title's identity is its name and year, not its slug — an earlier collision left one
+    // row as "winter-s-bone-2010-2", and matching on slug alone would file a second copy.
+    const match = `lower(name) = lower(${quote(fields.name)}) and year is not distinct from ${sqlValue(fields.year ?? null)}`;
+
+    statements.push(
+      `update public.titles set ${columns.map((c) => `${c} = ${sqlValue(fields[c])}`).join(', ')}, ` +
+        `catalogue_version = catalogue_version + 1 where ${match};`,
+    );
+    statements.push(
+      `insert into public.titles (slug, catalogue_version, ${columns.join(', ')}) ` +
+        `select ${quote(slug)}, 1, ${columns.map((c) => sqlValue(fields[c])).join(', ')} ` +
+        `where not exists (select 1 from public.titles where ${match});`,
+    );
+
+    const cited = ['certification', 'runtime_minutes', 'cast_members', 'genres', 'image_url'].filter(
+      (field) => fields[field] !== null && fields[field] !== undefined,
+    );
+    if (!cited.length) continue;
+    statements.push(
+      `insert into public.title_sources (title_id, field, source_url, source_name) ` +
+        `select t.id, f.field, ${quote(url)}, 'JustWatch UK' from public.titles t, ` +
+        `unnest(ARRAY[${cited.map(quote).join(', ')}]) as f(field) where ${match} ` +
+        `on conflict (title_id, field, source_url) do nothing;`,
+    );
+  }
+  return ['-- Catalogue wave. Generated by tools/expand.mjs.', 'do $wave$ begin', ...statements.map((l) => `  ${l}`), 'end $wave$;', ''].join('\n');
+};
+
+if (sqlPath) {
+  if (!fromPath) throw new Error('--sql needs --from <gathered.json>');
+  const gathered = JSON.parse(await readFile(fromPath, 'utf8'));
+  await writeFile(sqlPath, sqlForGathered(gathered));
+  console.log(`Wrote ${gathered.length} title(s) to ${sqlPath}.`);
+  console.log(`Apply with: npx supabase db query -f ${sqlPath} --db-url "$QEUED_DB_URL"`);
+  process.exit(0);
+}
 
 const run = async () => {
   if (!input) throw new Error('Usage: expand.mjs titles.json [--dry-run] [--limit N]');
   const wanted = JSON.parse(await readFile(input, 'utf8'));
   const batch = limit ? wanted.slice(0, limit) : wanted;
 
-  const existing = await rest('titles?select=id,name,year');
+  // Gathering touches nothing, so it does not need to know what is already stored.
+  const existing = gatherPath ? [] : await rest('titles?select=id,name,year');
   const seen = new Map(existing.map((t) => [`${normalise(t.name)}|${t.year}`, t.id]));
+  const gathered = [];
 
   let added = 0;
   let updated = 0;
@@ -197,6 +289,14 @@ const run = async () => {
     };
     if (!fields.year) delete fields.year;
 
+    const slug = `${slugify(entry.name)}-${fields.year ?? entry.year}`;
+    if (gatherPath) {
+      gathered.push({ slug, url, fields });
+      console.log(`  +  ${entry.name} (${fields.year})${poster ? '' : ' — NO POSTER'}`);
+      added += 1;
+      continue;
+    }
+
     const key = `${normalise(entry.name)}|${fields.year ?? entry.year}`;
     const existingId = seen.get(key);
 
@@ -220,7 +320,7 @@ const run = async () => {
       const [row] = await rest('titles', {
         method: 'POST',
         headers: { Prefer: 'return=representation' },
-        body: JSON.stringify({ ...fields, slug: `${slugify(entry.name)}-${fields.year ?? entry.year}`, catalogue_version: 1 }),
+        body: JSON.stringify({ ...fields, slug, catalogue_version: 1 }),
       });
       titleId = row.id;
       added += 1;
@@ -235,6 +335,13 @@ const run = async () => {
         body: JSON.stringify({ title_id: titleId, field, source_url: url, source_name: 'JustWatch UK' }),
       });
     }
+  }
+
+  if (gatherPath) {
+    await writeFile(gatherPath, JSON.stringify(gathered, null, 1));
+    console.log(`\nGathered ${added} title(s) into ${gatherPath}, ${missed} unmatched.`);
+    console.log(`Next: node tools/expand.mjs --sql wave.sql --from ${gatherPath}`);
+    return;
   }
 
   console.log(

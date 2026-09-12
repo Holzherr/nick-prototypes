@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "yi-yi-2000",
+    "reason": "Tagged Documentary. It is a fiction drama.",
+    "remove_genres": ["Documentary"]
+  },
+  {
+    "slug": "planet-earth-ii-2016",
+    "reason": "No genres at all on the page.",
+    "fields": { "genres": ["Documentary"] }
+  },
+  {
+    "slug": "inside-no-9-2014",
+    "reason": "Cast was a list of one-episode guests; the two people in nearly every episode are its creators, who appeared only in the director field.",
+    "fields": { "cast_members": ["Reece Shearsmith", "Steve Pemberton"] }
+  },
+  {
+    "slug": "cowboy-bebop-1998",
+    "reason": "Director field held per-episode directors; the series director is absent from it.",
+    "fields": { "director": "Shinichirō Watanabe" }
+  },
+  {
+    "slug": "fullmetal-alchemist-brotherhood-2009",
+    "reason": "Director field held per-episode directors; the series director is absent from it.",
+    "fields": { "director": "Yasuhiro Irie" }
+  }
+]

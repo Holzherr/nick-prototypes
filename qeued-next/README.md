@@ -85,16 +85,27 @@ counts — and it only ever fills a field that is empty, so a hand-edit always s
 `tidy` is the only script that overwrites, which is why every overwrite is listed by hand in a
 corrections file with the reason it is wrong.
 
-`enrich` and `tidy` also take `--sql <file>`, which writes the statements instead of issuing
-them and needs no service key — apply them over the connection the CLI already has:
+None of them need a service key. Each writes its statements to a file instead, and the
+Supabase CLI applies them over the connection it already holds — which matters because both
+repositories are public and the key should not sit on disk:
 
 ```
-node tools/enrich.mjs --sql /tmp/enrich.sql
-npx supabase db query -f /tmp/enrich.sql --db-url "$QEUED_DB_URL"
+node tools/expand.mjs wave.json --gather gathered.json     # the slow half: reads pages only
+node tools/expand.mjs --sql wave.sql --from gathered.json
+node tools/availability.mjs --gather offers.json --only gathered.json
+node tools/availability.mjs --sql offers.sql --from offers.json
+node tools/enrich.mjs --sql enrich.sql
+node tools/tidy.mjs --sql tidy.sql
+npx supabase db query -f <file> --db-url "$QEUED_DB_URL"
 ```
 
-The query channel sends a file as a single statement, so `enrich` emits one `UPDATE … FROM
-(VALUES …)` and `tidy` emits one `DO` block. Either way the whole wave lands or none of it does.
+Separating the gather from the write is not only about credentials: a failed write then costs
+no re-scraping, and the gathered file is reviewable before anything lands. The query channel
+sends a file as one statement, so each tool emits a single one — an `UPDATE … FROM (VALUES …)`,
+a CTE, or a `DO` block — and a wave lands whole or not at all.
+
+A title's identity is its name and year, not its slug: an early collision left one row as
+`winter-s-bone-2010-2`, and matching on slug alone would have filed a second copy.
 
 Tone and theme use closed vocabularies, listed in migration `0018` and enforced by `enrich.mjs`
 before anything is written. They exist because genre cannot separate a bleak procedural from a
