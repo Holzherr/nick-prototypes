@@ -11,6 +11,13 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
 - **Homepage (signed out):** https://nickholzherr.com/maths/#/home · **sign in:** `#/login` · **the app:** `#/app`
 - **Free printables (no sign-in):** https://nickholzherr.com/maths/#/resources
 - **Guides:** `#/guides/stages`, `#/guides/gamified-learning` and `#/guides/how-it-scores`
+- **What this device is running:** `#/diagnostics` — build id, bundle, service worker, signed-in account,
+  what is still waiting to upload, and any guest play on the device. Public and above `AuthProvider` on
+  purpose: it is needed most when signing in is the thing that is broken. No keys or tokens, so it is safe
+  to screenshot. Linked from the build stamp in the grown-ups footer. An iPad once served the first-day
+  build for hours while fixes were published over it, with nothing on screen to say so — every instruction
+  given was impossible to follow, and it took six exchanges and a photo to find. Stuck that way?
+  `/maths-reset.html` clears the cached app and leaves saved play alone.
 - **Preview of every merge:** https://holzherr.github.io/nick-prototypes/maths-garden/
 - **Storybook:** https://holzherr.github.io/nick-prototypes/maths-garden/storybook/
 

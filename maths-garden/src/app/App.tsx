@@ -10,6 +10,7 @@ import { articleBySlug } from '@/features/marketing/articles';
 import { ArticleScreen } from '@/features/marketing/components/ArticleScreen';
 import { HomeScreen } from '@/features/marketing/components/HomeScreen';
 import { MarketingLayout } from '@/features/marketing/components/MarketingLayout';
+import { DiagnosticsScreen } from '@/features/progress/components/DiagnosticsScreen';
 import { localRemote } from '@/features/progress/local-remote';
 import { createRepo, type ProgressRepo } from '@/features/progress/repo';
 import { supabaseRemote } from '@/features/progress/supabase-remote';
@@ -202,6 +203,16 @@ export default function App() {
       <>
         <FloatingHearts />
         <Printables path={path} params={params} />
+      </>
+    );
+  }
+  // Public on purpose, and above AuthProvider: the moment this screen is needed most is when signing in is
+  // the thing that is broken, or when a device is stuck on an old build and nothing on it says so.
+  if (path === '/diagnostics') {
+    return (
+      <>
+        <FloatingHearts />
+        <DiagnosticsScreen />
       </>
     );
   }
