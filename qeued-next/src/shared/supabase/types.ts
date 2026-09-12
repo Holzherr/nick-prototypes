@@ -878,6 +878,11 @@ export type Database = {
         }
         Returns: boolean
       }
+      invoke_function: {
+        Args: { p_body: Json; p_name: string }
+        Returns: number
+      }
+      refresh_recommendation_slates: { Args: never; Returns: number }
       title_slug: { Args: { p_name: string; p_year: number }; Returns: string }
     }
     Enums: {
