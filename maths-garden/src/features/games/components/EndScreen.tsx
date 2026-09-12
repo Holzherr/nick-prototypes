@@ -21,9 +21,12 @@ export interface EndScreenProps {
   breakHint?: BreakReason | null;
   /** The sticker picked for this round; null until a pack is chosen. */
   sticker: { sticker: Sticker; shiny: boolean } | null;
+  /** What this round grew in the garden ("A new flower grew…"). */
+  gardenNews?: string | null;
   onPickPack: (pack: PackId) => void;
   onAgain: () => void;
   onStickers: () => void;
+  onGarden?: () => void;
   onHome: () => void;
 }
 
@@ -32,7 +35,22 @@ export interface EndScreenProps {
  * a fastest-ever round and the daily goal, then the sticker pack chooser. After the pick: the sticker pops in
  * with a burst, and Play again / My stickers / All games appear (with a gentle break message when it's time).
  */
-export function EndScreen({ childName, score, total, levelUp, personalBest = false, goal, breakHint = null, sticker, onPickPack, onAgain, onStickers, onHome }: EndScreenProps) {
+export function EndScreen({
+  childName,
+  score,
+  total,
+  levelUp,
+  personalBest = false,
+  goal,
+  breakHint = null,
+  sticker,
+  gardenNews = null,
+  onPickPack,
+  onAgain,
+  onStickers,
+  onGarden,
+  onHome,
+}: EndScreenProps) {
   const message = score === total ? `Perfect, ${childName}! 💖` : score >= 3 ? 'Wonderful work! 🌸' : 'Great trying! 🦋';
   const stickerName = sticker?.sticker.name;
 
@@ -73,6 +91,11 @@ export function EndScreen({ childName, score, total, levelUp, personalBest = fal
         <>
           <StickerReveal sticker={sticker.sticker} shiny={sticker.shiny} />
           <Burst key={sticker.sticker.id} />
+          {gardenNews && (
+            <button type="button" onClick={onGarden} className="rounded-full bg-leaf px-5 py-2 text-xl font-semibold text-white">
+              {gardenNews}
+            </button>
+          )}
           {breakHint && <p className="text-[clamp(20px,3vw,26px)] font-semibold">🌈 Brilliant playing! Time for a little break?</p>}
           <div className={cn('flex flex-wrap justify-center gap-4', breakHint && 'flex-row-reverse')}>
             <Button size="lg" variant={breakHint ? 'quiet' : 'primary'} onClick={onAgain}>
