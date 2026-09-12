@@ -14,6 +14,8 @@ type PublicTitle = {
   year: number | null;
   type: string;
   genres: string[];
+  tones: string[] | null;
+  themes: string[] | null;
   synopsis: string | null;
   certification: string | null;
   runtime_minutes: number | null;
@@ -27,7 +29,7 @@ type PublicTitle = {
 };
 
 const COLUMNS =
-  "id, name, year, type, genres, synopsis, certification, runtime_minutes, seasons, episodes, director, cast_members, image_url, title_availability(provider, offer_type, url), title_sources(field, source_url, source_name)";
+  "id, name, year, type, genres, tones, themes, synopsis, certification, runtime_minutes, seasons, episodes, director, cast_members, image_url, title_availability(provider, offer_type, url), title_sources(field, source_url, source_name)";
 
 const offerOrder = ["free", "subscription", "rent", "buy", "cinema"];
 
@@ -108,6 +110,10 @@ const PublicTitleScreen = () => {
             <p className="mt-1 text-sm text-muted-foreground">{facts.join(" · ")}</p>
             <div className="mt-2 flex flex-wrap gap-1">
               {(title.genres ?? []).map((genre) => <Badge key={genre} variant="secondary">{genre}</Badge>)}
+              {/* Our own tags, kept visually distinct from genre because they are a different claim. */}
+              {[...(title.tones ?? []), ...(title.themes ?? [])].map((tag) => (
+                <Badge key={tag} variant="outline">{tag}</Badge>
+              ))}
             </div>
             {stats && (
               <p className="mt-3 text-sm text-muted-foreground">

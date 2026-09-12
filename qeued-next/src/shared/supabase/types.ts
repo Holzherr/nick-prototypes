@@ -643,6 +643,8 @@ export type Database = {
           slug: string | null
           synopsis: string | null
           tagline: string | null
+          themes: string[]
+          tones: string[]
           type: Database["public"]["Enums"]["title_type"]
           year: number | null
         }
@@ -675,6 +677,8 @@ export type Database = {
           slug?: string | null
           synopsis?: string | null
           tagline?: string | null
+          themes?: string[]
+          tones?: string[]
           type?: Database["public"]["Enums"]["title_type"]
           year?: number | null
         }
@@ -707,6 +711,8 @@ export type Database = {
           slug?: string | null
           synopsis?: string | null
           tagline?: string | null
+          themes?: string[]
+          tones?: string[]
           type?: Database["public"]["Enums"]["title_type"]
           year?: number | null
         }
