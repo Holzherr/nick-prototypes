@@ -1,0 +1,2117 @@
+[
+ {
+  "name": "Breaking Bad",
+  "year": 2008,
+  "type": "series"
+ },
+ {
+  "name": "The Office",
+  "year": 2005,
+  "type": "series"
+ },
+ {
+  "name": "Parks and Recreation",
+  "year": 2009,
+  "type": "series"
+ },
+ {
+  "name": "Arrested Development",
+  "year": 2003,
+  "type": "series"
+ },
+ {
+  "name": "Community",
+  "year": 2009,
+  "type": "series"
+ },
+ {
+  "name": "30 Rock",
+  "year": 2006,
+  "type": "series"
+ },
+ {
+  "name": "Brooklyn Nine-Nine",
+  "year": 2013,
+  "type": "series"
+ },
+ {
+  "name": "Veep",
+  "year": 2012,
+  "type": "series"
+ },
+ {
+  "name": "Curb Your Enthusiasm",
+  "year": 2000,
+  "type": "series"
+ },
+ {
+  "name": "Seinfeld",
+  "year": 1989,
+  "type": "series"
+ },
+ {
+  "name": "Friends",
+  "year": 1994,
+  "type": "series"
+ },
+ {
+  "name": "Frasier",
+  "year": 1993,
+  "type": "series"
+ },
+ {
+  "name": "Cheers",
+  "year": 1982,
+  "type": "series"
+ },
+ {
+  "name": "The Simpsons",
+  "year": 1989,
+  "type": "series"
+ },
+ {
+  "name": "Futurama",
+  "year": 1999,
+  "type": "series"
+ },
+ {
+  "name": "Rick and Morty",
+  "year": 2013,
+  "type": "series"
+ },
+ {
+  "name": "Bojack Horseman",
+  "year": 2014,
+  "type": "series"
+ },
+ {
+  "name": "Archer",
+  "year": 2009,
+  "type": "series"
+ },
+ {
+  "name": "Game of Thrones",
+  "year": 2011,
+  "type": "series"
+ },
+ {
+  "name": "House of the Dragon",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "The Witcher",
+  "year": 2019,
+  "type": "series"
+ },
+ {
+  "name": "The Rings of Power",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "Stranger Things",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "The Umbrella Academy",
+  "year": 2019,
+  "type": "series"
+ },
+ {
+  "name": "Wednesday",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "Squid Game",
+  "year": 2021,
+  "type": "series"
+ },
+ {
+  "name": "Narcos",
+  "year": 2015,
+  "type": "series"
+ },
+ {
+  "name": "Better Things",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "Atlanta",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "Barry",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "Ramy",
+  "year": 2019,
+  "type": "series"
+ },
+ {
+  "name": "The Bear",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "Beef",
+  "year": 2023,
+  "type": "series"
+ },
+ {
+  "name": "The White Lotus",
+  "year": 2021,
+  "type": "series"
+ },
+ {
+  "name": "Big Little Lies",
+  "year": 2017,
+  "type": "series"
+ },
+ {
+  "name": "Mare of Easttown",
+  "year": 2021,
+  "type": "series"
+ },
+ {
+  "name": "The Undoing",
+  "year": 2020,
+  "type": "series"
+ },
+ {
+  "name": "Defending Jacob",
+  "year": 2020,
+  "type": "series"
+ },
+ {
+  "name": "Your Honor",
+  "year": 2020,
+  "type": "series"
+ },
+ {
+  "name": "Ozark",
+  "year": 2017,
+  "type": "series"
+ },
+ {
+  "name": "Bloodline",
+  "year": 2015,
+  "type": "series"
+ },
+ {
+  "name": "Animal Kingdom",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "Banshee",
+  "year": 2013,
+  "type": "series"
+ },
+ {
+  "name": "Justified",
+  "year": 2010,
+  "type": "series"
+ },
+ {
+  "name": "Deadwood",
+  "year": 2004,
+  "type": "series"
+ },
+ {
+  "name": "The Shield",
+  "year": 2002,
+  "type": "series"
+ },
+ {
+  "name": "The Knick",
+  "year": 2014,
+  "type": "series"
+ },
+ {
+  "name": "Boardwalk Empire",
+  "year": 2010,
+  "type": "series"
+ },
+ {
+  "name": "Rome",
+  "year": 2005,
+  "type": "series"
+ },
+ {
+  "name": "Vikings",
+  "year": 2013,
+  "type": "series"
+ },
+ {
+  "name": "The Last Kingdom",
+  "year": 2015,
+  "type": "series"
+ },
+ {
+  "name": "Outlander",
+  "year": 2014,
+  "type": "series"
+ },
+ {
+  "name": "Poldark",
+  "year": 2015,
+  "type": "series"
+ },
+ {
+  "name": "Downton Abbey",
+  "year": 2010,
+  "type": "series"
+ },
+ {
+  "name": "Call the Midwife",
+  "year": 2012,
+  "type": "series"
+ },
+ {
+  "name": "Gentleman Jack",
+  "year": 2019,
+  "type": "series"
+ },
+ {
+  "name": "The Gilded Age",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "Doctor Foster",
+  "year": 2015,
+  "type": "series"
+ },
+ {
+  "name": "Doctor Who",
+  "year": 2005,
+  "type": "series"
+ },
+ {
+  "name": "Torchwood",
+  "year": 2006,
+  "type": "series"
+ },
+ {
+  "name": "Misfits",
+  "year": 2009,
+  "type": "series"
+ },
+ {
+  "name": "Skins",
+  "year": 2007,
+  "type": "series"
+ },
+ {
+  "name": "The Inbetweeners",
+  "year": 2008,
+  "type": "series"
+ },
+ {
+  "name": "The IT Crowd",
+  "year": 2006,
+  "type": "series"
+ },
+ {
+  "name": "Peep Show",
+  "year": 2003,
+  "type": "series"
+ },
+ {
+  "name": "Green Wing",
+  "year": 2004,
+  "type": "series"
+ },
+ {
+  "name": "Fawlty Towers",
+  "year": 1975,
+  "type": "series"
+ },
+ {
+  "name": "Yes Minister",
+  "year": 1980,
+  "type": "series"
+ },
+ {
+  "name": "The Office",
+  "year": 2001,
+  "type": "series"
+ },
+ {
+  "name": "Extras",
+  "year": 2005,
+  "type": "series"
+ },
+ {
+  "name": "After Life",
+  "year": 2019,
+  "type": "series"
+ },
+ {
+  "name": "Derry Girls",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "Motherland",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "Detectorists",
+  "year": 2014,
+  "type": "series"
+ },
+ {
+  "name": "This Is Going to Hurt",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "I May Destroy You",
+  "year": 2020,
+  "type": "series"
+ },
+ {
+  "name": "Normal People",
+  "year": 2020,
+  "type": "series"
+ },
+ {
+  "name": "Chewing Gum",
+  "year": 2015,
+  "type": "series"
+ },
+ {
+  "name": "Giri/Haji",
+  "year": 2019,
+  "type": "series"
+ },
+ {
+  "name": "The Responder",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "Time",
+  "year": 2021,
+  "type": "series"
+ },
+ {
+  "name": "Save Me",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "Unforgotten",
+  "year": 2015,
+  "type": "series"
+ },
+ {
+  "name": "Vera",
+  "year": 2011,
+  "type": "series"
+ },
+ {
+  "name": "Shetland",
+  "year": 2013,
+  "type": "series"
+ },
+ {
+  "name": "Endeavour",
+  "year": 2012,
+  "type": "series"
+ },
+ {
+  "name": "Inspector Morse",
+  "year": 1987,
+  "type": "series"
+ },
+ {
+  "name": "Lewis",
+  "year": 2006,
+  "type": "series"
+ },
+ {
+  "name": "Luther",
+  "year": 2010,
+  "type": "series"
+ },
+ {
+  "name": "Ripper Street",
+  "year": 2012,
+  "type": "series"
+ },
+ {
+  "name": "Whitechapel",
+  "year": 2009,
+  "type": "series"
+ },
+ {
+  "name": "Marcella",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "Collateral",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "Bodies",
+  "year": 2023,
+  "type": "series"
+ },
+ {
+  "name": "Baby Reindeer",
+  "year": 2024,
+  "type": "series"
+ },
+ {
+  "name": "The Gold",
+  "year": 2023,
+  "type": "series"
+ },
+ {
+  "name": "Sherwood",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "Blue Lights",
+  "year": 2023,
+  "type": "series"
+ },
+ {
+  "name": "Dept Q",
+  "year": 2025,
+  "type": "series"
+ },
+ {
+  "name": "The Agency",
+  "year": 2024,
+  "type": "series"
+ },
+ {
+  "name": "Say Nothing",
+  "year": 2024,
+  "type": "series"
+ },
+ {
+  "name": "Rivals",
+  "year": 2024,
+  "type": "series"
+ },
+ {
+  "name": "Severance",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "Silo",
+  "year": 2023,
+  "type": "series"
+ },
+ {
+  "name": "Dark Matter",
+  "year": 2024,
+  "type": "series"
+ },
+ {
+  "name": "Constellation",
+  "year": 2024,
+  "type": "series"
+ },
+ {
+  "name": "Invasion",
+  "year": 2021,
+  "type": "series"
+ },
+ {
+  "name": "Raised by Wolves",
+  "year": 2020,
+  "type": "series"
+ },
+ {
+  "name": "Battlestar Galactica",
+  "year": 2004,
+  "type": "series"
+ },
+ {
+  "name": "Firefly",
+  "year": 2002,
+  "type": "series"
+ },
+ {
+  "name": "Fringe",
+  "year": 2008,
+  "type": "series"
+ },
+ {
+  "name": "Orphan Black",
+  "year": 2013,
+  "type": "series"
+ },
+ {
+  "name": "Sense8",
+  "year": 2015,
+  "type": "series"
+ },
+ {
+  "name": "Travelers",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "Devs",
+  "year": 2020,
+  "type": "series"
+ },
+ {
+  "name": "Tales from the Loop",
+  "year": 2020,
+  "type": "series"
+ },
+ {
+  "name": "Scavengers Reign",
+  "year": 2023,
+  "type": "series"
+ },
+ {
+  "name": "Pantheon",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "Love Death and Robots",
+  "year": 2019,
+  "type": "series"
+ },
+ {
+  "name": "The Handmaid's Tale",
+  "year": 2017,
+  "type": "series"
+ },
+ {
+  "name": "Station Eleven",
+  "year": 2021,
+  "type": "series"
+ },
+ {
+  "name": "The Man in the High Castle",
+  "year": 2015,
+  "type": "series"
+ },
+ {
+  "name": "Snowpiercer",
+  "year": 2020,
+  "type": "series"
+ },
+ {
+  "name": "Colony",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "The 100",
+  "year": 2014,
+  "type": "series"
+ },
+ {
+  "name": "Westworld",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "Halt and Catch Fire",
+  "year": 2014,
+  "type": "series"
+ },
+ {
+  "name": "Silicon Valley",
+  "year": 2014,
+  "type": "series"
+ },
+ {
+  "name": "Mr. Inbetween",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "The Americans",
+  "year": 2013,
+  "type": "series"
+ },
+ {
+  "name": "Homeland",
+  "year": 2011,
+  "type": "series"
+ },
+ {
+  "name": "The Night Agent",
+  "year": 2023,
+  "type": "series"
+ },
+ {
+  "name": "Jack Ryan",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "Bodyguard",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "Killing Eve",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "The Recruit",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "Treason",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "Spy/Master",
+  "year": 2023,
+  "type": "series"
+ },
+ {
+  "name": "Kleo",
+  "year": 2022,
+  "type": "series"
+ },
+ {
+  "name": "Pagan Peak",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "Trapped",
+  "year": 2015,
+  "type": "series"
+ },
+ {
+  "name": "The Valhalla Murders",
+  "year": 2019,
+  "type": "series"
+ },
+ {
+  "name": "Bordertown",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "Deadwind",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "The Chestnut Man",
+  "year": 2021,
+  "type": "series"
+ },
+ {
+  "name": "The Rain",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "Lupin",
+  "year": 2021,
+  "type": "series"
+ },
+ {
+  "name": "Call My Agent!",
+  "year": 2015,
+  "type": "series"
+ },
+ {
+  "name": "Marseille",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "The Braquo",
+  "year": 2009,
+  "type": "series"
+ },
+ {
+  "name": "Gomorrah",
+  "year": 2014,
+  "type": "series"
+ },
+ {
+  "name": "Suburra",
+  "year": 2017,
+  "type": "series"
+ },
+ {
+  "name": "My Brilliant Friend",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "The Young Pope",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "Elite",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "Cable Girls",
+  "year": 2017,
+  "type": "series"
+ },
+ {
+  "name": "The Innocent",
+  "year": 2021,
+  "type": "series"
+ },
+ {
+  "name": "Berlin",
+  "year": 2023,
+  "type": "series"
+ },
+ {
+  "name": "Kingdom",
+  "year": 2019,
+  "type": "series"
+ },
+ {
+  "name": "Signal",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "Stranger",
+  "year": 2017,
+  "type": "series"
+ },
+ {
+  "name": "My Mister",
+  "year": 2018,
+  "type": "series"
+ },
+ {
+  "name": "Vincenzo",
+  "year": 2021,
+  "type": "series"
+ },
+ {
+  "name": "Alice in Borderland",
+  "year": 2020,
+  "type": "series"
+ },
+ {
+  "name": "Midnight Diner",
+  "year": 2016,
+  "type": "series"
+ },
+ {
+  "name": "Shogun",
+  "year": 2024,
+  "type": "series"
+ },
+ {
+  "name": "The Godfather",
+  "year": 1972,
+  "type": "movie"
+ },
+ {
+  "name": "The Godfather Part II",
+  "year": 1974,
+  "type": "movie"
+ },
+ {
+  "name": "Goodfellas",
+  "year": 1990,
+  "type": "movie"
+ },
+ {
+  "name": "Casino",
+  "year": 1995,
+  "type": "movie"
+ },
+ {
+  "name": "Once Upon a Time in America",
+  "year": 1984,
+  "type": "movie"
+ },
+ {
+  "name": "Scarface",
+  "year": 1983,
+  "type": "movie"
+ },
+ {
+  "name": "The Untouchables",
+  "year": 1987,
+  "type": "movie"
+ },
+ {
+  "name": "Pulp Fiction",
+  "year": 1994,
+  "type": "movie"
+ },
+ {
+  "name": "Reservoir Dogs",
+  "year": 1992,
+  "type": "movie"
+ },
+ {
+  "name": "Jackie Brown",
+  "year": 1997,
+  "type": "movie"
+ },
+ {
+  "name": "Kill Bill: Vol. 1",
+  "year": 2003,
+  "type": "movie"
+ },
+ {
+  "name": "Inglourious Basterds",
+  "year": 2009,
+  "type": "movie"
+ },
+ {
+  "name": "Django Unchained",
+  "year": 2012,
+  "type": "movie"
+ },
+ {
+  "name": "Once Upon a Time in Hollywood",
+  "year": 2019,
+  "type": "movie"
+ },
+ {
+  "name": "Fargo",
+  "year": 1996,
+  "type": "movie"
+ },
+ {
+  "name": "The Big Lebowski",
+  "year": 1998,
+  "type": "movie"
+ },
+ {
+  "name": "Miller's Crossing",
+  "year": 1990,
+  "type": "movie"
+ },
+ {
+  "name": "Barton Fink",
+  "year": 1991,
+  "type": "movie"
+ },
+ {
+  "name": "Inside Llewyn Davis",
+  "year": 2013,
+  "type": "movie"
+ },
+ {
+  "name": "A Serious Man",
+  "year": 2009,
+  "type": "movie"
+ },
+ {
+  "name": "True Grit",
+  "year": 2010,
+  "type": "movie"
+ },
+ {
+  "name": "Burn After Reading",
+  "year": 2008,
+  "type": "movie"
+ },
+ {
+  "name": "Taxi Driver",
+  "year": 1976,
+  "type": "movie"
+ },
+ {
+  "name": "Raging Bull",
+  "year": 1980,
+  "type": "movie"
+ },
+ {
+  "name": "The King of Comedy",
+  "year": 1982,
+  "type": "movie"
+ },
+ {
+  "name": "After Hours",
+  "year": 1985,
+  "type": "movie"
+ },
+ {
+  "name": "The Wolf of Wall Street",
+  "year": 2013,
+  "type": "movie"
+ },
+ {
+  "name": "The Irishman",
+  "year": 2019,
+  "type": "movie"
+ },
+ {
+  "name": "Killers of the Flower Moon",
+  "year": 2023,
+  "type": "movie"
+ },
+ {
+  "name": "Apocalypse Now",
+  "year": 1979,
+  "type": "movie"
+ },
+ {
+  "name": "The Conversation",
+  "year": 1974,
+  "type": "movie"
+ },
+ {
+  "name": "Chinatown",
+  "year": 1974,
+  "type": "movie"
+ },
+ {
+  "name": "The Long Goodbye",
+  "year": 1973,
+  "type": "movie"
+ },
+ {
+  "name": "Alien",
+  "year": 1979,
+  "type": "movie"
+ },
+ {
+  "name": "Aliens",
+  "year": 1986,
+  "type": "movie"
+ },
+ {
+  "name": "The Thing",
+  "year": 1982,
+  "type": "movie"
+ },
+ {
+  "name": "Predator",
+  "year": 1987,
+  "type": "movie"
+ },
+ {
+  "name": "Terminator 2: Judgment Day",
+  "year": 1991,
+  "type": "movie"
+ },
+ {
+  "name": "2001: A Space Odyssey",
+  "year": 1968,
+  "type": "movie"
+ },
+ {
+  "name": "A Clockwork Orange",
+  "year": 1971,
+  "type": "movie"
+ },
+ {
+  "name": "The Shining",
+  "year": 1980,
+  "type": "movie"
+ },
+ {
+  "name": "Full Metal Jacket",
+  "year": 1987,
+  "type": "movie"
+ },
+ {
+  "name": "Dr. Strangelove",
+  "year": 1964,
+  "type": "movie"
+ },
+ {
+  "name": "Barry Lyndon",
+  "year": 1975,
+  "type": "movie"
+ },
+ {
+  "name": "Eyes Wide Shut",
+  "year": 1999,
+  "type": "movie"
+ },
+ {
+  "name": "Seven Samurai",
+  "year": 1954,
+  "type": "movie"
+ },
+ {
+  "name": "Rashomon",
+  "year": 1950,
+  "type": "movie"
+ },
+ {
+  "name": "Ikiru",
+  "year": 1952,
+  "type": "movie"
+ },
+ {
+  "name": "Harakiri",
+  "year": 1962,
+  "type": "movie"
+ },
+ {
+  "name": "Ran",
+  "year": 1985,
+  "type": "movie"
+ },
+ {
+  "name": "Tokyo Story",
+  "year": 1953,
+  "type": "movie"
+ },
+ {
+  "name": "Spirited Away",
+  "year": 2001,
+  "type": "movie"
+ },
+ {
+  "name": "Princess Mononoke",
+  "year": 1997,
+  "type": "movie"
+ },
+ {
+  "name": "My Neighbor Totoro",
+  "year": 1988,
+  "type": "movie"
+ },
+ {
+  "name": "Grave of the Fireflies",
+  "year": 1988,
+  "type": "movie"
+ },
+ {
+  "name": "Akira",
+  "year": 1988,
+  "type": "movie"
+ },
+ {
+  "name": "Perfect Blue",
+  "year": 1997,
+  "type": "movie"
+ },
+ {
+  "name": "Paprika",
+  "year": 2006,
+  "type": "movie"
+ },
+ {
+  "name": "Oldboy",
+  "year": 2003,
+  "type": "movie"
+ },
+ {
+  "name": "Memories of Murder",
+  "year": 2003,
+  "type": "movie"
+ },
+ {
+  "name": "Mother",
+  "year": 2009,
+  "type": "movie"
+ },
+ {
+  "name": "The Handmaiden",
+  "year": 2016,
+  "type": "movie"
+ },
+ {
+  "name": "Burning",
+  "year": 2018,
+  "type": "movie"
+ },
+ {
+  "name": "Train to Busan",
+  "year": 2016,
+  "type": "movie"
+ },
+ {
+  "name": "A Separation",
+  "year": 2011,
+  "type": "movie"
+ },
+ {
+  "name": "The Salesman",
+  "year": 2016,
+  "type": "movie"
+ },
+ {
+  "name": "City of God",
+  "year": 2002,
+  "type": "movie"
+ },
+ {
+  "name": "Amores Perros",
+  "year": 2000,
+  "type": "movie"
+ },
+ {
+  "name": "Y Tu Mama Tambien",
+  "year": 2001,
+  "type": "movie"
+ },
+ {
+  "name": "Roma",
+  "year": 2018,
+  "type": "movie"
+ },
+ {
+  "name": "Pan's Labyrinth",
+  "year": 2006,
+  "type": "movie"
+ },
+ {
+  "name": "The Devil's Backbone",
+  "year": 2001,
+  "type": "movie"
+ },
+ {
+  "name": "Cronos",
+  "year": 1993,
+  "type": "movie"
+ },
+ {
+  "name": "Amelie",
+  "year": 2001,
+  "type": "movie"
+ },
+ {
+  "name": "Delicatessen",
+  "year": 1991,
+  "type": "movie"
+ },
+ {
+  "name": "La Haine",
+  "year": 1995,
+  "type": "movie"
+ },
+ {
+  "name": "Breathless",
+  "year": 1960,
+  "type": "movie"
+ },
+ {
+  "name": "The 400 Blows",
+  "year": 1959,
+  "type": "movie"
+ },
+ {
+  "name": "Cleo from 5 to 7",
+  "year": 1962,
+  "type": "movie"
+ },
+ {
+  "name": "Persona",
+  "year": 1966,
+  "type": "movie"
+ },
+ {
+  "name": "The Seventh Seal",
+  "year": 1957,
+  "type": "movie"
+ },
+ {
+  "name": "Wild Strawberries",
+  "year": 1957,
+  "type": "movie"
+ },
+ {
+  "name": "8 1/2",
+  "year": 1963,
+  "type": "movie"
+ },
+ {
+  "name": "La Dolce Vita",
+  "year": 1960,
+  "type": "movie"
+ },
+ {
+  "name": "Bicycle Thieves",
+  "year": 1948,
+  "type": "movie"
+ },
+ {
+  "name": "Cinema Paradiso",
+  "year": 1988,
+  "type": "movie"
+ },
+ {
+  "name": "The Lives of Others",
+  "year": 2006,
+  "type": "movie"
+ },
+ {
+  "name": "Run Lola Run",
+  "year": 1998,
+  "type": "movie"
+ },
+ {
+  "name": "Downfall",
+  "year": 2004,
+  "type": "movie"
+ },
+ {
+  "name": "Toni Erdmann",
+  "year": 2016,
+  "type": "movie"
+ },
+ {
+  "name": "Goodbye Lenin!",
+  "year": 2003,
+  "type": "movie"
+ },
+ {
+  "name": "The White Ribbon",
+  "year": 2009,
+  "type": "movie"
+ },
+ {
+  "name": "Amour",
+  "year": 2012,
+  "type": "movie"
+ },
+ {
+  "name": "The Piano Teacher",
+  "year": 2001,
+  "type": "movie"
+ },
+ {
+  "name": "Fight Club",
+  "year": 1999,
+  "type": "movie"
+ },
+ {
+  "name": "Se7en",
+  "year": 1995,
+  "type": "movie"
+ },
+ {
+  "name": "Gone Girl",
+  "year": 2014,
+  "type": "movie"
+ },
+ {
+  "name": "The Girl with the Dragon Tattoo",
+  "year": 2011,
+  "type": "movie"
+ },
+ {
+  "name": "Panic Room",
+  "year": 2002,
+  "type": "movie"
+ },
+ {
+  "name": "The Curious Case of Benjamin Button",
+  "year": 2008,
+  "type": "movie"
+ },
+ {
+  "name": "Mank",
+  "year": 2020,
+  "type": "movie"
+ },
+ {
+  "name": "Interstellar",
+  "year": 2014,
+  "type": "movie"
+ },
+ {
+  "name": "The Dark Knight",
+  "year": 2008,
+  "type": "movie"
+ },
+ {
+  "name": "Batman Begins",
+  "year": 2005,
+  "type": "movie"
+ },
+ {
+  "name": "The Dark Knight Rises",
+  "year": 2012,
+  "type": "movie"
+ },
+ {
+  "name": "Dunkirk",
+  "year": 2017,
+  "type": "movie"
+ },
+ {
+  "name": "Tenet",
+  "year": 2020,
+  "type": "movie"
+ },
+ {
+  "name": "Insomnia",
+  "year": 2002,
+  "type": "movie"
+ },
+ {
+  "name": "Following",
+  "year": 1998,
+  "type": "movie"
+ },
+ {
+  "name": "Arrival",
+  "year": 2016,
+  "type": "movie"
+ },
+ {
+  "name": "Enemy",
+  "year": 2013,
+  "type": "movie"
+ },
+ {
+  "name": "Incendies",
+  "year": 2010,
+  "type": "movie"
+ },
+ {
+  "name": "Prisoners",
+  "year": 2013,
+  "type": "movie"
+ },
+ {
+  "name": "Dune: Part Two",
+  "year": 2024,
+  "type": "movie"
+ },
+ {
+  "name": "The Batman",
+  "year": 2022,
+  "type": "movie"
+ },
+ {
+  "name": "Nope",
+  "year": 2022,
+  "type": "movie"
+ },
+ {
+  "name": "Us",
+  "year": 2019,
+  "type": "movie"
+ },
+ {
+  "name": "Sinners",
+  "year": 2025,
+  "type": "movie"
+ },
+ {
+  "name": "Whiplash",
+  "year": 2014,
+  "type": "movie"
+ },
+ {
+  "name": "La La Land",
+  "year": 2016,
+  "type": "movie"
+ },
+ {
+  "name": "First Man",
+  "year": 2018,
+  "type": "movie"
+ },
+ {
+  "name": "Babylon",
+  "year": 2022,
+  "type": "movie"
+ },
+ {
+  "name": "Lady Bird",
+  "year": 2017,
+  "type": "movie"
+ },
+ {
+  "name": "Little Women",
+  "year": 2019,
+  "type": "movie"
+ },
+ {
+  "name": "Marriage Story",
+  "year": 2019,
+  "type": "movie"
+ },
+ {
+  "name": "Frances Ha",
+  "year": 2012,
+  "type": "movie"
+ },
+ {
+  "name": "The Grand Budapest Hotel",
+  "year": 2014,
+  "type": "movie"
+ },
+ {
+  "name": "Moonrise Kingdom",
+  "year": 2012,
+  "type": "movie"
+ },
+ {
+  "name": "Rushmore",
+  "year": 1998,
+  "type": "movie"
+ },
+ {
+  "name": "The Royal Tenenbaums",
+  "year": 2001,
+  "type": "movie"
+ },
+ {
+  "name": "Fantastic Mr. Fox",
+  "year": 2009,
+  "type": "movie"
+ },
+ {
+  "name": "Asteroid City",
+  "year": 2023,
+  "type": "movie"
+ },
+ {
+  "name": "There Will Be Blood",
+  "year": 2007,
+  "type": "movie"
+ },
+ {
+  "name": "The Master",
+  "year": 2012,
+  "type": "movie"
+ },
+ {
+  "name": "Phantom Thread",
+  "year": 2017,
+  "type": "movie"
+ },
+ {
+  "name": "Licorice Pizza",
+  "year": 2021,
+  "type": "movie"
+ },
+ {
+  "name": "Magnolia",
+  "year": 1999,
+  "type": "movie"
+ },
+ {
+  "name": "Boogie Nights",
+  "year": 1997,
+  "type": "movie"
+ },
+ {
+  "name": "Punch-Drunk Love",
+  "year": 2002,
+  "type": "movie"
+ },
+ {
+  "name": "No Country for Old Men",
+  "year": 2007,
+  "type": "movie"
+ },
+ {
+  "name": "Sicario",
+  "year": 2015,
+  "type": "movie"
+ },
+ {
+  "name": "Hell or High Water",
+  "year": 2016,
+  "type": "movie"
+ },
+ {
+  "name": "Wind River",
+  "year": 2017,
+  "type": "movie"
+ },
+ {
+  "name": "The Assassination of Jesse James by the Coward Robert Ford",
+  "year": 2007,
+  "type": "movie"
+ },
+ {
+  "name": "The Proposition",
+  "year": 2005,
+  "type": "movie"
+ },
+ {
+  "name": "Unforgiven",
+  "year": 1992,
+  "type": "movie"
+ },
+ {
+  "name": "The Outlaw Josey Wales",
+  "year": 1976,
+  "type": "movie"
+ },
+ {
+  "name": "Once Upon a Time in the West",
+  "year": 1968,
+  "type": "movie"
+ },
+ {
+  "name": "The Good the Bad and the Ugly",
+  "year": 1966,
+  "type": "movie"
+ },
+ {
+  "name": "High Noon",
+  "year": 1952,
+  "type": "movie"
+ },
+ {
+  "name": "The Searchers",
+  "year": 1956,
+  "type": "movie"
+ },
+ {
+  "name": "Casablanca",
+  "year": 1942,
+  "type": "movie"
+ },
+ {
+  "name": "Double Indemnity",
+  "year": 1944,
+  "type": "movie"
+ },
+ {
+  "name": "Sunset Boulevard",
+  "year": 1950,
+  "type": "movie"
+ },
+ {
+  "name": "The Third Man",
+  "year": 1949,
+  "type": "movie"
+ },
+ {
+  "name": "Citizen Kane",
+  "year": 1941,
+  "type": "movie"
+ },
+ {
+  "name": "Vertigo",
+  "year": 1958,
+  "type": "movie"
+ },
+ {
+  "name": "Rear Window",
+  "year": 1954,
+  "type": "movie"
+ },
+ {
+  "name": "Psycho",
+  "year": 1960,
+  "type": "movie"
+ },
+ {
+  "name": "North by Northwest",
+  "year": 1959,
+  "type": "movie"
+ },
+ {
+  "name": "Notorious",
+  "year": 1946,
+  "type": "movie"
+ },
+ {
+  "name": "Strangers on a Train",
+  "year": 1951,
+  "type": "movie"
+ },
+ {
+  "name": "Rope",
+  "year": 1948,
+  "type": "movie"
+ },
+ {
+  "name": "12 Angry Men",
+  "year": 1957,
+  "type": "movie"
+ },
+ {
+  "name": "To Kill a Mockingbird",
+  "year": 1962,
+  "type": "movie"
+ },
+ {
+  "name": "Cool Hand Luke",
+  "year": 1967,
+  "type": "movie"
+ },
+ {
+  "name": "One Flew Over the Cuckoo's Nest",
+  "year": 1975,
+  "type": "movie"
+ },
+ {
+  "name": "Dog Day Afternoon",
+  "year": 1975,
+  "type": "movie"
+ },
+ {
+  "name": "Network",
+  "year": 1976,
+  "type": "movie"
+ },
+ {
+  "name": "All the President's Men",
+  "year": 1976,
+  "type": "movie"
+ },
+ {
+  "name": "The Parallax View",
+  "year": 1974,
+  "type": "movie"
+ },
+ {
+  "name": "Klute",
+  "year": 1971,
+  "type": "movie"
+ },
+ {
+  "name": "Heat",
+  "year": 1995,
+  "type": "movie"
+ },
+ {
+  "name": "The Insider",
+  "year": 1999,
+  "type": "movie"
+ },
+ {
+  "name": "Collateral",
+  "year": 2004,
+  "type": "movie"
+ },
+ {
+  "name": "Thief",
+  "year": 1981,
+  "type": "movie"
+ },
+ {
+  "name": "Manhunter",
+  "year": 1986,
+  "type": "movie"
+ },
+ {
+  "name": "The Silence of the Lambs",
+  "year": 1991,
+  "type": "movie"
+ },
+ {
+  "name": "Zodiac",
+  "year": 2007,
+  "type": "movie"
+ },
+ {
+  "name": "Memories of a Murderer",
+  "year": 2017,
+  "type": "movie"
+ },
+ {
+  "name": "Parasite",
+  "year": 2019,
+  "type": "movie"
+ },
+ {
+  "name": "Shoplifters",
+  "year": 2018,
+  "type": "movie"
+ },
+ {
+  "name": "Drive My Car",
+  "year": 2021,
+  "type": "movie"
+ },
+ {
+  "name": "Past Lives",
+  "year": 2023,
+  "type": "movie"
+ },
+ {
+  "name": "Anatomy of a Fall",
+  "year": 2023,
+  "type": "movie"
+ },
+ {
+  "name": "The Zone of Interest",
+  "year": 2023,
+  "type": "movie"
+ },
+ {
+  "name": "Aftersun",
+  "year": 2022,
+  "type": "movie"
+ },
+ {
+  "name": "The Banshees of Inisherin",
+  "year": 2022,
+  "type": "movie"
+ },
+ {
+  "name": "In Bruges",
+  "year": 2008,
+  "type": "movie"
+ },
+ {
+  "name": "Three Billboards Outside Ebbing Missouri",
+  "year": 2017,
+  "type": "movie"
+ },
+ {
+  "name": "Calvary",
+  "year": 2014,
+  "type": "movie"
+ },
+ {
+  "name": "Hunger",
+  "year": 2008,
+  "type": "movie"
+ },
+ {
+  "name": "Shame",
+  "year": 2011,
+  "type": "movie"
+ },
+ {
+  "name": "12 Years a Slave",
+  "year": 2013,
+  "type": "movie"
+ },
+ {
+  "name": "Small Axe",
+  "year": 2020,
+  "type": "movie"
+ },
+ {
+  "name": "Moonlight",
+  "year": 2016,
+  "type": "movie"
+ },
+ {
+  "name": "If Beale Street Could Talk",
+  "year": 2018,
+  "type": "movie"
+ },
+ {
+  "name": "The Florida Project",
+  "year": 2017,
+  "type": "movie"
+ },
+ {
+  "name": "Nomadland",
+  "year": 2020,
+  "type": "movie"
+ },
+ {
+  "name": "Minari",
+  "year": 2020,
+  "type": "movie"
+ },
+ {
+  "name": "Sound of Metal",
+  "year": 2019,
+  "type": "movie"
+ },
+ {
+  "name": "CODA",
+  "year": 2021,
+  "type": "movie"
+ },
+ {
+  "name": "Everything Everywhere All at Once",
+  "year": 2022,
+  "type": "movie"
+ },
+ {
+  "name": "The Substance",
+  "year": 2024,
+  "type": "movie"
+ },
+ {
+  "name": "Poor Things",
+  "year": 2023,
+  "type": "movie"
+ },
+ {
+  "name": "The Favourite",
+  "year": 2018,
+  "type": "movie"
+ },
+ {
+  "name": "The Lobster",
+  "year": 2015,
+  "type": "movie"
+ },
+ {
+  "name": "Dogtooth",
+  "year": 2009,
+  "type": "movie"
+ },
+ {
+  "name": "Kinds of Kindness",
+  "year": 2024,
+  "type": "movie"
+ },
+ {
+  "name": "Ex Machina",
+  "year": 2014,
+  "type": "movie"
+ },
+ {
+  "name": "Annihilation",
+  "year": 2018,
+  "type": "movie"
+ },
+ {
+  "name": "Under the Skin",
+  "year": 2013,
+  "type": "movie"
+ },
+ {
+  "name": "Her",
+  "year": 2013,
+  "type": "movie"
+ },
+ {
+  "name": "Eternal Sunshine of the Spotless Mind",
+  "year": 2004,
+  "type": "movie"
+ },
+ {
+  "name": "Being John Malkovich",
+  "year": 1999,
+  "type": "movie"
+ },
+ {
+  "name": "Adaptation",
+  "year": 2002,
+  "type": "movie"
+ },
+ {
+  "name": "Synecdoche New York",
+  "year": 2008,
+  "type": "movie"
+ },
+ {
+  "name": "I'm Thinking of Ending Things",
+  "year": 2020,
+  "type": "movie"
+ },
+ {
+  "name": "Children of Men",
+  "year": 2006,
+  "type": "movie"
+ },
+ {
+  "name": "Gravity",
+  "year": 2013,
+  "type": "movie"
+ },
+ {
+  "name": "The Martian",
+  "year": 2015,
+  "type": "movie"
+ },
+ {
+  "name": "Blade Runner",
+  "year": 1982,
+  "type": "movie"
+ },
+ {
+  "name": "Total Recall",
+  "year": 1990,
+  "type": "movie"
+ },
+ {
+  "name": "Minority Report",
+  "year": 2002,
+  "type": "movie"
+ },
+ {
+  "name": "A.I. Artificial Intelligence",
+  "year": 2001,
+  "type": "movie"
+ },
+ {
+  "name": "Close Encounters of the Third Kind",
+  "year": 1977,
+  "type": "movie"
+ },
+ {
+  "name": "E.T. the Extra-Terrestrial",
+  "year": 1982,
+  "type": "movie"
+ },
+ {
+  "name": "Jaws",
+  "year": 1975,
+  "type": "movie"
+ },
+ {
+  "name": "Raiders of the Lost Ark",
+  "year": 1981,
+  "type": "movie"
+ },
+ {
+  "name": "Jurassic Park",
+  "year": 1993,
+  "type": "movie"
+ },
+ {
+  "name": "Schindler's List",
+  "year": 1993,
+  "type": "movie"
+ },
+ {
+  "name": "Saving Private Ryan",
+  "year": 1998,
+  "type": "movie"
+ },
+ {
+  "name": "Catch Me If You Can",
+  "year": 2002,
+  "type": "movie"
+ },
+ {
+  "name": "Bridge of Spies",
+  "year": 2015,
+  "type": "movie"
+ },
+ {
+  "name": "Lawrence of Arabia",
+  "year": 1962,
+  "type": "movie"
+ },
+ {
+  "name": "The Bridge on the River Kwai",
+  "year": 1957,
+  "type": "movie"
+ },
+ {
+  "name": "Doctor Zhivago",
+  "year": 1965,
+  "type": "movie"
+ },
+ {
+  "name": "Paths of Glory",
+  "year": 1957,
+  "type": "movie"
+ },
+ {
+  "name": "Come and See",
+  "year": 1985,
+  "type": "movie"
+ },
+ {
+  "name": "Stalker",
+  "year": 1979,
+  "type": "movie"
+ },
+ {
+  "name": "Solaris",
+  "year": 1972,
+  "type": "movie"
+ },
+ {
+  "name": "Andrei Rublev",
+  "year": 1966,
+  "type": "movie"
+ },
+ {
+  "name": "Mirror",
+  "year": 1975,
+  "type": "movie"
+ },
+ {
+  "name": "The Battle of Algiers",
+  "year": 1966,
+  "type": "movie"
+ },
+ {
+  "name": "Mad Max: Fury Road",
+  "year": 2015,
+  "type": "movie"
+ },
+ {
+  "name": "Mad Max 2",
+  "year": 1981,
+  "type": "movie"
+ },
+ {
+  "name": "Aliens vs Predator",
+  "year": 2004,
+  "type": "movie"
+ },
+ {
+  "name": "John Wick",
+  "year": 2014,
+  "type": "movie"
+ },
+ {
+  "name": "The Raid",
+  "year": 2011,
+  "type": "movie"
+ },
+ {
+  "name": "Hard Boiled",
+  "year": 1992,
+  "type": "movie"
+ },
+ {
+  "name": "Infernal Affairs",
+  "year": 2002,
+  "type": "movie"
+ },
+ {
+  "name": "Crouching Tiger Hidden Dragon",
+  "year": 2000,
+  "type": "movie"
+ },
+ {
+  "name": "Hero",
+  "year": 2002,
+  "type": "movie"
+ },
+ {
+  "name": "In the Mood for Love",
+  "year": 2000,
+  "type": "movie"
+ },
+ {
+  "name": "Chungking Express",
+  "year": 1994,
+  "type": "movie"
+ },
+ {
+  "name": "Happy Together",
+  "year": 1997,
+  "type": "movie"
+ },
+ {
+  "name": "A Brighter Summer Day",
+  "year": 1991,
+  "type": "movie"
+ }
+]
