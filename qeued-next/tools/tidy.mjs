@@ -51,13 +51,37 @@ if (sqlPath) {
     `select ${expression} as x, ord from unnest(t.${column}) with ordinality u(raw, ord)` +
     `) mapped order by lower(x), ord) kept), t.${column})`;
 
+  /**
+   * The page's markup reaches the database with its entities intact — `Gavin O&#x27;Connor`,
+   * `War &amp; Military`, and in places `&amp;amp;` where an already-escaped string was
+   * escaped again. Applied twice, which is what unpicks the double escaping.
+   */
+  const decode = (expression) => {
+    const pairs = [
+      ['&amp;', '&'],
+      ['&#x27;', "''"],
+      ['&#39;', "''"],
+      ['&quot;', '"'],
+      ['&#x2F;', '/'],
+      ['&nbsp;', ' '],
+      ['&lt;', '<'],
+      ['&gt;', '>'],
+    ];
+    let sql = expression;
+    for (let pass = 0; pass < 2; pass += 1) {
+      for (const [entity, plain] of pairs) sql = `replace(${sql}, '${entity}', '${plain}')`;
+    }
+    return sql;
+  };
+
   const canonicalGenreSql =
-    `case lower(replace(raw, '&amp;', '&')) ` +
+    `case lower(${decode('raw')}) ` +
     `when 'sci-fi' then 'Science-Fiction' when 'science fiction' then 'Science-Fiction' ` +
-    `else replace(raw, '&amp;', '&') end`;
+    `else ${decode('raw')} end`;
 
   const statements = [
-    `update public.titles t set ${dedupe('cast_members', 'raw')}, ${dedupe('genres', canonicalGenreSql)} ` +
+    `update public.titles t set ${dedupe('cast_members', decode('raw'))}, ${dedupe('genres', canonicalGenreSql)}, ` +
+      `name = ${decode('t.name')}, director = ${decode('t.director')} ` +
       `where t.catalogue_version > 0;`,
     `update public.titles set director = null ` +
       `where catalogue_version > 0 and array_length(string_to_array(director, ','), 1) > 2;`,

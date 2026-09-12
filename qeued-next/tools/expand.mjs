@@ -61,8 +61,24 @@ const minutesFrom = (duration) => {
 
 /** JustWatch mixes real genres with editorial tags; the tags are not useful to us. */
 const TAG_GENRES = /^(made in|based on|kids|action & adventure|mystery & thriller)/i;
+/**
+ * The page's markup reaches the JSON-LD block with its entities intact, so a director comes
+ * back as `Gavin O&#x27;Connor` and a genre as `War &amp; Military` — and occasionally
+ * double-escaped, where an already-escaped string was escaped again. Decoded twice, which is
+ * what unpicks that.
+ */
+const decodeEntities = (value) => {
+  if (typeof value !== 'string') return value;
+  const pairs = [['&amp;', '&'], ['&#x27;', "'"], ['&#39;', "'"], ['&quot;', '"'], ['&#x2F;', '/'], ['&nbsp;', ' '], ['&lt;', '<'], ['&gt;', '>']];
+  let text = value;
+  for (let pass = 0; pass < 2; pass += 1) {
+    for (const [entity, plain] of pairs) text = text.split(entity).join(plain);
+  }
+  return text;
+};
+
 const tidyGenres = (genres) =>
-  [...new Set((genres ?? [])
+  [...new Set((genres ?? []).map(decodeEntities)
     .filter((g) => !/^made in|^based on/i.test(g))
     .map((g) => (g === 'Mystery & Thriller' ? 'Thriller' : g === 'Action & Adventure' ? 'Action' : g))
     .filter((g) => !TAG_GENRES.test(g) || ['Thriller', 'Action'].includes(g)))];
@@ -364,7 +380,7 @@ const run = async () => {
     const { node, html, url } = resolved;
     const poster = await posterFrom(html);
     const cast = (node.actor ?? [])
-      .map((role) => role.actor?.name ?? role.name)
+      .map((role) => decodeEntities(role.actor?.name ?? role.name))
       .filter(Boolean)
       .slice(0, 8);
 
@@ -376,7 +392,7 @@ const run = async () => {
       certification: node.contentRating ?? null,
       runtime_minutes: minutesFrom(node.duration),
       countries: node.countryOfOrigin ? [node.countryOfOrigin].flat() : [],
-      director: (node.director ?? []).map((d) => d.name).filter(Boolean).join(', ') || null,
+      director: (node.director ?? []).map((d) => decodeEntities(d.name)).filter(Boolean).join(', ') || null,
       cast_members: cast.length ? cast : null,
       image_url: poster,
       image_source_url: poster ? url : null,
