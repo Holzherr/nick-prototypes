@@ -153,6 +153,65 @@ const fetchRecord = async (url, attempt = 0) => {
 };
 
 /**
+ * Asks JustWatch what it calls a title, when the slug cannot be guessed from the name.
+ *
+ * Most pages are at a predictable slug, but a large minority are not, and they are not the
+ * obscure ones: "Dr. Strangelove" is filed under its full title, Demon Slayer under Kimetsu
+ * no Yaiba, Star Wars under Episode IV, and every ampersand and accent produces a slug
+ * nobody would derive. That was a third of a wave failing on titles that plainly exist.
+ *
+ * The year does the disambiguating — a bare "Star Wars" matches several films and only one
+ * of them came out in 1977 — so a candidate with no year has to match its title exactly.
+ */
+const searchForPage = async (name, year, type) => {
+  const wanted = type === 'series' ? 'SHOW' : 'MOVIE';
+  let results;
+  try {
+    const res = await fetch('https://apis.justwatch.com/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'User-Agent': BROWSER_UA },
+      body: JSON.stringify({
+        operationName: 'GetSuggestedTitles',
+        variables: { country: 'GB', language: 'en', first: 8, filter: { searchQuery: name } },
+        query: `query GetSuggestedTitles($country: Country!, $language: Language!, $first: Int!, $filter: TitleFilter) {
+          popularTitles(country: $country, first: $first, filter: $filter) {
+            edges { node { ... on MovieOrShow {
+              objectType
+              content(country: $country, language: $language) { title originalReleaseYear fullPath }
+            } } }
+          }
+        }`,
+      }),
+    });
+    if (!res.ok) return null;
+    const json = await res.json();
+    results = (json?.data?.popularTitles?.edges ?? []).map((edge) => edge.node).filter((node) => node?.content);
+  } catch {
+    return null;
+  }
+
+  const wantedName = normalise(name);
+  // Ours may be the short form of theirs ("Dr. Strangelove") or the other way round.
+  const related = (candidate) =>
+    candidate === wantedName || candidate.startsWith(`${wantedName} `) || wantedName.startsWith(`${candidate} `);
+
+  for (const node of results) {
+    if (node.objectType !== wanted) continue;
+    // The returned title is sometimes the original-language one while the slug carries the
+    // English name — Demon Slayer comes back as "Kimetsu no Yaiba" at /demon-slayer-…, and
+    // Man with a Movie Camera as "Chelovek s kino-apparatom". Either may be the match.
+    const names = [normalise(node.content.title), normalise(node.content.fullPath.split('/').pop() ?? '')];
+    const sameYear =
+      year && node.content.originalReleaseYear
+        ? Math.abs(node.content.originalReleaseYear - year) <= (type === 'series' ? 1 : 2)
+        : false;
+    if (!names.some(related)) continue;
+    if (sameYear || (!year && names.includes(wantedName))) return `https://www.justwatch.com${node.content.fullPath}`;
+  }
+  return null;
+};
+
+/**
  * Resolve a title to its page. Slugs are predictable but not unique, so remakes need the
  * year appended; anything whose name or year disagrees with the page is rejected rather
  * than guessed at.
@@ -191,7 +250,17 @@ const resolveTitle = async ({ name, year, type, url: given }) => {
     if (year && pageYear && Math.abs(pageYear - year) > (type === 'series' ? 1 : 2)) continue;
     return { url, ...found };
   }
-  return null;
+
+  // Nothing at a derivable slug. Ask what it is filed as, then read that page — trusting the
+  // address the way an explicitly supplied one is trusted, since the search already matched
+  // on title and year.
+  const searched = given ? null : await searchForPage(name, year, type);
+  if (!searched) return null;
+  const found = await fetchRecord(searched);
+  if (!found) return null;
+  const pageYear = Number(String(found.node.dateCreated ?? '').slice(0, 4));
+  if (year && pageYear && Math.abs(pageYear - year) > (type === 'series' ? 1 : 2)) return null;
+  return { url: searched, ...found };
 };
 
 const args = process.argv.slice(2);
