@@ -58,8 +58,11 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   `levelMax`, so difficulty stays readable when levels are retuned.
 - **How the scoring works** is one component (`ScoringDiagram`) shared by that screen and the
   `#/guides/how-it-scores` guide, so the explanation cannot drift from the code.
-- **Guest import:** play from guest mode on the device can be copied onto an account child from the
-  grown-ups screen. Records keep their ids, so importing twice changes nothing.
+- **Guest import:** guest play belongs to a different child id, so signing in makes it vanish from view and
+  look exactly like lost data (it isn't — nothing in the app ever deletes a progress cache). So a signed-in
+  parent opening a child while guest play is still on the device gets **the offer before the garden**
+  (`ImportPromptScreen`), not buried behind the grown-ups sum; "Not now" leaves it on the grown-ups screen.
+  Records keep their ids, so importing twice changes nothing.
 - **Offline-first:** every write lands in local storage first and uploads when there is signal
   (`features/progress/repo.ts`).
 - **Printables** (`#/resources`, public, no sign-in): the Quick Peek dot card maker, plus counting mats,
