@@ -199,10 +199,13 @@ export function DashboardScreen({
         </Section>
 
         {/* Account, sync state, switch child and sign in/out all live in the panel at the top. */}
-        <footer className="mt-8 flex flex-wrap justify-center gap-3">
+        <footer className="mt-8 flex flex-col items-center gap-3">
           <a href="#/resources" className={buttonVariants({ variant: 'quiet' })}>
             🖨 Free printables
           </a>
+          {/* A device can sit on a cached build for days with no way to tell from the screen. One glance
+              here says which build it is actually running, which is otherwise pure guesswork. */}
+          <p className="text-xs text-grape/45">Build {__BUILD__}</p>
         </footer>
       </Card>
     </div>
