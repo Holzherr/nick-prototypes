@@ -324,6 +324,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             paused={paused ? { game: paused.game, answered: paused.answers.length, total: paused.questions.length } : null}
             onResume={resumePaused}
             onDropPaused={dropPaused}
+            windDown={breakSuggestion(progress.rounds)}
             onPlay={play}
             onStickers={() => setScreen({ name: 'stickers' })}
             onGarden={() => setScreen({ name: 'garden' })}
