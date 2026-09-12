@@ -68,6 +68,32 @@ describe('makeQuestion', () => {
               expect(q.answer).toBeLessThanOrEqual(level.max);
               expect(q.options).toContain(q.answer);
               expect(q.options).toHaveLength(level.choices ?? 3);
+              break;
+            case 'bond':
+              // Never "5 and none make 5", and the two parts always make the whole.
+              expect(q.shown).toBeGreaterThanOrEqual(1);
+              expect(q.shown).toBeLessThan(q.whole);
+              expect(q.answer).toBe(q.whole - q.shown);
+              expect(q.whole).toBe(level.max);
+              expect(q.frame).toBe(!level.hideFrame);
+              expect(q.options).toContain(q.answer);
+              break;
+            case 'fewer':
+              expect(q.base).toBeGreaterThanOrEqual(Math.max(level.min ?? 2, 2));
+              expect(q.base).toBeLessThanOrEqual(level.max);
+              expect(q.taken).toBeGreaterThanOrEqual(1);
+              expect(q.taken).toBeLessThanOrEqual(level.takeMax ?? 1);
+              expect(q.answer).toBe(q.base - q.taken);
+              expect(q.answer).toBeGreaterThanOrEqual(1);
+              expect(q.options).toContain(q.answer);
+              break;
+            case 'teen':
+              expect(q.answer).toBeGreaterThanOrEqual(11);
+              expect(q.answer).toBeLessThanOrEqual(level.max);
+              expect(q.extra).toBe(q.answer - 10);
+              expect(q.frame).toBe(!level.hideFrame);
+              expect(q.options).toContain(q.answer);
+              expect(q.options).toHaveLength(level.choices ?? 3);
           }
         }
       }

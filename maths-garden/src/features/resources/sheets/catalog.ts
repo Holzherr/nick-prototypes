@@ -6,7 +6,7 @@ import type { Stage } from '../subitising/cards';
  * The printable sheets beyond the Quick Peek cards. One maker screen renders them all
  * (`#/resources/sheet?id=…&stage=…&name=…&icon=…`), so a new sheet is a component plus an entry here.
  */
-export type SheetId = 'counting-mats' | 'numeral-cards' | 'more-or-fewer' | 'unicorn-stories' | 'number-track';
+export type SheetId = 'counting-mats' | 'numeral-cards' | 'more-or-fewer' | 'unicorn-stories' | 'bond-frames' | 'take-away-stories' | 'teen-frames' | 'number-track';
 
 export interface SheetStage {
   /** Numbers the sheet covers at this stage. */
@@ -96,6 +96,57 @@ export const SHEETS: Record<SheetId, SheetMeta> = {
       1: { label: 'within 5', goal: 'One more and two more, with objects.', from: 1, to: 5 },
       2: { label: 'within 8', goal: 'Counts on from the first group.', from: 1, to: 8 },
       3: { label: 'within 10', goal: 'Adds one to three onto any number up to ten.', from: 1, to: 10 },
+    },
+  },
+  'bond-frames': {
+    id: 'bond-frames',
+    title: 'Make it! bond frames',
+    skill: 'bonds',
+    game: 'bond',
+    blurb: 'Five and ten frames with some boxes filled: how many more to fill it? Plus a set of bond cards.',
+    how: [
+      'Put a counter in each filled box, then ask “how many more to fill it?” Fill it together and say the pair: “three and two make five.”',
+      'Cover some of five counters with your hand: “how many am I hiding?” Swap over and let her hide them from you.',
+      'Once the pairs are coming quickly, cover the frame and just ask — that is the stage the game checks.',
+    ],
+    stages: {
+      1: { label: 'to 5', goal: 'Knows the pairs that make 5 with a frame to look at.', from: 1, to: 5 },
+      2: { label: 'to 10', goal: 'Finds the missing part of 10 on a ten frame.', from: 1, to: 10 },
+      3: { label: 'to 10, no frame', goal: 'Says what goes with a number to make 10 without seeing it.', from: 1, to: 10 },
+    },
+  },
+  'take-away-stories': {
+    id: 'take-away-stories',
+    title: 'Balloons that float away',
+    skill: 'subtracting',
+    game: 'fewer',
+    blurb: 'A sky board, cut-out balloons and story lines for “one floats away, how many are left?”.',
+    how: [
+      'Cut out the balloons. Stick some on the sky, then let one float away: “how many are left?”',
+      'Nudge her to count back from the number she had rather than recounting from one.',
+      'Do it with real things that vanish — grapes, raisins, biscuits. Eating one is the best version of this game.',
+    ],
+    stages: {
+      1: { label: 'within 5', goal: 'One fewer, watching it go.', from: 2, to: 5 },
+      2: { label: 'within 8', goal: 'Counts back one or two instead of recounting.', from: 2, to: 8 },
+      3: { label: 'within 10', goal: 'Takes one to three from any number up to ten.', from: 3, to: 10 },
+    },
+  },
+  'teen-frames': {
+    id: 'teen-frames',
+    title: 'Ten and some more cards',
+    skill: 'teens',
+    game: 'teen',
+    blurb: 'A full ten frame and some loose ones, with the numeral on the back: the teens as ten-and-something.',
+    how: [
+      'Say them the helpful way round: “ten and three makes thirteen.” The English names hide this and the frame shows it.',
+      'Build the number with ten pasta pieces in a line and some more beside them, then find the matching card.',
+      'Watch for 13 written as 31 — that is the teens mix-up, and it is worth catching early.',
+    ],
+    stages: {
+      1: { label: '11–15', goal: 'Sees a full ten and some more and says the teen number.', from: 11, to: 15 },
+      2: { label: '11–19', goal: 'Knows thirteen is ten and three, not three and ten.', from: 11, to: 19 },
+      3: { label: '11–20', goal: 'Says the teen number without a frame to count.', from: 11, to: 20 },
     },
   },
   'number-track': {

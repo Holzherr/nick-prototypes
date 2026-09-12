@@ -1,9 +1,9 @@
-/** The five games, the skill each one trains, and how hard each level is. */
-export type GameId = 'peek' | 'count' | 'find' | 'more' | 'add';
+/** The games, the skill each one trains, and how hard each level is. */
+export type GameId = 'peek' | 'count' | 'find' | 'more' | 'add' | 'bond' | 'fewer' | 'teen';
 
 /** One level of a game. Only `max` is required; the rest tighten the challenge at the higher levels. */
 export interface GameLevel {
-  /** Largest number used. */
+  /** Largest number used — for Make Ten, the whole being made. */
   max: number;
   /** Smallest answer (or starting group); defaults to the easiest start. */
   min?: number;
@@ -15,6 +15,10 @@ export interface GameLevel {
   gap?: number;
   /** One More Unicorn: most unicorns that can arrive (default 3). */
   extraMax?: number;
+  /** One Fewer: most balloons that can float away (default 1). */
+  takeMax?: number;
+  /** Make Ten and Ten and Some More: no frame to look at, so the answer has to be known. */
+  hideFrame?: boolean;
 }
 
 export interface Game {
@@ -68,6 +72,36 @@ export const GAMES: readonly Game[] = [
     skill: 'Adding on',
     about: 'Some unicorns, then more arrive. How many now?',
     levels: [{ max: 5 }, { max: 8 }, { max: 10 }, { min: 5, max: 15, extraMax: 4, choices: 4 }, { min: 8, max: 20, extraMax: 5, choices: 4 }],
+  },
+  {
+    id: 'bond',
+    name: 'Make Ten',
+    emoji: '🧩',
+    skill: 'Number bonds',
+    about: 'Some spaces are filled: how many more to fill the frame? The foundation of adding.',
+    levels: [{ max: 5 }, { max: 10 }, { max: 10, hideFrame: true }, { max: 10, hideFrame: true, choices: 4 }, { max: 20, hideFrame: true, choices: 4 }],
+  },
+  {
+    id: 'fewer',
+    name: 'One Fewer',
+    emoji: '🎈',
+    skill: 'Taking away',
+    about: 'Balloons float away. How many are left? Adding on, backwards.',
+    levels: [{ min: 2, max: 5 }, { min: 2, max: 8, takeMax: 2 }, { min: 3, max: 10, takeMax: 3 }, { min: 5, max: 15, takeMax: 3, choices: 4 }, { min: 8, max: 20, takeMax: 5, choices: 4 }],
+  },
+  {
+    id: 'teen',
+    name: 'Ten and Some More',
+    emoji: '🔟',
+    skill: 'Teen numbers',
+    about: 'A full ten frame and some loose ones: the teens as ten-and-something.',
+    levels: [
+      { min: 11, max: 15 },
+      { min: 11, max: 19 },
+      { min: 11, max: 20, choices: 4 },
+      { min: 11, max: 20, choices: 4, hideFrame: true },
+      { min: 11, max: 20, choices: 5, hideFrame: true },
+    ],
   },
 ];
 

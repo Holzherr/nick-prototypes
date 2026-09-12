@@ -35,6 +35,8 @@ export interface DashboardScreenProps {
   now?: Date;
   /** Guest-mode play sitting on this device, when the parent is signed in. */
   guest?: Omit<ImportGuestPanelProps, 'childName'>;
+  /** Playing without an account: there is nothing to sign out of, so the footer offers signing in. */
+  guestMode?: boolean;
   onSetLevel: (game: GameId, level: number) => void;
   /** Opens the tutor report (what she is good at, what to print next). */
   onReport?: () => void;
@@ -56,6 +58,7 @@ export function DashboardScreen({
   pending,
   now = new Date(),
   guest,
+  guestMode = false,
   onSetLevel,
   onReport,
   onHistory,
@@ -175,10 +178,20 @@ export function DashboardScreen({
           <Button variant="quiet" onClick={onSwitchChild}>
             Switch or add child
           </Button>
-          <Button variant="ghost" onClick={onSignOut}>
-            Sign out
-          </Button>
+          {guestMode ? (
+            <Button onClick={onSignOut}>Sign in to save progress →</Button>
+          ) : (
+            <Button variant="ghost" onClick={onSignOut}>
+              Sign out
+            </Button>
+          )}
         </footer>
+        {guestMode && (
+          <p className="mt-3 text-center text-sm text-grape/70">
+            Playing as a guest: everything is on this device only. Signing in keeps it safe, syncs it to your other devices — and offers to bring this play with
+            it. Nothing is lost by signing in.
+          </p>
+        )}
       </Card>
     </div>
   );

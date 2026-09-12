@@ -10,7 +10,13 @@ export type Question =
   | { game: 'count'; answer: number; options: number[]; emoji: string }
   | { game: 'find'; answer: number; options: number[] }
   | { game: 'add'; answer: number; options: number[]; base: number; extra: number }
-  | { game: 'more'; answer: Side; left: number; right: number; leftEmoji: string; rightEmoji: string };
+  | { game: 'more'; answer: Side; left: number; right: number; leftEmoji: string; rightEmoji: string }
+  /** How many more to make `whole`, with `shown` already there. */
+  | { game: 'bond'; answer: number; options: number[]; whole: number; shown: number; frame: boolean }
+  /** `base` balloons, `taken` float away. */
+  | { game: 'fewer'; answer: number; options: number[]; base: number; taken: number; emoji: string }
+  /** A full ten and `extra` loose ones. */
+  | { game: 'teen'; answer: number; options: number[]; extra: number; frame: boolean };
 
 export type Choice = number | Side;
 
@@ -85,11 +91,39 @@ export function makeQuestion(game: GameId, level: GameLevel, rng: Rng = Math.ran
       const [leftEmoji, rightEmoji] = pick(rng, OBJECT_SETS);
       return { game, left, right, leftEmoji, rightEmoji, answer: left > right ? 'left' : 'right' };
     }
+    case 'bond': {
+      // Never the whole and never nothing: "5 and none make 5" teaches nothing at this age.
+      const whole = max;
+      const shown = between(rng, 1, whole - 1);
+      const answer = whole - shown;
+      return { game, whole, shown, answer, frame: !level.hideFrame, options: choices(rng, answer, 1, whole - 1, count) };
+    }
+    case 'fewer': {
+      const base = between(rng, Math.max(level.min ?? 2, 2), max);
+      const taken = between(rng, 1, Math.min(level.takeMax ?? 1, base - 1));
+      const answer = base - taken;
+      return { game, base, taken, answer, emoji: '🎈', options: choices(rng, answer, 1, max - 1, count) };
+    }
+    case 'teen': {
+      const answer = between(rng, Math.max(level.min ?? 11, 11), max);
+      return { game, answer, extra: answer - 10, frame: !level.hideFrame, options: choices(rng, answer, 11, max, count) };
+    }
   }
 }
 
-/** What a question asks, as logged per answer ("7", "4 vs 6"). */
-export const questionKey = (q: Question) => (q.game === 'more' ? `${q.left} vs ${q.right}` : String(q.answer));
+/** What a question asks, as logged per answer ("7", "4 vs 6", "3+?=5"). */
+export function questionKey(q: Question): string {
+  switch (q.game) {
+    case 'more':
+      return `${q.left} vs ${q.right}`;
+    case 'bond':
+      return `${q.shown}+?=${q.whole}`;
+    case 'fewer':
+      return `${q.base}−${q.taken}`;
+    default:
+      return String(q.answer);
+  }
+}
 
 /** A round of questions that never asks the same thing twice in a row. */
 export function makeRound(game: GameId, level: GameLevel, rng: Rng = Math.random, count = QUESTIONS_PER_ROUND): Question[] {
