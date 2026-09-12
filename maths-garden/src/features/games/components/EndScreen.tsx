@@ -23,6 +23,8 @@ export interface EndScreenProps {
   sticker: { sticker: Sticker; shiny: boolean } | null;
   /** What this round grew in the garden ("A new flower grew…"). */
   gardenNews?: string | null;
+  /** Best printable stage reached in any game; decides which sticker packs the chooser offers. */
+  stage?: number;
   onPickPack: (pack: PackId) => void;
   onAgain: () => void;
   onStickers: () => void;
@@ -45,6 +47,7 @@ export function EndScreen({
   breakHint = null,
   sticker,
   gardenNews = null,
+  stage = 1,
   onPickPack,
   onAgain,
   onStickers,
@@ -110,7 +113,7 @@ export function EndScreen({
           </div>
         </>
       ) : (
-        <PackChooser onPick={onPickPack} />
+        <PackChooser stage={stage} onPick={onPickPack} />
       )}
     </main>
   );

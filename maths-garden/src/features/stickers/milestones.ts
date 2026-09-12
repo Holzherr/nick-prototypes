@@ -1,6 +1,6 @@
 import type { Game } from '@/features/games/catalog';
-import type { Levels } from '@/features/games/engine';
-import { collected, isSpecial, packProgress, PACKS, SPECIAL_PACK } from './catalog';
+import { levelOf, type Levels } from '@/features/games/engine';
+import { collected, isSpecial, packProgress, SPECIAL_PACK, unlockedPacks } from './catalog';
 
 type StickerLike = { sticker: string; shiny: boolean };
 
@@ -19,7 +19,10 @@ export function milestonesReached(records: readonly StickerLike[], levels: Level
   for (const n of COUNTS) {
     if (regular.length >= n) list.push({ key: `stickers-${n}`, line: (name) => `Wow, ${name}! You've got ${n} stickers!` });
   }
-  for (const pack of PACKS) {
+  // Only packs she can actually reach: a locked pack has nothing collected, and counting it would let Nova
+  // owe a burst of specials the moment it unlocks, for work that was never done.
+  const stage = Math.max(1, ...games.map((game) => Math.min(levelOf(levels, game) + 1, 3)));
+  for (const pack of unlockedPacks(stage)) {
     const p = packProgress(pack, regular);
     if (p.complete) list.push({ key: `pack-${pack.id}`, line: (name) => `${name}, you collected the whole ${pack.name} pack!` });
     if (p.sparklyComplete) list.push({ key: `sparkly-${pack.id}`, line: (name) => `Every sparkly ${pack.name} sticker! Amazing, ${name}!` });

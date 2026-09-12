@@ -49,8 +49,18 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   suggestion moves on by itself.
 - **Levelling:** two rounds in a row at 80%+ moves a game up; two under 50% drops it back
   (`features/games/engine.ts`). Game level n = printable stage n (`features/curriculum/skills.ts`).
-- **Stickers:** after every finished round the child picks a pack (Unicorns, K-pop Hunters, Ice Queen) and
-  gets a sticker for their sticker book; perfect rounds give sparkly ones. Emoji art only, no film characters.
+- **Stickers:** after every finished round the child picks a pack and gets a sticker for their sticker book;
+  perfect rounds give sparkly ones. Emoji art only, no film characters. **Six packs of eight**, unlocked by
+  the best printable stage reached in any game (`unlockedPacks`): Unicorns, K-pop Hunters and Ice Queen from
+  the start, **Space** and **Under the Sea** at stage 2, **Dinosaurs** at stage 3. Three packs looked like a
+  fortnight of collecting and lasted two days — the unicorn and K-pop packs were both complete *and*
+  sparkly-complete by the second evening, after which `drawReward` could only hand back duplicates, which is
+  what makes stickers feel cheap. The sticker book counts against `stickerTotal(stage)`, never the whole
+  catalogue: a locked pack must add nothing, or finishing everything reachable would still read as half a
+  collection. Locked packs are not shown in the chooser either — it appears seconds after a round, and
+  offering a four-year-old something she cannot have is worse than meeting the pack when it arrives. Pack and
+  sticker ids are a contract (`maths_stickers.sticker` stores `"<pack>/<name>"`), so they are covered by a
+  test and must never be renamed.
 - **The garden** (`features/garden/garden-state.ts`): every finished round plants a flower — species by
   game, open as wide as the round was good — ten stickers bring a butterfly, the daily goal a rainbow, 50
   stickers a unicorn. It grows along the bottom of the home screen and opens full size when tapped. Derived
