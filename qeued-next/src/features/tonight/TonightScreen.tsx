@@ -6,6 +6,7 @@ import { Badge } from "@/shared/components/ui/badge";
 import { useToast } from "@/shared/components/ui/use-toast";
 import { supabase } from "@/shared/supabase/client";
 import { useAuth } from "@/features/auth/AuthContext";
+import { useProfile } from "@/features/household/ProfileContext";
 import { cn } from "@/shared/utils/cn";
 
 export type TonightPick = {
@@ -87,6 +88,7 @@ export const PickCard = ({ pick, emphasis }: { pick: TonightPick; emphasis?: boo
 
 const TonightScreen = () => {
   const { user } = useAuth();
+  const { active } = useProfile();
   const { toast } = useToast();
   const [mood, setMood] = useState<string>("intense");
   const [length, setLength] = useState<string>("short");
@@ -94,10 +96,10 @@ const TonightScreen = () => {
   const [result, setResult] = useState<TonightResult | null>(null);
 
   const decide = async () => {
-    if (!user) return;
+    if (!user || !active) return;
     setLoading(true);
     const { data, error } = await supabase.functions.invoke("watch-tonight", {
-      body: { user_id: user.id, mood, time: length },
+      body: { user_id: user.id, profile_id: active.id, mood, time: length },
     });
     setLoading(false);
     if (error) {

@@ -43,18 +43,18 @@ const moodDescriptions: Record<string, string> = {
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: corsHeaders });
   try {
-    const { user_id, mood, type, time, subscriptions } = await req.json();
+    const { user_id, profile_id, mood, type, time, subscriptions } = await req.json();
     if (!user_id) return json({ error: 'user_id required' }, 400);
 
     const supabase = serviceClient();
-    const cacheKey = `tonight2:${user_id}:${mood ?? 'any'}:${type ?? 'any'}:${time ?? 'any'}`;
+    const cacheKey = `tonight2:${profile_id ?? user_id}:${mood ?? 'any'}:${type ?? 'any'}:${time ?? 'any'}`;
     const { data: cached } = await supabase.from('ai_cache').select('response_data, expires_at').eq('cache_key', cacheKey).single();
     if (cached && new Date(cached.expires_at) > new Date()) return json(cached.response_data);
 
     const { data: entries } = await supabase
       .from('watch_entries')
       .select('status, watched_rating, title:titles(id, name, year, type, genres, imdb_rating, runtime_minutes, seasons, synopsis, image_url, title_availability(provider, offer_type, url))')
-      .eq('user_id', user_id);
+      .eq(profile_id ? 'profile_id' : 'user_id', profile_id ?? user_id);
 
     // deno-lint-ignore no-explicit-any
     const rows = (entries ?? []) as any[];
