@@ -9,6 +9,17 @@ export interface GrownUpsGateProps {
   rng?: Rng;
 }
 
+const WINDOW = 10 * 60_000;
+let passedAt = 0;
+
+/**
+ * Whether the sum was answered recently enough to skip. Module state, so it survives a remount of the
+ * garden — signing in from the grown-ups screen rebuilds the whole tree, which used to mean answering a
+ * second sum to get back to the screen you were already on. It dies with the tab, and expires after ten
+ * minutes, so a child who picks the iPad up later still meets the gate.
+ */
+export const grownUpsPassed = () => Date.now() - passedAt < WINDOW;
+
 /** "Grown-ups only — What is 7 + 5?" with three round answers; a wrong tap goes back home. Sums a four-year-old can't do yet. */
 export function GrownUpsGate({ onPass, onCancel, rng = Math.random }: GrownUpsGateProps) {
   const [sum] = useState(() => {
@@ -29,7 +40,17 @@ export function GrownUpsGate({ onPass, onCancel, rng = Math.random }: GrownUpsGa
         </p>
         <div className="mt-6 flex justify-center gap-4">
           {sum.options.map((n) => (
-            <Button key={n} variant="answer" size="answer" className="size-[84px] text-4xl" onClick={() => (n === sum.a + sum.b ? onPass() : onCancel())}>
+            <Button
+              key={n}
+              variant="answer"
+              size="answer"
+              className="size-[84px] text-4xl"
+              onClick={() => {
+                if (n !== sum.a + sum.b) return onCancel();
+                passedAt = Date.now();
+                onPass();
+              }}
+            >
               {n}
             </Button>
           ))}

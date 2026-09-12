@@ -41,7 +41,8 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   game, open as wide as the round was good — ten stickers bring a butterfly, the daily goal a rainbow, 50
   stickers a unicorn. It grows along the bottom of the home screen and opens full size when tapped. Derived
   from the round log, so it is identical on every device.
-- **Grown-ups screen** (behind a sum): an **account panel** at the top — signed in as whom, or "📱 This
+- **Grown-ups screen** (behind a sum, remembered for ten minutes so signing in doesn't ask twice): an
+  **account panel** at the top — signed in as whom, or "📱 This
   device only", whether anything is still waiting to upload, switch child, sign in or out — then accuracy
   per skill, often-missed numbers, level overrides, a weekly check-in with nine parent-scored probes, print
   links and the tutor report. The panel exists because with a single child the app opens straight into her
@@ -64,7 +65,10 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   look exactly like lost data (it isn't — nothing in the app ever deletes a progress cache). So a signed-in
   parent opening a child while guest play is still on the device gets **the offer before the garden**
   (`ImportPromptScreen`), not buried behind the grown-ups sum; "Not now" leaves it on the grown-ups screen.
-  Records keep their ids, so importing twice changes nothing.
+  Records keep their ids, so importing twice changes nothing. A live session beats the `maths-garden:guest`
+  flag in `app/App.tsx`: that flag is sticky, and while it was checked first, one tap of "carry on without
+  an account" left every later open showing the guest app over a signed-in session — no account name, and
+  no import offer, since guest mode passes `allowGuestImport={false}`.
 - **Offline-first:** every write lands in local storage first and uploads when there is signal
   (`features/progress/repo.ts`).
 - **Printables** (`#/resources`, public, no sign-in): the Quick Peek dot card maker, plus counting mats,
