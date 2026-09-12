@@ -328,6 +328,52 @@ export type Database = {
         }
         Relationships: []
       }
+      queue_duels: {
+        Row: {
+          created_at: string
+          id: string
+          loser_title_id: string
+          profile_id: string
+          winner_title_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          loser_title_id: string
+          profile_id: string
+          winner_title_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          loser_title_id?: string
+          profile_id?: string
+          winner_title_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "queue_duels_loser_title_id_fkey"
+            columns: ["loser_title_id"]
+            isOneToOne: false
+            referencedRelation: "titles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "queue_duels_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "queue_duels_winner_title_id_fkey"
+            columns: ["winner_title_id"]
+            isOneToOne: false
+            referencedRelation: "titles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       skipped_recommendations: {
         Row: {
           expires_at: string
@@ -395,33 +441,42 @@ export type Database = {
         Row: {
           checked_at: string
           expires_at: string
+          first_seen_at: string
           id: string
+          last_seen_at: string
           note: string | null
           offer_type: string
           provider: string
           region: string
+          removed_at: string | null
           title_id: string
           url: string | null
         }
         Insert: {
           checked_at?: string
           expires_at?: string
+          first_seen_at?: string
           id?: string
+          last_seen_at?: string
           note?: string | null
           offer_type: string
           provider: string
           region?: string
+          removed_at?: string | null
           title_id: string
           url?: string | null
         }
         Update: {
           checked_at?: string
           expires_at?: string
+          first_seen_at?: string
           id?: string
+          last_seen_at?: string
           note?: string | null
           offer_type?: string
           provider?: string
           region?: string
+          removed_at?: string | null
           title_id?: string
           url?: string | null
         }
@@ -590,10 +645,14 @@ export type Database = {
       watch_entries: {
         Row: {
           created_at: string
+          current_episode: number | null
+          current_season: number | null
           desire_ranking: number | null
           id: string
           notes: string | null
           profile_id: string
+          progress_updated_at: string | null
+          queue_rank: number | null
           review: string | null
           status: Database["public"]["Enums"]["watch_status"]
           title_id: string
@@ -604,10 +663,14 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          current_episode?: number | null
+          current_season?: number | null
           desire_ranking?: number | null
           id?: string
           notes?: string | null
           profile_id: string
+          progress_updated_at?: string | null
+          queue_rank?: number | null
           review?: string | null
           status?: Database["public"]["Enums"]["watch_status"]
           title_id: string
@@ -618,10 +681,14 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          current_episode?: number | null
+          current_season?: number | null
           desire_ranking?: number | null
           id?: string
           notes?: string | null
           profile_id?: string
+          progress_updated_at?: string | null
+          queue_rank?: number | null
           review?: string | null
           status?: Database["public"]["Enums"]["watch_status"]
           title_id?: string
@@ -649,7 +716,47 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      current_availability: {
+        Row: {
+          first_seen_at: string | null
+          last_seen_at: string | null
+          note: string | null
+          offer_type: string | null
+          provider: string | null
+          region: string | null
+          title_id: string | null
+          url: string | null
+        }
+        Insert: {
+          first_seen_at?: string | null
+          last_seen_at?: string | null
+          note?: string | null
+          offer_type?: string | null
+          provider?: string | null
+          region?: string | null
+          title_id?: string | null
+          url?: string | null
+        }
+        Update: {
+          first_seen_at?: string | null
+          last_seen_at?: string | null
+          note?: string | null
+          offer_type?: string | null
+          provider?: string | null
+          region?: string | null
+          title_id?: string | null
+          url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "title_availability_title_id_fkey"
+            columns: ["title_id"]
+            isOneToOne: false
+            referencedRelation: "titles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Functions: {
       account_in_group: {

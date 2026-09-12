@@ -2,13 +2,14 @@ import type { ReactNode } from "react";
 import { Logo } from "@/shared/brand/Logo";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/features/auth/AuthContext";
-import { Home, Search, User, LogOut, Clapperboard, Users } from "lucide-react";
+import { Home, Search, User, LogOut, Clapperboard, Users, Shuffle } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { cn } from "@/shared/utils/cn";
 
 const navItems = [
   { to: "/", icon: Home, label: "Home" },
   { to: "/tonight", icon: Clapperboard, label: "Tonight" },
+  { to: "/sort", icon: Shuffle, label: "Order" },
   { to: "/search", icon: Search, label: "Search" },
   { to: "/household", icon: Users, label: "Household" },
   { to: "/profile", icon: User, label: "Profile" },

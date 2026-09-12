@@ -17,6 +17,8 @@ type Pick = {
   imdb_rating: number; explanation: string; pick_type: 'best' | 'safe' | 'wildcard';
   in_queue: boolean; providers: { provider: string; offer_type: string; url?: string | null }[];
   runtime_minutes?: number | null; image_url?: string | null; title_id?: string | null;
+  /** "S2 E4" when they are part-way through a series. */
+  next_episode?: string | null;
 };
 
 const axisSchema = {
@@ -53,7 +55,7 @@ Deno.serve(async (req) => {
 
     const { data: entries } = await supabase
       .from('watch_entries')
-      .select('status, watched_rating, title:titles(id, name, year, type, genres, imdb_rating, runtime_minutes, seasons, synopsis, image_url, title_availability(provider, offer_type, url))')
+      .select('status, watched_rating, current_season, current_episode, title:titles(id, name, year, type, genres, imdb_rating, runtime_minutes, seasons, episodes, synopsis, image_url, title_availability(provider, offer_type, url))')
       .eq(profile_id ? 'profile_id' : 'user_id', profile_id ?? user_id);
 
     // deno-lint-ignore no-explicit-any
@@ -62,8 +64,16 @@ Deno.serve(async (req) => {
     const seen = rows.filter((e) => e.status === 'watched' || e.status === 'dropped');
     const history = seen.map((e) => ({ title: e.title?.name, rating: e.watched_rating, genres: e.title?.genres ?? [] }));
 
+    /** Episodes are stored as the last one watched, so the next is always one further on. */
+    const nextEpisode = (e: { current_season: number | null; current_episode: number | null }) => {
+      if (!e.current_season && !e.current_episode) return null;
+      if (e.current_season && !e.current_episode) return `S${e.current_season} E1`;
+      return `S${e.current_season ?? 1} E${(e.current_episode ?? 0) + 1}`;
+    };
+
     const queueForModel = queue.map((e) => ({
       title: e.title?.name,
+      already_started: nextEpisode(e),
       year: e.title?.year,
       type: e.title?.type,
       genres: e.title?.genres ?? [],
@@ -90,6 +100,7 @@ Deno.serve(async (req) => {
         `What they have watched before: ${JSON.stringify(history)}\n\n` +
         `Mood wanted: ${moodDescriptions[mood] ?? mood ?? 'no preference'}\n` +
         `${type ? `They want a ${type === 'series' ? 'series' : 'film'}.\n` : ''}${timeNote}\n\n` +
+        `Anything marked already_started is mid-series: continuing costs them nothing, so score its effort high.\n\n` +
         `Score every queue item against tonight. Then propose exactly one wildcard that is NOT on their queue ` +
         `and not in their history — something worth abandoning the queue for tonight. If the queue is empty, ` +
         `still return the wildcard.`,
@@ -171,6 +182,7 @@ Deno.serve(async (req) => {
         title_id: entry?.title?.id ?? null,
         runtime_minutes: entry?.title?.runtime_minutes ?? null,
         image_url: entry?.title?.image_url ?? null,
+        next_episode: entry ? nextEpisode(entry) : null,
         providers: (entry?.title?.title_availability ?? []).map((a: { provider: string; offer_type: string; url?: string }) => ({
           provider: a.provider, offer_type: a.offer_type, url: a.url ?? null,
         })),
