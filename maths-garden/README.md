@@ -36,6 +36,16 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   the Number, Which Has More?, One More Unicorn, **Make Ten** (number bonds, on a five/ten frame and then
   without one), **One Fewer** (taking away, watching balloons go) and **Ten and Some More** (the teens as
   ten-and-something). Spoken prompts in a British voice, stars, praise by name.
+- **Getting a better voice** (`VoicePanel`): the app can only choose from the voices installed on the
+  device, and on one with nothing downloaded that is the thin compact voice — no respelling fixes that.
+  `hasEnhancedVoice()` checks whether a Premium/Enhanced English voice is actually present and the panel
+  says which case you are in, so a parent is never sent to Settings to discover they were already done, nor
+  told all is well while the app speaks in the basic voice. When there is none, **✨ Enhance the voice**
+  opens the numbered iOS walkthrough in place (Settings → Accessibility → Spoken Content → Voices →
+  English → English (United Kingdom) → download one marked Enhanced or Premium), with Mac and Android
+  equivalents underneath. It replaced a single dense line of instructions, which is a good way to be
+  ignored. iOS fires `voiceschanged` when the download finishes, so returning to this screen flips the
+  status without a reload.
 - **Saying the name right** (`features/games/sound.ts`): the best English voice is picked automatically —
   downloaded Premium/Enhanced first, then en-GB, novelty voices excluded — but a name still lands wrong as
   often as not. There is no phoneme control to reach for: Safari's speech API takes neither SSML nor IPA, so
