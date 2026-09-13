@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { arrangementsFor } from '@/features/resources/subitising/patterns';
 import { mulberry32 as seeded } from '@/shared/utils/random';
-import { gameById, GAMES } from './catalog';
+import { gameById, GAMES, type GameId, type GameLevel } from './catalog';
 import { between, choices, makeQuestion, makeRound, questionKey, swapDigits } from './questions';
 
 describe('choices', () => {
@@ -74,7 +74,7 @@ describe('makeQuestion', () => {
               expect(q.shown).toBeGreaterThanOrEqual(1);
               expect(q.shown).toBeLessThan(q.whole);
               expect(q.answer).toBe(q.whole - q.shown);
-              expect(q.whole).toBe(level.max);
+              expect(level.wholes ?? [level.max]).toContain(q.whole);
               expect(q.frame).toBe(!level.hideFrame);
               expect(q.options).toContain(q.answer);
               break;
@@ -123,6 +123,44 @@ describe('makeRound', () => {
       const round = makeRound('peek', { max: 3 }, rng);
       expect(round).toHaveLength(5);
       for (let j = 1; j < round.length; j++) expect(questionKey(round[j])).not.toBe(questionKey(round[j - 1]));
+    }
+  });
+
+  it('asks five different questions when the level has enough to choose from', () => {
+    const rng = seeded(11);
+    for (let i = 0; i < 100; i++) {
+      expect(new Set(makeRound('find', { max: 20 }, rng).map(questionKey)).size).toBe(5);
+    }
+  });
+});
+
+/**
+ * A level that can ask fewer different questions than the level below it is a bug, however much bigger its
+ * numbers are: the child meets the same handful of questions again and sees the game as finished.
+ */
+describe('level curves', () => {
+  const poolOf = (game: GameId, level: GameLevel): number => {
+    const rng = seeded(9);
+    const keys = new Set<string>();
+    for (let i = 0; i < 4000; i++) keys.add(questionKey(makeQuestion(game, level, rng)));
+    return keys.size;
+  };
+
+  it('widens Make Ten at every level instead of repeating one table of bonds', () => {
+    const pools = gameById('bond').levels.map((level) => poolOf('bond', level));
+    expect(pools).toEqual([...pools].sort((a, b) => a - b));
+    expect(pools[4]).toBeGreaterThan(40);
+  });
+
+  it('keeps the fastest Quick Peek levels as varied as level 3', () => {
+    const pools = gameById('peek').levels.map((level) => poolOf('peek', level));
+    expect(pools[3]).toBeGreaterThanOrEqual(pools[2]);
+    expect(pools[4]).toBeGreaterThanOrEqual(pools[2]);
+  });
+
+  it('records the biggest whole Make Ten can ask as the level max', () => {
+    for (const level of gameById('bond').levels) {
+      if (level.wholes) expect(Math.max(...level.wholes)).toBe(level.max);
     }
   });
 });

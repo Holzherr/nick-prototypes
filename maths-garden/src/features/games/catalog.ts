@@ -19,6 +19,13 @@ export interface GameLevel {
   takeMax?: number;
   /** Make Ten and Ten and Some More: no frame to look at, so the answer has to be known. */
   hideFrame?: boolean;
+  /**
+   * Make Ten: the wholes this level makes, drawn from at random (defaults to just `max`). Bonds to a
+   * single whole run out fast — there are only nine ways to make ten — so the later levels mix wholes,
+   * which is also the skill: knowing the pairs for any number, not one memorised table.
+   * Must include `max`, so a round's recorded `levelMax` still describes the hardest thing asked.
+   */
+  wholes?: readonly number[];
 }
 
 export interface Game {
@@ -39,7 +46,9 @@ export const GAMES: readonly Game[] = [
     emoji: '👀',
     skill: 'Subitising',
     about: 'Dots flash up, then hide. Say how many without counting.',
-    levels: [{ max: 3 }, { max: 5 }, { max: 10 }, { min: 4, max: 10, peekMs: 1200, choices: 4 }, { min: 6, max: 10, peekMs: 800, choices: 5 }],
+    // Levels 4 and 5 keep the full 1–10 range: the challenge is the shorter flash and the extra button,
+    // not a narrower set of pictures. Trimming the range made the top levels repeat themselves.
+    levels: [{ max: 3 }, { max: 5 }, { max: 10 }, { max: 10, peekMs: 1200, choices: 4 }, { max: 10, peekMs: 800, choices: 5 }],
   },
   {
     id: 'count',
@@ -47,7 +56,7 @@ export const GAMES: readonly Game[] = [
     emoji: '🦋',
     skill: 'Counting objects',
     about: 'Tap each object once while counting, then pick the total.',
-    levels: [{ max: 5 }, { max: 8 }, { max: 12 }, { min: 8, max: 16, choices: 4 }, { min: 12, max: 20, choices: 5 }],
+    levels: [{ max: 5 }, { max: 8 }, { max: 12 }, { min: 5, max: 16, choices: 4 }, { min: 6, max: 20, choices: 5 }],
   },
   {
     id: 'find',
@@ -63,7 +72,9 @@ export const GAMES: readonly Game[] = [
     emoji: '🍓',
     skill: 'Comparison',
     about: 'Two groups side by side; tap the bigger one.',
-    levels: [{ max: 5 }, { max: 8 }, { max: 12 }, { min: 6, max: 15, gap: 2 }, { min: 10, max: 20, gap: 1 }],
+    // A tight gap is what makes this hard, but pinning the range as well left level 5 with barely twenty
+    // pairs to ask. Widening the range keeps the difficulty and stops the same pairs coming round again.
+    levels: [{ max: 5 }, { max: 8 }, { max: 12 }, { min: 3, max: 15, gap: 3 }, { min: 3, max: 20, gap: 2 }],
   },
   {
     id: 'add',
@@ -79,7 +90,15 @@ export const GAMES: readonly Game[] = [
     emoji: '🧩',
     skill: 'Number bonds',
     about: 'Some spaces are filled: how many more to fill the frame? The foundation of adding.',
-    levels: [{ max: 5 }, { max: 10 }, { max: 10, hideFrame: true }, { max: 10, hideFrame: true, choices: 4 }, { max: 20, hideFrame: true, choices: 4 }],
+    // There are only nine ways to make ten, so a level pinned to one whole is exhausted in two rounds.
+    // Levels 4 and 5 mix wholes: knowing the pairs for any number is the skill, not one memorised table.
+    levels: [
+      { max: 5, wholes: [4, 5] },
+      { max: 10, wholes: [10] },
+      { max: 10, wholes: [10], hideFrame: true },
+      { max: 10, wholes: [6, 7, 8, 9, 10], hideFrame: true, choices: 4 },
+      { max: 20, wholes: [10, 12, 15, 20], hideFrame: true, choices: 4 },
+    ],
   },
   {
     id: 'fewer',
