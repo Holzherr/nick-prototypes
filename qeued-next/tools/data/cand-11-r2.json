@@ -1,0 +1,1522 @@
+[
+  {
+    "name": "2046",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Wong Kar-wai sci-fi memory hotel time visual"
+  },
+  {
+    "name": "A Ghost Story",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "David Lowery Affleck ghost; time grief meditation"
+  },
+  {
+    "name": "A Hidden Life",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Terrence Malick WWII Austria resistance faith"
+  },
+  {
+    "name": "A Serious Man",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Coen Brothers Jewish Minnesota chaos Oscar"
+  },
+  {
+    "name": "Adaptation",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Spike Jonze Charlie Kaufman orchid obsession"
+  },
+  {
+    "name": "Aftersun",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Charlotte Wells family holiday fatherhood poetry"
+  },
+  {
+    "name": "American Animals",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Bart Layton college heist metafictional documentary"
+  },
+  {
+    "name": "American Honey",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Andrea Arnold American road sensory epic magazine"
+  },
+  {
+    "name": "Anora",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Sean Baker Palme prostitute NYC Madison raucous"
+  },
+  {
+    "name": "Asteroid City",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Wes Anderson desert town sci-fi pastiche visual"
+  },
+  {
+    "name": "Barton Fink",
+    "year": 1991,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Coen Brothers 1940s Hollywood breakdown studio"
+  },
+  {
+    "name": "Before Sunrise",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Richard Linklater; Vienna conversation; trilogy start"
+  },
+  {
+    "name": "Being John Malkovich",
+    "year": 1999,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Spike Jonze debut; postmodern identity; Kaufman"
+  },
+  {
+    "name": "Black Swan",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Darren Aronofsky ballet madness Portman transformation"
+  },
+  {
+    "name": "Boogie Nights",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "PTA pornography rise ensemble LA soundtrack"
+  },
+  {
+    "name": "Bottle Rocket",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Wes Anderson Owen Wilson Dallas petty crime"
+  },
+  {
+    "name": "Boyhood",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Richard Linklater 12-year shoot; coming-of-age epic"
+  },
+  {
+    "name": "Boys Don't Cry",
+    "year": 1999,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Kimberly Peirce transgender murder Swank Oscar tragic"
+  },
+  {
+    "name": "Bringing Out the Dead",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Scorsese NYC paramedics Cage redemption night"
+  },
+  {
+    "name": "Brokeback Mountain",
+    "year": 2005,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Ang Lee gay Western; Oscar nominations; watershed"
+  },
+  {
+    "name": "Brooklyn",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "John Crowley Irish-American romance period"
+  },
+  {
+    "name": "Burn After Reading",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Coen Brothers CIA farce ensemble dark comedy"
+  },
+  {
+    "name": "Cape Fear",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Scorsese Southern Gothic De Niro villain theatrical"
+  },
+  {
+    "name": "Carol",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Todd Haynes 1950s lesbian; Cate Blanchett; achingly beautiful"
+  },
+  {
+    "name": "Casino",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Scorsese Vegas mob De Niro Stone violence"
+  },
+  {
+    "name": "Certain Women",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Kelly Reichardt Montana female Tolstoy faces"
+  },
+  {
+    "name": "Chasing Amy",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Kevin Smith queer romance comic Affleck Damon"
+  },
+  {
+    "name": "Chasing the Dragon",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Wong Jing Hong Kong triad drama action"
+  },
+  {
+    "name": "Chungking Express",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Wong Kar-wai Hong Kong neon love visual poetry"
+  },
+  {
+    "name": "Clerks",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Kevin Smith debut New Jersey convenience store"
+  },
+  {
+    "name": "Columbus",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Kogonada architecture romance Indiana visual-first"
+  },
+  {
+    "name": "Daughters of the Dust",
+    "year": 1991,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Julie Dash Black diaspora Gullah lyrical visionary"
+  },
+  {
+    "name": "Dogma",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Kevin Smith religious comedy angels Jersey"
+  },
+  {
+    "name": "Eighth Grade",
+    "year": 2018,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Bo Burnham debut; internet adolescence; cringe empathy"
+  },
+  {
+    "name": "Elephant",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Gus Van Sant school shooting long takes Palme"
+  },
+  {
+    "name": "Even Cowgirls Get the Blues",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Gus Van Sant hitchhiker prostitute unconventional"
+  },
+  {
+    "name": "Fallen Angels",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Wong Kar-wai couple surveillance neon split-screen"
+  },
+  {
+    "name": "Far from Heaven",
+    "year": 2002,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Todd Haynes 1950s coded queer; Sirk homage; lush"
+  },
+  {
+    "name": "Fargo",
+    "year": 1996,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Coen Brothers Oscar winners; Minnesota crime; McDormand"
+  },
+  {
+    "name": "First Cow",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Kelly Reichardt Oregon 1820s; queer intimacy; beauty"
+  },
+  {
+    "name": "First Reformed",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Paul Schrader spiritual thriller; Criterion; Ethan Hawke existential"
+  },
+  {
+    "name": "Frida",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Julie Taymor Mexican artist Hayek Oscar"
+  },
+  {
+    "name": "Gangs of New York",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Scorsese 1860s Manhattan DiCaprio rivalry"
+  },
+  {
+    "name": "Gerry",
+    "year": 2002,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "us-indie",
+    "why": "Gus Van Sant boys lost hiking long takes"
+  },
+  {
+    "name": "Gone Girl",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "David Fincher wife murder Dunne Affleck"
+  },
+  {
+    "name": "Good Time",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Safdie Pattinson crime night; neon NYC pulse"
+  },
+  {
+    "name": "Hail, Caesar!",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Coen Brothers 1950s Hollywood Scarpitta chaos"
+  },
+  {
+    "name": "Hard Eight",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "PTA debut Las Vegas Reilly mentor mentee"
+  },
+  {
+    "name": "Hedwig and the Angry Inch",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "John Cameron Mitchell transgender rock musical"
+  },
+  {
+    "name": "Her",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Spike Jonze AI romance; Phoenix tender futurism"
+  },
+  {
+    "name": "Hereditary",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Ari Aster horror family Toni Collette modern"
+  },
+  {
+    "name": "Honey Boy",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Alma Har'el Shia LaBeouf child abuse visceral"
+  },
+  {
+    "name": "Hunt for the Wilderpeople",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Taika Waititi New Zealand boy fugitive warmth"
+  },
+  {
+    "name": "I'm Not There",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Todd Haynes Dylan; six actors; postmodern music biopic"
+  },
+  {
+    "name": "If Beale Street Could Talk",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Barry Jenkins Black love imprisoned sorrow"
+  },
+  {
+    "name": "In the Mood for Love",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Wong Kar-wai neighbors repressed romance color"
+  },
+  {
+    "name": "Inherent Vice",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "PTA Pynchon LA 1970s stoner detective genre"
+  },
+  {
+    "name": "Inland Empire",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "David Lynch actress Hollywood nightmare digital"
+  },
+  {
+    "name": "Inside Llewyn Davis",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Coen Brothers NYC folk; Oscar nominees; modern masterpiece"
+  },
+  {
+    "name": "Intolerable Cruelty",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Coen Brothers screwball Clooney sparring"
+  },
+  {
+    "name": "It Follows",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "David Mitchell supernatural dread curse indie"
+  },
+  {
+    "name": "It's Kind of a Funny Story",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "us-indie",
+    "why": "Anna Boden hospital depression romance Keir"
+  },
+  {
+    "name": "Jersey Girl",
+    "year": 2003,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "us-indie",
+    "why": "Kevin Smith parenting Affleck romantic shift"
+  },
+  {
+    "name": "Killers of the Flower Moon",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Scorsese Osage murders DiCaprio De Niro"
+  },
+  {
+    "name": "Knight of Cups",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Terrence Malick LA seduction spiritual journey"
+  },
+  {
+    "name": "Krisha",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Sean Baker family cast Texas neo-realist breakthrough"
+  },
+  {
+    "name": "Kundun",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Scorsese Dalai Lama Tibetan spirituality"
+  },
+  {
+    "name": "Last Days",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Gus Van Sant Kurt Cobain death experimental"
+  },
+  {
+    "name": "Lean on Pete",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Kelly Reichardt horse racing boy road"
+  },
+  {
+    "name": "Light Sleeper",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Paul Schrader drug distributor Dafoe soul-search"
+  },
+  {
+    "name": "Locke",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Steven Knight Tom Hardy car phone minimalist"
+  },
+  {
+    "name": "Madeline's Madeline",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Josephine Decker girl autonomy formal chaos art"
+  },
+  {
+    "name": "Magnolia",
+    "year": 1999,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "PTA ensemble Los Angeles; frog rain; genre-bending epic"
+  },
+  {
+    "name": "Mallrats",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Kevin Smith mall hangout comic book nerd"
+  },
+  {
+    "name": "Manchester by the Sea",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Kenneth Lonergan grief Casey Affleck Oscar"
+  },
+  {
+    "name": "Margaret",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Kenneth Lonergan NYC guilt trauma Moss"
+  },
+  {
+    "name": "Martha Marcy May Marlene",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Sean Durkin cult escape Olsen trauma"
+  },
+  {
+    "name": "Mid90s",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Jonah Hill LA skate kids nostalgia youthful"
+  },
+  {
+    "name": "Midsommar",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Ari Aster daylight horror cult folk ritual"
+  },
+  {
+    "name": "Miller's Crossing",
+    "year": 1990,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Coen Brothers 1920s gangsters verbal duels"
+  },
+  {
+    "name": "Minari",
+    "year": 2020,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Lee Isaac Chung Korean-American Arkansas; heartfelt"
+  },
+  {
+    "name": "Moonlight",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Barry Jenkins; Oscar Best Picture; queer Black coming-of-age"
+  },
+  {
+    "name": "Moonlight Sonata The Tempest",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "us-indie",
+    "why": "Paul Duane experimental Irish avant-garde cinema"
+  },
+  {
+    "name": "Moonrise Kingdom",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Wes Anderson camp romance whimsy formalism"
+  },
+  {
+    "name": "Mother!",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Darren Aronofsky biblical house Lawrence allegory"
+  },
+  {
+    "name": "Mulholland Drive",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "David Lynch LA noir dream; Palme nominee; career peak"
+  },
+  {
+    "name": "My Own Private Idaho",
+    "year": 1991,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Gus Van Sant male prostitutes road queer classic"
+  },
+  {
+    "name": "Never Rarely Sometimes Always",
+    "year": 2020,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Eliza Hittman abortion journey; quiet power restraint"
+  },
+  {
+    "name": "No Country for Old Men",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Coen Brothers Oscar Best Picture; border noir; violence"
+  },
+  {
+    "name": "Nomadland",
+    "year": 2020,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Chloé Zhao Oscar Best Picture; working poor west"
+  },
+  {
+    "name": "O Brother, Where Art Thou?",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Coen Brothers Odyssey South bluegrass Depression"
+  },
+  {
+    "name": "Obvious Child",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Gillian Robespierre abortion comedy Brooklyn"
+  },
+  {
+    "name": "Old Joy",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Kelly Reichardt Oregon camping friendship minimal"
+  },
+  {
+    "name": "Panic Room",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "David Fincher safe room thriller Jodie Foster"
+  },
+  {
+    "name": "Paranoid Park",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Gus Van Sant skate murder Portland poetry"
+  },
+  {
+    "name": "Pariah",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Dee Rees Black lesbian Brooklyn coming-out"
+  },
+  {
+    "name": "Past Lives",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Celine Song Korean-American romance lifetime"
+  },
+  {
+    "name": "Phantom Thread",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "PTA London fashion Day-Lewis obsession final"
+  },
+  {
+    "name": "Pi",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Darren Aronofsky math obsession B&W debut"
+  },
+  {
+    "name": "Poison",
+    "year": 1990,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Todd Haynes debut queer; Sundance triumph; provocation"
+  },
+  {
+    "name": "Poor Things",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Yorgos Lanthimos steampunk Emma Stone surreal"
+  },
+  {
+    "name": "Red Rocket",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Sean Baker porn star Texas homecoming dark funny"
+  },
+  {
+    "name": "Requiem for a Dream",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Darren Aronofsky addiction requiem; Mansell score iconic"
+  },
+  {
+    "name": "River of Grass",
+    "year": 1994,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Kelly Reichardt debut Florida couple low-budget"
+  },
+  {
+    "name": "Room",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Lenny Abrahamson captive mother son Brie"
+  },
+  {
+    "name": "Rushmore",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Wes Anderson Houston prep school Schwartzman debut"
+  },
+  {
+    "name": "Safe",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Todd Haynes environmental illness; Margulies uncanny"
+  },
+  {
+    "name": "Sankofa",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Haile Gerima slavery museum ghost Pan-African"
+  },
+  {
+    "name": "Se7en",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "David Fincher serial killer rain Pitt Freeman"
+  },
+  {
+    "name": "She's Funny That Way",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "us-indie",
+    "why": "Peter Bogdanovich Broadway Imogen Poots"
+  },
+  {
+    "name": "Shirley",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Josephine Decker Shirley Jackson Moss creative anxiety"
+  },
+  {
+    "name": "Silence",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Scorsese faith abandonment Neeson persecution"
+  },
+  {
+    "name": "Slacker",
+    "year": 1991,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Richard Linklater Austin; proto-mumblecore; indie godfather"
+  },
+  {
+    "name": "Smoke Signals",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Chris Eyre Native American road first Coeur d'Alene"
+  },
+  {
+    "name": "Song to Song",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Terrence Malick music love Austin quartet"
+  },
+  {
+    "name": "Spotlight",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Tom McCarthy Boston Globe abuse investigation"
+  },
+  {
+    "name": "Straight Out of Brooklyn",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Matty Rich Black Brooklyn debut authenticity"
+  },
+  {
+    "name": "Sunlight Jr.",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Laurie Collyer working poor redemption indie"
+  },
+  {
+    "name": "Tangerine",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Sean Baker LA trans street indie iPhone shot"
+  },
+  {
+    "name": "The Age of Innocence",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Scorsese Wharton 1870s repressed costume"
+  },
+  {
+    "name": "The Big Lebowski",
+    "year": 1998,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Coen Brothers LA stoner noir; cult classic; Dude icon"
+  },
+  {
+    "name": "The Blair Witch Project",
+    "year": 1999,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Heather Donahue found-footage forest phenomenon"
+  },
+  {
+    "name": "The Curious Case of Benjamin Button",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "David Fincher reverse aging Pitt Blanchett"
+  },
+  {
+    "name": "The Departed",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Scorsese Boston cops Leo Damon Oscar winner"
+  },
+  {
+    "name": "The Farewell",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Lulu Wang Chinese-American; Golden Lion; family secrets"
+  },
+  {
+    "name": "The Fits",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Anna Rose Holmer dance possession Cincinnati"
+  },
+  {
+    "name": "The Florida Project",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Sean Baker childhood motel poor magical"
+  },
+  {
+    "name": "The Fountain",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Darren Aronofsky love time death three-timeline"
+  },
+  {
+    "name": "The French Dispatch",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Wes Anderson newspaper fictional city color"
+  },
+  {
+    "name": "The Girl with the Dragon Tattoo",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "David Fincher Swedish noir Rooney Mara"
+  },
+  {
+    "name": "The Grand Budapest Hotel",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Wes Anderson zero-set dollhouse European visual"
+  },
+  {
+    "name": "The Grandmaster",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Wong Kar-wai kung fu history color saturated"
+  },
+  {
+    "name": "The Irishman",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Scorsese mob epic De Niro Pacino Netflix 3.5h"
+  },
+  {
+    "name": "The Kids Are All Right",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Lisa Cholodenko lesbian moms Oscar nominations"
+  },
+  {
+    "name": "The Killing",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "David Fincher Seattle crime Moss investigation"
+  },
+  {
+    "name": "The Killing of a Sacred Deer",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Yorgos Lanthimos McAvoy tragedy Greek formal"
+  },
+  {
+    "name": "The Ladykillers",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Coen Brothers New Orleans heist Hall"
+  },
+  {
+    "name": "The Last Black Man in San Francisco",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Joe Talbot poetic gentrification; Bay Area; stunning"
+  },
+  {
+    "name": "The Lighthouse",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Robert Eggers B&W isolation Pattinson Defoe"
+  },
+  {
+    "name": "The Machinist",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Brad Anderson insomnia Bale wasted noir dread"
+  },
+  {
+    "name": "The Man Who Wasn't There",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Coen Brothers noir B&W 1940s small-town"
+  },
+  {
+    "name": "The Master",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "PTA cult founder Phoenix philosophical power"
+  },
+  {
+    "name": "The New World",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Terrence Malick Pocahontas colonial spiritual"
+  },
+  {
+    "name": "The Rider",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Chloé Zhao South Dakota cowboy rodeo injury"
+  },
+  {
+    "name": "The Social Network",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "David Fincher Facebook Eisenberg Sorkin dialogue"
+  },
+  {
+    "name": "The Straight Story",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "David Lynch Iowa lawnmower brother warmth"
+  },
+  {
+    "name": "The Thin Red Line",
+    "year": 1998,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Terrence Malick WWII poetry; Palme nominee; visionary"
+  },
+  {
+    "name": "The Tree of Life",
+    "year": 2011,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Terrence Malick Texas childhood; universe; Palme winner"
+  },
+  {
+    "name": "The Vast of Night",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Andrew Patterson UFO 1950s New Mexico genre"
+  },
+  {
+    "name": "The Watermelon Woman",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Cheryl Dunye Black queer doc-fiction cinema"
+  },
+  {
+    "name": "The Witch",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Robert Eggers colonial horror Puritan dread"
+  },
+  {
+    "name": "The Wrestler",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Darren Aronofsky Mickey Rourke; gritty American redemption"
+  },
+  {
+    "name": "There Will Be Blood",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "PTA oil boom epic; Day-Lewis; Greenwood score"
+  },
+  {
+    "name": "To Die For",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Gus Van Sant weatherwoman Kidman ambition dark"
+  },
+  {
+    "name": "To Sleep with Anger",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Charles Burnett family secrets Los Angeles dread"
+  },
+  {
+    "name": "To the Wonder",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Terrence Malick priest doubt Oklahoma marriage"
+  },
+  {
+    "name": "True Grit",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Coen Brothers Western remake Cogburn girl"
+  },
+  {
+    "name": "Uncut Gems",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Safdie Adam Sandler NYC diamond pressure cooker"
+  },
+  {
+    "name": "Under the Skin",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Jonathan Glazer Scotland alien Johansson enigma"
+  },
+  {
+    "name": "Voyage of Time",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "us-indie",
+    "why": "Terrence Malick universe IMAX cosmic documentary"
+  },
+  {
+    "name": "Waves",
+    "year": 2018,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Trey Shults family tragedy; Black Houston formal beauty"
+  },
+  {
+    "name": "We Need to Talk About Kevin",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Lynne Ramsay mother guilt shooting fragmentation"
+  },
+  {
+    "name": "We the Animals",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Jeremiah Zagar queer childhood animated"
+  },
+  {
+    "name": "Wendy and Lucy",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Kelly Reichardt homelessness dog Seattle winter"
+  },
+  {
+    "name": "What We Do in the Shadows",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Taika Waititi vampire comedy mockumentary NZ"
+  },
+  {
+    "name": "Where the Wild Things Are",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Spike Jonze childhood fantasy Sendak Max"
+  },
+  {
+    "name": "Y Tu Mamá También",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Alfonso Cuarón Mexican road trip sexuality"
+  },
+  {
+    "name": "You Can Count on Me",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Kenneth Lonergan family drama Ruffalo Linney"
+  },
+  {
+    "name": "You Were Never Really Here",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Lynne Ramsay Phoenix trauma Greenwood score"
+  },
+  {
+    "name": "Zodiac",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "David Fincher serial killer obsession Gyllenhaal"
+  },
+  {
+    "name": "Gummo",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Harmony Korine Kentucky depravity experimental debut"
+  },
+  {
+    "name": "Kids",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Larry Clark NYC youth skateboard controversial indie"
+  },
+  {
+    "name": "Julien Donkey-Boy",
+    "year": 1999,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "us-indie",
+    "why": "Harmony Korine mental illness Dogme 95 avant-garde"
+  },
+  {
+    "name": "Spring Breakers",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Harmony Korine spring break Selena Gomez neon"
+  },
+  {
+    "name": "The Birth of a Nation",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Nate Parker Black rebellion Turner slave uprising"
+  },
+  {
+    "name": "Master",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Mariama Diallo Yale academia racism Black"
+  },
+  {
+    "name": "Zola",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Janicza Bravo Florida highway sex work Twitter"
+  },
+  {
+    "name": "First Reformed",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "us-indie",
+    "why": "Paul Schrader climate collapse Hawke existential"
+  },
+  {
+    "name": "Bodies Bodies Bodies",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Halina Reijn queer murder game Gen Z satire"
+  },
+  {
+    "name": "Showing Up",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Kelly Reichardt Seattle artist Michelle Williams"
+  },
+  {
+    "name": "The Limits of Control",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Jim Jarmusch minimal spy thriller"
+  },
+  {
+    "name": "Paterson",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Jim Jarmusch poet bus driver Buscemi"
+  },
+  {
+    "name": "Only Lovers Left Alive",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Jim Jarmusch vampires indie romance minimal"
+  },
+  {
+    "name": "The Dead Dont Die",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "us-indie",
+    "why": "Jim Jarmusch zombie comedy ensemble indie"
+  },
+  {
+    "name": "Broken English",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "us-indie",
+    "why": "Zoe Cassavetes Parker NYC romance indie"
+  },
+  {
+    "name": "The Sweetest Thing",
+    "year": 2002,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "us-indie",
+    "why": "Roger Kumble rom-com Cameron Diaz indie"
+  },
+  {
+    "name": "Doghouse",
+    "year": 2009,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "us-indie",
+    "why": "Motel Rock horror comedy indie"
+  },
+  {
+    "name": "The Safdie Brothers",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "us-indie",
+    "why": "Documentary Safdie brothers indie cinema"
+  },
+  {
+    "name": "In God We Trust",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "us-indie",
+    "why": "Marty Brill indie comedy VHS era"
+  },
+  {
+    "name": "Broken English",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "us-indie",
+    "why": "Zoe Cassavetes indie NYC romance Parker"
+  }
+]
