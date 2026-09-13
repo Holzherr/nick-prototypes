@@ -1,0 +1,1394 @@
+[
+  {
+    "name": "Wings",
+    "year": 1927,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "First Best Picture winner; WWI aerial combat"
+  },
+  {
+    "name": "Metropolis",
+    "year": 1927,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Lang's German sci-fi masterpiece; futuristic city"
+  },
+  {
+    "name": "The Passion of Joan of Arc",
+    "year": 1928,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Dreyer's silent masterpiece; Ren\u00e9e Jeanne"
+  },
+  {
+    "name": "Blackmail",
+    "year": 1929,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Hitchcock's first sound film; thriller landmark"
+  },
+  {
+    "name": "The Blue Angel",
+    "year": 1930,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Sternberg's masterpiece; Marlene Dietrich"
+  },
+  {
+    "name": "M",
+    "year": 1931,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Fritz Lang's proto-noir; Peter Lorre breakthrough"
+  },
+  {
+    "name": "The Public Enemy",
+    "year": 1931,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Cagney star-maker; grapefruit scene iconic"
+  },
+  {
+    "name": "Scarface",
+    "year": 1932,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Hawks' violent Chicago gangster epic"
+  },
+  {
+    "name": "Gold Diggers of 1933",
+    "year": 1933,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Berkeley choreography; Depression musical"
+  },
+  {
+    "name": "Little Women",
+    "year": 1933,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Cukor's definitive adaptation; Hepburn"
+  },
+  {
+    "name": "It Happened One Night",
+    "year": 1934,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "First five Oscar winner; screwball classic"
+  },
+  {
+    "name": "Of Human Bondage",
+    "year": 1934,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Bette Davis tragic Somerset Maugham"
+  },
+  {
+    "name": "The Thin Man",
+    "year": 1934,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Powell & Loy; witty detective romance"
+  },
+  {
+    "name": "Imitation of Life",
+    "year": 1934,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Melodrama spanning Black/white family"
+  },
+  {
+    "name": "Top Hat",
+    "year": 1935,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Astaire & Rogers dance masterpiece"
+  },
+  {
+    "name": "David Copperfield",
+    "year": 1935,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Cukor's Dickens; ensemble cast"
+  },
+  {
+    "name": "Mutiny on the Bounty",
+    "year": 1935,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Gable & Charles Laughton; adventure"
+  },
+  {
+    "name": "Swing Time",
+    "year": 1936,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Astaire & Rogers sophisticated musical"
+  },
+  {
+    "name": "My Man Godfrey",
+    "year": 1936,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Screwball; Powell & Carole Lombard"
+  },
+  {
+    "name": "Dodsworth",
+    "year": 1936,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Wyler's Sinclair Lewis; Walter Huston"
+  },
+  {
+    "name": "The Great Ziegfeld",
+    "year": 1936,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Best Picture; lavish musical biography"
+  },
+  {
+    "name": "These Three",
+    "year": 1936,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Wyler's Hellman schoolgirl scandal"
+  },
+  {
+    "name": "Captains Courageous",
+    "year": 1937,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Fleming's adventure; Spencer Tracy"
+  },
+  {
+    "name": "The Good Earth",
+    "year": 1937,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Epic Chinese farmer saga; Paul Muni"
+  },
+  {
+    "name": "The Awful Truth",
+    "year": 1937,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "McCarey's screwball; Grant & Dunne"
+  },
+  {
+    "name": "Stage Door",
+    "year": 1937,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "La Cava comedy; Hepburn, Rogers boarding house"
+  },
+  {
+    "name": "Shall We Dance",
+    "year": 1937,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Astaire & Rogers; ballet meets tap"
+  },
+  {
+    "name": "Stella Dallas",
+    "year": 1937,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "King Vidor melodrama; Stanwyck sacrifice"
+  },
+  {
+    "name": "Dead End",
+    "year": 1937,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Wyler's NYC slum drama; Dead End Kids"
+  },
+  {
+    "name": "Angels with Dirty Faces",
+    "year": 1938,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Curtiz gangster; Cagney & Bogart"
+  },
+  {
+    "name": "Holiday",
+    "year": 1938,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Cukor's screwball; Grant & Hepburn free spirits"
+  },
+  {
+    "name": "Jezebel",
+    "year": 1938,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Wyler's pre-Civil War; Bette Davis"
+  },
+  {
+    "name": "Pygmalion",
+    "year": 1938,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Shaw adaptation; Eliza's transformation"
+  },
+  {
+    "name": "Bringing Up Baby",
+    "year": 1938,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Hawks' screwball apex; Grant & Hepburn leopard"
+  },
+  {
+    "name": "Gone with the Wind",
+    "year": 1939,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Epic Civil War; Leigh & Gable immortal"
+  },
+  {
+    "name": "The Wizard of Oz",
+    "year": 1939,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Musical fantasy; Judy Garland iconic"
+  },
+  {
+    "name": "Stagecoach",
+    "year": 1939,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Ford's western masterpiece; John Wayne"
+  },
+  {
+    "name": "Mr. Smith Goes to Washington",
+    "year": 1939,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Capra's idealist; James Stewart filibuster"
+  },
+  {
+    "name": "Of Mice and Men",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Steinbeck migrant workers; Lon Chaney Jr."
+  },
+  {
+    "name": "Wuthering Heights",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Wyler's Bront\u00eb; Olivier & Merle Oberon"
+  },
+  {
+    "name": "Union Pacific",
+    "year": 1939,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "DeMille railroad epic; Joel McCrea"
+  },
+  {
+    "name": "Gunga Din",
+    "year": 1939,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Stevens' colonial adventure; Cary Grant"
+  },
+  {
+    "name": "Rebecca",
+    "year": 1940,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Hitchcock's Daphne du Maurier mystery"
+  },
+  {
+    "name": "The Great Dictator",
+    "year": 1940,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Chaplin's Hitler parody; political satire"
+  },
+  {
+    "name": "The Philadelphia Story",
+    "year": 1940,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Cukor's screwball; Grant, Stewart, Hepburn"
+  },
+  {
+    "name": "His Girl Friday",
+    "year": 1940,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Hawks' newspaper comedy; Rosalind Russell"
+  },
+  {
+    "name": "The Thief of Bagdad",
+    "year": 1940,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Korda's Technicolor fantasy; effects landmark"
+  },
+  {
+    "name": "Waterloo Bridge",
+    "year": 1940,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "LeRoy melodrama; Vivien Leigh prostitute"
+  },
+  {
+    "name": "The Maltese Falcon",
+    "year": 1941,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Huston's Hammett; Bogart detective icon"
+  },
+  {
+    "name": "Citizen Kane",
+    "year": 1941,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Welles' media magnate; narrative innovation"
+  },
+  {
+    "name": "The Wolf Man",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Waggner horror; Lon Chaney Jr. transformation"
+  },
+  {
+    "name": "How Green Was My Valley",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Ford's Welsh mining village; Oscar Best Picture"
+  },
+  {
+    "name": "The Lady Eve",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Sturges' screwball con; Stanwyck & Fonda"
+  },
+  {
+    "name": "Sullivan's Travels",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Sturges' director hobo; comedy & pathos"
+  },
+  {
+    "name": "Sergeant York",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Hawks' WWI hero; Gary Cooper"
+  },
+  {
+    "name": "Casablanca",
+    "year": 1942,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Curtiz's WWII romance; Bogart & Bergman"
+  },
+  {
+    "name": "The Palm Beach Story",
+    "year": 1942,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Sturges' divorce screwball; comedic chaos"
+  },
+  {
+    "name": "Shadow of a Doubt",
+    "year": 1943,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Hitchcock's small-town killer; psychological"
+  },
+  {
+    "name": "The Magnificent Ambersons",
+    "year": 1942,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Welles' Booth Tarkington; family decline"
+  },
+  {
+    "name": "Double Indemnity",
+    "year": 1944,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Wilder's noir; Fred MacMurray, Barbara Stanwyck"
+  },
+  {
+    "name": "Laura",
+    "year": 1944,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Preminger's mysterious portrait; obsession"
+  },
+  {
+    "name": "It Happened Tomorrow",
+    "year": 1944,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Clair's newspaper magic; Fred MacMurray"
+  },
+  {
+    "name": "Spellbound",
+    "year": 1945,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Hitchcock psychoanalytic; Dal\u00ed dream"
+  },
+  {
+    "name": "The Red Shoes",
+    "year": 1948,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Powell & Pressburger ballet tragedy"
+  },
+  {
+    "name": "Rope",
+    "year": 1948,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Hitchcock real-time murder; Jimmy Stewart"
+  },
+  {
+    "name": "Notorious",
+    "year": 1946,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Hitchcock spy romance; Ingrid Bergman"
+  },
+  {
+    "name": "The Big Sleep",
+    "year": 1946,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Hawks' Chandler noir; Bogart & Bacall"
+  },
+  {
+    "name": "The Postman Always Rings Twice",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Garnett femme fatale; Garfield & Turner"
+  },
+  {
+    "name": "The Killers",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Siodmak's Hemingway; Ava Gardner, Burt Lancaster"
+  },
+  {
+    "name": "My Darling Clementine",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Ford's Tombstone; Wyatt Earp, Doc Holliday"
+  },
+  {
+    "name": "The Grapes of Wrath",
+    "year": 1940,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Ford's Steinbeck; Depression Joad family"
+  },
+  {
+    "name": "Out of the Past",
+    "year": 1947,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Tourneur's noir pinnacle; Robert Mitchum"
+  },
+  {
+    "name": "Under Capricorn",
+    "year": 1949,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Hitchcock's Australian gothic"
+  },
+  {
+    "name": "All the King's Men",
+    "year": 1949,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Rossen's political corruption; Broderick Crawford"
+  },
+  {
+    "name": "The Third Man",
+    "year": 1949,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Reed's Vienna postwar; Orson Welles cameo"
+  },
+  {
+    "name": "The Asphalt Jungle",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Huston's heist noir template"
+  },
+  {
+    "name": "All About Eve",
+    "year": 1950,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Mankiewicz's theatrical ambition; Bette Davis"
+  },
+  {
+    "name": "Sunset Boulevard",
+    "year": 1950,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Wilder's faded star; Gloria Swanson"
+  },
+  {
+    "name": "In a Lonely Place",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Ray's Hollywood noir; Bogart darkness"
+  },
+  {
+    "name": "Gun Crazy",
+    "year": 1950,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Bartlett's doomed lovers; proto-Bonnie"
+  },
+  {
+    "name": "The Gunfighter",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "King's aging gunslinger; Gregory Peck"
+  },
+  {
+    "name": "A Streetcar Named Desire",
+    "year": 1951,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Kazan's Williams; Marlon Brando, Vivien Leigh"
+  },
+  {
+    "name": "A Place in the Sun",
+    "year": 1951,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Stevens' Dreiser tragedy; Montgomery Clift"
+  },
+  {
+    "name": "The African Queen",
+    "year": 1951,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Huston's river adventure; Bogart & Bacall"
+  },
+  {
+    "name": "An American in Paris",
+    "year": 1951,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Minnelli's Gershwin ballet; Gene Kelly"
+  },
+  {
+    "name": "A Clockwork Orange",
+    "year": 1951,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Siegel's musical western; Doris Day"
+  },
+  {
+    "name": "Easter Parade",
+    "year": 1948,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Taurog Astaire-Garland; Berlin songs"
+  },
+  {
+    "name": "The Bad and the Beautiful",
+    "year": 1952,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Minnelli's Hollywood; Kirk Douglas producer"
+  },
+  {
+    "name": "Singin' in the Rain",
+    "year": 1952,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Kelly & Donen; rain dance perfect; Hollywood"
+  },
+  {
+    "name": "Ace in the Hole",
+    "year": 1951,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Wilder's vulture journalist; Kirk Douglas"
+  },
+  {
+    "name": "The Killing",
+    "year": 1956,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Kubrick's racetrack heist; Sterling Hayden"
+  },
+  {
+    "name": "Stalag 17",
+    "year": 1953,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Wilder's POW camp; William Holden traitor"
+  },
+  {
+    "name": "Tokyo Story",
+    "year": 1953,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Ozu's gentle tragedy; aging Japanese couple"
+  },
+  {
+    "name": "Shane",
+    "year": 1953,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Stevens' mythic western; Alan Ladd"
+  },
+  {
+    "name": "Roman Holiday",
+    "year": 1953,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Wyler's Rome romance; Audrey Hepburn debut"
+  },
+  {
+    "name": "The Band Wagon",
+    "year": 1953,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Minnelli's Broadway; Astaire & Cyd Charisse"
+  },
+  {
+    "name": "Pickup on South Street",
+    "year": 1953,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Fuller's NYC pickpocket noir"
+  },
+  {
+    "name": "The Moon Is Blue",
+    "year": 1953,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Preminger's audacious sex talk comedy"
+  },
+  {
+    "name": "The Magnificent Obsession",
+    "year": 1954,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Sirk's blind-woman redemption; Hudson"
+  },
+  {
+    "name": "Seven Samurai",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Kurosawa's samurai epic; village defense"
+  },
+  {
+    "name": "Rear Window",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Hitchcock's voyeurism; James Stewart immobilized"
+  },
+  {
+    "name": "Dial M for Murder",
+    "year": 1954,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Hitchcock's murder plotting; Ray Milland"
+  },
+  {
+    "name": "Sabrina",
+    "year": 1954,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Wilder's Cinderella; Hepburn, Bogart, Holden"
+  },
+  {
+    "name": "A Star is Born",
+    "year": 1954,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Cukor's Hollywood tragedy; Judy Garland"
+  },
+  {
+    "name": "The Barefoot Contessa",
+    "year": 1954,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Mankiewicz's tragic heroine; Ava Gardner"
+  },
+  {
+    "name": "Johnny Guitar",
+    "year": 1954,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Ray's revisionist western; Joan Crawford"
+  },
+  {
+    "name": "Kiss Me Deadly",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Aldrich's ultra-noir; Mickey Spillane Hammer"
+  },
+  {
+    "name": "The Seven Year Itch",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Wilder's tempters; Marilyn Monroe, Tom Ewell"
+  },
+  {
+    "name": "To Catch a Thief",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Hitchcock Riviera; Cary Grant & Grace Kelly"
+  },
+  {
+    "name": "Picnic",
+    "year": 1955,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Logan's William Inge; small-town desire"
+  },
+  {
+    "name": "The Seven Brides for Seven Brothers",
+    "year": 1954,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Donen's Oregon pioneer; dance-heavy"
+  },
+  {
+    "name": "Written on the Wind",
+    "year": 1956,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Sirk's Technicolor melodrama; Hudson, Wyman"
+  },
+  {
+    "name": "The Tarnished Angels",
+    "year": 1957,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Sirk's Faulkner; barnstormers betrayal"
+  },
+  {
+    "name": "The Searchers",
+    "year": 1956,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Ford's Monument Valley; John Wayne obsessed"
+  },
+  {
+    "name": "Bigger Than Life",
+    "year": 1956,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Ray's suburban horror; James Mason"
+  },
+  {
+    "name": "The Quiet American",
+    "year": 1958,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Mankiewicz's Greene adaptation"
+  },
+  {
+    "name": "The Big Country",
+    "year": 1958,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Wyler's panoramic ranch drama; Peck"
+  },
+  {
+    "name": "Vertigo",
+    "year": 1958,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Hitchcock's obsessive masterpiece; Stewart"
+  },
+  {
+    "name": "Some Like It Hot",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Wilder's gender-bender; Curtis, Lemmon, Monroe"
+  },
+  {
+    "name": "Anatomy of a Murder",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Preminger's courtroom drama; James Stewart"
+  },
+  {
+    "name": "Hiroshima Mon Amour",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Resnais' memory & desire; French-Japanese"
+  },
+  {
+    "name": "Rio Bravo",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Hawks' siege western; Wayne, Martin, Nelson"
+  },
+  {
+    "name": "Imitation of Life",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Sirk's racial melodrama; Lana Turner"
+  },
+  {
+    "name": "Gigi",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Minnelli's Lerner & Loewe; Belle \u00c9poque"
+  },
+  {
+    "name": "Funny Face",
+    "year": 1957,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Donen's Paris fashion; Audrey Hepburn, Astaire"
+  },
+  {
+    "name": "The Seventh Seal",
+    "year": 1957,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Bergman's Death & Knight chess; medieval"
+  },
+  {
+    "name": "12 Angry Men",
+    "year": 1957,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Lumet's jury deliberation; Henry Fonda"
+  },
+  {
+    "name": "The Guns of Navarone",
+    "year": 1961,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Thompson's WWII sabotage; Peck, Niven"
+  },
+  {
+    "name": "Breakfast at Tiffany's",
+    "year": 1961,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Edwards' Holly Golightly; Audrey Hepburn"
+  },
+  {
+    "name": "Lawrence of Arabia",
+    "year": 1962,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Lean's desert epic; Peter O'Toole T.E."
+  },
+  {
+    "name": "The Longest Day",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "D-Day epic; Wayne, Mitchum ensemble"
+  },
+  {
+    "name": "What Ever Happened to Baby Jane?",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Aldrich's psychological horror; Davis, Crawford"
+  },
+  {
+    "name": "The Man Who Shot Liberty Valance",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Ford's legend vs truth; Wayne, Stewart"
+  },
+  {
+    "name": "The Unforgiven",
+    "year": 1960,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Huston's western; Burt Lancaster, Hepburn"
+  },
+  {
+    "name": "Charade",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Donen's Paris thriller-comedy; Hepburn, Grant"
+  },
+  {
+    "name": "8 1/2",
+    "year": 1963,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Fellini's director's crisis; Marcello Mastroianni"
+  },
+  {
+    "name": "The Birds",
+    "year": 1963,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Hitchcock's animal terror; Tippi Hedren"
+  },
+  {
+    "name": "Doctor Zhivago",
+    "year": 1965,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Lean's Russian Revolution; Omar Sharif, Christie"
+  },
+  {
+    "name": "The Sound of Music",
+    "year": 1965,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Wise's Rodgers & Hammerstein; Julie Andrews"
+  },
+  {
+    "name": "El Dorado",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Hawks' Rio Bravo riff; Wayne, Mitchum"
+  },
+  {
+    "name": "My Fair Lady",
+    "year": 1964,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Cukor's Lerner & Loewe; Rex Harrison"
+  },
+  {
+    "name": "The Dirty Dozen",
+    "year": 1967,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Aldrich's WWII heist; Lee Marvin, Bronson"
+  },
+  {
+    "name": "The Graduate",
+    "year": 1967,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Nichols' coming-of-age; Dustin Hoffman"
+  },
+  {
+    "name": "Breathless",
+    "year": 1960,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Godard's New Wave; Jean-Paul Belmondo"
+  },
+  {
+    "name": "The General",
+    "year": 1926,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Keaton's Civil War train; physical comedy apex"
+  },
+  {
+    "name": "Sherlock Jr.",
+    "year": 1924,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Keaton's dream-film; physical comedy"
+  },
+  {
+    "name": "The Gold Rush",
+    "year": 1925,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Chaplin's Yukon; pathos & slapstick"
+  },
+  {
+    "name": "Modern Times",
+    "year": 1936,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Chaplin's factory worker; industrial satire"
+  },
+  {
+    "name": "The Kid",
+    "year": 1921,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Chaplin & child; pathos & comedy"
+  },
+  {
+    "name": "Safety Last!",
+    "year": 1923,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Harold Lloyd's building-climb; stunts"
+  },
+  {
+    "name": "All Quiet on the Western Front",
+    "year": 1930,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Milestone's Remarque; trench horror"
+  },
+  {
+    "name": "You Can't Take It with You",
+    "year": 1938,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Capra's eccentric family; screwball"
+  },
+  {
+    "name": "It's a Wonderful Life",
+    "year": 1946,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "hollywood-classic",
+    "why": "Capra's small-town angel; James Stewart"
+  },
+  {
+    "name": "Young Mr. Lincoln",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Ford's Lincoln lawyer; Henry Fonda"
+  },
+  {
+    "name": "Only Angels Have Wings",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Hawks' aviation drama; Cary Grant, Jean Arthur"
+  },
+  {
+    "name": "The Steel Helmet",
+    "year": 1951,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Fuller's Korean War; GI realism"
+  },
+  {
+    "name": "Fixed Bayonets!",
+    "year": 1951,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Fuller's Korean squad; low-budget"
+  },
+  {
+    "name": "Ninotchka",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Lubitsch's Soviet comedy; Greta laughs"
+  },
+  {
+    "name": "The Merry Widow",
+    "year": 1934,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Lubitsch's Leh\u00e1r operetta"
+  },
+  {
+    "name": "Four Daughters",
+    "year": 1938,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Keighley family melodrama; Garfield"
+  },
+  {
+    "name": "Algiers",
+    "year": 1938,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Duvivier's Casbah romance; Charles Boyer"
+  },
+  {
+    "name": "Test Pilot",
+    "year": 1938,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Fleming aviation; Gable, Tracy, Loy"
+  },
+  {
+    "name": "Marie Antoinette",
+    "year": 1938,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Van Dyke Versailles spectacle"
+  },
+  {
+    "name": "A Tale of Two Cities",
+    "year": 1935,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Conway's Dickens; Ronald Colman"
+  },
+  {
+    "name": "Show Boat",
+    "year": 1936,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Kern & Hammerstein musical drama"
+  },
+  {
+    "name": "Follow the Fleet",
+    "year": 1936,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Astaire & Rogers naval musical"
+  },
+  {
+    "name": "San Francisco",
+    "year": 1936,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Earthquake spectacle; Gable & MacDonald"
+  },
+  {
+    "name": "Camille",
+    "year": 1936,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "hollywood-classic",
+    "why": "Greta Garbo's final film; tragic"
+  },
+  {
+    "name": "The Last Days of Pompeii",
+    "year": 1935,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Schoedsack disaster spectacle"
+  },
+  {
+    "name": "100 Men and a Girl",
+    "year": 1937,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Deanna Durbin musical; orchestra"
+  },
+  {
+    "name": "History Is Made at Night",
+    "year": 1937,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Borzage romance; shipboard drama"
+  },
+  {
+    "name": "All I Desire",
+    "year": 1953,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Sirk's small-town drama; Stanwyck actress"
+  },
+  {
+    "name": "The Small Back Room",
+    "year": 1949,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Powell & Pressburger bomb-disposal"
+  },
+  {
+    "name": "The Blue Bird",
+    "year": 1940,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "hollywood-classic",
+    "why": "Litvak fantasy-allegory; Shirley Temple"
+  }
+]

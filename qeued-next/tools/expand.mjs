@@ -39,14 +39,31 @@ const rest = async (path, init = {}) => {
   return text ? JSON.parse(text) : null;
 };
 
-/** Diacritics are folded, so a page filed as "Shōgun" still matches a list saying "Shogun". */
+/**
+ * Diacritics are folded, so a page filed as "Shōgun" still matches a list saying "Shogun".
+ *
+ * Apostrophes are deleted rather than turned into a separator, the same way `slugify` treats
+ * them. They used to become a space, which meant the name we derived from a page's own slug
+ * ("howls-moving-castle" → "howls moving castle") could never equal the name we derived from
+ * the title we were looking for ("Howl's Moving Castle" → "howl s moving castle"), and every
+ * possessive in the catalogue failed to resolve.
+ */
 const normalise = (value) =>
   String(value ?? '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
+    .replace(/['\u2019]/g, '')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
+
+/**
+ * The same name with every space closed up, for comparing across a word break nobody agrees
+ * on: we hold "Goodbye, Lenin!" and JustWatch files "Good Bye Lenin!", we say "Spider-Man"
+ * and a page says "Spider Man". Condensed, those are the same string. It is only ever used
+ * to accept a match the spaced comparison already nearly made, never to widen one.
+ */
+const condense = (value) => normalise(value).replace(/ /g, '');
 /**
  * Apostrophes vanish rather than becoming separators, so "Winter's Bone" is winters-bone.
  *
@@ -61,6 +78,48 @@ const slugify = (value) =>
     .replace(/['\u2019]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
+
+/** Levenshtein, uncapped — titles are short, so the full matrix costs nothing. */
+const editDistance = (a, b) => {
+  let previous = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i += 1) {
+    const current = [i];
+    for (let j = 1; j <= b.length; j += 1) {
+      current[j] = Math.min(
+        previous[j] + 1,
+        current[j - 1] + 1,
+        previous[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1),
+      );
+    }
+    previous = current;
+  }
+  return previous[b.length];
+};
+
+/**
+ * Whether a page's name and the one being looked for describe the same work.
+ *
+ * 'exact' where they agree outright. 'near' where they differ the way titles routinely
+ * differ between a catalogue and a streaming guide: a dropped leading segment (Laputa:
+ * Castle in the Sky is filed as Castle in the Sky), a trailing subtitle, or a spelling
+ * variant (Three Colours: Blue against Three Colors: Blue). Anything else is null.
+ *
+ * A 'near' match is only ever accepted with the year agreeing exactly, because "The Hunting"
+ * is a near match for "The Hunting Ground" and they are different films. The length floor on
+ * the spelling rule keeps short titles from collapsing into each other — Heat and Heart are
+ * one edit apart.
+ */
+const nameAgreement = (theirs, ours) => {
+  const a = normalise(theirs);
+  const b = normalise(ours);
+  if (!a || !b) return null;
+  if (a === b || condense(a) === condense(b)) return 'exact';
+  if (a.startsWith(`${b} `) || b.startsWith(`${a} `)) return 'near';
+  if (a.endsWith(` ${b}`) || b.endsWith(` ${a}`)) return 'near';
+  const [x, y] = [condense(a), condense(b)];
+  if (Math.min(x.length, y.length) >= 8 && editDistance(x, y) <= 2) return 'near';
+  return null;
+};
 
 /** "PT1H48M0S" → 108. Series durations are per episode, which is what we want. */
 const minutesFrom = (duration) => {
@@ -217,30 +276,26 @@ const searchForPage = async (name, year, type) => {
     return null;
   }
 
-  const wantedName = normalise(name);
-  // Ours may be the short form of theirs ("Dr. Strangelove") or the other way round.
-  const related = (candidate) =>
-    candidate === wantedName || candidate.startsWith(`${wantedName} `) || wantedName.startsWith(`${candidate} `);
-
   for (const node of results) {
     if (node.objectType !== wanted) continue;
     // The returned title is sometimes the original-language one while the slug carries the
     // English name — Demon Slayer comes back as "Kimetsu no Yaiba" at /demon-slayer-…, and
     // Man with a Movie Camera as "Chelovek s kino-apparatom". Either may be the match.
-    const names = [normalise(node.content.title), normalise(node.content.fullPath.split('/').pop() ?? '')];
-    if (!names.some(related)) continue;
+    const names = [node.content.title, node.content.fullPath.split('/').pop() ?? ''];
+    const agreements = names.map((candidate) => nameAgreement(candidate, name)).filter(Boolean);
+    if (!agreements.length) continue;
 
-    // An exact title match can tolerate the usual year drift. A partial one cannot: "The
+    // An exact title match can tolerate the usual year drift. A near one cannot: "The
     // Hunting" is a prefix of "The Hunting Ground", and two years of slack was enough to
-    // accept the wrong film. Where the names only overlap, the year has to agree exactly.
-    const exactName = names.includes(wantedName);
+    // accept the wrong film. Where the names only resemble each other, the year has to agree.
+    const exactName = agreements.includes('exact');
     const theirYear = node.content.originalReleaseYear;
     if (!year) {
       if (exactName) return `https://www.justwatch.com${node.content.fullPath}`;
       continue;
     }
     if (!theirYear) continue;
-    const slack = exactName ? (type === 'series' ? 1 : 2) : 0;
+    const slack = exactName ? (type === 'series' ? 3 : 2) : 0;
     if (Math.abs(theirYear - year) <= slack) return `https://www.justwatch.com${node.content.fullPath}`;
   }
   return null;
@@ -275,14 +330,19 @@ const resolveTitle = async ({ name, year, type, url: given }) => {
       return { url, ...found };
     }
 
-    // An exact name, or ours followed by a subtitle: "Dune" may be filed as "Dune: Part One".
-    const pageName = normalise(node.name);
-    const wanted = normalise(name);
-    if (pageName !== wanted && !pageName.startsWith(`${wanted} `)) continue;
+    // We are only here because a slug derived from our own name had a page, so the name
+    // check is confirming rather than searching — a variant spelling still has to bring the
+    // exact year with it.
+    const agreement = nameAgreement(node.name, name);
+    if (!agreement) continue;
     const pageYear = Number(String(node.dateCreated ?? '').slice(0, 4));
-    // Series pages date from the first season, films from release; allow a year of drift
-    // for late UK releases, and reject anything further out as the wrong work.
-    if (year && pageYear && Math.abs(pageYear - year) > (type === 'series' ? 1 : 2)) continue;
+    // Series pages date from the first season, films from release; allow a couple of years
+    // of drift for late UK releases, and reject anything further out as the wrong work.
+    // A series' year is the softest fact in a candidate list: Rumpole of the Bailey is dated
+    // from its 1975 pilot here and its 1978 first series everywhere else, and a model writing
+    // the list will pick either. An exact name on a series is strong enough to carry that.
+    const slack = agreement === 'exact' ? (type === 'series' ? 3 : 2) : 0;
+    if (year && pageYear && Math.abs(pageYear - year) > slack) continue;
     return { url, ...found };
   }
 

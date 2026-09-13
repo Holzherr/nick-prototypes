@@ -1,0 +1,1202 @@
+[
+  {
+    "name": "28 Years Later",
+    "year": 2025,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Danny Boyle sequel; post-apocalyptic horror with major UK cast"
+  },
+  {
+    "name": "My Father's Shadow",
+    "year": 2025,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Cannes Un Certain Regard; Nigerian election drama; 12 BIFA nominations"
+  },
+  {
+    "name": "Wuthering Heights",
+    "year": 2026,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Emerald Fennell reimagining; highest-grossing independent UK film 2026"
+  },
+  {
+    "name": "Sense and Sensibility",
+    "year": 2026,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Georgia Oakley Austen adaptation; September 2026 UK release"
+  },
+  {
+    "name": "Dune: Part Three",
+    "year": 2026,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Villeneuve finale; December 2026 release; concludes trilogy"
+  },
+  {
+    "name": "Civil War",
+    "year": 2024,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "A24 sci-fi conflict; stunning cinematography; UK release 2025"
+  },
+  {
+    "name": "Pillion",
+    "year": 2025,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Won Best Film BIFA 2025; BDSM relationship drama adaptation"
+  },
+  {
+    "name": "Hard Truths",
+    "year": 2025,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Mike Leigh latest; acclaimed British cinema master"
+  },
+  {
+    "name": "The Mastermind",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Kelly Reichardt original film; acclaimed indie director"
+  },
+  {
+    "name": "I Swear",
+    "year": 2025,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Kirk Jones Tourette's biography; 9 BIFA nominations"
+  },
+  {
+    "name": "Die My Love",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Lynne Ramsay latest; 8 BIFA nominations"
+  },
+  {
+    "name": "Urchin",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Harris Dickinson directorial debut; BIFA nominations"
+  },
+  {
+    "name": "On Falling",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Laura Carreira; BIFA-nominated drama"
+  },
+  {
+    "name": "Elio",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Pixar original sci-fi adventure; June 2025 UK release"
+  },
+  {
+    "name": "Toy Story 5",
+    "year": 2026,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Pixar sequel; highest-grossing franchise installment 2026"
+  },
+  {
+    "name": "Wake Up Dead Man: A Knives Out Mystery",
+    "year": 2025,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Rian Johnson; BFI opening film 2025"
+  },
+  {
+    "name": "Landmarks",
+    "year": 2025,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Lucrecia Martel; BFI Best Film 2025"
+  },
+  {
+    "name": "100 Nights of Hero",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Julia Jackman; BFI closing film 2025"
+  },
+  {
+    "name": "Broken English",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Marianne Faithfull documentary; Venice premiere 2025"
+  },
+  {
+    "name": "Prime Minister",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Jacinda Ardern documentary; December 2025 UK release"
+  },
+  {
+    "name": "Godzilla Minus Zero",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Japanese kaiju film; UK anime cinema release 2026"
+  },
+  {
+    "name": "Akira",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Classic anime; Anime Ltd 4K re-release 2026"
+  },
+  {
+    "name": "Grave of the Fireflies",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Studio Ghibli; Anime Ltd theatrical 2026"
+  },
+  {
+    "name": "Angel's Egg",
+    "year": 1985,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Mamoru Oshii; 4K restoration UK cinema 2026"
+  },
+  {
+    "name": "ChaO",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Studio 4\u00b0C; cross-cultural love story animation"
+  },
+  {
+    "name": "The Odyssey",
+    "year": 2026,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Christopher Nolan original; anticipated 2026 release"
+  },
+  {
+    "name": "Masters of the Universe",
+    "year": 2026,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Summer 2026 superhero release; He-Man adaptation"
+  },
+  {
+    "name": "Supergirl",
+    "year": 2026,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "DC superhero; 2026 release"
+  },
+  {
+    "name": "Spider-Man: Brand New Day",
+    "year": 2026,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Marvel; summer 2026 blockbuster"
+  },
+  {
+    "name": "Avengers: Doomsday",
+    "year": 2026,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Marvel penultimate film; December 2026 release"
+  },
+  {
+    "name": "Mortal Kombat 2",
+    "year": 2026,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Video game adaptation; summer 2026 action"
+  },
+  {
+    "name": "Ish",
+    "year": 2026,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Imran Perretta debut; Venice Critics' Week winner"
+  },
+  {
+    "name": "Resident Evil",
+    "year": 2026,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Horror; September 2026 release"
+  },
+  {
+    "name": "Heretic",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "A24 horror; UK 2025 release"
+  },
+  {
+    "name": "Kinds of Kindness",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Yorgos Lanthimos; UK 2025 release"
+  },
+  {
+    "name": "Anora",
+    "year": 2024,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Palme d'Or winner; UK 2025 release"
+  },
+  {
+    "name": "Flow",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Animated adventure; UK 2025 release"
+  },
+  {
+    "name": "Gloria",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Laura Poitras; Venice premiere UK 2025"
+  },
+  {
+    "name": "Joker: Folie \u00e0 Deux",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Todd Phillips sequel; UK 2024-25 cinema"
+  },
+  {
+    "name": "Challengers",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Luca Guadagnino tennis romance; UK 2025"
+  },
+  {
+    "name": "Didi",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Sean Baker; acclaimed indie drama"
+  },
+  {
+    "name": "I'm Still Here",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Brazilian drama; Oscar nominee 2025"
+  },
+  {
+    "name": "Conclave",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Vatican thriller; UK 2024-25 release"
+  },
+  {
+    "name": "Smoke",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Taron Egerton arson detective; Apple TV+ thriller"
+  },
+  {
+    "name": "Chief of War",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Apple TV+ historical drama"
+  },
+  {
+    "name": "Shrinking",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Apple TV+ therapy comedy; new season 2026"
+  },
+  {
+    "name": "Your Friends and Neighbors",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Apple TV+ new 2026 series"
+  },
+  {
+    "name": "Margo's Got Money Troubles",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Elle Fanning Michelle Pfeiffer; Apple TV+ drama"
+  },
+  {
+    "name": "Lucky",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Anya Taylor-Joy; Apple TV+ 2026"
+  },
+  {
+    "name": "Imperfect Women",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Elisabeth Moss Kerry Washington; Apple TV+"
+  },
+  {
+    "name": "Widow's Bay",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Matthew Rhys haunted island; Apple TV+"
+  },
+  {
+    "name": "Victoria Beckham",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Netflix fly-on-wall docu-series 2025"
+  },
+  {
+    "name": "Washington Black",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Prime Video limited series; escape plantation drama"
+  },
+  {
+    "name": "Fear",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Prime Video psychological thriller March 2025"
+  },
+  {
+    "name": "Steal",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Sophie Turner thriller; Prime Video January 2026"
+  },
+  {
+    "name": "Beast Games",
+    "year": 2025,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Prime Video reality competition season 2"
+  },
+  {
+    "name": "Carrie",
+    "year": 2026,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Prime Video 2026 release October"
+  },
+  {
+    "name": "The Lord of the Rings: The Rings of Power",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Season 3; Prime Video November 2026"
+  },
+  {
+    "name": "Blade Runner 2099",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Prime Video cyber-noir November 2026"
+  },
+  {
+    "name": "Love Is Blind UK",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Season 3; Netflix 2026"
+  },
+  {
+    "name": "Alley Cats",
+    "year": 2026,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Ricky Gervais animated series; Netflix 2026"
+  },
+  {
+    "name": "Dept. Q",
+    "year": 2025,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Netflix early 2026"
+  },
+  {
+    "name": "The Witness",
+    "year": 2026,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Netflix 2026 release"
+  },
+  {
+    "name": "Legends",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Tom Burke Steve Coogan drug undercover; 2 episodes"
+  },
+  {
+    "name": "Run Away",
+    "year": 2026,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Netflix early 2026"
+  },
+  {
+    "name": "How to Get To Heaven From Belfast",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Derry Girls creator; Netflix 2026"
+  },
+  {
+    "name": "Agatha Christie's Seven Dials",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Mia McKenna-Bruce Martin Freeman; Netflix 2026"
+  },
+  {
+    "name": "Pride and Prejudice",
+    "year": 2026,
+    "type": "series",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Netflix Austen adaptation 2026"
+  },
+  {
+    "name": "The Stolen Girl",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Denise Gough psychological drama; Disney+ 2025"
+  },
+  {
+    "name": "Alien: Earth",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "FX sci-fi horror; Disney+ 2025"
+  },
+  {
+    "name": "Dying for Sex",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Michelle Williams Jenny Slate; Disney+ 2025"
+  },
+  {
+    "name": "The Testaments",
+    "year": 2026,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Handmaid's Tale sequel; Hulu/Disney+ April 2026"
+  },
+  {
+    "name": "Sweetpea",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Ella Purnell dark comedy; Sky season 2"
+  },
+  {
+    "name": "Possession",
+    "year": 2026,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Karla Crome limited series; Sky 2026"
+  },
+  {
+    "name": "Superfakes",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "A24 Lucy Liu crime drama; Sky 2026"
+  },
+  {
+    "name": "The Miniature Wife",
+    "year": 2026,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Sky 2026"
+  },
+  {
+    "name": "Fightland",
+    "year": 2026,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Sky 2026 action"
+  },
+  {
+    "name": "Crystal Lake",
+    "year": 2026,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Friday the 13th prequel; Sky 2026"
+  },
+  {
+    "name": "The Good Daughter",
+    "year": 2026,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Sky 2026"
+  },
+  {
+    "name": "Bergerac",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "UKTV crime reboot February 2025"
+  },
+  {
+    "name": "Playing Nice",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "James Norton Niamh Algar switched infants; ITV"
+  },
+  {
+    "name": "Maigret",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Benjamin Wainwright detective; October 2025"
+  },
+  {
+    "name": "Patience",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Channel 4 autism detective drama 2025"
+  },
+  {
+    "name": "The Lady",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Jane Andrews royal dresser; Crown team 2026"
+  },
+  {
+    "name": "Maya",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Bella Ramsey witness protection thriller; Channel 4"
+  },
+  {
+    "name": "Saturday Night Live UK",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Tina Fey hosts; Sky March 2026"
+  },
+  {
+    "name": "The Traitors: New Blood",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "NBC reality competition September 2026"
+  },
+  {
+    "name": "A Knight of the Seven Kingdoms",
+    "year": 2026,
+    "type": "series",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Game of Thrones spinoff; Max/Sky 2026"
+  },
+  {
+    "name": "A Night Like This",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Romantic drama; September 2025 UK release"
+  },
+  {
+    "name": "One Night Only",
+    "year": 2026,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Callum Turner Monica Barbaro rom-com 2026"
+  },
+  {
+    "name": "Departures",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "LGBT romantic comedy drama 2026 UK"
+  },
+  {
+    "name": "Wishful Thinking",
+    "year": 2026,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "2026 romantic drama"
+  },
+  {
+    "name": "One Woman One Bra",
+    "year": 2025,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Sutherland Prize BFI; Kenyan-Nigerian drama"
+  },
+  {
+    "name": "A Complete Unknown",
+    "year": 2024,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Timoth\u00e9e Chalamet Bob Dylan; January 2025 UK"
+  },
+  {
+    "name": "Becoming Led Zeppelin",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Led Zeppelin documentary; February 2025"
+  },
+  {
+    "name": "Wicked: For Good",
+    "year": 2025,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Musical sequel; November 2025"
+  },
+  {
+    "name": "SOULM8TE",
+    "year": 2026,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "James Wan evil AI partner-bot; January 2026"
+  },
+  {
+    "name": "Insidious: Out of the Further",
+    "year": 2026,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Horror sequel; August 2026"
+  },
+  {
+    "name": "28 Years Later: The Bone Temple",
+    "year": 2026,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "28 Years Later sequel; Nia DaCosta 2026"
+  },
+  {
+    "name": "Werwulf",
+    "year": 2026,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Robert Eggers 13th century horror; December"
+  },
+  {
+    "name": "Brides",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Nadia Fall Sundance; Grand Jury nominee"
+  },
+  {
+    "name": "Secret Service",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Gemma Arterton spy thriller; ITV April 2026"
+  },
+  {
+    "name": "Betrayal",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Shaun Evans espionage; ITV February 2026"
+  },
+  {
+    "name": "Gone",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Eve Myles David Morrissey crime; ITV March"
+  },
+  {
+    "name": "Out There",
+    "year": 2025,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "ITV drama 2025"
+  },
+  {
+    "name": "Corriedale",
+    "year": 2026,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Coronation Street Emmerdale crossover 2026"
+  },
+  {
+    "name": "Wildcat",
+    "year": 2026,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Action thriller; July 2026 UK release"
+  },
+  {
+    "name": "Holland",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Nicole Kidman Gael Garc\u00eda Bernal Prime Video"
+  },
+  {
+    "name": "Practical Magic 2",
+    "year": 2026,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Sandra Bullock Nicole Kidman; August 2026"
+  },
+  {
+    "name": "The Young People",
+    "year": 2026,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Osgood Perkins horror with Tatiana Maslany"
+  },
+  {
+    "name": "Superman",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "DC superhero origin 2025"
+  },
+  {
+    "name": "Supergirl: Woman of Tomorrow",
+    "year": 2026,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "DC superhero origin 2026"
+  },
+  {
+    "name": "Scarpetta",
+    "year": 2026,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Jamie Lee Curtis forensic drama; Prime 2026"
+  },
+  {
+    "name": "L.A. Confidential",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Crime noir series 2024-25 UK"
+  },
+  {
+    "name": "Love and Death",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Jack Black dark comedy 2024-25"
+  },
+  {
+    "name": "Monsieur Spade",
+    "year": 2024,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Sam Spade noir 2024-25"
+  },
+  {
+    "name": "Waterloo Road Series 16",
+    "year": 2025,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Drama returning; September 2025"
+  },
+  {
+    "name": "Unforgivable",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "BBC Two drama; July 2025"
+  },
+  {
+    "name": "Lord of the Flies",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "BBC adaptation; 2026"
+  },
+  {
+    "name": "The Other Bennett Sister",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "BBC period drama; 2026"
+  },
+  {
+    "name": "A Thousand Acres",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Ruth Wilson Welsh borders; BBC 2026"
+  },
+  {
+    "name": "Our Country's Good",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "BBC First Fleet drama; 2026"
+  },
+  {
+    "name": "The Dig",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "BBC expansion of film; 2026"
+  },
+  {
+    "name": "The Rotters' Club",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Jonathan Coe adaptation; BBC 2026"
+  },
+  {
+    "name": "Tall Tales & Murder",
+    "year": 2026,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Irish comedic crime; BBC Autumn"
+  },
+  {
+    "name": "The Last King",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Norse action film UK release"
+  },
+  {
+    "name": "The Acolyte Season 2",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Star Wars series; Disney+ 2025"
+  },
+  {
+    "name": "Andor Season 2",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Star Wars acclaimed; season 2 2025"
+  },
+  {
+    "name": "The Wheel of Time Season 3",
+    "year": 2026,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Amazon fantasy epic; 2026"
+  },
+  {
+    "name": "Shogun Season 2",
+    "year": 2026,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "FX prestige; season 2 2026"
+  },
+  {
+    "name": "The Bear Season 4",
+    "year": 2026,
+    "type": "series",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Hulu prestige; season 4 2026"
+  },
+  {
+    "name": "Winning Time Season 3",
+    "year": 2025,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "HBO basketball; season 3 2025"
+  },
+  {
+    "name": "A Murder at the End of the World",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Hulu thriller 2024-25"
+  },
+  {
+    "name": "Expats",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Amazon prestige 2024-25"
+  },
+  {
+    "name": "Olive Kitteridge",
+    "year": 2014,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "HBO revival 2024-25"
+  },
+  {
+    "name": "It Ends With Us",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Blake Lively romance 2024-25"
+  },
+  {
+    "name": "Oppenheimer",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "recent-2025-26",
+    "why": "Nolan Oscar winner UK 2024"
+  },
+  {
+    "name": "Killers of the Flower Moon",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Scorsese Oscar nominee; UK 2024"
+  },
+  {
+    "name": "American Fiction",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Oscar winner; UK 2024"
+  },
+  {
+    "name": "Poor Things",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Yorgos Lanthimos; UK 2024"
+  },
+  {
+    "name": "Anatomy of a Fall",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Palme d'Or nominee; UK 2024"
+  },
+  {
+    "name": "Nobody Wants This",
+    "year": 2024,
+    "type": "series",
+    "priority": 2,
+    "bucket": "recent-2025-26",
+    "why": "Netflix Kristen Bell rom-com 2024-25"
+  },
+  {
+    "name": "One Day",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Netflix Hathaway McAdams; 2024-25"
+  },
+  {
+    "name": "Nosferatu",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Robert Eggers horror remake 2024-25"
+  },
+  {
+    "name": "Wicked",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Musical blockbuster UK 2024"
+  },
+  {
+    "name": "The Iron Widow",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Sci-fi action 2025"
+  },
+  {
+    "name": "Twisters",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Storm action sequel 2024-25"
+  },
+  {
+    "name": "The Outrun",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "recent-2025-26",
+    "why": "Saoirse Ronan recovery drama 2024"
+  },
+  {
+    "name": "The Brutalist",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "Brady Corbet epic drama 2024-25"
+  },
+  {
+    "name": "Sing Sing",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "recent-2025-26",
+    "why": "SXSW Audience Award 2024-25"
+  }
+]
