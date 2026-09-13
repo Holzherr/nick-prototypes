@@ -1,0 +1,1730 @@
+[
+  {
+    "name": "Diva",
+    "year": 1981,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "operatic romance heist; French New Wave descendent"
+  },
+  {
+    "name": "Beau Travail",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Claire Denis; French Foreign Legion portrait, dance, Genet"
+  },
+  {
+    "name": "Betty Blue",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Serafine's erotic, anarchic romance; 1980s French cinema"
+  },
+  {
+    "name": "Le Samouraï",
+    "year": 1967,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Melville; hitman masterpiece; style, silence, solitude"
+  },
+  {
+    "name": "Eyes Without a Face",
+    "year": 1960,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Franju; surgical horror; poetic nightmare"
+  },
+  {
+    "name": "The Rules of the Game",
+    "year": 1939,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Renoir; often called cinema's greatest; bourgeois ensemble"
+  },
+  {
+    "name": "La Ronde",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Max Ophüls; Schnitzler; 10 interlocked love affairs"
+  },
+  {
+    "name": "Celine and Julie Go Boating",
+    "year": 1974,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Rivette; playful, five-hour metafilm"
+  },
+  {
+    "name": "The Red Balloon",
+    "year": 1956,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Lamorisse; wordless poetic fantasy for all ages"
+  },
+  {
+    "name": "Lola",
+    "year": 1961,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Demy; colourful Hamburg romance; proto-musical"
+  },
+  {
+    "name": "One Sings, the Other Doesn't",
+    "year": 1977,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Varda; two women's lives across decades; women's lib"
+  },
+  {
+    "name": "Violette",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Ledoux; lesbian gothic; Leduc's life"
+  },
+  {
+    "name": "A Very Long Engagement",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Jeunet; WWI love mystery; visually sumptuous"
+  },
+  {
+    "name": "Man Bites Dog",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "C'est arrivé près de chez vous; Belgian mockumentary killer"
+  },
+  {
+    "name": "The Kid with a Bike",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Dardenne brothers; minimalist realism; boy finds family"
+  },
+  {
+    "name": "Rosetta",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Dardenne brothers; Palme d'Or; precarious youth"
+  },
+  {
+    "name": "La Strada",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Fellini; circus wanderers; astonishing performance"
+  },
+  {
+    "name": "The Nights of Cabiria",
+    "year": 1957,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Fellini; prostitute seeking love; tender, tragic"
+  },
+  {
+    "name": "Divorce Italian Style",
+    "year": 1961,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Germi; dark comedy; Sicilian honour and murder"
+  },
+  {
+    "name": "Il Posto",
+    "year": 1961,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Olmi; bureaucratic youth; humanist comedy-drama"
+  },
+  {
+    "name": "Rocco and His Brothers",
+    "year": 1960,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Visconti; five brothers in Milan; operatic family saga"
+  },
+  {
+    "name": "Conversation Piece",
+    "year": 1974,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Visconti; decline; Lancaster among the nouveau riche"
+  },
+  {
+    "name": "Senso",
+    "year": 1954,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Visconti; Risorgimento love and betrayal; first colour film"
+  },
+  {
+    "name": "Deep Red",
+    "year": 1975,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Argento; Profondo Rosso; giallo masterpiece"
+  },
+  {
+    "name": "The Bird with the Crystal Plumage",
+    "year": 1970,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Argento; debut giallo; stylish and labyrinthine"
+  },
+  {
+    "name": "Suspiria",
+    "year": 1977,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Argento; witch's dance academy; operatic horror"
+  },
+  {
+    "name": "The Beyond",
+    "year": 1981,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Fulci; surreal haunted house; cult horror"
+  },
+  {
+    "name": "Black Sunday",
+    "year": 1960,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Bava; haunted estate; visually inventive horror"
+  },
+  {
+    "name": "Phenomena",
+    "year": 1985,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Argento; girl psychic solves crimes; outlandish giallo"
+  },
+  {
+    "name": "Nosferatu",
+    "year": 1922,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Murnau; vampire shadow-puppet; cinema's first masterpiece"
+  },
+  {
+    "name": "The Cabinet of Dr. Caligari",
+    "year": 1920,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Wiene; expressionist somnambulism; madness in corridors"
+  },
+  {
+    "name": "M",
+    "year": 1931,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Lang; child murderer hunted; first great sound film"
+  },
+  {
+    "name": "Pandora's Box",
+    "year": 1929,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Pabst; Lulu's destruction; silent eroticism"
+  },
+  {
+    "name": "The Blue Angel",
+    "year": 1930,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Sternberg; professor seduced; Marlene Dietrich emerges"
+  },
+  {
+    "name": "Das Boot",
+    "year": 1981,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Petersen; submarine claustrophobia; humanist war film"
+  },
+  {
+    "name": "Wings of Desire",
+    "year": 1987,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Wenders; angels over Berlin; meditation on mortality"
+  },
+  {
+    "name": "Run Lola Run",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Tykwer; three timelines, red hair, techno rhythm"
+  },
+  {
+    "name": "The Tin Drum",
+    "year": 1979,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Schlöndorff; child refuses adulthood in Nazi Germany"
+  },
+  {
+    "name": "Funny Games",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Haneke; home invasion metafilm; breaks fourth wall"
+  },
+  {
+    "name": "The Lives of Others",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Donnersmarck; Stasi surveillance thriller; redemption"
+  },
+  {
+    "name": "Christiane F.",
+    "year": 1981,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Edel; Berlin heroin; real teenage addiction"
+  },
+  {
+    "name": "Fitzcarraldo",
+    "year": 1982,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Herzog; opera in Amazon; obsession and impossibility"
+  },
+  {
+    "name": "Stroszek",
+    "year": 1977,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Herzog; drifters in America; American dream unravels"
+  },
+  {
+    "name": "The Enigma of Kaspar Hauser",
+    "year": 1974,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Herzog; wild child of Nuremberg; language and being"
+  },
+  {
+    "name": "The Golem",
+    "year": 1920,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Wegener; animated clay guardian; Jewish legend"
+  },
+  {
+    "name": "Faust",
+    "year": 1926,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Murnau; devil's bargain; expressionist spectacle"
+  },
+  {
+    "name": "Metropolis",
+    "year": 1927,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Lang; futuristic class war; 1920s sci-fi epic"
+  },
+  {
+    "name": "Secrets of a Soul",
+    "year": 1926,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Pabst; Freudian dream analysis; psychological thriller"
+  },
+  {
+    "name": "The Spirit of the Beehive",
+    "year": 1973,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Erice; child mesmerised by Frankenstein; poetic masterpiece"
+  },
+  {
+    "name": "Tristana",
+    "year": 1970,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Buñuel; woman's liberation and revenge; Galdós"
+  },
+  {
+    "name": "Los Olvidados",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Buñuel; street children in Mexico City; neorealist surrealism"
+  },
+  {
+    "name": "That Obscure Object of Desire",
+    "year": 1977,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Buñuel; two actresses play one woman; impossible desire"
+  },
+  {
+    "name": "Viridiana",
+    "year": 1961,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Buñuel; nun's charity perverted; incest and blackmail"
+  },
+  {
+    "name": "Nazarín",
+    "year": 1958,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Buñuel; priest loses faith in Mexico; compassion tested"
+  },
+  {
+    "name": "El Sur",
+    "year": 1983,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Erice; Francoist trauma; daughter seeks father's secret"
+  },
+  {
+    "name": "Bienvenido, Mister Marshall",
+    "year": 1952,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Berlanga; Marshall Plan comedy; Spanish rural satire"
+  },
+  {
+    "name": "The Hunt",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Saura; boys stalk rabbit; class and violence"
+  },
+  {
+    "name": "Thesis",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Amenábar; film student finds snuff footage; thriller"
+  },
+  {
+    "name": "Las Hurdes",
+    "year": 1933,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Buñuel; documentary of poverty; surrealist ethnography"
+  },
+  {
+    "name": "City of God",
+    "year": 2002,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Meirelles; Rio favela drug wars; kinetic, tragic"
+  },
+  {
+    "name": "The Motorcycle Diaries",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Salles; young Guevara's awakening; humanist adventure"
+  },
+  {
+    "name": "Lucia",
+    "year": 1968,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Cuban film; three women across three eras"
+  },
+  {
+    "name": "Memories of Underdevelopment",
+    "year": 1968,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Gutiérrez Alea; man stays in revolutionary Cuba"
+  },
+  {
+    "name": "Fresa y Chocolate",
+    "year": 1994,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Strawberry and Chocolate; friendship and sexuality in Cuba"
+  },
+  {
+    "name": "The Hour of the Furnaces",
+    "year": 1968,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Solanas; Argentine revolutionary polemic; essay-film"
+  },
+  {
+    "name": "Vidas Secas",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Barren Lives; Nelson Pereira Santos; drought and migration"
+  },
+  {
+    "name": "São Paulo, Sociedade Anônima",
+    "year": 1965,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Rocha; capitalist corruption; Cinema Novo manifesto"
+  },
+  {
+    "name": "Water",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Mehta; widows in colonial India; forbidden love"
+  },
+  {
+    "name": "The Guide",
+    "year": 1965,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Vijay Anand; con artist and mystic spirituality"
+  },
+  {
+    "name": "Shree 420",
+    "year": 1955,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Desai; social realism; street urchin in Bombay"
+  },
+  {
+    "name": "Devdas",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Bhansali; tragic love; lavish Bollywood spectacle"
+  },
+  {
+    "name": "Maqbool",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Vishal Bhardwaj; Macbeth; Mumbai underworld"
+  },
+  {
+    "name": "Rang De Basanti",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "youth and activism; Bollywood social drama"
+  },
+  {
+    "name": "The Lunchbox",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Batra; love through mistaken lunch delivery; Mumbai"
+  },
+  {
+    "name": "English Vinglish",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Gauri Shinde; housewife finds identity and English"
+  },
+  {
+    "name": "Natarang",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Marathi theatre; actor's vanity; corrupt election"
+  },
+  {
+    "name": "Fandry",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Marathi caste drama; pig herding and love"
+  },
+  {
+    "name": "Through the Olive Trees",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Kiarostami; metafilm about earthquake's aftermath"
+  },
+  {
+    "name": "10 on Ten",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Kiarostami; ten conversations by car window"
+  },
+  {
+    "name": "Certified Copy",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Kiarostami; marriage, identity, Italy; philosophical"
+  },
+  {
+    "name": "Like Someone in Love",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Kiarostami; Tokyo prostitute and old client"
+  },
+  {
+    "name": "This Is Not a Film",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Panahi; under house arrest; essay on cinema"
+  },
+  {
+    "name": "Closed Curtain",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Panahi; caged men and dog; dissidence"
+  },
+  {
+    "name": "3 Faces",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Panahi; actress, director, suicide in Iran"
+  },
+  {
+    "name": "Once Upon a Time in Anatolia",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Nuri Bilge Ceylan; men search for buried body"
+  },
+  {
+    "name": "Distant",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Ceylan; cousins in Istanbul; alienation and distance"
+  },
+  {
+    "name": "Mustang",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Ergüven; Turkish girls imprisoned by patriarchy"
+  },
+  {
+    "name": "Winter Sleep",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Ceylan; playwright vs poor tenant; moral debate"
+  },
+  {
+    "name": "Waltz with Bashir",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Folman; Israeli Lebanon war animated documentary"
+  },
+  {
+    "name": "Summer of Aviya",
+    "year": 1988,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Gitai; mother and daughter in Israel"
+  },
+  {
+    "name": "The Cranes Are Flying",
+    "year": 1957,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Kalatozov; WWII separation; lyrical Soviet cinema"
+  },
+  {
+    "name": "Ivan the Terrible Part I",
+    "year": 1944,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Eisenstein; Russian tsar; operatic expressionism"
+  },
+  {
+    "name": "October",
+    "year": 1928,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Eisenstein; 1917 revolution; montage masterpiece"
+  },
+  {
+    "name": "The Man with the Movie Camera",
+    "year": 1929,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Vertov; Soviet city life; avant-garde documentary"
+  },
+  {
+    "name": "Earth",
+    "year": 1930,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Dovzhenko; Ukrainian harvest; death and renewal"
+  },
+  {
+    "name": "Zvenigora",
+    "year": 1928,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Dovzhenko; dream and history; Ukrainian epic"
+  },
+  {
+    "name": "Arsenal",
+    "year": 1928,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Dovzhenko; WWI and Ukraine; montage and symbol"
+  },
+  {
+    "name": "The Colour of Pomegranates",
+    "year": 1969,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Paradjanov; Armenian poet's life; visual poetry"
+  },
+  {
+    "name": "The Legend of Suram Fortress",
+    "year": 1985,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Paradjanov; Georgia legend; myth and ritual"
+  },
+  {
+    "name": "Shadows of Forgotten Ancestors",
+    "year": 1965,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Paradjanov; Ukrainian folk tale; obsessive colour"
+  },
+  {
+    "name": "Knife in the Water",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Polanski; sailboat duel; triangular tension"
+  },
+  {
+    "name": "The Tenant",
+    "year": 1976,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Polanski; identity loss in Paris; paranoia"
+  },
+  {
+    "name": "Closely Watched Trains",
+    "year": 1966,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Menzel; Czech WWII comedy-drama; tender"
+  },
+  {
+    "name": "Loves of a Blonde",
+    "year": 1965,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Forman; factory girl and pilot; Czech New Wave"
+  },
+  {
+    "name": "Daisies",
+    "year": 1966,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Chytilová; anarchist twin girls; Dadaist chaos"
+  },
+  {
+    "name": "The Shop on Main Street",
+    "year": 1965,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Kadar; grocer and Jewish widow in Nazi Slovakia"
+  },
+  {
+    "name": "Eccentricities",
+    "year": 1960,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Fric; Czech comedy; railway eccentrics"
+  },
+  {
+    "name": "Yeelen",
+    "year": 1987,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Cissé; Malian Bambara magic; father and son"
+  },
+  {
+    "name": "Hyènes",
+    "year": 1992,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Cissé; rich woman returns to village; Dürrenbrief"
+  },
+  {
+    "name": "Touki Bouki",
+    "year": 1973,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Mambéty; Dakar lovers dream of Paris; Senegalese poetry"
+  },
+  {
+    "name": "Heremakono",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Sissako; Mauritania waiting; minimalist meditation"
+  },
+  {
+    "name": "Tsotsi",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "South African gangster finds conscience; township"
+  },
+  {
+    "name": "Disgrace",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Jacobs; Coetzee; professor's fall in post-apartheid"
+  },
+  {
+    "name": "The Wound",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "South African gay prisoner and fragile love"
+  },
+  {
+    "name": "Uncle Boonmee Who Can Recall His Past Lives",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Apichatpong; ghosts visit Thailand; poetic ellipsis"
+  },
+  {
+    "name": "Tropical Malady",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Apichatpong; lovers in jungle; second half is tiger"
+  },
+  {
+    "name": "Blissfully Yours",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Apichatpong; border romance; long takes, slow"
+  },
+  {
+    "name": "Cemetery of Splendour",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Apichatpong; school becomes hospital; dreams and colour"
+  },
+  {
+    "name": "Tears of the Black Tiger",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Thai western; outlaw romance; melodramatic"
+  },
+  {
+    "name": "Mae Nak",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Thai ghost tale; haunting beauty"
+  },
+  {
+    "name": "Cyclo",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Tran Anh Hung; Saigon cyclo driver; sensual, violent"
+  },
+  {
+    "name": "The Vertical Ray of the Sun",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Tran Anh Hung; Hanoi family; Proust and memory"
+  },
+  {
+    "name": "Batang West Side",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Lav Diaz; Manila street children; long takes"
+  },
+  {
+    "name": "Death in the Land of Encantos",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Lav Diaz; Cinemalaya; Philippine epic"
+  },
+  {
+    "name": "From What Is Before",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Lav Diaz; provincial memory; slow cinema"
+  },
+  {
+    "name": "A Lullaby to the Sorrowful Mystery",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Lav Diaz; Philippine history; eight hours"
+  },
+  {
+    "name": "Sansho the Bailiff",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Mizoguchi; slave children separated from mother"
+  },
+  {
+    "name": "Ugetsu",
+    "year": 1953,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Mizoguchi; war and ghostly ambition; poetic"
+  },
+  {
+    "name": "Fires on the Plain",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Ichikawa; soldier cannibal horror in Pacific"
+  },
+  {
+    "name": "Late Spring",
+    "year": 1949,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Ozu; widower and daughter; subtle mastery"
+  },
+  {
+    "name": "An Autumn Afternoon",
+    "year": 1962,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Ozu; widower sees daughter married; his last film"
+  },
+  {
+    "name": "Tokyo Godfathers",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Satoshi Kon; homeless trio find baby on Christmas"
+  },
+  {
+    "name": "Floating Clouds",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Naruse; lovers reunite post-war; bittersweet"
+  },
+  {
+    "name": "The Cruel Story of Youth",
+    "year": 1960,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Imamura; girl seduces then blackmails men"
+  },
+  {
+    "name": "The Sword of Doom",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Masaki Kobayashi; swordsman's nihilism; grim"
+  },
+  {
+    "name": "The Bad Sleep Well",
+    "year": 1960,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Kurosawa; corporate revenge; modern samurai"
+  },
+  {
+    "name": "Yojimbo",
+    "year": 1961,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Kurosawa; samurai plays both gangs; dark comedy"
+  },
+  {
+    "name": "Sanjuro",
+    "year": 1962,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Kurosawa; samurai loyalty and bloodshed"
+  },
+  {
+    "name": "Tokyo Drifter",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Masahiro Shinoda; yakuza style; pop art design"
+  },
+  {
+    "name": "The Face of Another",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Hiroshi Teshigahara; man wears false face; existential"
+  },
+  {
+    "name": "Tokyo Olympiad",
+    "year": 1965,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Kon Ichikawa; 1964 Olympics documentary"
+  },
+  {
+    "name": "The Human Condition I",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Masaki Kobayashi; Japanese soldier's degradation"
+  },
+  {
+    "name": "Ghost in the Shell",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Oshii; cyborg woman seeks identity; cult anime"
+  },
+  {
+    "name": "Hana-bi",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Takeshi Kitano; cop and wife's romance and yakuza"
+  },
+  {
+    "name": "I Saw the Devil",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Lee Jae-kyoo; revenge cycle; visceral Korean horror"
+  },
+  {
+    "name": "Burning",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Lee Chang-dong; envy and class in Seoul"
+  },
+  {
+    "name": "Bedevilled",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Jang Cheol-soo; village abuse and revenge"
+  },
+  {
+    "name": "The Chaser",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Korean cop hunts serial killer; relentless"
+  },
+  {
+    "name": "Sympathy for Mr. Vengeance",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Park Chan-wook; deaf man avenges daughter"
+  },
+  {
+    "name": "Lady Vengeance",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Park Chan-wook; prison and revenge; third of trilogy"
+  },
+  {
+    "name": "Poetry",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Lee Chang-dong; old woman discovers poetry"
+  },
+  {
+    "name": "The House of the Flying Daggers",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Zhang Yimou; coloured blind romance; wuxia"
+  },
+  {
+    "name": "Crouching Tiger, Hidden Dragon",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Ang Lee; swordswomen lovers; international wuxia"
+  },
+  {
+    "name": "Chungking Express",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Wong Kar-wai; lovesick cops; Hong Kong neon"
+  },
+  {
+    "name": "2046",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Wong Kar-wai; sci-fi and memory; slow, gorgeous"
+  },
+  {
+    "name": "A Brighter Summer Day",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Hou Hsiao-hsien; Taiwan youth gangs; epic four hours"
+  },
+  {
+    "name": "Red Sorghum",
+    "year": 1987,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Zhang Yimou; grain fields and folk sexuality"
+  },
+  {
+    "name": "Ju Dou",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Zhang Yimou; dye vat and forbidden passion"
+  },
+  {
+    "name": "Raise the Red Lantern",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Zhang Yimou; concubines and patriarchy"
+  },
+  {
+    "name": "Curse of the Golden Flower",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Zhang Yimou; imperial poison and incest"
+  },
+  {
+    "name": "A Chinese Ghost Story",
+    "year": 1987,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Ching Siu-tung; scholar and ghost romance; Hong Kong"
+  },
+  {
+    "name": "Once Upon a Time in China",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Tsui Hark; Wong Fei-hung hero; Hong Kong martial"
+  },
+  {
+    "name": "The 36th Chamber of Shaolin",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Chang Cheh; Gordon Liu trains kung fu"
+  },
+  {
+    "name": "Iron Monkey",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Yuen Woo-ping; masked Robin Hood fighter"
+  },
+  {
+    "name": "Drunken Master",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Chan Yuen Woo-ping; young Jackie Chan trains"
+  },
+  {
+    "name": "Snake in the Eagle's Shadow",
+    "year": 1978,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Chan Yuen Woo-ping; Jackie's first lead"
+  },
+  {
+    "name": "The Grandmaster",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Wong Kar-wai; Ip Man and martial arts; visual"
+  },
+  {
+    "name": "Flowers of Shanghai",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Hou Hsiao-hsien; courtesan house confined"
+  },
+  {
+    "name": "Millennium Mambo",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Hou Hsiao-hsien; dancer's precarious life"
+  },
+  {
+    "name": "Goodbye South, Goodbye",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Hou Hsiao-hsien; men's friendship and crime"
+  },
+  {
+    "name": "A City of Sadness",
+    "year": 1989,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Hou Hsiao-hsien; Taiwan 1945 transition; family"
+  },
+  {
+    "name": "Dust in the Wind",
+    "year": 1986,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Hou Hsiao-hsien; miner and girlfriend"
+  },
+  {
+    "name": "The Puppetmaster",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Hou Hsiao-hsien and Xiaoyan Chen; puppet master life"
+  },
+  {
+    "name": "Temptation of a Monk",
+    "year": 1993,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Clara Law; Buddhist monastery and desire"
+  },
+  {
+    "name": "Bandit Queen",
+    "year": 1994,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Shekhar Kapur; Phoolan Devi's bandit life"
+  },
+  {
+    "name": "The Gangs of Wasseypur",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Kashyap; criminal dynasty in coal region"
+  },
+  {
+    "name": "Lipstick Under My Burkha",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Alankrita Shrivastava; women's desire and freedom"
+  },
+  {
+    "name": "Dogville",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Lars von Trier; woman tormented by town; theatrical"
+  },
+  {
+    "name": "Melancholia",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "von Trier; planet collision and depression"
+  },
+  {
+    "name": "Smiles of a Summer Night",
+    "year": 1955,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Bergman; weekend lovers' intrigue; champagne comedy"
+  },
+  {
+    "name": "The Silence",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Bergman; sisters in foreign hotel; mystery"
+  },
+  {
+    "name": "Cries and Whispers",
+    "year": 1972,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Bergman; dying woman and sisters; blood-red rooms"
+  },
+  {
+    "name": "Scenes from a Marriage",
+    "year": 1973,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Bergman; divorce crisis; intimate scenes"
+  },
+  {
+    "name": "Hour of the Wolf",
+    "year": 1968,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Bergman; artist haunted on island; nightmares"
+  },
+  {
+    "name": "The Passion of Anna",
+    "year": 1969,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Bergman; couple on island; breaking down"
+  },
+  {
+    "name": "The Sacrifice",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Tarkovsky; nuclear apocalypse and faith"
+  },
+  {
+    "name": "The Virgin Spring",
+    "year": 1960,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Bergman; rape and vengeance; tragic faith"
+  },
+  {
+    "name": "Winter Light",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Bergman; pastor's doubt; philosophical"
+  },
+  {
+    "name": "Lights in the Dusk",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Kaurismäki; security guard and woman"
+  },
+  {
+    "name": "I Hired a Contract Killer",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Kaurismäki; depressed man hires assassin"
+  },
+  {
+    "name": "Shadows in Paradise",
+    "year": 1986,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Kaurismäki; homeless couple; deadpan"
+  },
+  {
+    "name": "The Idiot",
+    "year": 1951,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Kurosawa; Dostoevsky in post-war Japan"
+  },
+  {
+    "name": "After the Storm",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Koreeda; divorced man and son; reconnection"
+  },
+  {
+    "name": "Like Father Like Son",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Koreeda; switched babies; family identity"
+  },
+  {
+    "name": "The Wind Rises",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Miyazaki; plane designer's life and love"
+  },
+  {
+    "name": "Nausicaä of the Valley of the Wind",
+    "year": 1984,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Miyazaki; girl and toxic jungle; eco-fable"
+  },
+  {
+    "name": "My Neighbour Totoro",
+    "year": 1988,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Miyazaki; girls and forest spirit; gentle"
+  },
+  {
+    "name": "Howl's Moving Castle",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Miyazaki; girl and wizard's castle; whimsy"
+  },
+  {
+    "name": "Ponyo",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Miyazaki; goldfish girl and boy"
+  },
+  {
+    "name": "The Boy and the Heron",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Miyazaki; war and fantasy; last film?"
+  },
+  {
+    "name": "Memories",
+    "year": 1995,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "three sci-fi stories; anime anthology"
+  },
+  {
+    "name": "Garden of Words",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Makoto Shinkai; boy and older woman; rain"
+  },
+  {
+    "name": "Your Name",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Makoto Shinkai; body-swap romance; phenomenon"
+  },
+  {
+    "name": "Weathering with You",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Makoto Shinkai; girl controls weather; love"
+  },
+  {
+    "name": "A Silent Voice",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "anime; deaf girl and bullies; redemption"
+  },
+  {
+    "name": "Redline",
+    "year": 2009,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "anime; futuristic race; technical marvel"
+  },
+  {
+    "name": "Perfect Blue",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Satoshi Kon; idol's identity loss; thriller"
+  },
+  {
+    "name": "The Mark of the Wolves",
+    "year": 1989,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "world-cinema",
+    "why": "Brazilian crime saga; police thriller"
+  },
+  {
+    "name": "Barren Lives",
+    "year": 1963,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "drought migration Brazil; neorealist"
+  },
+  {
+    "name": "Seven Samurai",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Kurosawa; samurai defend village; epic"
+  },
+  {
+    "name": "Ran",
+    "year": 1985,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Kurosawa; King Lear in Japan; visual grandeur"
+  },
+  {
+    "name": "Kagemusha",
+    "year": 1980,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Kurosawa; double of samurai warlord"
+  },
+  {
+    "name": "Outrage",
+    "year": 1964,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "world-cinema",
+    "why": "Kurosawa; gangland violence; spare"
+  },
+  {
+    "name": "Stray Dog",
+    "year": 1949,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Kurosawa; cop loses gun in Tokyo"
+  },
+  {
+    "name": "The Seventh Seal",
+    "year": 1957,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "world-cinema",
+    "why": "Bergman; knight plays chess with Death"
+  },
+  {
+    "name": "Fanny and Alexander",
+    "year": 1982,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "world-cinema",
+    "why": "Bergman; children's theatrical world"
+  }
+]

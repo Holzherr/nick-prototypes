@@ -1,0 +1,2106 @@
+[
+  {
+    "name": "The Boy and the Heron",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Miyazaki's final film; Oscar winner; achingly beautiful fantasy-grief meditation"
+  },
+  {
+    "name": "Your Name",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Makoto Shinkai's global phenomenon; stunning animation, heartbreaking sci-fi romance"
+  },
+  {
+    "name": "The Wind Rises",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Miyazaki's penultimate masterpiece; bittersweet engineer's biopic, wartime responsibility"
+  },
+  {
+    "name": "When Marnie Was There",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Studio Ghibli's tender mystery; delicate watercolours, memory-grief intimacy"
+  },
+  {
+    "name": "The Tale of the Princess Kaguya",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Studio Ghibli's watercolour folktale; lunar princess, countryside wonder, profound"
+  },
+  {
+    "name": "Weathering with You",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Shinkai's climate-fable romance; rain-stopping mythology, Tokyo landscapes"
+  },
+  {
+    "name": "Summer Wars",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Mamoru Hosoda's metaverse precursor; family, digital-physical, epic action"
+  },
+  {
+    "name": "The Wolf Children",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Hosoda's maternal epic; motherhood, fantasy realism, rural Kyoto beauty"
+  },
+  {
+    "name": "Tokyo Godfathers",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Satoshi Kon's Christmas redemption; homeless trio, found family, miracle"
+  },
+  {
+    "name": "Perfect Blue",
+    "year": 1997,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Satoshi Kon's psycho-thriller debut; identity fragmentation, J-horror precursor"
+  },
+  {
+    "name": "Millennium Actress",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Kon's meta-film about cinema; Hollywood history, art-life blur, lyrical"
+  },
+  {
+    "name": "Akira",
+    "year": 1988,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Katsuhiro Otomo's cyberpunk landmark; 2019 Tokyo, dystopian psychic teens"
+  },
+  {
+    "name": "Nausica\u00e4 of the Valley of the Wind",
+    "year": 1984,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Miyazaki's proto-Ghibli epic; post-apocalyptic environmentalism, nomadic princess"
+  },
+  {
+    "name": "Princess Mononoke",
+    "year": 1997,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Miyazaki's environmental epic; human-nature conflict, ashitaka's quest, stunning"
+  },
+  {
+    "name": "The Triplets of Belleville",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Sylvain Chomet's experimental noir-comedy; wordless visual storytelling, jazzy retro"
+  },
+  {
+    "name": "Ghost in the Shell",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Mamoru Oshii's cybernetic existentialism; AI consciousness, Tokyo bathyscaphe"
+  },
+  {
+    "name": "Ninja Scroll",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Yoshiaki Kawajiri's samurai-demon action; poison-ninja eroticism, Edo intrigue"
+  },
+  {
+    "name": "Song of the Sea",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Tomm Moore's Irish mythology; selkie legend, family estrangement, Celtic beauty"
+  },
+  {
+    "name": "The Secret of Kells",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Tomm Moore's Book of Kells quest; Irish art nouveau, fantasy-history blend"
+  },
+  {
+    "name": "Wolfwalkers",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Tomm Moore's wolf-girl transformation; Irish colonial clash, hand-drawn magic"
+  },
+  {
+    "name": "A Silent Voice",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Deaf-bullying redemption; sign language, school trauma, coming-of-age"
+  },
+  {
+    "name": "Promare",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Trigger's fire-rescue spectacle; dystopian superhero, kinetic animation, colour"
+  },
+  {
+    "name": "Wrinkles",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Spanish animated dementia-friendship; nursing home realism, dignity, escape"
+  },
+  {
+    "name": "A Town Called Panic",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Belgian stop-motion absurdist comedy; horse-cowboy chaos, anarchic form"
+  },
+  {
+    "name": "Coraline",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Henry Selick's stop-motion nightmare; parallel-family, button-eyes, Wybie friend"
+  },
+  {
+    "name": "ParaNorman",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Laika's zombie-town; Norman ghost-seeing, witch-curse reversal, LGBT undertones"
+  },
+  {
+    "name": "The Boxtrolls",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Laika's beneath-city; trolls raising human, cheese-villain, industrial underworld"
+  },
+  {
+    "name": "Kubo and the Two Strings",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Laika's Japanese-magic; origami animation, shamisen quests, moon-curse family"
+  },
+  {
+    "name": "Missing Link",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Laika's bigfoot expedition; Monty-sized detective, Shangri-La, Victorian adventure"
+  },
+  {
+    "name": "Tim Burton's Nightmare Before Christmas",
+    "year": 1993,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Burton-Henry Selick's Halloween-Christmas; Jack Skellington, pumpkin-king ambition"
+  },
+  {
+    "name": "Corpse Bride",
+    "year": 2005,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Burton-Mike Johnson's skeletal-wedding; undead-bride romance, living-vs-corpse dichotomy"
+  },
+  {
+    "name": "Fantastic Mr. Fox",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Wes Anderson's stop-motion caper; fox-bandit, three-farmer siege, diorama precision"
+  },
+  {
+    "name": "Isle of Dogs",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Wes Anderson's dognappers dystopia; dog-island exile, Japanese-influenced aesthetic"
+  },
+  {
+    "name": "Anomalisa",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Charlie Kaufman's stop-motion intimacy; hotel-worker isolation, automaton faces, lonely"
+  },
+  {
+    "name": "Guillermo del Toro's Pinocchio",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Stop-motion fascist-parable; wooden-boy fascism resistance, carnival-trap"
+  },
+  {
+    "name": "Klaus",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Sergio Pablos' Santa-origin; isolated-island, woodcarver redemption, generosity"
+  },
+  {
+    "name": "Nimona",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Netflix's shapeshifter chaos; villain-sidekick, knight-nemesis, queerness, anarchic"
+  },
+  {
+    "name": "Over the Garden Wall",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Cartoon Network's dark forest fairy tale; mysterious woodsman, colonial horror"
+  },
+  {
+    "name": "Gravity Falls",
+    "year": 2012,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Disney's cryptid mystery; Oregon oddities, supernatural summer, complex mythology"
+  },
+  {
+    "name": "The Owl House",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Disney's witch-demon realms; sapphic romance, abomination familiar, found family"
+  },
+  {
+    "name": "Keep Your Hands Off Eizouken!",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Science Saru's anime-about-anime; manga club, creation passion, medium celebration"
+  },
+  {
+    "name": "Castlevania: Nocturne",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Netflix's vampire-demon baroque; Richter's succession, 18th century, gothic"
+  },
+  {
+    "name": "Arcane",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Fortiche's League of Legends epic; class warfare, sisters' rift, animation masterclass"
+  },
+  {
+    "name": "Scavengers Reign",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Adult Swim's alien-planet survival; surreal creatures, scattered crew, experimental"
+  },
+  {
+    "name": "Paprika",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Satoshi Kon's dream-invasion sci-fi; reality rupture, experimental form, infectious score"
+  },
+  {
+    "name": "Ghost in the Shell 2: Innocence",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Oshii's doll-philosophising sequel; downed geishas, identity interrogation"
+  },
+  {
+    "name": "Redline",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Madhouse's hyperkinetic racing; 7-year hand-drawn spectacle, punk aesthetic"
+  },
+  {
+    "name": "The Garden of Words",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Shinkai's rain-soaked love story; school-teacher attraction, atmospheric poetry"
+  },
+  {
+    "name": "Mary and the Witch's Flower",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Studio Ponoc's Ghibli-adjacent; magical academy adventure, whimsy inheritance"
+  },
+  {
+    "name": "Porco Rosso",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Miyazaki's fascist-Adriatic adventure; cursed aviator-pig, aerial combat, romance"
+  },
+  {
+    "name": "Pom Poko",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Miyazaki-produced tanuki transformation fantasy; urban sprawl resistance, shapeshifter comedy"
+  },
+  {
+    "name": "Castle in the Sky",
+    "year": 1986,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Miyazaki's adventure-romance; levitating castle, adventure, proto-Ghibli worldbuilding"
+  },
+  {
+    "name": "Mobile Suit Gundam: Char's Counterattack",
+    "year": 1988,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Gundam space-colonist epic; asteroid collision, Newtype mysticism"
+  },
+  {
+    "name": "Saint Young Men",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "animation-genre",
+    "why": "Jesus-Buddha buddy comedy; modern-day Tokyo, theological jokes, absurd faith"
+  },
+  {
+    "name": "Demon Slayer",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "ufotable's phenomenon anime; demon-slaying viscera, demon-moon aesthetic"
+  },
+  {
+    "name": "Attack on Titan: The Final Chapters",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "WIT/MAPPA's epoch-ending; titan warfare apocalypse, rumbling, genocide tragedy"
+  },
+  {
+    "name": "Jujutsu Kaisen",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "MAPPA's cursed-sorcery spectacle; demon hunters, dark academia, action"
+  },
+  {
+    "name": "Mob Psycho 100",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Bones' psychic growth; schoolboy-ESP, emotional maturation, character arcs"
+  },
+  {
+    "name": "Fullmetal Alchemist: Brotherhood",
+    "year": 2009,
+    "type": "series",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Bones' complete adaptation; transmutation tragedy, state alchemy militarism"
+  },
+  {
+    "name": "Code Geass",
+    "year": 2006,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Sunrise's mind-control mecha; geas power, rebellion, moral corruption"
+  },
+  {
+    "name": "Neon Genesis Evangelion",
+    "year": 1995,
+    "type": "series",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Hideaki Anno's psychological deconstruction; AT fields, pubescent pilots, existential"
+  },
+  {
+    "name": "Cowboy Bebop",
+    "year": 1998,
+    "type": "series",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Sunrise's neo-noir episodic; spaceport bounty-hunting, jazz noir, scattered narrative"
+  },
+  {
+    "name": "Samurai Champloo",
+    "year": 2004,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Manglobe's hip-hop samurai; Edo hip-hop anachronism, trio adventure, funk"
+  },
+  {
+    "name": "Carole & Tuesday",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Bones' Martian musical sf; idols, Mars colony, AI consciousness"
+  },
+  {
+    "name": "RWBY",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Rooster Teeth's weapon-wielding hunters; Remnant mythology, fan-beloved, grown-up"
+  },
+  {
+    "name": "Love, Death & Robots",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "David Fincher's VR anthology; varied studios, horror-sci-fi, explicit content"
+  },
+  {
+    "name": "Disenchantment",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Matt Groening's fantasy sitcom; medieval irreverence, Princess Bean, crude humour"
+  },
+  {
+    "name": "Big Mouth",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Comedy vagabonds; adolescent hormone chaos, hormone monster guides"
+  },
+  {
+    "name": "Pantheon",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Cartoon Network's digital-upload sci-fi; teenage consciousness, AI godhood"
+  },
+  {
+    "name": "Infinity Train",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Cartoon Network's surreal train-mystery; car-hopping, trauma anthology, dreamlike"
+  },
+  {
+    "name": "Craig of the Creek",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Cartoon Network's nostalgic creek-adventures; childhood exploration, gentle mystery"
+  },
+  {
+    "name": "The Simpsons Movie",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Treehouse of Horror scope; Shelbyville dam collapse, Springfield exodus, feature-length"
+  },
+  {
+    "name": "South Park: Bigger, Longer & Uncut",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Trey Parker's profane musical; Canadian invasion satire, Stan-Kyle friendship"
+  },
+  {
+    "name": "Spider-Man: Into the Spider-Verse",
+    "year": 2018,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Sony's multiverse-hopping aesthetic; comic-panel animation, Miles Morales, quantum-leap"
+  },
+  {
+    "name": "The Incredibles",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Brad Bird's superhero-domestic; family team, Syndrome betrayal, supers-erased world"
+  },
+  {
+    "name": "Up",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Pete Docter's cloudtop elegy; Dug friendship, widower paradise, eleven-minute silence"
+  },
+  {
+    "name": "Inside Out",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Pete Docter's emotion-personified; Riley's adolescence, core memories, sadness importance"
+  },
+  {
+    "name": "Soul",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Pete Docter's jazz-metaphysical; afterlife mentorship, purpose meaning, soul realm"
+  },
+  {
+    "name": "Toy Story",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "John Lasseter's toy-consciousness; Woody-Buzz conflict, Sid's horror house, seminal"
+  },
+  {
+    "name": "Toy Story 2",
+    "year": 1999,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Toy Story expanded; Jessie tragedy, toy collector, existential obsolescence"
+  },
+  {
+    "name": "Toy Story 3",
+    "year": 2010,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Lee Unkrich's grown-up goodbye; daycare captivity, Andy's college, emotional culmination"
+  },
+  {
+    "name": "A Bug's Life",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "John Lasseter's ant-colony; grasshopper tyranny, inventor protagonist, circus realism"
+  },
+  {
+    "name": "Monsters, Inc.",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Pete Docter's scare-laugh factory; Sulley-Boo bond, scream-energy dystopia"
+  },
+  {
+    "name": "Ratatouille",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Brad Bird's rat-chef romance; Paris cuisine, food criticism, parasite collaboration"
+  },
+  {
+    "name": "Wall-E",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Andrew Stanton's trash-robot love; wordless, dystopian Earth, EVE bond"
+  },
+  {
+    "name": "Brave",
+    "year": 2012,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Mark Andrews' Scottish princess-archer; mother curse, bow independence, Celtic"
+  },
+  {
+    "name": "Turning Red",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Domee Shi's panda-girl transformation; Toronto, mother-daughter, red-haired rage"
+  },
+  {
+    "name": "Luca",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Enrico Casarosa's sea-monster; Italian Riviera, friendship, transformation secret"
+  },
+  {
+    "name": "Encanto",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Jared Bush's Colombia-magical; Mirabel powerless, family dysfunction, pressure"
+  },
+  {
+    "name": "Snow White and the Seven Dwarfs",
+    "year": 1937,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Disney's animation genesis; poisoned apple, cottage refuge, rotoscoped elegance"
+  },
+  {
+    "name": "Sleeping Beauty",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Disney's Maleficent-curse; spinning-wheel fate, fairy godmothers, rotoscoped princedoms"
+  },
+  {
+    "name": "Tangled",
+    "year": 2010,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Nathan Greno's rapunzel-escape; hair magic, princess freedom, thief redemption"
+  },
+  {
+    "name": "Frozen",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Chris Buck's sisterhood-over-romance; ice-powered, love-is-complex, phenomenon"
+  },
+  {
+    "name": "Frozen II",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Chris Buck's magical-origins quest; Northuldra revealed, Elsa's dark side"
+  },
+  {
+    "name": "Raya and the Last Dragon",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Don Hall's dragon-trust; Southeast Asian fantasy, Kumandra divided, species-bridging"
+  },
+  {
+    "name": "The Lion King",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Disney's hamlet-savannah; Simba's trauma, Mufasa's death, Hakuna Matata"
+  },
+  {
+    "name": "Mulan",
+    "year": 1998,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Disney's warrior-woman; gender disguise, Hun invasion, family honour"
+  },
+  {
+    "name": "Moana",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Ron Clements' wayfinding; oceanic ancestry, demi-god Maui, Pacific mythologies"
+  },
+  {
+    "name": "Coco",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Pixar's Day of the Dead; family legacy, music prohibition, ancestor remembrance"
+  },
+  {
+    "name": "Hercules",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Disney's Greek mythology; Megara goddess, Hades villain, Phil mentorship"
+  },
+  {
+    "name": "Tarzan",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Disney's jungle-ape romance; gorilla-raised man, Jane explorer, vine-swinging"
+  },
+  {
+    "name": "Brother Bear",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Disney's transformation-redemption; human-bear brother, indigenous Alaska"
+  },
+  {
+    "name": "Atlantis: The Lost Empire",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Disney's submarine-explorer; crystal-powered city, cartographer protagonist"
+  },
+  {
+    "name": "Shrek",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "DreamWorks' anti-fairy-tale; ogre hero, donkey sidekick, Fiona agency"
+  },
+  {
+    "name": "Shrek 2",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "DreamWorks' married life; fairy-tale kingdom, Puss-in-Boots debut, in-laws"
+  },
+  {
+    "name": "How to Train Your Dragon",
+    "year": 2010,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "DreamWorks' dragon-bond; Hiccup-Toothless, Viking paradigm-shift, flight glory"
+  },
+  {
+    "name": "How to Train Your Dragon 2",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "DreamWorks' dragon-riders; Toothless alpha, mother revealed, war brewing"
+  },
+  {
+    "name": "How to Train Your Dragon: The Hidden World",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "DreamWorks' trilogy-coda; hidden-dragon sanctuary, Hiccup-Astrid, letting-go"
+  },
+  {
+    "name": "Kung Fu Panda",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "DreamWorks' noodle-panda warrior; martial-arts training, Tai Lung, Jack Black"
+  },
+  {
+    "name": "Kung Fu Panda 2",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "DreamWorks' sequel spectacle; Shen's cannon army, inner peace, kung-fu mastery"
+  },
+  {
+    "name": "Megamind",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "DreamWorks' supervillain-redemption; Metro Man defeat, Titans Glass villain"
+  },
+  {
+    "name": "Despicable Me",
+    "year": 2010,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Illumination's supervillain-family; Gru orphan-adoption, minion chaos, heart"
+  },
+  {
+    "name": "Sing",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Illumination's karaoke-competition; koala theatre, animal performers, ensemble cast"
+  },
+  {
+    "name": "Hop",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Universal's Easter Bunny; successor-drumming, human-rabbit friendship"
+  },
+  {
+    "name": "The Lego Movie",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Meta brick comedy; pop-culture dense, surprisingly heartfelt, visually inventive"
+  },
+  {
+    "name": "The Shining",
+    "year": 1980,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Kubrick's hotel-nightmare; isolation madness, blood-elevator, Overlook curse"
+  },
+  {
+    "name": "The Exorcist",
+    "year": 1973,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Friedkin's demonic possession; Regan corruption, exorcism-ritual, religious horror"
+  },
+  {
+    "name": "Hereditary",
+    "year": 2018,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Ari Aster's family-curse; grandmother-possession, decapitation, generational trauma"
+  },
+  {
+    "name": "Midsommar",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Ari Aster's daylight-cult; Swedish festival, grief-vulnerable, group-elimination"
+  },
+  {
+    "name": "Let the Right One In",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Tomas Alfredson's vampire-friendship; Swedish winter, child-bond, parasitic love"
+  },
+  {
+    "name": "The Descent",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Neil Marshall's cave-crawler; subterranean creatures, claustrophobic terror, gore"
+  },
+  {
+    "name": "Event Horizon",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Paul WS Anderson's space-horror; dimension-breach, hellish vessel, crew-dismantling"
+  },
+  {
+    "name": "It Follows",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "David Robert Mitchell's STI-curse; relentless-pursuer, teen-mortality, synth-dread"
+  },
+  {
+    "name": "Suspiria",
+    "year": 1977,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Argento's witchcraft-giallo; dance academy, vivid-colour fever dream, synth terror"
+  },
+  {
+    "name": "Deep Red",
+    "year": 1975,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Argento's murder-mystery giallo; pianist witness, psychic-murder, stylised killing"
+  },
+  {
+    "name": "Dark Water",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Hideo Nakata's apartment-haunting; water-ghost, mother-daughter, supernatural-damp"
+  },
+  {
+    "name": "Kairo",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Kiyoshi Kurosawa's internet-haunting; digital-ghosts, isolation, eerie minimalism"
+  },
+  {
+    "name": "The Wailing",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Na Hong-jin's multi-faith horror; village-curse, priest-mystery, ambiguous evil"
+  },
+  {
+    "name": "Saint Maud",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Rose Glass's nurse-obsession; faith-delusion, patron-saint fixation, psychological"
+  },
+  {
+    "name": "His House",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Remi Weekes' refugee-haunting; trauma-embodied ghosts, asylum-survival horror"
+  },
+  {
+    "name": "The Creature from the Black Lagoon",
+    "year": 1954,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Universal's monster-fascination; Amazon river, beauty-beast attraction, 3D spectacle"
+  },
+  {
+    "name": "Frankenstein",
+    "year": 1931,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "James Whale's monster-creation; mad scientist, creature pathos, Universal canonical"
+  },
+  {
+    "name": "Dracula",
+    "year": 1931,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Tod Browning's vampire-import; Bela Lugosi, Transylvanian-abroad, seduction-horror"
+  },
+  {
+    "name": "The Wolf Man",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "George Waggner's cursed-werewolf; transformation tragedy, pentagram doom, wolfsbane"
+  },
+  {
+    "name": "Curse of Frankenstein",
+    "year": 1957,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Terence Fisher's Hammer color; creature-in-colour, medical ethics, period Frankenstein"
+  },
+  {
+    "name": "Brides of Dracula",
+    "year": 1960,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Terence Fisher's Hammer vampire; multiple-brides, priest-exorcism, Carpathian castle"
+  },
+  {
+    "name": "Freeway",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Matthew Bright's Little-Red-Riding-Hood slasher; serial-killer predator, trash-class satire"
+  },
+  {
+    "name": "Come and See",
+    "year": 1985,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Elem Klimov's WWII horror; partisan-child, Nazi-brutality, apocalyptic war-trauma"
+  },
+  {
+    "name": "A Dark Song",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Liam Gaynor's grief-occult; widow-ritual, medium companionship, supernatural healing"
+  },
+  {
+    "name": "A Cure for Wellness",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Gore Verbinski's spa-nightmare; corporate-conspiracy, body-horror, Swiss Gothic"
+  },
+  {
+    "name": "Nosferatu the Vampyre",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Werner Herzog's plague-wanderer; Kinski corpse, transylvania plague, atmospheric"
+  },
+  {
+    "name": "The Mummy",
+    "year": 1932,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Karl Freund's Ancient-Egyptian; pharaoh-resurrection, curse-reincarnation, Boris Karloff"
+  },
+  {
+    "name": "Poltergeist",
+    "year": 1982,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Tobe Hooper's suburban-haunting; TV-static spirits, suburban-evil, family-jeopardy"
+  },
+  {
+    "name": "Scanners",
+    "year": 1981,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "David Cronenberg's psychic-warfare; head-explosion, telepathy-battle, body-horror"
+  },
+  {
+    "name": "Videodrome",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "David Cronenberg's flesh-media; hallucination-VHS, tape-worm abdomen, reality-breakdown"
+  },
+  {
+    "name": "2001: A Space Odyssey",
+    "year": 1968,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Kubrick's cosmic-evolution; monolith mystery, AI-mutiny, transcendence, philosophical"
+  },
+  {
+    "name": "Blade Runner",
+    "year": 1982,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Ridley Scott's replicant-hunter; empathy test, neo-noir dystopia, artificial-consciousness"
+  },
+  {
+    "name": "Blade Runner 2049",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Denis Villeneuve's LA-sprawl sequel; Tyrell-child, radioactive-Vegas, visual majesty"
+  },
+  {
+    "name": "The Terminator",
+    "year": 1984,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "James Cameron's time-travel sci-fi; T-800 execution, fate resistance, Skynet looming"
+  },
+  {
+    "name": "Terminator 2: Judgment Day",
+    "year": 1991,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "James Cameron's liquid-T1000; special-effects watershed, mother-soldier, nuclear-terror"
+  },
+  {
+    "name": "Alien",
+    "year": 1979,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Ridley Scott's space-horror; industrial-vessel, chestburster, claustrophobic dread"
+  },
+  {
+    "name": "Aliens",
+    "year": 1986,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "James Cameron's hive-assault; Ripley-Newt, power-loader, alien-reproduction dread"
+  },
+  {
+    "name": "The Thing",
+    "year": 1982,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "John Carpenter's Antarctic-paranoia; shapeshifter creature, isolation terror, paranoia"
+  },
+  {
+    "name": "Under the Skin",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Jonathan Glazel's alien-seduction; Glasgow-kidnapper, gender disguise, body-fluid"
+  },
+  {
+    "name": "Arrival",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Denis Villeneuve's language-alien; linguistic-relativity, time-manipulation, emotional"
+  },
+  {
+    "name": "Annihilation",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Alex Garland's shimmer-zone; biomorphic-mutation, self-destruction, reality-distortion"
+  },
+  {
+    "name": "Ex Machina",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Alex Garland's AI-seduction; Ava sentience, programmer manipulation, cyborg-escape"
+  },
+  {
+    "name": "Her",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Spike Jonze's OS-romance; Theodore-Samantha, artificial-intelligence love, digital intimacy"
+  },
+  {
+    "name": "Godzilla",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Ishiro Honda's atomic-monster; post-war metaphor, destruction-allegory, kaiju-genesis"
+  },
+  {
+    "name": "Godzilla Minus One",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Takashi Yamazaki's black-and-white; post-war trauma, rebirth-metaphor, modern masterpiece"
+  },
+  {
+    "name": "RoboCop",
+    "year": 1987,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Paul Verhoeven's cop-cyborg; corporate-dystopia, violent-satire, tragic-redemption"
+  },
+  {
+    "name": "Total Recall",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Paul Verhoeven's Mars-memory implants; identity-crisis, three-breasted lady, reality-doubt"
+  },
+  {
+    "name": "The Running Man",
+    "year": 1987,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Paul Michael Glaser's dystopian-game; game-show execution, Arnold Schwarzenegger"
+  },
+  {
+    "name": "12 Monkeys",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Terry Gilliam's time-loop; plague-apocalypse, asylum-escape, cassandra-prophecy"
+  },
+  {
+    "name": "Brazil",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Terry Gilliam's bureaucratic-dystopia; paperwork-nightmare, Ducts-maze, totalitarian"
+  },
+  {
+    "name": "The Fifth Element",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Luc Besson's opera-space; Diva-priestess, orange-multipass, neon Corben-Dallas"
+  },
+  {
+    "name": "Duel",
+    "year": 1971,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Steven Spielberg's road-rage; trucker-menace, psycho-driver, vehicular-terror"
+  },
+  {
+    "name": "Blood Simple",
+    "year": 1984,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Coen Brothers' Texas noir; hired-killer, bartender jealousy, blood-mess escalation"
+  },
+  {
+    "name": "Chinatown",
+    "year": 1974,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Roman Polanski's LA noir; water-conspiracy, femme-fatale, hopelessness-ending"
+  },
+  {
+    "name": "Double Indemnity",
+    "year": 1944,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Billy Wilder's perfect noir; insurance-murder, femme-fatale seduction, fate"
+  },
+  {
+    "name": "Out of the Past",
+    "year": 1947,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Jacques Tourneur's noir essential; past-catches-up, femme-fatale theft, Mexico-LA"
+  },
+  {
+    "name": "Laura",
+    "year": 1944,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Otto Preminger's murder-mystery; woman-portrait, detective-obsession, portrait-reveal"
+  },
+  {
+    "name": "Notorious",
+    "year": 1946,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Alfred Hitchcock's spy-seduction; spy-wife, Rio Nazi, wine-poisoning"
+  },
+  {
+    "name": "Vertigo",
+    "year": 1958,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Hitchcock's obsession-thriller; acrophobia, doppelg\u00e4nger, San Francisco mystery"
+  },
+  {
+    "name": "Rear Window",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Hitchcock's window voyeur; rear-plot witness, apartment-spying, murder-proof"
+  },
+  {
+    "name": "North by Northwest",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Hitchcock's mistaken-identity; Mount Rushmore, crop-duster, spy-chase"
+  },
+  {
+    "name": "Psycho",
+    "year": 1960,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Hitchcock's shower-murder; motel-keeper Norman, mother complex, horror-blueprint"
+  },
+  {
+    "name": "Barton Fink",
+    "year": 1991,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Coen Brothers' Hollywood-horror; writer despair, hotel-nightmare, wrestler-mystery"
+  },
+  {
+    "name": "Miller's Crossing",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Coen Brothers' 1920s-gang; hat-fixation, Irish mob, tommy-gun warfare"
+  },
+  {
+    "name": "Brick",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Rian Johnson's high-school noir; drug-mystery, femme-fatale teen, hardboiled-slang"
+  },
+  {
+    "name": "Drive",
+    "year": 2011,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Nicolas Winding Refn's getaway driver; neon-LA, silence-violence, scorpion-jacket"
+  },
+  {
+    "name": "Collateral",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Michael Mann's taxi-hitman; night-LA, taxi-driver kidnapped, crime-philosophising"
+  },
+  {
+    "name": "Heat",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Michael Mann's cop-vs-robber; Pacino-De Niro, bank-robbery, downtown-shootout"
+  },
+  {
+    "name": "Out of Sight",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Steven Soderbergh's prisoner-con; criminal-lovers, trunk romance, heist-scheme"
+  },
+  {
+    "name": "Ocean's Eleven",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Soderbergh's Vegas heist; star ensemble, Bellagio robbery, plan-perfection"
+  },
+  {
+    "name": "L.A. Confidential",
+    "year": 1997,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Curtis Hanson's 1950s LA noir; cop corruption, starlet murder, Hollywood-darkness"
+  },
+  {
+    "name": "Kiss Kiss Bang Bang",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Shane Black's LA mystery; thief-actor, screenplay, crime-comedy self-aware"
+  },
+  {
+    "name": "Inside Man",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Spike Lee's bank heist; cop-vs-robber wit, hostage standoff, puzzle-ending"
+  },
+  {
+    "name": "Rififi",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Jules Dassin's Paris jewel heist; silent-robbery sequence, gangster-protocol"
+  },
+  {
+    "name": "Reservoir Dogs",
+    "year": 1992,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Tarantino's heist-gone-wrong; undercover-infiltration, warehouse-torture, gangster-names"
+  },
+  {
+    "name": "Pulp Fiction",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Tarantino's non-linear crime; multiple stories, Marsellus ball, briefcase mystery"
+  },
+  {
+    "name": "Jackie Brown",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Tarantino's smuggler-scheme; Pam Grier, ATF, double-cross complexity"
+  },
+  {
+    "name": "Once Upon a Time in the West",
+    "year": 1968,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Sergio Leone's spaghetti epic; harmonica-gunman, widow-land, iconic duel"
+  },
+  {
+    "name": "For a Few Dollars More",
+    "year": 1965,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Leone's sequel masterpiece; bounty-hunter showdown, music-box revenge, Eastwood-Van Cleef"
+  },
+  {
+    "name": "The Good the Bad and the Ugly",
+    "year": 1966,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Leone's Civil War treasure; three-gunman, buried-gold, Morricone-score immortal"
+  },
+  {
+    "name": "A Fistful of Dollars",
+    "year": 1964,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Leone's anti-hero western; gang-warfare, silent-gunman, spaghetti-western invention"
+  },
+  {
+    "name": "High Noon",
+    "year": 1952,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Fred Zinnemann's real-time showdown; abandoned-marshal, noon-gunfight, moral-courage"
+  },
+  {
+    "name": "Rio Bravo",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Howard Hawks' siege-western; drunk-deputy, small-town defence, camaraderie"
+  },
+  {
+    "name": "The Searchers",
+    "year": 1956,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "John Ford's obsession-western; captive-niece, frontiersman racism, Monument Valley"
+  },
+  {
+    "name": "Unforgiven",
+    "year": 1992,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Clint Eastwood's retired-outlaw; aging killer, violence consequence, blood-cost"
+  },
+  {
+    "name": "Stagecoach",
+    "year": 1939,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "John Ford's coach-journey; diverse-passengers, Apache pursuit, wilderness-ordeal"
+  },
+  {
+    "name": "Rio Grande",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "John Ford's cavalry frontier; ex-couple, Apache pursuit, military-honour"
+  },
+  {
+    "name": "The Magnificent Seven",
+    "year": 1960,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "John Sturges' gunslinger-protectors; Mexican village, hired heroes, dust-showdown"
+  },
+  {
+    "name": "Johnny Guitar",
+    "year": 1954,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Nicholas Ray's woman-gunslinger; matriarchy western, Joan Crawford, saloon"
+  },
+  {
+    "name": "The Ballad of Little Jo",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Maggie Greenwald's woman-gunslinger; cross-dressing survival, frontier independence"
+  },
+  {
+    "name": "Bad Day at Black Rock",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "John Sturges' one-armed stranger; small-town racism, Japanese-American, desert-mystery"
+  },
+  {
+    "name": "Butch Cassidy and the Sundance Kid",
+    "year": 1969,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "George Roy Hill's outlaw-pair; Bolivia escape, bicycle-capers, chemistry"
+  },
+  {
+    "name": "Enter the Dragon",
+    "year": 1973,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Robert Clouse's Bruce-Lee masterpiece; Hong Kong island tournament, martial-arts legend"
+  },
+  {
+    "name": "Drunken Master",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Yuen Woo-ping's Jackie-Chan debut; drunken-boxing style, master-training, comedy"
+  },
+  {
+    "name": "Hard Boiled",
+    "year": 1992,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "John Woo's Hong Kong action; dual-guns, cop-mole, gun-fu spectacle, baby-hospital"
+  },
+  {
+    "name": "Crouching Tiger Hidden Dragon",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Ang Lee's wuxia masterpiece; warrior-women, bamboo-dancing, sword-quest"
+  },
+  {
+    "name": "House of Flying Daggers",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Zhang Yimou's colour-wuxia; color-fields, disguised-lover, bamboo-forest romance"
+  },
+  {
+    "name": "Hero",
+    "year": 2002,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Zhang Yimou's Qin legend; assassin-nameless, colour-symbolism, sacrifice-emperor"
+  },
+  {
+    "name": "Ip Man",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Wilson Yip's Wing Chun master; Japanese occupation, kung fu grandmaster, honour"
+  },
+  {
+    "name": "Ong Bak",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Prachya Pinkaew's Tony Jaa parkour; stolen-Buddha, muay-thai vengeance, physical"
+  },
+  {
+    "name": "The Raid",
+    "year": 2011,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Gareth Evans' building-assault; apartment-siege, pencak-silat, stairwell mayhem"
+  },
+  {
+    "name": "The Raid 2",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Gareth Evans' crime-underworld; infiltration-gang, car-chase-kitchen, martial-arts epic"
+  },
+  {
+    "name": "Police Story",
+    "year": 1985,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Jackie Chan's glass-hall; cop protection, stunt-spectacle, Hong Kong action-comedy"
+  },
+  {
+    "name": "City on Fire",
+    "year": 1987,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Ringo Lam's undercover-cop; mole-betrayal, gangster infiltration, gritty-action"
+  },
+  {
+    "name": "A Better Tomorrow",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "John Woo's triad-redemption; gun-fu, brothers-separated, gunslinger gravitas"
+  },
+  {
+    "name": "Fist of Legend",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Gordon Chan's kung-fu epic; anti-Japanese, Shanghai 1920s, Jet Li masterpiece"
+  },
+  {
+    "name": "Singin' in the Rain",
+    "year": 1952,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Gene Kelly's Hollywood musical; rain-dancing, silent-talkies, romance-tap"
+  },
+  {
+    "name": "An American in Paris",
+    "year": 1951,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Vincente Minnelli's Paris ballet; art-love, Ballets sequence, postcards-dancing"
+  },
+  {
+    "name": "West Side Story",
+    "year": 1961,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Robert Wise's gang-musical; Jets-Sharks, Puerto Rican, Shakespeare-NYC, iconic"
+  },
+  {
+    "name": "Guys and Dolls",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Joseph Mankiewicz's gambler-romantic; Broadway-dames, Havana, Runyon-brothers"
+  },
+  {
+    "name": "The Music Man",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Morton DaCosta's Iowa brass; con-man music teacher, Marian, hymn-conversion"
+  },
+  {
+    "name": "Cabaret",
+    "year": 1972,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Bob Fosse's Weimar-decadence; Sally Bowles, Nazi-rise, Berlin-Kit Kat"
+  },
+  {
+    "name": "Hairspray",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Adam Shankman's 1960s Baltimore; Tracy dancing, integration, John Waters camp"
+  },
+  {
+    "name": "Chicago",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Rob Marshall's Prohibition crime; cell-dance, jazz-murder, killer-starlets"
+  },
+  {
+    "name": "La La Land",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Damien Chazelle's Los Angeles-love; dreamy-dancing, jazz-piano, star-ambition"
+  },
+  {
+    "name": "In the Heights",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Jon M Chu's Washington Heights; Latino-musical, bodega-owner, dreams-community"
+  },
+  {
+    "name": "Dear Evan Hansen",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Stephen Chbosky's teen-musical; anxiety-boy, viral-lie, grief-community"
+  },
+  {
+    "name": "Dreamgirls",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Bill Condon's Motown rise; female-group, superstardom, identity-loss"
+  },
+  {
+    "name": "A Chorus Line",
+    "year": 1985,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Richard Attenborough's Broadway audition; dancer-ensemble, personal-stories, callback"
+  },
+  {
+    "name": "Sweeney Todd: The Demon Barber of Fleet Street",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Tim Burton's murderous-barber; Sondheim-musical, Victorian London, cannibalism"
+  },
+  {
+    "name": "Seven Samurai",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Akira Kurosawa's masterwork; samurai-recruitment, peasant-defence, rain-battle"
+  },
+  {
+    "name": "Rashomon",
+    "year": 1950,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Kurosawa's truth-multiplicity; rape-murder, perspective-relativity, forest-testimony"
+  },
+  {
+    "name": "Harakiri",
+    "year": 1962,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Masaki Kobayashi's ritual-suicide; samurai-decline, mercy-killing, tragedy"
+  },
+  {
+    "name": "Ran",
+    "year": 1985,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Kurosawa's King Lear; samurai-succession, kingdom-division, colour-battle-catastrophe"
+  },
+  {
+    "name": "Ikiru",
+    "year": 1952,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Kurosawa's mortality meditation; bureaucrat-cancer, life-meaning, playground-legacy"
+  },
+  {
+    "name": "Ashes and Diamonds",
+    "year": 1958,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Andrzej Wajda's Polish independence; post-war guerrilla, romantic-fatalism, rebellion"
+  },
+  {
+    "name": "Sanjuro",
+    "year": 1962,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "animation-genre",
+    "why": "Kurosawa's samurai-action; hidden-princess, samurai-loyalty, sword-master duel"
+  },
+  {
+    "name": "Mystic River",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Clint Eastwood's Boston-tragedy; childhood-friends, daughter-murder, revenge-spiral"
+  },
+  {
+    "name": "Killers of the Flower Moon",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Martin Scorsese's Osage oil-murders; indigenous genocide, corruption conspiracy"
+  },
+  {
+    "name": "Goodfellas",
+    "year": 1990,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Martin Scorsese's mob-epic; Henry-mafia, coke paranoia, narrator-wiseguy"
+  },
+  {
+    "name": "Casino",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Scorsese's Las Vegas crime; mobster-manager, wife-mistress, casino-greed"
+  },
+  {
+    "name": "The Godfather",
+    "year": 1972,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Francis Ford Coppola's mafia saga; patriarch death, Corleone succession, empire"
+  },
+  {
+    "name": "The Godfather Part II",
+    "year": 1974,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Coppola's parallel-dynasties; Vito-rise, Michael-consolidation, power-corruption"
+  },
+  {
+    "name": "The Departed",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Scorsese's Boston moles; cop-infiltrates, mobster-invert, double-agent chaos"
+  },
+  {
+    "name": "Scarface",
+    "year": 1983,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Brian De Palma's Miami-cocaine; Scarface rise, wife-mistress, cocaine-palace finale"
+  },
+  {
+    "name": "City of God",
+    "year": 2002,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Fernando Meirelles' Rio favela; gang-wars, photojournalist, violence-cycle"
+  },
+  {
+    "name": "Gangs of Wasseypur",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Anurag Kashyap's Delhi-gangsters; coal-mafia, multi-generational vendetta, Hindi-crime"
+  },
+  {
+    "name": "The Big Sleep",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Howard Hawks' Chandler-mystery; Bogart-Bacall chemistry, complex plot, flirtation"
+  },
+  {
+    "name": "Kiss Me Deadly",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Robert Aldrich's Mike Hammer; atomic-briefcase, Manhattan, nuclear-dread"
+  },
+  {
+    "name": "Kiss of Death",
+    "year": 1947,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Henry Hathaway's informant betrayal; Tommy Udo psychopath, noir-tragedy"
+  },
+  {
+    "name": "Farewell, My Lovely",
+    "year": 1975,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Dick Richards' LA noir; Marlowe-search, murder-mystery, Chandler adaptation"
+  },
+  {
+    "name": "In a Lonely Place",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Ray Nicholas' Hollywood noir; screenwriter-accused, femme-suspect, suspicion-destruction"
+  },
+  {
+    "name": "Rope",
+    "year": 1948,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Hitchcock's real-time apartment; contained murder, party-suspense, moral-murder"
+  },
+  {
+    "name": "The 39 Steps",
+    "year": 1935,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Hitchcock's accused-fugitive; Scottish chase, spy-conspiracy, Handcuff-romance"
+  },
+  {
+    "name": "Shadow of a Doubt",
+    "year": 1943,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Hitchcock's small-town darkness; Uncle Charlie evil, suburban-evil-within"
+  },
+  {
+    "name": "Tinker Tailor Soldier Spy",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Tomas Alfredson's spy-mole; Cold War espionage, le Carr\u00e9 adaptation, Soviet-mole"
+  },
+  {
+    "name": "The Lives of Others",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "animation-genre",
+    "why": "Florian Henckel von Donnersmarck's Stasi surveillance; East German spying, redemption"
+  },
+  {
+    "name": "Three Days of the Condor",
+    "year": 1975,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "animation-genre",
+    "why": "Sydney Pollack's CIA-hunted; analyst-fugitive, Washington thriller, paranoia"
+  }
+]
