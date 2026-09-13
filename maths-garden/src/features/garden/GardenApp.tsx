@@ -312,8 +312,9 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
       />
     ) : null;
 
-  // The best stage reached in any game, which is what unlocks the later sticker packs.
-  const stage = Math.max(...GAMES.map((game) => stageOf(levelOf(progress.levels, game))));
+  // The stage reached in each game. Sticker packs unlock on how many games have reached a stage, not on the
+  // best single one — which is what let one game at level 3 open the whole catalogue in an afternoon.
+  const stages = GAMES.map((game) => stageOf(levelOf(progress.levels, game)));
 
   const view = (() => {
     switch (screen.name) {
@@ -366,7 +367,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             breakHint={screen.breakHint}
             sticker={drawn && screen.sticker ? { sticker: drawn, shiny: screen.sticker.shiny } : null}
             gardenNews={gardenNews(screen.gardenBefore, garden)}
-            stage={stage}
+            stages={stages}
             onPickPack={pickSticker}
             onAgain={() => play(screen.game)}
             onStickers={() => setScreen({ name: 'stickers' })}
@@ -401,7 +402,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
       case 'history':
         return <ProgressScreen child={child} progress={progress} onClose={() => setScreen({ name: 'dashboard' })} />;
       case 'stickers':
-        return <StickerBookScreen childName={child.name} stickers={progress.stickers} stage={stage} onHome={home} />;
+        return <StickerBookScreen childName={child.name} stickers={progress.stickers} stages={stages} onHome={home} />;
       case 'gate':
         return <GrownUpsGate onPass={() => setScreen({ name: 'dashboard' })} onCancel={home} />;
       case 'dashboard':

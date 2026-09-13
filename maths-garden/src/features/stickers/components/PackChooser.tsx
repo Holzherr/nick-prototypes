@@ -7,11 +7,11 @@ import { StickerBadge } from './StickerBadge';
  * after a round, and a four-year-old being offered something she cannot have is a worse moment than simply
  * meeting the new pack when it arrives.
  */
-export const PackChooser = ({ stage = 1, onPick }: { stage?: number; onPick: (pack: PackId) => void }) => (
+export const PackChooser = ({ stages = [1], onPick }: { stages?: readonly number[]; onPick: (pack: PackId) => void }) => (
   <section className="flex flex-col items-center gap-4">
     <h2 className="text-[clamp(22px,3.4vw,30px)] font-semibold">Choose a sticker!</h2>
     <div className="flex flex-wrap justify-center gap-[clamp(12px,2.5vw,22px)]">
-      {unlockedPacks(stage).map((pack) => (
+      {unlockedPacks(stages).map((pack) => (
         <button
           key={pack.id}
           type="button"
