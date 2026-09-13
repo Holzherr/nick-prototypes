@@ -1,0 +1,1522 @@
+[
+  {
+    "name": "Maniac",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi dark comedy with Emma Stone and Jonah Hill; surreal miniseries"
+  },
+  {
+    "name": "Iron Fist",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Marvel superhero series; martial arts action; Netflix Defenders saga"
+  },
+  {
+    "name": "The Ritual",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Folk horror film; group of friends venture into Swedish forest terror"
+  },
+  {
+    "name": "His House",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Psychological horror; refugee family haunted by trauma and supernatural events"
+  },
+  {
+    "name": "Fear Street Part One: 1994",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Slasher horror film; part of Fear Street trilogy on Netflix"
+  },
+  {
+    "name": "Fear Street Part Two: 1978",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Slasher horror; Fear Street trilogy prequel set in 1978"
+  },
+  {
+    "name": "Fear Street Part Three: 1666",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Slasher horror finale; Fear Street trilogy concludes with 1666 witchcraft"
+  },
+  {
+    "name": "Nightbooks",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Family horror-fantasy; children trapped in magical apartment with witch"
+  },
+  {
+    "name": "The OA",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi mystery drama; blind woman returns with sight and supernatural abilities"
+  },
+  {
+    "name": "The Haunting of Bly Manor",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Supernatural horror-romance series; gothic ghost story with twist ending"
+  },
+  {
+    "name": "Sweet Magnolias",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Family drama series; South Carolina women supporting each other through crises"
+  },
+  {
+    "name": "Flesh and Bone",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Dark drama; ambitious ballet dancer navigates New York City elite world"
+  },
+  {
+    "name": "Girlboss",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Comedy-drama; based on Nasty Gal founder Sophia Amoruso"
+  },
+  {
+    "name": "Chemical Hearts",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Teen romance film; high school love story with dark secrets"
+  },
+  {
+    "name": "All the Bright Places",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Teen romance film; Elle Fanning and Justice Smith meet on water tower"
+  },
+  {
+    "name": "The Kissing Booth",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Teen romance comedy; high school girl kisses mysterious boy at carnival"
+  },
+  {
+    "name": "The Kissing Booth 2",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Teen romance sequel; love triangle complications intensify"
+  },
+  {
+    "name": "The Kissing Booth 3",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Teen romance finale; Elle and Noah face graduation and future uncertainty"
+  },
+  {
+    "name": "Sierra Burgess Is a Loser",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Teen comedy-romance; shy girl catfishes a popular boy at school"
+  },
+  {
+    "name": "A Perfect Date",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Teen romantic comedy; friends create dating service for profit"
+  },
+  {
+    "name": "Love",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Romantic comedy series; Gillian Jacobs and Paul Rust explore modern dating"
+  },
+  {
+    "name": "Messiah",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Thriller series; man appears claiming to be divine, creates chaos"
+  },
+  {
+    "name": "The Get Down",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Musical drama series; Baz Luhrmann's hip-hop disco era New York"
+  },
+  {
+    "name": "The Politician",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Dark comedy-drama; ambitious high schooler pursues presidency ambitiously"
+  },
+  {
+    "name": "Godless",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Western series; town run entirely by women confronts outlaw gang"
+  },
+  {
+    "name": "Daybreak",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Post-apocalyptic comedy; teenager seeks girlfriend in zombie-invaded LA"
+  },
+  {
+    "name": "Grendel",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Animated superhero thriller; masked vigilante hunted by law enforcement"
+  },
+  {
+    "name": "Yasuke",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Anime action-thriller; African samurai navigates futuristic Japan"
+  },
+  {
+    "name": "Pluto",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Anime sci-fi thriller; robots investigate murders in futuristic society"
+  },
+  {
+    "name": "Tomb Raider: The Legend of Lara Croft",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated action-adventure; Lara Croft tomb-raiding globe-trotting epic"
+  },
+  {
+    "name": "Paradise PD",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Animated comedy series; dysfunctional police department in island town"
+  },
+  {
+    "name": "Human Resources",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Animated comedy spinoff; HR demons and angels meddle in human affairs"
+  },
+  {
+    "name": "Q-Force",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Animated spy comedy; LGBTQ+ intelligence agents on clandestine missions"
+  },
+  {
+    "name": "Little Demon",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Animated dark comedy; teenage daughter of Satan navigates high school"
+  },
+  {
+    "name": "Gleipnir",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Anime supernatural action; teenagers possess bodies of mysterious creatures"
+  },
+  {
+    "name": "Jurassic World Camp Cretaceous",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated adventure series; teenagers survive dinosaur-infested island camp"
+  },
+  {
+    "name": "Love is Blind",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Reality dating series; couples marry without seeing each other first"
+  },
+  {
+    "name": "Love is Blind: Japan",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Japanese edition of reality dating series; cultural romance experiments"
+  },
+  {
+    "name": "Love is Blind: Mexico",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Mexican edition of reality dating series; Latin American romance"
+  },
+  {
+    "name": "Love is Blind: UK",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "British edition of reality dating series; UK couples marry blind"
+  },
+  {
+    "name": "Too Hot to Handle",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Reality dating series; sexually frustrated singles challenge abstinence"
+  },
+  {
+    "name": "The Circle",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Reality competition; people compete online while catfishing competitors"
+  },
+  {
+    "name": "Dating Around",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Reality dating anthology series; different city, different singles dating"
+  },
+  {
+    "name": "Nailed It!",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Comedy baking competition; amateurs recreate impossible desserts"
+  },
+  {
+    "name": "Is It Cake?",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Competition series; celebrities guess which items are actually cake"
+  },
+  {
+    "name": "High Score",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Documentary series; video game history from arcade origins to modern era"
+  },
+  {
+    "name": "The Last Chance U",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Documentary series; college football program pressures and scandals"
+  },
+  {
+    "name": "Operation Varsity Blues",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Documentary series; college admissions scandal exposes inequality"
+  },
+  {
+    "name": "Fyre: The Greatest Party That Never Happened",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Documentary; infamous failed music festival fraud exposed and analyzed"
+  },
+  {
+    "name": "The Deepest Breath",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Documentary; freediving romance and tragedy in underwater sport"
+  },
+  {
+    "name": "Arnold",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Documentary; Arnold Schwarzenegger's rise from bodybuilder to action star"
+  },
+  {
+    "name": "Ugly Delicious",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Food documentary series; David Chang explores global cuisine and culture"
+  },
+  {
+    "name": "My Next Guest Needs No Introduction with David Letterman",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Interview series; Letterman chats with cultural icons in intimate settings"
+  },
+  {
+    "name": "Sky Rojo",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Spanish thriller series; escaped sex workers on run from abusers"
+  },
+  {
+    "name": "The Platform",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Spanish sci-fi dystopia; stratified prison system represents class struggle"
+  },
+  {
+    "name": "Money Heist: Korea",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Korean heist thriller; remake of Spanish Money Heist with Korean setting"
+  },
+  {
+    "name": "Crash Landing on You",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Korean romantic comedy; South Korean heiress accidentally lands in North Korea"
+  },
+  {
+    "name": "Hometown Cha-Cha-Cha",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Korean romantic comedy; dentist moves to beach town meets charming fixer"
+  },
+  {
+    "name": "Descendents of the Sun",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Korean military romance; soldier and surgeon fall in love war zone"
+  },
+  {
+    "name": "My Holo Love",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Korean sci-fi romance; blind woman falls in love with AI hologram"
+  },
+  {
+    "name": "Secret Garden",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Korean fantasy-romance; magical garden connects two people between worlds"
+  },
+  {
+    "name": "Alchemy of Souls",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Korean fantasy; mage and warrior destined to destroy each other"
+  },
+  {
+    "name": "Doom at Your Service",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Korean fantasy-romance; woman accidentally wishes doom upon herself"
+  },
+  {
+    "name": "Lovers of the Red Sky",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Korean historical fantasy; blind painter and prince search for magical painting"
+  },
+  {
+    "name": "The Song of Names",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "British drama; violinist reunites with missing childhood friend"
+  },
+  {
+    "name": "A Suitable Boy",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Indian period drama; adaptations of mother searching bride for son"
+  },
+  {
+    "name": "The Spy",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Israeli spy thriller; Sacha Baron Cohen as Mossad agent Eli Cohen"
+  },
+  {
+    "name": "Holy Spider",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Iranian crime thriller; serial killer targets sex workers in holy city"
+  },
+  {
+    "name": "Atla: The Legend of Aang",
+    "year": 2024,
+    "type": "series",
+    "priority": 5,
+    "bucket": "streaming-uk",
+    "why": "Live-action adaptation of beloved animated series; fantasy martial arts epic"
+  },
+  {
+    "name": "Ghost in the Shell",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Live-action anime adaptation; cyborg agent hunts AI in dystopian future"
+  },
+  {
+    "name": "Bleach",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Live-action anime adaptation; Soul Reaper protects humans from evil spirits"
+  },
+  {
+    "name": "Spaceman",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi drama film; Adam Sandler as astronaut confronts cosmic jellyfish"
+  },
+  {
+    "name": "Heart of Stone",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Thriller film; MI6 agent infiltrates criminal organization to save her family"
+  },
+  {
+    "name": "The Mother",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Action thriller film; Jennifer Lopez as covert operative protecting daughter"
+  },
+  {
+    "name": "6 Underground",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Action film; Michael Bay directs team of secret agents on global missions"
+  },
+  {
+    "name": "The Gray Man",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Action thriller; Ryan Gosling as CIA assassin hunted by Lloyd Hansen"
+  },
+  {
+    "name": "Rebel Moon",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi action epic; Zack Snyder's space opera about colony rebellion"
+  },
+  {
+    "name": "Rebel Moon: Part Two",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi action sequel; rebellion concludes against galactic empire"
+  },
+  {
+    "name": "The Killer",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Thriller; David Fincher's hitman hunted after job goes terribly wrong"
+  },
+  {
+    "name": "Blonde",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Biographical drama; Ana de Armas as Marilyn Monroe behind glamorous image"
+  },
+  {
+    "name": "Halston",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Limited series; Ryan Murphy's fashion drama about designer Halston"
+  },
+  {
+    "name": "Hollywood",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Limited series; Ryan Murphy's alternate history of 1940s Golden Age cinema"
+  },
+  {
+    "name": "Ratched",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Limited series; Nurse Ratched origin story in 1940s psychiatric hospital"
+  },
+  {
+    "name": "Tuca & Bertie",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Absurdist comedy-drama; surreal exploration of female friendship and trauma"
+  },
+  {
+    "name": "F is for Family",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated dark comedy; working-class dad navigates 1970s suburban life"
+  },
+  {
+    "name": "Disenchantment",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated fantasy comedy; Princess Bean seeks freedom in medieval world"
+  },
+  {
+    "name": "Big Mouth",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated comedy; teenagers navigate puberty and hormones awkwardly"
+  },
+  {
+    "name": "Aggretsuko",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Stop-motion anime comedy; office worker vents via death metal singing"
+  },
+  {
+    "name": "She-Ra and the Princesses of Power",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated fantasy action; warrior princess leads rebellion against evil Horde"
+  },
+  {
+    "name": "Cyberpunk: Edgerunners",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Anime sci-fi action; street orphan becomes mercenary in dystopian Night City"
+  },
+  {
+    "name": "Vinland Saga",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Anime historical action; Viking revenge saga across medieval Norse world"
+  },
+  {
+    "name": "Castlevania",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated gothic action; vampire hunter fights Count Dracula's evil empire"
+  },
+  {
+    "name": "Castlevania: Nocturne",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated gothic action; new protagonist Richter faces Dracula's curse"
+  },
+  {
+    "name": "Blue Eye Samurai",
+    "year": 2023,
+    "type": "series",
+    "priority": 5,
+    "bucket": "streaming-uk",
+    "why": "Anime action-thriller; female swordmaster exacts revenge in feudal Japan"
+  },
+  {
+    "name": "Scott Pilgrim Takes Off",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Anime sci-fi action; surreal Scott Pilgrim spinoff subverts expectations wildly"
+  },
+  {
+    "name": "Arcane",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "streaming-uk",
+    "why": "Animated fantasy; League of Legends adaptation explores class conflict beautifully"
+  },
+  {
+    "name": "Love, Death & Robots",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated anthology; diverse stories exploring AI, love and violence"
+  },
+  {
+    "name": "Bee and PuppyCat",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Animated surreal comedy; girl with cat embarks on bizarre interdimensional adventures"
+  },
+  {
+    "name": "Amphibia",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated adventure; girl transported to frog world learns courage and friendship"
+  },
+  {
+    "name": "Archive 81",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Horror thriller; archivist uncovers mystery while restoring video archive"
+  },
+  {
+    "name": "The Midnight Club",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Horror anthology; terminal patients tell stories at exclusive club"
+  },
+  {
+    "name": "Midnight Mass",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Horror drama; vampire-plague on isolated island community explores faith"
+  },
+  {
+    "name": "Locke & Key",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Fantasy horror; family discovers magical keys in ancestral home unlock powers"
+  },
+  {
+    "name": "First Kill",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Vampire romance; young vampire falls for monster-hunting girl"
+  },
+  {
+    "name": "The Haunting of Hill House",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "streaming-uk",
+    "why": "Supernatural horror; family haunted by traumatic past in mansion"
+  },
+  {
+    "name": "The Boys",
+    "year": 2019,
+    "type": "series",
+    "priority": 5,
+    "bucket": "streaming-uk",
+    "why": "Superhero action; vigilantes take down corrupt superhero team"
+  },
+  {
+    "name": "The Boys: Diabolical",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Animated superhero comedy; spinoff explores chaotic Boys universe"
+  },
+  {
+    "name": "Gen V",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Superhero drama; young supes navigate corruption at elite university"
+  },
+  {
+    "name": "Invincible",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "streaming-uk",
+    "why": "Animated superhero epic; teen discovers he's heir to most powerful being"
+  },
+  {
+    "name": "The Expanse",
+    "year": 2015,
+    "type": "series",
+    "priority": 5,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi space opera; humanity colonized solar system faces alien threat"
+  },
+  {
+    "name": "Rings of Power",
+    "year": 2022,
+    "type": "series",
+    "priority": 5,
+    "bucket": "streaming-uk",
+    "why": "Fantasy epic; Second Age Middle-earth prequel to Lord of the Rings"
+  },
+  {
+    "name": "The Legend of Vox Machina",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated fantasy; adventurers protect kingdoms from darkness"
+  },
+  {
+    "name": "Wheel of Time",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Fantasy epic; chosen woman navigates prophecy in intricate world"
+  },
+  {
+    "name": "The Summer I Turned Pretty",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Teen romance series; girl navigates love triangle at beach house"
+  },
+  {
+    "name": "The Power",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Superhero drama; women develop electricity powers; society transforms"
+  },
+  {
+    "name": "Carnival Row",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Dark fantasy; mythical creatures segregated in steampunk London"
+  },
+  {
+    "name": "Bosch",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Crime thriller; LAPD detective pursues justice in complex murder cases"
+  },
+  {
+    "name": "Bosch: Legacy",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Crime thriller; Bosch retired but drawn back into investigation"
+  },
+  {
+    "name": "The Peripheral",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi thriller; woman's video game is window to dystopian future"
+  },
+  {
+    "name": "Citadel",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Action thriller; amnesiac agents uncover truth about espionage organization"
+  },
+  {
+    "name": "Citadel: Diana",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Action thriller spinoff; Diana hunts fugitive through Italian underworld"
+  },
+  {
+    "name": "Citadel: Honey Bunny",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Action thriller spinoff; Indian agents on covert mission in Bombay"
+  },
+  {
+    "name": "Jack Ryan",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Spy thriller; CIA analyst pulled into international espionage adventure"
+  },
+  {
+    "name": "Reacher",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Action thriller; drifter investigates murder in small town"
+  },
+  {
+    "name": "The Marvelous Mrs. Maisel",
+    "year": 2017,
+    "type": "series",
+    "priority": 5,
+    "bucket": "streaming-uk",
+    "why": "Comedy drama; 1950s housewife becomes stand-up comedian secret life"
+  },
+  {
+    "name": "Transparent",
+    "year": 2014,
+    "type": "series",
+    "priority": 5,
+    "bucket": "streaming-uk",
+    "why": "Drama; family unravels when transgender parent comes out"
+  },
+  {
+    "name": "Mozart in the Jungle",
+    "year": 2014,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Comedy drama; young oboist joins chaotic New York orchestra"
+  },
+  {
+    "name": "Undone",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Rotoscope anime drama; woman discovers supernatural ability after accident"
+  },
+  {
+    "name": "Tales from the Loop",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi anthology; strange loop beneath town affects residents mysteriously"
+  },
+  {
+    "name": "Solos",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi anthology; isolated characters explore humanity through futuristic concepts"
+  },
+  {
+    "name": "All or Nothing: Arsenal",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Sports documentary; behind-the-scenes Arsenal Football Club season"
+  },
+  {
+    "name": "All or Nothing: Newcastle",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Sports documentary; Saudi takeover and Newcastle's transformation"
+  },
+  {
+    "name": "One Day",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Romance drama; two people meet and their lives intertwine over decades"
+  },
+  {
+    "name": "Expats",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Drama; expat families navigate tensions in Hong Kong"
+  },
+  {
+    "name": "Patriot",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Spy thriller; aerospace engineer becomes reluctant CIA operative"
+  },
+  {
+    "name": "The Tick",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Superhero comedy; blue acrobat fights crime in absurd superhero world"
+  },
+  {
+    "name": "Catastrophe",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Comedy romance; American and Irish have one-night stand with life-changing consequences"
+  },
+  {
+    "name": "She-Hulk: Attorney at Law",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Superhero comedy; lawyer gets Hulk powers and questions superhero life"
+  },
+  {
+    "name": "Special Ops: Lioness",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Spy thriller; CIA recruits undercover female operative in terrorism fight"
+  },
+  {
+    "name": "Echoes",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Psychological thriller; identical twins assume each other's lives after 15 years"
+  },
+  {
+    "name": "Pieces of Her",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Thriller; woman discovers mother's hidden past after violent incident"
+  },
+  {
+    "name": "Griselda",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Crime drama; Sofia Vergara as Colombian cocaine queen building empire"
+  },
+  {
+    "name": "The Fall of the House of Usher",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Horror limited series; Poe adaptation explores family's dark legacy"
+  },
+  {
+    "name": "Ripley",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Crime thriller; con artist Tom Ripley navigates Italian underworld"
+  },
+  {
+    "name": "Fool Me Once",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Thriller; woman confronts husband's murder with shocking video evidence"
+  },
+  {
+    "name": "Murder Mystery",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Comedy crime; couple suspected of murder at European hotel"
+  },
+  {
+    "name": "Murder Mystery 2",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Comedy crime sequel; Nick and Audrey investigate museum heist"
+  },
+  {
+    "name": "Bird Box Barcelona",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi thriller; Spanish spinoff explores mysterious phenomenon"
+  },
+  {
+    "name": "Extraction 2",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Action thriller; Tyler Rake returns for dangerous rescue mission"
+  },
+  {
+    "name": "The Union",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Action thriller; ordinary man recruited by CIA agent ex-girlfriend"
+  },
+  {
+    "name": "Lift",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Action heist; master thief plans mid-air theft during flight"
+  },
+  {
+    "name": "Atlas",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi action; woman fights AI threat across parallel timelines"
+  },
+  {
+    "name": "Damsel",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Fantasy adventure; princess escapes dark realm of dragons"
+  },
+  {
+    "name": "I Am: Celine Dion",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Documentary; Celine Dion's comeback journey after health crisis"
+  },
+  {
+    "name": "Morgan Wallen: One Thing at a Time",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Documentary; country star's rise and reinvention story"
+  },
+  {
+    "name": "Wham!",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Documentary; Wham!'s meteoric rise and emotional breakup"
+  },
+  {
+    "name": "Becoming Led Zeppelin",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Documentary; legendary rock band's formation and early years"
+  },
+  {
+    "name": "The Man with 1000 Kids",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Documentary; fertility doctor's shocking exploitation of women"
+  },
+  {
+    "name": "Scoop",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Drama; BBC journalist's famous Princess Diana interview"
+  },
+  {
+    "name": "Obliterated",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Action comedy; special forces team celebrates preventing nuclear disaster"
+  },
+  {
+    "name": "I Came By",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Thriller; graffiti artist uncovers dark secret in wealthy area"
+  },
+  {
+    "name": "Leave the World Behind",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Thriller; family faces blackout and mysterious strangers in home"
+  },
+  {
+    "name": "Oxygen",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi thriller; woman wakes in cryogenic chamber with limited oxygen"
+  },
+  {
+    "name": "In the Tall Grass",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Horror; family trapped in mysterious corn field with unknown threat"
+  },
+  {
+    "name": "Apostle",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Horror; man infiltrates cult to rescue kidnapped sister"
+  },
+  {
+    "name": "The Watcher",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Horror thriller; family haunted by mysterious watchers in new home"
+  },
+  {
+    "name": "Treason",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Spy thriller; retired MI6 officer blackmailed into betrayal"
+  },
+  {
+    "name": "Clickbait",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Thriller; family torn apart by viral video of missing man"
+  },
+  {
+    "name": "Beef",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Drama; road-rage incident spirals into interconnected destruction"
+  },
+  {
+    "name": "Neon",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi thriller; people wake with strange superhuman abilities"
+  },
+  {
+    "name": "Stranger Things: The Runaway",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated Stranger Things special; spin-off adventure"
+  },
+  {
+    "name": "Happy!",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Dark comedy thriller; hitman helped by imaginary blue horse"
+  },
+  {
+    "name": "Everything Sucks!",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Teen comedy; drama club and A/V team rivalry at high school"
+  },
+  {
+    "name": "The Diplomat Season 2",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Political thriller continuation; Kate navigates new global crises"
+  },
+  {
+    "name": "Someone Somewhere",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Comedy drama; woman finds community theater in small town"
+  },
+  {
+    "name": "Eastsiders",
+    "year": 2014,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Comedy drama; gay couple navigates relationships in Los Angeles"
+  },
+  {
+    "name": "The Last of Us",
+    "year": 2023,
+    "type": "series",
+    "priority": 5,
+    "bucket": "streaming-uk",
+    "why": "Post-apocalyptic epic; Joel and Ellie's journey across infected wasteland"
+  },
+  {
+    "name": "Minions of Midas",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Thriller; con man schemes to increase his fortune"
+  },
+  {
+    "name": "Godless: The Eastfield Exorcism",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Horror; family's house haunted in rural town exorcism drama"
+  },
+  {
+    "name": "Firefly Lane Season 2",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Drama; decades of female friendship tested by secrets and time"
+  },
+  {
+    "name": "Unbreakable Kimmy Schmidt: Kimmy vs the Reverend",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Comedy; Kimmy Schmidt takes on her cult leader once more"
+  },
+  {
+    "name": "Resident Evil: Infinite Darkness",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Animated action-horror; Leon and Claire face new bio-weapon threat"
+  },
+  {
+    "name": "Army of the Dead: Lost Vegas",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Animated zombie action; prequel explores Vegas siege"
+  },
+  {
+    "name": "Love is Blind: Brazil",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Reality dating; Brazilian couples marry without seeing each other"
+  },
+  {
+    "name": "The Night Agent",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Political thriller; FBI agent pulled into conspiracy investigation"
+  },
+  {
+    "name": "Iron Fist Season 2",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Marvel action-thriller; Danny Rand faces new enemies in New York"
+  },
+  {
+    "name": "Zero Days",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "streaming-uk",
+    "why": "Sci-fi thriller; woman hunted after finding stolen cyberweapon"
+  },
+  {
+    "name": "Exploding Kittens",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Animated comedy; group of friends fight apocalypse with cards"
+  },
+  {
+    "name": "The Kings of Tupelo",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "streaming-uk",
+    "why": "Drama; inheritance fight over Elvis-connected town property"
+  },
+  {
+    "name": "Infinity Train",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "streaming-uk",
+    "why": "Animated sci-fi adventure; mysterious train carries passengers to alternate worlds"
+  }
+]
