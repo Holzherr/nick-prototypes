@@ -6,7 +6,7 @@ import { EndScreen } from '@/features/games/components/EndScreen';
 import { GameScreen, type PausedRound } from '@/features/games/components/GameScreen';
 import { GardenHome } from '@/features/games/components/GardenHome';
 import { GrownUpsGate, grownUpsPassed } from '@/features/games/components/GrownUpsGate';
-import { levelOf, nextLevel, type AnswerRecord, type RoundRecord } from '@/features/games/engine';
+import { levelOf, mastered, nextLevel, type AnswerRecord, type RoundRecord } from '@/features/games/engine';
 import { breakSuggestion, isPersonalBest, todaySummary, type BreakReason } from '@/features/games/insights';
 import { recommendGame } from '@/features/games/recommend';
 import { setNameSound, unlockAudio } from '@/features/games/sound';
@@ -41,6 +41,8 @@ type Screen =
       score: number;
       total: number;
       levelUp: boolean;
+      /** This round was the one that mastered the game, so the child hears it once and only once. */
+      justMastered: boolean;
       personalBest: boolean;
       goal: { done: number; goal: number; justReached: boolean };
       breakHint: BreakReason | null;
@@ -180,6 +182,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
 
   const finish = (game: Game, level: number, answers: AnswerRecord[]) => {
     const gardenBefore = gardenOf(latest.current);
+    const wasMastered = mastered(latest.current.rounds, game);
     const round = makeRound(game, level, answers, true);
     const all = [...latest.current.rounds, round];
     const next = nextLevel(all, game, level);
@@ -196,6 +199,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
       score: round.score,
       total: round.total,
       levelUp: next > level,
+      justMastered: !wasMastered && mastered(all, game),
       personalBest: isPersonalBest(all, round),
       goal: { done: day.done, goal: day.goal, justReached: day.done === day.goal },
       breakHint: breakSuggestion(all),
@@ -286,7 +290,8 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
   const garden = gardenOf(progress);
   // Recomputed from what this child actually has, so it empties itself as the imported records land.
   const guests = allowGuestImport && !guestsDismissed ? guestProfilesToImport(progress, child.id) : [];
-  const owed = pendingMilestone(progress.stickers, progress.levels, GAMES);
+  const owed = pendingMilestone(progress.stickers, progress.levels, GAMES, progress.rounds);
+  const masteredIds = new Set(GAMES.filter((game) => mastered(progress.rounds, game)).map((game) => game.id));
   const novaMoment = screen.name === 'home' || (screen.name === 'end' && screen.sticker !== null);
   const nova =
     celebration || (owed && novaMoment && !novaDone) ? (
@@ -317,6 +322,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
           <GardenHome
             childName={child.name}
             levels={progress.levels}
+            mastered={masteredIds}
             stickerCount={progress.stickers.length}
             today={todaySummary(progress.rounds)}
             garden={garden}
@@ -354,6 +360,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             score={screen.score}
             total={screen.total}
             levelUp={screen.levelUp}
+            justMastered={screen.justMastered}
             personalBest={screen.personalBest}
             goal={screen.goal}
             breakHint={screen.breakHint}

@@ -9,23 +9,27 @@ const SHAPES = [
   '54% 46% 56% 44% / 42% 56% 44% 58%',
 ];
 
-export const LevelDots = ({ count, level }: { count: number; level: number }) => (
-  <span role="img" aria-label={`Level ${level + 1} of ${count}`} className="flex gap-[5px]">
+/** The dots go gold once the game is mastered, so the top of a game finally looks different from the rest. */
+export const LevelDots = ({ count, level, mastered = false }: { count: number; level: number; mastered?: boolean }) => (
+  <span role="img" aria-label={`Level ${level + 1} of ${count}${mastered ? ' — mastered' : ''}`} className="flex items-center gap-[5px]">
     {Array.from({ length: count }, (_, i) => (
-      <span key={i} className={cn('size-2.5 rounded-full', i <= level ? 'bg-bubble' : 'bg-petal')} />
+      <span key={i} className={cn('size-2.5 rounded-full', i <= level ? (mastered ? 'bg-sunny' : 'bg-bubble') : 'bg-petal')} />
     ))}
+    {mastered && <span className="ml-0.5 text-sm leading-none">🏆</span>}
   </span>
 );
 
 export interface GameTileProps {
   game: Game;
   level: number;
+  /** Top level cleared with a perfect round: gold dots and a trophy. */
+  mastered?: boolean;
   /** Which blob outline to use; tiles in a row use 0, 1, 2… so they don't match. */
   shape?: number;
   onClick?: () => void;
 }
 
-export const GameTile = ({ game, level, shape = 0, onClick }: GameTileProps) => (
+export const GameTile = ({ game, level, mastered = false, shape = 0, onClick }: GameTileProps) => (
   <button
     type="button"
     onClick={onClick}
@@ -34,6 +38,6 @@ export const GameTile = ({ game, level, shape = 0, onClick }: GameTileProps) => 
   >
     <span className="text-[clamp(44px,7vw,56px)] leading-none">{game.emoji}</span>
     <span className="px-2 text-center leading-tight">{game.name}</span>
-    <LevelDots count={game.levels.length} level={level} />
+    <LevelDots count={game.levels.length} level={level} mastered={mastered} />
   </button>
 );

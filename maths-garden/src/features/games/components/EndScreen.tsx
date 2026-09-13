@@ -13,6 +13,11 @@ export interface EndScreenProps {
   score: number;
   total: number;
   levelUp: boolean;
+  /**
+   * This round mastered the game: a perfect round at the top level, and the first one. The top level used
+   * to look exactly like any other round to the child — all the acknowledgement went to the parent.
+   */
+  justMastered?: boolean;
   /** Fastest 80%+ round yet at this game and level. */
   personalBest?: boolean;
   /** Finished rounds today against the daily goal; `justReached` when this round hit it. */
@@ -42,6 +47,7 @@ export function EndScreen({
   score,
   total,
   levelUp,
+  justMastered = false,
   personalBest = false,
   goal,
   breakHint = null,
@@ -59,9 +65,15 @@ export function EndScreen({
 
   useEffect(() => {
     sounds.stars();
-    const extras = [personalBest ? 'That was your fastest ever!' : '', goal?.justReached ? 'You did your daily goal!' : ''].filter(Boolean).join(' ');
+    const extras = [
+      justMastered ? 'You finished the very hardest level! You are a gold star!' : '',
+      personalBest ? 'That was your fastest ever!' : '',
+      goal?.justReached ? 'You did your daily goal!' : '',
+    ]
+      .filter(Boolean)
+      .join(' ');
     say(`You got ${numberWord(score)} star${score === 1 ? '' : 's'}! ${extras} Now choose a sticker!`);
-  }, [score, personalBest, goal?.justReached]);
+  }, [score, justMastered, personalBest, goal?.justReached]);
 
   useEffect(() => {
     if (stickerName) say(`You got ${withArticle(stickerName)} sticker!${breakHint ? ' Time for a little break!' : ''}`);
@@ -77,6 +89,7 @@ export function EndScreen({
         {score} out of {total} — {message}
       </p>
       <div className="flex flex-wrap justify-center gap-2">
+        {justMastered && <p className="rounded-full bg-sunny px-5 py-2 text-xl font-semibold candy-clay [--candy:4px]">🏆 Gold star — you mastered this game!</p>}
         {levelUp && <p className="rounded-full bg-sunny px-5 py-2 text-xl font-semibold">🌟 New level unlocked!</p>}
         {personalBest && <p className="rounded-full bg-cream px-5 py-2 text-xl font-semibold candy-petal [--candy:4px]">⚡ Fastest ever!</p>}
         {goal &&
