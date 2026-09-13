@@ -1,0 +1,1602 @@
+[
+  {
+    "name": "Parasite",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "korea-depth",
+    "why": "Palme d'Or winner; social thriller defining contemporary Korea"
+  },
+  {
+    "name": "Oldboy",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "korea-depth",
+    "why": "Vengeance masterpiece; defining New Korean Cinema landmark"
+  },
+  {
+    "name": "Memories of Murder",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "korea-depth",
+    "why": "Bong Joon-ho crime epic; 1980s serial killer, procedural brilliance"
+  },
+  {
+    "name": "Spring, Summer, Fall, Winter... and Spring",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "korea-depth",
+    "why": "Meditation on life; Buddhist monastery, lyrical filmmaking"
+  },
+  {
+    "name": "The Handmaiden",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "korea-depth",
+    "why": "Park Chan-wook erotic thriller; 1930s colonial Korea"
+  },
+  {
+    "name": "Squid Game",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "korea-depth",
+    "why": "Global phenomenon; inequality survival games, cultural moment"
+  },
+  {
+    "name": "Mother",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "korea-depth",
+    "why": "Bong Joon-ho thriller; maternal obsession, small-town mystery"
+  },
+  {
+    "name": "The Wailing",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "korea-depth",
+    "why": "Na Hong-jin horror-mystery; village paranoia, religious questions"
+  },
+  {
+    "name": "Burning",
+    "year": 2018,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "korea-depth",
+    "why": "Lee Chang-dong literary adaptation; class, jealousy, mystery"
+  },
+  {
+    "name": "Minari",
+    "year": 2020,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "korea-depth",
+    "why": "Korean-American family drama; American dream, generational tension"
+  },
+  {
+    "name": "Save the Green Planet!",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Darkly comic sci-fi thriller; paranoia meets alien apocalypse"
+  },
+  {
+    "name": "The Chaser",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Serial killer police procedural; gritty, relentless tension"
+  },
+  {
+    "name": "I Saw the Devil",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Revenge cycle; serial killer hunted by secret agent"
+  },
+  {
+    "name": "Poetry",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Lee Chang-dong; elderly woman poetry student, moral complexity"
+  },
+  {
+    "name": "Sympathy for Mr. Vengeance",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Park Chan-wook; deaf man revenge, operatic violence"
+  },
+  {
+    "name": "Lady Vengeance",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Park Chan-wook revenge trilogy final chapter; prison, justice"
+  },
+  {
+    "name": "A Bittersweet Life",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Stylish noir; gangster enforcer betrayal"
+  },
+  {
+    "name": "Thirst",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Park Chan-wook vampire gothic; priest temptation, sensuality"
+  },
+  {
+    "name": "Moonlight Drawn by Clouds",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Historical romance; Crown prince and peasant, political intrigue"
+  },
+  {
+    "name": "Descendants of the Sun",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Global action romance; soldier and doctor in conflict zone"
+  },
+  {
+    "name": "Goblin",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Supernatural romance; immortal goblin seeks death, grim reaper love"
+  },
+  {
+    "name": "Crash Landing on You",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "North-South cross-border rom-com; heiress lands in DPRK"
+  },
+  {
+    "name": "Itaewon Class",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Revenge saga; ex-con restaurant owner dismantles corrupt chaebol"
+  },
+  {
+    "name": "My Mister",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Office drama; struggling accountant, young woman, human connection"
+  },
+  {
+    "name": "Flower of Evil",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Psychological thriller; wife suspects husband serial killer"
+  },
+  {
+    "name": "Beyond Evil",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Crime thriller; two detectives hunt serial killer in small town"
+  },
+  {
+    "name": "Extraordinary Attorney Woo",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Courtroom comedy; autistic lawyer protagonist, heartfelt cases"
+  },
+  {
+    "name": "Alchemy of Souls",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Fantasy action; mage swaps bodies seeking resurrection"
+  },
+  {
+    "name": "Killing Old People Club",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Dark satire; dystopia where teens kill elderly for welfare"
+  },
+  {
+    "name": "Bedevilled",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Revenge thriller; abuse and island isolation culminate"
+  },
+  {
+    "name": "The Strangers",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Psychological thriller; mystery film within film"
+  },
+  {
+    "name": "Along with the Gods",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Supernatural epic; afterlife trials following truck driver death"
+  },
+  {
+    "name": "Rampant",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Historical fantasy; prince battles zombie plague in Joseon"
+  },
+  {
+    "name": "The Battleship Island",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Colonial escape; Korean workers rebel on Japanese war island"
+  },
+  {
+    "name": "Intimate Strangers",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Crime thriller; embezzler meets blackmailer through phone call"
+  },
+  {
+    "name": "The Closet",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Micro-budget domestic thriller; family secrets in one room"
+  },
+  {
+    "name": "Lucid Dream",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Sci-fi thriller; father enters son's dreams to solve kidnapping"
+  },
+  {
+    "name": "Tunnel",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Disaster survival; man trapped in collapsed tunnel"
+  },
+  {
+    "name": "The Outlaws",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Crime action; detective and gang boss unlikely allies"
+  },
+  {
+    "name": "Confidential Assignment",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Spy thriller; North Korean detective in South Korea"
+  },
+  {
+    "name": "Shadowless Sword",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Historical fantasy action; wandering swordmaster searches for meaning"
+  },
+  {
+    "name": "D-War",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Big-budget action; dragons invade Los Angeles from ancient curse"
+  },
+  {
+    "name": "The Host",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Creature action-thriller; mutated monster in Han River"
+  },
+  {
+    "name": "Mother's Day",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Crime thriller; single mother driven to crime"
+  },
+  {
+    "name": "The Man from Nowhere",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Action thriller; stoic ex-soldier seeks lost girl"
+  },
+  {
+    "name": "Abyss",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Crime-mystery; detective investigates deepfake scandal"
+  },
+  {
+    "name": "A Moment to Remember",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Romance drama; husband confronts wife's Alzheimer's progression"
+  },
+  {
+    "name": "Romantic Fantasy",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Period rom-com; scholar meets noblewoman in Joseon"
+  },
+  {
+    "name": "The Snow in San Francisco",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Drama; intertwined stories of love and separation"
+  },
+  {
+    "name": "Doomsday Book",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Anthology sci-fi; three future apocalypse scenarios"
+  },
+  {
+    "name": "Concrete Utopia",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Post-apocalypse drama; survivors in Seoul apartment tower"
+  },
+  {
+    "name": "Decision to Leave",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Park Chan-wook noir-romance; detective and widow suspect"
+  },
+  {
+    "name": "Insane",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Psychological horror; asylum patient questions reality"
+  },
+  {
+    "name": "My Name",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Crime thriller; girl infiltrates mob for revenge"
+  },
+  {
+    "name": "My Holo Love",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Sci-fi romance; woman with rare condition falls for AI hologram"
+  },
+  {
+    "name": "Tale of the Nine-Tailed",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Supernatural romance; nine-tailed fox and human journalist"
+  },
+  {
+    "name": "Love is Blind: Korea",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Reality dating; couples meet married without seeing faces"
+  },
+  {
+    "name": "Doom at Your Service",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Supernatural romance; doom spirit and editor cursed to 100 days"
+  },
+  {
+    "name": "Arthdal Chronicles",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Epic fantasy; prehistoric tribal warfare, chosen one prophecy"
+  },
+  {
+    "name": "Angel's Last Mission: Love",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Fantasy romance; angel sent to earth for final mission"
+  },
+  {
+    "name": "Work Later, Drink Now",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Comedy-drama; women's friendship and post-work drinking rituals"
+  },
+  {
+    "name": "Business Proposal",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Workplace rom-com; fake dating to escape blind dates"
+  },
+  {
+    "name": "Gyeongseong Creature",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Period horror-mystery; Japanese occupation, supernatural creature"
+  },
+  {
+    "name": "Bloodhounds",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Crime thriller; debt collectors hunt loan shark serial killer"
+  },
+  {
+    "name": "At a Distance, Spring is Green",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "College romance; campus rivals navigate love and identity"
+  },
+  {
+    "name": "The Apothecary Diaries",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Period mystery; toxicology expert solves palace murders"
+  },
+  {
+    "name": "My Love from the Star",
+    "year": 2013,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Fantasy romance; time-displaced scholar and modern actress"
+  },
+  {
+    "name": "I Hear Your Voice",
+    "year": 2013,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Courtroom romance; psychic teenager and prosecutor justice"
+  },
+  {
+    "name": "Weightlifting Fairy Kim Bok-joo",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Sports college romance; weightlifter and swimmer-turned-diver"
+  },
+  {
+    "name": "Boys Over Flowers",
+    "year": 2009,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "High school romance; poor girl meets elite boys' exclusive group"
+  },
+  {
+    "name": "Secret Garden",
+    "year": 2010,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Fantasy romance; soul-swapping between poor stuntwoman and heir"
+  },
+  {
+    "name": "You're Beautiful",
+    "year": 2009,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "School rom-com; nun's twin masquerades in boy band"
+  },
+  {
+    "name": "Boys Love",
+    "year": 2015,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "LGBTQ+ youth romance; high school athletes discover feelings"
+  },
+  {
+    "name": "Personal Taste",
+    "year": 2010,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "LGBTQ+ rom-com; architect pretends gay to avoid woman's advances"
+  },
+  {
+    "name": "The Legend of the Blue Sea",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Supernatural rom-com; mermaid con-woman meets smooth con-artist"
+  },
+  {
+    "name": "Memories of the Alhambra",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Sci-fi rom-com; AR game and treasure hunt across Spain"
+  },
+  {
+    "name": "A Korean Odyssey",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Supernatural rom-com; monkey demon and woman journalist"
+  },
+  {
+    "name": "Romance is a Bonus Book",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Workplace rom-com; publisher and divorcee reconnect in office"
+  },
+  {
+    "name": "Hospital Chaplain",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Medical drama; chaplain provides spiritual care in hospital"
+  },
+  {
+    "name": "Dr. Romantic",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Medical drama; master surgeon and young residents in rural hospital"
+  },
+  {
+    "name": "Mr. Sunshine",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Historical epic; Korean independence fighter in Japanese occupation"
+  },
+  {
+    "name": "100 Days My Prince",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Historical romance; amnesiac prince and peasant girl"
+  },
+  {
+    "name": "Mr. Panda and Hedgehog",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Fantasy rom-com; guardian animal spirit and human girl"
+  },
+  {
+    "name": "Tale of the Nine-Tailed 1938",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Period prequel; nine-tailed fox origin story in colonial era"
+  },
+  {
+    "name": "Song of the Bandits",
+    "year": 2023,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Historical crime; gang leader and righteous thief in occupied Korea"
+  },
+  {
+    "name": "The Midnight Club",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Mystery horror; orphans in mansion with supernatural secrets"
+  },
+  {
+    "name": "Tomorrow",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Emotional drama; grim reaper and suicidal man form friendship"
+  },
+  {
+    "name": "Moving",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Superhero action; bullied boy develops teleportation powers"
+  },
+  {
+    "name": "Duty After School",
+    "year": 2023,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Military sci-fi; alternative history Korean mandatory service"
+  },
+  {
+    "name": "Song Lover",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Historical music drama; singer during Japanese occupation"
+  },
+  {
+    "name": "Radio Romance",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Workplace rom-com; PD and script writer at radio station"
+  },
+  {
+    "name": "Go Back Couple",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Fantasy comedy; married couple time-travels back to youth"
+  },
+  {
+    "name": "Chief Kim",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Office comedy; brilliant accountant fights corporate corruption"
+  },
+  {
+    "name": "Suspicious Partner",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Courtroom romance; prosecutors navigate love amid murder case"
+  },
+  {
+    "name": "While You Were Sleeping",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Legal romance; woman with precognitive dreams and prosecutor"
+  },
+  {
+    "name": "Something in the Rain",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Office romance; age-gap love between woman and younger man"
+  },
+  {
+    "name": "Thirty but Seventeen",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Fantasy romance; woman trapped in time wakes after 13 years"
+  },
+  {
+    "name": "Lovely Horribly",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Dark comedy-romance; actress and mysterious man rent same house"
+  },
+  {
+    "name": "Her Private Life",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Secret identity rom-com; museum curator is fandom admin"
+  },
+  {
+    "name": "When the Camellia Blooms",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Social drama; single mother bar owner faces judgment"
+  },
+  {
+    "name": "One Spring Night",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Medical romance; pregnant nurse and widowed doctor find love"
+  },
+  {
+    "name": "Touch",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Mystery romance; woman regains touch after accident"
+  },
+  {
+    "name": "Find Me in Your Memory",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Medical romance; news anchor with hyperthymesia loves actress"
+  },
+  {
+    "name": "Lovestruck in the City",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Urban romance web series; anonymous strangers share love story"
+  },
+  {
+    "name": "Oh My Ghost",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Supernatural rom-com; shy chef and virgin ghost seeking revenge"
+  },
+  {
+    "name": "The Beauty Inside",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Fantasy rom-com; man wakes as different person daily"
+  },
+  {
+    "name": "Guardians of the Night (\ub610 \uc624\ud574\ud558\uc168\uc2b5\ub2c8\ub2e4)",
+    "year": 2021,
+    "type": "series",
+    "priority": 1,
+    "bucket": "korea-depth",
+    "why": "Limited historical docudrama; resistance during occupation"
+  },
+  {
+    "name": "Law School",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Legal thriller; law students investigate murder mystery"
+  },
+  {
+    "name": "Confession",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Legal drama; false confession case and redemption"
+  },
+  {
+    "name": "Money Heist: Korea",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Heist thriller; recreates Spanish series in Seoul mint robbery"
+  },
+  {
+    "name": "D.P.",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Military drama; deserter apprehension unit hunts runaways"
+  },
+  {
+    "name": "Juvenile Justice",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Legal drama; judge handles reform school juvenile cases"
+  },
+  {
+    "name": "Bulgasal: Immortal Souls",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Supernatural action; cursed immortal and past-life memories"
+  },
+  {
+    "name": "River Where the Moon Rises",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Historical fantasy; princess and general uncover conspiracy"
+  },
+  {
+    "name": "Abyss",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Supernatural thriller; resurrected woman discovers dark secrets"
+  },
+  {
+    "name": "The Uncanny Counter",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Supernatural action; noodle shop workers fight spirits"
+  },
+  {
+    "name": "My Roommate is a Gumiho",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Fantasy rom-com; gumiho mythical creature roommate"
+  },
+  {
+    "name": "Possessed",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Occult thriller; woman possessed by evil spirit"
+  },
+  {
+    "name": "Search",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Crime thriller; hacker and detective hunt kidnapper"
+  },
+  {
+    "name": "Sell Your Haunted House",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Supernatural comedy; realtor exorcises properties"
+  },
+  {
+    "name": "The Midnight Ride",
+    "year": 2021,
+    "type": "series",
+    "priority": 1,
+    "bucket": "korea-depth",
+    "why": "Occult horror; late night taxi driver supernatural encounters"
+  },
+  {
+    "name": "Scripting Your Life",
+    "year": 2020,
+    "type": "series",
+    "priority": 1,
+    "bucket": "korea-depth",
+    "why": "Philosophical drama; screenwriter and actress examine fate"
+  },
+  {
+    "name": "Snowdrop",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Historical romance; student and mysterious man during uprising"
+  },
+  {
+    "name": "Taxi Driver",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Revenge action; vigilante taxi driver punishes the guilty"
+  },
+  {
+    "name": "Revenant",
+    "year": 2023,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Supernatural revenge; ghost returns to punish assailant"
+  },
+  {
+    "name": "Zombie Detective",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Comedy thriller; zombie journalist solves crimes"
+  },
+  {
+    "name": "Inspector Koo",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Crime comedy; quirky female detective hunts serial killer"
+  },
+  {
+    "name": "Bulgasal",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Fantasy action; immortal cursed warrior seeks redemption"
+  },
+  {
+    "name": "Shooting Stars",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Entertainment industry rom-com; actress and agent rekindled"
+  },
+  {
+    "name": "20th Century Girl",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Coming-of-age nostalgia; 1990s Seoul schoolgirls friendship"
+  },
+  {
+    "name": "Bargain",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Thriller; realtor and woman make dangerous pact"
+  },
+  {
+    "name": "Unlocked",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Crime thriller; hacker and detective team up"
+  },
+  {
+    "name": "The Point Men",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Action crime; operative and detective hunt criminal"
+  },
+  {
+    "name": "The Outlaws 2",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Crime action; gang war and police entanglement"
+  },
+  {
+    "name": "The Outlaws 3: War",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Crime epic; crime bosses clash in gang war"
+  },
+  {
+    "name": "The Night before Christmas",
+    "year": 2023,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "korea-depth",
+    "why": "Indie drama; relationships during winter season"
+  },
+  {
+    "name": "Midnight Runners",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Action comedy; cadets stop serial killer in 1990s"
+  },
+  {
+    "name": "Midnight Runners 2",
+    "year": 2023,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "korea-depth",
+    "why": "Action sequel; military investigators and cold case"
+  },
+  {
+    "name": "Derailed",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Action thriller; train hijacking and hostage situation"
+  },
+  {
+    "name": "Project Silence",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Disaster action; government conspiracy and mass murder"
+  },
+  {
+    "name": "Escape from Mogadishu",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Geopolitical thriller; North-South Korean diplomats escape Somalia"
+  },
+  {
+    "name": "Assassination",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Historical action; female assassin targets Japanese general"
+  },
+  {
+    "name": "Jos\u00e9e, the Tiger and the Fish",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Romance drama; man meets disabled woman artist"
+  },
+  {
+    "name": "Twinkling Watermelon",
+    "year": 2023,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Time travel rom-com; girl travels to 1990s meets bandmate"
+  },
+  {
+    "name": "Twenty-Five Twenty-One",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Period romance; fencer and reporter across decades"
+  },
+  {
+    "name": "Model Family",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Crime comedy; family of con artists hunted by detective"
+  },
+  {
+    "name": "Dreamers",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Reality talent show; aspiring singers compete"
+  },
+  {
+    "name": "Jirisan",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Mystery thriller; ranger and ranger-trainee solve deaths"
+  },
+  {
+    "name": "A Model Family",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Comedy crime; cons turned into unlikely detectives"
+  },
+  {
+    "name": "Queenmaker",
+    "year": 2023,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Political thriller; strategist builds female politician"
+  },
+  {
+    "name": "Hang",
+    "year": 2023,
+    "type": "series",
+    "priority": 1,
+    "bucket": "korea-depth",
+    "why": "Indie romance; woman's brief encounter changes life"
+  },
+  {
+    "name": "A Taxi Driver",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Historical thriller; cab driver witnesses 1980 Gwangju uprising"
+  },
+  {
+    "name": "The Kid",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Action drama; reformed thief and orphan boy's journey"
+  },
+  {
+    "name": "Svaha: The Sixth Finger",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Crime thriller; detective hunts cult leaders"
+  },
+  {
+    "name": "Sunset in My Hometown",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Coming-of-age drama; nostalgia and mortality"
+  },
+  {
+    "name": "The Deal",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Crime thriller; blackmail and corruption"
+  },
+  {
+    "name": "Peppermint Candy",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Historical epic; Korea's modern history through young lovers"
+  },
+  {
+    "name": "Oasis",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Lee Chang-dong; disabled man and ex-con woman's love"
+  },
+  {
+    "name": "Take Off",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Musical dramedy; aspiring rock band members"
+  },
+  {
+    "name": "Night Fishing",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Drama; father-son relationship and memory"
+  },
+  {
+    "name": "The Merciless",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Prison crime; power dynamics behind bars"
+  },
+  {
+    "name": "Silenced",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Based-on-fact school abuse thriller; teacher fights injustice"
+  },
+  {
+    "name": "Handmaiden",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "korea-depth",
+    "why": "Con, seduction, and betrayal in 1930s Korea"
+  },
+  {
+    "name": "A Perfect Candidate",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Political satire; mayoral election dark comedy"
+  },
+  {
+    "name": "Pandora",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Nuclear disaster thriller; near-impossible rescue"
+  },
+  {
+    "name": "Illang: The Wolf Brigade",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Sci-fi noir; secret police unit pursuit"
+  },
+  {
+    "name": "Zombie Asada",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Zombie comedy; absurdist humor"
+  },
+  {
+    "name": "Monstrum",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Historical action; monster hunt in Joseon dynasty"
+  },
+  {
+    "name": "Luck-Key",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Crime comedy; identity swap and revenge"
+  },
+  {
+    "name": "Fabricated City",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Crime thriller; gamer wrongly accused hunts real killer"
+  },
+  {
+    "name": "Tomorrow with You",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Fantasy romance; woman can time travel"
+  },
+  {
+    "name": "Because This Is My First Life",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Realistic rom-com; marriage of convenience becomes real"
+  },
+  {
+    "name": "Encounter",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Class romance; heiress and bodyguard fall in love"
+  },
+  {
+    "name": "Abyss",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Supernatural thriller; resurrections bring dark secrets"
+  },
+  {
+    "name": "Mystic Pop",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Supernatural comedy; ghost helps living resolve regrets"
+  },
+  {
+    "name": "Psycho but It's Okay",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Mental health rom-com; librarian with trauma heals"
+  },
+  {
+    "name": "It's Okay to Not Be Okay",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Mental health romance; writer and nurse emotional journey"
+  },
+  {
+    "name": "Tale of Nok-du",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Historical comedy; man disguises as widow in village"
+  },
+  {
+    "name": "Extracurricular",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "School crime; student runs illegal operation"
+  },
+  {
+    "name": "Kingdom",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Historical zombie; Joseon dynasty plague outbreak"
+  },
+  {
+    "name": "Kingdom: Ashin of the North",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Historical zombie prequel; plague's mysterious origins"
+  },
+  {
+    "name": "Kairos",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Time loop thriller; two women communicate across days"
+  },
+  {
+    "name": "Sweet Revenge",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Revenge drama; woman exacts justice on cheaters"
+  },
+  {
+    "name": "Private Lives",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Crime mystery; prosecutor and detective uncover secrets"
+  },
+  {
+    "name": "The School Nurse Files",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "School supernatural; nurse fights monsters targeting students"
+  },
+  {
+    "name": "The Silent Sea",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Sci-fi thriller; moon base rescue mission in future"
+  },
+  {
+    "name": "Hellbound",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Supernatural thriller; beings condemn people to hell"
+  },
+  {
+    "name": "All of Us Are Dead",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Zombie apocalypse; students survive school outbreak"
+  },
+  {
+    "name": "Nevertheless",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "College romance; art student navigates love"
+  },
+  {
+    "name": "True Beauty",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "School romance; shy girl transforms with makeup"
+  },
+  {
+    "name": "Strangers from Hell",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Thriller; student discovers neighbors hide dark secrets"
+  },
+  {
+    "name": "Mr. Go",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Action drama; former athlete bond with orangutan"
+  },
+  {
+    "name": "The Guest",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "korea-depth",
+    "why": "Supernatural thriller; ghost possesses detective"
+  },
+  {
+    "name": "Love is Bloom",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "School romance; female idol and male student"
+  },
+  {
+    "name": "Start-Up",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "korea-depth",
+    "why": "Business drama; startup founders navigate competition"
+  },
+  {
+    "name": "Limit",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Survival reality; contestants in extreme challenge"
+  },
+  {
+    "name": "Kkondae Intern",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Comedy; old-school intern and millennial workers"
+  },
+  {
+    "name": "Scripting Your Love",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Dramedy; screenwriter and actress explore fate"
+  },
+  {
+    "name": "The Wrath",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Crime thriller; detective hunts vengeful killer"
+  },
+  {
+    "name": "Eerie",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "korea-depth",
+    "why": "Horror thriller; school's dark secrets surface"
+  }
+]

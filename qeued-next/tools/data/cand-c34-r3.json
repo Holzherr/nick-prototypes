@@ -1,0 +1,1602 @@
+[
+  {
+    "name": "The Notebook",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Romantic drama adapted from Nicholas Sparks novel, widely beloved."
+  },
+  {
+    "name": "Happy-Go-Lucky",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Mike Leigh's cheerful comedy-drama portrait of an optimistic teacher."
+  },
+  {
+    "name": "Gerry",
+    "year": 2002,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Gus Van Sant's minimal lost-hikers road movie."
+  },
+  {
+    "name": "Doubt",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Shanley's church drama with Streep and Hoffman, Oscar-nominated."
+  },
+  {
+    "name": "Il Divo",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Paolo Sorrentino's stylish Italian political thriller biography."
+  },
+  {
+    "name": "24 City",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Jia Zhangke's essay film about Shanghai factory transformation."
+  },
+  {
+    "name": "Waltz with Bashir",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Ari Folman's rotoscope documentary on Lebanon war memories."
+  },
+  {
+    "name": "Defiance",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Edward Zwick's WWII drama of Jewish resistance fighters."
+  },
+  {
+    "name": "Changling",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Eastwood's 1920s crime drama with Angelina Jolie."
+  },
+  {
+    "name": "Gran Torino",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Eastwood's final starring role as a cantankerous Korean War vet."
+  },
+  {
+    "name": "Rachel Getting Married",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Jonathan Demme's handheld family wedding drama."
+  },
+  {
+    "name": "The Curious Case of Benjamin Button",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Fincher's fantasy romance with Pitt, visually innovative."
+  },
+  {
+    "name": "Milk",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Gus Van Sant's Harvey Milk biography, Oscar winner."
+  },
+  {
+    "name": "Frost/Nixon",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Ron Howard's dialogue-driven Nixon interview drama."
+  },
+  {
+    "name": "Revolutionary Road",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Mendes' Fifties suburb angst with DiCaprio and Winslet."
+  },
+  {
+    "name": "Australia",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Luhrmann's epic Australian adventure romance during WWII."
+  },
+  {
+    "name": "The Road",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Hillcoat's post-apocalyptic father-son survival drama."
+  },
+  {
+    "name": "A Serious Man",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Coen Brothers' Job-like suburban Midwest black comedy."
+  },
+  {
+    "name": "Hunger",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Steve McQueen's directorial debut on IRA prisoner Bobby Sands."
+  },
+  {
+    "name": "Synecdoche, New York",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Kaufman's kaleidoscopic theatrical meta-drama."
+  },
+  {
+    "name": "In Bruges",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Martin McDonagh's debut hitman tragicomedy in medieval city."
+  },
+  {
+    "name": "Kiss Kiss Bang Bang",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Shane Black's LA noir comedy-thriller with Downey Jr."
+  },
+  {
+    "name": "Brick",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Rian Johnson's high-school noir mystery debut."
+  },
+  {
+    "name": "L.I.E.",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Michael Cuesta's controversial Long Island teen crime drama."
+  },
+  {
+    "name": "Eastern Promises",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Cronenberg's Russian mafia thriller with Viggo Mortensen."
+  },
+  {
+    "name": "A History of Violence",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Cronenberg's Midwest noir about a man's violent past."
+  },
+  {
+    "name": "Once Upon a Time in Mexico",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Rodriguez's El Mariachi trilogy finale, extravagant action."
+  },
+  {
+    "name": "Carlito's Way: Rise to Power",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Brian De Palma prequel to the 1993 crime classic."
+  },
+  {
+    "name": "Lucky Number Slevin",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "McG's stylish genre-bending crime caper."
+  },
+  {
+    "name": "Hollywoodland",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Allen Coulter's Superman actor death mystery noir."
+  },
+  {
+    "name": "The Good German",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Soderbergh's Berlin post-WWII noir homage."
+  },
+  {
+    "name": "Blood Diamond",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Edward Zwick's Sierra Leone conflict gem-smuggling thriller."
+  },
+  {
+    "name": "The Kingdom",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Peter Berg's Saudi Arabia terror-attack procedural."
+  },
+  {
+    "name": "Black Book",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Paul Verhoeven's Dutch resistance WWII spy thriller."
+  },
+  {
+    "name": "Stardust",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Matthew Vaughn's fairy-tale adventure fantasy."
+  },
+  {
+    "name": "Infamous",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Douglas McGrath's Truman Capote biography drama."
+  },
+  {
+    "name": "The Machinist",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Brad Anderson's insomniac psychological thriller with Bale."
+  },
+  {
+    "name": "Insomnia",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Nolan's Alaska noir remake with Pacino and Will Smith."
+  },
+  {
+    "name": "Memento",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Nolan's debut backward-narrated memory thriller."
+  },
+  {
+    "name": "The Prestige",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Nolan's magician rivalry period thriller with twist."
+  },
+  {
+    "name": "Batman Begins",
+    "year": 2005,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Nolan's noir Batman origin film that rebooted franchise."
+  },
+  {
+    "name": "The Wrestler",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Aronofsky's character study of washed-up wrestler Rourke."
+  },
+  {
+    "name": "The Descent",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Neil Marshall's claustrophobic cave-crawling creature horror."
+  },
+  {
+    "name": "28 Days Later",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Danny Boyle's infected-rage zombie thriller."
+  },
+  {
+    "name": "28 Weeks Later",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Juan Carlos Fresnadillo's sequel to infected pandemic."
+  },
+  {
+    "name": "The Orphanage",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "J.A. Bayona's Spanish ghost-story haunted mansion."
+  },
+  {
+    "name": "Eden Lake",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "David McCallum's South African home-invasion thriller."
+  },
+  {
+    "name": "Martyrs",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Pascal Laugier's French extreme horror torture film."
+  },
+  {
+    "name": "Suicide Club",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Sion Sono's Japanese cult horror about mass suicides."
+  },
+  {
+    "name": "Shutter",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Masayuki Ochiai's ghost photograph horror thriller."
+  },
+  {
+    "name": "Dark Water",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Walter Salles' apartment-building mother-daughter horror."
+  },
+  {
+    "name": "When a Stranger Calls",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Simon West's home-alone babysitter slasher thriller."
+  },
+  {
+    "name": "Them / Ils",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "David Moreau's French home-invasion night terror."
+  },
+  {
+    "name": "Frontier(s)",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Xavier Gens' French sci-fi dystopian horror."
+  },
+  {
+    "name": "[REC]",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Spanish found-footage apartment building virus outbreak."
+  },
+  {
+    "name": "High Tension",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Alexandre Aja's French home-invasion psychological twist."
+  },
+  {
+    "name": "The Last House on the Left",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Dennis Iliadis' violent home-invasion revenge horror."
+  },
+  {
+    "name": "Superbad",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Greg Mottola's high school losers comedy rite of passage."
+  },
+  {
+    "name": "Forgetting Sarah Marshall",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Nicholas Stoller's Hawaii vacation romantic comedy."
+  },
+  {
+    "name": "I Love You, Man",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "John Hamburg's buddy comedy about bromance before wedding."
+  },
+  {
+    "name": "Pineapple Express",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "David Gordon Green's stoner action-comedy high-concept."
+  },
+  {
+    "name": "Tropic Thunder",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Ben Stiller's action-movie satire with Robert Downey Jr."
+  },
+  {
+    "name": "Zoolander",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Ben Stiller's fashion-industry satire cult classic."
+  },
+  {
+    "name": "Dodgeball: A True Underdog Story",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Rawson Marshall Thurber's Vince Vaughn sports comedy."
+  },
+  {
+    "name": "Old School",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Todd Phillips' college comedy with Will Ferrell."
+  },
+  {
+    "name": "Meet the Parents",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Jay Roach's cringe family drama with DeNiro."
+  },
+  {
+    "name": "Meet the Fockers",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Jay Roach's sequel bringing in the other parents."
+  },
+  {
+    "name": "Dancer in the Dark",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Lars von Trier's musical tragedy with Bj\u00f6rk."
+  },
+  {
+    "name": "50 First Dates",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Peter Segal's memory-loss Hawaiian Sandler romance."
+  },
+  {
+    "name": "Wedding Crashers",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "David Dobkin's serial wedding-infiltrating buddy comedy."
+  },
+  {
+    "name": "The 40-Year-Old Virgin",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Judd Apatow's Steve Carell coming-of-age sex comedy."
+  },
+  {
+    "name": "Talladega Nights: The Ballad of Ricky Bobby",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Adam McKay's NASCAR comedy with Rourke and Dinah."
+  },
+  {
+    "name": "The Break-Up",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Peyton Reed's relationship breakup apartment comedy."
+  },
+  {
+    "name": "Click",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Frank Coraci's remote-control life-skip Sandler comedy."
+  },
+  {
+    "name": "Borat",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Larry Charles' mockumentary Ali G subversion of America."
+  },
+  {
+    "name": "Bruno",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Larry Charles' fashion mockumentary from Ali G creator."
+  },
+  {
+    "name": "Nacho Libre",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Jared Hess' Mexican priest wrestling comedy."
+  },
+  {
+    "name": "Something's Gotta Give",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Nancy Meyers' May-December romance with Nicholson."
+  },
+  {
+    "name": "How to Lose a Guy in 10 Days",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Donald Petrie's bet-based romantic comedy."
+  },
+  {
+    "name": "Just Married",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Shawn Levy's honeymoon chaos romantic comedy."
+  },
+  {
+    "name": "Maid in Manhattan",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Wayne Wang's hotel maid Cinderella story."
+  },
+  {
+    "name": "The Princess Diaries",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Garry Marshall's shy-girl royal transformation comedy."
+  },
+  {
+    "name": "America's Sweethearts",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Joe Roth's celebrity-couple reunion publicity comedy."
+  },
+  {
+    "name": "Shallow Hal",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Bobby and Peter Farrelly's body-image romantic fantasy."
+  },
+  {
+    "name": "Legally Blonde",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Robert Luketic's fashion law school Reese Witherspoon."
+  },
+  {
+    "name": "Legally Blonde 2",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Charles Herman-Wurmfeld's Washington sequel slapstick."
+  },
+  {
+    "name": "Miss Congeniality",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Donald Petrie's FBI tomboy beauty-pageant comedy."
+  },
+  {
+    "name": "Miss Congeniality 2: Armed and Fabulous",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "John Pasquin's FBI pageant-girl action follow-up."
+  },
+  {
+    "name": "Charlie's Angels",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "McG's action-comedy TV spy adaptation."
+  },
+  {
+    "name": "Charlie's Angels: Full Throttle",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "McG's sequel with increased stunts and mayhem."
+  },
+  {
+    "name": "Bring It On",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Peyton Reed's cheerleading competition comedy."
+  },
+  {
+    "name": "Bring It On: All or Nothing",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Steve Rash's inner-city cheerleading sequel."
+  },
+  {
+    "name": "Shaun of the Dead",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Edgar Wright's British zombie-romance comedy cult."
+  },
+  {
+    "name": "Hot Fuzz",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Edgar Wright's action-comedy cop buddy Cornetto."
+  },
+  {
+    "name": "In Good Company",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Paul Weitz's newspaper generational office romance."
+  },
+  {
+    "name": "Eurotrip",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Jeff Schaffer's teen European vacation comedy."
+  },
+  {
+    "name": "Van Helsing",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Stephen Sommers' monster-hunter action fantasy."
+  },
+  {
+    "name": "Around the World in 80 Days",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Frank Coraci's Verne adaptation adventure comedy."
+  },
+  {
+    "name": "National Treasure",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Jon Turteltaub's treasure-hunt historical adventure."
+  },
+  {
+    "name": "The Day After Tomorrow",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Roland Emmerich's climate-catastrophe action thriller."
+  },
+  {
+    "name": "Troy",
+    "year": 2004,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Wolfgang Petersen's Trojan War epic with Pitt."
+  },
+  {
+    "name": "Ella Enchanted",
+    "year": 2004,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Tommy O'Haver's magical-curse romantic adventure."
+  },
+  {
+    "name": "The Chronicles of Riddick",
+    "year": 2004,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "David Twohy's sci-fi Vin Diesel sequel world-building."
+  },
+  {
+    "name": "Shrek 2",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Andrew Adamson's DreamWorks sequel ogre adventure."
+  },
+  {
+    "name": "Shrek the Third",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Chris Miller's Shrek family succession adventure."
+  },
+  {
+    "name": "Cars",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Pixar's automobile-world McQueen racing adventure."
+  },
+  {
+    "name": "Ratatouille",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Pixar's Paris rat-cook culinary adventure."
+  },
+  {
+    "name": "Monsters vs. Aliens",
+    "year": 2009,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "DreamWorks alien-invasion sci-fi adventure."
+  },
+  {
+    "name": "Monsters Inc",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Pixar's Sulley and Mike scream-factory adventure."
+  },
+  {
+    "name": "Finding Nemo",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Pixar's clownfish father-son underwater adventure."
+  },
+  {
+    "name": "WALL-E",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Pixar's lonely-robot ecological romance sci-fi."
+  },
+  {
+    "name": "Up",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Pixar's elderly-widower sky-house adventure."
+  },
+  {
+    "name": "Kung Fu Panda",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "DreamWorks panda martial-arts adventure comedy."
+  },
+  {
+    "name": "Madagascar",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "DreamWorks zoo-animals African adventure."
+  },
+  {
+    "name": "Madagascar 2",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Eric Darnell's African animal sequel adventure."
+  },
+  {
+    "name": "Ice Age",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Fox's ice-age animal adventure comedy."
+  },
+  {
+    "name": "Ice Age: The Meltdown",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Carlos Saldanha's ice-cap-melt sequel adventure."
+  },
+  {
+    "name": "Ice Age: Dawn of the Dinosaurs",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Mike Thurmeier's ice-age dinosaur discovery."
+  },
+  {
+    "name": "Flushed Away",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Aardman's CGI sewer-rat London adventure."
+  },
+  {
+    "name": "Over the Hedge",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "DreamWorks backyard-creature suburban adventure."
+  },
+  {
+    "name": "2046",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Wong Kar-wai's Hong Kong sci-fi romance."
+  },
+  {
+    "name": "Pride and Prejudice",
+    "year": 2005,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Joe Wright's Austen adaptation with Knightley."
+  },
+  {
+    "name": "Atonement",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Joe Wright's Ian McEwan wartime love tragedy."
+  },
+  {
+    "name": "Becoming Jane",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Julian Jarrold's Austen biographical romance."
+  },
+  {
+    "name": "Sweeney Todd: The Demon Barber of Fleet Street",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Tim Burton's Sondheim musical horror revenge."
+  },
+  {
+    "name": "Across the Universe",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Julie Taymor's Beatles-song musical romance."
+  },
+  {
+    "name": "Enchanted",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Kevin Lima's fairy-tale Disney New York comedy."
+  },
+  {
+    "name": "Penelope",
+    "year": 2006,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Mark Palansky's pig-nosed heiress fairy tale."
+  },
+  {
+    "name": "The Holiday",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Nancy Meyers' Christmas holiday swap romance."
+  },
+  {
+    "name": "Because I Said So",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Michael Lehmann's mother-daughter love interference."
+  },
+  {
+    "name": "Marley & Me",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "David Frankel's dog-life marriage chronicle."
+  },
+  {
+    "name": "The Proposal",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Anne Fletcher's Alaska-visa fake-engagement rom-com."
+  },
+  {
+    "name": "Bride Wars",
+    "year": 2009,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Gary Winick's best-friends bridal battle comedy."
+  },
+  {
+    "name": "Confessions of a Shopaholic",
+    "year": 2009,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "P.J. Hogan's shopping-addict Isla Fisher rom-com."
+  },
+  {
+    "name": "Ghosts of Girlfriends Past",
+    "year": 2009,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Mark Waters' Dickens-style groom redemption comedy."
+  },
+  {
+    "name": "The Time Traveler's Wife",
+    "year": 2009,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Robert Schwentke's temporal love paradox romance."
+  },
+  {
+    "name": "Millennium Actress",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Satoshi Kon's meta-cinema animated legend biography."
+  },
+  {
+    "name": "Tokyo Godfathers",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Satoshi Kon's Christmas anime homeless-family quest."
+  },
+  {
+    "name": "Paprika",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Satoshi Kon's mind-bending dream-device thriller."
+  },
+  {
+    "name": "The Girl Who Leapt Through Time",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Mamoru Hosoda's time-manipulation teen romance."
+  },
+  {
+    "name": "Howl's Moving Castle",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Hayao Miyazaki's Howl fantasy romance animation."
+  },
+  {
+    "name": "Ghost in the Shell 2: Innocence",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Mamoru Oshii's philosophical anime cop thriller."
+  },
+  {
+    "name": "Appleseed",
+    "year": 2004,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Shinji Aramaki's CGI cyberpunk anime action."
+  },
+  {
+    "name": "Blood: The Last Vampire",
+    "year": 2000,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Hiroyuki Kitakubo's vampire-hunter anime."
+  },
+  {
+    "name": "Sword of the Stranger",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Masahiro Andou's samurai-era anime action."
+  },
+  {
+    "name": "Remember the Titans",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Boaz Yakin's racial-integration football drama."
+  },
+  {
+    "name": "Friday Night Lights",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Peter Berg's Texas high-school football documentary."
+  },
+  {
+    "name": "Rocky Balboa",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Stallone's Rocky comeback feature."
+  },
+  {
+    "name": "Invictus",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Clint Eastwood's apartheid-era rugby triumph."
+  },
+  {
+    "name": "Million Dollar Baby",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Clint Eastwood's boxing ring tragedy Best Picture."
+  },
+  {
+    "name": "Cinderella Man",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Ron Howard's Depression-era boxer Russell Crowe."
+  },
+  {
+    "name": "Seabiscuit",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Gary Ross' Depression horse-racing underdog."
+  },
+  {
+    "name": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Andrew Adamson's Narnia fantasy adaptation."
+  },
+  {
+    "name": "The Chronicles of Narnia: Prince Caspian",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Andrew Adamson's Narnia sequel adventure."
+  },
+  {
+    "name": "National Treasure: Book of Secrets",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Jon Turteltaub's Mount Rushmore treasure caper."
+  },
+  {
+    "name": "Journey to the Center of the Earth",
+    "year": 2008,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Eric Brevig's Jules Verne adventure sci-fi."
+  },
+  {
+    "name": "Kingdom of Heaven",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Ridley Scott's Crusades epic with Bloom."
+  },
+  {
+    "name": "Flags of Our Fathers",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Clint Eastwood's Iwo Jima photo-propaganda drama."
+  },
+  {
+    "name": "Letters from Iwo Jima",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Clint Eastwood's Japanese Iwo Jima WWII perspective."
+  },
+  {
+    "name": "Cafe Lumi\u00e8re",
+    "year": 2003,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Hou Hsiao-hsien's Tokyo tea-house reverie."
+  },
+  {
+    "name": "Infernal Affairs",
+    "year": 2002,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Hong Kong gangster-cop mole thriller."
+  },
+  {
+    "name": "Sympathy for Mr. Vengeance",
+    "year": 2002,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Park Chan-wook's Korean revenge tragedy."
+  },
+  {
+    "name": "Memories of Murder",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Bong Joon-ho's Korean serial-killer procedural."
+  },
+  {
+    "name": "The Host",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Bong Joon-ho's Korean monster-attack family."
+  },
+  {
+    "name": "Lady Vengeance",
+    "year": 2005,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Park Chan-wook's revenge trilogy conclusion."
+  },
+  {
+    "name": "Thirst",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Park Chan-wook's vampire-priest dark fantasy."
+  },
+  {
+    "name": "Joint Security Area",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Park Chan-wook's DMZ friendship murder mystery."
+  },
+  {
+    "name": "Welcome to Dongmakgol",
+    "year": 2005,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Park Kwang-hyun's Korean War hidden-village redemption."
+  },
+  {
+    "name": "Spring, Summer, Fall, Winter... and Spring",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Kim Ki-duk's Buddhist temple island meditation."
+  },
+  {
+    "name": "3-Iron",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Kim Ki-duk's silent romance squatter meditation."
+  },
+  {
+    "name": "Love Exposure",
+    "year": 2008,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Sion Sono's chaotic Japanese romance epic."
+  },
+  {
+    "name": "Battle Royale",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Kinji Fukasaku's student-execution cult dystopian."
+  },
+  {
+    "name": "Battle Royale II",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Kinji Fukasaku's Battle Royale WWII-style sequel."
+  },
+  {
+    "name": "Izo",
+    "year": 2004,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Takashi Miike's samurai-ghost surreal revenge epic."
+  },
+  {
+    "name": "Visitor Q",
+    "year": 2001,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Takashi Miike's taboo-breaking family chaos."
+  },
+  {
+    "name": "The Great Yokai War",
+    "year": 2005,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Takashi Miike's Japanese spirit-monster adventure."
+  },
+  {
+    "name": "One Missed Call",
+    "year": 2003,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Takashi Miike's death-prediction phone horror."
+  },
+  {
+    "name": "Happiness of the Katakuris",
+    "year": 2001,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Takashi Miike's musical-murderous family chaos."
+  },
+  {
+    "name": "This Is England",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Shane Meadows' skinhead youth British kitchen-sink."
+  },
+  {
+    "name": "Dead Man's Shoes",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Shane Meadows' vengeful-brother British redemption."
+  },
+  {
+    "name": "A Tale of Two Sisters",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Kim Jee-woon's Korean ghost-sister family horror."
+  },
+  {
+    "name": "Boy Eats Girl",
+    "year": 2005,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Stephen Bradley's Irish zombie-romance comedy."
+  },
+  {
+    "name": "Crazy Heart",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Jeff Bridges' country-music washed-up indie drama."
+  },
+  {
+    "name": "A Single Man",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Tom Ford's Sixties gay-teacher grief character study."
+  },
+  {
+    "name": "Last Days",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Gus Van Sant's Cobain-esque recluse meditation."
+  },
+  {
+    "name": "Paranoid Park",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Gus Van Sant's skate-park-teen murder mystery."
+  },
+  {
+    "name": "The Education of Charlie Banks",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Fred Durst's college revenge indie drama."
+  },
+  {
+    "name": "My Blueberry Nights",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Wong Kar-wai's piano-bar New York diner romance."
+  },
+  {
+    "name": "Dogtooth",
+    "year": 2009,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Yorgos Lanthimos' confined-family psychological horror."
+  },
+  {
+    "name": "Hero",
+    "year": 2002,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Zhang Yimou's color-epic Qin-dynasty martial arts."
+  },
+  {
+    "name": "House of Flying Daggers",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Zhang Yimou's Tang-dynasty romance martial arts."
+  },
+  {
+    "name": "Curse of the Golden Flower",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Zhang Yimou's palace-intrigue Tang dynasty tragedy."
+  },
+  {
+    "name": "Rang De Basanti",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Rakeysh Omprakash Mehra's Indian youth revolution."
+  },
+  {
+    "name": "3 Idiots",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Rajkumar Hirani's Indian college friendship comedy."
+  },
+  {
+    "name": "Devdas",
+    "year": 2002,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-2000s",
+    "why": "Sanjay Leela Bhansali's opulent tragic Bollywood romance."
+  },
+  {
+    "name": "Black",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "Sanjay Leela Bhansali's blind-deaf girl teacher drama."
+  },
+  {
+    "name": "Bride Prejudice",
+    "year": 2004,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Gurinder Chadha's Bollywood Austen adaptation."
+  },
+  {
+    "name": "The Killing",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-2000s",
+    "why": "David Fincher's political thriller from Danish series."
+  },
+  {
+    "name": "The Wailing",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-2000s",
+    "why": "Spanish found-footage apartment virus outbreak."
+  },
+  {
+    "name": "A Tale of Two Cities",
+    "year": 2008,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-2000s",
+    "why": "Architectural design competition drama."
+  }
+]

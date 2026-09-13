@@ -1,0 +1,1602 @@
+[
+  {
+    "name": "2001: A Space Odyssey",
+    "year": 1968,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Kubrick Sci-fi epic; monolith, HAL, and transcendence"
+  },
+  {
+    "name": "A Kind of Loving",
+    "year": 1962,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Schlesinger northern romance; working-class Leeds courting"
+  },
+  {
+    "name": "A Matter of Life and Death",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Powell-Pressburger fantasy; pilot, heavenly trial, and love"
+  },
+  {
+    "name": "A Place in the Sun",
+    "year": 1951,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Stevens social climbing; Montgomery Clift and Elizabeth Taylor"
+  },
+  {
+    "name": "A Run for Your Money",
+    "year": 1949,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Emlyn Williams Welsh comedy; brothers inherit and London adventure"
+  },
+  {
+    "name": "A Streetcar Named Desire",
+    "year": 1951,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Kazan Tennessee Williams; Brando rage and desire"
+  },
+  {
+    "name": "A Taste of Honey",
+    "year": 1961,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Richardson kitchen-sink; pregnant girl and Manchester realism"
+  },
+  {
+    "name": "Ace in the Hole",
+    "year": 1951,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Wilder cynical journalism; Kirk Douglas and trapped miner"
+  },
+  {
+    "name": "Algiers",
+    "year": 1938,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Boyer and Hedy Lamarr; Kasbah intrigue and 'come with me to the Kasbah'"
+  },
+  {
+    "name": "All About Eve",
+    "year": 1950,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Mankiewicz Broadway theatre; actress and ambitious understudy"
+  },
+  {
+    "name": "An American in Paris",
+    "year": 1951,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Minnelli Gershwin musical; Gene Kelly romance and ballet"
+  },
+  {
+    "name": "Andrei Rublev",
+    "year": 1966,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Tarkovsky Russian icon painter; faith and art under oppression"
+  },
+  {
+    "name": "Angles with Dirty Faces",
+    "year": 1938,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Cagney and Bogart as childhood rival gangsters"
+  },
+  {
+    "name": "Arsenal",
+    "year": 1928,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Dovzhenko Soviet montage; Kiev factory and workers"
+  },
+  {
+    "name": "Ashes and Diamonds",
+    "year": 1958,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Wajda Polish resistance; Communist victory and betrayal"
+  },
+  {
+    "name": "Ball of Fire",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hawks screwball; seven professors and a stripper"
+  },
+  {
+    "name": "Battleship Potemkin",
+    "year": 1925,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Russian silent revolutionary epic; founding work of montage cinema"
+  },
+  {
+    "name": "Bed and Sofa",
+    "year": 1927,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Room Soviet domestic drama; love triangle and morality"
+  },
+  {
+    "name": "Billy Liar",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Schlesinger youth drama; fantasies and working-class Leeds"
+  },
+  {
+    "name": "Birth of a Nation",
+    "year": 1915,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Griffith controversial Civil War; historical technique, racist ideology"
+  },
+  {
+    "name": "Blackmail",
+    "year": 1929,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock first sound; blackmail and murder in London"
+  },
+  {
+    "name": "Bonnie and Clyde",
+    "year": 1967,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Penn outlaws; bank robbers and violent romance"
+  },
+  {
+    "name": "Brief Encounter",
+    "year": 1945,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Lean British romance; middle-class love across tea and trains"
+  },
+  {
+    "name": "Broken Blossoms",
+    "year": 1919,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Griffith Limehouse; boxer, actress, and tragic love"
+  },
+  {
+    "name": "Captains Courageous",
+    "year": 1937,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Fleming adventure; boy, fishing boat, Freddie Bartholomew"
+  },
+  {
+    "name": "Citizen Kane",
+    "year": 1941,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Welles American portrait; newspaper magnate and 'Rosebud'"
+  },
+  {
+    "name": "City Lights",
+    "year": 1931,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Chaplin's final silent; tramp and blind flower girl"
+  },
+  {
+    "name": "Closely Watched Trains",
+    "year": 1966,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Menzel Czech New Wave; railway workers and resistance"
+  },
+  {
+    "name": "Contempt",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Godard Moreau marriage; film production and philosophy"
+  },
+  {
+    "name": "Creature from the Black Lagoon",
+    "year": 1954,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Universal creature feature; Amazon river monster in 3D"
+  },
+  {
+    "name": "D.O.A.",
+    "year": 1950,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Noir premise; man poisoned searches for his killer"
+  },
+  {
+    "name": "Daisies",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Vera Chytilová anarchist girls; color surrealism and rebellion"
+  },
+  {
+    "name": "Dance, Girl, Dance",
+    "year": 1940,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Arzner burlesque drama; O'Hara and Ginger Rogers"
+  },
+  {
+    "name": "Dead End",
+    "year": 1937,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Wyler New York tenement; Dead End Kids first film"
+  },
+  {
+    "name": "Dial M for Murder",
+    "year": 1954,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock stage adaptation; murder plot and twist"
+  },
+  {
+    "name": "Double Indemnity",
+    "year": 1944,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Wilder noir; insurance scam and femme fatale"
+  },
+  {
+    "name": "Dracula",
+    "year": 1931,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Browning horror; Bela Lugosi and Eastern European dread"
+  },
+  {
+    "name": "Dumbo",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Disney animation; flying elephant and outsider triumph"
+  },
+  {
+    "name": "Earth",
+    "year": 1930,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Dovzhenko Soviet poetic; Ukrainian village and death"
+  },
+  {
+    "name": "Easy Rider",
+    "year": 1969,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hopper American road; bikers and counterculture tragedy"
+  },
+  {
+    "name": "El Dorado",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Hawks Rio Bravo remake; aging gunfighter and ritual"
+  },
+  {
+    "name": "Faust",
+    "year": 1926,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Murnau Goethe; demon and temptation"
+  },
+  {
+    "name": "Floating Weeds",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Ozu theater troupe; provincial Japan and family reunion"
+  },
+  {
+    "name": "Frankenstein",
+    "year": 1931,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Whale horror; Boris Karloff and mad science"
+  },
+  {
+    "name": "Freaks",
+    "year": 1932,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Browning exploitation; circus sideshow and human dignity"
+  },
+  {
+    "name": "Genevieve",
+    "year": 1953,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Cornelius British comedy; Classic car rally and Kennington"
+  },
+  {
+    "name": "Gilda",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Vidor noir; Rita Hayworth and gambling obsession"
+  },
+  {
+    "name": "Godard Band of Outsiders",
+    "year": 1964,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Godard French New Wave; dance scene and criminal love"
+  },
+  {
+    "name": "Gone with the Wind",
+    "year": 1939,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Selznick epic; American Civil War and Scarlett's defiance"
+  },
+  {
+    "name": "Greed",
+    "year": 1924,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Stroheim McTeague; gold and obsession in San Francisco"
+  },
+  {
+    "name": "Gun Crazy",
+    "year": 1950,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Lovers on the run; prototype for Bonnie and Clyde"
+  },
+  {
+    "name": "Gunga Din",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Stevens adventure; British India, Cary Grant, and imperial romance"
+  },
+  {
+    "name": "Harakiri",
+    "year": 1962,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Masaki Kobayashi samurai tragedy; ritual suicide and injustice"
+  },
+  {
+    "name": "High Noon",
+    "year": 1952,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Zinnemann western showdown; Gary Cooper and real-time tension"
+  },
+  {
+    "name": "Hiroshima mon amour",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Resnais memory and war; Japanese woman, French actress"
+  },
+  {
+    "name": "His Girl Friday",
+    "year": 1940,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hawks screwball; newspaper reporters, Cary Grant whirlwind"
+  },
+  {
+    "name": "How Green Was My Valley",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Ford Welsh mining village; Oscar-winning sentiment and landscape"
+  },
+  {
+    "name": "I Met My Love Again",
+    "year": 1938,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Rural romance; small-town New England nostalgia"
+  },
+  {
+    "name": "I'm All Right Jack",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Boulting satire; trade union and factory floor comedy"
+  },
+  {
+    "name": "In a Lonely Place",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Ray Hollywood noir; Bogart actor and murder suspect"
+  },
+  {
+    "name": "Intolerance",
+    "year": 1916,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Griffith four-era epic; massive Babylon set and spectacle"
+  },
+  {
+    "name": "It Happened One Night",
+    "year": 1934,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Capra romantic comedy; runaway heiress and reporter"
+  },
+  {
+    "name": "It's a Wonderful Life",
+    "year": 1946,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Capra Christmas fable; small-town banker and life's meaning"
+  },
+  {
+    "name": "Jean-Luc Godard Pierrot le Fou",
+    "year": 1965,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "New Wave lovers on lam; color, politics, and cinema"
+  },
+  {
+    "name": "Johnny Guitar",
+    "year": 1954,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Ray gender-inverted western; Joan Crawford saloon and showdown"
+  },
+  {
+    "name": "Kes",
+    "year": 1969,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Loach boy and hawk; Yorkshire mining family and hope"
+  },
+  {
+    "name": "Kind Hearts and Coronets",
+    "year": 1949,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hamer British dark comedy; Dennis Price murders relatives"
+  },
+  {
+    "name": "Kiss Me Deadly",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Aldrich Spillane adaptation; atomic age noir and apocalypse"
+  },
+  {
+    "name": "Kiss of Death",
+    "year": 1947,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Hathaway noir; stool pigeon and underworld"
+  },
+  {
+    "name": "Laura",
+    "year": 1944,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Preminger portrait noir; detective and woman in painting"
+  },
+  {
+    "name": "Le Samouraï",
+    "year": 1967,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Melville cool assassin; hitman and Tokyo style"
+  },
+  {
+    "name": "Look Back in Anger",
+    "year": 1959,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Richardson Osborne anger; British young man rage"
+  },
+  {
+    "name": "M",
+    "year": 1931,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Lang's first sound film; child-killer thriller and social nightmare"
+  },
+  {
+    "name": "Man with a Movie Camera",
+    "year": 1929,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Vertov silent documentary; experimental Soviet cinema anthem"
+  },
+  {
+    "name": "Man's Favorite Sport?",
+    "year": 1964,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Hawks screwball; fishing instructor and gullible woman"
+  },
+  {
+    "name": "Marnie",
+    "year": 1964,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock thief and psychiatrist; psychological manipulation"
+  },
+  {
+    "name": "Metropolis",
+    "year": 1927,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "German silent sci-fi masterpiece; visual landmark of cinema"
+  },
+  {
+    "name": "Midnight Cowboy",
+    "year": 1969,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Schlesinger New York hustler; moral decay and isolation"
+  },
+  {
+    "name": "Modern Times",
+    "year": 1936,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Chaplin's industrial age satire; assembly line and factory"
+  },
+  {
+    "name": "Moulin Rouge",
+    "year": 1952,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Huston Paris bohemia; dancer and impresario"
+  },
+  {
+    "name": "Mr. Deeds Goes to Town",
+    "year": 1936,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Capra Americana; small-town decency vs. New York cynicism"
+  },
+  {
+    "name": "Murder, He Says",
+    "year": 1945,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-classic-depth",
+    "why": "Comedy-thriller; small-town eccentric family"
+  },
+  {
+    "name": "Murder, My Sweet",
+    "year": 1944,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Dmytryk noir; Dick Powell as private eye and dangerous women"
+  },
+  {
+    "name": "My Darling Clementine",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Ford Tombstone; Wyatt Earp and dancehall girl"
+  },
+  {
+    "name": "Ménilmontant",
+    "year": 1926,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Kirsanoff French Impressionist; sisters' Paris lives"
+  },
+  {
+    "name": "North by Northwest",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock mistaken identity; crop duster and Mount Rushmore"
+  },
+  {
+    "name": "Nosferatu",
+    "year": 1922,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Murnau German Expressionist; vampire and plague"
+  },
+  {
+    "name": "Notorious",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock espionage romance; Ingrid Bergman and nuclear plot"
+  },
+  {
+    "name": "October: Ten Days That Shook the World",
+    "year": 1928,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Eisenstein Bolshevik Revolution; montage and mass action"
+  },
+  {
+    "name": "Odd Man Out",
+    "year": 1947,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Carol Reed Irish noir; IRA man on the run in Belfast"
+  },
+  {
+    "name": "Odds Against Tomorrow",
+    "year": 1959,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Wise interracial heist; 1950s race tensions"
+  },
+  {
+    "name": "Out of the Past",
+    "year": 1947,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Tourneur classic noir; Mitchum, Greer, and doomed love"
+  },
+  {
+    "name": "Passport to Pimlico",
+    "year": 1949,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Ealing post-war satire; London neighborhood becomes separate nation"
+  },
+  {
+    "name": "Phantom Carriage",
+    "year": 1921,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Sjöström Swedish silent; death car and redemption"
+  },
+  {
+    "name": "Pickup on South Street",
+    "year": 1953,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Fuller Cold War pickpocket; spy ring"
+  },
+  {
+    "name": "Psycho",
+    "year": 1960,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock shower scene; Norman Bates and mother"
+  },
+  {
+    "name": "Putney Swope",
+    "year": 1969,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Robert Downey satire; advertising agency power shift"
+  },
+  {
+    "name": "Raw Deal",
+    "year": 1948,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-classic-depth",
+    "why": "Mann noir; escaped con and heist"
+  },
+  {
+    "name": "Rear Window",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock voyeurism thriller; photographer witnesses murder"
+  },
+  {
+    "name": "Rebeca",
+    "year": 1940,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock Gothic mansion; second wife and first wife's shadow"
+  },
+  {
+    "name": "Red River",
+    "year": 1948,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hawks cattle drive; John Wayne tyranny and Montgomery Clift"
+  },
+  {
+    "name": "Rembrandt",
+    "year": 1936,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Korda British art film; Alexander Korda in Dutch-set prestige drama"
+  },
+  {
+    "name": "Rio Bravo",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hawks western; sheriff holds jail against gang siege"
+  },
+  {
+    "name": "Rogue Cop",
+    "year": 1954,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-classic-depth",
+    "why": "Rowland corrupt police; Robert Taylor noir"
+  },
+  {
+    "name": "Rogue's Tavern",
+    "year": 1936,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-classic-depth",
+    "why": "B-mystery; creaky murder-house comedy"
+  },
+  {
+    "name": "Room at the Top",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Clayton ambitious youth; Simone Signoret and class ascent"
+  },
+  {
+    "name": "Rope",
+    "year": 1948,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock chamber thriller; murders in a Manhattan apartment"
+  },
+  {
+    "name": "Rules of the Game",
+    "year": 1939,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Renais masterpiece; pre-war French society and human comedy"
+  },
+  {
+    "name": "Sansho the Bailiff",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Mizoguchi feudal cruelty; siblings sold into servitude"
+  },
+  {
+    "name": "Saturday Night and Sunday Morning",
+    "year": 1960,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Reisz Sillitoe adaptation; factory worker and rebellion"
+  },
+  {
+    "name": "Scarface",
+    "year": 1932,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hawks Prohibition gangster; Tony Camonte and Chicago underworld"
+  },
+  {
+    "name": "Seven Samurai",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Kurosawa action epic; village defense and samurai honor"
+  },
+  {
+    "name": "Shadow of a Doubt",
+    "year": 1943,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock small town evil; uncle is serial killer"
+  },
+  {
+    "name": "Sherlock Jr.",
+    "year": 1924,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Keaton into-film stunt; projectionist dreams and physics"
+  },
+  {
+    "name": "Shock Corridor",
+    "year": 1963,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Samuel Fuller asylum; journalist goes undercover"
+  },
+  {
+    "name": "Singin' in the Rain",
+    "year": 1952,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Donen MGM musical; Gene Kelly water and dancing perfection"
+  },
+  {
+    "name": "Some Like It Hot",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Wilder comedy masterpiece; musicians in drag"
+  },
+  {
+    "name": "Spellbound",
+    "year": 1945,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock psychoanalysis; Dalí dream and guilt"
+  },
+  {
+    "name": "Stagecoach",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Ford desert journey; mixed passengers and Apache attack"
+  },
+  {
+    "name": "Steamboat Bill, Jr.",
+    "year": 1928,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Keaton riverside comedy; boat disaster and pratfalls"
+  },
+  {
+    "name": "Storm Over Asia",
+    "year": 1928,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Pudovkin Mongolia; revolutionary awakening and colonialism"
+  },
+  {
+    "name": "Strangers on a Train",
+    "year": 1951,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock Highsmith adaptation; murder exchange plot"
+  },
+  {
+    "name": "Strike",
+    "year": 1925,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Eisenstein factory rebellion; symbolic montage and violence"
+  },
+  {
+    "name": "Sullivan's Travels",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Sturges director satire; realism vs. comedy"
+  },
+  {
+    "name": "Sunrise",
+    "year": 1927,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Murnau silent drama; American triumph of German Expressionism"
+  },
+  {
+    "name": "Sunset Boulevard",
+    "year": 1950,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Wilder Hollywood gothic; silent star and screenwriter"
+  },
+  {
+    "name": "Sweet Smell of Success",
+    "year": 1957,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Mackendrick New York gossip; Lehman's dialogue"
+  },
+  {
+    "name": "Swing Time",
+    "year": 1936,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Astaire-Rogers gold standard; dancing on roller skates"
+  },
+  {
+    "name": "The 39 Steps",
+    "year": 1935,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock British thriller; wrongly accused man on the run"
+  },
+  {
+    "name": "The African Queen",
+    "year": 1951,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Huston jungle adventure; Bogart and Hepburn on river"
+  },
+  {
+    "name": "The Asphalt Jungle",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Huston heist blueprint; crime mechanics and doom"
+  },
+  {
+    "name": "The Band Wagon",
+    "year": 1953,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Minnelli backstage musical; Astaire and Cyd Charisse"
+  },
+  {
+    "name": "The Belles of St. Trinian's",
+    "year": 1954,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Launder schoolgirl comedy; anarchic girls' school satire"
+  },
+  {
+    "name": "The Big Heat",
+    "year": 1953,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Lang revenge noir; Fritz Lang's final American film"
+  },
+  {
+    "name": "The Big Sleep",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hawks Chandler adaptation; Bogart, Bacall, LA noir"
+  },
+  {
+    "name": "The Big Steal",
+    "year": 1949,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-classic-depth",
+    "why": "Siodmak Mexico heist; playful B-noir"
+  },
+  {
+    "name": "The Cabinet of Dr. Caligari",
+    "year": 1920,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Wiene German Expressionist; somnambulist and murder"
+  },
+  {
+    "name": "The Crowd",
+    "year": 1928,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Vidor American ordinary life; anonymity and marriage"
+  },
+  {
+    "name": "The Cruel Sea",
+    "year": 1953,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Frend British naval drama; minesweeper and convoy duty"
+  },
+  {
+    "name": "The Divorce of Lady X",
+    "year": 1938,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Korda British comedy; Laurence Olivier in Technicolor confection"
+  },
+  {
+    "name": "The End of St. Petersburg",
+    "year": 1927,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Pudovkin 1917 Revolution; peasant and historical moment"
+  },
+  {
+    "name": "The Firemen's Ball",
+    "year": 1967,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Forman slapstick; Czech village firefighters and social comment"
+  },
+  {
+    "name": "The General",
+    "year": 1926,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Keaton Civil War comedy; train stunts and precision"
+  },
+  {
+    "name": "The Gold Rush",
+    "year": 1925,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Chaplin Yukon silent; prospector and lone cabin"
+  },
+  {
+    "name": "The Golem",
+    "year": 1920,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Wegener Jewish legend; clay monster and Prague"
+  },
+  {
+    "name": "The Graduate",
+    "year": 1967,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Nichols American youth; Benjamin and Mrs. Robinson"
+  },
+  {
+    "name": "The Great Dictator",
+    "year": 1940,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Chaplin Hitler satire; barber and tyrant dual role"
+  },
+  {
+    "name": "The Great Ziegfeld",
+    "year": 1936,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "MGM showman biography; Lubitsch-inflected musical extravaganza"
+  },
+  {
+    "name": "The Informer",
+    "year": 1935,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Ford Irish rebellion; Gypo and informer betrayal"
+  },
+  {
+    "name": "The Invasion of the Body Snatchers",
+    "year": 1956,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Siegel sci-fi paranoia; Cold War dread"
+  },
+  {
+    "name": "The Invisible Man",
+    "year": 1933,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Whale horror-sci-fi; Claude Rains and scientific madness"
+  },
+  {
+    "name": "The Iron Horse",
+    "year": 1924,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Ford silent western; railroad construction and reconciliation"
+  },
+  {
+    "name": "The Killers",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Siodmak Hemingway adaptation; two assassins and corruption"
+  },
+  {
+    "name": "The Killing",
+    "year": 1956,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Kubrick racetrack heist; non-linear noir structure"
+  },
+  {
+    "name": "The Lady Eve",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Sturges con; Stanwyck and Hopkins screwball"
+  },
+  {
+    "name": "The Lady Vanishes",
+    "year": 1938,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock British spy thriller; train and conspiracy"
+  },
+  {
+    "name": "The Lady from Shanghai",
+    "year": 1947,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Welles noir; Hayworth, hall of mirrors, and obsession"
+  },
+  {
+    "name": "The Ladykillers",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Mackendrick Ealing comedy; criminals and landlady"
+  },
+  {
+    "name": "The Last Laugh",
+    "year": 1924,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Murnau doorman tragedy; no title cards and moving camera"
+  },
+  {
+    "name": "The Lavender Hill Mob",
+    "year": 1951,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Crichton British caper; meek men and gold bullion heist"
+  },
+  {
+    "name": "The Lodger",
+    "year": 1927,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock London horror; lodger and Jack the Ripper"
+  },
+  {
+    "name": "The Loneliness of the Long Distance Runner",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Richardson Sillitoe; borstal boy and class resentment"
+  },
+  {
+    "name": "The Maltese Falcon",
+    "year": 1941,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Huston noir; Bogart, Bacall, and the black bird"
+  },
+  {
+    "name": "The Man Between",
+    "year": 1953,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Reed Berlin noir; British thriller and Cold War"
+  },
+  {
+    "name": "The Man Who Shot Liberty Valance",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Ford legend vs. truth; civilisation and frontier"
+  },
+  {
+    "name": "The Mother",
+    "year": 1926,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Pudovkin Soviet; mother's political awakening and son"
+  },
+  {
+    "name": "The Mummy",
+    "year": 1932,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Freund horror; Boris Karloff ancient curse"
+  },
+  {
+    "name": "The Naked City",
+    "year": 1948,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Dassin documentary noir; New York streets and homicide"
+  },
+  {
+    "name": "The Narrow Margin",
+    "year": 1952,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Fleischer B-noir; train and witness"
+  },
+  {
+    "name": "The Passion of Joan of Arc",
+    "year": 1928,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Dreyer silent; Renée Jeanne Falconetti's transcendent face"
+  },
+  {
+    "name": "The Phantom Carriage",
+    "year": 1921,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Sjöström Swedish; ghost tram and moral redemption"
+  },
+  {
+    "name": "The Phantom Lady",
+    "year": 1944,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Siodmak noir; wrongly accused man"
+  },
+  {
+    "name": "The Pleasure Garden",
+    "year": 1925,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock debut silent; dancers and betrayal"
+  },
+  {
+    "name": "The Postman Always Rings Twice",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Tay Garnett noir; Turner and Garfield's doomed passion"
+  },
+  {
+    "name": "The Prowler",
+    "year": 1951,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-classic-depth",
+    "why": "Losey corruption noir; police and passion"
+  },
+  {
+    "name": "The Public Enemy",
+    "year": 1931,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Wellman gangster film; Cagney grapefruit scene and Method brutalism"
+  },
+  {
+    "name": "The Reckless Moment",
+    "year": 1949,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Ophüls mother's sacrifice; German Expressionist noir"
+  },
+  {
+    "name": "The Red Shoes",
+    "year": 1948,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Powell-Pressburger ballet; love vs. art and Technicolor ecstasy"
+  },
+  {
+    "name": "The Searchers",
+    "year": 1956,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Ford Monument Valley obsession; racism and redemption"
+  },
+  {
+    "name": "The Setup",
+    "year": 1949,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-classic-depth",
+    "why": "Wise boxing noir; single night tragedy"
+  },
+  {
+    "name": "The Seven Year Itch",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Wilder Marilyn Monroe; marriage temptation and skirt"
+  },
+  {
+    "name": "The Third Man",
+    "year": 1949,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Reed Vienna noir; Harry Lime, zither, and post-war espionage"
+  },
+  {
+    "name": "The Trouble with Harry",
+    "year": 1955,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock dark comedy; New England town and corpse"
+  },
+  {
+    "name": "The Wild Bunch",
+    "year": 1969,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Peckinpah western elegy; aging outlaws' final score"
+  },
+  {
+    "name": "The Wolf Man",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Waggner werewolf; Lon Chaney Jr. transformation"
+  },
+  {
+    "name": "This Sporting Life",
+    "year": 1963,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Anderson rugby drama; working-class masculinity"
+  },
+  {
+    "name": "Tokyo Drifter",
+    "year": 1966,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Seijun Suzuki yakuza style; neon gangster poetry"
+  },
+  {
+    "name": "Tokyo Story",
+    "year": 1953,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Ozu Japanese masterpiece; elderly couple's Tokyo journey"
+  },
+  {
+    "name": "Top Hat",
+    "year": 1935,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Astaire-Rogers musical; style, wit, and dancing perfection"
+  },
+  {
+    "name": "Topaz",
+    "year": 1969,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock spy thriller; Cold War espionage network"
+  },
+  {
+    "name": "Touch of Evil",
+    "year": 1958,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Welles Mexican border noir; Orson's masterpiece"
+  },
+  {
+    "name": "Ugetsu",
+    "year": 1953,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Mizoguchi supernatural tale; war, ghosts, and ambition"
+  },
+  {
+    "name": "Variety",
+    "year": 1925,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Dupont German Expressionist; circus trapeze and jealousy"
+  },
+  {
+    "name": "Vertigo",
+    "year": 1958,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-classic-depth",
+    "why": "Hitchcock obsession; detective and mysterious woman"
+  },
+  {
+    "name": "Viva Zapata!",
+    "year": 1952,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Kazan Mexican revolution; Brando peasant leader"
+  },
+  {
+    "name": "Way Down East",
+    "year": 1920,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Griffith melodrama; fallen woman and ice floe rescue"
+  },
+  {
+    "name": "Whisky Galore!",
+    "year": 1949,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-classic-depth",
+    "why": "Ealing island comedy; shipwrecked whisky and Scottish village"
+  },
+  {
+    "name": "Woman in the Dunes",
+    "year": 1964,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Hiroshi Teshigahara existential trap; sand and marriage"
+  },
+  {
+    "name": "Wuthering Heights",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Wyler Brontë; Olivier Yorkshire moors passion"
+  },
+  {
+    "name": "Yojimbo",
+    "year": 1961,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-classic-depth",
+    "why": "Kurosawa samurai western; wandering swordsman and town clans"
+  }
+]
