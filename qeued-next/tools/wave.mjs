@@ -68,7 +68,10 @@ if (!(await jsonLength(file('batch.json')))) {
 }
 
 console.log('\n— Reading each title’s page');
-await tool('expand.mjs', [file('batch.json'), '--gather', file('gathered.json'), '--misses', file('misses.json')]);
+// The network is the whole cost of a wave, so how many pages are read at once is worth
+// having a handle on. Each worker keeps its own pause, so this is a rate, not a burst.
+const concurrency = process.env.QEUED_CONCURRENCY ?? '4';
+await tool('expand.mjs', [file('batch.json'), '--gather', file('gathered.json'), '--misses', file('misses.json'), '--concurrency', concurrency]);
 
 const found = await jsonLength(file('gathered.json'));
 if (found) {

@@ -1,0 +1,1482 @@
+[
+  {
+    "name": "The Conjuring",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "James Wan supernatural landmark; Oscar-winning craft"
+  },
+  {
+    "name": "Ringu",
+    "year": 1998,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Original J-horror phenomenon; curse foundational"
+  },
+  {
+    "name": "The Wailing",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Korean horror masterpiece; enigmatic evil narrative"
+  },
+  {
+    "name": "The Handmaiden",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Park Chan-wook thriller; intricate con-noir"
+  },
+  {
+    "name": "Oldboy",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Korean revenge landmark; visceral masterwork"
+  },
+  {
+    "name": "I Saw the Devil",
+    "year": 2010,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Serial-killer thriller; brutal revenge game"
+  },
+  {
+    "name": "Memories of Murder",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Bong Joon-ho; serial-murder investigation classic"
+  },
+  {
+    "name": "The Descent",
+    "year": 2005,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "UK cave-horror landmark; claustrophobic creature-film"
+  },
+  {
+    "name": "The Babadook",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Australian psychological horror; grief metaphor"
+  },
+  {
+    "name": "The Witch",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "A24 folk-horror landmark; 17th-century terror"
+  },
+  {
+    "name": "Midsommar",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "A24 folk-horror; cult ritual daylight nightmare"
+  },
+  {
+    "name": "Hereditary",
+    "year": 2018,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Ari Aster; generational curse family-horror"
+  },
+  {
+    "name": "A Quiet Place",
+    "year": 2018,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Silent-alien invasion; Blumhouse landmark"
+  },
+  {
+    "name": "Insidious",
+    "year": 2010,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Blumhouse supernatural landmark; astral-plane horror"
+  },
+  {
+    "name": "Nope",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Jordan Peele alien-terror spectacle-horror"
+  },
+  {
+    "name": "Get Out",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Jordan Peele racial-horror landmark"
+  },
+  {
+    "name": "Us",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Jordan Peele doppelg\u00e4nger-horror socioeconomic"
+  },
+  {
+    "name": "Candyman",
+    "year": 1992,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Racial-haunting urban-legend 90s landmark"
+  },
+  {
+    "name": "Scream",
+    "year": 1996,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Wes Craven meta-slasher 90s phenomenon"
+  },
+  {
+    "name": "Saw",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Jigsaw torture-puzzle landmark; franchise origin"
+  },
+  {
+    "name": "Sinister",
+    "year": 2012,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Found-footage super-8 demonic snuff-horror"
+  },
+  {
+    "name": "Zodiac",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Fincher serial-killer obsession procedural"
+  },
+  {
+    "name": "Prisoners",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Child-abduction moral-thriller Villeneuve"
+  },
+  {
+    "name": "Mystic River",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Child-murder Boston-noir Clint Eastwood"
+  },
+  {
+    "name": "Seven",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Serial-killer sins noir Fincher debut"
+  },
+  {
+    "name": "The Silence of the Lambs",
+    "year": 1991,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Cannibalistic-psychiatrist serial-killer thriller"
+  },
+  {
+    "name": "Memento",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Amnesiac murder-revenge non-linear thriller"
+  },
+  {
+    "name": "The Usual Suspects",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Criminal-cabal con-thriller twist-ending"
+  },
+  {
+    "name": "Blade Runner",
+    "year": 1982,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Noir sci-fi replicant-hunter moral-thriller"
+  },
+  {
+    "name": "The Prestige",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Magician-rivalry obsession twisty-thriller"
+  },
+  {
+    "name": "Shutter Island",
+    "year": 2010,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Psychiatric-asylum investigation mind-bending"
+  },
+  {
+    "name": "Nightcrawler",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "LA-crime-video sociopath descent moral-thriller"
+  },
+  {
+    "name": "In Bruges",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Hitman-guilt medieval-city philosophical-thriller"
+  },
+  {
+    "name": "The Killing",
+    "year": 2007,
+    "type": "series",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Danish murder-mystery detective landmark-series"
+  },
+  {
+    "name": "Mindhunter",
+    "year": 2017,
+    "type": "series",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "FBI serial-killer profiler Fincher origin-story"
+  },
+  {
+    "name": "True Detective",
+    "year": 2014,
+    "type": "series",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Serialized noir Southern-gothic crime anthology"
+  },
+  {
+    "name": "The Fall",
+    "year": 2013,
+    "type": "series",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Serial-killer hunter duel Belfast psychological"
+  },
+  {
+    "name": "Broadchurch",
+    "year": 2013,
+    "type": "series",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Child-murder Dorset village noir investigation"
+  },
+  {
+    "name": "Badlands",
+    "year": 1973,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "genre-recent",
+    "why": "Young-outlaws romantic crime saga Terrence-Malick"
+  },
+  {
+    "name": "The Conjuring 2",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Enfield haunting; paranormal-investigation escalation"
+  },
+  {
+    "name": "Annabelle",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Possessed-doll spin-off; franchise driver"
+  },
+  {
+    "name": "Dark Water",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Haunted-apartment J-horror; atmospheric dread"
+  },
+  {
+    "name": "Ju-On: The Grudge",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "J-horror classic; curse mythology anchors genre"
+  },
+  {
+    "name": "A Tale of Two Sisters",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Korean gothic nightmare; psychological twist"
+  },
+  {
+    "name": "Martyrs",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "French extreme horror; cult-torture relentless"
+  },
+  {
+    "name": "High Tension",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "French slasher; home-invasion suspense"
+  },
+  {
+    "name": "Eden Lake",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "UK home-invasion thriller; class tensions"
+  },
+  {
+    "name": "Goodnight Mommy",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Austrian home-horror; masked-mother trauma"
+  },
+  {
+    "name": "Raw",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "French body-horror; cannibalism coming-of-age"
+  },
+  {
+    "name": "Titane",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "French transgressive body-horror sci-fi"
+  },
+  {
+    "name": "REC",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Spanish found-footage; viral-infection terror"
+  },
+  {
+    "name": "The Lighthouse",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Psychological isolation-horror; Lovecraftian noir"
+  },
+  {
+    "name": "Saint Maud",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "UK religious-horror; nurse obsession psychosis"
+  },
+  {
+    "name": "The Ritual",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Scandinavian creature-horror; forest entity"
+  },
+  {
+    "name": "Hush",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Home-invasion thriller; deaf-woman survival"
+  },
+  {
+    "name": "Don't Breathe",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Blind-veteran home-invasion; inversion thriller"
+  },
+  {
+    "name": "Green Room",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Supremacist-punk venue siege; brutal thriller"
+  },
+  {
+    "name": "A Quiet Place Part II",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Expanded alien-invasion world-building"
+  },
+  {
+    "name": "Insidious Chapter 2",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Paranormal-expansion sequel; mythology deepens"
+  },
+  {
+    "name": "Oculus",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Reality-distorting mirror-horror; psychological trap"
+  },
+  {
+    "name": "The Gift",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Suburban-neighbor psychological thriller"
+  },
+  {
+    "name": "Under the Skin",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Alien-predator slow-burn art-horror"
+  },
+  {
+    "name": "It Comes at Night",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Pandemic-paranoia isolation-thriller"
+  },
+  {
+    "name": "The Night House",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Widow-haunted-house grief-horror"
+  },
+  {
+    "name": "M3GAN",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "AI-doll protection-horror; PG-13 Blumhouse"
+  },
+  {
+    "name": "Malignant",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "James Wan psychic-possession surgical-horror"
+  },
+  {
+    "name": "Men",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Folk-horror gender-terror village nightmare"
+  },
+  {
+    "name": "Pearl",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Ti West aspiring-showgirl horror backstory"
+  },
+  {
+    "name": "X",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Ti West slasher-film-within-film 70s-homage"
+  },
+  {
+    "name": "MaXXXine",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Ti West Night-Stalker-era Hollywood horror"
+  },
+  {
+    "name": "Immaculate",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Religious-body-horror nun impregnation thriller"
+  },
+  {
+    "name": "Talk to Me",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Australian spirit-possession ouija-horror"
+  },
+  {
+    "name": "Ready or Not",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Bride-as-prey hunt-house dark-comedy"
+  },
+  {
+    "name": "Candyman",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Nia DaCosta legacy-sequel gentrification-horror"
+  },
+  {
+    "name": "Scream 2",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Meta-sequel escalation college-murder-mystery"
+  },
+  {
+    "name": "Scream",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Fifth Ghostface iteration legacy-slasher"
+  },
+  {
+    "name": "Halloween",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "David Gordon Green legacy-reboot"
+  },
+  {
+    "name": "Saw II",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Jigsaw-trap escalation sequel puzzle-horror"
+  },
+  {
+    "name": "Saw III",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Jigsaw mythology-expansion torture-horror"
+  },
+  {
+    "name": "The Conjuring: The Devil Made Me Do It",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Paranormal-possession murder-trial thriller"
+  },
+  {
+    "name": "Body Heat",
+    "year": 1981,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Erotic-thriller femme-fatale murder-plot"
+  },
+  {
+    "name": "Gattaca",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Noir sci-fi identity-theft genetic-discrimination"
+  },
+  {
+    "name": "The Girl with the Dragon Tattoo",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Serial-killer investigation Swedish-noir"
+  },
+  {
+    "name": "Looper",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Time-travel murder-for-hire noir sci-fi"
+  },
+  {
+    "name": "Only God Forgives",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Bangkok revenge noir psychedelic ultra-violence"
+  },
+  {
+    "name": "Seven Psychopaths",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Serial-killer script meta-noir dark-comedy"
+  },
+  {
+    "name": "Three Billboards Outside Ebbing, Missouri",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Murder-investigation grief neo-noir"
+  },
+  {
+    "name": "Basic Instinct",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Erotic-thriller femme-fatale murder-suspect"
+  },
+  {
+    "name": "Body of Lies",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "CIA Middle-East spy-thriller espionage"
+  },
+  {
+    "name": "Michael Clayton",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Legal-thriller corporate corruption noir"
+  },
+  {
+    "name": "Margin Call",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Financial-crisis moral thriller Wall-Street"
+  },
+  {
+    "name": "The Lincoln Lawyer",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Defense-attorney courtroom-thriller noir"
+  },
+  {
+    "name": "Carlito's Way",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Crime-lord redemption NYC crime-thriller"
+  },
+  {
+    "name": "The Bridge",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Serial-killer Swedish-Danish border noir"
+  },
+  {
+    "name": "River",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Murder-investigation grief-haunting UK noir"
+  },
+  {
+    "name": "Tin Star",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Oil-town police-chief neo-noir corruption"
+  },
+  {
+    "name": "Godless",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Female-town crime-thriller Western noir"
+  },
+  {
+    "name": "Taboo",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Georgian-period espionage-thriller dark-gothic"
+  },
+  {
+    "name": "La Reina del Sur",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Female-kingpin Spanish-language crime-thriller"
+  },
+  {
+    "name": "Animal Kingdom",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Criminal-family Los-Angeles noir crime-saga"
+  },
+  {
+    "name": "Godfather of Harlem",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Crime-empire Harlem noir 1960s drug-war"
+  },
+  {
+    "name": "Bosch",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "LAPD detective procedural crime-noir"
+  },
+  {
+    "name": "Bosch: Legacy",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Retired-detective private-eye noir follow-up"
+  },
+  {
+    "name": "24",
+    "year": 2001,
+    "type": "series",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Real-time counter-terrorism action-thriller"
+  },
+  {
+    "name": "Bridge of Spies",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "genre-recent",
+    "why": "Cold-War spy-exchange legal-thriller"
+  },
+  {
+    "name": "Frontier(s)",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "French extreme cinema; Nazi-cannibal brutality"
+  },
+  {
+    "name": "Inside",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "French extreme horror; visceral nightmare"
+  },
+  {
+    "name": "A Dark Song",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Irish gothic supernatural; s\u00e9ance chamber drama"
+  },
+  {
+    "name": "Insidious Chapter 3",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Astral-plane exploration prequel"
+  },
+  {
+    "name": "Unfriended",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Screen-based cyber-haunting found-footage"
+  },
+  {
+    "name": "Unfriended: Dark Web",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Dark-web torture-stream screen-horror"
+  },
+  {
+    "name": "False Positive",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Pregnancy-horror psychological thriller"
+  },
+  {
+    "name": "Nocebo",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Psychosomatic horror; placebo-death experiment"
+  },
+  {
+    "name": "Scream 3",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Hollywood-sequel meta-horror trilogy"
+  },
+  {
+    "name": "Scream 4",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Legacy-slasher reboot nostalgia-horror"
+  },
+  {
+    "name": "Scary Movie",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Spoof-horror 90s-slasher parody"
+  },
+  {
+    "name": "A Nightmare on Elm Street",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Freddy-Krueger reboot nightmare-horror"
+  },
+  {
+    "name": "Friday the 13th",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Jason reboot; camp-slasher remake"
+  },
+  {
+    "name": "Halloween H20",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Laurie-Strode legacy-sequel 90s revival"
+  },
+  {
+    "name": "Halloween Kills",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Michael Myers rampage township escalation"
+  },
+  {
+    "name": "Texas Chainsaw Massacre",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Leatherface-slasher remake gore-escalation"
+  },
+  {
+    "name": "Texas Chainsaw Massacre",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Legacy-slasher Leatherface reboot body-count"
+  },
+  {
+    "name": "Saw IV",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Jigsaw-legacy trap-horror continuation"
+  },
+  {
+    "name": "Jigsaw",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Jigsaw-reboot torture-puzzle-horror relaunch"
+  },
+  {
+    "name": "Sinister 2",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Found-footage demonic-possession franchise"
+  },
+  {
+    "name": "Fright",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Home-invasion babysitter-horror contemporary"
+  },
+  {
+    "name": "In the Cut",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Serial-killer erotic-thriller NYC noir"
+  },
+  {
+    "name": "Dark Blue",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "LA-police corruption thriller race violence"
+  },
+  {
+    "name": "Spy Game",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "CIA-operative flashback espionage-thriller"
+  },
+  {
+    "name": "Boston Legal",
+    "year": 2004,
+    "type": "series",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Legal-thriller courtroom dramedy dark-humor"
+  },
+  {
+    "name": "Dalziel and Pascoe",
+    "year": 1996,
+    "type": "series",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Buddy-cop Yorkshire-procedural crime-duo"
+  },
+  {
+    "name": "Hard Sun",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Apocalypse-countdown Met-police thriller"
+  },
+  {
+    "name": "Press",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Tabloid-journalism police-corruption media"
+  },
+  {
+    "name": "Echoes",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Twin-switch disappearance psychological-thriller"
+  },
+  {
+    "name": "One of Us Is Lying",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "High-school murder mystery teen-thriller"
+  },
+  {
+    "name": "The Midnight Club",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Horror-anthology mansion-mystery Flanagan"
+  },
+  {
+    "name": "Carnival Row",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Steampunk-noir fantasy-thriller paranormal"
+  },
+  {
+    "name": "Archive 81",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Found-footage archivist cult-mystery thriller"
+  },
+  {
+    "name": "Citadel",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Spy-thriller action espionage Russo-brothers"
+  },
+  {
+    "name": "Critters",
+    "year": 1986,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Alien-creature invasion horror-comedy"
+  },
+  {
+    "name": "Inferno",
+    "year": 1980,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Italian giallo supernatural-mystery Argento"
+  },
+  {
+    "name": "The Beyond",
+    "year": 1981,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Italian zombie-gore surreal-horror-classic"
+  },
+  {
+    "name": "Fright Night",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Vampire-neighbor horror-comedy remake"
+  },
+  {
+    "name": "NOS4A2",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Child-abduction vampire-powered horror series"
+  },
+  {
+    "name": "Poltergeist",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Family-haunting poltergeist remake horror"
+  },
+  {
+    "name": "The Innocents",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Paranormal-children mystery international-gothic"
+  },
+  {
+    "name": "Insidious: The Last Key",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Astral-plane possession paranormal prequel"
+  },
+  {
+    "name": "Orphan: First Kill",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Ester-backstory adoption-horror prequel"
+  },
+  {
+    "name": "The Exorcist: Believer",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Exorcist-legacy possession-horror sequel"
+  },
+  {
+    "name": "Annabelle Comes Home",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Possessed-doll release artifact-horror"
+  },
+  {
+    "name": "Annabelle Creation",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Doll-origin possession-origin horror prequel"
+  },
+  {
+    "name": "The Curse of La Llorona",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Weeping-woman folklore supernatural-horror"
+  },
+  {
+    "name": "The Ring Two",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Ring-sequel VHS-curse continuation horror"
+  },
+  {
+    "name": "Honeyland",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Beekeeper exploitation economic-horror drama"
+  },
+  {
+    "name": "Flesh and Blood",
+    "year": 1985,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Verhoeven medieval-rape-siege action-horror"
+  },
+  {
+    "name": "Tremors 2: Aftershocks",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Sequel creature-horror worm-action"
+  },
+  {
+    "name": "The Woman",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Feral-woman captivity brutal-horror"
+  },
+  {
+    "name": "Martyrs Lane",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "UK paranormal child-medium supernatural"
+  },
+  {
+    "name": "Kill List",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Ben Wheatley hitman-occult cult-horror"
+  },
+  {
+    "name": "All the Boys Love Mandy Lane",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Slasher-mystery teen-girl island-horror"
+  },
+  {
+    "name": "Starry Eyes",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Hollywood-corruption Faustian body-horror"
+  },
+  {
+    "name": "We Are Still Here",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "Haunted-house paranormal-vengeance horror"
+  },
+  {
+    "name": "The Neon Demon",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "genre-recent",
+    "why": "LA-fashion-horror surreal psycho-thriller"
+  },
+  {
+    "name": "Offseason",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Coastal-town cult body-horror thriller"
+  },
+  {
+    "name": "Aquaslash",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Waterpark slasher B-movie giallo"
+  },
+  {
+    "name": "Bloodhound",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Korean canine-hunting serial-killer thriller"
+  },
+  {
+    "name": "Killer Klowns from Outer Space",
+    "year": 1988,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "B-movie alien-clown invasion horror-comedy"
+  },
+  {
+    "name": "Rings",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Ring-legacy VHS-curse modern-update horror"
+  },
+  {
+    "name": "Trouble Every Day",
+    "year": 2001,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Claire-Denis vampire-cannibalism art-horror"
+  },
+  {
+    "name": "Club Dread",
+    "year": 2004,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Resort slasher dark-comedy horror"
+  },
+  {
+    "name": "New French Extremity",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Martyrs prequel French extreme-horror"
+  },
+  {
+    "name": "Patterns of Evidence",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Documentary historical-thriller evidence"
+  },
+  {
+    "name": "Tusk",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Kevin Smith walrus-man body-horror"
+  },
+  {
+    "name": "Killing Floor",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Polish factory-horror social-realism"
+  },
+  {
+    "name": "The A-Team",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Action-thriller violence-adventure spectacle"
+  },
+  {
+    "name": "L.A. Noire: The VR Case Files",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "VR detective noir interactive-experience"
+  },
+  {
+    "name": "Godlike: The History of Moral Relativism",
+    "year": 2020,
+    "type": "documentary",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Philosophy documentary moral-crime"
+  },
+  {
+    "name": "A Horrible Way to Die",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Serial-killer indie horror thriller"
+  },
+  {
+    "name": "Sorority Row",
+    "year": 2009,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "College-slasher remake hazing-horror"
+  },
+  {
+    "name": "Suspirium",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Art-house Italian horror visual-essay"
+  },
+  {
+    "name": "Ghostland",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Trauma-horror psychological-breakdown home-invasion"
+  },
+  {
+    "name": "A Dark Love",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Romantic psychological-horror indie"
+  },
+  {
+    "name": "The Lie",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Parent-child moral-thriller psychological"
+  },
+  {
+    "name": "The Killing of the Sacred Deer",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Psychological-horror curse investigation"
+  },
+  {
+    "name": "Twixt",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "genre-recent",
+    "why": "Coppola haunted-town psychological-horror"
+  }
+]

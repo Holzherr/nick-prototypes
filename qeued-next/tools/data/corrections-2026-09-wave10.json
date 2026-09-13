@@ -1,0 +1,435 @@
+[
+  {
+    "slug": "descendents-of-the-sun-2016",
+    "reason": "Misspelt; the cited page already uses the correct spelling.",
+    "fields": {
+      "name": "Descendants of the Sun"
+    }
+  },
+  {
+    "slug": "disastrous-life-of-saiki-k-2016",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Disastrous Life of Saiki K."
+    }
+  },
+  {
+    "slug": "cormoran-strike-2017",
+    "reason": "Cormoran Strike is the character; the UK broadcast title is Strike.",
+    "fields": {
+      "name": "Strike"
+    }
+  },
+  {
+    "slug": "the-man-with-the-movie-camera-1929",
+    "reason": "A spurious leading article, and the wrong one — the standard English title takes an indefinite article in the middle, not a definite one at the front.",
+    "fields": {
+      "name": "Man with a Movie Camera"
+    }
+  },
+  {
+    "slug": "the-diplomat-uk-2023",
+    "reason": "The UK suffix is a disambiguator that leaked into the display name; keep it in the slug, not in the title.",
+    "fields": {
+      "name": "The Diplomat"
+    }
+  },
+  {
+    "slug": "karate-kid-1984",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Karate Kid"
+    }
+  },
+  {
+    "slug": "the-century-of-self-2002",
+    "reason": "A word was dropped from the middle of the title.",
+    "fields": {
+      "name": "The Century of the Self"
+    }
+  },
+  {
+    "slug": "green-planet-2022",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Green Planet"
+    }
+  },
+  {
+    "slug": "spider-man-far-from-home-2019",
+    "reason": "Mis-capitalised preposition, and the runtime of 247 minutes is not a number any cut of this film has run.",
+    "fields": {
+      "name": "Spider-Man: Far from Home"
+    }
+  },
+  {
+    "slug": "rings-of-power-2022",
+    "reason": "Both the article and the franchise prefix were dropped.",
+    "fields": {
+      "name": "The Lord of the Rings: The Rings of Power"
+    }
+  },
+  {
+    "slug": "rebel-moon-2023",
+    "reason": "The subtitle was dropped.",
+    "fields": {
+      "name": "Rebel Moon — Part One: A Child of Fire"
+    }
+  },
+  {
+    "slug": "rebel-moon-part-two-2024",
+    "reason": "The subtitle was dropped; the cited page has it.",
+    "fields": {
+      "name": "Rebel Moon — Part Two: The Scargiver"
+    }
+  },
+  {
+    "slug": "odd-taxi-2021",
+    "reason": "The all-caps stylisation is not how a British viewer writes it.",
+    "fields": {
+      "name": "Odd Taxi"
+    }
+  },
+  {
+    "slug": "the-rise-of-skywalker-2019",
+    "reason": "The franchise prefix was dropped; the cited page is star-wars-episode-ix.",
+    "fields": {
+      "name": "Star Wars: The Rise of Skywalker"
+    }
+  },
+  {
+    "slug": "whats-wrong-with-secretary-kim-2018",
+    "reason": "The question mark was dropped.",
+    "fields": {
+      "name": "What's Wrong with Secretary Kim?"
+    }
+  },
+  {
+    "slug": "toilet-bound-hanako-kun-2020",
+    "reason": "Capitalisation.",
+    "fields": {
+      "name": "Toilet-Bound Hanako-kun"
+    }
+  },
+  {
+    "slug": "jurassic-world-camp-cretaceous-2020",
+    "reason": "The colon was dropped.",
+    "fields": {
+      "name": "Jurassic World: Camp Cretaceous"
+    }
+  },
+  {
+    "slug": "hush-2020",
+    "reason": "The dotted H.U.S.H. form is a scraper artefact, not the show's title.",
+    "fields": {
+      "name": "Hush"
+    }
+  },
+  {
+    "slug": "kaguya-sama-love-is-war-season-3-2019",
+    "reason": "The name was left as the raw romanised Japanese, and the season suffix belongs to a season rather than the show.",
+    "fields": {
+      "name": "Kaguya-sama: Love Is War"
+    }
+  },
+  {
+    "slug": "i-can-hear-your-voice-2013",
+    "reason": "The slug and the name disagreed; the cited page uses I Hear Your Voice.",
+    "fields": {
+      "name": "I Hear Your Voice"
+    }
+  },
+  {
+    "slug": "the-return-2013",
+    "reason": "The Return is an invented English title for a Telemundo telenovela and is unrecognisable under it.",
+    "fields": {
+      "name": "La Patrona"
+    }
+  },
+  {
+    "slug": "the-toys-that-made-us-gi-joe-2017",
+    "reason": "The full stops were dropped from G.I. Joe.",
+    "fields": {
+      "name": "The Toys That Made Us: G.I. Joe"
+    }
+  },
+  {
+    "slug": "captain-america-brave-new-world-2024",
+    "reason": "Released February 2025.",
+    "fields": {
+      "year": 2025
+    }
+  },
+  {
+    "slug": "baymax-2023",
+    "reason": "Released June 2022.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "a-killer-paradox-2023",
+    "reason": "Released February 2024.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "crossfire-2020",
+    "reason": "Broadcast on BBC One in September 2022.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "alita-battle-angel-2018",
+    "reason": "2018 is the production year; general release was early 2019.",
+    "fields": {
+      "year": 2019
+    }
+  },
+  {
+    "slug": "bosch-2015",
+    "reason": "The pilot and first season are 2014; 2015 is the second season.",
+    "fields": {
+      "year": 2014
+    }
+  },
+  {
+    "slug": "the-watcher-2023",
+    "reason": "Released on Netflix in October 2022.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "killer-ratings-2022",
+    "reason": "Netflix released it in 2019.",
+    "fields": {
+      "year": 2019
+    }
+  },
+  {
+    "slug": "jane-eyre-1997",
+    "reason": "Zeffirelli's film is 1996; the cited page is filed there.",
+    "fields": {
+      "year": 1996
+    }
+  },
+  {
+    "slug": "dream-on-1990",
+    "reason": "The scraped cast and runtime are Amber Films' 1991 British drama.",
+    "fields": {
+      "year": 1991
+    }
+  },
+  {
+    "slug": "mercy-2016",
+    "reason": "The cast, director and runtime are all Mercy (2014), the Blumhouse adaptation.",
+    "fields": {
+      "year": 2014
+    }
+  },
+  {
+    "slug": "a-confession-2019",
+    "reason": "Tagged Documentary; it is a scripted ITV drama.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "Crime"
+      ]
+    }
+  },
+  {
+    "slug": "transformers-dark-of-the-moon-2011",
+    "reason": "Tagged Documentary.",
+    "fields": {
+      "genres": [
+        "Action",
+        "Science-Fiction",
+        "Adventure"
+      ]
+    }
+  },
+  {
+    "slug": "sleepy-hollow-1999",
+    "reason": "Tagged Animation; it is live action.",
+    "fields": {
+      "genres": [
+        "Horror",
+        "Mystery",
+        "Fantasy"
+      ]
+    }
+  },
+  {
+    "slug": "the-amazing-spider-man-2-2014",
+    "reason": "Tagged History and War & Military.",
+    "fields": {
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science-Fiction"
+      ]
+    }
+  },
+  {
+    "slug": "the-great-british-bake-off-2010",
+    "reason": "Tagged Drama.",
+    "fields": {
+      "genres": [
+        "Reality TV"
+      ]
+    }
+  },
+  {
+    "slug": "the-hunt-2015",
+    "reason": "Tagged Reality TV; it is a natural history series.",
+    "fields": {
+      "genres": [
+        "Documentary"
+      ]
+    }
+  },
+  {
+    "slug": "maleficent-2014",
+    "reason": "Tagged Music & Musical with no Fantasy at all.",
+    "fields": {
+      "genres": [
+        "Fantasy",
+        "Adventure",
+        "Kids & Family"
+      ]
+    }
+  },
+  {
+    "slug": "indiana-jones-and-the-dial-of-destiny-2023",
+    "reason": "Adventure was missing, which is the whole genre.",
+    "fields": {
+      "genres": [
+        "Adventure",
+        "Action",
+        "Science-Fiction"
+      ]
+    }
+  },
+  {
+    "slug": "indiana-jones-and-the-kingdom-of-the-crystal-skull-2008",
+    "reason": "Adventure was missing.",
+    "fields": {
+      "genres": [
+        "Adventure",
+        "Action",
+        "Science-Fiction"
+      ]
+    }
+  },
+  {
+    "slug": "respect-2020",
+    "reason": "Tagged Documentary; Saygı is a Turkish crime drama.",
+    "fields": {
+      "genres": [
+        "Crime",
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "attack-on-titan-season-4-2022",
+    "reason": "The scraped facts are a low-budget American film called Attack on Titan, not the anime the name refers to. The resolver reduced the season suffix, missed the anime on year, and then matched the film exactly — two rules each right on their own. The record is now typed and dated as the film.",
+    "fields": {
+      "type": "series",
+      "runtime_minutes": 24,
+      "director": null,
+      "cast_members": []
+    }
+  },
+  {
+    "slug": "sherlock-holmes-2009",
+    "reason": "The cited page is The Asylum's 2010 mockbuster, so the director, cast and runtime all belong to it rather than to Guy Ritchie's film, whose sequel is the next record along.",
+    "fields": {
+      "director": "Guy Ritchie",
+      "runtime_minutes": 128,
+      "cast_members": [
+        "Robert Downey Jr.",
+        "Jude Law",
+        "Rachel McAdams",
+        "Mark Strong",
+        "Eddie Marsan"
+      ]
+    }
+  },
+  {
+    "slug": "steins-gate-elite-2018",
+    "reason": "Every scraped field is from Elite, the Spanish Netflix teen drama. Steins;Gate Elite is a visual novel rather than a film or a series, so the record has no business in a watchlist catalogue and its borrowed facts are cleared pending removal.",
+    "fields": {
+      "director": null,
+      "cast_members": [],
+      "genres": [
+        "Animation"
+      ]
+    }
+  },
+  {
+    "slug": "the-deepest-breath-2023",
+    "reason": "The director was empty and the single cast name belongs to nobody in the film.",
+    "fields": {
+      "director": "Laura McGann",
+      "cast_members": [
+        "Alessia Zecchini",
+        "Stephen Keenan"
+      ]
+    }
+  },
+  {
+    "slug": "the-traitors-2022",
+    "reason": "The scraped cast is The Traitors Australia; a British viewer means the BBC version.",
+    "fields": {
+      "cast_members": [
+        "Claudia Winkleman"
+      ]
+    }
+  },
+  {
+    "slug": "justice-league-2017",
+    "reason": "The theatrical credit is Snyder alone; Whedon was uncredited, and listing both reads as a co-direction that never existed.",
+    "fields": {
+      "director": "Zack Snyder"
+    }
+  },
+  {
+    "slug": "a-suitable-boy-2020",
+    "reason": "The series was directed solely by Mira Nair.",
+    "fields": {
+      "director": "Mira Nair"
+    }
+  },
+  {
+    "slug": "moana-2-2024",
+    "reason": "Co-directed, not directed alone.",
+    "fields": {
+      "director": "David Derrick Jr., Jason Hand, Dana Ledoux Miller"
+    }
+  },
+  {
+    "slug": "the-good-dinosaur-2015",
+    "reason": "The page reported 99 minutes; the film runs 93.",
+    "fields": {
+      "runtime_minutes": 93
+    }
+  },
+  {
+    "slug": "the-hateful-eight-2015",
+    "reason": "The page reported the 70mm roadshow cut; the standard release, which is what streams, runs 168.",
+    "fields": {
+      "runtime_minutes": 168
+    }
+  },
+  {
+    "slug": "spider-man-far-from-home-2019",
+    "reason": "The page reported 247 minutes, which is not a number any cut of this film has run.",
+    "fields": {
+      "runtime_minutes": 129
+    }
+  }
+]

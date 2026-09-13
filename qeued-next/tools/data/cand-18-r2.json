@@ -1,0 +1,1530 @@
+[
+  {
+    "name": "The Mandalorian",
+    "year": 2019,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Star Wars flagship; groundbreaking practical cinematography and design"
+  },
+  {
+    "name": "WandaVision",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Emmy-winning MCU series; inventive genre-hopping narrative structure"
+  },
+  {
+    "name": "Loki",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "MCU multiverse anchor; Hiddleston's definitive role; acclaimed first season"
+  },
+  {
+    "name": "The Falcon and the Winter Soldier",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "MCU political thriller; strong character work and social commentary"
+  },
+  {
+    "name": "Moon Knight",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Oscar Isaac's committed dual performance; gothic atmosphere and style"
+  },
+  {
+    "name": "Thor: Love and Thunder",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Taika Waititi Marvel entry; visually stunning, comedically bold"
+  },
+  {
+    "name": "Doctor Strange in the Multiverse of Madness",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Sam Raimi directing MCU; horror-influenced action and visual ambition"
+  },
+  {
+    "name": "Ant-Man and the Wasp: Quantumania",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Multiverse saga entry; Peyton Reed's scaled spectacle"
+  },
+  {
+    "name": "Guardians of the Galaxy Vol. 3",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Perfect emotional conclusion; James Gunn MCU masterwork"
+  },
+  {
+    "name": "The Marvels",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Brie Larson, Teyonah Parris, Iman Vellani team-up; colourful fun"
+  },
+  {
+    "name": "Secret Invasion",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "MCU espionage thriller; paranoia-driven political intrigue"
+  },
+  {
+    "name": "Deadpool & Wolverine",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "R-rated MCU debut; Hugh Jackman's return, meta action comedy"
+  },
+  {
+    "name": "Captain America: Brave New World",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "MCU Phase 6; Anthony Mackie as new Cap, political thriller"
+  },
+  {
+    "name": "Star Wars: Skeleton Crew",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Gilded Age meets space western; Jon Watts directing"
+  },
+  {
+    "name": "Star Wars: Visions",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Anime anthology; acclaimed Japanese anime directors reimagine Star Wars"
+  },
+  {
+    "name": "Tales of the Jedi",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Animated anthology; Ahsoka and Count Dooku character studies"
+  },
+  {
+    "name": "X-Men '97",
+    "year": 2024,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Beloved '90s cartoon continuation; superb character work and comic faithfulness"
+  },
+  {
+    "name": "Spider-Man: Freshman Year",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Origin story reimagined; stylish animation, MCU continuity"
+  },
+  {
+    "name": "Your Friendly Neighborhood Spider-Man",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Coming-of-age superhero; charming animation and heart"
+  },
+  {
+    "name": "What If...?",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "MCU anthology; canonical multiverse stories with fan-favourite characters"
+  },
+  {
+    "name": "Raya and the Last Dragon",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Disney animated fantasy; Southeast Asian-inspired, visually stunning"
+  },
+  {
+    "name": "Encanto",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Oscars' Best Animated Picture; Lin-Manuel Miranda soundtrack sensation"
+  },
+  {
+    "name": "Turning Red",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Pixar mother-daughter comedy; contemporary Asian-Canadian story"
+  },
+  {
+    "name": "Strange World",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Adventure family epic; LGBTQ+ characters in Disney animated film"
+  },
+  {
+    "name": "Elemental",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Pixar buddy comedy; fire-and-water romance, incredible animation"
+  },
+  {
+    "name": "Inside Out 2",
+    "year": 2024,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Pixar blockbuster; emotional sequel about adolescence and identity"
+  },
+  {
+    "name": "Wish",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Disney centennial film; meta fairy tale homage"
+  },
+  {
+    "name": "Cruella",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Live-action villain origin; Emma Stone committed performance"
+  },
+  {
+    "name": "The Jungle Book",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Jon Favreau's photorealistic remake; Bill Murray and Idris Elba's voices"
+  },
+  {
+    "name": "Mulan",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Live-action epic; ambitious martial arts and scale"
+  },
+  {
+    "name": "For All Mankind",
+    "year": 2019,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Alternate history space race; sweeping scope and character development"
+  },
+  {
+    "name": "Severance",
+    "year": 2022,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Mind-bending corporate sci-fi; Brat-level cinematography and mystery"
+  },
+  {
+    "name": "Slow Horses",
+    "year": 2022,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Spy thriller perfection; Gary Oldman's ensemble masterclass"
+  },
+  {
+    "name": "The Morning Show",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Workplace drama; Reese Witherspoon and Jennifer Aniston return"
+  },
+  {
+    "name": "Mythic Quest",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Rob McElhenney comedy; video game studio chaos and heart"
+  },
+  {
+    "name": "Shrinking",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Bill Lawrence comedy-drama; Jason Segel and Harrison Ford connection"
+  },
+  {
+    "name": "Prehistoric Planet",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "David Attenborough dinosaur docuseries; stunning visual spectacle"
+  },
+  {
+    "name": "Pachinko",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Multi-generational Korean family saga; lyrical cinematography"
+  },
+  {
+    "name": "Drops of God",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Wine mystery thriller; Parisian elegance and sensory depth"
+  },
+  {
+    "name": "Bad Sisters",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Irish dark comedy; five sisters murder mystery, Sharon Horgan leads"
+  },
+  {
+    "name": "Mosquito Coast",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Espionage thriller; Justin Theroux on the run with family"
+  },
+  {
+    "name": "Lisey's Story",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Stephen King adaptation; Julianne Moore in psychological mystery"
+  },
+  {
+    "name": "Physical",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Rose Byrne '80s fitness drama; acute character psychology"
+  },
+  {
+    "name": "Black Bird",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Prison serial killer drama; Taron Egerton's committed lead performance"
+  },
+  {
+    "name": "The Last Days of American Crime",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Cyberpunk heist; ambitious if uneven sci-fi noir"
+  },
+  {
+    "name": "The Tragedy of Macbeth",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Coen Brothers Shakespeare; monochromatic beauty and minimalism"
+  },
+  {
+    "name": "Killers of the Flower Moon",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Scorsese period crime epic; Osage murders and systemic injustice"
+  },
+  {
+    "name": "CODA",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Best Picture winner; deaf family story with grace and humour"
+  },
+  {
+    "name": "Spirited",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Musical reimagining of A Christmas Carol; Ryan Gosling and Will Ferrell"
+  },
+  {
+    "name": "Woman of the Hour",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Serial killer thriller; 1978 dating game show backdrop"
+  },
+  {
+    "name": "Fancy Dance",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Contemporary Indigenous family drama; Powwow season and resilience"
+  },
+  {
+    "name": "Causeway",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Intimate recovery drama; Brie Larson post-war quiet contemplation"
+  },
+  {
+    "name": "Argylle",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Spy thriller adaptation; Sam Rockwell action comedy"
+  },
+  {
+    "name": "Masters of the Air",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "WWII bomber crew drama; Spielberg and Hanks; stunning scale"
+  },
+  {
+    "name": "The Changeling",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Fantasy family horror; LaKeith Stanfield and Emma Stone parent tale"
+  },
+  {
+    "name": "Roar",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Anthology comedy; diverse female-centric stories"
+  },
+  {
+    "name": "My Life as a Rolling Stone",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Music documentary series; legendary guitarist lives"
+  },
+  {
+    "name": "Central Park",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Musical animated comedy; Josh Groban's park-keeper father figure"
+  },
+  {
+    "name": "Dickinson",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Poet biography reimagined; modern soundtrack, irreverent tone"
+  },
+  {
+    "name": "Star Trek: Discovery",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Trek reboot; diverse crew, darker tone, visual innovation"
+  },
+  {
+    "name": "Star Trek: Picard",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Patrick Stewart's return; older Starfleet and legacy themes"
+  },
+  {
+    "name": "Star Trek: Lower Decks",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Trek comedy; irreverent animation comedy for fans"
+  },
+  {
+    "name": "Star Trek: Prodigy",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Animated Trek for kids; optimistic Starfleet training"
+  },
+  {
+    "name": "Star Trek: Strange New Worlds",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Trek anthology series; Anson Mount as young Pike, episodic fun"
+  },
+  {
+    "name": "Halo",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Video game adaptation; Master Chief and Spartan program drama"
+  },
+  {
+    "name": "Yellowstone",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Neo-western dynasty drama; Kevin Costner's ranch power struggle"
+  },
+  {
+    "name": "Tulsa King",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Mafia comedy-drama; Sylvester Stallone in Oklahoma fish-out-of-water"
+  },
+  {
+    "name": "The Offer",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Godfather making-of drama; Miles Teller as young Coppola"
+  },
+  {
+    "name": "Special Ops: Lioness",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Taylor Sheridan espionage; Nicole Kidman training undercover agents"
+  },
+  {
+    "name": "Sonic the Hedgehog",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Video game film done right; Ben Schwartz's charm and design"
+  },
+  {
+    "name": "Sonic the Hedgehog 2",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Video game sequel; Knuckles and Tails join action fun"
+  },
+  {
+    "name": "Sonic the Hedgehog 3",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Third film; Shadow the Hedgehog villain arc"
+  },
+  {
+    "name": "Top Gun: Maverick",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Belated legacy sequel masterpiece; Cruise's devotion to craft and IMAX"
+  },
+  {
+    "name": "Mission: Impossible \u2013 Dead Reckoning Part One",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Franchise peak action; Cruise and McQuarrie's commitment to stunts"
+  },
+  {
+    "name": "Dungeons & Dragons: Honour Among Thieves",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Game adaptation; ensemble fantasy adventure, charming and playful"
+  },
+  {
+    "name": "A Quiet Place Part II",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Silence horror sequel; strong sound design and practical creatures"
+  },
+  {
+    "name": "Dune",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Denis Villeneuve epic; visionary sci-fi adaptation, IMAX cinematography"
+  },
+  {
+    "name": "Dune: Part Two",
+    "year": 2024,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Villeneuve masterwork; Timoth\u00e9e Chalamet's Paul ascendant"
+  },
+  {
+    "name": "The Batman",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Reeves' noir detective Batman; Pattinson's committed transformation"
+  },
+  {
+    "name": "The Penguin",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Batman spinoff; Colin Farrell's Oswald Cobblepot crime rise"
+  },
+  {
+    "name": "Mare of Easttown",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Kate Winslet detective masterclass; Pennsylvania town mystery thriller"
+  },
+  {
+    "name": "Sharp Objects",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Gillian Flynn dark adaptation; Amy Adams trauma investigation"
+  },
+  {
+    "name": "The Plot Against America",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Philip Roth alternate history; 1940s fascism fears realized"
+  },
+  {
+    "name": "The Gilded Age",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Downton Abbey creator; 1880s New York wealth and society"
+  },
+  {
+    "name": "Station Eleven",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Post-apocalypse optimism; Emily St. John Mandel literary adaptation"
+  },
+  {
+    "name": "Westworld",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Nolan AI theme park; philosophical robot consciousness exploration"
+  },
+  {
+    "name": "True Detective",
+    "year": 2014,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Crime anthology landmark; McConaughey and Harrelson's dark chemistry"
+  },
+  {
+    "name": "True Detective: Night Country",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Season 4 Arctic noir; Jodie Foster's comeback performance"
+  },
+  {
+    "name": "Lovecraft Country",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Horror Americana; Black family road trip through racism and monsters"
+  },
+  {
+    "name": "The White Lotus",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Mike White's dark luxury satire; anthology anthology of resort deaths"
+  },
+  {
+    "name": "Succession",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Corporate dynastic tragedy; Jeremy Strong's obsessive lead"
+  },
+  {
+    "name": "The Last of Us",
+    "year": 2023,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Post-apocalypse character study; Pedro Pascal and Bella Ramsey connection"
+  },
+  {
+    "name": "House of the Dragon",
+    "year": 2022,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Game of Thrones prequel; Targaryen civil war spectacle"
+  },
+  {
+    "name": "Chernobyl",
+    "year": 2019,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Nuclear disaster miniseries; Jared Harris's Soviet scientist investigation"
+  },
+  {
+    "name": "Watchmen",
+    "year": 2019,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Moore's graphic novel expansion; Damon Lindelof's systemic racism commentary"
+  },
+  {
+    "name": "The Night Of",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Prestige crime miniseries; Riz Ahmed's wrongly accused protagonist"
+  },
+  {
+    "name": "The Idol",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "HBO pop-industry dark comedy; The Weeknd producing contested premiere"
+  },
+  {
+    "name": "Joker: Folie \u00e0 Deux",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Musical villain sequel; Lady Gaga and Phoenix's duet chaos"
+  },
+  {
+    "name": "Godzilla vs. Kong: The New Empire",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Kaiju spectacle; monster battle blockbuster"
+  },
+  {
+    "name": "Rebel Moon",
+    "year": 2023,
+    "type": "series",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Zack Snyder space opera; epic sci-fi rebellion fantasy"
+  },
+  {
+    "name": "Wednesday",
+    "year": 2022,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Addams spinoff hit; Jenna Ortega's dance moment phenomenon"
+  },
+  {
+    "name": "Stranger Things",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "1980s nostalgia sci-fi; ensemble cast and monster mystery"
+  },
+  {
+    "name": "The Crown",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Royal biography drama; Claire Foy's Elizabeth II transformation"
+  },
+  {
+    "name": "The Witcher",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Fantasy adaptation; Henry Cavill's monster hunter in witty adventure"
+  },
+  {
+    "name": "The Irishman",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Scorsese mob epic; De Niro, Pesci, Pacino final collaboration"
+  },
+  {
+    "name": "The Queen's Gambit",
+    "year": 2020,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Chess prodigy drama; Anya Taylor-Joy's breakout role"
+  },
+  {
+    "name": "Ozark",
+    "year": 2017,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Crime financial thriller; Jason Bateman and Laura Linney corruption"
+  },
+  {
+    "name": "The Marvelous Mrs Maisel",
+    "year": 2017,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "1950s stand-up comedy; Miriam 'Midge' Maisel's bold independence"
+  },
+  {
+    "name": "Fleabag",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Phoebe Waller-Bridge comedy masterpiece; fourth-wall charm and depth"
+  },
+  {
+    "name": "BoJack Horseman",
+    "year": 2014,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Anthropomorphic Hollywood satire; dark comedy and emotional depth"
+  },
+  {
+    "name": "The Diplomat",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Political thriller; Keri Russell as ambassador crisis manager"
+  },
+  {
+    "name": "Godless",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Western run by women; Michelle Dockery's town leadership"
+  },
+  {
+    "name": "Daredevil",
+    "year": 2015,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Marvel Netflix original; Charlie Cox's Catholic vigilante lawyer"
+  },
+  {
+    "name": "Jessica Jones",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Marvel noir series; Krysten Ritter's noir detective with power"
+  },
+  {
+    "name": "Luke Cage",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Marvel Harlem hero; Mike Colter's unbreakable community protector"
+  },
+  {
+    "name": "Iron Fist",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Marvel martial arts; Finn Jones's mystical fighter return"
+  },
+  {
+    "name": "The Defenders",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Marvel team-up miniseries; four heroes unite against The Hand"
+  },
+  {
+    "name": "Punisher",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Marvel anti-hero; Jon Bernthal's brutal justice warrior"
+  },
+  {
+    "name": "The Sandman",
+    "year": 2022,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Gaiman's dream epic adapted; Neil Gaiman mythology brought to life"
+  },
+  {
+    "name": "Midnight Club",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Horror anthology; Flanagan's midnight tale collection"
+  },
+  {
+    "name": "The Haunting of Hill House",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Haunted house drama; Flanagan's family horror masterclass"
+  },
+  {
+    "name": "The Haunting of Bly Manor",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Gothic ghost story; Flanagan's Victorian romance and dread"
+  },
+  {
+    "name": "The Diplomat Season 2",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Political thriller continues; Russell's ambassador international conflict"
+  },
+  {
+    "name": "Baby Reindeer",
+    "year": 2024,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Tragicomic stalking memoir; Richard Gadd's personal dark comedy"
+  },
+  {
+    "name": "One Piece",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Live-action manga adaptation; pirate adventure spectacle"
+  },
+  {
+    "name": "Ginny & Georgia",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Mother-daughter comedy drama; Brianne Howey's maternal protagonist"
+  },
+  {
+    "name": "Never Have I Ever",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Teen romantic comedy; Devi's Indian-American coming-of-age"
+  },
+  {
+    "name": "The Summer I Turned Pretty",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Romance drama adaptation; Lena Dunham teen love triangle"
+  },
+  {
+    "name": "Resident Evil",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Horror video game adaptation; post-apocalypse zombie survival"
+  },
+  {
+    "name": "The Midnight Club",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Hotel horror anthology; Flanagan's gothic tale collection"
+  },
+  {
+    "name": "Archive 81",
+    "year": 2022,
+    "type": "series",
+    "priority": 1,
+    "bucket": "platforms-uk",
+    "why": "Mystery thriller; tape archivist supernatural investigation"
+  },
+  {
+    "name": "Lockwood & Co.",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Supernatural mystery series; London ghost investigation team"
+  },
+  {
+    "name": "Wednesday Season 2",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Addams spinoff returns; Jenna Ortega's continued dark comedy"
+  },
+  {
+    "name": "The Imperfects",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Body transformation thriller; three women's supernatural affliction"
+  },
+  {
+    "name": "School of Rock",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Comedy series based on film; Jack Black's music teacher chaos"
+  },
+  {
+    "name": "A Man in Full",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Tom Wolfe adaptation; Atlanta real estate mogul's downfall"
+  },
+  {
+    "name": "Avatar: The Last Airbender",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Live-action anime adaptation; bending martial arts and fantasy"
+  },
+  {
+    "name": "Ripley",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Highsmith crime adaptation; Steven Zaillian noir miniseries"
+  },
+  {
+    "name": "The Kings of Tupelo",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Country music documentary; legend origin stories"
+  },
+  {
+    "name": "High Score",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Video game history documentary; from Pong to modern gaming"
+  },
+  {
+    "name": "Wham!",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "George Michael documentary; '80s pop duo personal story"
+  },
+  {
+    "name": "Beckham",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Football star documentary; Beckham family fame and controversy"
+  },
+  {
+    "name": "Selena + Chef",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Celebrity cooking docuseries; Selena Gomez learning culinary skills"
+  },
+  {
+    "name": "Love on the Spectrum",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Dating docuseries; autistic adults finding love"
+  },
+  {
+    "name": "The Toys That Made Us",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Documentary anthology; iconic toy lines history"
+  },
+  {
+    "name": "The Chef Show",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Celebrity cooking show; chef conversations and collaborations"
+  },
+  {
+    "name": "Salt Fat Acid Heat",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Cooking fundamentals with Samin Nosrat; educational food"
+  },
+  {
+    "name": "Somebody Feed Phil",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Phil Rosenthal food travel; world cuisine exploration"
+  },
+  {
+    "name": "Godfather of Harlem",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "1960s Harlem drug kingpin; Forest Whitaker's crime drama"
+  },
+  {
+    "name": "Mindhunter",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "FBI serial killer profiling; Fincher's meticulous crime thriller"
+  },
+  {
+    "name": "Unbelievable",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "True crime investigation; Merritt Wever and Kaitlyn Dever"
+  },
+  {
+    "name": "Bodyguard",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "BBC thriller sensation; Richard Madden's protection officer drama"
+  },
+  {
+    "name": "Line of Duty",
+    "year": 2012,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "British police procedural; institutional corruption investigation"
+  },
+  {
+    "name": "Happy Valley",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Yorkshire crime drama; Sarah Lancashire's grandmother cop"
+  },
+  {
+    "name": "Broadchurch",
+    "year": 2013,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Small-town murder mystery; David Tennant and Olivia Colman"
+  },
+  {
+    "name": "The Night Manager",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Le Carr\u00e9 espionage; Tom Hiddleston and Hugh Laurie thriller"
+  },
+  {
+    "name": "Inside No. 9",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Anthology horror-comedy; Pemberton and Shearsmith darkly funny"
+  },
+  {
+    "name": "Press",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Tabloid journalism drama; Ben Chaplin newspaper battle"
+  },
+  {
+    "name": "Lurking",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Thriller short form; mysterious and atmospheric"
+  },
+  {
+    "name": "Gold Diggers",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Female friendship crime drama; three women heist"
+  },
+  {
+    "name": "What If...?",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "MCU anthology; canonical multiverse stories with fan characters"
+  },
+  {
+    "name": "Big City Greens",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Disney animated sitcom; suburban family chaos and warmth"
+  },
+  {
+    "name": "Iwaju",
+    "year": 2023,
+    "type": "series",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Disney animated fantasy; Afro-Brazilian mythology adventure"
+  },
+  {
+    "name": "Midnight Mass",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Horror miniseries; Mike Flanagan vampire faith allegory"
+  },
+  {
+    "name": "Manifest",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Plane mystery drama; Flight 828 passengers reappear"
+  },
+  {
+    "name": "Bridgerton",
+    "year": 2020,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Regency romance sensation; Julia Quinn adaptations with diversity"
+  },
+  {
+    "name": "You",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Psychological stalker thriller; Penn Badgley obsessive killer"
+  },
+  {
+    "name": "Sex Education",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "British coming-of-age comedy; Gillian Anderson sex educator"
+  },
+  {
+    "name": "Outer Banks",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Teen adventure series; treasure hunt mystery and romance"
+  },
+  {
+    "name": "Cursed",
+    "year": 2020,
+    "type": "series",
+    "priority": 1,
+    "bucket": "platforms-uk",
+    "why": "Arthurian legend reimagined; Katherine Langford young sorceress"
+  },
+  {
+    "name": "Peaky Blinders",
+    "year": 2013,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "1920s Birmingham gangster epic; Cillian Murphy Tommy Shelby"
+  },
+  {
+    "name": "Sherlock",
+    "year": 2010,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Modern Holmes reimagining; Cumberbatch and Freeman brilliance"
+  },
+  {
+    "name": "Luther",
+    "year": 2013,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Obsessive detective thriller; Idris Elba dark investigation"
+  },
+  {
+    "name": "Killing Eve",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "Assassin-hunter obsession; Villanelle and Eve cat-and-mouse"
+  },
+  {
+    "name": "The Girlfriend Experience",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Sex worker drama; transactional relationships and intimacy"
+  },
+  {
+    "name": "Sense8",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Wachowskis global psychic connection; ambitious trans representation"
+  },
+  {
+    "name": "The OA",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Sci-fi mystery miniseries; interdimensional travel and mystery"
+  },
+  {
+    "name": "Unbreakable Kimmy Schmidt",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Cult survivor comedy; Ellie Kemper absurd optimism"
+  },
+  {
+    "name": "Atypical",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Autism representation comedy-drama; Sam spectrum journey"
+  },
+  {
+    "name": "13 Reasons Why",
+    "year": 2017,
+    "type": "series",
+    "priority": 1,
+    "bucket": "platforms-uk",
+    "why": "Controversial teen suicide drama; tape reveal structure"
+  },
+  {
+    "name": "Dare Me",
+    "year": 2019,
+    "type": "series",
+    "priority": 1,
+    "bucket": "platforms-uk",
+    "why": "Cheerleader darkness; friendship and manipulation drama"
+  },
+  {
+    "name": "Big Mouth",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Puberty comedy animation; crude and surprisingly thoughtful"
+  },
+  {
+    "name": "Disenchantment",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Groening fantasy comedy; Princess Bean magical world rebellion"
+  },
+  {
+    "name": "F is for Family",
+    "year": 2015,
+    "type": "series",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Animated 1970s family; Frank Murphy retail manager rage"
+  },
+  {
+    "name": "Love Death and Robots",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Animated anthology; sci-fi horror and romance episodes"
+  },
+  {
+    "name": "Arcane",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "platforms-uk",
+    "why": "League of Legends animated epic; Powder and Vi bond tragedy"
+  },
+  {
+    "name": "Castlevania",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Gothic animated action; Belmont vampire hunter odyssey"
+  },
+  {
+    "name": "Castlevania Nocturne",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "platforms-uk",
+    "why": "Castlevania spinoff sequel; new Belmont lineage continues"
+  },
+  {
+    "name": "Cyberpunk Edgerunners",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "platforms-uk",
+    "why": "Cyberpunk 2077 anime adaptation; cybernetic punk romance"
+  },
+  {
+    "name": "Scott Pilgrim Takes Off",
+    "year": 2023,
+    "type": "series",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Comic series continuation; Edgar Wright animation surprise"
+  },
+  {
+    "name": "The Midnight Sky",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "platforms-uk",
+    "why": "Space isolation drama; Clooney final astronaut Earth goodbye"
+  }
+]
