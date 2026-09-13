@@ -11,11 +11,19 @@ import { mulberry32 } from '@/shared/utils/random';
  */
 
 /** Flowers in the bed at once; after that each new round replaces the oldest. */
-export const GARDEN_SIZE = 30;
+export const GARDEN_SIZE = 42;
 /** Stickers per butterfly. */
 const PER_BUTTERFLY = 10;
+/** Most butterflies the garden holds. */
+const MAX_BUTTERFLIES = 16;
+/** Finished rounds per tree: the slowest thing in the garden, and the one that marks months rather than days. */
+const PER_TREE = 25;
+/** Most trees the garden holds. */
+const MAX_TREES = 5;
 /** Stickers before the unicorn comes to visit. */
 export const UNICORN_AT = 50;
+/** Stickers before a pond appears, with a duck on it. The last thing to arrive, and a long way past the unicorn. */
+export const POND_AT = 120;
 
 export type Bloom = 0 | 1 | 2 | 3;
 
@@ -37,12 +45,17 @@ export interface Plant {
 export interface Garden {
   plants: Plant[];
   butterflies: number;
+  /** One per 25 finished rounds: the slow marker of months of play. */
+  trees: number;
   /** Daily goal done today. */
   rainbow: boolean;
   unicorn: boolean;
-  /** Rounds played in total, and how many stickers until the next butterfly. */
+  /** A pond with a duck, a long way past the unicorn. */
+  pond: boolean;
+  /** Rounds played in total, and how many stickers/rounds until the next butterfly and tree. */
   rounds: number;
   toNextButterfly: number;
+  toNextTree: number;
 }
 
 const bloomOf = (round: RoundRecord): Bloom => {
@@ -72,19 +85,29 @@ export function gardenOf(progress: Progress, now = new Date()): Garden {
     fresh: i === bed.length - 1,
   }));
   const stickers = progress.stickers.length;
+  const trees = Math.min(MAX_TREES, Math.floor(played.length / PER_TREE));
   return {
     plants: plants.sort((a, b) => a.depth - b.depth),
-    butterflies: Math.min(8, Math.floor(stickers / PER_BUTTERFLY)),
+    butterflies: Math.min(MAX_BUTTERFLIES, Math.floor(stickers / PER_BUTTERFLY)),
+    trees,
     rainbow: todaySummary(progress.rounds, now).done >= DAILY_GOAL,
     unicorn: stickers >= UNICORN_AT,
+    pond: stickers >= POND_AT,
     rounds: played.length,
-    toNextButterfly: stickers >= 8 * PER_BUTTERFLY ? 0 : PER_BUTTERFLY - (stickers % PER_BUTTERFLY),
+    toNextButterfly: stickers >= MAX_BUTTERFLIES * PER_BUTTERFLY ? 0 : PER_BUTTERFLY - (stickers % PER_BUTTERFLY),
+    toNextTree: trees >= MAX_TREES ? 0 : PER_TREE - (played.length % PER_TREE),
   };
 }
 
-/** The best thing that changed between two gardens, in the child's own words; null when nothing did. */
+/**
+ * The best thing that changed between two gardens, in the child's own words; null when nothing did.
+ * Rarest first: a butterfly arrives with the same sticker that fills the pond, and the pond is the one
+ * worth hearing about.
+ */
 export function gardenNews(before: Garden, after: Garden): string | null {
+  if (after.pond && !before.pond) return 'A pond appeared in your garden, with a duck on it! 🦆';
   if (after.unicorn && !before.unicorn) return 'A unicorn came to visit your garden! 🦄';
+  if (after.trees > before.trees) return 'A tree grew in your garden! 🌳';
   if (after.butterflies > before.butterflies) return 'A new butterfly flew into your garden! 🦋';
   if (after.rainbow && !before.rainbow) return 'A rainbow appeared over your garden! 🌈';
   const grew = after.plants.find((p) => p.fresh);

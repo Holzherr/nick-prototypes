@@ -17,6 +17,19 @@ const FLOWERS: Record<GameId, { petal: string; centre: string; petals: number }>
 
 const STEM = '#3d9967';
 
+/** Where each tree stands, so the garden never rearranges itself as they arrive. */
+const TREE_X = [13, 31, 53, 75, 92];
+
+/** A round-headed tree on its trunk, drawn upward from (0, 0). */
+const Tree = ({ scale = 1 }: { scale?: number }) => (
+  <g transform={`scale(${scale})`}>
+    <rect x={-0.75} y={-3.4} width={1.5} height={3.6} rx={0.6} fill="#8a5a2b" />
+    <circle cy={-5.6} r={3.1} fill="#3d9967" />
+    <circle cx={-1.9} cy={-4.1} r={2.1} fill="#5fbf8a" />
+    <circle cx={2} cy={-4.3} r={2} fill="#4aab79" />
+  </g>
+);
+
 /** A sprout, a bud, an open flower or one in full bloom, on its stem. Drawn upward from (0, 0). */
 function Flower({ game, bloom, scale, fresh }: Pick<Plant, 'game' | 'bloom' | 'scale' | 'fresh'>) {
   const { petal, centre, petals } = FLOWERS[game];
@@ -56,8 +69,9 @@ export interface GardenSceneProps {
 
 /**
  * The garden: rolling green hills, a sun, a flower for every round played (species by game, open as wide
- * as the round was good), butterflies for stickers, a rainbow on a finished daily goal and a unicorn at 50
- * stickers. Everything is derived from the round log, so it looks the same on every device.
+ * as the round was good), butterflies for stickers, a tree per 25 rounds, a rainbow on a finished daily
+ * goal, a unicorn at 50 stickers and a pond at 120. Everything is derived from the round log, so it looks
+ * the same on every device.
  */
 export function GardenScene({ garden, variant = 'full', className, title }: GardenSceneProps) {
   const height = variant === 'full' ? 58 : 34;
@@ -89,6 +103,22 @@ export function GardenScene({ garden, variant = 'full', className, title }: Gard
 
       <path d={`M0 ${top + 12} Q 26 ${top + 4}, 52 ${top + 11} T 100 ${top + 8} L100 ${height} L0 ${height} Z`} fill="url(#garden-hill)" />
       <path d={`M0 ${top + 18} Q 34 ${top + 12}, 66 ${top + 19} T 100 ${top + 16} L100 ${height} L0 ${height} Z`} fill="#5fbf8a" opacity={0.55} />
+
+      {/* Trees and the pond sit on the hillside behind the flowers, so a full bed never hides them. */}
+      {Array.from({ length: Math.min(garden.trees, TREE_X.length) }, (_, i) => (
+        <g key={`tree-${i}`} transform={`translate(${TREE_X[i]} ${top + 15})`}>
+          <Tree scale={i % 2 ? 0.85 : 1} />
+        </g>
+      ))}
+      {garden.pond && (
+        <g>
+          <ellipse cx={78} cy={top + 20} rx={9} ry={2.6} fill="#8fd0ff" />
+          <ellipse cx={77} cy={top + 19.4} rx={5.4} ry={1.3} fill="#bfe6ff" opacity={0.75} />
+          <text x={74} y={top + 20.6} fontSize={3.6}>
+            🦆
+          </text>
+        </g>
+      )}
 
       {plants.map((plant) => (
         <g key={plant.id} transform={`translate(${plant.x} ${top + 16 + plant.depth * (height - top - 18)})`}>

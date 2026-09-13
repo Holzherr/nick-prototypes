@@ -98,9 +98,12 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   last thirteen rounds with no visible effect. It stays a nudge, never a cap: blocking a four-year-old
   mid-flow is a worse moment than letting her choose, and the wording is aimed at her rather than the parent.
 - **The garden** (`features/garden/garden-state.ts`): every finished round plants a flower — species by
-  game, open as wide as the round was good — ten stickers bring a butterfly, the daily goal a rainbow, 50
-  stickers a unicorn. It grows along the bottom of the home screen and opens full size when tapped. Derived
-  from the round log, so it is identical on every device.
+  game, open as wide as the round was good — ten stickers bring a butterfly, **25 rounds a tree**, the daily
+  goal a rainbow, 50 stickers a unicorn and **120 a pond with a duck on it**. It grows along the bottom of
+  the home screen and opens full size when tapped. Derived from the round log, so it is identical on every
+  device. The bed holds 42 flowers and butterflies run to 16: it used to stop at 30 and 8, with the unicorn
+  at 50 the last thing that ever happened, so a child who kept playing was tending a garden that had
+  finished. Trees and the pond arrive long after the unicorn, and `GardenScreen` always names the next one.
 - **Grown-ups screen** (`#/grown-ups`, behind a sum): the one in-app screen with a hash of its own, so a
   parent reading it can refresh — or link straight to it — instead of being dropped back into the child's
   garden; the rest are steps in a child's play, where a refresh should not resume a half-finished round. The
