@@ -67,6 +67,7 @@ const PRACTICE: Record<SkillId, string> = {
   bonds: 'Put five raisins out and cover some with your hand: “how many am I hiding?” Then let her hide them from you.',
   subtracting: 'Five grapes, eat one in front of her: “how many left?” Eating them is the whole point.',
   teens: 'Line up ten pasta pieces, then put three beside them: “ten and three makes…?” Always say it that way round.',
+  shapes: 'Shape hunt on a walk: road signs are triangles and circles, a football is covered in pentagons and hexagons. Count the sides to settle arguments.',
   rote: 'Count to 20 going up the stairs, then count back from 10 like a rocket launch.',
 };
 

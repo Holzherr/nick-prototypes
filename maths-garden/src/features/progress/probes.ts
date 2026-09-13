@@ -2,7 +2,7 @@
  * The weekly check-in: quick probes a grown-up runs away from the screen and scores by hand.
  * They cover rote counting (which no game tests) and cross-check the games with real objects.
  */
-export type ProbeId = 'rote' | 'objects' | 'subitising' | 'numerals' | 'compare' | 'adding' | 'bonds' | 'fewer' | 'teens';
+export type ProbeId = 'rote' | 'objects' | 'subitising' | 'numerals' | 'compare' | 'adding' | 'bonds' | 'fewer' | 'teens' | 'shapes';
 
 export interface Probe {
   id: ProbeId;
@@ -22,6 +22,7 @@ export const PROBES: readonly Probe[] = [
   { id: 'bonds', name: 'Number bonds', how: 'Five counters out, hide some under your hand: "how many are hiding?" 5 tries.', max: 5 },
   { id: 'fewer', name: 'Taking away', how: '"You have 5 grapes, eat one — how many now?" Real objects, within 5. 5 tries.', max: 5 },
   { id: 'teens', name: 'Teen numbers', how: 'Ten counters in a line and some more beside them: "how many altogether?" 5 tries.', max: 5 },
+  { id: 'shapes', name: 'Shapes', how: 'Point at five things around the room: "what shape is that?" Include a hexagon — a tile or a pencil end.', max: 5 },
 ];
 
 export const isProbeId = (id: string): id is ProbeId => PROBES.some((p) => p.id === id);

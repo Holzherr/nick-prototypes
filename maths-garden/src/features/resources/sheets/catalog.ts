@@ -6,7 +6,16 @@ import type { Stage } from '../subitising/cards';
  * The printable sheets beyond the Quick Peek cards. One maker screen renders them all
  * (`#/resources/sheet?id=…&stage=…&name=…&icon=…`), so a new sheet is a component plus an entry here.
  */
-export type SheetId = 'counting-mats' | 'numeral-cards' | 'more-or-fewer' | 'unicorn-stories' | 'bond-frames' | 'take-away-stories' | 'teen-frames' | 'number-track';
+export type SheetId =
+  | 'counting-mats'
+  | 'numeral-cards'
+  | 'more-or-fewer'
+  | 'unicorn-stories'
+  | 'bond-frames'
+  | 'take-away-stories'
+  | 'teen-frames'
+  | 'shape-cards'
+  | 'number-track';
 
 export interface SheetStage {
   /** Numbers the sheet covers at this stage. */
@@ -147,6 +156,24 @@ export const SHEETS: Record<SheetId, SheetMeta> = {
       1: { label: '11–15', goal: 'Sees a full ten and some more and says the teen number.', from: 11, to: 15 },
       2: { label: '11–19', goal: 'Knows thirteen is ten and three, not three and ten.', from: 11, to: 19 },
       3: { label: '11–20', goal: 'Says the teen number without a frame to count.', from: 11, to: 20 },
+    },
+  },
+  'shape-cards': {
+    id: 'shape-cards',
+    title: 'Shape cards and a shape hunt',
+    skill: 'shapes',
+    game: 'shape',
+    blurb: 'Big shapes to name and sort, the number of sides on the back, and a hunt for shapes around the house.',
+    how: [
+      'Name each card together, then turn it over and count the sides to check. Counting the sides is what makes the name stick.',
+      'Sort them: round ones against straight ones, then by how many sides. Let her explain her piles — the explaining is the maths.',
+      'Take the hunt sheet round the house and outside. Windows, signs, tiles and a football all count.',
+    ],
+    // `from` and `to` are how many shapes are on the sheet, not a number range like the other sheets.
+    stages: {
+      1: { label: 'circle, triangle, square', goal: 'Names the first three whichever way round they sit.', from: 3, to: 3 },
+      2: { label: 'and rectangle, oval', goal: 'Tells a square from a rectangle, a circle from an oval.', from: 5, to: 5 },
+      3: { label: 'and pentagon, hexagon', goal: 'Names a pentagon and a hexagon, and counts the sides to check.', from: 7, to: 7 },
     },
   },
   'number-track': {

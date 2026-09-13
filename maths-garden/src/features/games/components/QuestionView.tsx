@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { Button } from '@/shared/components/ui/button';
 import type { Choice, Question, Side } from '../questions';
+import { SHAPES, shapeWithArticle, type ShapeId } from '../shapes';
 import { numberWord, say, sounds } from '../sound';
 import { AnswerRow } from './AnswerRow';
 import { CompareSides } from './CompareSides';
 import { DotCard } from './DotCard';
 import { FrameCard } from './FrameCard';
 import { ObjectCard } from './ObjectCard';
+import { ShapeCard } from './ShapeCard';
 
 type Q<G extends Question['game']> = Extract<Question, { game: G }>;
 
@@ -48,6 +50,7 @@ const AnswerSpace = () => <div aria-hidden className="h-[clamp(93px,calc(14vw+9p
 
 const asNumber = (c: Choice | null) => (typeof c === 'number' ? c : null);
 const asSide = (c: Choice | null): Side | null => (c === 'left' || c === 'right' ? c : null);
+const asShape = (c: Choice | null): ShapeId | null => (typeof c === 'string' && c !== 'left' && c !== 'right' ? c : null);
 
 /** One question of any game: the prompt, the picture and the answer buttons, with its own speech and timing. */
 export function QuestionView({ question, chosen, onAnswer, peekMs = 2000, stepMs = 900, onReady, onTap, onReplay }: QuestionViewProps) {
@@ -68,6 +71,8 @@ export function QuestionView({ question, chosen, onAnswer, peekMs = 2000, stepMs
       return <Fewer q={question} chosen={asNumber(chosen)} onAnswer={onAnswer} stepMs={stepMs} onReady={onReady} />;
     case 'teen':
       return <Teen q={question} chosen={asNumber(chosen)} onAnswer={onAnswer} />;
+    case 'shape':
+      return <Shape q={question} chosen={asShape(chosen)} onAnswer={onAnswer} />;
   }
 }
 
@@ -285,6 +290,43 @@ function Teen({ q, chosen, onAnswer }: { q: Q<'teen'>; chosen: number | null; on
         <p className="text-[clamp(48px,10vw,88px)] font-bold leading-none text-raspberry">10 + {q.extra} = ?</p>
       )}
       <AnswerRow options={q.options} answer={q.answer} chosen={chosen} onPick={onAnswer} />
+    </Stage>
+  );
+}
+
+function Shape({ q, chosen, onAnswer }: { q: Q<'shape'>; chosen: ShapeId | null; onAnswer: (id: ShapeId) => void }) {
+  const { name, sides } = SHAPES[q.answer];
+  const spoken = q.ask === 'sides' ? `Which one has ${numberWord(sides)} sides?` : `Which one is ${shapeWithArticle(q.answer)}?`;
+  useEffect(() => {
+    say(spoken);
+  }, [spoken]);
+  return (
+    <Stage
+      prompt={
+        q.ask === 'sides' ? (
+          <>
+            Which one has <b className="text-raspberry">{sides} sides</b>?
+          </>
+        ) : (
+          <>
+            Which one is the <b className="text-raspberry">{name}</b>?
+          </>
+        )
+      }
+    >
+      <div className="flex flex-wrap justify-center gap-[clamp(14px,3vw,26px)]">
+        {q.options.map((id) => (
+          <Button
+            key={id}
+            size="answer"
+            variant={chosen === null ? 'answer' : id === q.answer ? 'right' : id === chosen ? 'wrong' : 'answer'}
+            aria-label={SHAPES[id].name}
+            onClick={() => chosen === null && onAnswer(id)}
+          >
+            <ShapeCard shape={id} rotate={q.rotate} fill="currentColor" className="size-[clamp(42px,8.5vw,70px)]" />
+          </Button>
+        ))}
+      </div>
     </Stage>
   );
 }
