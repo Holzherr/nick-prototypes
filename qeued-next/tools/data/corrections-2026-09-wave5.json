@@ -1,0 +1,143 @@
+[
+  {
+    "slug": "hunger-2008",
+    "reason": "JustWatch resolved /movie/hunger to Steven Hentges's US horror of the same year, so every scraped fact belonged to a different film. This is Steve McQueen's first feature, about the 1981 Maze Prison hunger strike.",
+    "fields": {
+      "director": "Steve McQueen",
+      "runtime_minutes": 96,
+      "genres": [
+        "Drama",
+        "History"
+      ],
+      "cast_members": [
+        "Michael Fassbender",
+        "Liam Cunningham",
+        "Stuart Graham",
+        "Helen Madden",
+        "Liam McMahon"
+      ]
+    }
+  },
+  {
+    "slug": "dead-of-night-1945",
+    "reason": "The page named Maclean Rogers and a cast from an unrelated film; the runtime matched, so only the credits were wrong. Ealing's portmanteau was directed by four people.",
+    "fields": {
+      "director": "Alberto Cavalcanti, Charles Crichton, Basil Dearden, Robert Hamer",
+      "cast_members": [
+        "Mervyn Johns",
+        "Googie Withers",
+        "Michael Redgrave",
+        "Roland Culver",
+        "Frederick Valk",
+        "Sally Ann Howes"
+      ]
+    }
+  },
+  {
+    "slug": "3-women-1977",
+    "reason": "Scraped genres led with Documentary. Altman's film is fiction, and a false Documentary tag puts it on the wrong shelf and skews the theme fit.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "Mystery"
+      ]
+    }
+  },
+  {
+    "slug": "red-road-2006",
+    "reason": "Scraped genres included Documentary. Andrea Arnold's film is fiction.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "Thriller"
+      ]
+    }
+  },
+  {
+    "slug": "nobody-knows-2004",
+    "reason": "Scraped genres included Animation and Romance. Kore-eda's film is neither; Animation in particular would file it beside children's titles.",
+    "fields": {
+      "genres": [
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "sans-soleil-1983",
+    "reason": "The cast list was junk from a colliding page (David Coverdale, Arielle Dombasle). Marker's essay film has no cast to speak of.",
+    "fields": {
+      "cast_members": []
+    }
+  },
+  {
+    "slug": "the-weekend-1967",
+    "reason": "The candidate list added a leading article Godard's film does not have; the page it resolved to is filed at weekend-1967. A wrong name is a wrong identity, and the ranker reads names.",
+    "fields": {
+      "name": "Weekend"
+    }
+  },
+  {
+    "slug": "the-school-of-rock-2003",
+    "reason": "Spurious leading article from the candidate list; the film is School of Rock.",
+    "fields": {
+      "name": "School of Rock"
+    }
+  },
+  {
+    "slug": "the-seven-brides-for-seven-brothers-1954",
+    "reason": "Spurious leading article from the candidate list.",
+    "fields": {
+      "name": "Seven Brides for Seven Brothers"
+    }
+  },
+  {
+    "slug": "ulzanas-raid-1972",
+    "reason": "The apostrophe was dropped in the candidate list, so the name read Ulzanas Raid.",
+    "fields": {
+      "name": "Ulzana's Raid"
+    }
+  },
+  {
+    "slug": "the-girl-with-the-dragon-tattoo-2011",
+    "reason": "Every scraped fact — Niels Arden Oplev, Noomi Rapace, Michael Nyqvist — belongs to the Swedish film of 2009, which the catalogue already holds separately. So this is not a wrong year but a duplicate of that record, and dedupe.mjs retires it. Only the genres are corrected here, in case it survives as the fuller copy.",
+    "fields": {
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery",
+        "Thriller"
+      ]
+    }
+  },
+  {
+    "slug": "six-feet-under-1999",
+    "reason": "The candidate list dated the series two years early; it premiered in 2001.",
+    "fields": {
+      "year": 2001
+    }
+  },
+  {
+    "slug": "the-dick-van-dyke-show-1963",
+    "reason": "The candidate list dated the series two years late; it premiered in 1961.",
+    "fields": {
+      "year": 1961
+    }
+  },
+  {
+    "slug": "the-last-temptation-of-christ-1988",
+    "reason": "Scraped genres included Documentary. Scorsese's film is a drama.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "History"
+      ]
+    }
+  },
+  {
+    "slug": "the-49th-parallel-1941",
+    "reason": "Spurious leading article from the candidate list; Powell and Pressburger's film is 49th Parallel.",
+    "fields": {
+      "name": "49th Parallel"
+    }
+  }
+]
