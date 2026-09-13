@@ -34,7 +34,11 @@ export function PracticeScreen({ piece }: { piece: Piece }) {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight') p.goTo(p.index + 1);
       else if (e.key === 'ArrowLeft') p.goTo(p.index - 1);
-      else if (e.key === ' ') { e.preventDefault(); p.playing ? p.stop() : p.playAlong(); }
+      else if (e.key === ' ') {
+        e.preventDefault();
+        if (p.playing) p.stop();
+        else p.playAlong();
+      }
     };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
