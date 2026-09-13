@@ -3,6 +3,7 @@ import { Button } from '@/shared/components/ui/button';
 import type { Game } from '../catalog';
 import { shouldEase, streakOf, type AnswerRecord } from '../engine';
 import { makeQuestion, makeRound, questionKey, type Choice, type Question } from '../questions';
+import { shapeName } from '../shapes';
 import { hush, numberWord, praise, say, sounds } from '../sound';
 import { Burst } from './Burst';
 import { QuestionView } from './QuestionView';
@@ -71,7 +72,14 @@ export function GameScreen({ game, level, childName, questions: preset, resume, 
       say(streak === 5 ? `Five in a row! Amazing, ${childName}!` : streak === 3 ? 'Three in a row!' : praise(childName));
     } else {
       sounds.wrong();
-      say(q.game === 'more' ? 'Good try! The other side had more.' : `Good try! It was ${numberWord(q.answer)}.`);
+      // The right answer turns green as this is said, so naming it that way actually points at something.
+      say(
+        q.game === 'more'
+          ? 'Good try! The other side had more.'
+          : q.game === 'shape'
+            ? `Good try! The ${shapeName(q.answer)} is the green one.`
+            : `Good try! It was ${numberWord(q.answer)}.`,
+      );
     }
 
     timer.current = window.setTimeout(

@@ -1,5 +1,7 @@
+import { SHAPE_IDS, type ShapeId } from './shapes';
+
 /** The games, the skill each one trains, and how hard each level is. */
-export type GameId = 'peek' | 'count' | 'find' | 'more' | 'add' | 'bond' | 'fewer' | 'teen';
+export type GameId = 'peek' | 'count' | 'find' | 'more' | 'add' | 'bond' | 'fewer' | 'teen' | 'shape';
 
 /** One level of a game. Only `max` is required; the rest tighten the challenge at the higher levels. */
 export interface GameLevel {
@@ -26,6 +28,12 @@ export interface GameLevel {
    * Must include `max`, so a round's recorded `levelMax` still describes the hardest thing asked.
    */
   wholes?: readonly number[];
+  /** Spot the Shape: the shapes in play at this level. */
+  shapes?: readonly ShapeId[];
+  /** Spot the Shape: turn every shape, so a square on its corner still has to be read as a square. */
+  spin?: boolean;
+  /** Spot the Shape: sometimes ask for a side count instead of a name, which ties shapes back to counting. */
+  bySides?: boolean;
 }
 
 export interface Game {
@@ -120,6 +128,21 @@ export const GAMES: readonly Game[] = [
       { min: 11, max: 20, choices: 4 },
       { min: 11, max: 20, choices: 4, hideFrame: true },
       { min: 11, max: 20, choices: 5, hideFrame: true },
+    ],
+  },
+  {
+    id: 'shape',
+    name: 'Spot the Shape',
+    emoji: '🔷',
+    skill: 'Shapes',
+    about: 'Names shapes by sight, then by counting their sides. Pentagons and hexagons from stage 3.',
+    // `max` is how many shapes are in play, so a round still records how hard it was.
+    levels: [
+      { max: 3, shapes: ['circle', 'triangle', 'square'] },
+      { max: 5, shapes: ['circle', 'oval', 'triangle', 'square', 'rectangle'] },
+      { max: 7, shapes: ['circle', 'oval', 'triangle', 'square', 'rectangle', 'pentagon', 'hexagon'] },
+      { max: 10, shapes: SHAPE_IDS, choices: 4, spin: true },
+      { max: 10, shapes: SHAPE_IDS, choices: 4, spin: true, bySides: true },
     ],
   },
 ];

@@ -10,7 +10,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'One question of any game, with its spoken prompt and timing. Quick Peek shows the dots for 2 seconds then covers them and shows the answers; Count With Me makes each object tappable; Find the Number speaks a number and has "Hear it again"; Which Has More? is two tappable panels; One More Unicorn adds unicorns one by one before the answers appear.',
+          'One question of any game, with its spoken prompt and timing. Quick Peek shows the dots for 2 seconds then covers them and shows the answers; Count With Me makes each object tappable; Find the Number speaks a number and has "Hear it again"; Which Has More? is two tappable panels; One More Unicorn adds unicorns one by one before the answers appear; Spot the Shape asks for a shape by name, or at the top level by how many sides it has.',
       },
     },
   },
@@ -35,3 +35,10 @@ export const WhichHasMore: Story = {
 };
 export const OneMoreUnicorn: Story = { args: { question: { game: 'add', answer: 5, options: [4, 5, 6], base: 3, extra: 2 }, stepMs: 500 } };
 export const Answered: Story = { args: { question: { game: 'find', answer: 6, options: [9, 6, 4, 8, 5, 7] }, chosen: 9 } };
+export const SpotTheShape: Story = {
+  args: { question: { game: 'shape', answer: 'hexagon', options: ['circle', 'hexagon', 'triangle'], ask: 'name', rotate: 0 } },
+};
+/** The top level turns every shape and asks by side count, so no option may share the answer's number of sides. */
+export const ShapeBySides: Story = {
+  args: { question: { game: 'shape', answer: 'pentagon', options: ['pentagon', 'square', 'triangle', 'circle'], ask: 'sides', rotate: 30 } },
+};

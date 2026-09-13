@@ -7,6 +7,7 @@ import { GuideSheet } from './GuideSheet';
 import { MoreOrFewer } from './MoreOrFewer';
 import { NumberTrack } from './NumberTrack';
 import { NumeralCards } from './NumeralCards';
+import { ShapeCards } from './ShapeCards';
 import { SheetOptionsPanel } from './SheetOptionsPanel';
 import { TakeAwayStories } from './TakeAwayStories';
 import { TeenFrames } from './TeenFrames';
@@ -20,6 +21,7 @@ const VIEWS = {
   'bond-frames': BondFrames,
   'take-away-stories': TakeAwayStories,
   'teen-frames': TeenFrames,
+  'shape-cards': ShapeCards,
   'number-track': NumberTrack,
 } satisfies Record<SheetId, unknown>;
 
@@ -32,6 +34,8 @@ const PAGES: Record<SheetId, (to: number) => number> = {
   'bond-frames': (to) => 2 + Math.ceil((to - 1) / 5),
   'take-away-stories': () => 4,
   'teen-frames': (to) => 2 + Math.ceil((to - 10) / 4),
+  // `to` is the number of shapes here, four to a page, plus the hunt.
+  'shape-cards': (to) => 1 + Math.ceil(to / 4) + 1,
   'number-track': () => 3,
 };
 

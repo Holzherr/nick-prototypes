@@ -6,7 +6,7 @@ import type { ProbeId } from '@/features/progress/probes';
  * game checks it on an iPad or phone, and levelling up in the game (level index = stage − 1) unlocks the
  * next stage's printables.
  */
-export type SkillId = 'subitising' | 'counting' | 'numerals' | 'comparison' | 'adding' | 'bonds' | 'subtracting' | 'teens' | 'rote';
+export type SkillId = 'subitising' | 'counting' | 'numerals' | 'comparison' | 'adding' | 'bonds' | 'subtracting' | 'teens' | 'shapes' | 'rote';
 export type StageNumber = 1 | 2 | 3;
 
 export interface SkillStage {
@@ -125,6 +125,18 @@ export const SKILLS: readonly Skill[] = [
       { stage: 1, range: '11–15', goal: 'Sees a full ten and some more, and says the teen number.', age: '4–5' },
       { stage: 2, range: '11–19', goal: 'Knows thirteen is ten and three, not three and ten.', age: '5–6' },
       { stage: 3, range: '11–20', goal: 'Says the teen number without a frame to count.', age: '6–7' },
+    ],
+  },
+  {
+    id: 'shapes',
+    name: 'Shapes',
+    emoji: '🔷',
+    game: 'shape',
+    probe: 'shapes',
+    stages: [
+      { stage: 1, range: 'circle, triangle, square', goal: 'Names the first three shapes whichever way round they are sitting.', age: '3–4' },
+      { stage: 2, range: 'and rectangle, oval', goal: 'Tells a square from a rectangle, and a circle from an oval.', age: '4–5' },
+      { stage: 3, range: 'and pentagon, hexagon', goal: 'Names a pentagon and a hexagon, and counts the sides to check.', age: '5–6' },
     ],
   },
   {
