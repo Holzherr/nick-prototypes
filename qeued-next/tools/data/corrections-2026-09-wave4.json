@@ -129,5 +129,30 @@
     "remove_genres": [
       "Documentary"
     ]
+  },
+  {
+    "slug": "boyhood-territorial-hymn-2014",
+    "reason": "Our candidate list garbled the name; the cast, director and cited page are all Linklater's Boyhood.",
+    "fields": {
+      "name": "Boyhood",
+      "slug": "boyhood-2014"
+    }
+  },
+  {
+    "slug": "reality-2012",
+    "reason": "The record is Coralie Fargeat's 2014 short Reality+, not Garrone's Reality — the cast and cited page say so.",
+    "fields": {
+      "name": "Reality+",
+      "year": 2014,
+      "slug": "reality-plus-2014"
+    }
+  },
+  {
+    "slug": "sweet-revenge-2018",
+    "reason": "The cast is Sweet Revenge 2's, not the original's.",
+    "fields": {
+      "name": "Sweet Revenge 2",
+      "slug": "sweet-revenge-2-2018"
+    }
   }
 ]
