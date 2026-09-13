@@ -23,13 +23,22 @@ import { query, queryJson, exec, quote, block } from './db.mjs';
 
 const [command, arg] = process.argv.slice(2);
 
-/** Everything a curator needs to choose from, small enough to read in one go. */
+/**
+ * Everything a curator needs to choose from, small enough to read in one go.
+ *
+ * Runtime, seasons and languages are in here because a list called "Two hours well spent"
+ * makes a claim about length, and a curator who cannot check it is guessing. `countries` is
+ * included but is the production-finance country rather than where a film is from — it has
+ * The Death of Stalin as Belgian and 1917 as Spanish — so it is not a safe basis for a list
+ * about origin.
+ */
 const brief = async (out) => {
   const rows = await queryJson(`
     select json_agg(json_build_object(
       'slug', slug, 'name', name, 'year', year, 'type', type::text,
       'genres', genres, 'tones', tones, 'themes', themes,
-      'countries', countries, 'director', director
+      'runtime', runtime_minutes, 'seasons', seasons, 'episodes', episodes,
+      'languages', languages, 'countries', countries, 'director', director
     ) order by year desc nulls last, name) as data
     from public.titles where catalogue_version > 0;`);
   await writeFile(out, JSON.stringify(rows, null, 1));
