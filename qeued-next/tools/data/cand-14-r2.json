@@ -1,0 +1,1442 @@
+[
+  {
+    "name": "Vigil",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC submarine thriller with international acclaim and BAFTA nominations"
+  },
+  {
+    "name": "The Outlaws",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Sky Original comedy-drama; Stephen Merchant; cult following"
+  },
+  {
+    "name": "The Traitors",
+    "year": 2022,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC format; became cultural phenomenon; global adaptation source"
+  },
+  {
+    "name": "Taskmaster",
+    "year": 2015,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Channel 4 comedy competition; cult hit; global format export"
+  },
+  {
+    "name": "You Don't Know Me",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC crime drama with Bukky Bakray; experimental narrative structure"
+  },
+  {
+    "name": "Jury",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Channel 4 legal thriller drama; Hugo Speer; contemporary issues"
+  },
+  {
+    "name": "Stonehouse",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "ITV political thriller; Matthew Macfadyen; escape scandal dramatized"
+  },
+  {
+    "name": "Gold Digger",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC One drama; Julia Ormond; intergenerational romance thriller"
+  },
+  {
+    "name": "Jed Mercurio's Line of Duty Prequel",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "BBC Studios spinoff; continues AC-12 universe"
+  },
+  {
+    "name": "The Diplomat UK",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC One drama; contemporary British politics"
+  },
+  {
+    "name": "Black Mirror",
+    "year": 2011,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Channel 4/Netflix anthology; dystopian sci-fi; Emmy winner"
+  },
+  {
+    "name": "Inside No. 9",
+    "year": 2014,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC Two anthology comedy-drama; BAFTA winner; genre-bending"
+  },
+  {
+    "name": "Dirk Gently's Holistic Detective Agency",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC cult comedy; Douglas Adams adaptation with cult following"
+  },
+  {
+    "name": "Cormoran Strike",
+    "year": 2017,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC crime series; JK Rowling adaptation; Robert Galbraith"
+  },
+  {
+    "name": "The Name of the Rose",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Mediaset/Sky co-production; Italian-German-American medieval mystery"
+  },
+  {
+    "name": "Killing Eve Alternative Ending",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC/AMC special; resolves beloved series; villanelle and eve"
+  },
+  {
+    "name": "Grantchester",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "ITV crime drama; Cambridge detective fiction; period piece"
+  },
+  {
+    "name": "Baptiste",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "BBC One crime drama spinoff; Tcheky Karyo; French detective"
+  },
+  {
+    "name": "A Confession",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "ITV drama; true crime; serial killer case dramatized"
+  },
+  {
+    "name": "The Nest",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "BBC One psychological thriller; child abduction subplot"
+  },
+  {
+    "name": "Bloodlands",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC One Northern Ireland crime drama; James Nesbitt"
+  },
+  {
+    "name": "The Bay",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "ITV crime drama; Morecambe setting; missing persons case"
+  },
+  {
+    "name": "White House Farm",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "ITV true crime; Bambi farm murders; Standish family case"
+  },
+  {
+    "name": "Des",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "ITV Dennis Nilsen dramatization; David Tennant; serial killer"
+  },
+  {
+    "name": "A Suitable Boy",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC adaptation; post-independence India; Vikram Seth"
+  },
+  {
+    "name": "Anne Boleyn",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Channel 4 historical drama; Jodie Turner-Smith"
+  },
+  {
+    "name": "The Sister",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Channel 4 psychological thriller; Neil Patrick Harris"
+  },
+  {
+    "name": "Roadkill",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Sky Atlantic political thriller; Hugh Laurie"
+  },
+  {
+    "name": "The New Mutants",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "Marvel film distributed on UK services; mutant superhero origin"
+  },
+  {
+    "name": "Flesh and Blood",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "ITV drama; Imelda Staunton; blended family conflict"
+  },
+  {
+    "name": "Honour",
+    "year": 2014,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "ITV true crime; honour killing case; Jemma Redgrave"
+  },
+  {
+    "name": "Cleaning Up",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Sky Max comedy-drama; Cecilia Su\u00e1rez; high finance environment"
+  },
+  {
+    "name": "Bancroft",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "ITV crime drama; Paula Patton; female detective protagonist"
+  },
+  {
+    "name": "Liar",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "ITV psychological thriller; Joanne Froggatt; consent narrative"
+  },
+  {
+    "name": "Rellik",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "Sky Atlantic thriller; reverse chronology murder mystery"
+  },
+  {
+    "name": "Collateral",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "BBC One political thriller; shooting in London; Anthony Head"
+  },
+  {
+    "name": "New Tricks",
+    "year": 2004,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "BBC retired detective revival; long-running; reached 2015"
+  },
+  {
+    "name": "Mary Queen of Scots",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "British period film; Saoirse Ronan; Margot Robbie; history"
+  },
+  {
+    "name": "Dunkirk",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Christopher Nolan; WWII; British war epic; visual spectacle"
+  },
+  {
+    "name": "1917",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Sam Mendes; single-shot style; WWI; British production"
+  },
+  {
+    "name": "Pride",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "British indie film; 1984 miners' strike; LGBTQ+ solidarity"
+  },
+  {
+    "name": "Brooklyn",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "British-Irish film; Saoirse Ronan; 1950s Irish emigration"
+  },
+  {
+    "name": "The Banshees of Inisherin",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Martin McDonagh; BAFTA winner; Irish tragedy; dark comedy"
+  },
+  {
+    "name": "Three Billboards Outside Ebbing, Missouri",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Martin McDonagh; Frances McDormand; dark crime dramedy"
+  },
+  {
+    "name": "In Bruges",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Martin McDonagh; Colin Farrell; philosophical crime film"
+  },
+  {
+    "name": "The Phantom of the Opera",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Lloyd Webber musical adaptation; Kay Nicolo"
+  },
+  {
+    "name": "Emma",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Jane Austen adaptation; Anya Taylor-Joy; British period film"
+  },
+  {
+    "name": "Mank",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Fincher Hollywood history; British-adjacent production; B&W film"
+  },
+  {
+    "name": "The Woman in Black",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "British gothic horror; Daniel Radcliffe; haunted house"
+  },
+  {
+    "name": "Woman in Black 2: Angel of Death",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "British gothic sequel; WWII orphanage setting"
+  },
+  {
+    "name": "The Rocking Horse Winner",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "British children's literary adaptation; magical realism"
+  },
+  {
+    "name": "All the Old Knives",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Oldman-Chastain spy thriller; Vienna embassy hostage"
+  },
+  {
+    "name": "The King's Man",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "British spy action; Kingsman prequel; WWI origin story"
+  },
+  {
+    "name": "Paddington 2",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "British stop-motion; BAFTA-nominated; beloved franchise"
+  },
+  {
+    "name": "Paddington in Peru",
+    "year": 2024,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Paddington trilogy; British adventure; family film"
+  },
+  {
+    "name": "Nanny McPhee Returns",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "British family comedy; Emma Thompson; magical nanny"
+  },
+  {
+    "name": "Howl's Moving Castle",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Studio Ghibli/UK adaptation; animated fantasy; howl"
+  },
+  {
+    "name": "A Prophet",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "French-Italian prison drama; Palme d'Or winner"
+  },
+  {
+    "name": "The Artist",
+    "year": 2011,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "French silent film; Best Picture winner; Hollywood history"
+  },
+  {
+    "name": "Am\u00e9lie",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "French romantic fantasy; whimsical Paris; cultural touchstone"
+  },
+  {
+    "name": "Cinema Paradiso",
+    "year": 1988,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Italian cinema love-letter; Ennio Morricone; nostalgic"
+  },
+  {
+    "name": "Parasite",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Palme d'Or; Best Picture; Korean class satire thriller"
+  },
+  {
+    "name": "Oldboy",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Korean revenge thriller; Park Chan-wook; visceral"
+  },
+  {
+    "name": "The Handmaiden",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Korean con-artist drama; sexual intrigue; period film"
+  },
+  {
+    "name": "Memories of Murder",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Korean serial killer; Park Chan-wook; 1980s South Korea"
+  },
+  {
+    "name": "A Girl at My Door",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Korean coming-of-age drama; lesbian subtext"
+  },
+  {
+    "name": "Spring, Summer, Fall, Winter... and Spring",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Korean mountain monastery; Buddhist philosophy; meditative"
+  },
+  {
+    "name": "Pan's Labyrinth",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Guillermo del Toro; Spanish Civil War; dark fantasy"
+  },
+  {
+    "name": "Come and See",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Soviet WWII trauma film; devastating historical drama"
+  },
+  {
+    "name": "Stalker",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Andrei Tarkovsky; Soviet philosophical sci-fi; meditative"
+  },
+  {
+    "name": "Woman in the Dunes",
+    "year": 1964,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Japanese existential drama; trapped metaphor; surreal"
+  },
+  {
+    "name": "Tokyo Story",
+    "year": 1953,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Ozu family drama; Japanese cinema classic; melancholic"
+  },
+  {
+    "name": "Rashomon",
+    "year": 1950,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Kurosawa; truth relativity; Japanese cinema founder"
+  },
+  {
+    "name": "Ikiru",
+    "year": 1952,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Kurosawa; dying bureaucrat meaning-making; humanist"
+  },
+  {
+    "name": "Sanjuro",
+    "year": 1962,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Kurosawa samurai film; sword violence; political intrigue"
+  },
+  {
+    "name": "Harakiri",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Japanese samurai tragedy; feudal system critique"
+  },
+  {
+    "name": "Sword of Doom",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Japanese samurai psychological drama; serial killer samurai"
+  },
+  {
+    "name": "Ran",
+    "year": 1985,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Kurosawa King Lear; epic samurai tragedy; visual marvel"
+  },
+  {
+    "name": "The Hidden Fortress",
+    "year": 1958,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Kurosawa adventure-drama; peasant protagonists; Star Wars influence"
+  },
+  {
+    "name": "Soy Cuba",
+    "year": 1964,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Soviet-Cuban revolutionary film; propagandist poetry"
+  },
+  {
+    "name": "Battleship Potemkin",
+    "year": 1925,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Soviet silent film; montage revolutionary cinema; Odessa steps"
+  },
+  {
+    "name": "Mulholland Drive",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "David Lynch; Los Angeles dreaming; noir mystery"
+  },
+  {
+    "name": "Eraserhead",
+    "year": 1977,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Lynch surrealist horror; parenthood anxiety; black-and-white"
+  },
+  {
+    "name": "The Elephant Man",
+    "year": 1980,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Lynch biography; humanity and freakshow; Victorian"
+  },
+  {
+    "name": "Blue Velvet",
+    "year": 1986,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Lynch noir-nightmare; suburban darkness; seduction"
+  },
+  {
+    "name": "Taxi Driver",
+    "year": 1976,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Scorsese; De Niro; urban isolation; vigilante trauma"
+  },
+  {
+    "name": "Raging Bull",
+    "year": 1980,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Scorsese boxing drama; masculinity toxicity; b&w cinematography"
+  },
+  {
+    "name": "Goodfellas",
+    "year": 1990,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Scorsese crime epic; Ray Liotta; gangster life cycle"
+  },
+  {
+    "name": "Casino",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Scorsese Las Vegas crime; De Niro and Stone; glittering"
+  },
+  {
+    "name": "The Irishman",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Scorsese mob epic; De Niro; aging hitman reflection"
+  },
+  {
+    "name": "Killers of the Flower Moon",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Scorsese; De Niro; Osage oil murders; indigenous genocide"
+  },
+  {
+    "name": "Once Upon a Time in Hollywood",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Tarantino 1960s Hollywood; Manson murders backdrop"
+  },
+  {
+    "name": "Inglourious Basterds",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Tarantino; WWII revenge-fantasy; Eli Roth"
+  },
+  {
+    "name": "Django Unchained",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Tarantino slavery-western; Leonardo DiCaprio villain"
+  },
+  {
+    "name": "The Hateful Eight",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Tarantino snow-bound mystery; revisionist western"
+  },
+  {
+    "name": "Kill Bill Vol. 1",
+    "year": 2003,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Tarantino revenge; anime homage; bride assassin"
+  },
+  {
+    "name": "Kill Bill Vol. 2",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Tarantino revenge conclusion; showdown; western elements"
+  },
+  {
+    "name": "Pulp Fiction",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Tarantino landmark; nonlinear narrative; culture touchstone"
+  },
+  {
+    "name": "Reservoir Dogs",
+    "year": 1992,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Tarantino debut; heist-thriller; dialogue-driven"
+  },
+  {
+    "name": "Planet Earth",
+    "year": 2006,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC David Attenborough natural history; groundbreaking cinematography"
+  },
+  {
+    "name": "Planet Earth II",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC sequel; even more spectacular; cities episode"
+  },
+  {
+    "name": "Blue Planet",
+    "year": 2001,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC ocean documentary; Attenborough; marine life revelation"
+  },
+  {
+    "name": "Blue Planet II",
+    "year": 2017,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC ocean sequel; plastic pollution awareness"
+  },
+  {
+    "name": "Frozen Planet",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC Arctic Antarctic; Attenborough; climate change"
+  },
+  {
+    "name": "Life",
+    "year": 2009,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC organism diversity; Attenborough narration"
+  },
+  {
+    "name": "Life Story",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC reproduction strategies; animal behaviour; Attenborough"
+  },
+  {
+    "name": "The Hunt",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC predator-prey drama; animal action; Attenborough"
+  },
+  {
+    "name": "Seven Worlds, One Planet",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC continental natural history; Attenborough; visual spectacle"
+  },
+  {
+    "name": "Our Planet",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Netflix/WWF nature documentary; climate-focused"
+  },
+  {
+    "name": "Dynasties",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC animal family sagas; Attenborough; emperors and lions"
+  },
+  {
+    "name": "Perfect Planet",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC Attenborough; ecosystems and elements"
+  },
+  {
+    "name": "Green Planet",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC Attenborough; plant-focused natural history"
+  },
+  {
+    "name": "The Traitors NL",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Original Dutch format; psychological competition origin"
+  },
+  {
+    "name": "The Traitors US",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "American adaptation; Claudia Winkleman host"
+  },
+  {
+    "name": "The Great British Bake Off",
+    "year": 2010,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC cooking competition; cultural phenomenon; beloved"
+  },
+  {
+    "name": "The Great British Bake Off: Professionals",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "GBBO spinoff; professional bakers; expert level"
+  },
+  {
+    "name": "The Great British Bake Off: Celebrity",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "GBBO spinoff; celebrity contestants; entertainment"
+  },
+  {
+    "name": "MasterChef UK",
+    "year": 1990,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC cooking competition; original format; culinary excellence"
+  },
+  {
+    "name": "MasterChef: The Professionals",
+    "year": 2008,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Chef-focused competition; John Torode Gregg Wallace"
+  },
+  {
+    "name": "MasterChef Celebrity",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Celebrity cooking competition; lighthearted entertainment"
+  },
+  {
+    "name": "Race Across the World",
+    "year": 2019,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC travel competition; no flying; pairs journey format"
+  },
+  {
+    "name": "Race Across the World: South America",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Race spinoff; South American route; adventure"
+  },
+  {
+    "name": "The Mole",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Netflix competition; traitor concept; spy amongst group"
+  },
+  {
+    "name": "Survivor",
+    "year": 2000,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Pioneering reality competition; original social experiment"
+  },
+  {
+    "name": "I'm a Celebrity... Get Me Out of Here!",
+    "year": 2002,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "ITV reality competition; Australian jungle; celebrity trials"
+  },
+  {
+    "name": "The X Factor UK",
+    "year": 2004,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "ITV talent competition; Simon Cowell; musical breakthrough"
+  },
+  {
+    "name": "Britain's Got Talent",
+    "year": 2007,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "ITV variety talent show; Cowell; diverse performer types"
+  },
+  {
+    "name": "Dragons' Den UK",
+    "year": 2005,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC business pitch; sharks investors; entrepreneurship"
+  },
+  {
+    "name": "Strictly Come Dancing",
+    "year": 2004,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "BBC dance competition; cultural phenomenon; celebrity ballroom"
+  },
+  {
+    "name": "Love Island",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "ITV dating reality; villa survival; coupling format"
+  },
+  {
+    "name": "Love Island: Winter Love Island",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "Love Island spinoff; South Africa location"
+  },
+  {
+    "name": "The Only Way Is Essex",
+    "year": 2010,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "TOWIE Essex reality; unscripted drama"
+  },
+  {
+    "name": "GEORDIE SHORE",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "MTV Newcastle reality; party lifestyle; unscripted"
+  },
+  {
+    "name": "Made in Chelsea",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "E! reality; London socialites; scripted-reality format"
+  },
+  {
+    "name": "Below Deck Mediterranean",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Bravo yacht reality; luxury charter; drama"
+  },
+  {
+    "name": "Ackley Bridge",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "Channel 4 school drama; multicultural Yorkshire"
+  },
+  {
+    "name": "Hollington Drive",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Channel 4 psychological thriller; two women mystery"
+  },
+  {
+    "name": "It's a Sin",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Channel 4/RT\u00c9 1980s AIDS crisis; LGBTQ+ historical drama"
+  },
+  {
+    "name": "Russell T Davies Drama Special",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Channel 4 contemporary issues dramatized"
+  },
+  {
+    "name": "Campbell",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Ken Loach social realist film; food bank hardship"
+  },
+  {
+    "name": "I, Daniel Blake",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Ken Loach Palme d'Or; welfare system critique"
+  },
+  {
+    "name": "Kes",
+    "year": 1969,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Ken Loach working-class Yorkshire; boy and hawk"
+  },
+  {
+    "name": "The Great British Summer",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "British light drama; pandemic-era feel-good film"
+  },
+  {
+    "name": "A Silent Voice",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Japanese animated drama; deaf protagonist; redemption"
+  },
+  {
+    "name": "Your Name",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Japanese animated romance; body-swap phenomenon"
+  },
+  {
+    "name": "Weathering with You",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Japanese animated fantasy; climate and love"
+  },
+  {
+    "name": "The Davistown Murders",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Australian detective series; available on UK services"
+  },
+  {
+    "name": "This Country",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "BBC Three mockumentary comedy; Cotswolds village"
+  },
+  {
+    "name": "Cuckoo",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "BBC family comedy; Andy Samberg; oddball character"
+  },
+  {
+    "name": "Motherland",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "BBC parenting comedy; school gate drama"
+  },
+  {
+    "name": "The Trouble with Maggie Cole",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "ITV drama; small-town secrets; Julie Walters"
+  },
+  {
+    "name": "Ridley",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "ITV detective drama; Sean Bean retired investigation"
+  },
+  {
+    "name": "Marcella",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "ITV psychological thriller; detective trauma"
+  },
+  {
+    "name": "The Pull",
+    "year": 2024,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "Channel 4 contemporary drama; interconnected characters"
+  },
+  {
+    "name": "The Responder",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "BBC police procedural; Martin Freeman; Liverpool"
+  },
+  {
+    "name": "Alibi",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "Alibi Channel crime drama; murder mystery"
+  },
+  {
+    "name": "Britpop Now",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "BBC music documentary; 1990s British pop"
+  },
+  {
+    "name": "Boyz II Men: The Motown Collection",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "Music documentary series; R&B history"
+  },
+  {
+    "name": "The Beatles: Get Back",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Peter Jackson Beatles documentary; Let It Be sessions"
+  },
+  {
+    "name": "Amy",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Documentary about Amy Winehouse; tragic life"
+  },
+  {
+    "name": "20 Feet from Stardom",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Documentary backup singers; Oscar winner"
+  },
+  {
+    "name": "Three Kings",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Gulf War dark comedy; David O. Russell"
+  },
+  {
+    "name": "The Truman Show",
+    "year": 1998,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Peter Weir metafiction; reality show life; Jim Carrey"
+  },
+  {
+    "name": "Forrest Gump",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Robert Zemeckis iconic film; American history journey"
+  },
+  {
+    "name": "Contact",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Robert Zemeckis sci-fi; Jodie Foster; alien contact"
+  },
+  {
+    "name": "Who Framed Roger Rabbit",
+    "year": 1988,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Zemeckis live-action animation; noir mystery"
+  },
+  {
+    "name": "Back to the Future",
+    "year": 1985,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "uk-broadcast",
+    "why": "Zemeckis time-travel adventure; cultural touchstone"
+  },
+  {
+    "name": "Back to the Future Part II",
+    "year": 1989,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Zemeckis future prediction; hoverboards and fashion"
+  },
+  {
+    "name": "Back to the Future Part III",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Zemeckis western finale; Old West adventure"
+  },
+  {
+    "name": "The Polar Express",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Zemeckis animated holiday; Tom Hanks conductor"
+  },
+  {
+    "name": "Cast Away",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Zemeckis survival drama; Tom Hanks isolation"
+  },
+  {
+    "name": "What Lies Beneath",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Zemeckis psychological thriller; supernatural mystery"
+  },
+  {
+    "name": "Allied",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Zemeckis WWII espionage; Brad Pitt and Marion Cotillard"
+  },
+  {
+    "name": "Hocus Pocus",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Halloween comedy; witches in Salem; Bette Midler"
+  },
+  {
+    "name": "Hocus Pocus 2",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "Halloween sequel; nostalgia franchise continuation"
+  },
+  {
+    "name": "The Sandman",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Netflix Neil Gaiman adaptation; dark fantasy"
+  },
+  {
+    "name": "Picard",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-broadcast",
+    "why": "Star Trek legacy series; Patrick Stewart return"
+  },
+  {
+    "name": "Battlestar Galactica",
+    "year": 2004,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-broadcast",
+    "why": "Sci-fi political thriller; reimagined classic"
+  },
+  {
+    "name": "The Traitors: Swap",
+    "year": 2024,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "BBC Traitors spinoff; new format variant; psychological game"
+  },
+  {
+    "name": "Countdown",
+    "year": 1982,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-broadcast",
+    "why": "Channel 4 word puzzle competition; cult television institution"
+  }
+]
