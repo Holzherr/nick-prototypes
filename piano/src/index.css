@@ -1,0 +1,338 @@
+@import "tailwindcss";
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/nunito";
+
+/* The piano identity: dark lacquer ground, brass rules, and the two hand
+   colours Louise already uses in Tara's book - right orange, left green.
+   Ported verbatim from the validated prototype so the look cannot drift. */
+
+  :root {
+    --lid:      #17161F;
+    --lid-2:    #211F2B;
+    --lid-3:    #2C2938;
+    --ivory:    #F3EEE2;
+    --ivory-dim:#9A94A6;
+    --ebony:    #16151C;
+    --brass:    #C89B52;
+    --rh:       #F0A73C;
+    --lh:       #3FA48F;
+    --felt:     #B23B31;
+    --good:     #6FBF73;
+    --key-white:#F6F2E7;
+    --key-edge: #C9C2B2;
+    --shadow:   rgba(0,0,0,.45);
+    --step: clamp(10px, 1.4vw, 18px);
+  }
+  :root[data-theme="light"] {
+    --lid:      #EDEAE1;
+    --lid-2:    #F7F5EF;
+    --lid-3:    #E2DED2;
+    --ivory:    #211F2B;
+    --ivory-dim:#6B6578;
+    --brass:    #8A6520;
+    --rh:       #C47612;
+    --lh:       #1E7A68;
+    --felt:     #9C2E25;
+    --key-white:#FFFDF7;
+    --key-edge: #B9B2A2;
+    --shadow:   rgba(60,50,30,.18);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --lid:      #EDEAE1;
+      --lid-2:    #F7F5EF;
+      --lid-3:    #E2DED2;
+      --ivory:    #211F2B;
+      --ivory-dim:#6B6578;
+      --brass:    #8A6520;
+      --rh:       #C47612;
+      --lh:       #1E7A68;
+      --felt:     #9C2E25;
+      --key-white:#FFFDF7;
+      --key-edge: #B9B2A2;
+      --shadow:   rgba(60,50,30,.18);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--lid);
+    color: var(--ivory);
+    font-family: "Nunito Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-weight: 600;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: clamp(14px, 2.4vw, 30px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--step);
+  }
+
+  /* ---------- header ---------- */
+  .top { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 20px; }
+  .eyebrow {
+    font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--brass); font-weight: 800; margin: 0 0 4px;
+  }
+  h1 {
+    font-family: "Fraunces Variable", Georgia, serif;
+    font-weight: 700; font-size: clamp(1.6rem, 3.6vw, 2.5rem);
+    margin: 0; line-height: 1; text-wrap: balance;
+  }
+  .src { color: var(--ivory-dim); font-size: .82rem; margin: 6px 0 0; font-weight: 600; }
+  .legend { display: flex; gap: 14px; margin-left: auto; align-items: center; }
+  .lg { display: flex; align-items: center; gap: 7px; font-size: .82rem; font-weight: 800; }
+  .dot { width: 13px; height: 13px; border-radius: 50%; }
+  .dot.r { background: var(--rh); } .dot.l { background: var(--lh); }
+
+  /* ---------- now panel ---------- */
+  .now {
+    background: var(--lid-2);
+    border: 1px solid color-mix(in srgb, var(--brass) 22%, transparent);
+    border-radius: 20px;
+    padding: clamp(14px, 2vw, 24px);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(14px, 2.6vw, 34px);
+    align-items: center;
+    box-shadow: 0 10px 34px -18px var(--shadow);
+  }
+  @media (max-width: 700px) {
+    .now { grid-template-columns: 1fr; }
+  }
+
+  /* both hands, always on screen */
+  .hands { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .hand {
+    flex: 1 1 200px; max-width: 260px;
+    background: var(--lid-3);
+    border: 2px solid transparent;
+    border-radius: 16px; padding: 9px 6px 4px; text-align: center;
+    opacity: .42;
+    transition: opacity .18s, border-color .18s, background .18s;
+  }
+  .hand.active {
+    opacity: 1;
+    border-color: var(--c);
+    background: color-mix(in srgb, var(--c) 13%, var(--lid-3));
+  }
+  .hand.upnext { opacity: .78; border-color: color-mix(in srgb, var(--c) 45%, transparent); }
+  .hlabel {
+    font-size: .8rem; font-weight: 900; margin-bottom: 2px;
+    color: var(--ivory-dim);
+  }
+  .hand.active .hlabel { color: var(--c); }
+  .pill {
+    display: none; font-size: .56rem; letter-spacing: .1em; text-transform: uppercase;
+    background: var(--c); color: var(--lid); border-radius: 20px;
+    padding: 2px 7px; margin-left: 5px; vertical-align: 2px;
+  }
+  .hand.upnext .pill { display: inline-block; }
+  .fan { display: block; margin: 0 auto; width: 100%; height: auto; max-width: 210px; }
+  .fan circle { fill: none; stroke: color-mix(in srgb, var(--ivory-dim) 60%, transparent); stroke-width: 2.5; }
+  .fan text { font-family: "Nunito Variable", sans-serif; text-anchor: middle; dominant-baseline: central; }
+  .fan text.num { font-weight: 800; font-size: 15px; fill: var(--ivory-dim); }
+  .fan text.ltr { font-weight: 900; font-size: 16px; fill: color-mix(in srgb, var(--brass) 70%, transparent); }
+  .hand.active .fan text.ltr { fill: var(--brass); }
+  .fan .on circle { fill: var(--c); stroke: var(--c); }
+  .fan .on text.num { fill: var(--lid); }
+  .fan .on text.ltr { fill: var(--c); }
+  .fan .nx circle { stroke: var(--c); stroke-dasharray: 5 4; }
+  .fan .unused circle { stroke-dasharray: 2 3; opacity: .55; }
+  .fan .unused text { opacity: .45; }
+  .fingerword { font-size: .84rem; color: var(--ivory-dim); margin-top: 2px; font-weight: 700; min-height: 1.2em; }
+  .hand.active .fingerword { color: var(--c); font-weight: 800; }
+  .anchor {
+    font-size: .68rem; letter-spacing: .05em; text-transform: uppercase;
+    color: var(--ivory-dim); font-weight: 800; margin-top: 3px; opacity: .85;
+  }
+
+  .hold { min-width: 0; }
+  .say {
+    font-family: "Fraunces Variable", Georgia, serif;
+    font-size: clamp(1.2rem, 2.8vw, 1.8rem);
+    line-height: 1.25; margin: 0 0 14px; text-wrap: balance;
+  }
+  .word { color: var(--brass); font-weight: 800; }
+  .pips { display: flex; gap: 7px; align-items: center; flex-wrap: wrap; }
+  .pip { width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--ivory-dim); }
+  .pip.f { background: var(--hand-c); border-color: var(--hand-c); }
+  .pips .cnt { font-size: .78rem; color: var(--ivory-dim); margin-left: 6px; letter-spacing: .06em; text-transform: uppercase; font-weight: 800; }
+
+  /* ---------- keyboard ---------- */
+  .kbwrap { overflow-x: auto; padding-bottom: 4px; }
+  .kb {
+    position: relative;
+    display: grid;
+    height: clamp(150px, 26vw, 230px);
+    min-width: 620px;
+    background: var(--ebony);
+    padding: 10px 10px 12px;
+    border-radius: 14px;
+    box-shadow: inset 0 2px 0 color-mix(in srgb, var(--brass) 30%, transparent), 0 14px 34px -20px var(--shadow);
+  }
+  .wk {
+    position: relative; border: 0; padding: 0 0 12px;
+    background: var(--key-white);
+    border-radius: 0 0 8px 8px;
+    margin-right: 3px;
+    display: flex; align-items: flex-end; justify-content: center;
+    font: inherit; font-weight: 800; font-size: clamp(.8rem, 1.6vw, 1rem);
+    color: color-mix(in srgb, var(--ebony) 55%, var(--key-white));
+    cursor: pointer;
+    box-shadow: inset 0 -7px 0 -2px var(--key-edge);
+    transition: background .12s, transform .06s, box-shadow .12s;
+  }
+  .wk:last-child { margin-right: 0; }
+  .wk:active, .wk.press { transform: translateY(2px); background: #E9E2D0; }
+  .bk {
+    position: absolute; top: 10px; z-index: 3;
+    width: 4.2%; height: 58%;
+    border: 0; padding: 0;
+    background: linear-gradient(180deg, #3A3745, #15141A);
+    border-radius: 0 0 6px 6px;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #0C0B10;
+    transform: translateX(-50%);
+    transition: transform .06s, background .12s;
+  }
+  .bk:active, .bk.press { background: linear-gradient(180deg, #4A4658, #22202A); }
+
+  .wk.target { background: var(--hand-c); color: var(--ebony); animation: pulse 1.5s ease-in-out infinite; }
+  .bk.target  { background: var(--hand-c); animation: pulse 1.5s ease-in-out infinite; }
+  .wk.hit, .bk.hit { background: var(--good) !important; animation: none; }
+  .wk.nextkey { box-shadow: inset 0 -7px 0 -2px var(--key-edge), inset 0 0 0 3px var(--next-c); }
+  .bk.nextkey { box-shadow: 0 3px 0 #0C0B10, inset 0 0 0 3px var(--next-c); }
+  @keyframes pulse {
+    0%, 100% { box-shadow: inset 0 -7px 0 -2px var(--key-edge), 0 0 0 0 color-mix(in srgb, var(--hand-c) 70%, transparent); }
+    50%      { box-shadow: inset 0 -7px 0 -2px var(--key-edge), 0 0 0 11px transparent; }
+  }
+  @media (prefers-reduced-motion: reduce) { .wk.target, .bk.target { animation: none; } }
+
+  /* where each finger sits before she starts */
+  .badges {
+    position: absolute; top: 7px; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 2px; pointer-events: none;
+  }
+  .fbadge {
+    width: 18px; height: 18px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 10.5px; font-weight: 900; color: var(--ebony);
+    box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--key-white) 75%, transparent);
+  }
+  .fbadge.R { background: var(--rh); }
+  .fbadge.L { background: var(--lh); }
+
+  .wk .lbl { pointer-events: none; }
+  .kb.nolabels .wk .lbl { opacity: 0; }
+  .wk .mc { position: absolute; bottom: 5px; width: 7px; height: 7px; border-radius: 50%; background: var(--brass); }
+  .kb.nolabels .wk .mc { opacity: 1; }
+
+  /* ---------- sheet music ---------- */
+  .score {
+    background: var(--lid-2);
+    border: 1px solid color-mix(in srgb, var(--brass) 18%, transparent);
+    border-radius: 18px; padding: 10px 12px 6px;
+    overflow-x: auto;
+  }
+  .score[hidden] { display: none; }
+  .score { -webkit-overflow-scrolling: touch; }
+  .score svg { display: block; }
+
+  .stave, .barline { stroke: color-mix(in srgb, var(--ivory-dim) 50%, transparent); fill: none; }
+  .stave { stroke-width: 1.1; }
+  .barline { stroke-width: 1.4; }
+  .barline.end { stroke-width: 4; }
+  .brace { stroke: var(--brass); stroke-width: 3; fill: none; stroke-linecap: round; }
+  .clef { fill: var(--ivory); font-size: 46px;
+    font-family: "Bravura Text", "Noto Music", "Apple Symbols", "Segoe UI Symbol", serif; }
+  .meter { fill: var(--ivory); font-family: "Nunito Variable", sans-serif; font-weight: 900; font-size: 21px; text-anchor: middle; }
+  .barnum { fill: var(--ivory-dim); font-family: "Nunito Variable", sans-serif; font-weight: 800; font-size: 11px; }
+  .lyric { fill: var(--ivory-dim); font-family: "Nunito Variable", sans-serif; font-weight: 700; font-size: 10.5px; text-anchor: middle; letter-spacing: -.01em; }
+
+  .sn { color: var(--lh); transition: opacity .15s; }
+  .sn.R { color: var(--rh); }
+  .sn .head { fill: currentColor; stroke: none; }
+  .sn.half .head { fill: none; stroke: currentColor; stroke-width: 3.4; }
+  .sn .stem, .sn .beam, .sn .ledger, .sn .flag { stroke: currentColor; fill: none; stroke-width: 2.2; }
+  .sn .beam { stroke-width: 4.6; }
+  .sn .ring { stroke: currentColor; stroke-width: 2.6; fill: none; opacity: 0; }
+  .sn .hit { fill: transparent; stroke: none; cursor: pointer; }
+  .sn.done { opacity: .38; }
+  .sn.cur { opacity: 1; }
+  .sn.cur .ring { opacity: 1; }
+  .sn.cur .lyric { fill: currentColor; }
+  .sn .nl { fill: var(--lid); font-family: "Nunito Variable", sans-serif; font-weight: 900;
+            font-size: 8px; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+  .sn.half .nl { fill: currentColor; }
+  .score.noletters .nl { display: none; }
+  .playhead { fill: var(--hand-c); opacity: .13; transition: x .18s, y .18s; }
+  @media (prefers-reduced-motion: reduce) { .playhead { transition: none; } }
+
+  /* ---------- strip ---------- */
+  .strip {
+    display: flex; flex-wrap: wrap; gap: 5px;
+    background: var(--lid-2); padding: 12px; border-radius: 16px;
+    border: 1px solid color-mix(in srgb, var(--brass) 14%, transparent);
+  }
+  .barlabel {
+    align-self: stretch; display: flex; align-items: center;
+    font-size: .64rem; letter-spacing: .1em; color: var(--ivory-dim);
+    font-weight: 800; padding: 0 6px 0 2px;
+  }
+  .chip {
+    border: 0; font: inherit; cursor: pointer;
+    background: var(--lid-3); color: var(--ivory-dim);
+    border-radius: 9px; padding: 6px 8px 5px;
+    display: flex; flex-direction: column; align-items: center; gap: 1px;
+    min-width: 44px; border-bottom: 3px solid transparent;
+    transition: background .12s, color .12s, transform .1s;
+  }
+  .chip .n { font-weight: 900; font-size: .95rem; }
+  .chip .w { font-size: .6rem; opacity: .85; max-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .chip.rh { border-bottom-color: color-mix(in srgb, var(--rh) 55%, transparent); }
+  .chip.lh { border-bottom-color: color-mix(in srgb, var(--lh) 55%, transparent); }
+  .chip.done { color: var(--ivory); background: color-mix(in srgb, var(--good) 22%, var(--lid-3)); }
+  .chip.cur  { background: var(--hand-c); color: var(--ebony); transform: translateY(-2px); }
+  .chip:focus-visible, .wk:focus-visible, .bk:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 3px solid var(--brass); outline-offset: 2px;
+  }
+
+  /* ---------- transport ---------- */
+  .bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  button.ctl {
+    font: inherit; font-weight: 800; cursor: pointer;
+    background: var(--lid-2); color: var(--ivory);
+    border: 1px solid color-mix(in srgb, var(--brass) 26%, transparent);
+    border-radius: 12px; padding: 12px 18px; font-size: 1rem;
+    transition: background .12s, border-color .12s;
+  }
+  button.ctl:hover { background: var(--lid-3); }
+  button.ctl.big { font-size: 1.3rem; padding: 12px 26px; }
+  button.ctl.play { background: var(--felt); border-color: var(--felt); color: #FFF3EC; }
+  .spacer { flex: 1 1 20px; }
+  .tempo { display: flex; align-items: center; gap: 9px; font-size: .82rem; color: var(--ivory-dim); font-weight: 800; }
+  .tempo input { width: 118px; accent-color: var(--brass); }
+  .tempo b { color: var(--ivory); font-variant-numeric: tabular-nums; }
+  .toggles { display: flex; gap: 8px; }
+  button.tog {
+    font: inherit; font-size: .76rem; font-weight: 800; cursor: pointer;
+    background: transparent; color: var(--ivory-dim);
+    border: 1px solid color-mix(in srgb, var(--ivory-dim) 40%, transparent);
+    border-radius: 20px; padding: 7px 13px;
+  }
+  button.tog[aria-pressed="true"] { background: var(--brass); border-color: var(--brass); color: var(--lid); }
+
+  .note-foot {
+    margin: 0;
+    font-size: .78rem; color: var(--ivory-dim); line-height: 1.6;
+    border-top: 1px solid color-mix(in srgb, var(--ivory-dim) 20%, transparent);
+    padding-top: 12px; font-weight: 600;
+  }
+  .note-foot b { color: var(--brass); font-weight: 800; }
