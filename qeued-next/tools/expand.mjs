@@ -117,7 +117,7 @@ const namesFor = (name) => {
   // JustWatch files a show once and lists its seasons on that page, so a candidate naming a
   // season — "Jujutsu Kaisen Season 2" — has no page of its own and only the show does.
   const unseasoned = [String(name), outer].map((value) =>
-    String(value).replace(/[\s:,-]*\b(season|series|part|s(?:eries)?)\s*\d+\s*$/i, '').trim(),
+    String(value).replace(/[\s:,-]*\b(season|series)\s*\d+\s*$/i, '').trim(),
   );
   return [...new Set([String(name).trim(), outer, inner, ...unseasoned].filter(Boolean))];
 };
@@ -382,9 +382,23 @@ const searchForPage = async (name, year, type, { trustNameOverYear = true } = {}
  * year appended; anything whose name or year disagrees with the page is rejected rather
  * than guessed at.
  */
+/**
+ * A name that names a season is a series by construction, whatever else it resembles.
+ *
+ * "Part" is deliberately not here. A season is never part of a film's title, but a part
+ * routinely is — The Hunger Games: Mockingjay Part 1 and Dune: Part Two are the whole names
+ * of the works, and stripping the suffix would hunt for films that do not exist.
+ */
+const SEASONED = /\b(season|series)\s*\d+\s*$/i;
+
 const resolveTitle = async (entry) => {
   const found = await resolveAs(entry, entry.type);
   if (found || entry.url) return found;
+  // Never cross types for a name that carried a season suffix. "Attack on Titan Season 4"
+  // reduces to "Attack on Titan", which misses the anime on year and then matches a
+  // low-budget American film of that name exactly — a wrong record built out of two rules
+  // that are each right on their own.
+  if (SEASONED.test(String(entry.name))) return null;
   // A candidate list gets the type wrong often enough to matter: A Taste of Honey and
   // Accidental Love arrive typed as series and are films, Deux Frères likewise. The other
   // type is worth one more request, and it is safe because the name and year still have to

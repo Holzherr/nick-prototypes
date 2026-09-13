@@ -1,0 +1,1442 @@
+[
+  {
+    "name": "14 Peaks: Nothing Is Impossible",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Nimsdai summits all 8000m peaks; survival and ambition"
+  },
+  {
+    "name": "Abducted in Plain Sight",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Child abduction and family complicity; true crime"
+  },
+  {
+    "name": "AlphaGo",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "AI defeats world Go champion; pivotal tech moment"
+  },
+  {
+    "name": "American Murder: Laci Peterson",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "2004 California murder case examination"
+  },
+  {
+    "name": "American Murder: The Family Next Door",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Watts family murders in Colorado; true crime"
+  },
+  {
+    "name": "An Evening with Beverly Luff Linn",
+    "year": 2018,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "doc-recent",
+    "why": "Mockumentary about concert performer"
+  },
+  {
+    "name": "An Inconvenient Sequel: Truth to Power",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Al Gore climate change update on original doc"
+  },
+  {
+    "name": "Anthropocene: The Human Epoch",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Human impact on Earth's geology"
+  },
+  {
+    "name": "Apollo: Missions to the Moon",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Apollo space program documentary series"
+  },
+  {
+    "name": "Ariana Grande: One Love Manchester",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Benefit concert after Manchester bombing"
+  },
+  {
+    "name": "Attenborough's Adventures of a Young Naturalist",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Young David Attenborough's early field work"
+  },
+  {
+    "name": "Auschwitz: A New History",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Comprehensive Holocaust camp examination"
+  },
+  {
+    "name": "Badsville",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Teen crimes and youth justice system"
+  },
+  {
+    "name": "Beckham",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Soccer legend's life, fashion, marriage to Posh Spice"
+  },
+  {
+    "name": "Becoming Led Zeppelin",
+    "year": 2025,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-recent",
+    "why": "Led Zeppelin origin story; major music doc event"
+  },
+  {
+    "name": "Becoming Witch",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Wiccan spirituality and modern witchcraft"
+  },
+  {
+    "name": "Beware of the Batman",
+    "year": 2014,
+    "type": "series",
+    "priority": 1,
+    "bucket": "doc-recent",
+    "why": "Animated Batman series; not documentary"
+  },
+  {
+    "name": "Beware the Slenderman",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Internet folklore and teen violence case"
+  },
+  {
+    "name": "Billie Eilish: The World's a Little Blurry",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Pop star rise from bedroom to fame"
+  },
+  {
+    "name": "Blackpink: Light Up the Sky",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "K-pop group rise to global stardom"
+  },
+  {
+    "name": "Boiling Point",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Restaurant kitchen and chef pressure"
+  },
+  {
+    "name": "Casting JonBenet",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "JonBenét Ramsey case; meta-investigation"
+  },
+  {
+    "name": "Catching Killers",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Serial killer investigations and detectives"
+  },
+  {
+    "name": "Chef's Table: Noma",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Rene Redzepi's Copenhagen restaurant; culinary art"
+  },
+  {
+    "name": "Citizenfour",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-recent",
+    "why": "Snowden revelations; Oscar-winning surveillance doc"
+  },
+  {
+    "name": "Concrete Jungle",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Urban wildlife adaptation and ecology"
+  },
+  {
+    "name": "Conquest of the Skies",
+    "year": 2015,
+    "type": "series",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Bird migration and flight adaptations"
+  },
+  {
+    "name": "Cosmos: A Spacetime Odyssey",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Neil deGrasse Tyson science series"
+  },
+  {
+    "name": "Crossfire Hurricane",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Rolling Stones 1969 comeback; if in range"
+  },
+  {
+    "name": "Cumbia Bash",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Colombian music and dance traditions"
+  },
+  {
+    "name": "David Chang's Breakfast, Lunch & Dinner",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Chef explores food around the world"
+  },
+  {
+    "name": "Democracy for Sale",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Election financing and corruption"
+  },
+  {
+    "name": "Dirty Pop: Boy Band Confidential",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Boy band history and Lou Pearlman scandal"
+  },
+  {
+    "name": "Dolphins",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Dolphin intelligence and marine ecology"
+  },
+  {
+    "name": "Don't F**k with Cats: Hunting an Internet Killer",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Internet sleuths find animal abuser/murderer; dark, gripping"
+  },
+  {
+    "name": "Drive to Survive",
+    "year": 2019,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-recent",
+    "why": "F1 phenomenon; redefined sports documentary on Netflix"
+  },
+  {
+    "name": "Dynasties II",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "BBC nature series following animal families"
+  },
+  {
+    "name": "Elephant",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "African elephant migration and drought"
+  },
+  {
+    "name": "Expedition Happiness",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Young couple travels the world by camper van"
+  },
+  {
+    "name": "Farthest",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Voyager space probe mission and golden record"
+  },
+  {
+    "name": "Fashion Reimagined",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Sustainable fashion and designer perspective"
+  },
+  {
+    "name": "Feels Like Home",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Housing crisis and gentrification in Brooklyn"
+  },
+  {
+    "name": "Feta",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Feta cheese production and Greek culture"
+  },
+  {
+    "name": "Fosse/Verdon",
+    "year": 2019,
+    "type": "series",
+    "priority": 1,
+    "bucket": "doc-recent",
+    "why": "Narrative drama about choreographer"
+  },
+  {
+    "name": "Four More Years",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Trump 2020 election campaign documentary"
+  },
+  {
+    "name": "Free Solo",
+    "year": 2018,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-recent",
+    "why": "Rock climber without ropes; nail-biting; Oscar winner"
+  },
+  {
+    "name": "Frozen Planet II",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Attenborough Arctic and Antarctic wildlife"
+  },
+  {
+    "name": "Fyre: The Greatest Party That Never Happened",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-recent",
+    "why": "Festival fraud; Netflix hit documentary"
+  },
+  {
+    "name": "Gaga Chromatica Ball",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Lady Gaga concert film; album performance"
+  },
+  {
+    "name": "Gates of Heaven",
+    "year": 2025,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "doc-recent",
+    "why": "Pet cemetery; Werner Herzog vintage doc"
+  },
+  {
+    "name": "Gordon Ramsay: Uncharted",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Chef explores global cuisine and food traditions"
+  },
+  {
+    "name": "Halston",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Fashion designer rise and fall; 1970s NYC"
+  },
+  {
+    "name": "Harry Styles: Love On Tour",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Concert film and behind-the-scenes access"
+  },
+  {
+    "name": "High Noon",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Documentary about standoff and western lore"
+  },
+  {
+    "name": "High Score",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Video game history from 1980s onward"
+  },
+  {
+    "name": "Homemade: Grandma's Recipes",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Traditional cooking and family food heritage"
+  },
+  {
+    "name": "Hunters",
+    "year": 2019,
+    "type": "series",
+    "priority": 1,
+    "bucket": "doc-recent",
+    "why": "Narrative thriller drama; not documentary"
+  },
+  {
+    "name": "I Am: Celine Dion",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Career arc and Stiff Person Syndrome diagnosis"
+  },
+  {
+    "name": "In Order of Disappearance",
+    "year": 2014,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "doc-recent",
+    "why": "Narrative thriller; not a documentary"
+  },
+  {
+    "name": "Inside",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Polanski film about making-of artwork"
+  },
+  {
+    "name": "Iron Chef",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Competition cooking with famous chefs"
+  },
+  {
+    "name": "Islands of Wonder",
+    "year": 2016,
+    "type": "series",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Island ecosystems and marine biology"
+  },
+  {
+    "name": "Jane",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Jane Goodall chimpanzee research; archival"
+  },
+  {
+    "name": "Jim & Andy: The Great Danny Texts",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Jim Carrey method acting behind Milos Forman film"
+  },
+  {
+    "name": "Jimi Hendrix: Electric Church",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Hendrix archive footage from Monterey"
+  },
+  {
+    "name": "Justin Bieber: Our World",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Virtual concert and world tour documentary"
+  },
+  {
+    "name": "Kedi",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Istanbul street cats and urban life portrait"
+  },
+  {
+    "name": "Life and Death",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Natural cycles and predator-prey dynamics"
+  },
+  {
+    "name": "Life in the Freezer",
+    "year": 1993,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Early Attenborough polar wildlife series"
+  },
+  {
+    "name": "Life",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "David Attenborough survival and adaptation"
+  },
+  {
+    "name": "Light and Dark",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Animal vision and nocturnal behaviour"
+  },
+  {
+    "name": "Lo and Behold: Reveries of the Connected World",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Werner Herzog on internet culture and technology"
+  },
+  {
+    "name": "MLK Now",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Martin Luther King legacy in modern context"
+  },
+  {
+    "name": "Made in Mexico",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Mexican artisans and craft traditions"
+  },
+  {
+    "name": "Making a Murderer",
+    "year": 2015,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-recent",
+    "why": "True crime landmark; Steven Avery case changed the form"
+  },
+  {
+    "name": "McQueen",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Alexander McQueen fashion designer documentary"
+  },
+  {
+    "name": "Meru",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Mountain climbers on remote Himalayan peak"
+  },
+  {
+    "name": "Monkey Planet",
+    "year": 2024,
+    "type": "series",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Primate behaviour and social structures"
+  },
+  {
+    "name": "Muscle Shoals",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Alabama recording studio and Motown legacy"
+  },
+  {
+    "name": "My Octopus Teacher",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Marine biologist bond with wild octopus"
+  },
+  {
+    "name": "Naomi",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Supermodel Naomi Campbell career and influence"
+  },
+  {
+    "name": "Never Too Late",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Late-career musician documentary"
+  },
+  {
+    "name": "O.J.: Made in America",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Football star to murder trial; epic true crime"
+  },
+  {
+    "name": "Our Planet",
+    "year": 2019,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-recent",
+    "why": "Attenborough climate overview; Netflix flagship nature doc"
+  },
+  {
+    "name": "Penguin Town",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Penguins in South African beach town"
+  },
+  {
+    "name": "Planet Earth II",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Urban animal adaptation; Attenborough landmark"
+  },
+  {
+    "name": "Planet Earth III",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Latest Attenborough nature series; BBC flagship"
+  },
+  {
+    "name": "Planet Earth",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Updated Attenborough nature series"
+  },
+  {
+    "name": "Prehistoric Planet",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "CGI dinosaur behaviour documentary"
+  },
+  {
+    "name": "Pump",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Basketball youth training and parental pressure"
+  },
+  {
+    "name": "Quarterback",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Patrick Mahomes/NFL season; inside locker-room access"
+  },
+  {
+    "name": "ReMastered: Lion in the Sky",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Peter Tosh reggae history"
+  },
+  {
+    "name": "ReMastered: Massacre at the Big Horn",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Wyatt Earp historical investigation"
+  },
+  {
+    "name": "ReMastered: Who Shot the Sheriff",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Bob Marley murder investigation"
+  },
+  {
+    "name": "Rolling Thunder Revue: A Bob Dylan Story by Martin Scorsese",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "1975-76 tour footage and myth-making; Dylan deep dive"
+  },
+  {
+    "name": "Rotten",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Food supply chain scandals and corruption"
+  },
+  {
+    "name": "Rotten: Beef",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Food supply corruption in beef production"
+  },
+  {
+    "name": "Rotten: Olive Oil",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Olive oil fraud and counterfeiting"
+  },
+  {
+    "name": "Rumble: The Indians Who Rocked the World",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Indigenous musicians in rock music history"
+  },
+  {
+    "name": "Salt, Fat, Acid, Heat",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Samin Nosrat cooking fundamentals; educational"
+  },
+  {
+    "name": "Seven Worlds, One Planet",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Continental wildlife overview with Attenborough"
+  },
+  {
+    "name": "Shark Spotters",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Great white sharks and human coexistence"
+  },
+  {
+    "name": "Sherpa",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "2015 Everest earthquake and climber deaths"
+  },
+  {
+    "name": "Somebody Feed Phil",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Phil Rosenthal travels eating street food and local culture"
+  },
+  {
+    "name": "Steve Jobs: The Man in the Machine",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Apple co-founder biography and legacy"
+  },
+  {
+    "name": "Stray",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Stray video game making documentary"
+  },
+  {
+    "name": "Street Food",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Street vendors in Bangkok and Tokyo"
+  },
+  {
+    "name": "Street Food: Asia",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Extended Asian street food series"
+  },
+  {
+    "name": "Street Food: Latin America",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Latin American street food culture"
+  },
+  {
+    "name": "Summer of Soul",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-recent",
+    "why": "1969 Harlem music festival; lost footage, Academy Award"
+  },
+  {
+    "name": "The Art of Architecture",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Architectural design and famous buildings"
+  },
+  {
+    "name": "The Battle for Berlin",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "WWII Soviet-German Berlin campaign"
+  },
+  {
+    "name": "The Beatles: Get Back",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-recent",
+    "why": "Peter Jackson; Beatles' Let It Be sessions, landmark"
+  },
+  {
+    "name": "The Cave",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Syria's underground hospital during civil war"
+  },
+  {
+    "name": "The Confession Killer",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Serial confessor who may not have killed anyone"
+  },
+  {
+    "name": "The Dawn Wall",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Rock climbers on Yosemite's hardest wall"
+  },
+  {
+    "name": "The Deepest Breath",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Freediving and underwater exploration"
+  },
+  {
+    "name": "The Farthest",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Voyager space probe and golden record"
+  },
+  {
+    "name": "The Great Hack",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Cambridge Analytica and Facebook data breach"
+  },
+  {
+    "name": "The Hunt",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Animal predators and hunting behaviour"
+  },
+  {
+    "name": "The Inventor: Out for Blood in Silicon Valley",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Elizabeth Holmes/Theranos scandal; HBO"
+  },
+  {
+    "name": "The Ivory Game",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Elephant poaching and conservation"
+  },
+  {
+    "name": "The Keepers",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Baltimore priest murder and abuse cover-up"
+  },
+  {
+    "name": "The Kings of Tupelo",
+    "year": 2023,
+    "type": "series",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Elvis impersonators and Memphis culture"
+  },
+  {
+    "name": "The Last Breath",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Deep sea diving accident and recovery"
+  },
+  {
+    "name": "The Last Dance",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Michael Jordan's final season; legendary coach and team"
+  },
+  {
+    "name": "The Last Humans",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Indigenous peoples and forest preservation"
+  },
+  {
+    "name": "The Last Nazis",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Nazi war crimes and elderly perpetrators"
+  },
+  {
+    "name": "The Last of Us",
+    "year": 2023,
+    "type": "series",
+    "priority": 1,
+    "bucket": "doc-recent",
+    "why": "Zombie narrative drama; not documentary"
+  },
+  {
+    "name": "The Line",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Food delivery service and urban dining"
+  },
+  {
+    "name": "The Mating Game",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Animal courtship and reproduction strategies"
+  },
+  {
+    "name": "The Panama Papers",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Offshore finance leak investigation"
+  },
+  {
+    "name": "The Rescue",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "2018 Thai cave rescue; nail-biting and human triumph"
+  },
+  {
+    "name": "The Rise and Fall of WeWork",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Tech startup collapse and Adam Neumann"
+  },
+  {
+    "name": "The Social Dilemma",
+    "year": 2020,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-recent",
+    "why": "Tech platforms and mental health; cultural touchstone"
+  },
+  {
+    "name": "The Toys That Made Us: Action Man",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "British soldier action figure brand history"
+  },
+  {
+    "name": "The Toys That Made Us: Barbie",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Mattel doll history and cultural impact"
+  },
+  {
+    "name": "The Toys That Made Us: Cabbage Patch Kids",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "1980s adoption-doll craze and cultural moment"
+  },
+  {
+    "name": "The Toys That Made Us: Fisher-Price",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Infant toy brand and educational legacy"
+  },
+  {
+    "name": "The Toys That Made Us: Garbage Pail Kids",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Sticker cards subculture and satire"
+  },
+  {
+    "name": "The Toys That Made Us: Hello Kitty 2",
+    "year": 2024,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "doc-recent",
+    "why": "Extended Sanrio doc; potential repeat"
+  },
+  {
+    "name": "The Toys That Made Us: Hello Kitty",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Sanrio character licensing and brand"
+  },
+  {
+    "name": "The Toys That Made Us: Jaws",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Film merchandise and action figure licensing"
+  },
+  {
+    "name": "The Toys That Made Us: LEGO",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Danish toy brick history and resurgence"
+  },
+  {
+    "name": "The Toys That Made Us: Magic",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Magic: The Gathering card game history"
+  },
+  {
+    "name": "The Toys That Made Us: Masters of the Universe",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "He-Man toy line and cartoon legacy"
+  },
+  {
+    "name": "The Toys That Made Us: Monsters vs. Aliens",
+    "year": 2019,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "doc-recent",
+    "why": "DreamWorks franchise making-of"
+  },
+  {
+    "name": "The Toys That Made Us: My Little Pony",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "1980s toy line and fandom legacy"
+  },
+  {
+    "name": "The Toys That Made Us: Nintendo",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Nintendo gaming hardware history"
+  },
+  {
+    "name": "The Toys That Made Us: Pokemon",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Pokemon card and toy collecting phenomenon"
+  },
+  {
+    "name": "The Toys That Made Us: Polly Pocket",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "1990s miniature toy collectible phenomenon"
+  },
+  {
+    "name": "The Toys That Made Us: Sanrio",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Japanese character licensing phenomenon"
+  },
+  {
+    "name": "The Toys That Made Us: Star Wars",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Star Wars merchandising juggernaut"
+  },
+  {
+    "name": "The Toys That Made Us: Strawberry Shortcake",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "1980s character licensing and toy licensing model"
+  },
+  {
+    "name": "The Toys That Made Us: The Power Rangers",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Action figures and Japanese-American pop culture"
+  },
+  {
+    "name": "The Toys That Made Us: Transformers",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Robot toy line and Japanese-American partnership"
+  },
+  {
+    "name": "The Trials of Gabriel Fernandez",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Child abuse case; systemic failure investigation"
+  },
+  {
+    "name": "The Two of Us",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Aging same-sex couple in rural America"
+  },
+  {
+    "name": "This Much I Know to Be True",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Peter Gabriel and Brian Eno creative partnership"
+  },
+  {
+    "name": "This is Modern Art",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Contemporary art and gallery world"
+  },
+  {
+    "name": "Three Identical Strangers",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Triplets separated at birth; psychological study"
+  },
+  {
+    "name": "Tickled",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Competitive tickling rabbit hole; bizarre obsession"
+  },
+  {
+    "name": "Tipping Point: The End of Oil",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Peak oil and energy transition"
+  },
+  {
+    "name": "Tones and I: Please Leave Me Alone",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Australian artist fame and mental health toll"
+  },
+  {
+    "name": "Totally Under Control",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "COVID-19 mismanagement; urgent documentary record"
+  },
+  {
+    "name": "Ugly Delicious",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "David Chang explores global food traditions"
+  },
+  {
+    "name": "Ukraine on Fire",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Ukraine's post-Soviet political turmoil"
+  },
+  {
+    "name": "Under the Bridge",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "True crime series on 1997 Vancouver murder"
+  },
+  {
+    "name": "Unnatural Selection",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Genetic engineering and CRISPR technology"
+  },
+  {
+    "name": "Venom",
+    "year": 2018,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "doc-recent",
+    "why": "Narrative superhero film; not documentary"
+  },
+  {
+    "name": "Winter on Fire: Ukraine's Fight for Freedom",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-recent",
+    "why": "2013-14 Euromaidan uprising; urgent history"
+  },
+  {
+    "name": "Workhorse One",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Documentary about aircraft restoration"
+  },
+  {
+    "name": "RBG",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Ruth Bader Ginsburg biography; legal icon"
+  },
+  {
+    "name": "Going Clear: Scientology and the Prison of Belief",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Scientology investigation by HBO"
+  },
+  {
+    "name": "Tickled",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-recent",
+    "why": "Competitive tickling obsession; bizarre rabbit hole"
+  },
+  {
+    "name": "The Toys That Made Us: Wicked",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Musical theater merchandise history"
+  },
+  {
+    "name": "The Toys That Made Us: Disney Princesses",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "Disney doll and figurine cultural impact"
+  },
+  {
+    "name": "The Toys That Made Us: Emojis",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "Emoji character licensing and digital design"
+  },
+  {
+    "name": "The Toys That Made Us: Care Bears",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-recent",
+    "why": "1980s toy line and nostalgia marketing"
+  },
+  {
+    "name": "The Toys That Made Us: Teenage Mutant Ninja Turtles",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-recent",
+    "why": "TMNT merchandise and franchise growth"
+  }
+]

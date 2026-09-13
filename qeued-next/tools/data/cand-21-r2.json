@@ -1,0 +1,1186 @@
+[
+  {
+    "name": "Mao's Last Dancer",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "true story, Bruce Beresford"
+  },
+  {
+    "name": "The Hunter",
+    "year": 2011,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Tasmanian noir, Dafoe"
+  },
+  {
+    "name": "Somersault",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "SXSW prize, melancholic"
+  },
+  {
+    "name": "Noise",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Sydney thriller, noir"
+  },
+  {
+    "name": "Downriver",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Australian indie drama"
+  },
+  {
+    "name": "Dead Heart",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Aboriginal Australia"
+  },
+  {
+    "name": "These Final Hours",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "post-apocalyptic Perth"
+  },
+  {
+    "name": "The Dressmaker",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Kate Winslet revenge"
+  },
+  {
+    "name": "Mystery Road",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Outback noir"
+  },
+  {
+    "name": "Charlie's Country",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "David Gulpilil"
+  },
+  {
+    "name": "The Invitation",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "dinner party thriller"
+  },
+  {
+    "name": "Ghostland",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "horror indie"
+  },
+  {
+    "name": "Aqua",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "water drama"
+  },
+  {
+    "name": "High Ground",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Aboriginal Western"
+  },
+  {
+    "name": "Upgrade",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "body-horror sci-fi"
+  },
+  {
+    "name": "10x10",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "commonwealth",
+    "why": "confined thriller"
+  },
+  {
+    "name": "Blackwater",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "crime noir"
+  },
+  {
+    "name": "The Gutter",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "commonwealth",
+    "why": "Brisbane bowling noir"
+  },
+  {
+    "name": "Macbeth",
+    "year": 2006,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "commonwealth",
+    "why": "Shakespeare adaptation"
+  },
+  {
+    "name": "Healers",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Indigenous health"
+  },
+  {
+    "name": "Seven",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Australian thriller"
+  },
+  {
+    "name": "The Code",
+    "year": 2013,
+    "type": "series",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "ABC legal drama"
+  },
+  {
+    "name": "Rake",
+    "year": 2010,
+    "type": "series",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "ABC barrister"
+  },
+  {
+    "name": "Please Like Me",
+    "year": 2013,
+    "type": "series",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "ABC comedy-drama"
+  },
+  {
+    "name": "The Slap",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "ABC miniseries"
+  },
+  {
+    "name": "Mr Inbetween",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Melbourne noir"
+  },
+  {
+    "name": "Pine Gap",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "spy thriller Netflix"
+  },
+  {
+    "name": "Dance Academy",
+    "year": 2010,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "ABC ballet"
+  },
+  {
+    "name": "Offspring",
+    "year": 2010,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "ABC drama"
+  },
+  {
+    "name": "Upper Middle Bogan",
+    "year": 2013,
+    "type": "series",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "ABC comedy"
+  },
+  {
+    "name": "The Secrets She Keeps",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "thriller drama"
+  },
+  {
+    "name": "Underbelly",
+    "year": 2008,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "crime Melbourne"
+  },
+  {
+    "name": "Winners and Losers",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "ABC friendship"
+  },
+  {
+    "name": "Puberty Blues",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "coming-of-age"
+  },
+  {
+    "name": "Love My Way",
+    "year": 2004,
+    "type": "series",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Sydney indie"
+  },
+  {
+    "name": "Picnic at Hanging Rock",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Prime mystery"
+  },
+  {
+    "name": "Blue Heelers",
+    "year": 1994,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "police procedural"
+  },
+  {
+    "name": "Inasection",
+    "year": 2015,
+    "type": "series",
+    "priority": 2,
+    "bucket": "commonwealth",
+    "why": "ABC sketch"
+  },
+  {
+    "name": "The Piano",
+    "year": 1993,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Campion Palme"
+  },
+  {
+    "name": "Heavenly Creatures",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Jackson true-crime"
+  },
+  {
+    "name": "Whale Rider",
+    "year": 2002,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Caro Maori"
+  },
+  {
+    "name": "In My Father's Den",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "McGann noir"
+  },
+  {
+    "name": "Eagle vs Shark",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Waititi comedy"
+  },
+  {
+    "name": "Once Were Warriors",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Tamahori Maori"
+  },
+  {
+    "name": "What We Do in the Shadows",
+    "year": 2014,
+    "type": "series",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "FX vampire mockumentary"
+  },
+  {
+    "name": "Flight of the Conchords",
+    "year": 2007,
+    "type": "series",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "HBO NZ comedy"
+  },
+  {
+    "name": "The Almighty Johnsons",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Norse gods"
+  },
+  {
+    "name": "Brokenwood Mysteries",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "murder mystery"
+  },
+  {
+    "name": "The Sweet Hereafter",
+    "year": 1997,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Egoyan masterpiece"
+  },
+  {
+    "name": "Exotica",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Egoyan mystery"
+  },
+  {
+    "name": "The Adjuster",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Egoyan psychodrama"
+  },
+  {
+    "name": "Felicia's Journey",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Egoyan thriller"
+  },
+  {
+    "name": "Ararat",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Egoyan epic"
+  },
+  {
+    "name": "Where the Truth Lies",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Egoyan drama"
+  },
+  {
+    "name": "Adoration",
+    "year": 2008,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "commonwealth",
+    "why": "Egoyan psychodrama"
+  },
+  {
+    "name": "eXistenZ",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Cronenberg mind-bender"
+  },
+  {
+    "name": "Cosmopolis",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Cronenberg noir"
+  },
+  {
+    "name": "Crimes of the Future",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Cronenberg body-horror"
+  },
+  {
+    "name": "C.R.A.Z.Y.",
+    "year": 2005,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Quebec coming-of-age"
+  },
+  {
+    "name": "Polytechnique",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Villeneuve massacre"
+  },
+  {
+    "name": "Monsieur Lazhar",
+    "year": 2011,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Quebec teacher drama"
+  },
+  {
+    "name": "Starbuck",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Quebec donor comedy"
+  },
+  {
+    "name": "Incendies",
+    "year": 2010,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Villeneuve epic"
+  },
+  {
+    "name": "Lost and Delirious",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Pool girls romance"
+  },
+  {
+    "name": "American Psycho",
+    "year": 2000,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Harron satire"
+  },
+  {
+    "name": "Maelstrom",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Villeneuve early"
+  },
+  {
+    "name": "Goon",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "hockey enforcer"
+  },
+  {
+    "name": "Goon: Last of the Enforcers",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "hockey sequel"
+  },
+  {
+    "name": "Fubar",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "mockumentary cult"
+  },
+  {
+    "name": "Schitt's Creek",
+    "year": 2015,
+    "type": "series",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Levy runaway hit"
+  },
+  {
+    "name": "Letterkenny",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "rural Ontario"
+  },
+  {
+    "name": "Orphan Black",
+    "year": 2013,
+    "type": "series",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Maslany clones"
+  },
+  {
+    "name": "Trailer Park Boys",
+    "year": 2001,
+    "type": "series",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "mockumentary iconic"
+  },
+  {
+    "name": "Degrassi: The Next Generation",
+    "year": 1999,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Toronto school"
+  },
+  {
+    "name": "Workin' Moms",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "mothers drama"
+  },
+  {
+    "name": "Baroness von Sketch Show",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "sketch comedy"
+  },
+  {
+    "name": "Kim's Convenience",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Toronto family"
+  },
+  {
+    "name": "Sort Of",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "caregiving drama"
+  },
+  {
+    "name": "Heartbeats",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Dolan debut"
+  },
+  {
+    "name": "Laurence Anyways",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Dolan transition"
+  },
+  {
+    "name": "Tom at the Farm",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Dolan thriller"
+  },
+  {
+    "name": "Mommy",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Dolan Cannes"
+  },
+  {
+    "name": "It's Only the End of the World",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Dolan Genet"
+  },
+  {
+    "name": "Matthias & Maxime",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Dolan friendship"
+  },
+  {
+    "name": "I Killed My Mother",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Dolan first film"
+  },
+  {
+    "name": "In Bruges",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "McDonagh masterpiece"
+  },
+  {
+    "name": "Seven Psychopaths",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "McDonagh dark"
+  },
+  {
+    "name": "Three Billboards Outside Ebbing, Missouri",
+    "year": 2017,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "McDonagh Oscar"
+  },
+  {
+    "name": "Adam & Paul",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Abrahamson Dublin"
+  },
+  {
+    "name": "Brooklyn",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Crowley Irish girl"
+  },
+  {
+    "name": "Wild Mountain Thyme",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Irish romance"
+  },
+  {
+    "name": "Sing Street",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Carney Dublin 1985"
+  },
+  {
+    "name": "Once",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Carney musicians"
+  },
+  {
+    "name": "Evelyn",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Irish custody"
+  },
+  {
+    "name": "Circle of Friends",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Irish college"
+  },
+  {
+    "name": "The Crying Game",
+    "year": 1992,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Jordan IRA thriller"
+  },
+  {
+    "name": "Michael Collins",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Jordan history"
+  },
+  {
+    "name": "The End of the Affair",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Jordan adaptation"
+  },
+  {
+    "name": "Ondine",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Jordan myth"
+  },
+  {
+    "name": "A Dark Song",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Gavin supernatural"
+  },
+  {
+    "name": "Derry Girls",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Northern Irish comedy"
+  },
+  {
+    "name": "The Quiet Girl",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Irish-language foster"
+  },
+  {
+    "name": "Tsotsi",
+    "year": 2005,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Hood Johannesburg"
+  },
+  {
+    "name": "District 9",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Blomkamp sci-fi"
+  },
+  {
+    "name": "Sarafina!",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "anti-apartheid musical"
+  },
+  {
+    "name": "The Power of One",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "South Africa girl"
+  },
+  {
+    "name": "Queen of the Damned",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Australian vampire"
+  },
+  {
+    "name": "Innocent",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "commonwealth",
+    "why": "Australian coming-of-age"
+  },
+  {
+    "name": "Boy Erased",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "conversion therapy"
+  },
+  {
+    "name": "Lamb",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "NZ gothic couple"
+  },
+  {
+    "name": "Lantana",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Lawrence masterpiece"
+  },
+  {
+    "name": "Two Hands",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Australian thriller"
+  },
+  {
+    "name": "Romper Stomper",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Australian skinhead"
+  },
+  {
+    "name": "Muriel's Wedding",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Hogan cult classic"
+  },
+  {
+    "name": "Strictly Ballroom",
+    "year": 1992,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Luhrmann debut"
+  },
+  {
+    "name": "The Adventures of Priscilla, Queen of the Desert",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Elliott iconic"
+  },
+  {
+    "name": "Chopper",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Dominik debut"
+  },
+  {
+    "name": "Waterboys",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Australian sport"
+  },
+  {
+    "name": "Beautiful Kate",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Australian mystery"
+  },
+  {
+    "name": "Lakelands",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Irish countryside"
+  },
+  {
+    "name": "Hunt for the Wilderpeople",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Waititi NZ bush"
+  },
+  {
+    "name": "This Is England",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Meadows skinhead"
+  },
+  {
+    "name": "Crows Have Eyes III",
+    "year": 2000,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "commonwealth",
+    "why": "Canadian B-movie"
+  },
+  {
+    "name": "Crash",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Cronenberg fetish"
+  },
+  {
+    "name": "A History of Violence",
+    "year": 2005,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Cronenberg noir"
+  },
+  {
+    "name": "Eastern Promises",
+    "year": 2007,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "commonwealth",
+    "why": "Cronenberg Russian"
+  },
+  {
+    "name": "The Middle Ground",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "commonwealth",
+    "why": "Australian indie"
+  },
+  {
+    "name": "Springbuck",
+    "year": 2005,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "commonwealth",
+    "why": "South African drama"
+  },
+  {
+    "name": "The Company of Strangers",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Canadian elder drama"
+  },
+  {
+    "name": "Cube",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Canadian sci-fi cult"
+  },
+  {
+    "name": "Stardom",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Canadian celebrity"
+  },
+  {
+    "name": "Atanarjuat: The Fast Runner",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Inuit cinema landmark"
+  },
+  {
+    "name": "Beautiful Losers",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Canadian documentary"
+  },
+  {
+    "name": "The Wound",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "South African drama"
+  },
+  {
+    "name": "Noises Off",
+    "year": 1992,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Australian comedy"
+  },
+  {
+    "name": "Proof",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Australian drama"
+  },
+  {
+    "name": "The Visitor",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Canadian indie drama"
+  },
+  {
+    "name": "Lilting",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Canadian grief drama"
+  },
+  {
+    "name": "Ginger Snaps",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Canadian werewolf"
+  },
+  {
+    "name": "Wilderness",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "commonwealth",
+    "why": "British thriller"
+  },
+  {
+    "name": "The Foreigner",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Irish action"
+  },
+  {
+    "name": "Raw",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Canadian body horror"
+  },
+  {
+    "name": "The Dirties",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Canadian found-footage"
+  },
+  {
+    "name": "Foxfires",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Australian gang"
+  },
+  {
+    "name": "Below Her Mouth",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Canadian lesbian"
+  },
+  {
+    "name": "The Vanished",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Canadian mystery"
+  },
+  {
+    "name": "Funny Story",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "commonwealth",
+    "why": "Australian rom-com"
+  },
+  {
+    "name": "Duncanville",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "commonwealth",
+    "why": "Australian voice comedy"
+  }
+]
