@@ -143,7 +143,24 @@ const reconcile = async () => {
       and coalesce(t.year, 0) = coalesce(c.year, 0)
       and t.type::text = c.type
       and c.status <> 'held';`);
-  console.log(`Reconciled: ${updated}`);
+
+  // The resolver may have replaced a wrong candidate year with the page's own date — that is
+  // the point of it, since a model-written list gets Titane's year wrong and its name right.
+  // The candidate then never matches on year and is refetched every wave for ever. Falling
+  // back to name and type alone is only safe where the catalogue holds exactly one title of
+  // that name and type; where it holds two, the year is the only thing separating a remake
+  // from its original and a loose match would file the candidate against the wrong one.
+  const byName = await exec(`update public.catalogue_candidates c
+    set status = 'held', title_id = t.id, updated_at = now()
+    from public.titles t
+    where t.catalogue_version > 0
+      and lower(t.name) = lower(c.name)
+      and t.type::text = c.type
+      and c.status <> 'held'
+      and (select count(*) from public.titles u
+           where lower(u.name) = lower(c.name) and u.type::text = c.type) = 1;`);
+
+  console.log(`Reconciled: ${updated}${byName.endsWith(' 0') ? '' : `, and ${byName} on name alone`}`);
 };
 
 /** Records the ones a fetch could not resolve, so the next list does not re-propose them. */
