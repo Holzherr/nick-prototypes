@@ -49,10 +49,31 @@ describe('garden', () => {
     expect(gardenOf(progress([round('a', 5, 40)], 50), NOW)).toMatchObject({ rainbow: false, unicorn: true });
   });
 
+  /**
+   * The garden used to finish: 30 flowers rolling, butterflies capped at 8, one unicorn at 50 stickers and
+   * then nothing ever again. Trees and the pond arrive long after that, so there is always a next thing.
+   */
+  it('grows a tree every 25 rounds and a pond a long way past the unicorn', () => {
+    const many = (n: number) => Array.from({ length: n }, (_, i) => round(`t${i}`, 5, n - i));
+    expect(gardenOf(progress(many(24)), NOW)).toMatchObject({ trees: 0, toNextTree: 1 });
+    expect(gardenOf(progress(many(25)), NOW)).toMatchObject({ trees: 1 });
+    expect(gardenOf(progress(many(50)), NOW)).toMatchObject({ trees: 2 });
+    expect(gardenOf(progress(many(1), 119), NOW).pond).toBe(false);
+    expect(gardenOf(progress(many(1), 120), NOW).pond).toBe(true);
+  });
+
+  it('holds more butterflies than it used to, and stops counting down at the last one', () => {
+    expect(gardenOf(progress([round('a', 5, 3)], 100), NOW).butterflies).toBe(10);
+    expect(gardenOf(progress([round('a', 5, 3)], 160), NOW)).toMatchObject({ butterflies: 16, toNextButterfly: 0 });
+  });
+
   it('says what changed after a round', () => {
     const before = gardenOf(progress([round('a', 5, 3)], 9), NOW);
     expect(gardenNews(before, gardenOf(progress([round('a', 5, 3), round('b', 5, 1)], 9), NOW))).toMatch(/big new flower/);
     expect(gardenNews(before, gardenOf(progress([round('a', 5, 3), round('b', 3, 1)], 10), NOW))).toMatch(/butterfly/);
     expect(gardenNews(before, before)).toBe(null);
+    // The 120th sticker brings a butterfly as well; the pond is the one worth hearing about.
+    const brim = gardenOf(progress([round('a', 5, 3)], 119), NOW);
+    expect(gardenNews(brim, gardenOf(progress([round('a', 5, 3)], 120), NOW))).toMatch(/pond/);
   });
 });
