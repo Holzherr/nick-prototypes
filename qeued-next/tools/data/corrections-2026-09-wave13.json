@@ -1,0 +1,243 @@
+[
+  {
+    "slug": "birth-2004",
+    "reason": "The cited page is the 2004 Tamil film Jananam, released here as Birth, and the record's facts are all its. Under the bare English name it sits where a viewer looking for Glazer's film of the same year would land.",
+    "fields": {
+      "name": "Jananam"
+    }
+  },
+  {
+    "slug": "aardman-wallace-gromit-the-curse-of-the-were-rabbit-2005",
+    "reason": "A studio prefix that is not part of the title; the cited page has no such prefix.",
+    "fields": {
+      "name": "Wallace & Gromit: The Curse of the Were-Rabbit"
+    }
+  },
+  {
+    "slug": "amandla-2002",
+    "reason": "The subtitle was dropped, and the cast list is archive footage — Cronkite and de Klerk are not in this film, they are in the century it covers.",
+    "fields": {
+      "name": "Amandla! A Revolution in Four-Part Harmony",
+      "cast_members": []
+    }
+  },
+  {
+    "slug": "bahubali-the-beginning-2015",
+    "reason": "Misspelt; the official romanisation doubles the a.",
+    "fields": {
+      "name": "Baahubali: The Beginning"
+    }
+  },
+  {
+    "slug": "bahubali-2-the-conclusion-2017",
+    "reason": "Misspelt; the official romanisation doubles the a.",
+    "fields": {
+      "name": "Baahubali 2: The Conclusion"
+    }
+  },
+  {
+    "slug": "alien-resurrection-1997",
+    "reason": "The release title has no colon.",
+    "fields": {
+      "name": "Alien Resurrection"
+    }
+  },
+  {
+    "slug": "au-hasard-balthazar-1966",
+    "reason": "Conventionally lower-case in the middle.",
+    "fields": {
+      "name": "Au hasard Balthazar"
+    }
+  },
+  {
+    "slug": "3-body-problem-2025",
+    "reason": "Premiered on Netflix in March 2024.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "baymax-2023-2",
+    "reason": "Released on Disney+ in June 2022; the wrong year also hides it as a duplicate.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "bhaiyya-ji-2023",
+    "reason": "Released May 2024, and the page reported 150 minutes against an actual 131.",
+    "fields": {
+      "year": 2024,
+      "runtime_minutes": 131
+    }
+  },
+  {
+    "slug": "bitter-lake-2013",
+    "reason": "Went out on iPlayer in January 2015.",
+    "fields": {
+      "year": 2015
+    }
+  },
+  {
+    "slug": "crossfire-2020-2",
+    "reason": "Broadcast September 2022; the wrong year also hides it as a duplicate.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "aparajito-1956",
+    "reason": "Tagged Action; it is the middle film of the Apu trilogy.",
+    "fields": {
+      "genres": [
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "all-is-lost-2013",
+    "reason": "Tagged Action; it is a survival drama with almost no dialogue.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "Adventure"
+      ]
+    }
+  },
+  {
+    "slug": "the-tale-of-gumiho-2021",
+    "reason": "The slug names a Korean gumiho drama but every fact — name, director, cast and cited page — is Tale of Tails, an American crime film. Whatever this row was meant to be, a bad match overwrote it; the facts are kept and the name aligned to them.",
+    "fields": {
+      "name": "Tale of Tails"
+    }
+  },
+  {
+    "slug": "fantastic-four-first-steps-2025",
+    "reason": "The numeral was used where the title spells it out.",
+    "fields": {
+      "name": "The Fantastic Four: First Steps"
+    }
+  },
+  {
+    "slug": "the-bride-2025",
+    "reason": "The exclamation mark is part of the title, and the release slipped to 2026.",
+    "fields": {
+      "name": "The Bride!",
+      "year": 2026
+    }
+  },
+  {
+    "slug": "sort-of-2019",
+    "reason": "Premiered on CBC in October 2021.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "the-angels-share-2011",
+    "reason": "Cannes May 2012, UK release June 2012.",
+    "fields": {
+      "year": 2012
+    }
+  },
+  {
+    "slug": "the-chronicles-of-narnia-prince-caspian-2008",
+    "reason": "Tagged Documentary.",
+    "fields": {
+      "genres": [
+        "Fantasy",
+        "Adventure",
+        "Kids & Family"
+      ]
+    }
+  },
+  {
+    "slug": "the-golden-compass-2007",
+    "reason": "Tagged Documentary.",
+    "fields": {
+      "genres": [
+        "Fantasy",
+        "Adventure"
+      ]
+    }
+  },
+  {
+    "slug": "sholay-1975",
+    "reason": "The page reported a truncated cut at 162 minutes; the canonical running time is 204.",
+    "fields": {
+      "runtime_minutes": 204
+    }
+  },
+  {
+    "slug": "the-secrets-she-keeps-2018",
+    "reason": "The Australian series premiered in April 2020.",
+    "fields": {
+      "year": 2020
+    }
+  },
+  {
+    "slug": "the-toys-that-made-us-gi-joe-2017-2",
+    "reason": "The full stops were dropped, and the scraped cast and director are the series' rather than this episode's.",
+    "fields": {
+      "name": "The Toys That Made Us: G.I. Joe",
+      "cast_members": [],
+      "director": null
+    }
+  },
+  {
+    "slug": "the-rundown-2003",
+    "reason": "Released in the UK as Welcome to the Jungle; a British viewer would not say The Rundown.",
+    "fields": {
+      "name": "Welcome to the Jungle"
+    }
+  },
+  {
+    "slug": "tomorrowland-2015",
+    "reason": "The UK release carried a subtitle the name dropped.",
+    "fields": {
+      "name": "Tomorrowland: A World Beyond"
+    }
+  },
+  {
+    "slug": "warcraft-2016",
+    "reason": "The UK release carried a subtitle the name dropped.",
+    "fields": {
+      "name": "Warcraft: The Beginning"
+    }
+  },
+  {
+    "slug": "the-nest-2020",
+    "reason": "Simen Alsvik has no credit on the BBC One series; the name bled in from a same-titled work.",
+    "fields": {
+      "director": "Andy De Emmony"
+    }
+  },
+  {
+    "slug": "the-perfect-storm-2000",
+    "reason": "Tagged Documentary; it is a Wolfgang Petersen disaster film.",
+    "fields": {
+      "genres": [
+        "Action",
+        "Drama",
+        "Adventure"
+      ]
+    }
+  },
+  {
+    "slug": "underbelly-2008",
+    "reason": "Tagged Comedy and Sport; it is an organised-crime drama.",
+    "fields": {
+      "genres": [
+        "Crime",
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "the-only-way-is-essex-2010",
+    "reason": "Denise Van Outen narrates rather than appears.",
+    "fields": {
+      "cast_members": []
+    }
+  }
+]
