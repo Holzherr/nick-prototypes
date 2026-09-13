@@ -1,0 +1,366 @@
+[
+  {
+    "slug": "the-darkest-hour-2017",
+    "reason": "The article is not just spurious, it names a different film: The Darkest Hour is a 2011 science-fiction picture about aliens in Moscow.",
+    "fields": {
+      "name": "Darkest Hour"
+    }
+  },
+  {
+    "slug": "the-forbidden-games-1952",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "Forbidden Games"
+    }
+  },
+  {
+    "slug": "dark-crystal-age-of-resistance-2019",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Dark Crystal: Age of Resistance"
+    }
+  },
+  {
+    "slug": "penthouse-2020",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here. Here the subtitle was dropped as well.",
+    "fields": {
+      "name": "The Penthouse: War in Life"
+    }
+  },
+  {
+    "slug": "spinal-tap-1984",
+    "reason": "Truncated; the film is This Is Spinal Tap.",
+    "fields": {
+      "name": "This Is Spinal Tap"
+    }
+  },
+  {
+    "slug": "small-town-2010",
+    "reason": "Truncated to two words that collide with several other titles.",
+    "fields": {
+      "name": "Small Town Murder Songs"
+    }
+  },
+  {
+    "slug": "carnage-2017",
+    "reason": "The subtitle was dropped in the candidate list; the cited page carries it. Without it the name collides with Polanski's Carnage.",
+    "fields": {
+      "name": "Carnage: Swallowing the Past"
+    }
+  },
+  {
+    "slug": "buffalo-bill-and-the-indians-1976",
+    "reason": "The subtitle was dropped in the candidate list; the cited page carries it.",
+    "fields": {
+      "name": "Buffalo Bill and the Indians, or Sitting Bull's History Lesson"
+    }
+  },
+  {
+    "slug": "out-1-1990",
+    "reason": "The subtitle was dropped in the candidate list; the cited page carries it.",
+    "fields": {
+      "name": "Out 1: Noli me tangere"
+    }
+  },
+  {
+    "slug": "bram-stokers-dracula-1992",
+    "reason": "The apostrophe was dropped.",
+    "fields": {
+      "name": "Bram Stoker's Dracula"
+    }
+  },
+  {
+    "slug": "muriel-wedding-1994",
+    "reason": "The possessive was dropped; the cited page has it.",
+    "fields": {
+      "name": "Muriel's Wedding"
+    }
+  },
+  {
+    "slug": "the-goalies-anxiety-at-the-penalty-kick-1975",
+    "reason": "The apostrophe was dropped.",
+    "fields": {
+      "name": "The Goalie's Anxiety at the Penalty Kick"
+    }
+  },
+  {
+    "slug": "hail-caesar-2016",
+    "reason": "The comma was dropped.",
+    "fields": {
+      "name": "Hail, Caesar!"
+    }
+  },
+  {
+    "slug": "it-ends-with-us-2024",
+    "reason": "Mis-capitalised; the book and film both lower-case the preposition.",
+    "fields": {
+      "name": "It Ends with Us"
+    }
+  },
+  {
+    "slug": "how-to-get-to-heaven-from-belfast-2026",
+    "reason": "Mis-capitalised prepositions.",
+    "fields": {
+      "name": "How to Get to Heaven from Belfast"
+    }
+  },
+  {
+    "slug": "dirilis-ertugrul-2014",
+    "reason": "Half-accented; either the Turkish title in full or the English release title, not a mixture.",
+    "fields": {
+      "name": "Diriliş: Ertuğrul"
+    }
+  },
+  {
+    "slug": "mother-2017",
+    "reason": "Aronofsky's film is lower-case in all official billing.",
+    "fields": {
+      "name": "mother!"
+    }
+  },
+  {
+    "slug": "fullmetal-alchemist-2001",
+    "reason": "The scraped cast is the Bones anime of 2003; 2001 is the manga's start.",
+    "fields": {
+      "year": 2003
+    }
+  },
+  {
+    "slug": "a-murder-at-the-end-of-the-world-2024",
+    "reason": "The series premiered in November 2023.",
+    "fields": {
+      "year": 2023
+    }
+  },
+  {
+    "slug": "night-stalker-the-hunt-for-a-serial-killer-2024",
+    "reason": "Released January 2021.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "love-on-the-spectrum-2020",
+    "reason": "The Australian original premiered on ABC in 2019; the 2020 date belongs to the US spin-off, which is a separate show.",
+    "fields": {
+      "year": 2019
+    }
+  },
+  {
+    "slug": "out-1-1990",
+    "reason": "Rivette completed it in 1971; 1990 is the restoration.",
+    "fields": {
+      "year": 1971
+    }
+  },
+  {
+    "slug": "the-goalies-anxiety-at-the-penalty-kick-1975",
+    "reason": "Wenders's film premiered in West Germany in October 1972.",
+    "fields": {
+      "year": 1972
+    }
+  },
+  {
+    "slug": "intolerable-cruelty-2003",
+    "reason": "Tagged Documentary. It is a Coen brothers screwball comedy.",
+    "fields": {
+      "genres": [
+        "Comedy",
+        "Romance"
+      ]
+    }
+  },
+  {
+    "slug": "goblin-2016",
+    "reason": "Tagged Reality TV. It is a scripted fantasy drama.",
+    "fields": {
+      "genres": [
+        "Fantasy",
+        "Drama",
+        "Romance"
+      ]
+    }
+  },
+  {
+    "slug": "honey-boy-2019",
+    "reason": "Tagged Horror.",
+    "fields": {
+      "genres": [
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "hilda-2018",
+    "reason": "Tagged Horror and Science-Fiction. It is a children's fantasy series.",
+    "fields": {
+      "genres": [
+        "Animation",
+        "Fantasy",
+        "Kids & Family"
+      ]
+    }
+  },
+  {
+    "slug": "dumplings-2004",
+    "reason": "Tagged Documentary. Fruit Chan's film is horror.",
+    "fields": {
+      "genres": [
+        "Horror",
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "pariah-2011",
+    "reason": "Tagged Documentary. Rees's film is a scripted feature.",
+    "fields": {
+      "genres": [
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "gunga-din-1939",
+    "reason": "Adventure was missing, and it is the primary genre.",
+    "fields": {
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "War & Military"
+      ]
+    }
+  },
+  {
+    "slug": "sankofa-1993",
+    "reason": "Tagged Science-Fiction, which is genre-mapping noise.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "History"
+      ]
+    }
+  },
+  {
+    "slug": "the-blue-bird-1940",
+    "reason": "Tagged Action.",
+    "fields": {
+      "genres": [
+        "Fantasy",
+        "Kids & Family"
+      ]
+    }
+  },
+  {
+    "slug": "mur-murs-1981",
+    "reason": "The scraped cast is Out 1's, which sat a few records away in the same batch — Juliet Berto is not in Varda's documentary about Los Angeles murals.",
+    "fields": {
+      "cast_members": []
+    }
+  },
+  {
+    "slug": "naqoyqatsi-2002",
+    "reason": "The cast list is archive-footage faces, not a cast; the film is wordless.",
+    "fields": {
+      "cast_members": []
+    }
+  },
+  {
+    "slug": "powaqqatsi-1988",
+    "reason": "The cast list is archive-footage faces, not a cast; the film is wordless.",
+    "fields": {
+      "cast_members": []
+    }
+  },
+  {
+    "slug": "dying-for-sex-2025",
+    "reason": "Chris Teague is the cinematographer, not the director.",
+    "fields": {
+      "director": "Shannon Murphy"
+    }
+  },
+  {
+    "slug": "maqbool-2003",
+    "reason": "Rated U, which is implausible for an 18-rated Mumbai gangland Macbeth and looks like a scrape default.",
+    "fields": {
+      "certification": null
+    }
+  },
+  {
+    "slug": "the-magnificent-obsession-1954",
+    "reason": "A candidate list adds and drops leading articles freely; Sirk's film is Magnificent Obsession and the cited page agrees.",
+    "fields": {
+      "name": "Magnificent Obsession"
+    }
+  },
+  {
+    "slug": "the-other-bennett-sister-2026",
+    "reason": "Austen's family is Bennet with one t, and both the novel and the cited page spell it that way.",
+    "fields": {
+      "name": "The Other Bennet Sister"
+    }
+  },
+  {
+    "slug": "upstairs-downstairs-1971",
+    "reason": "The comma was dropped.",
+    "fields": {
+      "name": "Upstairs, Downstairs"
+    }
+  },
+  {
+    "slug": "your-friends-and-neighbors-2025",
+    "reason": "Apple's title uses an ampersand.",
+    "fields": {
+      "name": "Your Friends & Neighbors"
+    }
+  },
+  {
+    "slug": "this-is-not-a-film-2011",
+    "reason": "The director and cast scraped are Greek credits from an unrelated film; this is Panahi and Mirtahmasb's Iranian house-arrest documentary.",
+    "fields": {
+      "director": "Jafar Panahi, Mojtaba Mirtahmasb",
+      "cast_members": [
+        "Jafar Panahi",
+        "Mojtaba Mirtahmasb"
+      ]
+    }
+  },
+  {
+    "slug": "the-six-wives-of-henry-viii-2001",
+    "reason": "This is David Starkey's Channel 4 documentary series, not the 1970 BBC drama of the same name, so Drama and Romance are both wrong.",
+    "fields": {
+      "genres": [
+        "Documentary",
+        "History"
+      ]
+    }
+  },
+  {
+    "slug": "the-outrun-2023",
+    "reason": "Premiered at Sundance in January 2024.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "waves-2018",
+    "reason": "Premiered at Telluride in 2019; the cited page is even filed at waves-2019.",
+    "fields": {
+      "year": 2019
+    }
+  },
+  {
+    "slug": "wildcat-2026",
+    "reason": "The cited page dates it 2025.",
+    "fields": {
+      "year": 2025
+    }
+  },
+  {
+    "slug": "the-merry-widow-1926",
+    "reason": "Stroheim's film premiered in August 1925 and is usually catalogued there.",
+    "fields": {
+      "year": 1925
+    }
+  }
+]
