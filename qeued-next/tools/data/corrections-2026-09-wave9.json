@@ -1,0 +1,250 @@
+[
+  {
+    "slug": "the-dead-dont-die-2019",
+    "reason": "The apostrophe was dropped.",
+    "fields": {
+      "name": "The Dead Don't Die"
+    }
+  },
+  {
+    "slug": "the-mitchells-vs-the-machines-2021",
+    "reason": "A possessive apostrophe that does not belong, and an over-capitalised article.",
+    "fields": {
+      "name": "The Mitchells vs. the Machines"
+    }
+  },
+  {
+    "slug": "zone-blanc-2017",
+    "reason": "The French series is Zone Blanche; Zone Blanc is a misspelling of the original title.",
+    "fields": {
+      "name": "Zone Blanche"
+    }
+  },
+  {
+    "slug": "the-ray-bradbury-theatre-1985",
+    "reason": "A proper title, not a word to anglicise; the series is credited as Theater and the cited page agrees.",
+    "fields": {
+      "name": "The Ray Bradbury Theater"
+    }
+  },
+  {
+    "slug": "adam-12-1968",
+    "reason": "The hyphen was dropped.",
+    "fields": {
+      "name": "Adam-12"
+    }
+  },
+  {
+    "slug": "drag-net-1951",
+    "reason": "Dragnet is one word; Drag Net is a misspelling rather than a variant.",
+    "fields": {
+      "name": "Dragnet"
+    }
+  },
+  {
+    "slug": "eric-andre-show-2012",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Eric Andre Show"
+    }
+  },
+  {
+    "slug": "at-a-distance-spring-is-green-2021",
+    "reason": "A missing comma and a capitalised verb.",
+    "fields": {
+      "name": "At a Distance, Spring Is Green"
+    }
+  },
+  {
+    "slug": "godless-2023",
+    "reason": "The subtitle was dropped, and bare Godless collides with the 2017 Netflix western and a 2016 Bulgarian film.",
+    "fields": {
+      "name": "Godless: The Eastfield Exorcism"
+    }
+  },
+  {
+    "slug": "killer-1994",
+    "reason": "Killer is an alternate title that collides with several unrelated films; the work is catalogued everywhere as Bulletproof Heart.",
+    "fields": {
+      "name": "Bulletproof Heart"
+    }
+  },
+  {
+    "slug": "the-tempest-2013",
+    "reason": "Every scraped fact — Ximena Navarrete, Eric Morales, 122 episodes — belongs to the Televisa telenovela La Tempestad. Under the bare English name it would collide with every Shakespeare adaptation in the catalogue.",
+    "fields": {
+      "name": "La Tempestad"
+    }
+  },
+  {
+    "slug": "the-last-days-of-american-crime-2018",
+    "reason": "2018 is the shoot; Netflix released it in 2020.",
+    "fields": {
+      "year": 2020
+    }
+  },
+  {
+    "slug": "conviction-2004",
+    "reason": "The NBC series with Anson Mount premiered in March 2006.",
+    "fields": {
+      "year": 2006
+    }
+  },
+  {
+    "slug": "dragon-ball-z-1996",
+    "reason": "1996 is the US broadcast start; the Japanese run began in 1989.",
+    "fields": {
+      "year": 1989
+    }
+  },
+  {
+    "slug": "the-driver-2014",
+    "reason": "Scraped genres included Documentary. It is a three-part BBC One drama.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "Crime"
+      ]
+    }
+  },
+  {
+    "slug": "within-these-walls-1974",
+    "reason": "Scraped genres included Reality TV. It is a scripted ITV prison drama.",
+    "fields": {
+      "genres": [
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "kaguya-sama-love-is-war-2019",
+    "reason": "The cast list mixes the 2019 live-action film's actors with the anime's voice cast; this record is typed as a series.",
+    "fields": {
+      "cast_members": [
+        "Makoto Furukawa",
+        "Aoi Koga",
+        "Konomi Kohara",
+        "Ryota Suzuki"
+      ]
+    }
+  },
+  {
+    "slug": "motel-transylvania-transformania-2022",
+    "reason": "Motel is a corruption of Hotel; the cited page and every scraped fact are the Sony franchise film.",
+    "fields": {
+      "name": "Hotel Transylvania: Transformania"
+    }
+  },
+  {
+    "slug": "mystic-pop-2020",
+    "reason": "The subtitle was dropped, and Mystic Pop means nothing on its own.",
+    "fields": {
+      "name": "Mystic Pop-up Bar"
+    }
+  },
+  {
+    "slug": "sunshine-boys-1975",
+    "reason": "A candidate list adds and drops leading articles freely; the cited page has it.",
+    "fields": {
+      "name": "The Sunshine Boys",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "prisoner-cell-block-h-1979",
+    "reason": "The colon was dropped from the UK title.",
+    "fields": {
+      "name": "Prisoner: Cell Block H"
+    }
+  },
+  {
+    "slug": "seachange-1998",
+    "reason": "The on-screen title is camel-case.",
+    "fields": {
+      "name": "SeaChange"
+    }
+  },
+  {
+    "slug": "the-casebook-of-sherlock-holmes-1993",
+    "reason": "Granada hyphenated it after the Doyle collection, and the six-episode series aired in 1991 — the cited page is filed there. Only the feature-length specials ran into 1993.",
+    "fields": {
+      "name": "The Case-Book of Sherlock Holmes",
+      "year": 1991
+    }
+  },
+  {
+    "slug": "nostalgia-de-la-luz-nostalgia-for-the-light-2010",
+    "reason": "The name carries both titles glued together; a British viewer says the English one.",
+    "fields": {
+      "name": "Nostalgia for the Light"
+    }
+  },
+  {
+    "slug": "la-mafia-uccide-solo-destate-2016",
+    "reason": "An Italian title forced into English title case, with the apostrophe lost.",
+    "fields": {
+      "name": "La mafia uccide solo d'estate"
+    }
+  },
+  {
+    "slug": "the-swordsman-1990",
+    "reason": "The slug and the name disagree; the film is Swordsman.",
+    "fields": {
+      "name": "Swordsman"
+    }
+  },
+  {
+    "slug": "limmys-show-2007",
+    "reason": "First broadcast on BBC Two Scotland in 2010.",
+    "fields": {
+      "year": 2010
+    }
+  },
+  {
+    "slug": "perfect-strangers-1989",
+    "reason": "The Pinchot and Linn-Baker sitcom premiered in 1986.",
+    "fields": {
+      "year": 1986
+    }
+  },
+  {
+    "slug": "miss-scarlet-and-the-duke-2022",
+    "reason": "Premiered on Alibi in March 2020.",
+    "fields": {
+      "year": 2020
+    }
+  },
+  {
+    "slug": "soulmates-2019",
+    "reason": "Premiered on AMC in October 2020.",
+    "fields": {
+      "year": 2020
+    }
+  },
+  {
+    "slug": "rosario-tijeras-2018",
+    "reason": "The Mexican version premiered in October 2016; 2018 is its second season.",
+    "fields": {
+      "year": 2016
+    }
+  },
+  {
+    "slug": "sisi-2022",
+    "reason": "Premiered on RTL+ in December 2021.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "lean-on-pete-2017",
+    "reason": "Tagged Action and Western. Haigh's film is a quiet drama about a boy and a failing racehorse.",
+    "fields": {
+      "genres": [
+        "Drama"
+      ]
+    }
+  }
+]
