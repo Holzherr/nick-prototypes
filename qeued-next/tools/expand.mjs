@@ -110,6 +110,26 @@ const namesFor = (name) => {
 };
 
 /**
+ * The page's own spelling of a name, where ours differs only in how it is written.
+ *
+ * Candidate lists add and drop leading articles freely — Minions arrives as "The Minions",
+ * The Thin Blue Line as "Thin Blue Line" — and close up spaces ("Wildchild"). The page is
+ * the cited source, so where the two names are the same string once an article and the
+ * spaces are set aside, the page's form is the right one to store. Returns null when they
+ * differ by anything more, which is most of the time: a page's name is often the
+ * original-language title ("Hauru no ugoku shiro") and must never overwrite ours.
+ */
+const ARTICLE = /^(the|a|an|le|la|les|el|los|il|der|die|das)\s+/;
+const preferredName = (theirs, ours) => {
+  const a = normalise(theirs);
+  const b = normalise(ours);
+  if (!a || !b || a === b) return null;
+  const bare = (value) => condense(value.replace(ARTICLE, ''));
+  if (condense(a) !== condense(b) && bare(a) !== bare(b)) return null;
+  return decodeEntities(String(theirs)).trim();
+};
+
+/**
  * Whether a page's name and the one being looked for describe the same work.
  *
  * 'exact' where they agree outright. 'near' where they differ the way titles routinely
@@ -371,7 +391,7 @@ const resolveTitle = async ({ name, year, type, url: given }) => {
     // the list will pick either. An exact name on a series is strong enough to carry that.
     const slack = agreement === 'exact' ? (type === 'series' ? 3 : 2) : 0;
     if (year && pageYear && Math.abs(pageYear - year) > slack) continue;
-    return { url, ...found };
+    return { url, correctedName: preferredName(node.name, name), ...found };
   }
 
   // Nothing at a derivable slug. Ask what it is filed as, then read that page — trusting the
@@ -510,7 +530,7 @@ const run = async () => {
       return null;
     }
 
-    const { node, html, url, correctedYear } = resolved;
+    const { node, html, url, correctedYear, correctedName } = resolved;
     const poster = await posterFrom(html);
     const cast = (node.actor ?? [])
       .map((role) => decodeEntities(role.actor?.name ?? role.name))
@@ -518,7 +538,7 @@ const run = async () => {
       .slice(0, 8);
 
     const fields = {
-      name: entry.name,
+      name: correctedName ?? entry.name,
       year: correctedYear ?? entry.year ?? (Number(String(node.dateCreated ?? '').slice(0, 4)) || null),
       type: entry.type,
       genres: tidyGenres(node.genre),
