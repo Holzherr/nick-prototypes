@@ -1,0 +1,1308 @@
+[
+  {
+    "name": "Real Steel",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Sports action; robot boxing; Jackman father-son"
+  },
+  {
+    "name": "Sherlock Holmes: A Game of Shadows",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Mystery action; Downey Jr. detective; Moriarty duel"
+  },
+  {
+    "name": "Transformers: Dark of the Moon",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action spectacle; moon robot war; Bay scale"
+  },
+  {
+    "name": "Mission: Impossible – Ghost Protocol",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action spy; burj khalifa climb; Cruise franchise"
+  },
+  {
+    "name": "Green Lantern",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; space cop ring; ambitious failure"
+  },
+  {
+    "name": "John Carter",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi action; Mars civilization; ambitious blockbuster"
+  },
+  {
+    "name": "Battleship",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action spectacle; alien naval war; toy-to-film"
+  },
+  {
+    "name": "Wrath of the Titans",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Fantasy action; Greek mythology; Liam Neeson saga"
+  },
+  {
+    "name": "Total Recall",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi action; Mars memory; Len Wiseman remake"
+  },
+  {
+    "name": "The Amazing Spider-Man",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero origin; Andrew Garfield web-slinging"
+  },
+  {
+    "name": "Oblivion",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi action; post-Earth; Cruise alien adventure"
+  },
+  {
+    "name": "World War Z",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Zombie action; globe-trotting; Brad Pitt outbreak"
+  },
+  {
+    "name": "Pacific Rim",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action spectacle; giant robots vs kaiju; del Toro"
+  },
+  {
+    "name": "Ender's Game",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi action; military academy; Orson Scott Card"
+  },
+  {
+    "name": "The Lone Ranger",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action western; mask avenger; Depp Tonto"
+  },
+  {
+    "name": "Jack the Giant Slayer",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Fantasy action; giant kingdom; fairy tale spectacle"
+  },
+  {
+    "name": "Percy Jackson: Sea of Monsters",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "YA action; Greek gods; mythology adventure"
+  },
+  {
+    "name": "Godzilla",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Monster action; city destruction; Gareth Edwards scale"
+  },
+  {
+    "name": "Transformers: Age of Extinction",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action spectacle; robot apocalypse; Wahlberg replaces Shia"
+  },
+  {
+    "name": "Maleficent",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Dark fantasy; Angelina Jolie horned; fairy tale twist"
+  },
+  {
+    "name": "Terminator Genisys",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi action; timeline reset; Schwarzenegger return"
+  },
+  {
+    "name": "Tomorrowland",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi adventure; future utopia; George Clooney"
+  },
+  {
+    "name": "Fantastic Four",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "mainstream-recent",
+    "why": "Superhero origin; alt-reality; ambitious reboot"
+  },
+  {
+    "name": "Pixels",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action-comedy; video game aliens; Sandler retro fun"
+  },
+  {
+    "name": "Cinderella",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Live-action fairy tale; royal romance; Disney live-action"
+  },
+  {
+    "name": "The Good Dinosaur",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated adventure; boy-dino friendship; Pixar era-hop"
+  },
+  {
+    "name": "Ghostbusters",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Comedy action; female team; reboot spectacle"
+  },
+  {
+    "name": "Independence Day: Resurgence",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi action; alien invasion returns; global defense"
+  },
+  {
+    "name": "Warcraft",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action fantasy; video game world; orc-human war"
+  },
+  {
+    "name": "Passengers",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi romance; space ship wake; Pratt & Lawrence isolation"
+  },
+  {
+    "name": "Assassin's Creed",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action adventure; video game heritage; Fassbender parkour"
+  },
+  {
+    "name": "Moana",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated adventure; ocean voyage; Dwayne Johnson charm"
+  },
+  {
+    "name": "The Jungle Book",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Live-action adventure; Kipling fable; Favreau Baloo"
+  },
+  {
+    "name": "Rogue One",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Star Wars war film; Death Star heist; side story epic"
+  },
+  {
+    "name": "Valerian and the City of a Thousand Planets",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi spectacle; alien city; Besson visual carnival"
+  },
+  {
+    "name": "The Mummy",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action adventure; curse awakens; Cruise dark universe"
+  },
+  {
+    "name": "King Kong",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action monster; Skull Island; Kong giant gorilla"
+  },
+  {
+    "name": "Transformers: The Last Knight",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action spectacle; Transformers mythology; Bay finale"
+  },
+  {
+    "name": "Pirates of the Caribbean: Dead Men Tell No Tales",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Adventure comedy; cursed crew; Sparrow return"
+  },
+  {
+    "name": "The Dark Tower",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Fantasy action; Stephen King world; tower quest"
+  },
+  {
+    "name": "It",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Horror; killer clown; Pennywise terror success"
+  },
+  {
+    "name": "Wonder Woman",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; Amazon warrior; Jenkins feminism"
+  },
+  {
+    "name": "Jurassic World: Fallen Kingdom",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action dinosaur; volcano island; dino rescue"
+  },
+  {
+    "name": "The Meg",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action creature; giant shark; Jason Statham ocean"
+  },
+  {
+    "name": "Mission: Impossible – Fallout",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action spy; helicopter chases; Cruise peak franchise"
+  },
+  {
+    "name": "Bumblebee",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action adventure; robot car; Transformers spinoff"
+  },
+  {
+    "name": "Alita: Battle Angel",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Cyberpunk action; android warrior; Rodriguez sci-fi"
+  },
+  {
+    "name": "Ready Player One",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi adventure; virtual reality; Spielberg nostalgic"
+  },
+  {
+    "name": "Christopher Robin",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Family adventure; Winnie-the-Pooh grown-up; nostalgic"
+  },
+  {
+    "name": "Solo: A Star Wars Story",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action adventure; Han origin; space smuggler"
+  },
+  {
+    "name": "Black Panther",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; African kingdom; Coogler cultural moment"
+  },
+  {
+    "name": "Avengers: Infinity War",
+    "year": 2018,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "mainstream-recent",
+    "why": "Superhero epic; universe-spanning; Thanos half-snap"
+  },
+  {
+    "name": "Aquaman",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; underwater kingdom; Momoa oceangoing"
+  },
+  {
+    "name": "Mary Poppins Returns",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Musical family; magical nanny; Emily Blunt charm"
+  },
+  {
+    "name": "Captain Marvel",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; space warrior; Brie Larson cosmic hero"
+  },
+  {
+    "name": "The Lion King",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated epic; live-action photorealistic; Favreau remake"
+  },
+  {
+    "name": "Aladdin",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Live-action musical; genie spectacle; Will Smith charm"
+  },
+  {
+    "name": "Toy Story 4",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated adventure; toy existential; Pixar emotional"
+  },
+  {
+    "name": "How to Train Your Dragon: The Hidden World",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated adventure; dragon paradise; trilogy finale"
+  },
+  {
+    "name": "Frozen II",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated musical; sister powers; Disney phenomenon"
+  },
+  {
+    "name": "Spider-Man: Far From Home",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; Venice tourist; MCU multiverse hint"
+  },
+  {
+    "name": "The Rise of Skywalker",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Star Wars finale; Palpatine return; trilogy closure"
+  },
+  {
+    "name": "Dumbo",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Live-action fantasy; flying elephant; Burton live-action"
+  },
+  {
+    "name": "Avengers: Endgame",
+    "year": 2019,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "mainstream-recent",
+    "why": "Superhero epic; time heist; MCU culmination"
+  },
+  {
+    "name": "Tenet",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi action; time inversion; Nolan temporal complexity"
+  },
+  {
+    "name": "The Invisible Man",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Horror thriller; invisible abuser; Whannell modern"
+  },
+  {
+    "name": "Bad Boys for Life",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action comedy; cops age gracefully; Smith & Lawrence"
+  },
+  {
+    "name": "Sonic the Hedgehog",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action-comedy; blue speedster; video game live-action"
+  },
+  {
+    "name": "The New Mutants",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "mainstream-recent",
+    "why": "Superhero horror; teen X-Men; troubled production"
+  },
+  {
+    "name": "Jungle Cruise",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action adventure; river quest; Johnson & Blunt tropical"
+  },
+  {
+    "name": "Free Guy",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action-comedy; video game NPC; Ryan Reynolds virtual"
+  },
+  {
+    "name": "Red Notice",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action comedy; art heist; Johnson, Hart, Gadot team"
+  },
+  {
+    "name": "Dune",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi epic; desert planet; Villeneuve Frank Herbert"
+  },
+  {
+    "name": "Black Widow",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; spy origin; Scarlett Johansson solo"
+  },
+  {
+    "name": "Shang-Chi and the Legend of the Ten Rings",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; martial arts; Asian lead MCU"
+  },
+  {
+    "name": "Spider-Man: No Way Home",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; multiverse Spideys; cultural event"
+  },
+  {
+    "name": "No Time to Die",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Bond film; Craig finale; legacy closure"
+  },
+  {
+    "name": "Eternals",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; immortal beings; Zhao cosmic MCU"
+  },
+  {
+    "name": "Raya and the Last Dragon",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Animated adventure; dragon guardian; Disney fantasy"
+  },
+  {
+    "name": "Venom: Let There Be Carnage",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero horror; symbiote villain; Hardy chaos"
+  },
+  {
+    "name": "Uncharted",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action adventure; treasure hunter; video game adaptation"
+  },
+  {
+    "name": "Bullet Train",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action thriller; Tokyo express; Brad Pitt assassins"
+  },
+  {
+    "name": "Thor: Love and Thunder",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; god cancer; Waititi musical action"
+  },
+  {
+    "name": "Doctor Strange in the Multiverse of Madness",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; reality warping; Raimi horror MCU"
+  },
+  {
+    "name": "Top Gun: Maverick",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "mainstream-recent",
+    "why": "Action spectacle; fighter jets legacy; Cruise stunt flying"
+  },
+  {
+    "name": "Jurassic World Dominion",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action dinosaur; dinos loose; Trevorrow closure"
+  },
+  {
+    "name": "Black Panther: Wakanda Forever",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; grief legacy; Letitia Wright lead"
+  },
+  {
+    "name": "Avatar: The Way of Water",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi epic; underwater Pandora; Cameron visual leap"
+  },
+  {
+    "name": "Lightyear",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated sci-fi; space ranger; Pixar spinoff"
+  },
+  {
+    "name": "Sonic the Hedgehog 2",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action-comedy; Sonic & Tails; video game sequel"
+  },
+  {
+    "name": "Ant-Man and the Wasp: Quantumania",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; quantum realm; MCU cosmic villain"
+  },
+  {
+    "name": "Guardians of the Galaxy Vol. 3",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; cosmic misfits; Gunn MCU finale"
+  },
+  {
+    "name": "The Flash",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; time travel; DCEU speedster"
+  },
+  {
+    "name": "Oppenheimer",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "mainstream-recent",
+    "why": "Historical epic; bomb father; Nolan biographical"
+  },
+  {
+    "name": "Barbie",
+    "year": 2023,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "mainstream-recent",
+    "why": "Comedy fantasy; doll world; Gerwig cultural phenomenon"
+  },
+  {
+    "name": "Mission: Impossible – Dead Reckoning Part One",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action spy; AI threat; Cruise train stunt"
+  },
+  {
+    "name": "Indiana Jones and the Dial of Destiny",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action adventure; Indy final quest; legacy elder"
+  },
+  {
+    "name": "The Marvels",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; cosmic trio; MCU women team"
+  },
+  {
+    "name": "Aquaman and the Lost Kingdom",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; underwater war; DCEU ocean saga"
+  },
+  {
+    "name": "Insidious: The Red Door",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Horror; dimensional portal; franchise return"
+  },
+  {
+    "name": "The Hunger Games: The Ballad of Songbirds and Snakes",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action-thriller; prequel origin; Snow young tyrant"
+  },
+  {
+    "name": "Killers of the Flower Moon",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Crime drama; Osage murders; Scorsese & DiCaprio"
+  },
+  {
+    "name": "Godzilla Minus One",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Monster sci-fi; post-war Japan; Yamazaki black-and-white"
+  },
+  {
+    "name": "Dune: Part Two",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi epic; desert war; Villeneuve continuation"
+  },
+  {
+    "name": "Deadpool & Wolverine",
+    "year": 2024,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "mainstream-recent",
+    "why": "Superhero comedy; MCU debut; Reynolds & Jackman duo"
+  },
+  {
+    "name": "Inside Out 2",
+    "year": 2024,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "mainstream-recent",
+    "why": "Animated comedy; emotion growth; Pixar teen angst"
+  },
+  {
+    "name": "Kingdom of the Planet of the Apes",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi action; ape civilization; franchise legacy"
+  },
+  {
+    "name": "Furiosa: A Mad Max Saga",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action spectacle; wasteland war; Miller prequel"
+  },
+  {
+    "name": "A Quiet Place: Day One",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Horror-thriller; alien invasion start; prequel origin"
+  },
+  {
+    "name": "Godzilla x Kong: The New Empire",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Monster action; kaiju team-up; hollow earth war"
+  },
+  {
+    "name": "Mufasa: The Lion King",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated epic; origin prequel; photorealistic lions"
+  },
+  {
+    "name": "Conclave",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Political thriller; Vatican election; espionage intrigue"
+  },
+  {
+    "name": "Wicked",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Musical fantasy; witch origin; stage adaptation"
+  },
+  {
+    "name": "Moana 2",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated adventure; sequel voyage; ocean wayfinding"
+  },
+  {
+    "name": "Captain America: Brave New World",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; new Cap; MCU continuity"
+  },
+  {
+    "name": "How to Train Your Dragon",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated adventure; dragon bonding; DreamWorks first"
+  },
+  {
+    "name": "Brave",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated fantasy; archer princess; Pixar Scotland"
+  },
+  {
+    "name": "Wreck-It Ralph",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated adventure; arcade game world; video game homage"
+  },
+  {
+    "name": "Rise of the Guardians",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Animated fantasy; mythical heroes; DreamWorks wonder"
+  },
+  {
+    "name": "Prometheus",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi horror; alien origins; Scott prequel"
+  },
+  {
+    "name": "The Hobbit: An Unexpected Journey",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Fantasy epic; Bilbo quest; Middle-earth origin"
+  },
+  {
+    "name": "Skyfall",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Bond film; agent fallout; Craig dark reckoning"
+  },
+  {
+    "name": "The Hobbit: The Desolation of Smaug",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Fantasy epic; dragon awakens; Middle-earth middle"
+  },
+  {
+    "name": "Frozen",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "mainstream-recent",
+    "why": "Animated musical; sister powers; Disney mega-hit"
+  },
+  {
+    "name": "Despicable Me 2",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated comedy; spy minions; sequel charm"
+  },
+  {
+    "name": "Turbo",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Animated comedy; snail racer; DreamWorks whimsy"
+  },
+  {
+    "name": "The Hunger Games: Catching Fire",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action-thriller; rebellion stirs; YA blockbuster"
+  },
+  {
+    "name": "Gravity",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi thriller; space survival; Cuarón weightless"
+  },
+  {
+    "name": "The Hobbit: The Battle of the Five Armies",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Fantasy epic; battle climax; Middle-earth conclusion"
+  },
+  {
+    "name": "How to Train Your Dragon 2",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated adventure; dragon exploration; DreamWorks sequel"
+  },
+  {
+    "name": "The Lego Movie",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated action-comedy; brick world; meta-Lego"
+  },
+  {
+    "name": "Guardians of the Galaxy",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero comedy; space outcasts; MCU weird turn"
+  },
+  {
+    "name": "Dawn of the Planet of the Apes",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi action; ape uprising; reboot excellence"
+  },
+  {
+    "name": "The Amazing Spider-Man 2",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; Electro villain; Garfield web-slinging"
+  },
+  {
+    "name": "Captain America: The Winter Soldier",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero action; SHIELD conspiracy; MCU political"
+  },
+  {
+    "name": "X-Men: Days of Future Past",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; time travel past; franchise renewal"
+  },
+  {
+    "name": "Interstellar",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi epic; wormhole love; Nolan cosmic scope"
+  },
+  {
+    "name": "Unbroken",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "War drama; resilience survival; Jolie war epic"
+  },
+  {
+    "name": "Robocp",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Sci-fi action; corporate cop; Blomkamp remake"
+  },
+  {
+    "name": "Pompeii",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Action disaster; volcano eruption; gladiator romance"
+  },
+  {
+    "name": "The Hunger Games: Mockingjay Part 1",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action-thriller; rebellion buildup; YA blockbuster"
+  },
+  {
+    "name": "Big Hero 6",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated action; robot superhero; Disney charm"
+  },
+  {
+    "name": "Into the Woods",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Musical fantasy; Sondheim dark; Depp witch"
+  },
+  {
+    "name": "Avengers: Age of Ultron",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero ensemble; AI threat; Whedon spectacle"
+  },
+  {
+    "name": "Ant-Man",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero comedy; shrinking heist; Paul Rudd charm"
+  },
+  {
+    "name": "Mad Max: Fury Road",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "mainstream-recent",
+    "why": "Action spectacle; desert chase; Miller kinetic perfection"
+  },
+  {
+    "name": "Hotel Transylvania 2",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Animated comedy; monster resort; family sequel"
+  },
+  {
+    "name": "Spectre",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Bond film; villain organization; Craig romance"
+  },
+  {
+    "name": "The Hunger Games: Mockingjay Part 2",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Action-thriller; war climax; YA trilogy finale"
+  },
+  {
+    "name": "Star Wars: The Force Awakens",
+    "year": 2015,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "mainstream-recent",
+    "why": "Space opera; Skywalker return; Abrams nostalgia"
+  },
+  {
+    "name": "The Good Dinosaur",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "mainstream-recent",
+    "why": "Animated adventure; boy-dino road trip; Pixar alternate"
+  },
+  {
+    "name": "Doctor Strange",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; mystical surgeon; Derrickson dimensions"
+  },
+  {
+    "name": "Deadpool",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero comedy; merc meta; Reynolds R-rated"
+  },
+  {
+    "name": "Captain America: Civil War",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; hero conflict; MCU political split"
+  },
+  {
+    "name": "Finding Dory",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Animated adventure; memory quest; Pixar sequel love"
+  },
+  {
+    "name": "Fantastic Beasts and Where to Find Them",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Fantasy adventure; magical creatures; Potterverse spinoff"
+  },
+  {
+    "name": "Spider-Man: Homecoming",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; web-slinger debut; MCU teen hero"
+  },
+  {
+    "name": "Thor: Ragnarok",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero; god apocalypse; Waititi comic triumph"
+  },
+  {
+    "name": "Justice League",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero ensemble; world save; DCEU team-up"
+  },
+  {
+    "name": "Beauty and the Beast",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Live-action musical; enchanted castle; Watson Belle"
+  },
+  {
+    "name": "Guardians of the Galaxy Vol. 2",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "mainstream-recent",
+    "why": "Superhero comedy; father quest; Gunn family fun"
+  },
+  { "name": "Fantastic Beasts: The Secrets of Dumbledore", "year": 2022, "type": "movie", "priority": 4, "bucket": "mainstream-recent", "why": "Fantasy adventure; Potterverse war; magical creatures" },
+  { "name": "The Suicide Squad", "year": 2021, "type": "movie", "priority": 4, "bucket": "mainstream-recent", "why": "Action-comedy; villain team; James Gunn DC" },
+  { "name": "Kraven the Hunter", "year": 2024, "type": "movie", "priority": 3, "bucket": "mainstream-recent", "why": "Action adventure; lion hunter; Sony Spider-Verse" },
+  { "name": "Madame Web", "year": 2024, "type": "movie", "priority": 3, "bucket": "mainstream-recent", "why": "Superhero; psychic powers; Dakota Johnson Sony" },
+  { "name": "The Zone of Interest", "year": 2023, "type": "movie", "priority": 4, "bucket": "mainstream-recent", "why": "War drama; Holocaust proximity; Glazer moral" },
+  { "name": "American Fiction", "year": 2023, "type": "movie", "priority": 4, "bucket": "mainstream-recent", "why": "Comedy-drama; literary satire; Jeffrey Wright writer" },
+  { "name": "Napoleon", "year": 2023, "type": "movie", "priority": 4, "bucket": "mainstream-recent", "why": "Historical epic; conqueror fall; Ridley Scott Joaquin" },
+  { "name": "The Nun II", "year": 2023, "type": "movie", "priority": 3, "bucket": "mainstream-recent", "why": "Horror; demonic nun; Conjuringverse sequel" },
+  { "name": "M3GAN", "year": 2023, "type": "movie", "priority": 3, "bucket": "mainstream-recent", "why": "Sci-fi horror; AI android; killer robot girl" },
+  { "name": "Poor Things", "year": 2023, "type": "movie", "priority": 4, "bucket": "mainstream-recent", "why": "Fantasy romance; Frankenstein reimagined; Yorgos" },
+  { "name": "A Thousand and One", "year": 2023, "type": "movie", "priority": 3, "bucket": "mainstream-recent", "why": "Drama; NYC street kids; Ava DuVernay" },
+  { "name": "Scream VI", "year": 2023, "type": "movie", "priority": 3, "bucket": "mainstream-recent", "why": "Horror; meta-slasher; franchise revival" },
+  { "name": "Five Nights at Freddy's", "year": 2023, "type": "movie", "priority": 3, "bucket": "mainstream-recent", "why": "Horror; haunted arcade; video game adaptation" },
+  { "name": "Transformers: Rise of the Beasts", "year": 2023, "type": "movie", "priority": 3, "bucket": "mainstream-recent", "why": "Action spectacle; 90s Jamaica; Optimus Primal" },
+  { "name": "Insidious: The Red Door", "year": 2023, "type": "movie", "priority": 3, "bucket": "mainstream-recent", "why": "Horror; astral dimension; franchise revival" },
+  { "name": "A Boy Called Christmas", "year": 2021, "type": "movie", "priority": 3, "bucket": "mainstream-recent", "why": "Fantasy family; Santa origin; heartwarming tale" },
+  { "name": "Jungle Cruise", "year": 2021, "type": "movie", "priority": 4, "bucket": "mainstream-recent", "why": "Action adventure; river quest; Johnson & Blunt tropical" },
+  { "name": "Free Guy", "year": 2021, "type": "movie", "priority": 4, "bucket": "mainstream-recent", "why": "Action-comedy; video game NPC; Ryan Reynolds virtual" }
+]

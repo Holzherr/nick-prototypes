@@ -164,7 +164,7 @@ const nameAgreement = (theirs, ours) => {
   // of the Flying Daggers" against a page's "House of Flying Daggers", and "El Aura" against
   // "The Aura". Dropping every article from both sides makes those the same string, and the
   // exact-year rule on a near match keeps it from over-reaching.
-  if (bareWords(a) === bareWords(b)) return 'near';
+  if (bareWords(a) === bareWords(b)) return 'exact';
   const [x, y] = [condense(a), condense(b)];
   if (Math.min(x.length, y.length) >= 8 && editDistance(x, y) <= 2) return 'near';
   return null;
@@ -359,6 +359,21 @@ const searchForPage = async (name, year, type, { trustNameOverYear = true } = {}
     if (Math.abs(theirYear - year) <= slack) return { url: address(node) };
     if (trustNameOverYear && exactName && exactMatches.length === 1) return { url: address(node), correctedYear: theirYear };
   }
+
+  // Nothing matched by name. JustWatch indexes a work's other titles even though it only
+  // ever shows one, so a search for "Nueve Reinas" comes back as Nine Queens and "Apur
+  // Sansar" as The World of Apu — the right page under a name that shares no words with
+  // ours. Its own search made that connection; what we can add is a year.
+  //
+  // The year has to agree exactly, and that is what makes this safe rather than reckless:
+  // the same search also offers Line of Duty for "Antonia's Line" and Dune for "Chronique
+  // d'un Été", and every one of those misses by decades. The result must also lead its
+  // type, since a translation is what the guide thinks the query means, not an afterthought.
+  if (!year) return null;
+  const leading = results.find((node) => node.objectType === wanted);
+  if (leading && leading.content.originalReleaseYear === year) {
+    return { url: address(leading), translated: true };
+  }
   return null;
 };
 
@@ -449,7 +464,8 @@ const resolveAs = async ({ name, year, url: given }, type) => {
   if (!searched) return null;
   const found = await fetchRecord(searched.url);
   if (!found) return null;
-  const reduced = searched.alias !== undefined && searched.alias !== String(name).trim();
+  const reduced = searched.translated
+    || (searched.alias !== undefined && searched.alias !== String(name).trim());
   const viaAlias = reduced
     ? decodeEntities(String(found.node.name)).trim()
     : preferredName(found.node.name, name);
