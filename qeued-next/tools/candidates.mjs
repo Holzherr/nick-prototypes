@@ -118,10 +118,19 @@ const importCandidates = async (files) => {
  * without this it comes back in the very next wave — spending a fetch on the same failure
  * before anything new has been tried.
  */
+/**
+ * Takes the next batch and claims it, so several fetch loops can work the queue at once.
+ *
+ * Without the claim a second loop asking the same question a minute later gets the same two
+ * hundred rows, because nothing is marked until the wave finishes writing — two loops did
+ * twice the work and not twice the throughput. The claim is a lease rather than a lock: a
+ * loop that dies mid-wave frees its batch by itself once the lease expires, so nothing has
+ * to notice it died.
+ */
 const next = async (count, out) => {
   const rows = await queryJson(
-    `select json_agg(json_build_object('name', name, 'year', year, 'type', type, 'url', source_url) order by priority desc, attempts, created_at) as data
-     from (select * from public.catalogue_candidates where status = 'pending' order by priority desc, attempts, created_at limit ${Number(count)}) q`,
+    `select coalesce(json_agg(json_build_object('name', name, 'year', year, 'type', type, 'url', source_url)), '[]'::json) as data
+     from public.claim_candidates(${Number(count)})`,
   );
   const path = out ?? 'candidates-batch.json';
   await writeFile(path, JSON.stringify(rows, null, 1));
@@ -136,7 +145,7 @@ const next = async (count, out) => {
  */
 const reconcile = async () => {
   const updated = await exec(`update public.catalogue_candidates c
-    set status = 'held', title_id = t.id, updated_at = now()
+    set status = 'held', title_id = t.id, claimed_at = null, updated_at = now()
     from public.titles t
     where t.catalogue_version > 0
       and lower(t.name) = lower(c.name)
@@ -151,7 +160,7 @@ const reconcile = async () => {
   // that name and type; where it holds two, the year is the only thing separating a remake
   // from its original and a loose match would file the candidate against the wrong one.
   const byName = await exec(`update public.catalogue_candidates c
-    set status = 'held', title_id = t.id, updated_at = now()
+    set status = 'held', title_id = t.id, claimed_at = null, updated_at = now()
     from public.titles t
     where t.catalogue_version > 0
       and lower(t.name) = lower(c.name)
