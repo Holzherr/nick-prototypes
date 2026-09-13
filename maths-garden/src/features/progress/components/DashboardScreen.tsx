@@ -4,7 +4,7 @@ import { GAMES, gameById, type GameId } from '@/features/games/catalog';
 import { stageOf } from '@/features/report/report';
 import { printablesFor } from '@/features/resources/catalog';
 import { packLink } from '@/features/resources/pack';
-import { levelOf, oftenMissed, skillStats, weekSummary } from '@/features/games/engine';
+import { levelOf, mastered, oftenMissed, skillStats, weekSummary } from '@/features/games/engine';
 import { coachingNotes, countingHabit, daysPlayed, levelHistory, replayHabit, speedTrend, todaySummary } from '@/features/games/insights';
 import { Button, buttonVariants } from '@/shared/components/ui/button';
 import { Card } from '@/shared/components/ui/card';
@@ -155,9 +155,10 @@ export function DashboardScreen({
 
         <Section icon="📊" title="Skills and levels" summary={skillsSummary}>
           <p className="text-sm text-grape/70">
-            Accuracy and answer speed over the last 3 rounds of each game. A quick perfect round, or two in a row at 80%+, moves a game up a level; if both
-            were slow it stays to build speed. Two under 50% drops it back, and after two misses in a row the next question comes from the level below.
-            Levels 4 and 5 are challenge levels. Use − / + to override.
+            Accuracy and answer speed over the last 3 rounds of each game. A perfect round, or two in a row at 80%+, moves a game up a level; a perfect round
+            only waits if the round before it was slow too, and four good rounds in a row move up whatever the pace. Two under 50% drops it back, and after two
+            misses in a row the next question comes from the level below. Levels 4–6 are challenge levels, and a perfect round at the top masters the game 🏆.
+            Use − / + to override.
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             <Button size="sm" onClick={() => shiftAll(1)}>
@@ -178,6 +179,7 @@ export function DashboardScreen({
                   key={game.id}
                   game={game}
                   level={level}
+                  mastered={mastered(progress.rounds, game)}
                   stats={skillStats(progress.rounds, game.id)}
                   missed={oftenMissed(progress.rounds, game.id)}
                   speed={speedTrend(progress.rounds, game.id)}

@@ -1,5 +1,5 @@
 import type { Game } from '@/features/games/catalog';
-import { levelOf, type Levels } from '@/features/games/engine';
+import { levelOf, mastered, type Levels, type RoundRecord } from '@/features/games/engine';
 import { collected, isSpecial, packProgress, SPECIAL_PACK, unlockedPacks } from './catalog';
 
 type StickerLike = { sticker: string; shiny: boolean };
@@ -12,8 +12,12 @@ export interface Milestone {
 
 const COUNTS = [5, 10, 20, 30, 40, 50, 75, 100, 150, 200];
 
-/** Every milestone reached so far, in a fixed order: sticker counts, finished packs, sparkly packs, game levels 3 and 5. */
-export function milestonesReached(records: readonly StickerLike[], levels: Levels, games: readonly Game[]): Milestone[] {
+/**
+ * Every milestone reached so far, in a fixed order: sticker counts, finished packs, sparkly packs, game
+ * levels 3 and 5, and mastering a game outright. `rounds` is optional so callers that only know the levels
+ * still work — they simply never see the mastery milestone, which is the only one the round log can decide.
+ */
+export function milestonesReached(records: readonly StickerLike[], levels: Levels, games: readonly Game[], rounds: readonly RoundRecord[] = []): Milestone[] {
   const regular = records.filter((r) => !isSpecial(r.sticker));
   const list: Milestone[] = [];
   for (const n of COUNTS) {
@@ -31,6 +35,7 @@ export function milestonesReached(records: readonly StickerLike[], levels: Level
     const level = levels[game.id] ?? 0;
     if (level >= 2) list.push({ key: `${game.id}-lv3`, line: (name) => `${name} reached level 3 in ${game.name}!` });
     if (level >= 4) list.push({ key: `${game.id}-lv5`, line: (name) => `Level 5 in ${game.name}! You're a superstar, ${name}!` });
+    if (mastered(rounds, game)) list.push({ key: `${game.id}-gold`, line: (name) => `Gold star, ${name}! You have mastered ${game.name}!` });
   }
   return list;
 }
@@ -38,8 +43,8 @@ export function milestonesReached(records: readonly StickerLike[], levels: Level
 export const specialCount = (records: readonly StickerLike[]) => records.filter((r) => isSpecial(r.sticker)).length;
 
 /** The oldest milestone still owed a special sticker, or null when Nova has nothing to hand out. */
-export function pendingMilestone(records: readonly StickerLike[], levels: Levels, games: readonly Game[]): Milestone | null {
-  const reached = milestonesReached(records, levels, games);
+export function pendingMilestone(records: readonly StickerLike[], levels: Levels, games: readonly Game[], rounds: readonly RoundRecord[] = []): Milestone | null {
+  const reached = milestonesReached(records, levels, games, rounds);
   const owed = reached.length - specialCount(records);
   return owed > 0 ? reached[reached.length - owed] : null;
 }

@@ -32,10 +32,12 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   opens straight into the games. Signed-in and guest sessions skip the homepage entirely.
 - **Parent account** (Supabase email + password) with **child profiles**. The device remembers the child
   and opens straight into their garden; the parent stays signed in.
-- **Eight games**, five questions a round, five levels each: Quick Peek (subitising), Count With Me, Find
+- **Nine games**, five questions a round, **six levels each**: Quick Peek (subitising), Count With Me, Find
   the Number, Which Has More?, One More Unicorn, **Make Ten** (number bonds, on a five/ten frame and then
-  without one), **One Fewer** (taking away, watching balloons go) and **Ten and Some More** (the teens as
-  ten-and-something). Spoken prompts in a British voice, stars, praise by name.
+  without one), **One Fewer** (taking away, watching balloons go), **Ten and Some More** (the teens as
+  ten-and-something) and **Spot the Shape** (names shapes, then counts their sides). Spoken prompts in a
+  British voice, stars, praise by name. Levels 1–3 are the printable stages; 4–6 are challenge levels, and
+  the sixth is the **gold level** — clearing it with a perfect round masters the game.
 - **Getting a better voice** (`VoicePanel`): the app can only choose from the voices installed on the
   device, and on one with nothing downloaded that is the thin compact voice — no respelling fixes that.
   `hasEnhancedVoice()` checks whether a Premium/Enhanced English voice is actually present and the panel
@@ -64,8 +66,14 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   behind "Or pick another game": never played wins outright, then not played today, weak accuracy,
   staleness, and a boost when one good round would level it up — minus whatever was just played, so the
   suggestion moves on by itself.
-- **Levelling:** two rounds in a row at 80%+ moves a game up; two under 50% drops it back
+- **Levelling:** a perfect round, or two in a row at 80%+, moves a game up; two under 50% drops it back
   (`features/games/engine.ts`). Game level n = printable stage n (`features/curriculum/skills.ts`).
+  Being accurate but slow no longer holds a level indefinitely: a perfect round only waits when the round
+  before it was slow as well, and **four good rounds in a row move up whatever the pace**. She played 55
+  rounds at 94% and moved up seven times — "stay and build speed" is a fair nudge for a round or two and a
+  trap for ever. **Mastery** (`mastered`) is a perfect, non-slow round at the top level: gold level dots and
+  a trophy on the tile, a line on the end screen and a gold sticker from Nova. It is derived from the round
+  log, so it needs no migration and reads the same on every device.
 - **Stickers:** after every finished round the child picks a pack and gets a sticker for their sticker book;
   perfect rounds give sparkly ones. Emoji art only, no film characters. **Six packs of eight**, unlocked by
   the best printable stage reached in any game (`unlockedPacks`): Unicorns, K-pop Hunters and Ice Queen from

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { gameById, type GameId } from './catalog';
-import { advice, levelOf, nextLevel, oftenMissed, shouldEase, skillStats, speedOf, streakOf, weekSummary, type AnswerRecord, type RoundRecord } from './engine';
+import { advice, levelOf, mastered, nextLevel, oftenMissed, shouldEase, skillStats, speedOf, streakOf, weekSummary, type AnswerRecord, type RoundRecord } from './engine';
 
 const round = (game: GameId, level: number, score: number, minute: number, answers: AnswerRecord[] = []): RoundRecord => ({
   id: `r${minute}`,
@@ -14,6 +14,10 @@ const round = (game: GameId, level: number, score: number, minute: number, answe
 });
 
 const peek = gameById('peek');
+const topLevel = peek.levels.length - 1;
+const ans = (ms: number, correct = true): AnswerRecord => ({ target: '3', chosen: correct ? '3' : '2', correct, ms });
+const slowAnswers = Array.from({ length: 5 }, () => ans(9000));
+const quickAnswers = Array.from({ length: 5 }, () => ans(1500));
 
 describe('nextLevel', () => {
   it('moves up straight away after a perfect round', () => {
@@ -72,6 +76,47 @@ describe('speed and within-round rules', () => {
     expect(shouldEase([answered(1000), answered(1000, false), answered(1000, false)])).toBe(true);
     expect(shouldEase([answered(1000, false), answered(1000)])).toBe(false);
     expect(streakOf([answered(1000, false), answered(1000), answered(1000), answered(1000)])).toBe(3);
+  });
+});
+
+/**
+ * She played 55 rounds at 94% and moved up seven times. Being accurate but slow held a level indefinitely,
+ * which is the right nudge for a round or two and a trap for ever.
+ */
+describe('not holding an accurate child back', () => {
+  it('lets a slow perfect round through when the round before it was not slow', () => {
+    // On its own a slow perfect round still waits: one round says nothing about pace either way.
+    expect(nextLevel([round('peek', 0, 5, 1, slowAnswers)], peek, 0)).toBe(0);
+    expect(nextLevel([round('peek', 0, 4, 1, quickAnswers), round('peek', 0, 5, 2, slowAnswers)], peek, 0)).toBe(1);
+    expect(nextLevel([round('peek', 0, 4, 1, slowAnswers), round('peek', 0, 5, 2, slowAnswers)], peek, 0)).toBe(0);
+  });
+
+  it('moves up after four good rounds in a row however slow they were', () => {
+    const four = [1, 2, 3, 4].map((minute) => round('peek', 0, 4, minute, slowAnswers));
+    expect(nextLevel(four, peek, 0)).toBe(1);
+    // Three is not enough: the two-in-a-row rule still holds a pair of slow rounds back.
+    expect(nextLevel(four.slice(0, 3), peek, 0)).toBe(0);
+  });
+
+  it('never moves up on four rounds that were not all good, and still drops back', () => {
+    const mixed = [round('peek', 1, 4, 1), round('peek', 1, 2, 2), round('peek', 1, 4, 3), round('peek', 1, 3, 4)];
+    expect(nextLevel(mixed, peek, 1)).toBe(1);
+    expect(nextLevel([round('peek', 1, 2, 1), round('peek', 1, 1, 2)], peek, 1)).toBe(0);
+  });
+});
+
+/** The top level used to be the end of the game, with nothing on the child's screen to say so. */
+describe('mastered', () => {
+  it('needs a perfect round at the top level, not merely reaching it', () => {
+    expect(mastered([round('peek', topLevel, 4, 1, quickAnswers)], peek)).toBe(false);
+    expect(mastered([round('peek', topLevel, 5, 1, quickAnswers)], peek)).toBe(true);
+    expect(mastered([round('peek', topLevel, 5, 1, slowAnswers)], peek)).toBe(false);
+    expect(mastered([round('peek', topLevel - 1, 5, 1, quickAnswers)], peek)).toBe(false);
+  });
+
+  it('ignores rounds left early, and stays true once earned', () => {
+    expect(mastered([{ ...round('peek', topLevel, 5, 1, quickAnswers), completed: false }], peek)).toBe(false);
+    expect(mastered([round('peek', topLevel, 5, 1, quickAnswers), round('peek', topLevel, 1, 2, slowAnswers)], peek)).toBe(true);
   });
 });
 

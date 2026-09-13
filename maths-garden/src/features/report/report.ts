@@ -1,6 +1,6 @@
 import { SKILLS, type Skill, type SkillId, type StageNumber } from '@/features/curriculum/skills';
 import { GAMES, gameById, type Game } from '@/features/games/catalog';
-import { levelOf, oftenMissed, skillStats, weekSummary } from '@/features/games/engine';
+import { levelOf, mastered, oftenMissed, skillStats, weekSummary } from '@/features/games/engine';
 import { coachingNotes, daysPlayed, speedTrend } from '@/features/games/insights';
 import type { Progress } from '@/features/progress/model';
 import { printablesFor, type Printable } from '@/features/resources/catalog';
@@ -25,6 +25,8 @@ export interface SkillReport {
   pct: number | null;
   rounds: number;
   pace: 'fluent' | 'steady' | 'slow' | null;
+  /** Top level cleared with a perfect round. */
+  mastered: boolean;
   missed: readonly { target: string; count: number }[];
   verdict: Verdict;
   /** One line for the parent. */
@@ -81,14 +83,17 @@ function verdictOf(pct: number | null, rounds: number, pace: SkillReport['pace']
 }
 
 function noteFor(report: Omit<SkillReport, 'note'>): string {
-  const { game, pct, rounds, pace, missed, stage, level, verdict } = report;
+  const { game, pct, rounds, pace, missed, stage, level, verdict, mastered } = report;
   if (verdict === 'new') return game ? `Not played yet. Start at stage 1: print the sheet and play a round together.` : 'Checked by you, not by a game — see the weekly check-in.';
   const missedBit = missed.length ? ` Trips up on ${missed.map((m) => m.target).join(', ')}.` : '';
   const speedBit = pace ? `, ${PACE_WORD[pace]} answers` : '';
   const base = `${pct}% over the last ${rounds} round${rounds === 1 ? '' : 's'} at stage ${stage}${speedBit}.`;
   if (verdict === 'strength') {
     const top = game && level >= game.levels.length - 1;
-    return `${base} ${top ? 'Top level — stretch her with real objects and bigger numbers.' : 'Ready to move up: print the next stage.'}${missedBit}`;
+    const topNote = mastered
+      ? 'Mastered — the hardest level cleared outright. Keep it in the rotation and stretch her with real objects.'
+      : 'Top level — a perfect round here masters the game. Stretch her with real objects and bigger numbers.';
+    return `${base} ${top ? topNote : 'Ready to move up: print the next stage.'}${missedBit}`;
   }
   if (verdict === 'focus') return `${base} Needs the most work.${missedBit} Practise on paper before more screen rounds.`;
   return `${base} Nearly there — a couple more rounds should move her up.${missedBit}`;
@@ -123,6 +128,7 @@ export function buildReport(childName: string, progress: Progress, now = new Dat
       pct: stats?.pct ?? null,
       rounds: stats?.rounds ?? 0,
       pace,
+      mastered: game ? mastered(progress.rounds, game) : false,
       missed: game ? oftenMissed(progress.rounds, game.id, 10, 2) : [],
       verdict: verdictOf(stats?.pct ?? null, stats?.rounds ?? 0, pace),
     };

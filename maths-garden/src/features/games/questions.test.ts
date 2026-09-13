@@ -205,8 +205,20 @@ describe('level curves', () => {
 
   it('keeps the fastest Quick Peek levels as varied as level 3', () => {
     const pools = gameById('peek').levels.map((level) => poolOf('peek', level));
-    expect(pools[3]).toBeGreaterThanOrEqual(pools[2]);
-    expect(pools[4]).toBeGreaterThanOrEqual(pools[2]);
+    for (const pool of pools.slice(3)) expect(pool).toBeGreaterThanOrEqual(pools[2]);
+  });
+
+  it('gives every game a gold level to reach', () => {
+    for (const game of GAMES) expect(game.levels).toHaveLength(6);
+  });
+
+  /**
+   * The gold Which Has More? level asks neighbours (7 against 8), which by its nature can ask less than a
+   * loose gap can. Opening the range down to 2 is what keeps it from becoming the same few pairs.
+   */
+  it('keeps the gold Which Has More? level varied despite only asking neighbours', () => {
+    const pools = gameById('more').levels.map((level) => poolOf('more', level));
+    expect(pools[5]).toBeGreaterThan(30);
   });
 
   it('records the biggest whole Make Ten can ask as the level max', () => {

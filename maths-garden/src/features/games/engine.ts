@@ -43,6 +43,12 @@ export type Levels = Partial<Record<GameId, number>>;
 export const LEVEL_UP_AT = 0.8;
 export const DROP_BELOW = 0.5;
 export const STREAK = 2;
+/**
+ * Rounds in a row at one level, all at `LEVEL_UP_AT` or better, that move a child up whatever the pace.
+ * Accuracy that holds for this long is a finished level: "stay and build speed" is a sensible nudge for a
+ * round or two and a trap for ever, and it is the rule that kept a child at 94% repeating work she could do.
+ */
+export const SUSTAINED = 4;
 
 export const accuracy = (r: Pick<RoundRecord, 'score' | 'total'>) => (r.total ? r.score / r.total : 0);
 export const byTime = (a: RoundRecord, b: RoundRecord) => a.playedAt.localeCompare(b.playedAt);
@@ -99,23 +105,52 @@ export const levelOf = (levels: Levels, game: Game) => Math.min(Math.max(levels[
 
 const isSlow = (r: RoundRecord) => speedOf([r]).pace === 'slow';
 
+const isPerfect = (r: RoundRecord) => r.total > 0 && r.score === r.total;
+
 /**
  * The level after the latest finished round. Speed counts as well as accuracy:
- * - a perfect round moves up straight away, unless the answers were slow;
+ * - a perfect round moves up straight away; slow answers only hold it back when the round before was slow
+ *   too, because one thoughtful round is not a habit and holding a child who got everything right is how
+ *   she ends up replaying a level she has finished;
  * - two rounds in a row at the current level, both 80%+, move up unless both were slow (then stay and build speed);
+ * - four in a row at 80%+ move up whatever the pace, so "build speed first" can never become forever;
  * - two in a row under 50% drop back.
  */
 export function nextLevel(rounds: readonly RoundRecord[], game: Game, level: number): number {
-  const recent = roundsOf(rounds, game.id).slice(-STREAK);
+  const played = roundsOf(rounds, game.id);
+  const recent = played.slice(-STREAK);
   const top = game.levels.length - 1;
   const latest = recent.at(-1);
   if (!latest) return level;
-  if (latest.level === level && latest.total > 0 && latest.score === latest.total && !isSlow(latest) && level < top) return level + 1;
-  if (recent.length < STREAK || recent.some((r) => r.level !== level)) return level;
-  if (recent.every((r) => accuracy(r) >= LEVEL_UP_AT) && !recent.every(isSlow) && level < top) return level + 1;
+  const here = (r: RoundRecord) => r.level === level;
+  const good = (r: RoundRecord) => accuracy(r) >= LEVEL_UP_AT;
+
+  if (here(latest) && isPerfect(latest) && level < top) {
+    const before = played.at(-2);
+    if (!isSlow(latest) || (before && !isSlow(before))) return level + 1;
+  }
+  if (level < top) {
+    const sustained = played.slice(-SUSTAINED);
+    if (sustained.length === SUSTAINED && sustained.every(here) && sustained.every(good)) return level + 1;
+  }
+  if (recent.length < STREAK || recent.some((r) => !here(r))) return level;
+  if (recent.every(good) && !recent.every(isSlow) && level < top) return level + 1;
   if (recent.every((r) => accuracy(r) < DROP_BELOW) && level > 0) return level - 1;
   return level;
 }
+
+/**
+ * The top level cleared outright: a perfect round at the hardest level, not answered slowly. It is derived
+ * from the round log rather than stored, so it is the same on every device and needs no migration — and it
+ * gives the top of a game something to reach, which being on the last level never did.
+ */
+export function mastered(rounds: readonly RoundRecord[], game: Game): boolean {
+  const top = game.levels.length - 1;
+  return roundsOf(rounds, game.id).some((r) => r.level === top && isPerfect(r) && !isSlow(r));
+}
+
+/** Games mastered, for a count without calling `mastered` game by game. */
+export const masteredGames = (rounds: readonly RoundRecord[], games: readonly Game[]) => games.filter((game) => mastered(rounds, game));
 
 /** After two misses in a row, the next question is asked from the level below. */
 export const shouldEase = (answers: readonly AnswerRecord[]) => answers.length >= 2 && !answers[answers.length - 1].correct && !answers[answers.length - 2].correct;
@@ -142,13 +177,14 @@ export function skillStats(rounds: readonly RoundRecord[], game: GameId, window 
 }
 
 /** What a grown-up should do next for this skill. */
-export function advice(stats: SkillStats | null, level: number, game: Game, pace: Pace | null = null): string {
+export function advice(stats: SkillStats | null, level: number, game: Game, pace: Pace | null = null, isMastered = false): string {
   if (!stats) return 'Not played yet.';
   if (stats.pct >= 80) {
     if (pace === 'slow') return 'Accurate but slow. Short, frequent rounds at this level build speed before moving up.';
-    return level < game.levels.length - 1
-      ? 'Doing great. A quick perfect round, or two in a row at 80%+, moves up a level.'
-      : 'Top level. Stretch with bigger numbers using real objects.';
+    if (level < game.levels.length - 1) return 'Doing great. A quick perfect round, or two in a row at 80%+, moves up a level.';
+    return isMastered
+      ? 'Mastered — the hardest level cleared outright. Keep it in the rotation, and stretch her with real objects.'
+      : 'Top level. A perfect round here masters the game; stretch her with bigger numbers using real objects.';
   }
   if (stats.pct >= 50) return 'Nearly there. Keep practising at this level.';
   return 'Finding it hard. Practise with real objects (buttons, grapes) before more screen rounds.';

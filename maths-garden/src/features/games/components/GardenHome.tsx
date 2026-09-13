@@ -5,7 +5,7 @@ import type { Garden } from '@/features/garden/garden-state';
 import { AppIcon } from '@/shared/brand/AppIcon';
 import { Button } from '@/shared/components/ui/button';
 import { cn } from '@/shared/utils/cn';
-import { GAMES, type Game } from '../catalog';
+import { GAMES, type Game, type GameId } from '../catalog';
 import { levelOf, type Levels } from '../engine';
 import type { BreakReason } from '../insights';
 import type { Recommendation } from '../recommend';
@@ -22,6 +22,8 @@ const WIND_DOWN: Record<BreakReason, string> = {
 export interface GardenHomeProps {
   childName: string;
   levels: Levels;
+  /** Games whose top level has been cleared outright: gold dots and a trophy on the tile. */
+  mastered?: ReadonlySet<GameId>;
   stickerCount: number;
   /** Finished rounds today against the daily goal. */
   today?: { done: number; goal: number };
@@ -53,6 +55,7 @@ export interface GardenHomeProps {
 export function GardenHome({
   childName,
   levels,
+  mastered = new Set<GameId>(),
   stickerCount,
   today,
   garden,
@@ -148,7 +151,7 @@ export function GardenHome({
             <span className="text-[clamp(64px,13vw,104px)] leading-none">{recommended.game.emoji}</span>
             <span className="text-center text-[clamp(24px,4vw,34px)] font-bold leading-tight text-raspberry">{recommended.game.name}</span>
             <span className="rounded-full bg-petal/70 px-4 py-1 text-center text-[clamp(15px,2.2vw,19px)] font-semibold text-grape">{recommended.reason}</span>
-            <LevelDots count={recommended.game.levels.length} level={levelOf(levels, recommended.game)} />
+            <LevelDots count={recommended.game.levels.length} level={levelOf(levels, recommended.game)} mastered={mastered.has(recommended.game.id)} />
           </button>
 
           <Button variant="ghost" size="md" className="mt-4 text-[clamp(17px,2.4vw,21px)] text-grape/70" onClick={() => setShowAll((open) => !open)}>
@@ -162,7 +165,7 @@ export function GardenHome({
       {showAll && (
         <div className={cn('flex max-w-[860px] flex-wrap justify-center gap-[clamp(12px,2.4vw,22px)]', recommended && 'mt-3 animate-pop-in')}>
           {others.map((game, i) => (
-            <GameTile key={game.id} game={game} level={levelOf(levels, game)} shape={i} onClick={() => onPlay(game)} />
+            <GameTile key={game.id} game={game} level={levelOf(levels, game)} mastered={mastered.has(game.id)} shape={i} onClick={() => onPlay(game)} />
           ))}
         </div>
       )}

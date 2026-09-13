@@ -43,7 +43,11 @@ export interface Game {
   skill: string;
   /** One line for the grown-ups screen. */
   about: string;
-  /** Index 0 is the easiest. Levels 1–3 match printable stages 1–3; levels 4–5 are challenge levels. */
+  /**
+   * Index 0 is the easiest. Levels 1–3 match printable stages 1–3; levels 4–6 are challenge levels, and the
+   * last one is the gold level — clearing it outright is what `mastered` looks for. Level 5 used to be the
+   * end of the game, with nothing on the child's screen to say so and nothing left to reach.
+   */
   levels: readonly GameLevel[];
 }
 
@@ -56,7 +60,7 @@ export const GAMES: readonly Game[] = [
     about: 'Dots flash up, then hide. Say how many without counting.',
     // Levels 4 and 5 keep the full 1–10 range: the challenge is the shorter flash and the extra button,
     // not a narrower set of pictures. Trimming the range made the top levels repeat themselves.
-    levels: [{ max: 3 }, { max: 5 }, { max: 10 }, { max: 10, peekMs: 1200, choices: 4 }, { max: 10, peekMs: 800, choices: 5 }],
+    levels: [{ max: 3 }, { max: 5 }, { max: 10 }, { max: 10, peekMs: 1200, choices: 4 }, { max: 10, peekMs: 800, choices: 5 }, { max: 10, peekMs: 500, choices: 6 }],
   },
   {
     id: 'count',
@@ -64,7 +68,7 @@ export const GAMES: readonly Game[] = [
     emoji: '🦋',
     skill: 'Counting objects',
     about: 'Tap each object once while counting, then pick the total.',
-    levels: [{ max: 5 }, { max: 8 }, { max: 12 }, { min: 5, max: 16, choices: 4 }, { min: 6, max: 20, choices: 5 }],
+    levels: [{ max: 5 }, { max: 8 }, { max: 12 }, { min: 5, max: 16, choices: 4 }, { min: 6, max: 20, choices: 5 }, { min: 5, max: 20, choices: 6 }],
   },
   {
     id: 'find',
@@ -72,7 +76,7 @@ export const GAMES: readonly Game[] = [
     emoji: '🔢',
     skill: 'Numeral recognition',
     about: 'Hears a number and taps the matching numeral.',
-    levels: [{ max: 5 }, { max: 10 }, { max: 20 }, { min: 10, max: 50 }, { min: 20, max: 100 }],
+    levels: [{ max: 5 }, { max: 10 }, { max: 20 }, { min: 10, max: 50 }, { min: 20, max: 100 }, { min: 20, max: 120 }],
   },
   {
     id: 'more',
@@ -82,7 +86,9 @@ export const GAMES: readonly Game[] = [
     about: 'Two groups side by side; tap the bigger one.',
     // A tight gap is what makes this hard, but pinning the range as well left level 5 with barely twenty
     // pairs to ask. Widening the range keeps the difficulty and stops the same pairs coming round again.
-    levels: [{ max: 5 }, { max: 8 }, { max: 12 }, { min: 3, max: 15, gap: 3 }, { min: 3, max: 20, gap: 2 }],
+    // The gold level asks side-by-side neighbours (7 against 8), which is the hardest comparison there is;
+    // that narrows what it can ask by its nature, so the range opens all the way down to 2 to make up for it.
+    levels: [{ max: 5 }, { max: 8 }, { max: 12 }, { min: 3, max: 15, gap: 3 }, { min: 3, max: 20, gap: 2 }, { min: 2, max: 20, gap: 1 }],
   },
   {
     id: 'add',
@@ -90,7 +96,14 @@ export const GAMES: readonly Game[] = [
     emoji: '🦄',
     skill: 'Adding on',
     about: 'Some unicorns, then more arrive. How many now?',
-    levels: [{ max: 5 }, { max: 8 }, { max: 10 }, { min: 5, max: 15, extraMax: 4, choices: 4 }, { min: 8, max: 20, extraMax: 5, choices: 4 }],
+    levels: [
+      { max: 5 },
+      { max: 8 },
+      { max: 10 },
+      { min: 5, max: 15, extraMax: 4, choices: 4 },
+      { min: 8, max: 20, extraMax: 5, choices: 4 },
+      { min: 8, max: 20, extraMax: 6, choices: 5 },
+    ],
   },
   {
     id: 'bond',
@@ -106,6 +119,7 @@ export const GAMES: readonly Game[] = [
       { max: 10, wholes: [10], hideFrame: true },
       { max: 10, wholes: [6, 7, 8, 9, 10], hideFrame: true, choices: 4 },
       { max: 20, wholes: [10, 12, 15, 20], hideFrame: true, choices: 4 },
+      { max: 20, wholes: [10, 12, 14, 15, 16, 18, 20], hideFrame: true, choices: 5 },
     ],
   },
   {
@@ -114,7 +128,14 @@ export const GAMES: readonly Game[] = [
     emoji: '🎈',
     skill: 'Taking away',
     about: 'Balloons float away. How many are left? Adding on, backwards.',
-    levels: [{ min: 2, max: 5 }, { min: 2, max: 8, takeMax: 2 }, { min: 3, max: 10, takeMax: 3 }, { min: 5, max: 15, takeMax: 3, choices: 4 }, { min: 8, max: 20, takeMax: 5, choices: 4 }],
+    levels: [
+      { min: 2, max: 5 },
+      { min: 2, max: 8, takeMax: 2 },
+      { min: 3, max: 10, takeMax: 3 },
+      { min: 5, max: 15, takeMax: 3, choices: 4 },
+      { min: 8, max: 20, takeMax: 5, choices: 4 },
+      { min: 8, max: 20, takeMax: 6, choices: 5 },
+    ],
   },
   {
     id: 'teen',
@@ -128,6 +149,7 @@ export const GAMES: readonly Game[] = [
       { min: 11, max: 20, choices: 4 },
       { min: 11, max: 20, choices: 4, hideFrame: true },
       { min: 11, max: 20, choices: 5, hideFrame: true },
+      { min: 11, max: 20, choices: 6, hideFrame: true },
     ],
   },
   {
@@ -143,6 +165,7 @@ export const GAMES: readonly Game[] = [
       { max: 7, shapes: ['circle', 'oval', 'triangle', 'square', 'rectangle', 'pentagon', 'hexagon'] },
       { max: 10, shapes: SHAPE_IDS, choices: 4, spin: true },
       { max: 10, shapes: SHAPE_IDS, choices: 4, spin: true, bySides: true },
+      { max: 10, shapes: SHAPE_IDS, choices: 5, spin: true, bySides: true },
     ],
   },
 ];
