@@ -1,0 +1,1442 @@
+[
+  {
+    "name": "Man with a Movie Camera",
+    "year": 1929,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Vertov's avant-garde experimental cinema; radical formal innovation"
+  },
+  {
+    "name": "Berlin: Symphony of a Great City",
+    "year": 1927,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Ruttmann's city symphony; template for urban documentaries"
+  },
+  {
+    "name": "Land Without Bread",
+    "year": 1933,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Buñuel's surrealist essay on Spanish poverty; landmark"
+  },
+  {
+    "name": "Night and Fog",
+    "year": 1956,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Resnais on Holocaust; essential, formally inventive"
+  },
+  {
+    "name": "Primary",
+    "year": 1960,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Leacock/Pennebaker; direct cinema birth, 1960 election"
+  },
+  {
+    "name": "Chronique d'un Été",
+    "year": 1961,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Marker/Rouch; cinéma vérité manifesto, Paris street interviews"
+  },
+  {
+    "name": "La Joli Mai",
+    "year": 1962,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Marker's poetic Paris portrait; interviews and visual essays"
+  },
+  {
+    "name": "Don't Look Back",
+    "year": 1967,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Pennebaker's Dylan tour film; direct cinema classic"
+  },
+  {
+    "name": "Monterey Pop",
+    "year": 1968,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Pennebaker on Jimi Hendrix, Janis Joplin; music doc landmark"
+  },
+  {
+    "name": "High School",
+    "year": 1968,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Wiseman inside Philadelphia school; observational masterpiece"
+  },
+  {
+    "name": "Salesman",
+    "year": 1969,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Maysles' American Dream subversion; door-to-door Bible sales"
+  },
+  {
+    "name": "The Sorrow and the Pity",
+    "year": 1969,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Ophüls on WWII Vichy France; 4.5-hour landmark"
+  },
+  {
+    "name": "Hospital",
+    "year": 1970,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Wiseman in NYC hospital; bureaucracy and human crisis"
+  },
+  {
+    "name": "Sans Soleil",
+    "year": 1983,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Marker's essay film on memory, time, ideology across continents"
+  },
+  {
+    "name": "Pumping Iron",
+    "year": 1977,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Apted on bodybuilding obsession; Schwarzenegger debut"
+  },
+  {
+    "name": "Grey Gardens",
+    "year": 1975,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Maysles' reclusive NYC society women; American Gothic"
+  },
+  {
+    "name": "Harlan County, USA",
+    "year": 1976,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Kopple on coal miners' strike; feminist political cinema"
+  },
+  {
+    "name": "Welfare",
+    "year": 1975,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Wiseman on New York welfare office; systems and struggle"
+  },
+  {
+    "name": "Daguerréotypes",
+    "year": 1975,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Agnès Varda on Paris street; intimate neighbourhood portraiture"
+  },
+  {
+    "name": "Letter to Jane",
+    "year": 1972,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Godard/Miéville on a photograph; political image analysis"
+  },
+  {
+    "name": "The Gleaners and I",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Varda on gleaning, art, generosity; auteur essay film"
+  },
+  {
+    "name": "The Beaches of Agnès",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Varda's late-career memoir; poetic autobiography and seascapes"
+  },
+  {
+    "name": "A Common Place",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Farocki on surveillance; political essay on looking"
+  },
+  {
+    "name": "Serious Games",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Farocki on military video game simulation; war and image"
+  },
+  {
+    "name": "Stop Making Sense",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Demme's Talking Heads concert; innovative music film"
+  },
+  {
+    "name": "This Is Spinal Tap",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Reiner's rock mockumentary; pioneering blend genre"
+  },
+  {
+    "name": "The Decline of Western Civilization",
+    "year": 1981,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Spheeris on LA punk; raw underground music scene"
+  },
+  {
+    "name": "Jimi Plays Berkeley",
+    "year": 1971,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Hendrix live 1971; concert performance archive"
+  },
+  {
+    "name": "Hail! Hail! Rock 'n' Roll",
+    "year": 1987,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Taylor-Hackford on Chuck Berry; rock pioneer tribute"
+  },
+  {
+    "name": "Meeting People Is Easy",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Grant on Radiohead OK Computer tour; art rock anxiety"
+  },
+  {
+    "name": "Shut Up and Play the Hits",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Mitchell on LCD Soundsystem final show; artist breakdown"
+  },
+  {
+    "name": "Some Kind of Monster",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Berlinger/Van Sant on Metallica therapy sessions; rock psychology"
+  },
+  {
+    "name": "Dig!",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Ondi Timoner on Brian Jonestown vs Dandy Warhols rivalry"
+  },
+  {
+    "name": "20 Feet from Stardom",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Healey on session singers; hidden voices of pop"
+  },
+  {
+    "name": "Sound City",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Grohl on LA recording studio; music legend archive"
+  },
+  {
+    "name": "Muscle Shoals",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Chick on Alabama studio; soul and rock birthplace"
+  },
+  {
+    "name": "Rize",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Kareem on LA krumping dance; youth culture and resilience"
+  },
+  {
+    "name": "Beats",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Adler on San Francisco warehouse rave culture"
+  },
+  {
+    "name": "The Beatles: Get Back",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Jackson's Let It Be sessions; intimate band breakdown"
+  },
+  {
+    "name": "The Beatles: Eight Days a Week",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Ron Howard on Beatles touring years; concert film essay"
+  },
+  {
+    "name": "David Bowie: Ziggy Stardust",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Barnbrook on Bowie landmark album; art history"
+  },
+  {
+    "name": "Scott Walker: 30 Century Man",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Hartley on reclusive art rock auteur; artistic obsession"
+  },
+  {
+    "name": "U2 3D",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Vertigo Tour performance; immersive concert tech"
+  },
+  {
+    "name": "The Decline of Western Civilization II",
+    "year": 1988,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Spheeris on heavy metal subculture; sequel to punk doc"
+  },
+  {
+    "name": "Cocksucker Blues",
+    "year": 1972,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Jagger-banned Rolling Stones tour film; notorious archive"
+  },
+  {
+    "name": "Westwood: Punk, Icon, Activist",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Bower on Vivienne Westwood; fashion and resistance"
+  },
+  {
+    "name": "Pumping Iron II: The Women",
+    "year": 1985,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Chapman/Butler on female bodybuilding; gender politics sport"
+  },
+  {
+    "name": "Free Solo",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Vasarhelyi/Chin on soloist climber; obsession and risk"
+  },
+  {
+    "name": "The Last Dance",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Kor on Michael Jordan final season; sports achievement"
+  },
+  {
+    "name": "Last Chance U",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Kor on college football exploitation; systemic analysis"
+  },
+  {
+    "name": "Drive to Survive",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Formula 1 season drama; sports access and tension"
+  },
+  {
+    "name": "Touching the Void",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "MacDonald on Peruvian survival climbing epic"
+  },
+  {
+    "name": "Pumping Iron",
+    "year": 1977,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Apted/Fiore on bodybuilding world; Schwarzenegger emergence"
+  },
+  {
+    "name": "The Two Escobars",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Euwema/Marcus on football player and drug lord"
+  },
+  {
+    "name": "O.J.: Made in America",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Ezra/Gibson on trial; race, celebrity, justice system"
+  },
+  {
+    "name": "Making a Murderer",
+    "year": 2015,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Demos/Ricciardi on Wisconsin wrongful conviction; justice failure"
+  },
+  {
+    "name": "The Keepers",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Berlinger on nun murder unsolved Baltimore case"
+  },
+  {
+    "name": "Killer Inside: The Mind of Aaron Hernandez",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Ruhle on football star crime; CTE and tragedy"
+  },
+  {
+    "name": "I Love You, Now Die",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Karlin on texting suicide case; digital age justice"
+  },
+  {
+    "name": "Jeffrey Dahmer",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Dahmer Monster narrative; true crime streaming style"
+  },
+  {
+    "name": "Conversations with a Killer: The Ted Bundy Tapes",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Mendelson on Bundy interviews; archive true crime"
+  },
+  {
+    "name": "Dahmer on Dahmer",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Dahmer's prison interviews; criminal self-analysis"
+  },
+  {
+    "name": "Carnage",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "MacGregor on slaughterhouse; animal and food ethics"
+  },
+  {
+    "name": "The Jinx",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Jarecki on Robert Durst; true crime breakthrough series"
+  },
+  {
+    "name": "Night Stalker: The Hunt for a Serial Killer",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Serial killer investigation Los Angeles 1980s"
+  },
+  {
+    "name": "The Staircase",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Campos on Peterson murder trial controversy; justice debate"
+  },
+  {
+    "name": "Love on the Spectrum",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Autism dating and relationships; intimate portraiture"
+  },
+  {
+    "name": "Street Food",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Global street vendors and food culture; artisanal cuisine"
+  },
+  {
+    "name": "Salt Fat Acid Heat",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Nosrat on cooking fundamentals; accessible food science"
+  },
+  {
+    "name": "A Film About Coffee",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Davey/Miller on coffee sourcing and craft"
+  },
+  {
+    "name": "Fyre: The Greatest Party Never Happened",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Smith on failed Bahamas festival; millennial fraud"
+  },
+  {
+    "name": "The Toys That Made Us",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Netflix on toy history; nostalgia and culture"
+  },
+  {
+    "name": "Abstract: The Art of Design",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Hunt on contemporary designers; craft and innovation"
+  },
+  {
+    "name": "Iris",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Poehler on iris Apfel fashion icon; style and personality"
+  },
+  {
+    "name": "McCartney 3, 2, 1",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Burgh on Paul McCartney song construction; creative process"
+  },
+  {
+    "name": "The Toys That Made Us: Hello Kitty",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Sanrio mascot history; cultural design impact"
+  },
+  {
+    "name": "Banksy Does New York",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Banksy street art residency; public art intervention"
+  },
+  {
+    "name": "6 by Sondheim",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Merryman on Stephen Sondheim songs; musical genius"
+  },
+  {
+    "name": "RBG",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Rikert/Stern on Ruth Bader Ginsburg legacy"
+  },
+  {
+    "name": "Becoming",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Lee on Michelle Obama memoir tour; personality portrait"
+  },
+  {
+    "name": "Halston",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Sharpe on fashion designer life and decline"
+  },
+  {
+    "name": "Dick Johnson Is Dead",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Johnson on dying father; grief and surrealism"
+  },
+  {
+    "name": "Kacey Musgraves: Rainbow",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Musgraves album documentary; country artist portrait"
+  },
+  {
+    "name": "Before the Flood",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Ruffalo on DiCaprio climate activism; celebrity witness"
+  },
+  {
+    "name": "David Attenborough: A Life on Our Planet",
+    "year": 2020,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Fothergill on naturalist's life and warnings; legacy"
+  },
+  {
+    "name": "My Octopus Teacher",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Foster/Oswald on ocean bonding; nature connection"
+  },
+  {
+    "name": "Planet Earth",
+    "year": 2006,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "BBC flagship nature series; cinematography breakthrough"
+  },
+  {
+    "name": "Planet Earth II",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "BBC sequel urban wildlife; Attenborough narration"
+  },
+  {
+    "name": "Blue Planet II",
+    "year": 2017,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "BBC ocean life; plastic crisis awareness shift"
+  },
+  {
+    "name": "Frozen Planet",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "BBC polar regions; climate change evidence"
+  },
+  {
+    "name": "Life",
+    "year": 2009,
+    "type": "series",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "BBC animal behaviour; Attenborough's comprehensive epic"
+  },
+  {
+    "name": "Dynasties",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "BBC family animals; intimate wildlife storytelling"
+  },
+  {
+    "name": "Prehistoric Planet",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "BBC dinosaurs CGI; Attenborough palaeontology"
+  },
+  {
+    "name": "Seven Worlds, One Planet",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "BBC continental wildlife; environmental diversity"
+  },
+  {
+    "name": "Our Planet",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Netflix Attenborough ecology; climate crisis narrative"
+  },
+  {
+    "name": "Life of Birds",
+    "year": 1998,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "BBC/Attenborough avian diversity; classic series"
+  },
+  {
+    "name": "The Blue Planet",
+    "year": 2001,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "BBC original ocean series; pre-plastic-crisis"
+  },
+  {
+    "name": "March of the Penguins",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Jacquet on Antarctic penguin breeding; family survival"
+  },
+  {
+    "name": "Leviathan",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Castaing-Taylor/Paravel on fishing boat; immersive cinema"
+  },
+  {
+    "name": "Samsara",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Fricke on global ritual and death; visual essay"
+  },
+  {
+    "name": "Baraka",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Fricke on world cultures and spirituality; visual symphony"
+  },
+  {
+    "name": "Koyaanisqatsi",
+    "year": 1982,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Reggio on modernity chaos; experimental essay film"
+  },
+  {
+    "name": "Powaqqatsi",
+    "year": 1988,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Reggio on human labour; Qatsi trilogy second"
+  },
+  {
+    "name": "Naqoyqatsi",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Reggio on technology; final Qatsi chapter"
+  },
+  {
+    "name": "In Jackson Heights",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Wiseman on NYC neighbourhood transformation; urban change"
+  },
+  {
+    "name": "In Pursuit of Silence",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Conley on quiet spaces; soundscape exploration"
+  },
+  {
+    "name": "A Common Place",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Farocki on surveillance systems; visual ideology critique"
+  },
+  {
+    "name": "Faces Places",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Varda/JR on French villages portraiture; intergenerational art"
+  },
+  {
+    "name": "Fahrenheit 9/11",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Moore on Bush Iraq war; political agitprop"
+  },
+  {
+    "name": "Navalny",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Naviny on Russian opposition poisoning; political resistance"
+  },
+  {
+    "name": "MLK/FBI",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "O'Neill on surveillance civil rights leader"
+  },
+  {
+    "name": "Requiem for the American Dream",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Achbar on Chomsky ideology; political economy"
+  },
+  {
+    "name": "The True Cost",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Morgan on fashion industry labour; ethical consumption"
+  },
+  {
+    "name": "The Cleaners",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Brefuel/Grosser on Facebook content moderation labour"
+  },
+  {
+    "name": "Chernobyl: The Final Warning",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Walker on nuclear disaster legacy"
+  },
+  {
+    "name": "The China Hustle",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Jho on Chinese stock fraud; finance investigation"
+  },
+  {
+    "name": "The Fyre Fraud",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Graboff/Wicke on festival scam; financial crime"
+  },
+  {
+    "name": "Enron: Smartest Guys in the Room",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Gibney on corporate crime; financial scandal"
+  },
+  {
+    "name": "The Two Escobars",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Euwema/Marcus on footballer and drug lord"
+  },
+  {
+    "name": "American Factory",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Bognar/Reichert on Chinese factory Ohio; labour clash"
+  },
+  {
+    "name": "Collective",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Popescu on Romanian nightclub fire corruption; journalism"
+  },
+  {
+    "name": "The Paradise Suit",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Boukley on Bahamas development scandal"
+  },
+  {
+    "name": "Fire of Love",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Sara Dosa on volcanologist couple; love and science"
+  },
+  {
+    "name": "Jodorowsky's Dune",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Pavich on aborted Dune adaptation; visionary cinema"
+  },
+  {
+    "name": "Janis: Little Girl Blue",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Mosegaard on Janis Joplin life; rock pioneer"
+  },
+  {
+    "name": "Indie Game: The Movie",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Pajot/Swink on video game development creativity"
+  },
+  {
+    "name": "The King of Kong",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Gordon on arcade game obsession rivalry"
+  },
+  {
+    "name": "Hype!",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Tolkin on Seattle grunge rise; music scene"
+  },
+  {
+    "name": "Spellbound",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Blitz on national spelling bee competition; character study"
+  },
+  {
+    "name": "Word Wars",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Cheng/Marienberg on Scrabble champions"
+  },
+  {
+    "name": "King in the Wilderness",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Ava DuVernay on MLK late activism; historical archive"
+  },
+  {
+    "name": "No Other Land",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Szamosi/Alalem on Palestinian youth resistance"
+  },
+  {
+    "name": "The Reason I Jump",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Soda on non-speaking autistic boy; perception documentary"
+  },
+  {
+    "name": "Flee",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Jonas Poher on refugee journey; animated testimony"
+  },
+  {
+    "name": "The Facilitators",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Boaz on conflict resolution work"
+  },
+  {
+    "name": "The Eternal Memory",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Agusti on Chilean couple Alzheimer's"
+  },
+  {
+    "name": "20 Days in Mariupol",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Locke on Ukraine war photojournalism; frontline witness"
+  },
+  {
+    "name": "Prayed Out",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Setyawan on Indonesian faith healing abuse"
+  },
+  {
+    "name": "Four Daughters",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Barbash/Goldenthal on Egyptian women sisters; family saga"
+  },
+  {
+    "name": "The Iron Ministry",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Castaing-Taylor/Paravel on Indian trains; sensory cinema"
+  },
+  {
+    "name": "The Man Spraying Weedkiller",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Ozer on informal labour art"
+  },
+  {
+    "name": "A Thousand Cuts",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Nix on Maria Ressa Philippine journalism"
+  },
+  {
+    "name": "Life Without Death",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Ayar on Turkish family dying; end-of-life portrait"
+  },
+  {
+    "name": "Rat Film",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Khalili on Baltimore rats and segregation; urban allegory"
+  },
+  {
+    "name": "The Mole Agent",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Orosco on undercover elder abuse detective"
+  },
+  {
+    "name": "Midnight Traveler",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Osman on Afghan family refugee journey; DIY archive"
+  },
+  {
+    "name": "The Mask You Live In",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Newsom on toxic masculinity youth culture"
+  },
+  {
+    "name": "The Strange Colour of Your Body's Tears",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Cattet/Fargeau on essay film art horror"
+  },
+  {
+    "name": "How to Boil a Frog",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Maughan climate change experimental narrative"
+  },
+  {
+    "name": "Trophy",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Pitchford on trophy hunting conservation debate"
+  },
+  {
+    "name": "Honeyland",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Stefanov on North Macedonia beekeeper; pastoral observational"
+  },
+  {
+    "name": "Anthropocene: The Human Epoch",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Zalinski on Anthropocene landscape photography essay"
+  },
+  {
+    "name": "Won't You Be My Neighbor?",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Morgan on Mr Rogers legacy; television influence"
+  },
+  {
+    "name": "Harlan County, U.S.A.",
+    "year": 1976,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Kopple on coal miners' strike; feminist political cinema"
+  },
+  {
+    "name": "Gates of Heaven",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Errol Morris on pet cemetery obsession; eccentric americana"
+  },
+  {
+    "name": "Thin Blue Line",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Morris on false conviction; criminal justice wrongful accusation"
+  },
+  {
+    "name": "A Brief History of Time",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Morris on Stephen Hawking physics genius"
+  },
+  {
+    "name": "Salesman",
+    "year": 1969,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "documentary",
+    "why": "Maysles on Bible salesman America; observational classic"
+  },
+  {
+    "name": "Stray",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Shaulov on Istanbul street dogs; urban animal kinship"
+  },
+  {
+    "name": "76 Days",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Wu on Wuhan hospital COVID-19 frontline; pandemic witness"
+  },
+  {
+    "name": "The War",
+    "year": 2007,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Burns on WWII American families; civil war documentary scale"
+  },
+  {
+    "name": "The Vietnam War",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Burns on Vietnam; comprehensive historical perspective"
+  },
+  {
+    "name": "Jazz",
+    "year": 2001,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Burns on American jazz history; music and culture"
+  },
+  {
+    "name": "Baseball",
+    "year": 1994,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Burns on sport and American identity; sports epic"
+  },
+  {
+    "name": "The Brooklyn Dodgers: Memories of the Game",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Burns on baseball history Los Angeles"
+  },
+  {
+    "name": "Hemal Eros",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Kaur on non-binary cinema and queer art"
+  },
+  {
+    "name": "The Art of Selling Books",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Heyns on publishing industry and book culture"
+  },
+  {
+    "name": "Aftersun",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Wells on family memory and grief portraiture; experimental narrative"
+  },
+  {
+    "name": "All That Breathes",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Mehta on Delhi bird rescue urban crisis"
+  },
+  {
+    "name": "The Last Days of American Crime",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Sundholm on future noir crime speculation"
+  },
+  {
+    "name": "Murder Among the Mormons",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Jigsaw on salt lake city bomb forgeries"
+  },
+  {
+    "name": "The Toys That Made Us: Barbie",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Netflix on Barbie doll cultural phenomenon"
+  },
+  {
+    "name": "Acasa, My Home",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Radu Jude on Romanian family Bucharest development"
+  },
+  {
+    "name": "Godless",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Carré on atheism and belief documentary"
+  },
+  {
+    "name": "Time",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Garrett on Black wife prison advocacy"
+  },
+  {
+    "name": "Life in the Freezer",
+    "year": 1993,
+    "type": "series",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "BBC Antarctic wildlife Alastair Fothergill"
+  },
+  {
+    "name": "The Unfrozen",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "documentary",
+    "why": "Arctic thaw permafrost documentary climate"
+  },
+  {
+    "name": "Rivers and Tides",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Rist on sculptor Andy Goldsworthy nature art"
+  },
+  {
+    "name": "Desert Bloom",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "documentary",
+    "why": "Experimental landscape photography documentarty"
+  },
+  {
+    "name": "Salt of the Earth",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "documentary",
+    "why": "Salomé on photographer Sebastião Salgado humanitarian work"
+  }
+]

@@ -97,6 +97,19 @@ const editDistance = (a, b) => {
 };
 
 /**
+ * The names a title might be filed under, given how we hold it.
+ *
+ * A candidate list routinely carries an alternative in brackets — "Uzak (Distant)" — and
+ * JustWatch files the work under one of the two, never both. Trying each separately costs a
+ * request and turns a miss into a match.
+ */
+const namesFor = (name) => {
+  const outer = String(name).replace(/\s*\([^)]*\)\s*$/, '').trim();
+  const inner = /\(([^)]+)\)\s*$/.exec(String(name))?.[1]?.trim();
+  return [...new Set([String(name).trim(), outer, inner].filter(Boolean))];
+};
+
+/**
  * Whether a page's name and the one being looked for describe the same work.
  *
  * 'exact' where they agree outright. 'near' where they differ the way titles routinely
@@ -249,8 +262,9 @@ const fetchRecord = async (url, attempt = 0) => {
  * The year does the disambiguating — a bare "Star Wars" matches several films and only one
  * of them came out in 1977 — so a candidate with no year has to match its title exactly.
  */
-const searchForPage = async (name, year, type) => {
+const searchForPage = async (name, year, type, { trustNameOverYear = true } = {}) => {
   const wanted = type === 'series' ? 'SHOW' : 'MOVIE';
+  const address = (node) => `https://www.justwatch.com${node.content.fullPath}`;
   let results;
   try {
     const res = await fetch('https://apis.justwatch.com/graphql', {
@@ -276,6 +290,16 @@ const searchForPage = async (name, year, type) => {
     return null;
   }
 
+  // A candidate list is written by a model, and its weakest field is the year: Titane is
+  // listed at 2016 and released in 2021, Nobody Knows at 2001 and released in 2004. Where
+  // exactly one result carries the name outright, the name is the better evidence and the
+  // page's own date replaces the one we were given. Where two results do — The Thing, Dune,
+  // any remake — the year is the only thing separating them and it has to hold.
+  const exactMatches = results.filter(
+    (node) => node.objectType === wanted && [node.content.title, node.content.fullPath.split('/').pop() ?? '']
+      .some((candidate) => nameAgreement(candidate, name) === 'exact'),
+  );
+
   for (const node of results) {
     if (node.objectType !== wanted) continue;
     // The returned title is sometimes the original-language one while the slug carries the
@@ -291,12 +315,13 @@ const searchForPage = async (name, year, type) => {
     const exactName = agreements.includes('exact');
     const theirYear = node.content.originalReleaseYear;
     if (!year) {
-      if (exactName) return `https://www.justwatch.com${node.content.fullPath}`;
+      if (exactName) return { url: address(node) };
       continue;
     }
     if (!theirYear) continue;
     const slack = exactName ? (type === 'series' ? 3 : 2) : 0;
-    if (Math.abs(theirYear - year) <= slack) return `https://www.justwatch.com${node.content.fullPath}`;
+    if (Math.abs(theirYear - year) <= slack) return { url: address(node) };
+    if (trustNameOverYear && exactName && exactMatches.length === 1) return { url: address(node), correctedYear: theirYear };
   }
   return null;
 };
@@ -308,10 +333,13 @@ const searchForPage = async (name, year, type) => {
  */
 const resolveTitle = async ({ name, year, type, url: given }) => {
   const path = type === 'series' ? 'tv-series' : 'movie';
-  const base = slugify(name);
+  const aliases = namesFor(name);
   // Some pages file a work under its subtitle ("Dune: Part One") or drop a leading article.
-  const withoutArticle = base.replace(/^(the|a|an)-/, '');
-  const slugs = [...new Set([base, `${base}-${year}`, withoutArticle, `${withoutArticle}-${year}`])];
+  const slugs = [...new Set(aliases.flatMap((alias) => {
+    const base = slugify(alias);
+    const withoutArticle = base.replace(/^(the|a|an)-/, '');
+    return [base, `${base}-${year}`, withoutArticle, `${withoutArticle}-${year}`];
+  }))];
   // A record may carry the page's address outright, for the titles whose slug is not
   // derivable from the name. It is tried first and still has to pass the same checks.
   const candidates = [...(given ? [given] : []), ...slugs.map((slug) => `https://www.justwatch.com/uk/${path}/${slug}`)];
@@ -333,7 +361,7 @@ const resolveTitle = async ({ name, year, type, url: given }) => {
     // We are only here because a slug derived from our own name had a page, so the name
     // check is confirming rather than searching — a variant spelling still has to bring the
     // exact year with it.
-    const agreement = nameAgreement(node.name, name);
+    const agreement = aliases.map((alias) => nameAgreement(node.name, alias)).find(Boolean);
     if (!agreement) continue;
     const pageYear = Number(String(node.dateCreated ?? '').slice(0, 4));
     // Series pages date from the first season, films from release; allow a couple of years
@@ -349,13 +377,26 @@ const resolveTitle = async ({ name, year, type, url: given }) => {
   // Nothing at a derivable slug. Ask what it is filed as, then read that page — trusting the
   // address the way an explicitly supplied one is trusted, since the search already matched
   // on title and year.
-  const searched = given ? null : await searchForPage(name, year, type);
+  if (given) return null;
+  let searched = null;
+  for (const alias of aliases) {
+    // Trusting the name over the year is only safe for the name as it was actually given.
+    // An alias pulled out of a bracket is a fragment — "Uzak (Distant)" yields "Distant",
+    // which is the whole title of an unrelated 2024 film, and overriding the year there
+    // files the wrong work under the right name.
+    searched = await searchForPage(alias, year, type, { trustNameOverYear: alias === name.trim() });
+    if (searched) break;
+  }
   if (!searched) return null;
-  const found = await fetchRecord(searched);
+  const found = await fetchRecord(searched.url);
   if (!found) return null;
   const pageYear = Number(String(found.node.dateCreated ?? '').slice(0, 4));
-  if (year && pageYear && Math.abs(pageYear - year) > (type === 'series' ? 1 : 2)) return null;
-  return { url: searched, ...found };
+  // The search matched on title and year, so the address is trusted the way an explicitly
+  // supplied one is — except where the search deliberately overrode a wrong year, in which
+  // case the page's own date is the fact and is handed back to be stored instead.
+  if (searched.correctedYear) return { url: searched.url, correctedYear: pageYear || searched.correctedYear, ...found };
+  if (year && pageYear && Math.abs(pageYear - year) > (type === 'series' ? 3 : 2)) return null;
+  return { url: searched.url, ...found };
 };
 
 const args = process.argv.slice(2);
@@ -389,6 +430,19 @@ const sqlValue = (value) => {
  * A title already present is updated rather than duplicated — the slug is the identity, and
  * re-running a wave after fixing one entry must not leave two rows behind.
  */
+/**
+ * An expression yielding a slug nothing else has taken.
+ *
+ * Slugs are unique and two different works can want the same one — Amelie and Amélie fold
+ * together, and so do a film and the series named after it. The whole wave is a single
+ * transaction, so one collision used to throw away every title in the batch. This picks the
+ * bare slug where it is free and the first numbered variant where it is not, which is the
+ * convention the catalogue already carries from an earlier collision (winter-s-bone-2010-2).
+ */
+const freeSlug = (slug) =>
+  `(select g.candidate from (select case when i = 1 then ${quote(slug)} else ${quote(slug)} || '-' || i end as candidate ` +
+  `from generate_series(1, 20) as i) as g where not exists (select 1 from public.titles x where x.slug = g.candidate) limit 1)`;
+
 const sqlForGathered = (records) => {
   const statements = [];
   for (const { slug, url, fields } of records) {
@@ -403,7 +457,7 @@ const sqlForGathered = (records) => {
     );
     statements.push(
       `insert into public.titles (slug, catalogue_version, ${columns.join(', ')}) ` +
-        `select ${quote(slug)}, 1, ${columns.map((c) => sqlValue(fields[c])).join(', ')} ` +
+        `select ${freeSlug(slug)}, 1, ${columns.map((c) => sqlValue(fields[c])).join(', ')} ` +
         `where not exists (select 1 from public.titles where ${match});`,
     );
 
@@ -456,7 +510,7 @@ const run = async () => {
       return null;
     }
 
-    const { node, html, url } = resolved;
+    const { node, html, url, correctedYear } = resolved;
     const poster = await posterFrom(html);
     const cast = (node.actor ?? [])
       .map((role) => decodeEntities(role.actor?.name ?? role.name))
@@ -465,7 +519,7 @@ const run = async () => {
 
     const fields = {
       name: entry.name,
-      year: entry.year ?? (Number(String(node.dateCreated ?? '').slice(0, 4)) || null),
+      year: correctedYear ?? entry.year ?? (Number(String(node.dateCreated ?? '').slice(0, 4)) || null),
       type: entry.type,
       genres: tidyGenres(node.genre),
       certification: node.contentRating ?? null,
