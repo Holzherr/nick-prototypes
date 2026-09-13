@@ -1,6 +1,19 @@
 import type { StageNumber } from '@/features/curriculum/skills';
 
-export type PackId = 'unicorn' | 'kpop' | 'ice' | 'space' | 'sea' | 'dino' | 'special';
+export type PackId = 'unicorn' | 'kpop' | 'ice' | 'space' | 'sea' | 'dino' | 'garden' | 'night' | 'special';
+
+/**
+ * What a pack costs: a printable stage, and how many games must have reached it.
+ *
+ * It used to be one number against the best stage in any single game — so the moment one game hit stage 3,
+ * every pack in the catalogue opened at once and all 48 stickers became collectable in an afternoon. Tying
+ * it to breadth means the collection grows because she got better across the board, which is also the thing
+ * worth encouraging: a child who has one strong game and eight untouched ones should not be finished.
+ */
+export interface PackUnlock {
+  stage: StageNumber;
+  games: number;
+}
 
 export interface Sticker {
   /** "<pack>/<name>", stored in maths_stickers.sticker; never rename one that has been handed out. */
@@ -17,18 +30,18 @@ export interface Pack {
   /** CSS background of the sticker disc. */
   background: string;
   /**
-   * The printable stage a child must have reached in some game before this pack appears.
+   * What this pack costs, as a stage reached in a number of games.
    *
    * Three packs of eight looked like a fortnight of collecting and lasted two days: the unicorn and K-pop
    * packs were both complete — and sparkly-complete — by the second evening, after which every draw could
-   * only hand back a duplicate. Tying the later packs to stages means the collection grows because she got
+   * only hand back a duplicate. Tying the later packs to breadth means the collection grows because she got
    * better, not because she kept tapping.
    */
-  unlockAt: StageNumber;
+  unlockAt: PackUnlock;
   stickers: readonly Sticker[];
 }
 
-const makePack = (id: PackId, name: string, cover: string, background: string, unlockAt: StageNumber, items: readonly (readonly [string, string])[]): Pack => ({
+const makePack = (id: PackId, name: string, cover: string, background: string, unlockAt: PackUnlock, items: readonly (readonly [string, string])[]): Pack => ({
   id,
   name,
   cover,
@@ -40,10 +53,10 @@ const makePack = (id: PackId, name: string, cover: string, background: string, u
 /**
  * The packs offered after a finished game. Emoji art only: the K-pop and ice packs are themed on the films
  * without using the characters themselves. The first three are open from the start; the rest unlock as she
- * reaches later stages, so there is always something left to collect.
+ * gets better across more games, so there is always something left to collect.
  */
 export const PACKS: readonly Pack[] = [
-  makePack('unicorn', 'Unicorns', '🦄', 'radial-gradient(circle at 32% 28%, #ffffff 0%, #ffd3e4 48%, #d9b8ff 100%)', 1, [
+  makePack('unicorn', 'Unicorns', '🦄', 'radial-gradient(circle at 32% 28%, #ffffff 0%, #ffd3e4 48%, #d9b8ff 100%)', { stage: 1, games: 1 }, [
     ['🦄', 'unicorn'],
     ['🌈', 'rainbow'],
     ['🌟', 'star'],
@@ -53,7 +66,7 @@ export const PACKS: readonly Pack[] = [
     ['🦋', 'butterfly'],
     ['🍭', 'lollipop'],
   ]),
-  makePack('kpop', 'K-pop Hunters', '🎤', 'radial-gradient(circle at 32% 28%, #ffe3f6 0%, #e08cff 48%, #6a2bd1 100%)', 1, [
+  makePack('kpop', 'K-pop Hunters', '🎤', 'radial-gradient(circle at 32% 28%, #ffe3f6 0%, #e08cff 48%, #6a2bd1 100%)', { stage: 1, games: 1 }, [
     ['🎤', 'microphone'],
     ['⚔️', 'swords'],
     ['⚡', 'lightning'],
@@ -63,7 +76,7 @@ export const PACKS: readonly Pack[] = [
     ['🎶', 'music'],
     ['🔥', 'fire'],
   ]),
-  makePack('ice', 'Ice Queen', '❄️', 'radial-gradient(circle at 32% 28%, #ffffff 0%, #d4f1ff 48%, #7cc6f2 100%)', 1, [
+  makePack('ice', 'Ice Queen', '❄️', 'radial-gradient(circle at 32% 28%, #ffffff 0%, #d4f1ff 48%, #7cc6f2 100%)', { stage: 1, games: 1 }, [
     ['❄️', 'snowflake'],
     ['⛄', 'snowman'],
     ['👑', 'crown'],
@@ -73,7 +86,7 @@ export const PACKS: readonly Pack[] = [
     ['🧊', 'ice cube'],
     ['🌨️', 'snow cloud'],
   ]),
-  makePack('space', 'Space', '🚀', 'radial-gradient(circle at 32% 28%, #eef2ff 0%, #9aa8ff 48%, #2b2f77 100%)', 2, [
+  makePack('space', 'Space', '🚀', 'radial-gradient(circle at 32% 28%, #eef2ff 0%, #9aa8ff 48%, #2b2f77 100%)', { stage: 2, games: 2 }, [
     ['🚀', 'rocket'],
     ['🪐', 'planet'],
     ['👩‍🚀', 'astronaut'],
@@ -83,7 +96,7 @@ export const PACKS: readonly Pack[] = [
     ['🛰️', 'satellite'],
     ['👽', 'alien'],
   ]),
-  makePack('sea', 'Under the Sea', '🐠', 'radial-gradient(circle at 32% 28%, #e7fbff 0%, #7fd8ea 48%, #14708f 100%)', 2, [
+  makePack('sea', 'Under the Sea', '🐠', 'radial-gradient(circle at 32% 28%, #e7fbff 0%, #7fd8ea 48%, #14708f 100%)', { stage: 2, games: 4 }, [
     ['🐠', 'fish'],
     ['🐙', 'octopus'],
     ['🐬', 'dolphin'],
@@ -93,7 +106,7 @@ export const PACKS: readonly Pack[] = [
     ['🌊', 'wave'],
     ['🐢', 'turtle'],
   ]),
-  makePack('dino', 'Dinosaurs', '🦕', 'radial-gradient(circle at 32% 28%, #f2ffe9 0%, #a9d98a 48%, #3f6b2a 100%)', 3, [
+  makePack('dino', 'Dinosaurs', '🦕', 'radial-gradient(circle at 32% 28%, #f2ffe9 0%, #a9d98a 48%, #3f6b2a 100%)', { stage: 3, games: 2 }, [
     ['🦕', 'long neck'],
     ['🦖', 'big teeth'],
     ['🥚', 'egg'],
@@ -103,10 +116,32 @@ export const PACKS: readonly Pack[] = [
     ['🌿', 'fern'],
     ['🪨', 'rock'],
   ]),
+  // The last two are the long game: stage 3 in most games, then in every one of them. Without something
+  // this far out, a child who is doing well runs out of collection before she runs out of maths.
+  makePack('garden', 'In the Garden', '🌻', 'radial-gradient(circle at 32% 28%, #fffbe8 0%, #ffd98a 48%, #c98a1e 100%)', { stage: 3, games: 7 }, [
+    ['🌻', 'sunflower'],
+    ['🐝', 'bee'],
+    ['🐌', 'snail'],
+    ['🍄', 'toadstool'],
+    ['🌰', 'acorn'],
+    ['🐛', 'caterpillar'],
+    ['🪺', 'nest'],
+    ['🍀', 'clover'],
+  ]),
+  makePack('night', 'Night Sky', '🌌', 'radial-gradient(circle at 32% 28%, #e9ecff 0%, #6f7bd6 45%, #161a4a 100%)', { stage: 3, games: 9 }, [
+    ['🌌', 'galaxy'],
+    ['🦉', 'owl'],
+    ['🦇', 'bat'],
+    ['🌜', 'crescent'],
+    ['🔭', 'telescope'],
+    ['🕯️', 'candle'],
+    ['☄️', 'shooting comet'],
+    ['🛌', 'bedtime'],
+  ]),
 ];
 
 /** Gold stickers only Nova hands out, at milestones. Never offered in the pack chooser. */
-export const SPECIAL_PACK: Pack = makePack('special', 'Special from Nova', '⭐', 'radial-gradient(circle at 32% 28%, #fffbe6 0%, #ffd66b 50%, #f0a020 100%)', 1, [
+export const SPECIAL_PACK: Pack = makePack('special', 'Special from Nova', '⭐', 'radial-gradient(circle at 32% 28%, #fffbe6 0%, #ffd66b 50%, #f0a020 100%)', { stage: 1, games: 1 }, [
   ['👑', 'golden crown'],
   ['🏆', 'trophy'],
   ['💫', 'superstar'],
@@ -120,18 +155,22 @@ export const SPECIAL_PACK: Pack = makePack('special', 'Special from Nova', '⭐'
 ]);
 
 const ALL = [...PACKS, SPECIAL_PACK].flatMap((p) => p.stickers);
-/** Different stickers in every regular pack, locked ones included. */
+/** Different stickers in every regular pack, locked ones included (eight packs of eight). */
 export const STICKER_TOTAL = PACKS.reduce((sum, p) => sum + p.stickers.length, 0);
 
-/** The packs a child can choose from, given the best stage she has reached in any game. */
-export const unlockedPacks = (stage: number): readonly Pack[] => PACKS.filter((p) => p.unlockAt <= stage);
+/**
+ * The packs a child can choose from, given the stage she has reached in each game (one entry per game, in
+ * any order). Breadth, not her single best game — see `PackUnlock`.
+ */
+export const unlockedPacks = (stages: readonly number[]): readonly Pack[] =>
+  PACKS.filter((pack) => stages.filter((stage) => stage >= pack.unlockAt.stage).length >= pack.unlockAt.games);
 
 /**
- * How many different stickers are collectable at this stage. The sticker book counts against this, not
+ * How many different stickers are collectable right now. The sticker book counts against this, not
  * STICKER_TOTAL: a locked pack must add nothing, or finishing every pack you can reach would still read as
  * half a collection — the opposite of the point.
  */
-export const stickerTotal = (stage: number): number => unlockedPacks(stage).reduce((sum, p) => sum + p.stickers.length, 0);
+export const stickerTotal = (stages: readonly number[]): number => unlockedPacks(stages).reduce((sum, p) => sum + p.stickers.length, 0);
 
 export const packById = (id: PackId): Pack => [...PACKS, SPECIAL_PACK].find((p) => p.id === id) ?? PACKS[0];
 export const stickerById = (id: string): Sticker | undefined => ALL.find((s) => s.id === id);

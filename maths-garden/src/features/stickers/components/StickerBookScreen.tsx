@@ -8,8 +8,8 @@ import { EmptySlot, StickerBadge } from './StickerBadge';
 export interface StickerBookScreenProps {
   childName: string;
   stickers: readonly StickerRecord[];
-  /** Best printable stage reached in any game; packs above it are not in the book yet. */
-  stage?: number;
+  /** The printable stage reached in each game; packs she has not earned yet are not in the book. */
+  stages?: readonly number[];
   onHome: () => void;
 }
 
@@ -18,7 +18,7 @@ export interface StickerBookScreenProps {
  * per pack: collected stickers (with ×n and sparkle), dashed "?" slots, a green "Complete!" badge and the
  * sparkly count that becomes the next goal.
  */
-export function StickerBookScreen({ childName, stickers, stage = 1, onHome }: StickerBookScreenProps) {
+export function StickerBookScreen({ childName, stickers, stages = [1], onHome }: StickerBookScreenProps) {
   const owned = collected(stickers);
   const regular = stickers.filter((s) => !isSpecial(s.sticker));
   const special = stickers.length - regular.length;
@@ -47,7 +47,7 @@ export function StickerBookScreen({ childName, stickers, stage = 1, onHome }: St
           <p className="text-lg text-grape/70">
             {stickers.length === 0
               ? 'Finish a game to get your first sticker!'
-              : `${regular.length} sticker${regular.length === 1 ? '' : 's'} · ${different} of ${stickerTotal(stage)} different${special ? ` · ${special} special` : ''}`}
+              : `${regular.length} sticker${regular.length === 1 ? '' : 's'} · ${different} of ${stickerTotal(stages)} different${special ? ` · ${special} special` : ''}`}
           </p>
         </div>
       </header>
@@ -63,7 +63,7 @@ export function StickerBookScreen({ childName, stickers, stage = 1, onHome }: St
             </>,
             true,
           )}
-        {unlockedPacks(stage).map((pack) => {
+        {unlockedPacks(stages).map((pack) => {
           const p = packProgress(pack, regular);
           return page(
             pack,
