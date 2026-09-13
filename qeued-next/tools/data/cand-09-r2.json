@@ -1,0 +1,1442 @@
+[
+  {
+    "name": "A Fish Called Wanda",
+    "year": 1988,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Ealing spirit; heist, seduction, and Cleese's repressed barrister"
+  },
+  {
+    "name": "Airplane!",
+    "year": 1980,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Zucker-Abrahams parody; gag density and absurdist timing"
+  },
+  {
+    "name": "Anchorman: The Legend of Ron Burgundy",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "McKay's 1970s news satire; Will Ferrell's bronzed anchorman"
+  },
+  {
+    "name": "Arrested Development",
+    "year": 2003,
+    "type": "series",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Hurwitz layered comedy; Bluth family bankruptcy and schemes"
+  },
+  {
+    "name": "Blackadder",
+    "year": 1982,
+    "type": "series",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Curtis-Edmondson masterwork; British history and insult comedy"
+  },
+  {
+    "name": "Bringing Up Baby",
+    "year": 1938,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Hawks' screwball apex; leopard chaos and timing perfection"
+  },
+  {
+    "name": "Cheers",
+    "year": 1982,
+    "type": "series",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Burrows-Charles Boston bar family; ensemble warmth"
+  },
+  {
+    "name": "Curb Your Enthusiasm",
+    "year": 2000,
+    "type": "series",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "David social cringe masterpiece; awkwardness and contrition"
+  },
+  {
+    "name": "Fargo",
+    "year": 1996,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Coens' masterwork; kidnapping dark comedy and Minn-ness"
+  },
+  {
+    "name": "Fawlty Towers",
+    "year": 1975,
+    "type": "series",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Cleese's masterwork; Basil's neurosis and incompetent hotel"
+  },
+  {
+    "name": "Ghostbusters",
+    "year": 1984,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Ramis' action-comedy blueprint; Aykroyd and Murray vs. Gozer"
+  },
+  {
+    "name": "I Love Lucy",
+    "year": 1951,
+    "type": "series",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Ball-Arnaz physical comedy classic; Lucy's schemes and Ricky"
+  },
+  {
+    "name": "It Happened One Night",
+    "year": 1934,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Screwball pioneer; Capra's romantic banter at high speed"
+  },
+  {
+    "name": "Kind Hearts and Coronets",
+    "year": 1949,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Ealing's masterpiece; Alec Guinness eight roles, murder inheritance"
+  },
+  {
+    "name": "Monty Python and the Holy Grail",
+    "year": 1975,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Surrealist masterpiece; Arthurian legend deconstructed"
+  },
+  {
+    "name": "Monty Python's Flying Circus",
+    "year": 1969,
+    "type": "series",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Surrealist sketch foundation; animations and absurdity"
+  },
+  {
+    "name": "Monty Python's Life of Brian",
+    "year": 1979,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Python's political satire; mistaken messiah and crowd mentality"
+  },
+  {
+    "name": "Only Fools and Horses",
+    "year": 1981,
+    "type": "series",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Sullivan's South London con men; Del Boy's schemes and heart"
+  },
+  {
+    "name": "Raising Arizona",
+    "year": 1987,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Coen brothers' comic masterpiece; baby thieves and desert chase"
+  },
+  {
+    "name": "Safety Last!",
+    "year": 1923,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Harold Lloyd's skyscraper climb; tension and comedy inseparable"
+  },
+  {
+    "name": "Seinfeld",
+    "year": 1989,
+    "type": "series",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "David-Seinfeld sitcom blueprint; nothing and trivial obsession"
+  },
+  {
+    "name": "Sherlock Jr.",
+    "year": 1924,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Keaton's meta-comedy meditation on cinema and impossible stunts"
+  },
+  {
+    "name": "Singin' in the Rain",
+    "year": 1952,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Donen-Kelly musical comedy masterpiece; talkies disruption"
+  },
+  {
+    "name": "Some Like It Hot",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Wilder's gender-bending masterpiece; Lemmon and Curtis perfect"
+  },
+  {
+    "name": "The Big Lebowski",
+    "year": 1998,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Coens' cult absurdist comedy; The Dude and bowling noir"
+  },
+  {
+    "name": "The General",
+    "year": 1926,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Buster Keaton's masterpiece; chase through silent cinema's greatest set pieces"
+  },
+  {
+    "name": "The Gold Rush",
+    "year": 1925,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Chaplin's Klondike; boot dance and humanity amid absurdity"
+  },
+  {
+    "name": "The Hitchhiker's Guide to the Galaxy",
+    "year": 1981,
+    "type": "series",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Adams' radio-turned-TV; absurdist sci-fi and philosophy"
+  },
+  {
+    "name": "The Jerk",
+    "year": 1979,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Reiner's race-swap satire; Steve Martin's befuddled innocence"
+  },
+  {
+    "name": "The Lavender Hill Mob",
+    "year": 1951,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Ealing heist comedy; Alastair Sim and gold bullion"
+  },
+  {
+    "name": "Tootsie",
+    "year": 1982,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Pollack's cross-dressing romantic comedy; Hoffman as Dorothy"
+  },
+  {
+    "name": "Withnail and I",
+    "year": 1987,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "British cult masterpiece; two out-of-work actors on disastrous holiday"
+  },
+  {
+    "name": "Yes Minister",
+    "year": 1980,
+    "type": "series",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Jay-Lynn political satire masterpiece; civil service subversion"
+  },
+  {
+    "name": "Young Frankenstein",
+    "year": 1974,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Brooks' horror pastiche; Gene Wilder's mad scientist genius"
+  },
+  {
+    "name": "Muriel Wedding",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Hogan Australian friendship and escape; Abba songs"
+  },
+  {
+    "name": "A Bit of Fry and Laurie",
+    "year": 1987,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Fry and Laurie's sketch brilliance; class and character range"
+  },
+  {
+    "name": "A Shot in the Dark",
+    "year": 1964,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Sellers' Clouseau at peak; Elke Sommer mistaken identity"
+  },
+  {
+    "name": "Absolutely Fabulous",
+    "year": 1992,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Saunders-French fashion satire; Patsy and Eddy's hedonism"
+  },
+  {
+    "name": "After Hours",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Scorsese's surreal comic nightmare; Griffin Dunne's SoHo odyssey"
+  },
+  {
+    "name": "All in the Family",
+    "year": 1971,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Norman Lear political comedy; Archie Bunker bigotry satirized"
+  },
+  {
+    "name": "An American in Paris",
+    "year": 1951,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Minnelli musical romance; post-war Paris and gig culture"
+  },
+  {
+    "name": "Are You Being Served?",
+    "year": 1972,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Double-entendre department store; Wendy Richard's Mrs. Slocombe"
+  },
+  {
+    "name": "Arsenic and Old Lace",
+    "year": 1944,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Dark comedy mayhem; aunts poisoning gentlemen"
+  },
+  {
+    "name": "Ball of Fire",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Hawks screwball; seven professors and stripper Stanwyck"
+  },
+  {
+    "name": "Barton Fink",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Coen brothers' Hollywood hellscape; Turturro's neurotic writer"
+  },
+  {
+    "name": "Battling Butler",
+    "year": 1926,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Keaton boxing comedy; identity confusion and pratfalls"
+  },
+  {
+    "name": "Beverly Hills Cop",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Brest's action-comedy; Murphy's Detroit cop in California"
+  },
+  {
+    "name": "Bewitched",
+    "year": 1964,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Asher suburban supernatural; Samantha's witch powers hidden"
+  },
+  {
+    "name": "Caddyshack",
+    "year": 1980,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Ramis' golf club farce; Dangerfield's boorish millionaire"
+  },
+  {
+    "name": "Clockwise",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Cleese's headmaster; precision and chaos through English countryside"
+  },
+  {
+    "name": "Coming to America",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Landis' fish-out-of-water; Murphy's African prince in Queens"
+  },
+  {
+    "name": "Cry-Baby",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Waters' 1950s pastiche; delinquent musical camp"
+  },
+  {
+    "name": "Dad's Army",
+    "year": 1968,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Home Guard over-65s; British warmth and wartime nostalgia"
+  },
+  {
+    "name": "Delicatessen",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Jeunet-Caro dystopian dark comedy; post-apocalypse bistro"
+  },
+  {
+    "name": "Dumb and Dumber",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Farrelly brothers; Carrey-Daniels dim-bulb road trip"
+  },
+  {
+    "name": "Frasier",
+    "year": 1993,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Angell-Casey Seattle psychiatrist spin-off; Crane family wealth"
+  },
+  {
+    "name": "French and Saunders",
+    "year": 1987,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Sketch duo; celebrity parody and cabaret"
+  },
+  {
+    "name": "Friends",
+    "year": 1994,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Bright-Kauffman New York ensemble; coffee shop friendship"
+  },
+  {
+    "name": "Gentlemen Prefer Blondes",
+    "year": 1953,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Monroe and Russell; 'Diamonds Are a Girl's Best Friend'"
+  },
+  {
+    "name": "Get Smart",
+    "year": 1965,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Spy satire; Agent 86 Maxwell Smart's bumbling"
+  },
+  {
+    "name": "Gigi",
+    "year": 1958,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Minnelli's Belle Époque musical; Leslie Caron's courtesan coming-of-age"
+  },
+  {
+    "name": "Gremlins",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Dante Christmas creature comedy; cute gremlin chaos"
+  },
+  {
+    "name": "Heathers",
+    "year": 1989,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Waters' dark high school satire; teenage toxicity and murder"
+  },
+  {
+    "name": "High Hopes",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Leigh's 1980s satire; North London class and aspiration"
+  },
+  {
+    "name": "His Girl Friday",
+    "year": 1940,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Fast-talking newsroom comedy; Grant and Russell's rapid-fire wit"
+  },
+  {
+    "name": "Home Alone",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Columbus' slapstick; child macaulay Culkin vs. burglars"
+  },
+  {
+    "name": "I'm All Right Jack",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Boulting satire; industrial relations and incompetence"
+  },
+  {
+    "name": "Life Is Sweet",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Leigh's working-class warmth; DIY restaurant and twin sisters"
+  },
+  {
+    "name": "Metropolis",
+    "year": 1927,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Lang's dystopian sci-fi; visual grandeur and robot Maria"
+  },
+  {
+    "name": "Miller's Crossing",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Coens' Prohibition noir-comedy; Irish gangsters and hats"
+  },
+  {
+    "name": "Mrs. Doubtfire",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Columbus' drag parenting; Williams' nanny and custody battle"
+  },
+  {
+    "name": "National Lampoon's Vacation",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Hughes' road trip disaster; Chevy Chase's suburban dad odyssey"
+  },
+  {
+    "name": "Ninotchka",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Lubitsch's Soviet agent thaw; politics and romance"
+  },
+  {
+    "name": "Nosferatu",
+    "year": 1922,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Silent horror; tonal experiments in mood and dread"
+  },
+  {
+    "name": "Open All Hours",
+    "year": 1976,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Barker's stutter comedy; Ronnie Corbett and dubious behavior"
+  },
+  {
+    "name": "Re-Animator",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Corman horror-comedy; zombie scientist and corpse resurrection"
+  },
+  {
+    "name": "Saturday Night Live",
+    "year": 1975,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Live sketch institution; Belushi and original cast legacy"
+  },
+  {
+    "name": "Spaceballs",
+    "year": 1987,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Brooks' Star Wars parody; Mel Brooks universe and product placement gags"
+  },
+  {
+    "name": "Spinal Tap",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Reiner's rockumentary; 'This one goes to eleven'"
+  },
+  {
+    "name": "Steptoe and Son",
+    "year": 1962,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Galton-Simpson rag-and-bone; generational conflict and love"
+  },
+  {
+    "name": "Stripes",
+    "year": 1981,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Ramis' military comedy; Bill Murray and Harold Ramis enlisted"
+  },
+  {
+    "name": "Taxi",
+    "year": 1978,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Workplace ensemble; New York cabstand family warmth"
+  },
+  {
+    "name": "The Addams Family",
+    "year": 1964,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Macabre family sitcom; Wednesday and Thing dark humor"
+  },
+  {
+    "name": "The Adventures of Priscilla, Queen of the Desert",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Elliott's Australian drag road trip; Weaver and drag queens"
+  },
+  {
+    "name": "The Dick Van Dyke Show",
+    "year": 1963,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "MTM workplace comedy; 1960s TV show within show"
+  },
+  {
+    "name": "The Good Life",
+    "year": 1975,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Self-sufficiency comedy; suburbia and chicken-keeping"
+  },
+  {
+    "name": "The Graduate",
+    "year": 1967,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Nichols' satire-romance; seduction and suburban ennui"
+  },
+  {
+    "name": "The Hudsucker Proxy",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Coens' screwball pastiche; Norville Barnes and corporate satire"
+  },
+  {
+    "name": "The Ladykillers",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Ealing's final masterpiece; criminals disguised as musicians"
+  },
+  {
+    "name": "The Man in the White Suit",
+    "year": 1951,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Mackendrick; fabric chemist vs. capitalist and labor"
+  },
+  {
+    "name": "The Mary Tyler Moore Show",
+    "year": 1970,
+    "type": "series",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "MTM sitcom blueprint; Minneapolis workplace and empowerment"
+  },
+  {
+    "name": "The Music Man",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "DeMille musical; Robert Preston's con-man song-and-dance"
+  },
+  {
+    "name": "The Pink Panther",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Edwards' visual slapstick; Sellers' Inspector Clouseau born"
+  },
+  {
+    "name": "The Rocky Horror Picture Show",
+    "year": 1975,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Sharman's musical gender-bending cult; transvestite scientist"
+  },
+  {
+    "name": "Trading Places",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Landis' class-swap; Murphy and Aykroyd's commodity trader chaos"
+  },
+  {
+    "name": "Tremors",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Underwood creature comedy; desert worms and survival"
+  },
+  {
+    "name": "The Pink Panther",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Edwards visual slapstick; Sellers Inspector Clouseau born"
+  },
+  {
+    "name": "Lemonade Joe",
+    "year": 1964,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "comedy",
+    "why": "Czech western parody; Likvidátor and saloon satire"
+  },
+  {
+    "name": "The Man in the White Suit",
+    "year": 1951,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "comedy",
+    "why": "Mackendrick; fabric chemist vs. capitalist and labor"
+  },
+  {
+    "name": "A Funny Thing Happened on the Way to the Forum",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Melina Mercouri Roman farce; Zero Mostel's vaudeville energy"
+  },
+  {
+    "name": "Allo Allo!",
+    "year": 1982,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Croft-Lloyd occupied France; double entendre and resistance"
+  },
+  {
+    "name": "At Last the 1948 Show",
+    "year": 1967,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Sketch show precursor; Cleese-Chapman early work"
+  },
+  {
+    "name": "Barbarella",
+    "year": 1968,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Vadim's campy sci-fi; Fonda and kitsch aesthetics"
+  },
+  {
+    "name": "Barney Miller",
+    "year": 1975,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Police precinct comedy; detectives and absurd situations"
+  },
+  {
+    "name": "Blue Velvet",
+    "year": 1986,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Lynch's dark surrealism; small-town secrets and violence"
+  },
+  {
+    "name": "Chappelle's Show",
+    "year": 2003,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Chappelle sketch satire; race and culture commentary"
+  },
+  {
+    "name": "Critters",
+    "year": 1986,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Herek creature comedy; alien bounty hunters in Kansas"
+  },
+  {
+    "name": "Darkplace",
+    "year": 2004,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Brooker parody; 1980s supernatural drama pastiche"
+  },
+  {
+    "name": "Do Not Adjust Your Set",
+    "year": 1967,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Jones-Gilliam absurdist sketches; animation precursor"
+  },
+  {
+    "name": "Do the Right Thing",
+    "year": 1989,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Lee's block-party comedy-drama; race and Brooklyn heat"
+  },
+  {
+    "name": "Doctor Who",
+    "year": 1963,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Early series comedic elements; Time Lord adventures"
+  },
+  {
+    "name": "Eric Andre Show",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Surreal talk show parody; Andre's absurdist chaos"
+  },
+  {
+    "name": "Funny People",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Apatow sad-funny; Sandler and Rogen standups and cancer"
+  },
+  {
+    "name": "Ghostbusters II",
+    "year": 1989,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Reitman's sequel; New York slime and pink ectoplasm"
+  },
+  {
+    "name": "Greed",
+    "year": 1924,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Stroheim's ambitious melodrama; obsession and folly"
+  },
+  {
+    "name": "Happy Days",
+    "year": 1974,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Miller nostalgic 1950s comedy; Fonzie and Milwaukee teens"
+  },
+  {
+    "name": "How to Marry a Millionaire",
+    "year": 1953,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Monroe, Grable, Bacall; trio scheming for wealthy husbands"
+  },
+  {
+    "name": "I Dream of Jeannie",
+    "year": 1965,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Supernatural romantic comedy; genie in bottle and NASA"
+  },
+  {
+    "name": "I Love You, Man",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Hamburg's bromance; Paul Rudd and Jason Segel wedding"
+  },
+  {
+    "name": "Innerspace",
+    "year": 1987,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Dante submarine comedy; tiny spaceship and big confusion"
+  },
+  {
+    "name": "Intolerance: Love's Struggle Throughout the Ages",
+    "year": 1916,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Griffith's epic cross-cutting; proto-montage comedy of scale"
+  },
+  {
+    "name": "Joe Versus the Volcano",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Shanley's odd romance; Hanks and Ryan on mythic journey"
+  },
+  {
+    "name": "Judd Apatow films",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Director romantic comedy; fumbling men and emotional growth"
+  },
+  {
+    "name": "Killer Klowns from Outer Space",
+    "year": 1988,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Chiodo brothers monster comedy; alien clowns invade"
+  },
+  {
+    "name": "Kingpin",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Farrelly's bowling slapstick; Woody Harrelson's eyepatch"
+  },
+  {
+    "name": "Knowing Me, Knowing You with Alan Partridge",
+    "year": 1994,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Partridge chat show; Coogan's cringe interviewer"
+  },
+  {
+    "name": "Limmy's Show",
+    "year": 2007,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Scottish sketch variety; Limmy's absurdist bits"
+  },
+  {
+    "name": "Me, Myself & Irene",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Farrelly's split-personality cop; Jim Carrey dual role"
+  },
+  {
+    "name": "Murphy Brown",
+    "year": 1988,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Working woman comedy; CBS news show satire"
+  },
+  {
+    "name": "Nathan Barley",
+    "year": 2005,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Burdall-Papathanasio internet-age satire; London media wasters"
+  },
+  {
+    "name": "Neighbors",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Stoller's fraternity-family conflict; Rogen and Efron war"
+  },
+  {
+    "name": "Plebs",
+    "year": 2013,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Kermode ancient Rome; young slaves and slapstick"
+  },
+  {
+    "name": "Rowan and Martin's Laugh-In",
+    "year": 1968,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "American sketch variety; rapid-fire gags and catchphrases"
+  },
+  {
+    "name": "Sanford and Son",
+    "year": 1972,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Junk dealer family; Redd Foxx and son banter"
+  },
+  {
+    "name": "School for Scoundrels",
+    "year": 1960,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Hamer's one-upmanship; Ian Carmichael and Alastair Sim"
+  },
+  {
+    "name": "Something Wild",
+    "year": 1986,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Demme's dark romance; Daniels' uptight and Griffith's wild girl"
+  },
+  {
+    "name": "Sunset Boulevard",
+    "year": 1950,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Dark Hollywood comedy-noir; faded starlet and corruption"
+  },
+  {
+    "name": "The Adventures of Baron Munchausen",
+    "year": 1988,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Gilliam's tall tale fantasy; Jacobi and impossible adventures"
+  },
+  {
+    "name": "The Avengers",
+    "year": 1961,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Stylish spy-fi; Steed and King camp action"
+  },
+  {
+    "name": "The Beverly Hillbillies",
+    "year": 1962,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Rural family in wealthy LA; Clampett misadventures"
+  },
+  {
+    "name": "The Jeffersons",
+    "year": 1975,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Social commentary comedy; George and Weezy 'moving on up'"
+  },
+  {
+    "name": "The Munsters",
+    "year": 1964,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Family monster comedy; Herman and Lily domesticity"
+  },
+  {
+    "name": "The Nanny",
+    "year": 1993,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Fish-out-of-water; Drescher's Fran and Park Avenue family"
+  },
+  {
+    "name": "The Odd Couple",
+    "year": 1970,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Klugman and Randall roommate friction; neat vs. messy"
+  },
+  {
+    "name": "The Other Guys",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "McKay's buddy cop parody; Ferrell and Wahlberg detective chemistry"
+  },
+  {
+    "name": "The Phantom Carriage",
+    "year": 1921,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Sjöström's Christmas ghost story; visual storytelling depth"
+  },
+  {
+    "name": "The Twilight Zone",
+    "year": 1959,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Serling sci-fi anthology with comedic episodes"
+  },
+  {
+    "name": "The War of the Roses",
+    "year": 1989,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "DeVito's black comedy romance; marriage destruction"
+  },
+  {
+    "name": "Three's Company",
+    "year": 1977,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Silverman mistaken-identity farce; roommate misunderstandings"
+  },
+  {
+    "name": "To Wong Foo, Thanks for Everything! Julie Newmar",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Kaige drag comedy; Snipes, Swayze, Wesley cross-country"
+  },
+  {
+    "name": "Truly Madly Deeply",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Anthony Minghella's romantic comedy-ghost story"
+  },
+  {
+    "name": "WKRP in Cincinnati",
+    "year": 1978,
+    "type": "series",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Radio station workplace; Johnson and cast chemistry"
+  },
+  {
+    "name": "Secondhand Lions",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "comedy",
+    "why": "Clooney-Damon uncle adventure; Texas eccentrics"
+  },
+  {
+    "name": "A Ghost Story",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Lowery white-sheet ghost; time and loss abstraction"
+  },
+  {
+    "name": "A Pigeon Sat on a Branch Reflecting on Existence",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Andersson Swedish deadpan; still-life and tableaux"
+  },
+  {
+    "name": "A Tale of Two Sisters",
+    "year": 2003,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Korean horror-dream; stepmother paranoia and reveal"
+  },
+  {
+    "name": "After Yang",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Linklater robot family; grief and intimacy comedy-drama"
+  },
+  {
+    "name": "Antichrist",
+    "year": 2009,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "von Trier dark provocation; grief and madness"
+  },
+  {
+    "name": "Before Sunrise",
+    "year": 1995,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Linklater Vienna philosophy; romance through dialogue"
+  },
+  {
+    "name": "Benny & Joon",
+    "year": 1993,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Deranged sibling love; Depp as cinema-obsessed man-child"
+  },
+  {
+    "name": "Climax",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Gaspar Noé dancers descent; French surreal horror-dance"
+  },
+  {
+    "name": "Come and See",
+    "year": 1985,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Elem Klimov WWII nightmare; Soviet horror-realism"
+  },
+  {
+    "name": "Conan the Barbarian",
+    "year": 1982,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Milius sword-and-sorcery action-comedy pastiche"
+  },
+  {
+    "name": "Dracula: Dead and Loving It",
+    "year": 1995,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Brooks' vampire parody; Leslie Nielsen and cape humor"
+  },
+  {
+    "name": "Get Hard",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Etan Cohen prison comedy; Ferrell and Hart mismatched prep"
+  },
+  {
+    "name": "Gummo",
+    "year": 1997,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Korine dirt-cheap Kentucky; surreal no-plot experimental"
+  },
+  {
+    "name": "Holy Motors",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Carax identity multitudes; Denis Lavant in car rides"
+  },
+  {
+    "name": "Life Stinks",
+    "year": 1991,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Brooks' homelessness comedy; Richard Pryor and satire"
+  },
+  {
+    "name": "Like a Boss",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Hall-West female co-founders; Haddish and McCarthy rivalry"
+  },
+  {
+    "name": "Melancholia",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "von Trier wedding apocalypse; depression and planets"
+  },
+  {
+    "name": "Mrs. Brown, You've Got a Lovely Daughter",
+    "year": 1968,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Herman's Hermits music comedy; British Invasion ephemera"
+  },
+  {
+    "name": "Red Sonja",
+    "year": 1985,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Fleischer sword-and-sorcery; Brigitte Nielsen warrior"
+  },
+  {
+    "name": "Ride Along",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Barclay ride-along; Kevin Hart and Ice Cube cop buddy"
+  },
+  {
+    "name": "Rubber",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Dupieux murderous tire; French absurdist provocation"
+  },
+  {
+    "name": "Slacker",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Linklater Austin comic conversations; narrative threads"
+  },
+  {
+    "name": "Spring Breakers",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Korine neon satire; spring break excess and Gomez"
+  },
+  {
+    "name": "Synecdoche, New York",
+    "year": 2008,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Kaufman existential comedy; Philip Seymour Hoffman spiral"
+  },
+  {
+    "name": "The Skin I Live In",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Spanish plastic surgeon obsession; psychological twisted"
+  },
+  {
+    "name": "Under the Skin",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Glazer alien predator; Scarlett Johansson understated"
+  },
+  {
+    "name": "Waking Life",
+    "year": 2001,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "comedy",
+    "why": "Linklater rotoscoped philosophy; lucid dream meditation"
+  }
+]
