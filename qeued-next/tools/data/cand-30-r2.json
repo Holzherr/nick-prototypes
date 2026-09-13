@@ -1,0 +1,738 @@
+[
+  {
+    "name": "F1",
+    "year": 2025,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "current",
+    "why": "Brad Pitt Formula 1 drama; major sport film"
+  },
+  {
+    "name": "Fantastic Four: First Steps",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "current",
+    "why": "MCU reboot of iconic franchise"
+  },
+  {
+    "name": "Thunderbolts*",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Marvel ensemble of antiheroes"
+  },
+  {
+    "name": "The Bride",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Coralie Fargeat horror; Frankenstein reimagining"
+  },
+  {
+    "name": "Wolves",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Leigh Whannell werewolf thriller"
+  },
+  {
+    "name": "A Minecraft Movie",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Warner Bros video game adaptation"
+  },
+  {
+    "name": "Roald Dahl's The Twits",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix animated Roald Dahl adaptation"
+  },
+  {
+    "name": "Severance",
+    "year": 2025,
+    "type": "series",
+    "priority": 5,
+    "bucket": "current",
+    "why": "Apple TV+ Season 2; acclaimed thriller return"
+  },
+  {
+    "name": "The White Lotus",
+    "year": 2025,
+    "type": "series",
+    "priority": 5,
+    "bucket": "current",
+    "why": "HBO/Sky Season 3; prestige anthology"
+  },
+  {
+    "name": "3 Body Problem",
+    "year": 2025,
+    "type": "series",
+    "priority": 5,
+    "bucket": "current",
+    "why": "Netflix Season 2; sci-fi epic"
+  },
+  {
+    "name": "Shogun",
+    "year": 2025,
+    "type": "series",
+    "priority": 5,
+    "bucket": "current",
+    "why": "FX Season 2; historical prestige"
+  },
+  {
+    "name": "Wednesday",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix Season 2; Addams Family spinoff"
+  },
+  {
+    "name": "Dune: Prophecy",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "HBO/Max prequel; prestige sci-fi"
+  },
+  {
+    "name": "The Gentlemen",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix Season 2; crime drama"
+  },
+  {
+    "name": "Dark Matter",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Apple TV+ Season 2; sci-fi thriller"
+  },
+  {
+    "name": "Masters of the Air",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Apple TV+ Season 2; war drama"
+  },
+  {
+    "name": "Citadel",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Prime Video Season 2; spy thriller"
+  },
+  {
+    "name": "Baby Reindeer",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Netflix Season 2; true crime comedy"
+  },
+  {
+    "name": "Expats",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Prime Video Season 2; expatriate drama"
+  },
+  {
+    "name": "Griselda",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix Season 2; crime drama"
+  },
+  {
+    "name": "The Bear",
+    "year": 2025,
+    "type": "series",
+    "priority": 5,
+    "bucket": "current",
+    "why": "Hulu Season 4; acclaimed restaurant drama"
+  },
+  {
+    "name": "Squid Game",
+    "year": 2025,
+    "type": "series",
+    "priority": 5,
+    "bucket": "current",
+    "why": "Netflix Season 2; global phenomenon"
+  },
+  {
+    "name": "Godless",
+    "year": 2026,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Netflix western return; Jeff Daniels"
+  },
+  {
+    "name": "Monsters: Dahmer",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix true crime anthology"
+  },
+  {
+    "name": "The Diplomat",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Netflix Season 2; political thriller"
+  },
+  {
+    "name": "Bridgerton",
+    "year": 2025,
+    "type": "series",
+    "priority": 5,
+    "bucket": "current",
+    "why": "Netflix Season 4; period romance"
+  },
+  {
+    "name": "Stranger Things",
+    "year": 2025,
+    "type": "series",
+    "priority": 5,
+    "bucket": "current",
+    "why": "Netflix Season 5 final; sci-fi thriller"
+  },
+  {
+    "name": "The Crown",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Netflix final season; royal drama"
+  },
+  {
+    "name": "Nobody Wants This",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix romantic comedy; Kristen Bell"
+  },
+  {
+    "name": "Monsters: Gacy",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix true crime; series anthology"
+  },
+  {
+    "name": "Avatar: The Last Airbender",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix Season 2; animated adaptation"
+  },
+  {
+    "name": "Arcane",
+    "year": 2025,
+    "type": "series",
+    "priority": 5,
+    "bucket": "current",
+    "why": "Netflix Season 2; acclaimed anime series"
+  },
+  {
+    "name": "Alice in Borderland",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix Season 2; Japanese thriller"
+  },
+  {
+    "name": "Virgin River",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix Season 6; romantic drama"
+  },
+  {
+    "name": "Grey's Anatomy",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "ABC Season 22; medical drama"
+  },
+  {
+    "name": "The Handmaid's Tale",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Hulu Season 6; dystopian drama"
+  },
+  {
+    "name": "House of the Dragon",
+    "year": 2025,
+    "type": "series",
+    "priority": 5,
+    "bucket": "current",
+    "why": "Max Season 2; Game of Thrones prequel"
+  },
+  {
+    "name": "True Detective",
+    "year": 2025,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "HBO Season 4; new cast detectives"
+  },
+  {
+    "name": "Chappell Roan: The Eras Tour",
+    "year": 2025,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "current",
+    "why": "Concert film; pop star documentary"
+  },
+  {
+    "name": "The Brutalist",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Brady Corbet epic; Oscar contender"
+  },
+  {
+    "name": "Emilia P\u00e9rez",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "French film; Mexico cartel drama"
+  },
+  {
+    "name": "All We Imagine as Light",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Malayalam cinema; Cannes winner"
+  },
+  {
+    "name": "The Seed of the Sacred Fig",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "current",
+    "why": "Mohammad Rasoulof Iranian drama"
+  },
+  {
+    "name": "The Shrouds",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "current",
+    "why": "David Cronenberg horror"
+  },
+  {
+    "name": "Sing Sing",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Prison drama; formerly incarcerated cast"
+  },
+  {
+    "name": "Problemista",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "current",
+    "why": "Julio Torres comedy; immigration"
+  },
+  {
+    "name": "Saturday Night",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "current",
+    "why": "SNL origin story; NBC"
+  },
+  {
+    "name": "The Eternal Memory",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "current",
+    "why": "Chilean documentary; love and loss"
+  },
+  {
+    "name": "The Iron Claw",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Zac Efron wrestling family drama"
+  },
+  {
+    "name": "Sonic the Hedgehog 3",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Video game movie; family action"
+  },
+  {
+    "name": "Nostalgia",
+    "year": 2025,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "current",
+    "why": "Mark Ruffalo romantic drama"
+  },
+  {
+    "name": "Companion",
+    "year": 2025,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "current",
+    "why": "Drew Egertson sci-fi thriller"
+  },
+  {
+    "name": "Ballerina",
+    "year": 2025,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "current",
+    "why": "John Wick spinoff; Ana de Armas"
+  },
+  {
+    "name": "Inside Out 3",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Pixar animation sequel"
+  },
+  {
+    "name": "Twisters",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Disaster film; storm chasers"
+  },
+  {
+    "name": "Mission: Impossible 8",
+    "year": 2025,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Tom Cruise spy franchise"
+  },
+  {
+    "name": "Paddington 4",
+    "year": 2026,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "British family animation"
+  },
+  {
+    "name": "28 Days Later",
+    "year": 2025,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Horror zombie sequel; Danny Boyle"
+  },
+  {
+    "name": "Godzilla Minus One",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Japanese Godzilla; Toho Studios"
+  },
+  {
+    "name": "The Colourless Tsukuru Tazaki",
+    "year": 2026,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "current",
+    "why": "Haruki Murakami adaptation"
+  },
+  {
+    "name": "The Diplomat",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Netflix political thriller; Keri Russell"
+  },
+  {
+    "name": "Nobody Wants This",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix Season 2 romantic comedy"
+  },
+  {
+    "name": "Manodrome",
+    "year": 2024,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "current",
+    "why": "Jesse Eisenberg psychological thriller"
+  },
+  {
+    "name": "Film Stars Don't Die in Liverpool",
+    "year": 2024,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "current",
+    "why": "Romantic drama; restoration film"
+  },
+  {
+    "name": "The Order",
+    "year": 2024,
+    "type": "series",
+    "priority": 1,
+    "bucket": "current",
+    "why": "Netflix crime drama; biker gang"
+  },
+  {
+    "name": "Monsters: Lyle and Erik Menendez",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix true crime anthology"
+  },
+  {
+    "name": "Sweat",
+    "year": 2024,
+    "type": "movie",
+    "priority": 1,
+    "bucket": "current",
+    "why": "Lynn Shelton fitness comedy"
+  },
+  {
+    "name": "Scott Pilgrim Takes Off",
+    "year": 2024,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Anime film; Edgar Wright universe revisited"
+  },
+  {
+    "name": "Wind Breaker",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Korean action film; webtoon adaptation"
+  },
+  {
+    "name": "Trap",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "M. Night Shyamalan psychological thriller"
+  },
+  {
+    "name": "Hundreds of Beavers",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "current",
+    "why": "Silent adventure comedy; indie"
+  },
+  {
+    "name": "Andor",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Star Wars prequel; prestige spy thriller"
+  },
+  {
+    "name": "Terminator Zero",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix anime series; time travel"
+  },
+  {
+    "name": "Blue Eye Samurai",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "current",
+    "why": "Netflix anime Season 2; samurai revenge"
+  },
+  {
+    "name": "Castlevania: Nocturne",
+    "year": 2025,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix animation Season 2; vampire saga"
+  },
+  {
+    "name": "Harley Quinn",
+    "year": 2025,
+    "type": "series",
+    "priority": 2,
+    "bucket": "current",
+    "why": "Max Season 5; DC animated comedy"
+  },
+  {
+    "name": "Kaiju No. 8",
+    "year": 2024,
+    "type": "series",
+    "priority": 2,
+    "bucket": "current",
+    "why": "Crunchyroll anime; monster battle"
+  },
+  {
+    "name": "Cyberpunk: Edgerunners",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix anime; game adaptation"
+  },
+  {
+    "name": "Ghostlight",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "current",
+    "why": "Keith Carradine theater drama"
+  },
+  {
+    "name": "The First Slam Dunk",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Basketball anime film; Japanese hit"
+  },
+  {
+    "name": "Wham!",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "current",
+    "why": "George Michael documentary; Netflix"
+  },
+  {
+    "name": "The Righteous Gemstones",
+    "year": 2024,
+    "type": "series",
+    "priority": 2,
+    "bucket": "current",
+    "why": "HBO/Max Season 3; megachurch dark comedy"
+  },
+  {
+    "name": "Chucky",
+    "year": 2025,
+    "type": "series",
+    "priority": 2,
+    "bucket": "current",
+    "why": "Peacock Season 3; horror doll"
+  },
+  {
+    "name": "The Watchmen",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Prestige comic adaptation; HBO"
+  },
+  {
+    "name": "The Teachers' Lounge",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "German school drama; social thriller"
+  },
+  {
+    "name": "The Thousand Plane Raid",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "current",
+    "why": "WWII aviation drama"
+  },
+  {
+    "name": "The Teachers' Lounge",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "current",
+    "why": "German school drama; Berlinale winner"
+  },
+  {
+    "name": "Universal Language",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "current",
+    "why": "Kent Jones camera meditation"
+  },
+  {
+    "name": "Under the Skin of the City",
+    "year": 2024,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "current",
+    "why": "Iranian noir; political allegory"
+  },
+  {
+    "name": "The Shrinking",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Apple TV+ therapy dramedy; Bill Lawrence"
+  },
+  {
+    "name": "Peaky Blinders",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "current",
+    "why": "Netflix final season; mob drama"
+  },
+  {
+    "name": "Penny Dreadful: City of Angels",
+    "year": 2024,
+    "type": "series",
+    "priority": 2,
+    "bucket": "current",
+    "why": "Showtime limited series; gothic horror"
+  }
+]

@@ -1,0 +1,1442 @@
+[
+  {
+    "name": "The Milk of Sorrow",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Claudia Llosa Peruvian post-conflict trauma"
+  },
+  {
+    "name": "La Teta Asustada",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Claudia Llosa Peruvian magical realism; Palme d'Or"
+  },
+  {
+    "name": "Madeinusa",
+    "year": 2002,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Claudia Llosa controversial Peruvian transgression"
+  },
+  {
+    "name": "The Violin",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Francisco Vargas Mexican war aftermath"
+  },
+  {
+    "name": "Undertow",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "David Alejo Colombian LGBTQ rural drama"
+  },
+  {
+    "name": "El Crimen de Padre Amaro",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Carlos Carrera Mexican clerical corruption"
+  },
+  {
+    "name": "The Hidden Face",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Andr\u00e9s Fernando Solis Colombian mystery thriller"
+  },
+  {
+    "name": "Midnight Family",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Luke Lorentzen Mexican ambulance documentary"
+  },
+  {
+    "name": "Tempestad",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Ezequiel Acu\u00f1a Mexican hurricane family drama"
+  },
+  {
+    "name": "Bye Bye Brasil",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Carlos Diegues Brazilian road odyssey"
+  },
+  {
+    "name": "Pixote",
+    "year": 1981,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "H\u00e9ctor Babenco Brazilian street children brutal"
+  },
+  {
+    "name": "Macuna\u00edma",
+    "year": 1969,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Joaquim Pedro de Andrade Brazilian mythic picaresque"
+  },
+  {
+    "name": "Antonio das Mortes",
+    "year": 1969,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Glauber Rocha Brazilian Cinema Novo landmark"
+  },
+  {
+    "name": "Barren Lives",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Nelson Pereira dos Santos Brazilian drought family"
+  },
+  {
+    "name": "Black God, White Devil",
+    "year": 1964,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Glauber Rocha Brazilian sert\u00e3o mysticism"
+  },
+  {
+    "name": "Amor de Hombre",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Francesca Marciano Argentine LGBTQ hidden love"
+  },
+  {
+    "name": "9 Reinas",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Fabi\u00e1n Bielinsky Argentine con game duo"
+  },
+  {
+    "name": "The Headless Woman",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Claudia Llosa Argentine amnesiac trauma"
+  },
+  {
+    "name": "Black Girl",
+    "year": 1966,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "Ousmane Semb\u00e8ne Senegalese servant; Cannes winner"
+  },
+  {
+    "name": "Touki Bouki",
+    "year": 1973,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Djibril Diop Mamb\u00e9ty Senegalese road quest"
+  },
+  {
+    "name": "Xala",
+    "year": 1975,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Ousmane Semb\u00e8ne Senegalese political satire"
+  },
+  {
+    "name": "Moolaad\u00e9",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Ousmane Semb\u00e8ne Senegalese FGM resistance"
+  },
+  {
+    "name": "Camp de Thiaroye",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Ousmane Semb\u00e8ne Senegalese WWII soldiers"
+  },
+  {
+    "name": "Hy\u00e8nes",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Djibril Diop Mamb\u00e9ty Senegalese village parable"
+  },
+  {
+    "name": "Days of Glory",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Rachid Bouchareb Algerian WWII soldiers; C\u00e9sar"
+  },
+  {
+    "name": "Ra\u00ef",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Rachid Bouchareb Algerian music underworld"
+  },
+  {
+    "name": "Half of a Yellow Sun",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Biyi Bandele Nigerian-British Biafra war"
+  },
+  {
+    "name": "Lionheart",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Nollywood action starring Genevieve Nnaji"
+  },
+  {
+    "name": "Rafiki",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Wangechi Mutu Kenyan lesbian love drama; Sundance"
+  },
+  {
+    "name": "Tsotsi",
+    "year": 2005,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "Gavin Hood South African township gangster; Oscar"
+  },
+  {
+    "name": "Yesterday",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Darrell James Roodt South African HIV drama"
+  },
+  {
+    "name": "Mapantsula",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Oliver Schmitz South African township crime"
+  },
+  {
+    "name": "Caramel",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Nadine Labaki Lebanese women salon drama"
+  },
+  {
+    "name": "Where Do We Go Now?",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Nadine Labaki Lebanese sectarian truce attempt"
+  },
+  {
+    "name": "In the Chaos",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Nadine Labaki Lebanese documentary epic"
+  },
+  {
+    "name": "The Insult",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Joseph Cedar Lebanese-Israeli legal drama"
+  },
+  {
+    "name": "Waltz with Bashir",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "Ari Folman Israeli animated war memory; Oscar"
+  },
+  {
+    "name": "Offside",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Jafar Panahi Iranian women football fans"
+  },
+  {
+    "name": "About Elly",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Asghar Farhadi Iranian family thriller"
+  },
+  {
+    "name": "A Hero",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Asghar Farhadi Iranian moral ambiguity; Cannes"
+  },
+  {
+    "name": "The Salesman",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Asghar Farhadi Iranian revenge drama; Oscar"
+  },
+  {
+    "name": "Baran",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Majid Majidi Iranian child migrant drama"
+  },
+  {
+    "name": "This Is Not a Film",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Jafar Panahi & Mirtahmasb Iranian home doc"
+  },
+  {
+    "name": "Taste of Cherry",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Abbas Kiarostami Iranian meditation; Palme d'Or"
+  },
+  {
+    "name": "Where Is My Friend's House?",
+    "year": 1987,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Abbas Kiarostami Iranian village search"
+  },
+  {
+    "name": "A Time for Drunken Horses",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Bahman Ghobadi Kurdish children smuggling"
+  },
+  {
+    "name": "Turtles Can Fly",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Bahman Ghobadi Kurdish war orphans"
+  },
+  {
+    "name": "No One Knows About Persian Cats",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Bahman Ghobadi Iranian punk musicians"
+  },
+  {
+    "name": "Half Moon",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Bahman Ghobadi Kurdish musicians journey"
+  },
+  {
+    "name": "The Cow",
+    "year": 1969,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Dariush Mehrjui Iranian peasant allegory"
+  },
+  {
+    "name": "Taxi",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Jafar Panahi Iranian cab stories; Cannes"
+  },
+  {
+    "name": "The Color of Pomegranates",
+    "year": 1969,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Sergei Parajanov Armenian poet biography"
+  },
+  {
+    "name": "The Bread and Alley",
+    "year": 1970,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Abbas Kiarostami Iranian short filmed essay"
+  },
+  {
+    "name": "24 Frames",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Abbas Kiarostami final Iranian experimental"
+  },
+  {
+    "name": "Lebanon",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Samuel Maoz Israeli tank warfare chamber"
+  },
+  {
+    "name": "Beaufort",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Joseph Cedar Israeli military outpost drama"
+  },
+  {
+    "name": "Footnote",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Joseph Cedar Israeli academics; Oscar nominated"
+  },
+  {
+    "name": "Fill the Void",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Rama Burshtein Haredi romance drama"
+  },
+  {
+    "name": "The Policeman",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Nadav Lapid Israeli political violence"
+  },
+  {
+    "name": "Chronicle of a Disappearance",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Elia Suleiman Palestinian daily surrealism"
+  },
+  {
+    "name": "Divine Intervention",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Elia Suleiman Palestinian fantasy absurdism"
+  },
+  {
+    "name": "It's a New Day",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Elia Suleiman Palestinian mockumentary"
+  },
+  {
+    "name": "Once Upon a Time in Anatolia",
+    "year": 2011,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "Nuri Bilge Ceylan Turkish crime journey; Palme"
+  },
+  {
+    "name": "Winter Sleep",
+    "year": 2014,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "Nuri Bilge Ceylan Turkish hotel drama; Palme"
+  },
+  {
+    "name": "Three Monkeys",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Nuri Bilge Ceylan Turkish moral corruption"
+  },
+  {
+    "name": "Distant",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Nuri Bilge Ceylan Turkish isolation drama"
+  },
+  {
+    "name": "Once Upon a Time in Anatolia",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Turkish crime investigation miniseries"
+  },
+  {
+    "name": "Fauda",
+    "year": 2015,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "Israeli Palestinian undercover spy drama; hit"
+  },
+  {
+    "name": "Narcos",
+    "year": 2015,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "Colombian drug lord epic; Netflix landmark"
+  },
+  {
+    "name": "Casa de Papel",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Spanish Netflix heist; global phenomenon"
+  },
+  {
+    "name": "Club de Cuervos",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Mexican Netflix football dynasty drama"
+  },
+  {
+    "name": "Narcos: Mexico",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Mexican drug war continuation series"
+  },
+  {
+    "name": "El Ministerio del Tiempo",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Spanish time-travel historical adventure"
+  },
+  {
+    "name": "Gran Hotel",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Spanish pre-war hotel mystery drama"
+  },
+  {
+    "name": "Monarca",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Mexican Netflix business family drama"
+  },
+  {
+    "name": "Somos",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Mexican Netflix migrant border stories"
+  },
+  {
+    "name": "La Brea",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Mexican-American sinkhole mystery; Peacock"
+  },
+  {
+    "name": "Clandestine",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Mexican-American Netflix crime series"
+  },
+  {
+    "name": "Queen of the South",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Spanish crime series Mexican adaptation"
+  },
+  {
+    "name": "El Reino",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Argentine Netflix political thriller"
+  },
+  {
+    "name": "Tuca & Bertoni",
+    "year": 2014,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Brazilian Netflix comedy sisters"
+  },
+  {
+    "name": "Invisible Heroes",
+    "year": 2012,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Brazilian miniseries drama"
+  },
+  {
+    "name": "A Manh\u00e3 \u00e9 Pouca para Acordar Cedo",
+    "year": 2016,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Brazilian TV series comedy"
+  },
+  {
+    "name": "The Dark House",
+    "year": 2014,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Brazilian horror miniseries"
+  },
+  {
+    "name": "Sense8",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Wachowskis global Netflix series spanning continents"
+  },
+  {
+    "name": "Wild District",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Thai Netflix underground crime drama"
+  },
+  {
+    "name": "Bad Genius",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Nattawut Poonpiriya Thai exam cheating thriller"
+  },
+  {
+    "name": "Ecstasy",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Cem Kaya German-Turkish drug culture"
+  },
+  {
+    "name": "A Thousand and One Nights",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Palestinian-German TV miniseries drama"
+  },
+  {
+    "name": "When Walls Fall",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Palestinian Israeli cooperation documentary"
+  },
+  {
+    "name": "Forbidden Fruit",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Turkish-Arabic romance Netflix miniseries"
+  },
+  {
+    "name": "Hulu's Ramy",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Egyptian-American identity comedy drama"
+  },
+  {
+    "name": "Bodyguard",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "British political security thriller; BBC hit"
+  },
+  {
+    "name": "The Killing",
+    "year": 2007,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "Danish serial crime landmark; BBC global hit"
+  },
+  {
+    "name": "The Bridge",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Danish-Swedish border crime; BBC hit"
+  },
+  {
+    "name": "Borgen",
+    "year": 2010,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Danish political drama; BBC series"
+  },
+  {
+    "name": "Peaky Blinders",
+    "year": 2013,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "British Birmingham gangsters; BBC legend"
+  },
+  {
+    "name": "Fleabag",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "British comedy-drama; Emmy winner"
+  },
+  {
+    "name": "Sherlock",
+    "year": 2010,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "British modern Sherlock; BBC phenomenon"
+  },
+  {
+    "name": "Line of Duty",
+    "year": 2012,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "British police corruption; cultural phenomenon"
+  },
+  {
+    "name": "Happy Valley",
+    "year": 2014,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "British rural crime; Sally Wainwright"
+  },
+  {
+    "name": "The Crown",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "British royal drama; Netflix mega-series"
+  },
+  {
+    "name": "Downton Abbey",
+    "year": 2010,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "British upstairs-downstairs; global hit"
+  },
+  {
+    "name": "Killing Eve",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "British-American spy thriller; Emmy winner"
+  },
+  {
+    "name": "The Night Manager",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "British spy thriller; Le Carr\u00e9 adaptation"
+  },
+  {
+    "name": "Wolf Hall",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "British Tudor drama; Mantel adaptation"
+  },
+  {
+    "name": "The Capture",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "British tech manipulation spy thriller"
+  },
+  {
+    "name": "Doctor Who",
+    "year": 2005,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "British sci-fi institution; global phenomenon"
+  },
+  {
+    "name": "Mindhunter",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "American FBI profiling drama; serial killer"
+  },
+  {
+    "name": "Ozark",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "American money laundering thriller"
+  },
+  {
+    "name": "The Handmaid's Tale",
+    "year": 2017,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "American dystopian drama; Hulu landmark"
+  },
+  {
+    "name": "Better Call Saul",
+    "year": 2015,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "American lawyer prequel; Emmy winner"
+  },
+  {
+    "name": "True Detective",
+    "year": 2014,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "American crime anthology; McConaughey classic"
+  },
+  {
+    "name": "Chernobyl",
+    "year": 2019,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "American nuclear disaster HBO drama"
+  },
+  {
+    "name": "The White Lotus",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "American resort ensemble horror; HBO hit"
+  },
+  {
+    "name": "Breaking Bad",
+    "year": 2008,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "American meth empire rise; Emmy legend"
+  },
+  {
+    "name": "The Wire",
+    "year": 2002,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "American Baltimore police-drugs landmark"
+  },
+  {
+    "name": "Mad Men",
+    "year": 2007,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "American advertising 1960s; critical landmark"
+  },
+  {
+    "name": "The Sopranos",
+    "year": 1999,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "American mob psychodrama; TV landmark"
+  },
+  {
+    "name": "Succession",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "American media dynasty power play; Emmy"
+  },
+  {
+    "name": "Blessed Are Those Who Thirst",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Khaled El-Qalby Egyptian crime thriller"
+  },
+  {
+    "name": "The Capital",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Sharif Aldin Egyptian Cairo drama"
+  },
+  {
+    "name": "Girls Dormitory",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Soudade Kaadan Syrian-Palestinian coming-of-age"
+  },
+  {
+    "name": "Return to Homs",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Talal Derki Syrian civil war documentary"
+  },
+  {
+    "name": "Last Men in Aleppo",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Feras Fayyad Syrian documentary rescue"
+  },
+  {
+    "name": "Sunflowers",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Palestinian-Irish documentary"
+  },
+  {
+    "name": "Our Burning Night",
+    "year": 2019,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Saudi-British trans-regional drama"
+  },
+  {
+    "name": "Habibi",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Israeli-Turkish LGBTQ drama"
+  },
+  {
+    "name": "The Motive",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Moroccan crime thriller"
+  },
+  {
+    "name": "Waiting for August",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Moroccan coming-of-age drama"
+  },
+  {
+    "name": "Boy",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Moroccan street child documentary"
+  },
+  {
+    "name": "A\u00efcha",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Franco-Moroccan immigration drama"
+  },
+  {
+    "name": "A Prophet Foretold",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Tunis religious parable film"
+  },
+  {
+    "name": "Sons of Ramesses",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Egyptian historical documentary"
+  },
+  {
+    "name": "The Wound",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "South African LGBTQ Xhosa culture drama"
+  },
+  {
+    "name": "Life in a Bag",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "South African street child documentary"
+  },
+  {
+    "name": "Ayoba",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "South African LGBTQ coming-of-age"
+  },
+  {
+    "name": "The Reckoning",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "South African Apartheid truth commission"
+  },
+  {
+    "name": "Kalushi: The Story of Solomon Mahlangu",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "South African activist biography"
+  },
+  {
+    "name": "Amandla!",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "South African music apartheid documentary"
+  },
+  {
+    "name": "Chibok Diaries",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Nigerian kidnapping crisis documentary"
+  },
+  {
+    "name": "Eyimofe",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Nigerian couple emigration dream drama"
+  },
+  {
+    "name": "Gangs of Lagos",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Nigerian Netflix gangster series"
+  },
+  {
+    "name": "Uti Ewok",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Nigerian miniseries drama"
+  },
+  {
+    "name": "The Men of Nollywood",
+    "year": 2009,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Nigerian film industry documentary"
+  },
+  {
+    "name": "Story Story",
+    "year": 2013,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Ghanaian storytelling series"
+  },
+  {
+    "name": "Azali",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Ghanaian fishing village drama"
+  },
+  {
+    "name": "Sankofa",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Haile Gerima African diaspora time-travel"
+  },
+  {
+    "name": "Faces of Africa",
+    "year": 2012,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Pan-African documentary series"
+  },
+  {
+    "name": "A Thousand Monkeys",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Kenyan experimental short"
+  },
+  {
+    "name": "Drawn in the Sand",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "East African documentary series"
+  },
+  {
+    "name": "Walal",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Somali-British migration drama"
+  },
+  {
+    "name": "The Hand That Feeds",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Brazilian food documentary"
+  },
+  {
+    "name": "Bras\u00edlia 70",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Brazilian historical miniseries"
+  },
+  {
+    "name": "Favela Rising",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Brazilian favela documentary"
+  },
+  {
+    "name": "La Frontera",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Chilean border drama"
+  },
+  {
+    "name": "The Secret Vote",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Chilean referendum historical drama"
+  },
+  {
+    "name": "Mapocho",
+    "year": 1999,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Chilean political thriller"
+  },
+  {
+    "name": "A Fantastic Woman",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Sebasti\u00e1n Lelio Chilean trans widow drama"
+  },
+  {
+    "name": "Gloria",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Sebasti\u00e1n Lelio Chilean widow independence"
+  },
+  {
+    "name": "Memorias de un Hombre Color Caf\u00e9",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Colombian Netflix miniseries"
+  },
+  {
+    "name": "La Frontera",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Colombian-Venezuelan border drama series"
+  },
+  {
+    "name": "Amores Inesperados",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Colombian romance anthology"
+  },
+  {
+    "name": "La Vida del Cuerpo",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Argentinean body documentary series"
+  },
+  {
+    "name": "Luisito Comunica",
+    "year": 2015,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Mexican vlogger travel series"
+  },
+  {
+    "name": "Vueltas de la Vida",
+    "year": 2015,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Mexican family drama"
+  },
+  {
+    "name": "Sin Senos S\u00ed Hay Para\u00edso",
+    "year": 2010,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Colombian-Spanish drug trafficking drama"
+  },
+  {
+    "name": "Betty la Fea",
+    "year": 1999,
+    "type": "series",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Colombian telenovela phenomenon worldwide"
+  },
+  {
+    "name": "Pasi\u00f3n de Gavilanes",
+    "year": 2003,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Colombian-Spanish revenge telenovela"
+  },
+  {
+    "name": "Yo Soy Betty, la Fea",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Colombian Betty remake film"
+  },
+  {
+    "name": "La Casa de las Flores",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Mexican Netflix family drama"
+  },
+  {
+    "name": "Los Espookys",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "HBO Latin American horror comedy"
+  },
+  {
+    "name": "Aqu\u00ed Entre Nos",
+    "year": 2013,
+    "type": "series",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Mexican friendship comedy series"
+  },
+  {
+    "name": "La Habitaci\u00f3n del Hijo",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "global-south",
+    "why": "Nanni Moretti Italian family Palme d'Or"
+  },
+  {
+    "name": "El \u00c1rbol de la Vida",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Terrence Malick religious family meditation"
+  },
+  {
+    "name": "Chlo\u00e9",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Denis Villeneuve erotic thriller"
+  },
+  {
+    "name": "Incendies",
+    "year": 2010,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "global-south",
+    "why": "Denis Villeneuve Quebecois family tragedy; Cannes"
+  },
+  {
+    "name": "Miele",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Italian-German Valeria Golino care ethics drama"
+  },
+  {
+    "name": "The Age of Poets",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "global-south",
+    "why": "Mexican-French literary drama"
+  },
+  {
+    "name": "Before the Coffee Gets Cold",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "global-south",
+    "why": "Japanese magical realism caf\u00e9 time-travel"
+  }
+]

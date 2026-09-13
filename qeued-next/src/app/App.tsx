@@ -22,6 +22,8 @@ import LandingPage from "@/features/landing/LandingScreen";
 import ExplorePage from "@/features/discover/ExploreScreen";
 import TitleDetailPage from "@/features/title/TitleDetailScreen";
 import PublicTitlePage from "@/features/title/PublicTitleScreen";
+import ListsIndexPage from "@/features/lists/ListsIndexScreen";
+import ListPage from "@/features/lists/ListScreen";
 import GenrePage from "@/features/discover/GenreScreen";
 import ActorPage from "@/features/discover/ActorScreen";
 import NotFound from "@/features/landing/NotFound";
@@ -75,6 +77,8 @@ const App = () => (
             <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
             <Route path="/" element={<HomeRoute />} />
             <Route path="/titles/:slug" element={<PublicTitlePage />} />
+            <Route path="/lists" element={<ListsIndexPage />} />
+            <Route path="/lists/:slug" element={<ListPage />} />
           <Route path="/connect" element={<ConnectPage />} />
           <Route path="/claim/:code" element={<ClaimPage />} />
           <Route path="/agents" element={<ProtectedRoute><AgentsPage /></ProtectedRoute>} />
