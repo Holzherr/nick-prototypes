@@ -1,0 +1,334 @@
+[
+  {
+    "slug": "the-secret-agent-1936",
+    "reason": "A spurious article, and the one that matters: The Secret Agent is Conrad's, filmed in 1996. Hitchcock's is Secret Agent.",
+    "fields": {
+      "name": "Secret Agent"
+    }
+  },
+  {
+    "slug": "the-stick-man-2015",
+    "reason": "A spurious article; the Donaldson adaptation is Stick Man.",
+    "fields": {
+      "name": "Stick Man"
+    }
+  },
+  {
+    "slug": "splendour-in-the-grass-1961",
+    "reason": "Anglicised; the film's title uses the American spelling.",
+    "fields": {
+      "name": "Splendor in the Grass"
+    }
+  },
+  {
+    "slug": "sorry-we-missed-you-2020",
+    "reason": "Cannes competition and UK release were both 2019.",
+    "fields": {
+      "year": 2019
+    }
+  },
+  {
+    "slug": "storm-2011",
+    "reason": "Schmid's Sturm is 2009.",
+    "fields": {
+      "year": 2009
+    }
+  },
+  {
+    "slug": "starship-troopers-1997",
+    "reason": "The page reported 135 minutes; the film runs 129.",
+    "fields": {
+      "runtime_minutes": 129
+    }
+  },
+  {
+    "slug": "the-art-of-selling-books-2019",
+    "reason": "The slug names a different work; the name, cast, director and cited page are all The Art of Self-Defense.",
+    "fields": {
+      "name": "The Art of Self-Defense"
+    }
+  },
+  {
+    "slug": "the-rocking-horse-winner-2022",
+    "reason": "The slug names a different work; every fact is The Boy, the Mole, the Fox and the Horse.",
+    "fields": {
+      "name": "The Boy, the Mole, the Fox and the Horse"
+    }
+  },
+  {
+    "slug": "the-beauty-inside-2015",
+    "reason": "The cast, director and cited page are the 2018 JTBC series, not the 2015 film of the same name.",
+    "fields": {
+      "year": 2018
+    }
+  },
+  {
+    "slug": "the-assassination-of-jesse-james-2007",
+    "reason": "The subtitle was dropped, and it is the half of the title that gives the film its point of view.",
+    "fields": {
+      "name": "The Assassination of Jesse James by the Coward Robert Ford"
+    }
+  },
+  {
+    "slug": "tale-of-nok-du-2019",
+    "reason": "A missing article and a mis-hyphenation; the cited page has it right.",
+    "fields": {
+      "name": "The Tale of Nokdu"
+    }
+  },
+  {
+    "slug": "the-box-of-delights-omnibus-1984",
+    "reason": "Omnibus is a broadcast packaging label, not part of the title.",
+    "fields": {
+      "name": "The Box of Delights"
+    }
+  },
+  {
+    "slug": "the-assistant-2020",
+    "reason": "The page reported 124 minutes; the film runs 87.",
+    "fields": {
+      "runtime_minutes": 87
+    }
+  },
+  {
+    "slug": "tell-me-that-you-love-me-2020",
+    "reason": "The drama aired in 2023.",
+    "fields": {
+      "year": 2023
+    }
+  },
+  {
+    "slug": "the-champions-1965",
+    "reason": "Filmed 1967 and broadcast from 1968.",
+    "fields": {
+      "year": 1968
+    }
+  },
+  {
+    "slug": "the-chef-show-2018",
+    "reason": "Premiered on Netflix in 2019.",
+    "fields": {
+      "year": 2019
+    }
+  },
+  {
+    "slug": "summer-interlude-1950",
+    "reason": "1950 is the production year; it was released in 1951.",
+    "fields": {
+      "year": 1951
+    }
+  },
+  {
+    "slug": "the-black-knight-1954",
+    "reason": "Tagged Western, for an Arthurian adventure.",
+    "fields": {
+      "genres": [
+        "Adventure",
+        "Action"
+      ]
+    }
+  },
+  {
+    "slug": "crash-landing-on-you-season-2-2019",
+    "reason": "The name was left as the romanised Korean, and the slug names a second season the show never had.",
+    "fields": {
+      "name": "Crash Landing on You",
+      "seasons": 1,
+      "episodes": 16
+    }
+  },
+  {
+    "slug": "red-october-1990",
+    "reason": "Half the title was dropped; the cited page has it in full.",
+    "fields": {
+      "name": "The Hunt for Red October"
+    }
+  },
+  {
+    "slug": "regan-and-martins-laugh-in-1968",
+    "reason": "The hosts are Rowan and Martin; the cited page spells it correctly.",
+    "fields": {
+      "name": "Rowan & Martin's Laugh-In"
+    }
+  },
+  {
+    "slug": "rotten-beef-2018",
+    "reason": "A commodity subtitle appended to a series title; the facts are all series-level.",
+    "fields": {
+      "name": "Rotten"
+    }
+  },
+  {
+    "slug": "robocop-2-1990",
+    "reason": "Officially stylised with a capital C.",
+    "fields": {
+      "name": "RoboCop 2"
+    }
+  },
+  {
+    "slug": "robocop-3-1993",
+    "reason": "Officially stylised with a capital C.",
+    "fields": {
+      "name": "RoboCop 3"
+    }
+  },
+  {
+    "slug": "scamanda-2024",
+    "reason": "The ABC docuseries is 2025; the cited page says so.",
+    "fields": {
+      "year": 2025
+    }
+  },
+  {
+    "slug": "profiler-1997",
+    "reason": "Premiered on NBC in September 1996.",
+    "fields": {
+      "year": 1996
+    }
+  },
+  {
+    "slug": "the-great-british-summer-2020",
+    "reason": "The name is invented — no such work. The cast, Elle Fanning and Nicholas Hoult, and the cited page are The Great. A candidate list proposed a title that does not exist and the resolver found it a real page anyway.",
+    "fields": {
+      "name": "The Great"
+    }
+  },
+  {
+    "slug": "the-hand-that-feeds-2021",
+    "reason": "The name is invented. Wong Kar-wai, Gong Li, fifty-six minutes and the cited page are all The Hand, his Eros segment in its standalone release.",
+    "fields": {
+      "name": "The Hand"
+    }
+  },
+  {
+    "slug": "chappell-roan-the-eras-tour-2025",
+    "reason": "The slug names one artist and every fact names another: the cast, director and cited page are Taylor Swift's Eras Tour film.",
+    "fields": {
+      "name": "Taylor Swift | The Eras Tour: The End of an Era"
+    }
+  },
+  {
+    "slug": "darling-buds-of-april-1991",
+    "reason": "April for May, and a missing article.",
+    "fields": {
+      "name": "The Darling Buds of May"
+    }
+  },
+  {
+    "slug": "the-crossing-2015",
+    "reason": "The ABC series first aired in 2018.",
+    "fields": {
+      "year": 2018
+    }
+  },
+  {
+    "slug": "the-dam-busters-1954",
+    "reason": "Released 1955.",
+    "fields": {
+      "year": 1955
+    }
+  },
+  {
+    "slug": "the-demon-headmaster-1999",
+    "reason": "First aired 1996; 1999 is the third series.",
+    "fields": {
+      "year": 1996
+    }
+  },
+  {
+    "slug": "the-fabric-of-the-cosmos-2014",
+    "reason": "The NOVA series aired in 2011, as the cited page says.",
+    "fields": {
+      "year": 2011
+    }
+  },
+  {
+    "slug": "the-grim-adventures-of-billy-and-mandy-1999",
+    "reason": "Began in 2001, as Grim & Evil.",
+    "fields": {
+      "year": 2001
+    }
+  },
+  {
+    "slug": "the-dumping-ground-2015",
+    "reason": "Began 2013, as the cited page says.",
+    "fields": {
+      "year": 2013
+    }
+  },
+  {
+    "slug": "the-detectives-1993",
+    "reason": "The cast is contaminated from the record above it in the batch.",
+    "fields": {
+      "cast_members": [
+        "Jasper Carrott",
+        "Robert Powell"
+      ]
+    }
+  },
+  {
+    "slug": "the-frighteners-1996",
+    "reason": "Tagged Animation.",
+    "fields": {
+      "genres": [
+        "Horror",
+        "Comedy",
+        "Fantasy"
+      ]
+    }
+  },
+  {
+    "slug": "the-meritocracy-trap-2019",
+    "reason": "The Meritocracy Trap is Markovits's book; the cast, director and cited page are the 2019 Korean thriller Trap.",
+    "fields": {
+      "name": "Trap"
+    }
+  },
+  {
+    "slug": "the-kings-avatar-2019",
+    "reason": "The voice cast and Animation genre are the donghua, which began in 2017; 2019 belongs to the live-action drama.",
+    "fields": {
+      "year": 2017
+    }
+  },
+  {
+    "slug": "the-miniaturist-2014",
+    "reason": "2014 is the novel; the BBC series aired December 2017.",
+    "fields": {
+      "year": 2017
+    }
+  },
+  {
+    "slug": "the-navigator-1924",
+    "reason": "The page reported 69 minutes; the Keaton feature runs about 59.",
+    "fields": {
+      "runtime_minutes": 59
+    }
+  },
+  {
+    "slug": "arvingerne-2014",
+    "reason": "Tagged Documentary; The Legacy is a scripted DR drama.",
+    "fields": {
+      "genres": [
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "the-protectors-2009",
+    "reason": "Tagged Comedy; Livvagterne is a straight drama.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "Thriller"
+      ]
+    }
+  },
+  {
+    "slug": "the-man-with-a-movie-camera-1929",
+    "reason": "Mis-capitalised article in the middle of the title.",
+    "fields": {
+      "name": "Man with a Movie Camera"
+    }
+  }
+]
