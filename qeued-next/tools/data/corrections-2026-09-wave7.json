@@ -1,0 +1,128 @@
+[
+  {
+    "slug": "garden-of-words-2013",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Garden of Words"
+    }
+  },
+  {
+    "slug": "life-of-birds-1998",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Life of Birds"
+    }
+  },
+  {
+    "slug": "lying-game-2011",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Lying Game"
+    }
+  },
+  {
+    "slug": "moorside-2017",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Moorside"
+    }
+  },
+  {
+    "slug": "inspector-alleyn-mysteries-1993",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Inspector Alleyn Mysteries"
+    }
+  },
+  {
+    "slug": "matrix-reloaded-2003",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Matrix Reloaded"
+    }
+  },
+  {
+    "slug": "gumball-2011",
+    "reason": "Truncated past the article: Gumball alone is the character, not the title.",
+    "fields": {
+      "name": "The Amazing World of Gumball"
+    }
+  },
+  {
+    "slug": "fyre-the-greatest-party-never-happened-2019",
+    "reason": "A word was dropped from the subtitle.",
+    "fields": {
+      "name": "Fyre: The Greatest Party That Never Happened"
+    }
+  },
+  {
+    "slug": "laventura-1960",
+    "reason": "Misspelled with one v.",
+    "fields": {
+      "name": "L'Avventura"
+    }
+  },
+  {
+    "slug": "license-to-kill-1989",
+    "reason": "The US spelling on a British title; the cited page uses the UK one.",
+    "fields": {
+      "name": "Licence to Kill"
+    }
+  },
+  {
+    "slug": "hypernormalization-2016",
+    "reason": "Curtis's film uses the British spelling and an internal capital.",
+    "fields": {
+      "name": "HyperNormalisation"
+    }
+  },
+  {
+    "slug": "lawman-bass-reeves-2023",
+    "reason": "Singular where the title is plural, and the colon was dropped.",
+    "fields": {
+      "name": "Lawmen: Bass Reeves"
+    }
+  },
+  {
+    "slug": "mary-and-the-witchs-flower-2017",
+    "reason": "The apostrophe was dropped.",
+    "fields": {
+      "name": "Mary and the Witch's Flower"
+    }
+  },
+  {
+    "slug": "mission-impossible-1966",
+    "reason": "The colon was dropped, which is the whole joke of the title.",
+    "fields": {
+      "name": "Mission: Impossible"
+    }
+  },
+  {
+    "slug": "lilja-4-ever-2002",
+    "reason": "Usually catalogued Lilya.",
+    "fields": {
+      "name": "Lilya 4-ever"
+    }
+  },
+  {
+    "slug": "guilt-2014",
+    "reason": "The scraped cast is the Freeform series, which aired in 2016.",
+    "fields": {
+      "year": 2016
+    }
+  },
+  {
+    "slug": "mersey-beat-1998",
+    "reason": "Merseybeat ran from 2001, not 1998.",
+    "fields": {
+      "year": 2001
+    }
+  },
+  {
+    "slug": "love-and-death-2024",
+    "reason": "Love & Death aired in 2023.",
+    "fields": {
+      "year": 2023
+    }
+  }
+]
