@@ -16,6 +16,9 @@ earnest, absurd
 - `earnest` means sincere and unironic, which is a description, not praise.
 - `unsettling` is dread and wrongness; `tense` is suspense you can name the cause of.
 - A comedy that is also sad takes both `funny` and `melancholy`. Don't flatten it.
+- `romantic` is a real tone and belongs on anything where the love story is the engine. It is
+  the *theme* `romance` that does not exist — one round read a warning about the theme as a
+  ban on the tone and left every love story untagged for it.
 
 ## themes — what it is actually about. Pick 2-4.
 family, marriage, parenthood, friendship, coming-of-age, grief, class, politics, war,
@@ -38,6 +41,11 @@ race
 
 ## Your input
 One JSON file: slug, name, year, type, genres, and synopsis (sometimes null).
+
+**Count the output against the input before you finish.** A file that stops early is the
+single most common failure here — it has happened on six separate batches, each time with
+the agent reporting that nothing was missing. Reading the input length and the output length
+and comparing them takes one command and is not optional.
 
 ## Output
 Write ONE JSON array to the output path you are given — no markdown fence, no commentary:
