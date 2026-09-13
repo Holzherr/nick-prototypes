@@ -1,0 +1,407 @@
+[
+  {
+    "slug": "where-is-my-friends-house-1987",
+    "reason": "A spurious My in the name — Kiarostami's film is Where Is the Friend's House? — and the scraped genres say Action for a village drama about a boy returning an exercise book.",
+    "fields": {
+      "name": "Where Is the Friend's House?",
+      "genres": [
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "yumis-cells-2021-2",
+    "reason": "The name was left as the untransliterated Korean while the slug already had the English.",
+    "fields": {
+      "name": "Yumi's Cells"
+    }
+  },
+  {
+    "slug": "xxx-2002",
+    "reason": "Stylised xXx on screen and everywhere else; in capitals it reads as something else entirely and sorts and searches badly.",
+    "fields": {
+      "name": "xXx"
+    }
+  },
+  {
+    "slug": "zindagi-na-milegi-dobara-2011",
+    "reason": "Rated PG; the BBFC classified it 12A.",
+    "fields": {
+      "certification": "12A"
+    }
+  },
+  {
+    "slug": "the-office-uk-2001",
+    "reason": "The UK suffix is a disambiguator that leaked into the name; aligning it lets dedupe see that the catalogue holds this show twice.",
+    "fields": {
+      "name": "The Office"
+    }
+  },
+  {
+    "slug": "cache-hidden-2005",
+    "reason": "The parenthetical English gloss is not how the rest of the catalogue writes a title, and it hides a duplicate of cache-2005.",
+    "fields": {
+      "name": "Caché"
+    }
+  },
+  {
+    "slug": "gomorrah-the-series-2014",
+    "reason": "The series suffix is not part of the title and hides a duplicate.",
+    "fields": {
+      "name": "Gomorrah"
+    }
+  },
+  {
+    "slug": "secrets-lies-1996",
+    "reason": "The conjunction was dropped; Leigh's film is Secrets & Lies.",
+    "fields": {
+      "name": "Secrets & Lies"
+    }
+  },
+  {
+    "slug": "400-blows-1959",
+    "reason": "A missing leading article, which hides a duplicate of the-400-blows-1959.",
+    "fields": {
+      "name": "The 400 Blows"
+    }
+  },
+  {
+    "slug": "worst-person-in-the-world-2021",
+    "reason": "A missing leading article, which hides a duplicate.",
+    "fields": {
+      "name": "The Worst Person in the World"
+    }
+  },
+  {
+    "slug": "big-sleep-1946",
+    "reason": "A missing leading article, which hides a duplicate.",
+    "fields": {
+      "name": "The Big Sleep"
+    }
+  },
+  {
+    "slug": "city-of-sadness-1989",
+    "reason": "A missing leading article, which hides a duplicate.",
+    "fields": {
+      "name": "A City of Sadness"
+    }
+  },
+  {
+    "slug": "nosferatu-the-vampire-1979",
+    "reason": "Herzog's film is Nosferatu the Vampyre; the misspelling hides a duplicate.",
+    "fields": {
+      "name": "Nosferatu the Vampyre"
+    }
+  },
+  {
+    "slug": "eagle-vs-shark-2007",
+    "reason": "The cast belongs to an unrelated film and the director was empty; this is Waititi's first feature.",
+    "fields": {
+      "director": "Taika Waititi",
+      "cast_members": [
+        "Loren Horsley",
+        "Jemaine Clement",
+        "Craig Hall",
+        "Rachel House"
+      ]
+    }
+  },
+  {
+    "slug": "dream-on-1990-2",
+    "reason": "The scraped facts are Amber Films' 1991 British drama, not the HBO sitcom the name and year together suggest.",
+    "fields": {
+      "year": 1991
+    }
+  },
+  {
+    "slug": "hollington-drive-2019",
+    "reason": "The ITV series aired in 2021.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "don-matteo-2000",
+    "reason": "Filed under an anglicised title no British viewer would say; the slug already has the real one.",
+    "fields": {
+      "name": "Don Matteo"
+    }
+  },
+  {
+    "slug": "the-fantastic-four-2005",
+    "reason": "A spurious article — the 2005 film is Fantastic Four; The Fantastic Four is the 2025 reboot, so the article is actively misleading.",
+    "fields": {
+      "name": "Fantastic Four"
+    }
+  },
+  {
+    "slug": "dekalog-1989-2",
+    "reason": "A spurious acute accent; the Polish title has no diacritic.",
+    "fields": {
+      "name": "Dekalog"
+    }
+  },
+  {
+    "slug": "don-2006",
+    "reason": "The subtitle was dropped.",
+    "fields": {
+      "name": "Don: The Chase Begins Again"
+    }
+  },
+  {
+    "slug": "geordie-shore-2011",
+    "reason": "Stored in all capitals.",
+    "fields": {
+      "name": "Geordie Shore",
+      "genres": [
+        "Reality TV"
+      ]
+    }
+  },
+  {
+    "slug": "dil-se-1998",
+    "reason": "Tagged Documentary; it is a Mani Ratnam romance.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "Romance",
+        "Thriller"
+      ]
+    }
+  },
+  {
+    "slug": "enchanted-2007",
+    "reason": "Tagged Documentary, and Animation for a prologue.",
+    "fields": {
+      "genres": [
+        "Fantasy",
+        "Comedy",
+        "Romance"
+      ]
+    }
+  },
+  {
+    "slug": "hellboy-ii-the-golden-army-2008",
+    "reason": "Tagged Documentary.",
+    "fields": {
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Science-Fiction"
+      ]
+    }
+  },
+  {
+    "slug": "picard-2020",
+    "reason": "Nobody calls it just Picard.",
+    "fields": {
+      "name": "Star Trek: Picard"
+    }
+  },
+  {
+    "slug": "scam-1992-2020",
+    "reason": "The subtitle was dropped.",
+    "fields": {
+      "name": "Scam 1992: The Harshad Mehta Story"
+    }
+  },
+  {
+    "slug": "seance-on-a-wet-afternoon-1964",
+    "reason": "The diacritic was dropped.",
+    "fields": {
+      "name": "Séance on a Wet Afternoon"
+    }
+  },
+  {
+    "slug": "ponniyin-selvan-i-2022",
+    "reason": "The page reported 83 minutes; the film runs about 167.",
+    "fields": {
+      "runtime_minutes": 167
+    }
+  },
+  {
+    "slug": "naomi-2020-2",
+    "reason": "The CW series premiered in January 2022.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "reno-911-2000",
+    "reason": "Premiered July 2003.",
+    "fields": {
+      "year": 2003
+    }
+  },
+  {
+    "slug": "scott-pilgrim-takes-off-2024",
+    "reason": "Netflix released it in November 2023.",
+    "fields": {
+      "year": 2023
+    }
+  },
+  {
+    "slug": "remarriage-desires-2021",
+    "reason": "Released July 2022.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "queen-2013",
+    "reason": "A 2013 festival premiere but a 2014 release, which is how it is dated everywhere.",
+    "fields": {
+      "year": 2014
+    }
+  },
+  {
+    "slug": "roadkill-2020",
+    "reason": "Tagged War & Military; it is a Westminster political drama.",
+    "fields": {
+      "genres": [
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "mortal-kombat-1995",
+    "reason": "Tagged Science-Fiction; it is a fantasy martial-arts film.",
+    "fields": {
+      "genres": [
+        "Action",
+        "Fantasy"
+      ]
+    }
+  },
+  {
+    "slug": "mulk-2018",
+    "reason": "Tagged Comedy; it is a courtroom drama about a family accused of terrorism.",
+    "fields": {
+      "genres": [
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "nayakan-1987",
+    "reason": "Tagged Comedy; it is a crime drama.",
+    "fields": {
+      "genres": [
+        "Crime",
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "hulus-ramy-2019",
+    "reason": "A platform prefix that is not part of the title.",
+    "fields": {
+      "name": "Ramy"
+    }
+  },
+  {
+    "slug": "kaguya-sama-love-is-war-season-3-2019",
+    "reason": "The name was left as the raw romanised Japanese.",
+    "fields": {
+      "name": "Kaguya-sama: Love Is War"
+    }
+  },
+  {
+    "slug": "jai-bhim-web-series-2021",
+    "reason": "Jai Bhim Web Series is not a work: same cited page, same runtime and same director as jai-bhim-2021. Aligning the name lets dedupe merge it.",
+    "fields": {
+      "name": "Jai Bhim"
+    }
+  },
+  {
+    "slug": "metropolis-restored-1927",
+    "reason": "A restoration is an edition, not a name.",
+    "fields": {
+      "name": "Metropolis"
+    }
+  },
+  {
+    "slug": "lancelot-du-lac-1974",
+    "reason": "The UK release title, and the slug, are the French one.",
+    "fields": {
+      "name": "Lancelot du Lac"
+    }
+  },
+  {
+    "slug": "la-bete-2024-2",
+    "reason": "Released in the UK as The Beast, and the film is 2023.",
+    "fields": {
+      "name": "The Beast",
+      "year": 2023
+    }
+  },
+  {
+    "slug": "lamhe-1989",
+    "reason": "Lamhe is 1991.",
+    "fields": {
+      "year": 1991
+    }
+  },
+  {
+    "slug": "killer-ratings-2022-2",
+    "reason": "Released 2019; the wrong year is what hides this as a duplicate.",
+    "fields": {
+      "year": 2019
+    }
+  },
+  {
+    "slug": "mercy-2016-2",
+    "reason": "Cornwell's Mercy is 2014; the wrong year is what hides this as a duplicate.",
+    "fields": {
+      "year": 2014
+    }
+  },
+  {
+    "slug": "maya-2026-2",
+    "reason": "Listed as 2025; the wrong year is what hides this as a duplicate.",
+    "fields": {
+      "year": 2025
+    }
+  },
+  {
+    "slug": "matinee-1993",
+    "reason": "Tagged Animation; it is live action.",
+    "fields": {
+      "genres": [
+        "Comedy",
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "kahaani-2012",
+    "reason": "Tagged Comedy; it is a thriller.",
+    "fields": {
+      "genres": [
+        "Thriller",
+        "Mystery",
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "merlin-2008",
+    "reason": "Tagged Science-Fiction; it is fantasy.",
+    "fields": {
+      "genres": [
+        "Fantasy",
+        "Adventure",
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "made-in-chelsea-2011",
+    "reason": "Tagged Documentary and Drama; it is structured reality.",
+    "fields": {
+      "genres": [
+        "Reality TV"
+      ]
+    }
+  }
+]
