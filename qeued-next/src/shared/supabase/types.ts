@@ -578,6 +578,81 @@ export type Database = {
           },
         ]
       }
+      title_lists: {
+        Row: {
+          blurb: string | null
+          created_at: string
+          facet: string | null
+          id: string
+          kind: string
+          name: string
+          position: number
+          published: boolean
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          blurb?: string | null
+          created_at?: string
+          facet?: string | null
+          id?: string
+          kind: string
+          name: string
+          position?: number
+          published?: boolean
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          blurb?: string | null
+          created_at?: string
+          facet?: string | null
+          id?: string
+          kind?: string
+          name?: string
+          position?: number
+          published?: boolean
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      title_list_entries: {
+        Row: {
+          list_id: string
+          note: string | null
+          position: number
+          title_id: string
+        }
+        Insert: {
+          list_id: string
+          note?: string | null
+          position: number
+          title_id: string
+        }
+        Update: {
+          list_id?: string
+          note?: string | null
+          position?: number
+          title_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "title_list_entries_list_id_fkey"
+            columns: ["list_id"]
+            isOneToOne: false
+            referencedRelation: "title_lists"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "title_list_entries_title_id_fkey"
+            columns: ["title_id"]
+            isOneToOne: false
+            referencedRelation: "titles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       title_sources: {
         Row: {
           field: string

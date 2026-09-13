@@ -129,6 +129,64 @@ const page = (shell, title, stats) => {
     .replace('</body>', `  <noscript>\n      ${body}\n    </noscript>\n  </body>`);
 };
 
+/** The shell with our head block spliced in, and the static copy tucked into noscript. */
+const staticPage = (shell, { title, description, canonical, body }) => {
+  const head = [
+    `<title>${escape(title)}</title>`,
+    `<meta name="description" content="${escape(description)}">`,
+    `<link rel="canonical" href="${escape(canonical)}">`,
+    `<meta property="og:title" content="${escape(title)}">`,
+    `<meta property="og:description" content="${escape(description)}">`,
+  ].join('\n    ');
+  return shell
+    .replace(/<title>[\s\S]*?<\/title>/, head)
+    .replace('</body>', `  <noscript>\n      ${body}\n    </noscript>\n  </body>`);
+};
+
+/**
+ * A list as static markup. The order is the claim the page makes, so it is numbered in the
+ * HTML rather than left to CSS — anything reading this without JavaScript should still see
+ * the ranking and be able to follow it.
+ */
+const listPage = (shell, list, entries) => {
+  const body = [
+    `<h1>${escape(list.name)}</h1>`,
+    list.blurb ? `<p>${escape(list.blurb)}</p>` : '',
+    '<ol>',
+    ...entries.map((entry) => {
+      const held = entry.titles;
+      if (!held) return '';
+      const year = held.year ? ` (${held.year})` : '';
+      const note = entry.note ? ` — ${escape(entry.note)}` : '';
+      return `<li><a href="/titles/${escape(held.slug)}">${escape(held.name + year)}</a>${note}</li>`;
+    }).filter(Boolean),
+    '</ol>',
+  ].filter(Boolean).join('\n      ');
+  return staticPage(shell, {
+    title: `${list.name} — Qeued`,
+    description: list.blurb ?? `${entries.length} titles, in order.`,
+    canonical: `${SITE}/lists/${list.slug}`,
+    body,
+  });
+};
+
+/** The index of lists. */
+const listsIndexPage = (shell, lists) => {
+  const body = [
+    '<h1>Lists</h1>',
+    '<p>The catalogue arranged by judgement rather than by query.</p>',
+    '<ul>',
+    ...lists.map((l) => `<li><a href="/lists/${escape(l.slug)}">${escape(l.name)}</a>${l.blurb ? ` — ${escape(l.blurb)}` : ''}</li>`),
+    '</ul>',
+  ].join('\n      ');
+  return staticPage(shell, {
+    title: 'Lists — Qeued',
+    description: "Qeued's own lists: the best of each year, each decade and each kind.",
+    canonical: `${SITE}/lists`,
+    body,
+  });
+};
+
 const run = async () => {
   if (!KEY) throw new Error('Missing SUPABASE_ANON_KEY');
   const shell = await readFile(join(DIST, 'index.html'), 'utf8');
@@ -186,9 +244,34 @@ const run = async () => {
     await writeFile(join(dir, 'index.html'), page(shell, title, stats.get(title.id)));
   }
 
+  // Lists are the browsing surface, so they need to be crawlable for the same reason the
+  // titles do: a client-rendered page is an empty shell to anything that is not a browser.
+  const lists = await rest('title_lists?select=id,slug,name,blurb,kind,facet&published=is.true&order=position.asc&limit=500');
+  const listEntries = new Map();
+  for (let from = 0; ; from += 1000) {
+    const rows = await rest(`title_list_entries?select=list_id,position,note,titles(slug,name,year,type)&order=list_id.asc,position.asc&offset=${from}&limit=1000`);
+    for (const row of rows) {
+      if (!listEntries.has(row.list_id)) listEntries.set(row.list_id, []);
+      listEntries.get(row.list_id).push(row);
+    }
+    if (rows.length < 1000) break;
+  }
+
+  for (const list of lists) {
+    const dir = join(DIST, 'lists', list.slug);
+    await mkdir(dir, { recursive: true });
+    await writeFile(join(dir, 'index.html'), listPage(shell, list, listEntries.get(list.id) ?? []));
+  }
+  if (lists.length) {
+    await mkdir(join(DIST, 'lists'), { recursive: true });
+    await writeFile(join(DIST, 'lists', 'index.html'), listsIndexPage(shell, lists));
+  }
+
   const urls = [
     `${SITE}/`,
     `${SITE}/agents`,
+    ...(lists.length ? [`${SITE}/lists`] : []),
+    ...lists.map((l) => `${SITE}/lists/${l.slug}`),
     ...titles.filter((t) => t.slug).map((t) => `${SITE}/titles/${t.slug}`),
   ];
   await writeFile(
