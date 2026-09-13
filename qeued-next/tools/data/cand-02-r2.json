@@ -1,0 +1,1362 @@
+[
+  {
+    "name": "Black Narcissus",
+    "year": 1946,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Powell & Pressburger; Technicolor masterpiece, BAFTA winner"
+  },
+  {
+    "name": "The Thief of Bagdad",
+    "year": 1940,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Powell & Pressburger; Technicolor fantasy, influential classic"
+  },
+  {
+    "name": "The 49th Parallel",
+    "year": 1941,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Powell & Pressburger; wartime thriller, Oscar-nominated"
+  },
+  {
+    "name": "A Canterbury Tale",
+    "year": 1944,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Powell & Pressburger; wartime fantasy, Criterion"
+  },
+  {
+    "name": "The Life and Death of Colonel Blimp",
+    "year": 1943,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Powell & Pressburger; epic romantic drama, career landmark"
+  },
+  {
+    "name": "Dead of Night",
+    "year": 1945,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Ealing omnibus horror; landmark British horror film"
+  },
+  {
+    "name": "Hue and Cry",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Charles Crichton; Ealing comedy-thriller, post-war London"
+  },
+  {
+    "name": "The Captive Heart",
+    "year": 1946,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Basil Dearden; POW drama, strong ensemble cast"
+  },
+  {
+    "name": "Rope",
+    "year": 1948,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Hitchcock; real-time thriller, technical innovator"
+  },
+  {
+    "name": "Under Capricorn",
+    "year": 1949,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Hitchcock; Sydney setting, Bergman, pioneering Technicolor"
+  },
+  {
+    "name": "Passport to Pimlico",
+    "year": 1949,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Henry Cornelius; Ealing classic, post-war whimsy"
+  },
+  {
+    "name": "Whisky Galore!",
+    "year": 1949,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Alexander Mackendrick; Ealing gem, Scottish island comedy"
+  },
+  {
+    "name": "The Blue Lamp",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Basil Dearden; police procedural, launched Dixon of Dock Green"
+  },
+  {
+    "name": "The Lavender Hill Mob",
+    "year": 1951,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Charles Crichton; Ealing caper, Oscar-winning Alec Guinness"
+  },
+  {
+    "name": "Genevieve",
+    "year": 1953,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Henry Cornelius; Brighton rally, witty Ealing charm"
+  },
+  {
+    "name": "The Cruel Sea",
+    "year": 1953,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Charles Frend; naval drama, BAFTA winner, Jack Hawkins"
+  },
+  {
+    "name": "The Bridge on the River Kwai",
+    "year": 1957,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "David Lean; epic WWII, Oscar winner, iconic whistling theme"
+  },
+  {
+    "name": "A Tale of Two Cities",
+    "year": 1958,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Ralph Thomas; Dickens adaptation, Dirk Bogarde"
+  },
+  {
+    "name": "The Entertainer",
+    "year": 1960,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Tony Richardson; Osborne play, Olivier's final film role"
+  },
+  {
+    "name": "Saturday Night and Sunday Morning",
+    "year": 1960,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Karel Reisz; kitchen-sink landmark, Nottingham working class"
+  },
+  {
+    "name": "Victim",
+    "year": 1961,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Basil Dearden; groundbreaking gay blackmail thriller"
+  },
+  {
+    "name": "Whistle Down the Wind",
+    "year": 1961,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Bryan Forbes; children & mystery, Hayley Mills"
+  },
+  {
+    "name": "A Taste of Honey",
+    "year": 1961,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Tony Richardson; Delaney play, black-and-white kitchen-sink"
+  },
+  {
+    "name": "The Loneliness of the Long Distance Runner",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Tony Richardson; Sillitoe; working-class anger, reformatory"
+  },
+  {
+    "name": "A Kind of Loving",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "John Schlesinger; kitchen sink, northern romance"
+  },
+  {
+    "name": "The Servant",
+    "year": 1963,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Joseph Losey; Pinter script, class & power, Dirk Bogarde"
+  },
+  {
+    "name": "Girl with Green Eyes",
+    "year": 1964,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Desmond Davis; Dublin setting, Seberg & McDowell"
+  },
+  {
+    "name": "Darling",
+    "year": 1965,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "John Schlesinger; Julie Christie Oscar, 1960s London vanguard"
+  },
+  {
+    "name": "The Spy Who Came in from the Cold",
+    "year": 1965,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Martin Ritt; Le Carré Cold War, gritty spy craft"
+  },
+  {
+    "name": "Repulsion",
+    "year": 1965,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Polanski's British debut; psychological horror, Deneuve alone"
+  },
+  {
+    "name": "Alfie",
+    "year": 1966,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Lewis Gilbert; Caine's womaniser, swinging London"
+  },
+  {
+    "name": "Blow-Up",
+    "year": 1966,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Antonioni; London's scene, mystery & modernity"
+  },
+  {
+    "name": "The Blue Max",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "John Guillermin; WWI flying film, Peck & Sands"
+  },
+  {
+    "name": "Funeral in Berlin",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Guy Hamilton; spy spoof, Caine returns"
+  },
+  {
+    "name": "Poor Cow",
+    "year": 1967,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Ken Loach's debut; London poverty, realist"
+  },
+  {
+    "name": "The Family Way",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Roy Boulting; working-class newlyweds, Hywel Bennett debut"
+  },
+  {
+    "name": "Far from the Madding Crowd",
+    "year": 1967,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "John Schlesinger; Hardy, Finch & Christie, pastoral epic"
+  },
+  {
+    "name": "Prick Up Your Ears",
+    "year": 1987,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Stephen Frears; Orton biography, Gary Oldman triumphant"
+  },
+  {
+    "name": "Billy Liar",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "John Schlesinger; Hall's escape fantasy, Bradford provincial"
+  },
+  {
+    "name": "Get Carter",
+    "year": 1971,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Mike Hodges; Caine Newcastle noir, cult classic"
+  },
+  {
+    "name": "Straw Dogs",
+    "year": 1971,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Sam Peckinpah; Dustin Hoffman under siege, controversial"
+  },
+  {
+    "name": "The Go-Between",
+    "year": 1971,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Joseph Losey; Hartley Edwardian, Bogarde & Redgrave"
+  },
+  {
+    "name": "Walkabout",
+    "year": 1971,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Nicolas Roeg; Aboriginal Australia, visual poetry"
+  },
+  {
+    "name": "The Wicker Man",
+    "year": 1973,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Robin Hardy; occult thriller, Scottish island, landmark horror"
+  },
+  {
+    "name": "Don't Look Now",
+    "year": 1973,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Nicolas Roeg; Venice thriller, Sutherland & Christie, iconic"
+  },
+  {
+    "name": "The Man Who Fell to Earth",
+    "year": 1976,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Nicolas Roeg; Bowie sci-fi, visionary & cryptic"
+  },
+  {
+    "name": "Barry Lyndon",
+    "year": 1975,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Kubrick's Thackeray; candlelit tableaux, 18th-century master"
+  },
+  {
+    "name": "Tommy",
+    "year": 1975,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Ken Russell; The Who rock opera, Daltrey blind deaf dumb"
+  },
+  {
+    "name": "The Long Good Friday",
+    "year": 1980,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "John Mackenzie; Bob Hoskins gangster, Thames noir"
+  },
+  {
+    "name": "Rogue Male",
+    "year": 1976,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Clive Donner; Peter O'Toole on the run, Cold War thriller"
+  },
+  {
+    "name": "The Elephant Man",
+    "year": 1980,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "David Lynch; Merrick deformity, Victorian London tragedy"
+  },
+  {
+    "name": "Excalibur",
+    "year": 1981,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "John Boorman; Arthur legend, medieval operatic"
+  },
+  {
+    "name": "Mona Lisa",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Neil Jordan; Bob Hoskins Dora, London underworld"
+  },
+  {
+    "name": "My Beautiful Laundrette",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Stephen Frears; Hanif & Daniel Day-Lewis, Pakistani-British love"
+  },
+  {
+    "name": "Letter to Brezhnev",
+    "year": 1985,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Chris Bernard; Liverpool & Moscow, young female friendship"
+  },
+  {
+    "name": "Clockwise",
+    "year": 1986,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Christopher Morahan; John Cleese time travails, slapstick"
+  },
+  {
+    "name": "My Left Foot",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Jim Sheridan; Irish disability triumph, Day-Lewis Oscar"
+  },
+  {
+    "name": "The Crying Game",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Neil Jordan; IRA gender twist, Stephen Rea"
+  },
+  {
+    "name": "In the Name of the Father",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Jim Sheridan; Irish justice miscarriage, Neeson & Fiennes"
+  },
+  {
+    "name": "The Snapper",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Stephen Frears; Dublin teenage pregnancy, warm Doyle"
+  },
+  {
+    "name": "The Commitments",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Alan Parker; Dublin soul band, Doyle characters alive"
+  },
+  {
+    "name": "Michael Collins",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Neil Jordan; Irish independence, Neeson & Kilmer clash"
+  },
+  {
+    "name": "Some Mother's Son",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Terry George; Irish hunger strike, Fiona Shaw maternal"
+  },
+  {
+    "name": "I Went Down",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Paddy Breathnach; Irish crime comedy, Gleeson brothers"
+  },
+  {
+    "name": "The Boxer",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Jim Sheridan; Irish reconciliation, Day-Lewis returns"
+  },
+  {
+    "name": "Sense and Sensibility",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Ang Lee; Emma Thompson Austen, English countryside"
+  },
+  {
+    "name": "Nil by Mouth",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Gary Oldman's directorial; South London family violence, raw"
+  },
+  {
+    "name": "The Acid House",
+    "year": 1998,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Paul McGuigan; Irvine Welsh trio, Edinburgh rave culture"
+  },
+  {
+    "name": "Elizabeth",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Shekhar Kapur; Tudor intrigue, Cate Blanchett regal"
+  },
+  {
+    "name": "Lock, Stock and Two Smoking Barrels",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Guy Ritchie's debut; London gangsters interwoven"
+  },
+  {
+    "name": "The Full Monty",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Peter Cattaneo; Sheffield unemployment strip, feel-good"
+  },
+  {
+    "name": "Orphans",
+    "year": 1997,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Peter Mullan; Glasgow boys after funeral, naturalistic"
+  },
+  {
+    "name": "Ratcatcher",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Lynne Ramsay's debut; Glasgow boy poverty, poetic realism"
+  },
+  {
+    "name": "Notting Hill",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Roger Michell; Julia Roberts & Hugh Grant, London romance"
+  },
+  {
+    "name": "Filth",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Jon S. Baird; James McAvoy corrupt cop, Edinburgh decay"
+  },
+  {
+    "name": "Red Road",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Lynne Ramsay; surveillance obsession, Tilda Swinton haunted"
+  },
+  {
+    "name": "28 Days Later",
+    "year": 2002,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Danny Boyle; zombie outbreak, post-9/11 dread"
+  },
+  {
+    "name": "The Magdalene Sisters",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Peter Mullan; Irish convent horror, institutional abuse"
+  },
+  {
+    "name": "In the Loop",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Armando Iannucci; The Thick of It film, political farce"
+  },
+  {
+    "name": "Four Lions",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Chris Morris; Bradford jihadists dark comedy, satire"
+  },
+  {
+    "name": "This Is England",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Shane Meadows; 1980s skinhead, Lol's coming-of-age"
+  },
+  {
+    "name": "Hunger",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Steve McQueen's debut; IRA hunger strike, visual essays"
+  },
+  {
+    "name": "Fish Tank",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Andrea Arnold; London estate dancing girl, Fassbender menace"
+  },
+  {
+    "name": "Ondine",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Neil Jordan; Irish fishing mystery, Colin Farrell & SaoirseRonan"
+  },
+  {
+    "name": "The Guard",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "John Michael McDonagh; Irish rural cop, Gleeson & Fiennes"
+  },
+  {
+    "name": "Philomena",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Stephen Frears; Irish mother child separation, Mirren & Coogan"
+  },
+  {
+    "name": "Under the Skin",
+    "year": 2013,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Jonathan Glazer; Scarlett Johansson predator, haunting sci-fi"
+  },
+  {
+    "name": "The Imitation Game",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Morten Tyldum; Alan Turing Enigma, Cumberbatch honour"
+  },
+  {
+    "name": "Trainspotting 2",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Danny Boyle; sequel reunion, Edinburgh addicts 20 years on"
+  },
+  {
+    "name": "You Were Never Really Here",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Lynne Ramsay; Joaquin Phoenix vigilante, fragmented trauma"
+  },
+  {
+    "name": "The Death of Stalin",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Armando Iannucci; Soviet succession dark comedy, Buscemi"
+  },
+  {
+    "name": "Moonlight",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Barry Jenkins; Miami Black identity, Oscar Best Picture"
+  },
+  {
+    "name": "Brooklyn",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "John Crowley; Irish immigrant 1950s Brooklyn, Ronan nostalgic"
+  },
+  {
+    "name": "Pride",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Matthew Warchus; 1984 miners & gays, Welsh coalfield"
+  },
+  {
+    "name": "The Imitation Game",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Morten Tyldum; Turing Enigma, Cumberbatch genius"
+  },
+  {
+    "name": "Starred Up",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "David Mackenzie; prison violence son father, raw violence"
+  },
+  {
+    "name": "The Lesson",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Stuart Urban; Chekhov adaptation, Edinburgh Festival provenance"
+  },
+  {
+    "name": "Macbeth",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Justin Kurzel; Fassbender's Scottish tragedy, brutal medieval"
+  },
+  {
+    "name": "T2: Trainspotting",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Danny Boyle; Edinburgh sequel, McGregor reunion nostalgia"
+  },
+  {
+    "name": "A Prayer Before Dawn",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Jean-Stéphane Sauvaire; Ewan McGregor boxer Thailand, visceralboxing"
+  },
+  {
+    "name": "You Were Never Really Here",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Lynne Ramsay; Joaquin Phoenix trauma, fragmented reality"
+  },
+  {
+    "name": "Sunset Song",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Terence Davies; Scottish wartime romance, Kirsten Dunst"
+  },
+  {
+    "name": "Cemetery Junction",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Ricky Gervais & Stephen Merchant; 1970s Reading, comedy-drama"
+  },
+  {
+    "name": "Dream Home",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Ho-Cheung Pang; Hong Kong murder spree, visceral slasher"
+  },
+  {
+    "name": "Attack the Block",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Joe Cornish; London council estate aliens, teen sci-fi"
+  },
+  {
+    "name": "Sightseers",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Ben Wheatley; caravanners killing spree, dark comedy"
+  },
+  {
+    "name": "Sunshine on Leith",
+    "year": 2013,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Dexter Fletcher; Edinburgh soldiers musical, Proclaimers"
+  },
+  {
+    "name": "The Selfish Giant",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Clio Barnard; Birmingham boys scrap metal, Wilde adaptation"
+  },
+  {
+    "name": "Appropriate",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Lena Dunham; Southern estate family crisis, Timothée Chalamet"
+  },
+  {
+    "name": "The Killing of the Sacred Deer",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Yorgos Lanthimos; surgeon retribution, Greek mythology modern"
+  },
+  {
+    "name": "Aftersun",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Charlotte Wells; father-daughter Turkey trip, memory fragments"
+  },
+  {
+    "name": "Close",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Lukas Dhont; boy friendship breakdown, Belgian trauma"
+  },
+  {
+    "name": "Blue Jean",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Georgia Oakley; 1980s PE teacher closet, homophobia Britain"
+  },
+  {
+    "name": "My Left Foot",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Jim Sheridan; Irish disability triumph, Day-Lewis Oscar"
+  },
+  {
+    "name": "The Vanishing",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "George Sluizer; Dutch obsession mystery, psychological terror"
+  },
+  {
+    "name": "Orlando",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Sally Potter; Woolf gender-bending 400 years, Tilda Swinton"
+  },
+  {
+    "name": "The Piano",
+    "year": 1993,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Jane Campion; New Zealand silence passion, Holly Hunter Oscar"
+  },
+  {
+    "name": "Naked",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Mike Leigh; London intellectual vagrant, Thewlis howling"
+  },
+  {
+    "name": "Breaking the Waves",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Lars von Trier; Scottish oil-rig sacrifice, Emily Watson saintly"
+  },
+  {
+    "name": "Dance, Girl, Dance",
+    "year": 1940,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Dorothy Arzner; chorus girls ambition, proto-feminist"
+  },
+  {
+    "name": "Death on the Nile",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Guy Hamilton; Agatha Christie Egypt, Ustinov Poirot"
+  },
+  {
+    "name": "Evil Under the Sun",
+    "year": 1982,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Guy Hamilton; Christie Greek island, Ustinov & Roddy McDowall"
+  },
+  {
+    "name": "The Little Stranger",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Jack Clayton; post-war house unease, Domhnall Gleeson"
+  },
+  {
+    "name": "Another Year",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Mike Leigh; married couple seasons, comic suburban observation"
+  },
+  {
+    "name": "The Guard",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "John Michael McDonagh; Irish cop-buddy wit, Gleeson & Fiennes"
+  },
+  {
+    "name": "I Daniel Blake",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Ken Loach; Newcastle welfare system, Palme d'Or winner"
+  },
+  {
+    "name": "Kes",
+    "year": 1969,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Ken Loach; Yorkshire lad hawk-boy, working-class poetry"
+  },
+  {
+    "name": "Poor Cow",
+    "year": 1967,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Ken Loach's debut; London mother struggle, social realism"
+  },
+  {
+    "name": "Ladybird Ladybird",
+    "year": 1994,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Ken Loach; council estate mother children, Crissy Rock raw"
+  },
+  {
+    "name": "Raining Stones",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Ken Loach; Manchester unemployment, Jim Broadbent"
+  },
+  {
+    "name": "The Wind That Shakes the Barley",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Ken Loach; Irish independence war, Palme d'Or brothers"
+  },
+  {
+    "name": "Looking for Eric",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Ken Loach; Manchester postman football dreamer, lighthearted"
+  },
+  {
+    "name": "Secrets & Lies",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Mike Leigh; racial secret family reunion, Brenda Blethyn"
+  },
+  {
+    "name": "Career Girls",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Mike Leigh; past-present friendship London, nostalgic discovery"
+  },
+  {
+    "name": "Vera Drake",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Mike Leigh; 1950s abortionist, Imelda Staunton tragic"
+  },
+  {
+    "name": "All or Nothing",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Mike Leigh; South London family crisis, working-class saga"
+  },
+  {
+    "name": "Topsy-Turvy",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Mike Leigh; Gilbert & Sullivan Mikado creation, musical delight"
+  },
+  {
+    "name": "High Hopes",
+    "year": 1988,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Mike Leigh; 1980s London squatter family, thatcher-era clash"
+  },
+  {
+    "name": "The Bitter Lake",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Adam Curtis BBC film; geopolitics history & conspiracy"
+  },
+  {
+    "name": "Nope",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Jordan Peele; California ranch UFO horror, visual spectacle"
+  },
+  {
+    "name": "Submarine",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Richard Ayoade's directorial; Welsh teenager romance, deadpan"
+  },
+  {
+    "name": "The Lobster",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Yorgos Lanthimos; singletons turned animals, absurdist dystopia"
+  },
+  {
+    "name": "Calvary",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "John Michael McDonagh; Irish priest confession murder threat"
+  },
+  {
+    "name": "The Banshees of Inisherin",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Martin McDonagh; Irish island friendship ending, Gleeson & Farrell"
+  },
+  {
+    "name": "In Bruges",
+    "year": 2008,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "Martin McDonagh's debut; hitmen Medieval Bruges, dark comedy"
+  },
+  {
+    "name": "Three Billboards Outside Ebbing, Missouri",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Martin McDonagh; mother justice billboards, Frances McDormand"
+  },
+  {
+    "name": "Seven Psychopaths",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Martin McDonagh; LA screenplay men killers, Colin Farrell"
+  },
+  {
+    "name": "The Witch",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Robert Eggers; 1600s New England witch terror, atmospheric"
+  },
+  {
+    "name": "The 5th Element",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Luc Besson; sci-fi opera Korben Dallas, Paris spectacular"
+  },
+  {
+    "name": "Hammer Film Productions",
+    "year": 1958,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "The Curse of Frankenstein; Hammer Horror studio landmark"
+  },
+  {
+    "name": "The Hammer Horror Collection",
+    "year": 1958,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "The Mummy; Hammer gothic terror, Cushing & Lee dynasty"
+  },
+  {
+    "name": "Captain Kronos – Vampire Hunter",
+    "year": 1972,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Brian Clemens; Hammer swashbuckle vampire, cult kinetic"
+  },
+  {
+    "name": "The Vampire Lovers",
+    "year": 1970,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Roy Ward Baker; Hammer lesbian vampire, Sheridan Le Fanu"
+  },
+  {
+    "name": "The Blood Beast Terror",
+    "year": 1968,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Vernon Sewell; Hammer moth creature, obscure cult"
+  },
+  {
+    "name": "Dance with a Stranger",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Mike Newell; Ruth Ellis execution, Miranda Richardson"
+  },
+  {
+    "name": "The Remains of the Day",
+    "year": 1993,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "James Ivory; Ishiguro butler repression, Hopkins Merchant"
+  },
+  {
+    "name": "Shadowlands",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Richard Attenborough; C.S. Lewis love, Hopkins & Winger"
+  },
+  {
+    "name": "A Room with a View",
+    "year": 1985,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "James Ivory; Forster Italy romance, Bonham-Carter & Day-Lewis"
+  },
+  {
+    "name": "Maurice",
+    "year": 1987,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "James Ivory; Forster homosexual Edwardian, Wilby & Hearst"
+  },
+  {
+    "name": "Howards End",
+    "year": 1992,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "James Ivory; Forster inheritance class, Emma Thompson Oscar"
+  },
+  {
+    "name": "The Jewel in the Crown",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Granada drama-series; Scott's Raj epic, television quality"
+  },
+  {
+    "name": "The Death of Stalin",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Armando Iannucci; Soviet satire power vacuum, Buscemi leader"
+  },
+  {
+    "name": "I'm Thinking of Ending Things",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Charlie Kaufman; relationship abstraction, Chained choreography"
+  },
+  {
+    "name": "Synecdoche, New York",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Charlie Kaufman; theatre-life metafiction, Hoffman existential"
+  },
+  {
+    "name": "The Straight Story",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "David Lynch; Iowa farmer lawnmower pilgrimage, gentle Lynch"
+  },
+  {
+    "name": "Mulholland Drive",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-uk",
+    "why": "David Lynch; LA noir labyrinth, identity fractured"
+  },
+  {
+    "name": "The Killing",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-uk",
+    "why": "Søren Sveistrup; Danish noir detective serial, atmospheric"
+  },
+  {
+    "name": "The Bridge",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Bron/Broen Danish-Swedish border bodies, dark Scandinavian"
+  },
+  {
+    "name": "Notes on Blindness",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-uk",
+    "why": "Peter Middleton & James Spinney; John Hull darkness, poetic"
+  },
+  {
+    "name": "I Am Not Your Negro",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-uk",
+    "why": "Raoul Peck; Baldwin essay racism, incisive documentary"
+  }
+]

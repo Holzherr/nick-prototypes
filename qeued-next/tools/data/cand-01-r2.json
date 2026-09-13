@@ -1,0 +1,1442 @@
+[
+  {
+    "name": "Lady Vengeance",
+    "year": 2005,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Woman revenge cycle corruption"
+  },
+  {
+    "name": "Nobody Knows",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Abandoned children Tokyo survival"
+  },
+  {
+    "name": "Schindlers List",
+    "year": 1993,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Holocaust industrialist moral reckoning"
+  },
+  {
+    "name": "City of Sadness",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Post-WWII Taiwan family history"
+  },
+  {
+    "name": "Terrorizers",
+    "year": 1986,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Crime interconnection modern Taipei"
+  },
+  {
+    "name": "Paris Texas",
+    "year": 1984,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Man return desert family secrets"
+  },
+  {
+    "name": "Fanny and Alexander",
+    "year": 1982,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Children authoritarian household love wins"
+  },
+  {
+    "name": "The Elephant Man",
+    "year": 1980,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Victorian freak sideshow beauty tragedy"
+  },
+  {
+    "name": "Nosferatu the Vampire",
+    "year": 1979,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Dracula plague obsession"
+  },
+  {
+    "name": "The Passenger",
+    "year": 1975,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Journalist body swap identity"
+  },
+  {
+    "name": "A Woman Under the Influence",
+    "year": 1974,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Mental illness marriage family"
+  },
+  {
+    "name": "Ali Fear Eats the Soul",
+    "year": 1974,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Woman man Moroccan racism"
+  },
+  {
+    "name": "MASH",
+    "year": 1970,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Korean War dark comedy anti-war"
+  },
+  {
+    "name": "Women in Love",
+    "year": 1969,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Lawrence adaptation desire friendship"
+  },
+  {
+    "name": "The Wild Bunch",
+    "year": 1969,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Aging outlaws Mexican violence"
+  },
+  {
+    "name": "High and Low",
+    "year": 1963,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Kidnapping thriller class critique"
+  },
+  {
+    "name": "Yojimbo",
+    "year": 1961,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Hired sword plays sides cynically"
+  },
+  {
+    "name": "The Virgin Spring",
+    "year": 1960,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Medieval rape-revenge visceral tragedy"
+  },
+  {
+    "name": "Peeping Tom",
+    "year": 1960,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Cameraman murder voyeurism"
+  },
+  {
+    "name": "Anatomy of a Murder",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Rape trial justice Northern"
+  },
+  {
+    "name": "The Hidden Fortress",
+    "year": 1958,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Picaresque adventure genre-defining"
+  },
+  {
+    "name": "Witness for the Prosecution",
+    "year": 1957,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Murder trial wife deception"
+  },
+  {
+    "name": "Throne of Blood",
+    "year": 1957,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Macbeth reimagined feudal Japan"
+  },
+  {
+    "name": "Sabrina",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Chauffeurs daughter brothers romance"
+  },
+  {
+    "name": "Sansho the Bailiff",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Slave family separation redemption"
+  },
+  {
+    "name": "La Strada",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Strongman circus girl love tragedy"
+  },
+  {
+    "name": "Dial M for Murder",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Husband plots murder perfect plan fails"
+  },
+  {
+    "name": "Madame de...",
+    "year": 1953,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Earrings couple marriage game"
+  },
+  {
+    "name": "Ugetsu",
+    "year": 1953,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "War greed woman ghost"
+  },
+  {
+    "name": "Monsieur Hulots Holiday",
+    "year": 1953,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Accident-prone beach vacation"
+  },
+  {
+    "name": "Ace in the Hole",
+    "year": 1951,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Reporter cave man exploitation"
+  },
+  {
+    "name": "La Ronde",
+    "year": 1950,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Carousel affair interconnection"
+  },
+  {
+    "name": "Letter from an Unknown Woman",
+    "year": 1948,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Woman secret love sacrifice"
+  },
+  {
+    "name": "Great Expectations",
+    "year": 1946,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Dickens orphan gentleman love"
+  },
+  {
+    "name": "Big Sleep",
+    "year": 1946,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Chandler detective mystery romance"
+  },
+  {
+    "name": "Black Narcissus",
+    "year": 1946,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "auteurs",
+    "why": "Nuns Himalayan isolation temptation"
+  },
+  {
+    "name": "Decision to Leave",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Widow detective obsession mystery"
+  },
+  {
+    "name": "The Northman",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Viking revenge Iceland Norse"
+  },
+  {
+    "name": "You Were Never Really Here",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Vigilante sex-trafficking PTSD"
+  },
+  {
+    "name": "Certain Women",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Women Montana interconnection"
+  },
+  {
+    "name": "I Daniel Blake",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Jobless man welfare bureaucracy"
+  },
+  {
+    "name": "Our Little Sister",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Orphan girl three sisters familial"
+  },
+  {
+    "name": "The Assassin",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Tang dynasty revenge honor"
+  },
+  {
+    "name": "Before Midnight",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Lovers Greece marriage conflict"
+  },
+  {
+    "name": "The Past",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Woman second marriage complicated"
+  },
+  {
+    "name": "Lincoln",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "President civil war political compromise"
+  },
+  {
+    "name": "The Skin I Live In",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Surgeon obsession body remake psychodrama"
+  },
+  {
+    "name": "We Need to Talk About Kevin",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Mother son mass murder trauma"
+  },
+  {
+    "name": "The Girl with the Dragon Tattoo",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Swedish noir hacker journalist mystery"
+  },
+  {
+    "name": "Let the Bullets Fly",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Warlord bandit power games"
+  },
+  {
+    "name": "Wendy and Lucy",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Woman dog homelessness Oregon"
+  },
+  {
+    "name": "Happy-Go-Lucky",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Optimistic woman driving lessons"
+  },
+  {
+    "name": "Old Joy",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Estranged friends backpacking Oregon"
+  },
+  {
+    "name": "Climates",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Couple breakup landscape silence"
+  },
+  {
+    "name": "The Wind That Shakes the Barley",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Irish independence brothers"
+  },
+  {
+    "name": "Still Life",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Three Gorges dam demolition loss"
+  },
+  {
+    "name": "The Squid and the Whale",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Divorce children novelist"
+  },
+  {
+    "name": "Vera Drake",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Illegal abortionist working-class morality"
+  },
+  {
+    "name": "Howls Moving Castle",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Cursed woman castle flying romance"
+  },
+  {
+    "name": "The World",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Beijing theme park workers"
+  },
+  {
+    "name": "The School of Rock",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Teacher music substitute school"
+  },
+  {
+    "name": "Morvern Callar",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Woman boyfriend death reinvention"
+  },
+  {
+    "name": "Uzak (Distant)",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Photographer cousin Istanbul loneliness"
+  },
+  {
+    "name": "The Man Who Wasnt There",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Barber blackmail film noir laconic"
+  },
+  {
+    "name": "Code Unknown",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Deaf woman language narrative puzzle"
+  },
+  {
+    "name": "Platform",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Performance troupe China transition"
+  },
+  {
+    "name": "The Gleaners and I",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Poverty gleaning documentary essay"
+  },
+  {
+    "name": "Ratcatcher",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Glasgow boy rubbish strike poetry"
+  },
+  {
+    "name": "My Name Is Joe",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Unemployed man football love"
+  },
+  {
+    "name": "LOST HIGHWAY",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Psychosexual noir nightmare identity shifts"
+  },
+  {
+    "name": "Bottle Rocket",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Criminal loners debut offbeat romance"
+  },
+  {
+    "name": "Secrets Lies",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Black woman white mother reunion"
+  },
+  {
+    "name": "In the Heat of the Sun",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Red Guard boys martial arts"
+  },
+  {
+    "name": "Good Men Good Women",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Time-frame double identity memory"
+  },
+  {
+    "name": "Puppetmaster",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Street puppet history Taiwan magic"
+  },
+  {
+    "name": "Dazed and Confused",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "High school last day 1976"
+  },
+  {
+    "name": "Double Life of Veronique",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Twin woman parallel lives mystery"
+  },
+  {
+    "name": "A Summer at Grandpas",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Orphan rural grandfather Taiwan"
+  },
+  {
+    "name": "Life Is Sweet",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Family London restaurant dreams"
+  },
+  {
+    "name": "Dreams",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Visual poetry anthology late work"
+  },
+  {
+    "name": "The Seventh Continent",
+    "year": 1989,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Family systematic destruction entropy"
+  },
+  {
+    "name": "As Tears Go By",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Hong Kong triad love noir"
+  },
+  {
+    "name": "The Last Temptation of Christ",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Biblical reinterpretation faith questioned"
+  },
+  {
+    "name": "High Hopes",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Working-class couple neighborhood"
+  },
+  {
+    "name": "A Short Film About Killing",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Capital punishment moral complexity"
+  },
+  {
+    "name": "Raising Arizona",
+    "year": 1987,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Childless couple kidnaps infant chaos"
+  },
+  {
+    "name": "Empire of the Sun",
+    "year": 1987,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "WWII boy coming-of-age war horror"
+  },
+  {
+    "name": "The Sacrifice",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Nuclear apocalypse father ritualistic"
+  },
+  {
+    "name": "Castle in the Sky",
+    "year": 1986,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Floating palace adventure steampunk"
+  },
+  {
+    "name": "Taipei Story",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Couple relationship stagnation Taiwan"
+  },
+  {
+    "name": "No End",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Lawyer wife death martial law"
+  },
+  {
+    "name": "What Have I Done to Deserve This?",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Working mothers survival Spanish New Wave"
+  },
+  {
+    "name": "Indiana Jones and the Temple of Doom",
+    "year": 1984,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Prequel adventure dark supernatural"
+  },
+  {
+    "name": "Nostalgia",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Italian-Russian poet memory grass"
+  },
+  {
+    "name": "Gloria",
+    "year": 1980,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Woman criminal child protection"
+  },
+  {
+    "name": "Camera Buff",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Worker cameraman obsession discovery"
+  },
+  {
+    "name": "Woyzeck",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Buchner soldier madness German"
+  },
+  {
+    "name": "Autumn Sonata",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Mother-daughter reunion emotional reckoning"
+  },
+  {
+    "name": "In a Year of Thirteen Moons",
+    "year": 1978,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Transgender woman love heartbreak"
+  },
+  {
+    "name": "3 Women",
+    "year": 1977,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Female identity fluid dreamlike mystery"
+  },
+  {
+    "name": "Abigails Party",
+    "year": 1977,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Suburbanites party marriage violence"
+  },
+  {
+    "name": "Cross of Iron",
+    "year": 1977,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "WWI soldiers Eastern Front"
+  },
+  {
+    "name": "Tommy",
+    "year": 1975,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Rock opera deaf boy pinball"
+  },
+  {
+    "name": "Fox and His Friends",
+    "year": 1975,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Working-class man bourgeois exploitation"
+  },
+  {
+    "name": "The Longest Yard",
+    "year": 1974,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Prisoners football revenge"
+  },
+  {
+    "name": "Thieves Like Us",
+    "year": 1974,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Depression criminals lovers pastoral violence"
+  },
+  {
+    "name": "Celine and Julie Go Boating",
+    "year": 1974,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Women strangeness reality film"
+  },
+  {
+    "name": "The Enigma of Kaspar Hauser",
+    "year": 1974,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Mysterious boy society"
+  },
+  {
+    "name": "Day for Night",
+    "year": 1973,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Film set behind scenes movie"
+  },
+  {
+    "name": "F for Fake",
+    "year": 1973,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Documentary art forgery truth"
+  },
+  {
+    "name": "Pat Garrett and Billy the Kid",
+    "year": 1973,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Sheriff outlaw Western"
+  },
+  {
+    "name": "The Bitter Tears of Petra von Kant",
+    "year": 1972,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Designer woman lesbian obsession"
+  },
+  {
+    "name": "Frenzy",
+    "year": 1972,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "London serial killer rape murder"
+  },
+  {
+    "name": "Ulzanas Raid",
+    "year": 1972,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Apache cavalry Western"
+  },
+  {
+    "name": "Death in Venice",
+    "year": 1971,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Composer boy obsession cholera"
+  },
+  {
+    "name": "Minnie and Moskowitz",
+    "year": 1971,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Widow lot attendant romance"
+  },
+  {
+    "name": "The Devils",
+    "year": 1971,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Possession France nun ecstasy"
+  },
+  {
+    "name": "Two English Girls",
+    "year": 1971,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Triple love England Wales"
+  },
+  {
+    "name": "The Music Lovers",
+    "year": 1970,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Tchaikovsky biography marriage secret"
+  },
+  {
+    "name": "Husbands",
+    "year": 1970,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Male friendship mortality crisis"
+  },
+  {
+    "name": "The Child Wild",
+    "year": 1970,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Lost boy feral wolf-boy"
+  },
+  {
+    "name": "Satyricon",
+    "year": 1969,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Ancient Rome surreal decadence visual"
+  },
+  {
+    "name": "Shame",
+    "year": 1968,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "War couple survival marriage dissolution"
+  },
+  {
+    "name": "Theorem",
+    "year": 1968,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Stranger family disruption divine"
+  },
+  {
+    "name": "The Weekend",
+    "year": 1967,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "auteurs",
+    "why": "Traffic jam civilization collapse"
+  },
+  {
+    "name": "The Killer",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Hitman isolation mechanical violence"
+  },
+  {
+    "name": "White Noise",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Disaster consumerism family obsession"
+  },
+  {
+    "name": "Broker",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Babies illegal adoption redemption"
+  },
+  {
+    "name": "Parallel Mothers",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "DNA secrets two mothers contemporary"
+  },
+  {
+    "name": "The Lost Daughter",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Woman vacation obsession rivalry"
+  },
+  {
+    "name": "Isle of Dogs",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Stop-motion dogs dystopian Japan"
+  },
+  {
+    "name": "Everybody Knows",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Village kidnapping family dynamics"
+  },
+  {
+    "name": "Mary and the Witchs Flower",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Girl flower magic adventure"
+  },
+  {
+    "name": "Happy End",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Family secrets wealth moral corruption"
+  },
+  {
+    "name": "Okja",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Girl super-pig corporate animal"
+  },
+  {
+    "name": "Hail Caesar!",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Studio system satire Golden Age"
+  },
+  {
+    "name": "The Third Person",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Adopted woman search memory"
+  },
+  {
+    "name": "Stoker",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Uncle murder obsession Americana"
+  },
+  {
+    "name": "Greenberg",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Man breakdown reunion Los Angeles"
+  },
+  {
+    "name": "Small Town",
+    "year": 2010,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Unemployed man village return"
+  },
+  {
+    "name": "Three Monkeys",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Father accident cover-up destruction"
+  },
+  {
+    "name": "The Darjeeling Limited",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Brothers trains India spiritual quest"
+  },
+  {
+    "name": "My Blueberry Nights",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Waitress heartbreak neon wandering"
+  },
+  {
+    "name": "Inland Empire",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Three-hour digital fractured narrative"
+  },
+  {
+    "name": "Dumplings",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Beauty rejuvenation cannibalism"
+  },
+  {
+    "name": "Intolerable Cruelty",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Divorce lawyer seduction battle slick"
+  },
+  {
+    "name": "My Name Is Julius",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Brother family Oregon reunion"
+  },
+  {
+    "name": "Sweet Sixteen",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Boy mother drug dealing"
+  },
+  {
+    "name": "Bringing Out the Dead",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Paramedic NYC decay redemption"
+  },
+  {
+    "name": "Kundun",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Dalai Lama spiritual journey"
+  },
+  {
+    "name": "Kicking and Screaming",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Literary men maturity relationships"
+  },
+  {
+    "name": "The Flower of My Secret",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Romance novelist marital disillusion"
+  },
+  {
+    "name": "River of Grass",
+    "year": 1994,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Young couple fugitive love"
+  },
+  {
+    "name": "Bram Stokers Dracula",
+    "year": 1992,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Gothic vampire operatic horror"
+  },
+  {
+    "name": "Rhapsody in August",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Bomb survivors generational memory"
+  },
+  {
+    "name": "Jacquot de Nantes",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Director husband memory cinema"
+  },
+  {
+    "name": "Until the End of the World",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Global chase doomsday love"
+  },
+  {
+    "name": "The Godfather Part III",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Mafia succession aging patriarch"
+  },
+  {
+    "name": "Tie Me Up! Tie Me Down!",
+    "year": 1989,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Kidnapped actress redemption controversial"
+  },
+  {
+    "name": "A Short Film About Love",
+    "year": 1988,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Voyeurism love moral ambiguity"
+  },
+  {
+    "name": "Finally Sunday",
+    "year": 1985,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Widow widow remarriage whodunit"
+  },
+  {
+    "name": "Rumble Fish",
+    "year": 1983,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Gang brothers conflict stylized youth"
+  },
+  {
+    "name": "One from the Heart",
+    "year": 1982,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Vegas couple breakup experimental romance"
+  },
+  {
+    "name": "Mur Murs",
+    "year": 1981,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Venice Los Angeles wall murals"
+  },
+  {
+    "name": "Berlin Alexanderplatz",
+    "year": 1980,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Doblin adaptation Berlin criminal"
+  },
+  {
+    "name": "A Wedding",
+    "year": 1978,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Ensemble wedding interlocking lives"
+  },
+  {
+    "name": "Buffalo Bill and the Indians",
+    "year": 1976,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Wild West mythology satire"
+  },
+  {
+    "name": "Conversation Piece",
+    "year": 1974,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Professor tenant socioeconomic"
+  },
+  {
+    "name": "The Canterbury Tales",
+    "year": 1972,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Medieval bawdy stories"
+  },
+  {
+    "name": "The Goalies Anxiety at the Penalty Kick",
+    "year": 1972,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Goalkeeper alienation crime"
+  },
+  {
+    "name": "Out 1",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Theatrical paranoia Paris documentation"
+  },
+  {
+    "name": "Trafic",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Hulot motorhome traffic chaos"
+  },
+  {
+    "name": "Bleak Moments",
+    "year": 1971,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Sister sister depression isolation"
+  },
+  {
+    "name": "Two or Three Things I Know About Her",
+    "year": 1967,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Paris consumerism language"
+  },
+  {
+    "name": "Torn Curtain",
+    "year": 1966,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Cold War escape murder grim"
+  },
+  {
+    "name": "The Spirit of St. Louis",
+    "year": 1957,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "auteurs",
+    "why": "Lindbergh flight aviation"
+  },
+  {
+    "name": "Health",
+    "year": 1980,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "auteurs",
+    "why": "Political satire experimental narrative"
+  },
+  {
+    "name": "Family Plot",
+    "year": 1976,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "auteurs",
+    "why": "Kidnapping comedy lighter late work"
+  },
+  {
+    "name": "Salo or the 120 Days of Sodom",
+    "year": 1975,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "auteurs",
+    "why": "Fascist debauchery political"
+  },
+  {
+    "name": "Topaz",
+    "year": 1969,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "auteurs",
+    "why": "Cuban missile spy thriller uneven"
+  }
+]
