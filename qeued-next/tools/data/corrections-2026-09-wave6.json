@@ -1,0 +1,371 @@
+[
+  {
+    "slug": "the-high-score-2020",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "High Score"
+    }
+  },
+  {
+    "slug": "the-last-chance-u-basketball-2021",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "Last Chance U: Basketball"
+    }
+  },
+  {
+    "slug": "the-minions-2015",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "Minions"
+    }
+  },
+  {
+    "slug": "the-innocent-2011",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "Innocent"
+    }
+  },
+  {
+    "slug": "the-red-desert-1964",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "Red Desert"
+    }
+  },
+  {
+    "slug": "the-wolf-children-2012",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "Wolf Children"
+    }
+  },
+  {
+    "slug": "the-corpse-bride-2005",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "Corpse Bride"
+    }
+  },
+  {
+    "slug": "the-creature-from-the-black-lagoon-1954",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "Creature from the Black Lagoon"
+    }
+  },
+  {
+    "slug": "thin-blue-line-1988",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Thin Blue Line"
+    }
+  },
+  {
+    "slug": "vicar-of-dibley-1994",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Vicar of Dibley"
+    }
+  },
+  {
+    "slug": "wandering-earth-2019",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Wandering Earth"
+    }
+  },
+  {
+    "slug": "cabinet-of-dr-caligari-1920",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Cabinet of Dr. Caligari"
+    }
+  },
+  {
+    "slug": "brides-of-dracula-1960",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Brides of Dracula"
+    }
+  },
+  {
+    "slug": "curse-of-frankenstein-1957",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Curse of Frankenstein"
+    }
+  },
+  {
+    "slug": "decline-of-western-civilization-1981",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Decline of Western Civilization"
+    }
+  },
+  {
+    "slug": "perfect-planet-2021",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "A Perfect Planet"
+    }
+  },
+  {
+    "slug": "phantom-of-the-opera-2004",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Phantom of the Opera"
+    }
+  },
+  {
+    "slug": "seven-year-itch-1955",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Seven Year Itch"
+    }
+  },
+  {
+    "slug": "salt-of-the-earth-2014",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Salt of the Earth"
+    }
+  },
+  {
+    "slug": "punisher-2017",
+    "reason": "A candidate list adds and drops leading articles freely, and the name is half of a title's identity here.",
+    "fields": {
+      "name": "The Punisher"
+    }
+  },
+  {
+    "slug": "a-new-york-new-york-1977",
+    "reason": "A stray leading A; the film is New York, New York.",
+    "fields": {
+      "name": "New York, New York"
+    }
+  },
+  {
+    "slug": "viscontis-death-in-venice-1971",
+    "reason": "The candidate list carried a distributor's or director's prefix that is not part of the title.",
+    "fields": {
+      "name": "Death in Venice"
+    }
+  },
+  {
+    "slug": "antonionis-red-desert-1964",
+    "reason": "The candidate list carried a distributor's or director's prefix that is not part of the title. This leaves two rows for the same film, which dedupe.mjs then merges.",
+    "fields": {
+      "name": "Red Desert"
+    }
+  },
+  {
+    "slug": "dardenne-brothers-two-days-one-night-2014",
+    "reason": "The candidate list carried a distributor's or director's prefix that is not part of the title.",
+    "fields": {
+      "name": "Two Days, One Night"
+    }
+  },
+  {
+    "slug": "diaboliques-1955",
+    "reason": "Clouzot's film is known in the UK by its French title or as Diabolique, never as a bare Diaboliques.",
+    "fields": {
+      "name": "Les Diaboliques"
+    }
+  },
+  {
+    "slug": "darkplace-2004",
+    "reason": "Truncated in the candidate list; nobody calls it Darkplace.",
+    "fields": {
+      "name": "Garth Marenghi's Darkplace"
+    }
+  },
+  {
+    "slug": "fire-walk-with-me-1992",
+    "reason": "Truncated; the series name is part of the title.",
+    "fields": {
+      "name": "Twin Peaks: Fire Walk with Me"
+    }
+  },
+  {
+    "slug": "daryl-dixon-2023",
+    "reason": "Truncated; the series name is part of the title.",
+    "fields": {
+      "name": "The Walking Dead: Daryl Dixon"
+    }
+  },
+  {
+    "slug": "first-strike-1996",
+    "reason": "The UK release title carries the star's name.",
+    "fields": {
+      "name": "Jackie Chan's First Strike"
+    }
+  },
+  {
+    "slug": "some-kind-of-monster-2004",
+    "reason": "Truncated; the band's name is part of the title.",
+    "fields": {
+      "name": "Metallica: Some Kind of Monster"
+    }
+  },
+  {
+    "slug": "shut-up-and-sing-2006",
+    "reason": "Truncated, and the conjunction is an ampersand.",
+    "fields": {
+      "name": "Dixie Chicks: Shut Up & Sing"
+    }
+  },
+  {
+    "slug": "priscilla-queen-of-the-desert-1994",
+    "reason": "The candidate list dropped both the article and the first three words.",
+    "fields": {
+      "name": "The Adventures of Priscilla, Queen of the Desert"
+    }
+  },
+  {
+    "slug": "phoneshop-2011",
+    "reason": "One word, not two.",
+    "fields": {
+      "name": "Phoneshop"
+    }
+  },
+  {
+    "slug": "wildchild-2008",
+    "reason": "Two words, not one.",
+    "fields": {
+      "name": "Wild Child"
+    }
+  },
+  {
+    "slug": "neighbours-1981",
+    "reason": "This is the Belushi and Aykroyd film, whose title is spelled the American way. Under the British spelling it collides head-on with the Australian soap.",
+    "fields": {
+      "name": "Neighbors"
+    }
+  },
+  {
+    "slug": "coronation-street-2010",
+    "reason": "The candidate list dated this from the wrong end of its run; the page and every listing agree on the corrected year.",
+    "fields": {
+      "year": 1960
+    }
+  },
+  {
+    "slug": "dead-set-2005",
+    "reason": "The candidate list dated this from the wrong end of its run; the page and every listing agree on the corrected year.",
+    "fields": {
+      "year": 2008
+    }
+  },
+  {
+    "slug": "blakes-7-1976",
+    "reason": "The candidate list dated this from the wrong end of its run; the page and every listing agree on the corrected year.",
+    "fields": {
+      "year": 1978
+    }
+  },
+  {
+    "slug": "chefs-table-bbq-2023",
+    "reason": "The candidate list dated this from the wrong end of its run; the page and every listing agree on the corrected year.",
+    "fields": {
+      "year": 2020
+    }
+  },
+  {
+    "slug": "ally-mcbeal-1998",
+    "reason": "The candidate list dated this from the wrong end of its run; the page and every listing agree on the corrected year.",
+    "fields": {
+      "year": 1997
+    }
+  },
+  {
+    "slug": "daguerreotypes-1978",
+    "reason": "The candidate list dated this from the wrong end of its run; the page and every listing agree on the corrected year.",
+    "fields": {
+      "year": 1975
+    }
+  },
+  {
+    "slug": "salt-fat-acid-heat-2021",
+    "reason": "The candidate list dated this from the wrong end of its run; the page and every listing agree on the corrected year.",
+    "fields": {
+      "year": 2018
+    }
+  },
+  {
+    "slug": "teenage-mutant-ninja-turtles-1990",
+    "reason": "The cast scraped from the page is the 1987 animated series, which is what this record actually holds.",
+    "fields": {
+      "year": 1987
+    }
+  },
+  {
+    "slug": "the-mating-game-2010",
+    "reason": "Attenborough and the three credited directors are the BBC Natural History Unit series of 2021.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "the-magnificent-seven-1960",
+    "reason": "The page reported 100 minutes; the film runs 128.",
+    "fields": {
+      "runtime_minutes": 128
+    }
+  },
+  {
+    "slug": "the-human-condition-i-1959",
+    "reason": "The page reported 157 minutes; No Greater Love runs 208.",
+    "fields": {
+      "runtime_minutes": 208
+    }
+  },
+  {
+    "slug": "the-raid-2-2014",
+    "reason": "The page reported 144 minutes; the film runs 150.",
+    "fields": {
+      "runtime_minutes": 150
+    }
+  },
+  {
+    "slug": "water-2005",
+    "reason": "The page reported 105 minutes; the film runs 114.",
+    "fields": {
+      "runtime_minutes": 114
+    }
+  },
+  {
+    "slug": "october-2018",
+    "reason": "Scraped genres led with Horror. Sircar's film is a quiet drama about a coma vigil, and a Horror tag is the single most misleading thing the ranker could read.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "Romance"
+      ]
+    }
+  },
+  {
+    "slug": "spellbound-2002",
+    "reason": "Scraped genres included Thriller, presumably from Hitchcock's film of the same name. Blitz's is an observational documentary about a spelling bee.",
+    "fields": {
+      "genres": [
+        "Documentary"
+      ]
+    }
+  },
+  {
+    "slug": "amal-2007",
+    "reason": "The page merges two different films called Amal: the director and cast belong to a 17-minute Moroccan short of 2004, while the name, year and runtime are Richie Mehta's feature about a Delhi auto-rickshaw driver.",
+    "fields": {
+      "director": "Richie Mehta",
+      "cast_members": [
+        "Rupinder Nagra",
+        "Seema Biswas",
+        "Naseeruddin Shah",
+        "Koel Purie",
+        "Roshan Seth"
+      ]
+    }
+  }
+]
