@@ -1,0 +1,177 @@
+[
+  {
+    "slug": "winners-and-losers-2011",
+    "reason": "The cited page carries a British cast that appears in nothing in this Australian series; JustWatch's own record is polluted, so the fix has to be ours. The ampersand was also dropped.",
+    "fields": {
+      "name": "Winners & Losers",
+      "cast_members": []
+    }
+  },
+  {
+    "slug": "villains-2017",
+    "reason": "Premiered at SXSW in 2019; the cited page is filed there.",
+    "fields": {
+      "year": 2019
+    }
+  },
+  {
+    "slug": "zombie-detective-2018",
+    "reason": "Aired on KBS2 in September 2020.",
+    "fields": {
+      "year": 2020
+    }
+  },
+  {
+    "slug": "zoolander-2-2015",
+    "reason": "Released February 2016, and the runtime was two minutes short.",
+    "fields": {
+      "year": 2016,
+      "runtime_minutes": 102
+    }
+  },
+  {
+    "slug": "under-siege-2-1995",
+    "reason": "The subtitle was dropped; the cited page has it.",
+    "fields": {
+      "name": "Under Siege 2: Dark Territory"
+    }
+  },
+  {
+    "slug": "women-on-the-verge-1988",
+    "reason": "Truncated to something no British viewer says.",
+    "fields": {
+      "name": "Women on the Verge of a Nervous Breakdown"
+    }
+  },
+  {
+    "slug": "under-the-power-2019",
+    "reason": "The director's name was recorded twice.",
+    "fields": {
+      "director": "Yin Tao"
+    }
+  },
+  {
+    "slug": "monuments-to-murder-2014",
+    "reason": "The slug names a different work; the name, cited page and cast are The Monuments Men.",
+    "fields": {
+      "name": "The Monuments Men"
+    }
+  },
+  {
+    "slug": "moral-maze-1990",
+    "reason": "The slug names the Radio 4 debate programme; the name, cited page and cast are The Crystal Maze.",
+    "fields": {
+      "name": "The Crystal Maze"
+    }
+  },
+  {
+    "slug": "the-heavy-water-war-2015-2",
+    "reason": "The slug names the Norwegian Telemark series; the name, cited page and facts are a twenty-two-minute German short.",
+    "fields": {
+      "name": "The Heavy Load"
+    }
+  },
+  {
+    "slug": "the-journalist-2019-2",
+    "reason": "The cast, type and cited page are the 2022 Netflix series; 2019 belongs to the film.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "duty-after-school-2023-2",
+    "reason": "The name was left as the romanised Korean.",
+    "fields": {
+      "name": "Duty After School"
+    }
+  },
+  {
+    "slug": "death-note-relight-2007-2",
+    "reason": "The subtitle was dropped.",
+    "fields": {
+      "name": "Death Note Relight 1: Visions of a God"
+    }
+  },
+  {
+    "slug": "downstairs-2016-2",
+    "reason": "Truncated; the cited page has the full title.",
+    "fields": {
+      "name": "The Tenants Downstairs"
+    }
+  },
+  {
+    "slug": "evidence-1998-2",
+    "reason": "Truncated; bare Evidence is an unrelated title.",
+    "fields": {
+      "name": "Evidence of Blood"
+    }
+  },
+  {
+    "slug": "fabian-2021-2",
+    "reason": "The subtitle was dropped.",
+    "fields": {
+      "name": "Fabian: Going to the Dogs"
+    }
+  },
+  {
+    "slug": "the-fruit-2014",
+    "reason": "The subtitle was dropped, leaving a name that means nothing.",
+    "fields": {
+      "name": "The Fruit of Grisaia"
+    }
+  },
+  {
+    "slug": "gundam-wing-endless-waltz-1997-2",
+    "reason": "A spurious article; the slug already has it right.",
+    "fields": {
+      "name": "Gundam Wing: Endless Waltz"
+    }
+  },
+  {
+    "slug": "18-again-1988",
+    "reason": "The exclamation mark is part of the title.",
+    "fields": {
+      "name": "18 Again!"
+    }
+  },
+  {
+    "slug": "beast-games-2025",
+    "reason": "First aired December 2024.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "the-club-2023",
+    "reason": "Premiered 2021.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "captain-kronos-vampire-hunter-1972",
+    "reason": "Shot in 1972 but released in 1974.",
+    "fields": {
+      "year": 1974
+    }
+  },
+  {
+    "slug": "molly-2017",
+    "reason": "Tagged Documentary; it is a post-apocalyptic action film.",
+    "fields": {
+      "genres": [
+        "Action",
+        "Science-Fiction"
+      ]
+    }
+  },
+  {
+    "slug": "im-sorry-i-havent-a-clue-2008",
+    "reason": "Tagged Documentary; it is a recording of a radio panel show.",
+    "fields": {
+      "genres": [
+        "Comedy"
+      ]
+    }
+  }
+]
