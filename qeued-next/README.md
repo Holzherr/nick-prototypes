@@ -131,6 +131,21 @@ node tools/tidy.mjs --sql tidy.sql
 npx supabase db query -f <file> --db-url "$QEUED_DB_URL"
 ```
 
+Writing what a page cannot supply — the synopsis, because Qeued's are written for Qeued, and
+the tone and theme tags, because no page carries them — is a research pass rather than a
+scrape:
+
+```
+node tools/todo.mjs synopsis --out work/ --chunk 60   # cut the outstanding work into chunks
+# researchers write one out-NN.json per chunk, following tools/data/*-BRIEF.md
+node tools/normalise-tags.mjs work/                   # tags only: fold near-misses, drop the rest
+node tools/enrich.mjs --dir work/ --apply
+```
+
+Two more for the damage that only shows up at scale. `dedupe.mjs` finds the same work
+catalogued under two years and keeps the fuller copy, unless someone has it on a list.
+`fix-slugs.mjs` repairs addresses that lost their accented letters.
+
 Separating the gather from the write is not only about credentials: a failed write then costs
 no re-scraping, and the gathered file is reviewable before anything lands. The query channel
 sends a file as one statement, so each tool emits a single one — an `UPDATE … FROM (VALUES …)`,
