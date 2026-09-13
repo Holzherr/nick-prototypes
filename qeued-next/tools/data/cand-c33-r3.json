@@ -1,0 +1,1602 @@
+[
+  {
+    "name": "Fargo",
+    "year": 1996,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Coen brothers peak; crime pastoral"
+  },
+  {
+    "name": "Seven",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Fincher's serial-killer manifesto"
+  },
+  {
+    "name": "Reservoir Dogs",
+    "year": 1992,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Tarantino's heist chamber piece"
+  },
+  {
+    "name": "La Haine",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Kassovitz's French banlieue rage"
+  },
+  {
+    "name": "Clerks",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Kevin Smith indie landmark debut"
+  },
+  {
+    "name": "Trainspotting",
+    "year": 1996,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Boyle's heroin Edinburgh kinetic"
+  },
+  {
+    "name": "The Sixth Sense",
+    "year": 1999,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Shyamalan's twist ghost masterpiece"
+  },
+  {
+    "name": "Heat",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Mann's crime symphony shootout"
+  },
+  {
+    "name": "Goodfellas",
+    "year": 1990,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Scorsese's gangster-life energy"
+  },
+  {
+    "name": "GoldenEye",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Brosnan Bond post-Cold War"
+  },
+  {
+    "name": "Die Hard with a Vengeance",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Willis-Jackson NYC action puzzle"
+  },
+  {
+    "name": "Scream",
+    "year": 1996,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Craven's meta slasher resurrection"
+  },
+  {
+    "name": "Breaking the Waves",
+    "year": 1996,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "von Trier's Scottish saint-love"
+  },
+  {
+    "name": "Three Colors: Red",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Kieślowski's final fate chance"
+  },
+  {
+    "name": "The Fugitive",
+    "year": 1993,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Davis-Ford pursuit thriller"
+  },
+  {
+    "name": "The Piano",
+    "year": 1993,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Campion's New Zealand gothic"
+  },
+  {
+    "name": "Chungking Express",
+    "year": 1994,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Wong Kar-wai's Hong Kong neon"
+  },
+  {
+    "name": "Farewell My Concubine",
+    "year": 1993,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Chen's opera-house love epic"
+  },
+  {
+    "name": "The Sweet Hereafter",
+    "year": 1997,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Egoyan's Canada grief masterpiece"
+  },
+  {
+    "name": "Todo Sobre Mi Madre",
+    "year": 1999,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Almodóvar's trans-women melodrama"
+  },
+  {
+    "name": "Miller's Crossing",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Coen brothers Prohibition dialogue"
+  },
+  {
+    "name": "Twister",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "De Bont's tornado spectacle"
+  },
+  {
+    "name": "Independence Day",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Emmerich's alien-invasion"
+  },
+  {
+    "name": "Dances with Wolves",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Costner's Lakota epic"
+  },
+  {
+    "name": "Twin Peaks: Fire Walk with Me",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Lynch's Laura Palmer prequel"
+  },
+  {
+    "name": "Cyrano de Bergerac",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Rappeneau's French romance"
+  },
+  {
+    "name": "Three Colors: Blue",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Kieślowski widow freedom"
+  },
+  {
+    "name": "Three Colors: White",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Kieślowski Polish revenge"
+  },
+  {
+    "name": "Irma Vep",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Assayas New Wave homage"
+  },
+  {
+    "name": "The Player",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Altman's Hollywood satire"
+  },
+  {
+    "name": "Glengarry Glen Ross",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Mamet sales-floor brutality"
+  },
+  {
+    "name": "The Grifters",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Frears con-artist noir"
+  },
+  {
+    "name": "Barton Fink",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Coen brothers writer madness"
+  },
+  {
+    "name": "The Hudsucker Proxy",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Coen screwball homage"
+  },
+  {
+    "name": "The Big Lebowski",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Coen bowling noir pastiche"
+  },
+  {
+    "name": "Bottle Rocket",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Wes Anderson Texas crime"
+  },
+  {
+    "name": "Before Sunrise",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Linklater Vienna all-night"
+  },
+  {
+    "name": "Exotica",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Egoyan strip-club interlocking"
+  },
+  {
+    "name": "Naked Lunch",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Cronenberg Burroughs adaptation"
+  },
+  {
+    "name": "Crash",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Cronenberg car-crash erotica"
+  },
+  {
+    "name": "eXistenZ",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Cronenberg VR-game reality"
+  },
+  {
+    "name": "Bound",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Wachowskis lesbian crime"
+  },
+  {
+    "name": "The Usual Suspects",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Singer's criminal mystery"
+  },
+  {
+    "name": "Strange Days",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Bigelow LA memory-trade noir"
+  },
+  {
+    "name": "Point Break",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Bigelow surfer-bank-robber"
+  },
+  {
+    "name": "Dead Alive",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Jackson zombie-mother horror"
+  },
+  {
+    "name": "Heavenly Creatures",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Jackson schoolgirl murder"
+  },
+  {
+    "name": "Delicatessen",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Jeunet-Caro post-apocalyptic"
+  },
+  {
+    "name": "The City of Lost Children",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Jeunet-Caro steampunk orphan"
+  },
+  {
+    "name": "Hard Boiled",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Woo's cop-gangster ballet"
+  },
+  {
+    "name": "Bullet in the Head",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Woo Vietnam War friendship"
+  },
+  {
+    "name": "Total Recall",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Verhoeven Schwarzenegger memory"
+  },
+  {
+    "name": "True Lies",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Cameron Schwarzenegger spy"
+  },
+  {
+    "name": "Under Siege",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Davis Seagal battleship"
+  },
+  {
+    "name": "The Story of Qiu Ju",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Zhang's rural peasant justice"
+  },
+  {
+    "name": "Raise the Red Lantern",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Zhang's concubine-house power"
+  },
+  {
+    "name": "Ju Dou",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Zhang's dye-house adultery"
+  },
+  {
+    "name": "Temptress Moon",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Chen's Shanghai decadence"
+  },
+  {
+    "name": "The Emperor's Shadow",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Chen's calligrapher tragedy"
+  },
+  {
+    "name": "Keep Cool",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Zhang's Beijing revenge"
+  },
+  {
+    "name": "The Soong Sisters",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Chan's historical women"
+  },
+  {
+    "name": "In the Heat of the Sun",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Jiang's Beijing Cultural Revolution"
+  },
+  {
+    "name": "Ashes of Time",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Wong's martial-arts memory"
+  },
+  {
+    "name": "Fallen Angels",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Wong's hit-man couple"
+  },
+  {
+    "name": "Like Water for Chocolate",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Arau Mexican magical-realism"
+  },
+  {
+    "name": "Cronos",
+    "year": 1993,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "del Toro's vampire-clock"
+  },
+  {
+    "name": "Central Station",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Salzar's Rio street-child"
+  },
+  {
+    "name": "Live Flesh",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Almodóvar Madrid lover-cop"
+  },
+  {
+    "name": "High Heels",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Almodóvar mother-daughter"
+  },
+  {
+    "name": "Belle Noiseuse",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Rivette artist-obsession"
+  },
+  {
+    "name": "Deconstructing Harry",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Allen writer's therapy"
+  },
+  {
+    "name": "Lock Stock and Two Smoking Barrels",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Ritchie's London crime ensemble"
+  },
+  {
+    "name": "Shallow Grave",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Boyle's Edinburgh flatmates"
+  },
+  {
+    "name": "Fear and Loathing in Las Vegas",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Gilliam's Hunter Thompson"
+  },
+  {
+    "name": "Twelve Monkeys",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Gilliam's time-travel dystopia"
+  },
+  {
+    "name": "The Fisher King",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Gilliam-Bridges New York"
+  },
+  {
+    "name": "Blade",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Norrington's vampire hunter"
+  },
+  {
+    "name": "Dark City",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Proyas's noir sci-fi"
+  },
+  {
+    "name": "Starship Troopers",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Verhoeven's fascist satire"
+  },
+  {
+    "name": "Face/Off",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Woo's face-swap spy"
+  },
+  {
+    "name": "Con Air",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "West's plane prison"
+  },
+  {
+    "name": "Air Force One",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Petersen's Harrison rescue"
+  },
+  {
+    "name": "Being John Malkovich",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Jonze's mind-control portal"
+  },
+  {
+    "name": "Magnolia",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Anderson's ensemble interconnected"
+  },
+  {
+    "name": "The Matrix",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Wachowskis' digital revolution"
+  },
+  {
+    "name": "Mighty Aphrodite",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Allen Greek chorus prostitute"
+  },
+  {
+    "name": "Everyone Says I Love You",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Allen's musical ensemble"
+  },
+  {
+    "name": "Sweet and Lowdown",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Allen jazz mockumentary"
+  },
+  {
+    "name": "Shadows and Fog",
+    "year": 1992,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Allen German Expressionism"
+  },
+  {
+    "name": "Husbands and Wives",
+    "year": 1992,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Allen couples in crisis"
+  },
+  {
+    "name": "Alice",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Allen infidelity fantasia"
+  },
+  {
+    "name": "The Adjuster",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Egoyan insurance-claim"
+  },
+  {
+    "name": "Calendar",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Egoyan Armenian-wife road trip"
+  },
+  {
+    "name": "The Ballad of Little Jo",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Greenwald frontier cross-dressing"
+  },
+  {
+    "name": "Blue Steel",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Bigelow cop-killer obsession"
+  },
+  {
+    "name": "The Frighteners",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Jackson ghostbuster comedy"
+  },
+  {
+    "name": "The Flower of My Secret",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Almodóvar writer marriage"
+  },
+  {
+    "name": "Kika",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Almodóvar surrealist comedy"
+  },
+  {
+    "name": "Once a Thief",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Woo thieves redemption"
+  },
+  {
+    "name": "Last Action Hero",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "McTiernan Schwarzenegger meta"
+  },
+  {
+    "name": "Kindergarten Cop",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Reitman Schwarzenegger teacher"
+  },
+  {
+    "name": "Eraser",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Irvin Schwarzenegger witness"
+  },
+  {
+    "name": "Sudden Death",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Hyams Van Damme hockey"
+  },
+  {
+    "name": "Under Siege 2",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Davis Seagal train action"
+  },
+  {
+    "name": "Out for Justice",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Seagal Brooklyn revenge"
+  },
+  {
+    "name": "Days of Thunder",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Tony Scott NASCAR"
+  },
+  {
+    "name": "The Rocketeer",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Johnston 1930s jetpack"
+  },
+  {
+    "name": "Robin Hood: Prince of Thieves",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Reynolds Costner medieval"
+  },
+  {
+    "name": "The Bodyguard",
+    "year": 1992,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Jackson Houston-Costner"
+  },
+  {
+    "name": "Wyatt Earp",
+    "year": 1994,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Kasdan Costner OK Corral"
+  },
+  {
+    "name": "Waterworld",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Reynolds Costner post-apocalyptic"
+  },
+  {
+    "name": "Tin Cup",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Shelton Costner golf romance"
+  },
+  {
+    "name": "The Postman",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Costner self-directed post-nuke"
+  },
+  {
+    "name": "Message in a Bottle",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Bacon Bullock-Costner romance"
+  },
+  {
+    "name": "For Love of the Game",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Raimi Costner baseball"
+  },
+  {
+    "name": "The Gateway",
+    "year": 1994,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Cuarón Madsen-Reed crime"
+  },
+  {
+    "name": "Johnny Mnemonic",
+    "year": 1995,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Longo cyberpunk Reeves"
+  },
+  {
+    "name": "The Mask",
+    "year": 1994,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Russel's Carrey rubber-faced"
+  },
+  {
+    "name": "Demolition Man",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Breck's future cop"
+  },
+  {
+    "name": "Universal Soldier",
+    "year": 1992,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Emmerich Van Damme"
+  },
+  {
+    "name": "Broken Arrow",
+    "year": 1996,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Woo's nuclear-bomb heist"
+  },
+  {
+    "name": "The Jackal",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Absolutely's assassin thriller"
+  },
+  {
+    "name": "The Peacemaker",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Spielberg's action debut"
+  },
+  {
+    "name": "The Lost World: Jurassic Park",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Spielberg's dinosaur sequel"
+  },
+  {
+    "name": "Anaconda",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Jonson's CGI snake"
+  },
+  {
+    "name": "The 13th Floor",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Wiseman's nested simulation"
+  },
+  {
+    "name": "Robocop 2",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Irvin's corrupt future"
+  },
+  {
+    "name": "Rushmore",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Wes Anderson school comedy"
+  },
+  {
+    "name": "Happiness",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Solondz's suburban darkness"
+  },
+  {
+    "name": "Slacker",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Linklater's Austin vignette"
+  },
+  {
+    "name": "My Own Private Idaho",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Van Sant's Seattle street-hustlers"
+  },
+  {
+    "name": "Killing Zoe",
+    "year": 1993,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Avary's Paris bank heist"
+  },
+  {
+    "name": "Simple Men",
+    "year": 1992,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Hartley's indie noir"
+  },
+  {
+    "name": "Pump Up the Volume",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Moyle's underground radio"
+  },
+  {
+    "name": "Darkman",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Raimi's masked avenger"
+  },
+  {
+    "name": "The Exorcist III",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Blatty's demon-possession"
+  },
+  {
+    "name": "Flatliners",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Schumacher's medical experiment"
+  },
+  {
+    "name": "Arachnophobia",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Spielberg-produced spider terror"
+  },
+  {
+    "name": "Jacob's Ladder",
+    "year": 1990,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Lyne's Vietnam nightmare"
+  },
+  {
+    "name": "The Silence of the Lambs",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Demme's Lecter masterpiece"
+  },
+  {
+    "name": "Terminator 2: Judgment Day",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Cameron's T-1000 effects"
+  },
+  {
+    "name": "Psycho IV: The Beginning",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Perkins's shower-death prequel"
+  },
+  {
+    "name": "Child's Play 2",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Holland's Chucky doll"
+  },
+  {
+    "name": "Night of the Living Dead",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Savini's zombie remake"
+  },
+  {
+    "name": "Death Wish V: The Face of Death",
+    "year": 1994,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Bronson's vigilante finale"
+  },
+  {
+    "name": "From Dusk Till Dawn",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Rodriguez's vampire roadside"
+  },
+  {
+    "name": "Scream 2",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Craven's meta sequel"
+  },
+  {
+    "name": "Halloween H20: 20 Years Later",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Miner's Myers return"
+  },
+  {
+    "name": "I Know What You Did Last Summer",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Gillespie's slasher secrets"
+  },
+  {
+    "name": "Urban Legend",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Talalay's campus horror"
+  },
+  {
+    "name": "Candyman",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Rose's Chicago mirror-legend"
+  },
+  {
+    "name": "Stir of Echoes",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Koepp's ghost-housing"
+  },
+  {
+    "name": "The Haunting",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "De Bont's mansion horror"
+  },
+  {
+    "name": "House on Haunted Hill",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Malone's haunted mansion"
+  },
+  {
+    "name": "Deep Blue Sea",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Harlin's underwater shark"
+  },
+  {
+    "name": "Sphere",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Levinson's ocean mystery"
+  },
+  {
+    "name": "Event Horizon",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Anderson's space-ship horror"
+  },
+  {
+    "name": "Cube",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Natali's deadly maze"
+  },
+  {
+    "name": "Contact",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Zemeckis's alien communication"
+  },
+  {
+    "name": "Mission: Impossible",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "De Palma's spy action"
+  },
+  {
+    "name": "Vampires",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Carpenter's vampire hunters"
+  },
+  {
+    "name": "Red Violin",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Girard's cursed instrument"
+  },
+  {
+    "name": "The Straight Story",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Lynch's lawnmower journey"
+  },
+  {
+    "name": "Sleepy Hollow",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Burton's headless horseman"
+  },
+  {
+    "name": "The Talented Mr. Ripley",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Minghella's Italian con"
+  },
+  {
+    "name": "The World Is Not Enough",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Apted's Bond oil-tycoon"
+  },
+  {
+    "name": "The Mummy",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Sommers's Egyptian adventure"
+  },
+  {
+    "name": "Three Kings",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Russell's Gulf War humanist"
+  },
+  {
+    "name": "Entrapment",
+    "year": 1999,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Hytner's heist romance"
+  },
+  {
+    "name": "Eyes Wide Shut",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Kubrick's New York sexuality"
+  },
+  {
+    "name": "Go",
+    "year": 1999,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Liman's LA party night"
+  },
+  {
+    "name": "The Iron Giant",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Bird's animated robot boy"
+  },
+  {
+    "name": "Alien: Resurrection",
+    "year": 1997,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "film-1990s",
+    "why": "Jeunet's clone action"
+  },
+  {
+    "name": "The Shadow",
+    "year": 1994,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Mulcahy's pulp hero"
+  },
+  {
+    "name": "The Phantom",
+    "year": 1996,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Apt's jungle avenger"
+  },
+  {
+    "name": "The Raven",
+    "year": 1997,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Fleischer's serial killer"
+  },
+  {
+    "name": "Firepower",
+    "year": 1993,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Seagal corporate spy"
+  },
+  {
+    "name": "Marked for Death",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Seagal cop-dope vigilante"
+  },
+  {
+    "name": "Hardware",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Stanley British robot-killer"
+  },
+  {
+    "name": "K2",
+    "year": 1991,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Benn mountain-climb thriller"
+  },
+  {
+    "name": "Highlander II: The Quickening",
+    "year": 1991,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Mulcahy sequel chaos"
+  },
+  {
+    "name": "Double Impact",
+    "year": 1991,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Newt Van Damme twin"
+  },
+  {
+    "name": "Death Warrant",
+    "year": 1990,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Newt Van Damme prison"
+  },
+  {
+    "name": "Robocop 3",
+    "year": 1993,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Dekker's Detroit chaos"
+  },
+  {
+    "name": "Judge Dredd",
+    "year": 1995,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Cannon's comic Stallone"
+  },
+  {
+    "name": "Virtuosity",
+    "year": 1995,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Kapur's Russell VR"
+  },
+  {
+    "name": "The Lawnmower Man",
+    "year": 1992,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Linklater's VR horror"
+  },
+  {
+    "name": "Double Team",
+    "year": 1997,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Tsui Hark Van Damme"
+  },
+  {
+    "name": "The Quest",
+    "year": 1996,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Van Damme director martial arts"
+  },
+  {
+    "name": "Legionnaire",
+    "year": 1998,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Attal Van Damme Legion"
+  },
+  {
+    "name": "Bloodsport: The Dark Kumite",
+    "year": 1999,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Worthington Van Damme sequel"
+  },
+  {
+    "name": "Volcano",
+    "year": 1997,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Jackson's LA lava"
+  },
+  {
+    "name": "Dante's Peak",
+    "year": 1997,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Donaldson's volcano Pierce"
+  },
+  {
+    "name": "Jingle All the Way",
+    "year": 1996,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Levant's Christmas shopping"
+  },
+  {
+    "name": "Army of Darkness",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Raimi's Ash chainsaw horror-comedy"
+  },
+  {
+    "name": "Tremors",
+    "year": 1990,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "film-1990s",
+    "why": "Bacon's underground worm terror"
+  },
+  {
+    "name": "Hellraiser III: Hell on Earth",
+    "year": 1992,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Barker's Cenobite torture"
+  },
+  {
+    "name": "The Silence of the Lambs",
+    "year": 1991,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Demme's Lecter masterpiece"
+  },
+  {
+    "name": "Terminator 2: Judgment Day",
+    "year": 1991,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "film-1990s",
+    "why": "Cameron T-1000 effects"
+  },
+  {
+    "name": "Far and Away",
+    "year": 1992,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "film-1990s",
+    "why": "Howard-Cruise Irish adventure"
+  }
+]

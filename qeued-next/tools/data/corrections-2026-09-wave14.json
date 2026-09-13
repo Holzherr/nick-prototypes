@@ -1,0 +1,1163 @@
+[
+  {
+    "slug": "dekalog-1989-2",
+    "reason": "A spurious acute accent; the Polish title has none.",
+    "fields": {
+      "name": "Dekalog"
+    }
+  },
+  {
+    "slug": "dear-white-people-2014",
+    "reason": "2014 is the film; this record is the Netflix series, which began in 2017.",
+    "fields": {
+      "year": 2017
+    }
+  },
+  {
+    "slug": "electric-dreams-2017",
+    "reason": "The identifying prefix was dropped, and bare Electric Dreams is also a 1984 film.",
+    "fields": {
+      "name": "Philip K. Dick's Electric Dreams"
+    }
+  },
+  {
+    "slug": "fando-and-lis-1972",
+    "reason": "Jodorowsky's film is 1968; 1972 is a later US release.",
+    "fields": {
+      "year": 1968
+    }
+  },
+  {
+    "slug": "fright-2023",
+    "reason": "The cited page is filed at 2024.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "dream-on-1990-2",
+    "reason": "The cited page gives 1991.",
+    "fields": {
+      "year": 1991
+    }
+  },
+  {
+    "slug": "crossfire-2020-2",
+    "reason": "The Keeley Hawes thriller aired in 2022.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "friday-the-13th-2009",
+    "reason": "Tagged Documentary.",
+    "fields": {
+      "genres": [
+        "Horror",
+        "Thriller"
+      ]
+    }
+  },
+  {
+    "slug": "cbbcs-wolfblood-2012",
+    "reason": "A channel prefix that is not part of the title.",
+    "fields": {
+      "name": "Wolfblood"
+    }
+  },
+  {
+    "slug": "annabelle-creation-2017",
+    "reason": "The colon was dropped.",
+    "fields": {
+      "name": "Annabelle: Creation"
+    }
+  },
+  {
+    "slug": "chloe-2009",
+    "reason": "A spurious accent; Egoyan's film has none.",
+    "fields": {
+      "name": "Chloe"
+    }
+  },
+  {
+    "slug": "bunheads-2011",
+    "reason": "Premiered June 2012.",
+    "fields": {
+      "year": 2012
+    }
+  },
+  {
+    "slug": "beware-the-slenderman-2016",
+    "reason": "The cast lists one contributor, which misrepresents a documentary about two families.",
+    "fields": {
+      "cast_members": []
+    }
+  },
+  {
+    "slug": "halloween-h20-1998",
+    "reason": "The subtitle was dropped.",
+    "fields": {
+      "name": "Halloween H20: 20 Years Later"
+    }
+  },
+  {
+    "slug": "mamma-mia-here-we-go-again-2018",
+    "reason": "The exclamation mark is part of the title.",
+    "fields": {
+      "name": "Mamma Mia! Here We Go Again"
+    }
+  },
+  {
+    "slug": "jim-andy-the-great-danny-texts-2017",
+    "reason": "The slug garbled the subtitle; the film is Jim & Andy: The Great Beyond.",
+    "fields": {
+      "name": "Jim & Andy: The Great Beyond"
+    }
+  },
+  {
+    "slug": "the-capital-2020",
+    "reason": "The record is Meyers's Human Capital, as the cited page confirms.",
+    "fields": {
+      "name": "Human Capital"
+    }
+  },
+  {
+    "slug": "pushpa-the-rule-2024",
+    "reason": "The numeral was dropped.",
+    "fields": {
+      "name": "Pushpa 2: The Rule"
+    }
+  },
+  {
+    "slug": "nayak-2001",
+    "reason": "The subtitle was dropped; the cited page has it.",
+    "fields": {
+      "name": "Nayak: The Real Hero"
+    }
+  },
+  {
+    "slug": "hostages-2019",
+    "reason": "The HBO documentary series is 2022; the cited page is filed there.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "maidaan-2023",
+    "reason": "Released April 2024 after delays.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "mai-2021",
+    "reason": "Netflix released it in April 2022.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "one-of-us-is-lying-2022",
+    "reason": "Premiered 2021; 2022 is the second season.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "mirch-masala-1985",
+    "reason": "Mehta's film is generally dated 1987.",
+    "fields": {
+      "year": 1987
+    }
+  },
+  {
+    "slug": "insidious-the-last-key-2018",
+    "reason": "Tagged Documentary.",
+    "fields": {
+      "genres": [
+        "Horror",
+        "Thriller",
+        "Mystery"
+      ]
+    }
+  },
+  {
+    "slug": "in-the-fog-2012",
+    "reason": "Tagged Horror and Science-Fiction; it is a war drama.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "War & Military"
+      ]
+    }
+  },
+  {
+    "slug": "margarita-with-a-straw-2014",
+    "reason": "Tagged Crime.",
+    "fields": {
+      "genres": [
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "my-joy-2010",
+    "reason": "Tagged Comedy; it is unrelieved bleak drama.",
+    "fields": {
+      "genres": [
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "the-journalist-2019",
+    "reason": "The cast, type and cited page are the 2022 Netflix series; 2019 belongs to the Fujii film of the same name.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "the-innocents-2021",
+    "reason": "The cast and cited page are the 2018 Netflix series, and 2021 collides with the unrelated Norwegian film.",
+    "fields": {
+      "year": 2018
+    }
+  },
+  {
+    "slug": "seven-2010",
+    "reason": "A bare Seven collides with Fincher's film and would not be recognised; the work is the Indian serial.",
+    "fields": {
+      "name": "Seven – The Ashvamedha Prophecy"
+    }
+  },
+  {
+    "slug": "scott-pilgrim-takes-off-2024",
+    "reason": "Released November 2023.",
+    "fields": {
+      "year": 2023
+    }
+  },
+  {
+    "slug": "fantastic-four-first-steps-2025-2",
+    "reason": "The numeral was used where the title spells it out.",
+    "fields": {
+      "name": "The Fantastic Four: First Steps"
+    }
+  },
+  {
+    "slug": "el-crimen-de-padre-amaro-2002",
+    "reason": "The standard English release title is The Crime of Father Amaro.",
+    "fields": {
+      "name": "The Crime of Father Amaro"
+    }
+  },
+  {
+    "slug": "sin-senos-si-hay-paraiso-2016",
+    "reason": "Spanish titles are sentence case, and the accents were dropped.",
+    "fields": {
+      "name": "Sin senos sí hay paraíso"
+    }
+  },
+  {
+    "slug": "sex-lies-and-videotape-1989",
+    "reason": "The film is styled in lower case throughout.",
+    "fields": {
+      "name": "sex, lies, and videotape"
+    }
+  },
+  {
+    "slug": "the-broadway-melody-1929",
+    "reason": "The page reported 110 minutes; the standard release runs 100.",
+    "fields": {
+      "runtime_minutes": 100
+    }
+  },
+  {
+    "slug": "the-last-breath-2022",
+    "reason": "Hedén's film is 2024; the cited page is filed there.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "under-the-bridge-2023",
+    "reason": "The Hulu series is 2024.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "wolves-2025",
+    "reason": "The cited page gives 2024.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "the-visitor-2009",
+    "reason": "McCarthy's film is 2007; the cited page is filed at 2008.",
+    "fields": {
+      "year": 2007
+    }
+  },
+  {
+    "slug": "we-are-still-here-2015",
+    "reason": "Tagged Documentary; it is a scripted haunted-house horror.",
+    "fields": {
+      "genres": [
+        "Horror",
+        "Thriller"
+      ]
+    }
+  },
+  {
+    "slug": "texas-chainsaw-massacre-2003",
+    "reason": "The article was dropped from the slug; the name and cited page both carry it.",
+    "fields": {
+      "name": "The Texas Chainsaw Massacre"
+    }
+  },
+  {
+    "slug": "woh-saat-din-1983",
+    "reason": "The name and slug disagreed on the numeral.",
+    "fields": {
+      "name": "Woh Saat Din"
+    }
+  },
+  {
+    "slug": "girls-on-the-line-2022",
+    "reason": "A spurious Girls prefix: the cast, director and cited page are all the 2022 thriller On the Line, while Girls on the Line is a separate 2018 film.",
+    "fields": {
+      "name": "On the Line"
+    }
+  },
+  {
+    "slug": "godard-band-of-outsiders-1964",
+    "reason": "A director's name is not part of the title.",
+    "fields": {
+      "name": "Band of Outsiders"
+    }
+  },
+  {
+    "slug": "godards-breathless-1960",
+    "reason": "A director's name is not part of the title.",
+    "fields": {
+      "name": "Breathless"
+    }
+  },
+  {
+    "slug": "goblin-season-2-2016",
+    "reason": "The slug names a season the show never had — it ran one sixteen-episode series — and the genres carry a bogus Reality TV.",
+    "fields": {
+      "name": "Guardian: The Lonely and Great God",
+      "genres": [
+        "Fantasy",
+        "Drama",
+        "Romance"
+      ]
+    }
+  },
+  {
+    "slug": "gundam-wing-endless-waltz-1997",
+    "reason": "A spurious article.",
+    "fields": {
+      "name": "Gundam Wing: Endless Waltz"
+    }
+  },
+  {
+    "slug": "gangsta-granny-2011",
+    "reason": "2011 is the novel; the BBC film is 2013.",
+    "fields": {
+      "year": 2013
+    }
+  },
+  {
+    "slug": "hancocks-half-hour-1954",
+    "reason": "1954 is the radio series; the television one, which is what the cited page lists, began in 1956.",
+    "fields": {
+      "year": 1956
+    }
+  },
+  {
+    "slug": "gleipnir-2021",
+    "reason": "Aired 2020.",
+    "fields": {
+      "year": 2020
+    }
+  },
+  {
+    "slug": "ghost-hunt-2007",
+    "reason": "Ran 2006 to 2007; the record carried the end rather than the start.",
+    "fields": {
+      "year": 2006
+    }
+  },
+  {
+    "slug": "heaven-2002",
+    "reason": "Tagged Documentary; Tykwer's film is a drama.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "Thriller",
+        "Crime"
+      ]
+    }
+  },
+  {
+    "slug": "night-fishing-2011",
+    "reason": "The name, runtime and cited page are Park Chan-wook's iPhone-shot short; the director and cast are grafted from an unrelated Czech documentary, and so is the Documentary genre. JustWatch carries the same corrupted record, so the fix has to be ours.",
+    "fields": {
+      "director": "Park Chan-wook, Park Chan-kyong",
+      "cast_members": [
+        "Lee Jung-hyun",
+        "Oh Kwang-rok",
+        "Kwon Hae-hyo"
+      ],
+      "genres": [
+        "Fantasy",
+        "Horror"
+      ]
+    }
+  },
+  {
+    "slug": "morse-1987",
+    "reason": "A bare Morse drops the word a British viewer would say; the cited page is inspector-morse.",
+    "fields": {
+      "name": "Inspector Morse"
+    }
+  },
+  {
+    "slug": "neon-genesis-evangelion-3-0-you-can-not-redo-2012",
+    "reason": "Neon Genesis belongs to the 1995 series, not to the Rebuild films.",
+    "fields": {
+      "name": "Evangelion: 3.0 You Can (Not) Redo"
+    }
+  },
+  {
+    "slug": "moon-2023",
+    "reason": "Ayub's Mond premiered at Locarno in 2024.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "moonlight-mile-2000",
+    "reason": "Silberling's film is 2002.",
+    "fields": {
+      "year": 2002
+    }
+  },
+  {
+    "slug": "my-hero-1999",
+    "reason": "The BBC sitcom first aired in February 2000.",
+    "fields": {
+      "year": 2000
+    }
+  },
+  {
+    "slug": "never-too-late-2023",
+    "reason": "The cited page is filed at 2025.",
+    "fields": {
+      "year": 2025
+    }
+  },
+  {
+    "slug": "night-head-2041-2022",
+    "reason": "Aired July 2021.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "no-smoking-2007",
+    "reason": "Rated U, which is implausible for this film.",
+    "fields": {
+      "certification": null
+    }
+  },
+  {
+    "slug": "hero-1994",
+    "reason": "Frears's film is 1992, released here as Accidental Hero.",
+    "fields": {
+      "year": 1992,
+      "runtime_minutes": 117
+    }
+  },
+  {
+    "slug": "ascendance-of-a-bookworm-season-2-2019",
+    "reason": "The name was left as the romanised original, and the season suffix belongs to a season rather than the show.",
+    "fields": {
+      "name": "Ascendance of a Bookworm"
+    }
+  },
+  {
+    "slug": "the-house-on-haunted-hill-1959",
+    "reason": "A spurious article; the Vincent Price film is House on Haunted Hill, and the 1999 record already has it right.",
+    "fields": {
+      "name": "House on Haunted Hill"
+    }
+  },
+  {
+    "slug": "hypnotic-2023",
+    "reason": "The cast and directors are the 2021 Netflix film, not Rodriguez's of 2023.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "sunset-in-my-hometown-2018",
+    "reason": "The slug belongs to a Korean film; the name, cast and cited page are the BBC Three series In My Skin.",
+    "fields": {
+      "name": "In My Skin"
+    }
+  },
+  {
+    "slug": "inspector-koo-2022",
+    "reason": "Aired October to December 2021.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "ice-age-dawn-of-the-dinosaurs-2009",
+    "reason": "Tagged Documentary.",
+    "fields": {
+      "genres": [
+        "Animation",
+        "Adventure",
+        "Comedy",
+        "Kids & Family"
+      ]
+    }
+  },
+  {
+    "slug": "descendants-of-the-sun-season-2-2016",
+    "reason": "A record for a season that does not exist — the show ran one series of sixteen episodes. Aligning the name to the real show lets dedupe merge the phantom away.",
+    "fields": {
+      "name": "Descendants of the Sun",
+      "seasons": 1,
+      "episodes": 16
+    }
+  },
+  {
+    "slug": "descendants-of-the-sun-season-3-2016",
+    "reason": "The same phantom season, a third time.",
+    "fields": {
+      "name": "Descendants of the Sun",
+      "seasons": 1,
+      "episodes": 16
+    }
+  },
+  {
+    "slug": "death-wish-v-1994",
+    "reason": "The subtitle was dropped, and aligning the name merges this with the identical record beside it.",
+    "fields": {
+      "name": "Death Wish V: The Face of Death"
+    }
+  },
+  {
+    "slug": "the-dawn-of-man-2015",
+    "reason": "The slug names a different work; every fact is DreamWorks' Dawn of the Croods.",
+    "fields": {
+      "name": "Dawn of the Croods"
+    }
+  },
+  {
+    "slug": "the-dark-house-2014",
+    "reason": "A spurious article; Salva's film is Dark House, as the name and cited page agree.",
+    "fields": {
+      "name": "Dark House"
+    }
+  },
+  {
+    "slug": "cyberpunk-2077-cyberpunk-edgerunners-2022",
+    "reason": "The name doubled the franchise onto the title.",
+    "fields": {
+      "name": "Cyberpunk: Edgerunners"
+    }
+  },
+  {
+    "slug": "downstairs-2016",
+    "reason": "Truncated; the cited page has the full title.",
+    "fields": {
+      "name": "The Tenants Downstairs"
+    }
+  },
+  {
+    "slug": "death-note-relight-2007",
+    "reason": "The part number and subtitle were dropped.",
+    "fields": {
+      "name": "Death Note Relight 1: Visions of a God"
+    }
+  },
+  {
+    "slug": "bergdoktor-2008",
+    "reason": "The article was dropped.",
+    "fields": {
+      "name": "Der Bergdoktor"
+    }
+  },
+  {
+    "slug": "daredevil-born-again-2024",
+    "reason": "Premiered March 2025.",
+    "fields": {
+      "year": 2025
+    }
+  },
+  {
+    "slug": "dare-me-2019",
+    "reason": "Tagged Reality TV; it is a scripted drama.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "Crime"
+      ]
+    }
+  },
+  {
+    "slug": "days-2016",
+    "reason": "Tagged Reality TV; it is a sports anime.",
+    "fields": {
+      "genres": [
+        "Animation",
+        "Sport",
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "dci-banks-2010",
+    "reason": "Tagged Science-Fiction; it is a police procedural.",
+    "fields": {
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ]
+    }
+  },
+  {
+    "slug": "the-phantom-lady-1944",
+    "reason": "A spurious article; Siodmak's film is Phantom Lady.",
+    "fields": {
+      "name": "Phantom Lady"
+    }
+  },
+  {
+    "slug": "pickpocket-1959",
+    "reason": "Bresson's film is one word.",
+    "fields": {
+      "name": "Pickpocket"
+    }
+  },
+  {
+    "slug": "passage-2024",
+    "reason": "The UK release title is Crossing; Passage is an alternate-region title.",
+    "fields": {
+      "name": "Crossing"
+    }
+  },
+  {
+    "slug": "plan-b-2023",
+    "reason": "Morales's film is 2021; the cited page says so.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "painkiller-2020",
+    "reason": "The cited page is filed at 2021.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "pompeii-2018",
+    "reason": "The cited page dates the short 2019.",
+    "fields": {
+      "year": 2019
+    }
+  },
+  {
+    "slug": "only-yesterday-1991",
+    "reason": "The page reported 119 minutes; the film runs 118.",
+    "fields": {
+      "runtime_minutes": 118
+    }
+  },
+  {
+    "slug": "bride-prejudice-2004",
+    "reason": "The conjunction was dropped.",
+    "fields": {
+      "name": "Bride & Prejudice"
+    }
+  },
+  {
+    "slug": "carnival-1962",
+    "reason": "A spurious exclamation mark and a dropped subtitle; the cited page confirms the real title.",
+    "fields": {
+      "name": "Carnival of Souls"
+    }
+  },
+  {
+    "slug": "bulgasal-2021",
+    "reason": "The subtitle was dropped.",
+    "fields": {
+      "name": "Bulgasal: Immortal Souls"
+    }
+  },
+  {
+    "slug": "the-clangers-1969",
+    "reason": "A spurious article in the slug; the name field already has it right.",
+    "fields": {
+      "name": "Clangers"
+    }
+  },
+  {
+    "slug": "bring-it-on-all-or-nothing-2004",
+    "reason": "Released direct to DVD in August 2006.",
+    "fields": {
+      "year": 2006
+    }
+  },
+  {
+    "slug": "confession-2020",
+    "reason": "The Moyer thriller is 2022; the cited page says so.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "charles-in-charge-1987",
+    "reason": "The CBS run began in 1984; 1987 is the syndication revival.",
+    "fields": {
+      "year": 1984
+    }
+  },
+  {
+    "slug": "cry-macho-2021",
+    "reason": "The page reported 125 minutes; the film runs 104.",
+    "fields": {
+      "runtime_minutes": 104
+    }
+  },
+  {
+    "slug": "chernobyl-the-lost-tapes-2022",
+    "reason": "The cited page is a different film, the cast is archive footage rather than participants, and the runtime was four minutes out.",
+    "fields": {
+      "cast_members": [],
+      "runtime_minutes": 91
+    }
+  },
+  {
+    "slug": "carlitos-way-rise-to-power-2005",
+    "reason": "Tagged Documentary.",
+    "fields": {
+      "genres": [
+        "Crime",
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "cant-stop-the-music-1980",
+    "reason": "Tagged Documentary.",
+    "fields": {
+      "genres": [
+        "Comedy",
+        "Music & Musical"
+      ]
+    }
+  },
+  {
+    "slug": "loves-2020",
+    "reason": "A truncation artefact; the film is Love Sarah.",
+    "fields": {
+      "name": "Love Sarah"
+    }
+  },
+  {
+    "slug": "league-of-gentlemens-apocalypse-2005",
+    "reason": "A missing article, and tagged Documentary.",
+    "fields": {
+      "name": "The League of Gentlemen's Apocalypse",
+      "genres": [
+        "Comedy",
+        "Horror"
+      ]
+    }
+  },
+  {
+    "slug": "knowing-me-knowing-you-1994",
+    "reason": "The subtitle was dropped; the cited page has it.",
+    "fields": {
+      "name": "Knowing Me, Knowing You with Alan Partridge"
+    }
+  },
+  {
+    "slug": "long-days-journey-2018",
+    "reason": "The subtitle was dropped, which also separates Bi Gan's film from the O'Neill play it would otherwise read as.",
+    "fields": {
+      "name": "Long Day's Journey Into Night"
+    }
+  },
+  {
+    "slug": "ken-burns-the-war-2007",
+    "reason": "A marketing prefix rather than a title.",
+    "fields": {
+      "name": "The War"
+    }
+  },
+  {
+    "slug": "kiss-sixth-sense-2019",
+    "reason": "Aired 2022.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "love-is-blind-mexico-2021",
+    "reason": "Premiered 2024.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "love-is-blind-brazil-2020",
+    "reason": "First released 2021.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "emerald-fennell-promising-young-woman-2020",
+    "reason": "A director's name is not part of the title.",
+    "fields": {
+      "name": "Promising Young Woman"
+    }
+  },
+  {
+    "slug": "jean-luc-godard-pierrot-le-fou-1965",
+    "reason": "A director's name is not part of the title.",
+    "fields": {
+      "name": "Pierrot le Fou"
+    }
+  },
+  {
+    "slug": "evidence-1998",
+    "reason": "The cast, director and cited page are Evidence of Blood; bare Evidence is an unrelated title.",
+    "fields": {
+      "name": "Evidence of Blood"
+    }
+  },
+  {
+    "slug": "fabian-2021",
+    "reason": "The subtitle was dropped; the cited page has it.",
+    "fields": {
+      "name": "Fabian: Going to the Dogs"
+    }
+  },
+  {
+    "slug": "ergo-proxy-complete-series-2006",
+    "reason": "A boxset packaging suffix rather than a title.",
+    "fields": {
+      "name": "Ergo Proxy"
+    }
+  },
+  {
+    "slug": "flcl-2000",
+    "reason": "Miscased.",
+    "fields": {
+      "name": "FLCL"
+    }
+  },
+  {
+    "slug": "eastsiders-2014",
+    "reason": "Miscased, and it first aired as a web series in 2012.",
+    "fields": {
+      "name": "EastSiders",
+      "year": 2012
+    }
+  },
+  {
+    "slug": "eastenders-omnibus-1985",
+    "reason": "Miscased.",
+    "fields": {
+      "name": "EastEnders Omnibus"
+    }
+  },
+  {
+    "slug": "fear-street-1666-2021",
+    "reason": "The part designation was dropped.",
+    "fields": {
+      "name": "Fear Street Part Three: 1666"
+    }
+  },
+  {
+    "slug": "free-iwatobi-swim-club-2013",
+    "reason": "Iwatobi Swim Club is season one's subtitle, not the series title.",
+    "fields": {
+      "name": "Free!"
+    }
+  },
+  {
+    "slug": "equinox-2018",
+    "reason": "The Danish series first aired in 2020.",
+    "fields": {
+      "year": 2020
+    }
+  },
+  {
+    "slug": "eyewitness-2015",
+    "reason": "Øyevitne aired in 2014.",
+    "fields": {
+      "year": 2014
+    }
+  },
+  {
+    "slug": "the-eternal-spring-2023",
+    "reason": "A spurious article, and the film is 2022.",
+    "fields": {
+      "name": "Eternal Spring",
+      "year": 2022
+    }
+  },
+  {
+    "slug": "eurotrip-2004",
+    "reason": "The director was empty.",
+    "fields": {
+      "director": "Jeff Schaffer"
+    }
+  },
+  {
+    "slug": "the-invasion-of-the-body-snatchers-1956",
+    "reason": "A spurious article; the name field already has it right.",
+    "fields": {
+      "name": "Invasion of the Body Snatchers"
+    }
+  },
+  {
+    "slug": "jungle-book-mowglis-story-1998",
+    "reason": "The article was dropped; the cited page has it.",
+    "fields": {
+      "name": "The Jungle Book: Mowgli's Story"
+    }
+  },
+  {
+    "slug": "ken-burns-baseball-1994",
+    "reason": "A marketing prefix rather than a title.",
+    "fields": {
+      "name": "Baseball"
+    }
+  },
+  {
+    "slug": "ken-burns-jazz-2001",
+    "reason": "A marketing prefix rather than a title.",
+    "fields": {
+      "name": "Jazz"
+    }
+  },
+  {
+    "slug": "ken-burns-the-civil-war-1990",
+    "reason": "A marketing prefix rather than a title.",
+    "fields": {
+      "name": "The Civil War"
+    }
+  },
+  {
+    "slug": "intimidad-2020",
+    "reason": "The series is 2022.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "iwaju-2023",
+    "reason": "Iwájú premiered in 2024.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "maria-full-of-grace-2004",
+    "reason": "The English release title carries no accent.",
+    "fields": {
+      "name": "Maria Full of Grace"
+    }
+  },
+  {
+    "slug": "merli-2015",
+    "reason": "The accent was dropped.",
+    "fields": {
+      "name": "Merlí"
+    }
+  },
+  {
+    "slug": "dotty-and-her-daring-deeds-1989",
+    "reason": "The slug names a different work; the name and cited page are Maid Marian and Her Merry Men.",
+    "fields": {
+      "name": "Maid Marian and Her Merry Men"
+    }
+  },
+  {
+    "slug": "miss-peregrines-home-for-peculiar-children-2016",
+    "reason": "Tagged Documentary.",
+    "fields": {
+      "genres": [
+        "Fantasy",
+        "Adventure",
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "angles-with-dirty-faces-1938",
+    "reason": "Misspelt in both name and slug; the cited page has it right.",
+    "fields": {
+      "name": "Angels with Dirty Faces"
+    }
+  },
+  {
+    "slug": "alex-hugo-2011",
+    "reason": "The French series premiered in March 2014.",
+    "fields": {
+      "year": 2014
+    }
+  },
+  {
+    "slug": "along-with-the-gods-2017",
+    "reason": "The subtitle was dropped, which also separates it from the 2018 sequel.",
+    "fields": {
+      "name": "Along with the Gods: The Two Worlds"
+    }
+  },
+  {
+    "slug": "a-better-tomorrow-2011-2010",
+    "reason": "A home-video tag that leaked into the name, and it disagrees with the record's own year.",
+    "fields": {
+      "name": "A Better Tomorrow"
+    }
+  },
+  {
+    "slug": "a-good-girl-is-hard-to-find-2024",
+    "reason": "The slug was cloned from the record beside it; the name and cited page are the BBC series.",
+    "fields": {
+      "name": "A Good Girl's Guide to Murder"
+    }
+  },
+  {
+    "slug": "army-of-the-dead-lost-vegas-2021",
+    "reason": "Lost Vegas was a working title and a scrapped prequel, not this film's subtitle.",
+    "fields": {
+      "name": "Army of the Dead"
+    }
+  },
+  {
+    "slug": "balthazar-1966",
+    "reason": "The name lost its first two words, and bare Balthazar collides with the 2018 French series.",
+    "fields": {
+      "name": "Au Hasard Balthazar"
+    }
+  },
+  {
+    "slug": "duty-after-school-2023",
+    "reason": "The name was left as the romanised Korean while the slug already had the English.",
+    "fields": {
+      "name": "Duty After School"
+    }
+  },
+  {
+    "slug": "battle-royale-ii-2003",
+    "reason": "The subtitle was dropped, it was tagged Documentary, and the runtime given is the Revenge edition rather than the theatrical cut.",
+    "fields": {
+      "name": "Battle Royale II: Requiem",
+      "genres": [
+        "Action",
+        "Thriller",
+        "Science-Fiction"
+      ],
+      "runtime_minutes": 133
+    }
+  },
+  {
+    "slug": "bhoot-part-one-the-haunted-2020",
+    "reason": "The last word was dropped.",
+    "fields": {
+      "name": "Bhoot – Part One: The Haunted Ship"
+    }
+  },
+  {
+    "slug": "begum-jaan-2015",
+    "reason": "Released 2017.",
+    "fields": {
+      "year": 2017
+    }
+  },
+  {
+    "slug": "ben-and-kate-2011",
+    "reason": "Premiered on Fox in September 2012.",
+    "fields": {
+      "year": 2012
+    }
+  },
+  {
+    "slug": "beanpole-2019",
+    "reason": "Tagged Animation; it is live-action Russian drama.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "War & Military"
+      ]
+    }
+  },
+  {
+    "slug": "bedlam-2011",
+    "reason": "Tagged Documentary and Science-Fiction; it is a supernatural drama.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "Horror",
+        "Mystery"
+      ]
+    }
+  },
+  {
+    "slug": "blackbox-2014",
+    "reason": "Tagged Comedy; it is a medical drama.",
+    "fields": {
+      "genres": [
+        "Drama"
+      ]
+    }
+  },
+  {
+    "slug": "10x10-2018",
+    "reason": "Tagged Music & Musical, for an abduction thriller.",
+    "fields": {
+      "genres": [
+        "Thriller"
+      ]
+    }
+  },
+  {
+    "slug": "avanti-1972",
+    "reason": "The page reported 138 minutes; the film runs 144.",
+    "fields": {
+      "runtime_minutes": 144
+    }
+  },
+  {
+    "slug": "black-book-2006",
+    "reason": "The page reported 139 minutes; the film runs 145.",
+    "fields": {
+      "runtime_minutes": 145
+    }
+  },
+  {
+    "slug": "bound-1996",
+    "reason": "The page reported 105 minutes; the film runs 108.",
+    "fields": {
+      "runtime_minutes": 108
+    }
+  }
+]

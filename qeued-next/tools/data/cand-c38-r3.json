@@ -1,0 +1,1602 @@
+[
+  {
+    "name": "Lupin III: The Castle of Cagliostro",
+    "year": 1979,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Miyazaki's iconic heist film; OVA era landmark"
+  },
+  {
+    "name": "Nausicaä of the Valley of the Wind",
+    "year": 1984,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Pre-Studio Ghibli epic; defines environmental SF anime"
+  },
+  {
+    "name": "Maison Ikkoku",
+    "year": 1986,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Rumiko Takahashi seinen romance; 96-episode complete story"
+  },
+  {
+    "name": "Castle in the Sky",
+    "year": 1986,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Studio Ghibli classic; adventure, wonder, flight"
+  },
+  {
+    "name": "Patlabor: The Movie",
+    "year": 1989,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Oshii's cyberpunk-tinged mecha; cybernetics + civic duty"
+  },
+  {
+    "name": "Puella Magi Madoka Magica",
+    "year": 2011,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Deconstructs magical girl; existential, innovative"
+  },
+  {
+    "name": "Neon Genesis Evangelion",
+    "year": 1995,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Gainax's mecha masterpiece; psychological, revolutionary"
+  },
+  {
+    "name": "Cowboy Bebop: The Movie",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Noir spacefaring; cinema-grade animation"
+  },
+  {
+    "name": "Spirited Away",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Miyazaki's Oscar winner; rite of passage fantasy"
+  },
+  {
+    "name": "Fullmetal Alchemist",
+    "year": 2003,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Action-packed shounen; alchemy, philosophy, war"
+  },
+  {
+    "name": "Haibane Renmei",
+    "year": 2002,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Poetic mystery; wings, purgatory, existential"
+  },
+  {
+    "name": "Serial Experiments Lain",
+    "year": 1998,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Cyberpunk horror; reality, identity, internet"
+  },
+  {
+    "name": "Trigun",
+    "year": 1998,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Space western; pacifism vs redemption"
+  },
+  {
+    "name": "Paprika",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Satoshi Kon's dream psychodrama; surreal, inventive"
+  },
+  {
+    "name": "Howl's Moving Castle",
+    "year": 2004,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Miyazaki romance; steampunk fairy tale"
+  },
+  {
+    "name": "The Girl Who Leapt Through Time",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Makoto Shinkai; temporal, melancholic YA"
+  },
+  {
+    "name": "Your Name",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Shinkai's highest-grossing; body-swap, destiny"
+  },
+  {
+    "name": "A Silent Voice",
+    "year": 2016,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Kyoto Animation; deaf representation, redemption"
+  },
+  {
+    "name": "Garden of Words",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Shinkai; rain, shoes, understated love"
+  },
+  {
+    "name": "Ping Pong the Animation",
+    "year": 2014,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Masaaki Yuasa; sport as life, rotoscope-y"
+  },
+  {
+    "name": "Carole & Tuesday",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Mars musicians; AI, creativity, optimism"
+  },
+  {
+    "name": "Cyberpunk: Edgerunners",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Trigger's neon-soaked dystopia; Cyberpunk 2077"
+  },
+  {
+    "name": "Kill la Kill",
+    "year": 2013,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Trigger's over-the-top action; self-actualization"
+  },
+  {
+    "name": "Promare",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Trigger's fire-fighting spectacle; colorful, earnest"
+  },
+  {
+    "name": "Demon Slayer",
+    "year": 2019,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "ufotable's shounen; stunning animation, demons"
+  },
+  {
+    "name": "Jujutsu Kaisen",
+    "year": 2020,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "ufotable's dark shounen; curses, legacy"
+  },
+  {
+    "name": "Attack on Titan",
+    "year": 2013,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "WIT Studio → MAPPA; titans, survival, tragedy"
+  },
+  {
+    "name": "Daria",
+    "year": 1997,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "MTV satire; sardonic teen, deadpan"
+  },
+  {
+    "name": "Hellsing Ultimate",
+    "year": 2006,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "OVA; gothic vampire action; baroque"
+  },
+  {
+    "name": "Bleach",
+    "year": 2004,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Shonen classic; soul reapers, swords"
+  },
+  {
+    "name": "My Hero Academia",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Bones' shounen; superpowers, academia"
+  },
+  {
+    "name": "One Punch Man",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Comedy deconstruction; overpowered, ennui"
+  },
+  {
+    "name": "Mob Psycho 100 II",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Yuasa's telekinetic youth; psychological depth"
+  },
+  {
+    "name": "Steins;Gate",
+    "year": 2011,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Time-travel thriller; butterflies, paradox"
+  },
+  {
+    "name": "Death Note",
+    "year": 2006,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Psychological thriller; notebooks, morality"
+  },
+  {
+    "name": "Code Geass",
+    "year": 2006,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Mecha political drama; supernatural power"
+  },
+  {
+    "name": "Gundam Wing",
+    "year": 1995,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Shounen mecha; mobile suits, war"
+  },
+  {
+    "name": "Natsume Yuujinchou",
+    "year": 2008,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Supernatural episodic; youkai, belonging"
+  },
+  {
+    "name": "Mushishi",
+    "year": 2005,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Yuki Kajiura; wandering, mushi, folklore"
+  },
+  {
+    "name": "Hyouka",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Kyoto Animation; mystery club, aesthetics"
+  },
+  {
+    "name": "A Place Further Than the Universe",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Antarctica expedition; growth, friendship"
+  },
+  {
+    "name": "Girls' Last Tour",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Post-apocalyptic slice-of-life; quiet joy"
+  },
+  {
+    "name": "Nichijou",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Kyoto Animation comedy; surreal, high-energy"
+  },
+  {
+    "name": "K-On!",
+    "year": 2009,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Kyoto Animation; school band, slice-of-life"
+  },
+  {
+    "name": "Clannad: After Story",
+    "year": 2008,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Visual novel adaptation; tearjerker, family"
+  },
+  {
+    "name": "Angel Beats!",
+    "year": 2010,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "P.A. Works purgatory; music, trauma, closure"
+  },
+  {
+    "name": "Anohana: The Flower We Saw That Day",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "A-1 Pictures; ghost, childhood, grief"
+  },
+  {
+    "name": "Toradora!",
+    "year": 2008,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "J.C.Staff romance; tsundere, Christmas trees"
+  },
+  {
+    "name": "Fruits Basket",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Shoujo reboot; zodiac curse, healing"
+  },
+  {
+    "name": "Ouran High School Host Club",
+    "year": 2006,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Shoujo parody; reverse harem, satire"
+  },
+  {
+    "name": "Kaguya-sama: Love Is War",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Romantic comedy; psychological games, wit"
+  },
+  {
+    "name": "Chihayafuru",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Karuta card game; passion, poetry"
+  },
+  {
+    "name": "Sailor Moon",
+    "year": 1992,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Shoujo landmark; magical girls, identity"
+  },
+  {
+    "name": "Cardcaptor Sakura",
+    "year": 1998,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "CLAMP's shoujo; magical girl, romance"
+  },
+  {
+    "name": "Revolutionary Girl Utena",
+    "year": 1997,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Symbolic shoujo; gender, revolution"
+  },
+  {
+    "name": "Akatsuki no Yona",
+    "year": 2014,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Fantasy shoujo; princess quest, dragons"
+  },
+  {
+    "name": "Alchemy of Souls",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Mappa fantasy; magic, reincarnation"
+  },
+  {
+    "name": "Fate/Zero",
+    "year": 2011,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Urobuchi's war; magic, fate, cynicism"
+  },
+  {
+    "name": "Fate/stay night: Unlimited Blade Works",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "ufotable route; swords, ideals, action"
+  },
+  {
+    "name": "Monogatari Series",
+    "year": 2009,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Shaft; dialogue, supernatural, stylish"
+  },
+  {
+    "name": "Hanayamata",
+    "year": 2014,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Yosakoi dance; enthusiasm, clubs"
+  },
+  {
+    "name": "Just Because!",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "School romance; quiet, genuine"
+  },
+  {
+    "name": "Accel World",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Virtual world; acceleration, self-improvement"
+  },
+  {
+    "name": "The Irregular at Magic High School",
+    "year": 2014,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Magic academy; technological sorcery"
+  },
+  {
+    "name": "Sword Art Online",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "A-1 Pictures; VR trap, romance"
+  },
+  {
+    "name": "Log Horizon",
+    "year": 2013,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Game world; economics, strategy"
+  },
+  {
+    "name": "That Time I Got Reincarnated as a Slime",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Isekai; monster, nation-building"
+  },
+  {
+    "name": "Re:Zero",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Isekai dark; time loops, trauma"
+  },
+  {
+    "name": "Overlord",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Isekai villain protagonist; undead, conquest"
+  },
+  {
+    "name": "Goblin Slayer",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Dark fantasy; grit, specialization"
+  },
+  {
+    "name": "Parasite: The Maxim",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Action-horror sci-fi; parasites, identity"
+  },
+  {
+    "name": "Seraph of the End",
+    "year": 2015,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Post-apocalyptic shounen; vampires, orphans"
+  },
+  {
+    "name": "Psycho-Pass",
+    "year": 2012,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Cyberpunk police; dystopia, justice"
+  },
+  {
+    "name": "Ghost Hunt",
+    "year": 2007,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Paranormal investigation; mystery"
+  },
+  {
+    "name": "Ergo Proxy",
+    "year": 2006,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Post-apocalyptic noir; androids, philosophy"
+  },
+  {
+    "name": "Darker than Black",
+    "year": 2007,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Assassins, powers, espionage"
+  },
+  {
+    "name": "Black Lagoon",
+    "year": 2006,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Mercenaries, action, noir"
+  },
+  {
+    "name": "Hellsing",
+    "year": 2001,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "TV series; vampires, gothic"
+  },
+  {
+    "name": "Rurouni Kenshin",
+    "year": 1996,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Samurai action; redemption, Meiji"
+  },
+  {
+    "name": "Samurai Champloo",
+    "year": 2004,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Hip-hop samurai; anachronistic, diverse"
+  },
+  {
+    "name": "Samurai Deeper Kyo",
+    "year": 2002,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Action samurai; possession, rivals"
+  },
+  {
+    "name": "Warlord: Battle Royale",
+    "year": 2003,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Tournament shounen; powers, school"
+  },
+  {
+    "name": "Baccano!",
+    "year": 2007,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Non-linear narrative; immortals, Prohibition"
+  },
+  {
+    "name": "Durarara!!",
+    "year": 2010,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Urban supernatural; gang, headless rider"
+  },
+  {
+    "name": "Kekkai Sensen",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Ufotable urban fantasy; demons, colors"
+  },
+  {
+    "name": "Noragami",
+    "year": 2014,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "God of calamity; Shinto, smartphones"
+  },
+  {
+    "name": "Hozuki's Coolheadedness",
+    "year": 2014,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Hell bureaucracy; demon, comedy"
+  },
+  {
+    "name": "xxxHolic",
+    "year": 2006,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "CLAMP occult; wishes, mysterious shop"
+  },
+  {
+    "name": "Tsukumogami Kashima",
+    "year": 2012,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Episodic supernatural; object spirits"
+  },
+  {
+    "name": "Tokyo Ghoul",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Dark supernatural; ghouls, city"
+  },
+  {
+    "name": "The Promised Neverland",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Thriller mystery; orphan escape"
+  },
+  {
+    "name": "Toilet-bound Hanako-kun",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Surreal supernatural; wish-granting ghost"
+  },
+  {
+    "name": "Blue Exorcist",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Demon action-shounen; Satan's son"
+  },
+  {
+    "name": "Bungo Stray Dogs",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Literary talents; mafia, ability users"
+  },
+  {
+    "name": "Demon Slayer: Kimetsu no Yaiba — Hashira Training Arc",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "ufotable training arc; swordmaster journey"
+  },
+  {
+    "name": "Fire Force",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Shounen firefighters; combustion mystery"
+  },
+  {
+    "name": "Chainsaw Man",
+    "year": 2022,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "MAPPA's dark shounen; weird, irreverent"
+  },
+  {
+    "name": "Dandadan",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Sci-fi supernatural shounen; comedy, chaos"
+  },
+  {
+    "name": "Jigoku Shoujo",
+    "year": 2005,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Hell correspondence; episodic damnation"
+  },
+  {
+    "name": "Another",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Horror mystery; curse, school deaths"
+  },
+  {
+    "name": "Higurashi: When They Cry",
+    "year": 2006,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Horror loops; village, madness"
+  },
+  {
+    "name": "When They Cry: Gou",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Reboot twist; updated mystery"
+  },
+  {
+    "name": "The Melancholy of Haruhi Suzumiya",
+    "year": 2006,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "KyoAni metafiction; school, reality warping"
+  },
+  {
+    "name": "Suzumiya Haruhi-chan no Yuuutsu",
+    "year": 2009,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Spin-off comedy; shorts, parody"
+  },
+  {
+    "name": "Lucky Star",
+    "year": 2007,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "KyoAni slice-of-life; moe, self-referential"
+  },
+  {
+    "name": "Suzume",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Shinkai's closing doors; disaster, growth"
+  },
+  {
+    "name": "Weathering with You",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Shinkai; rain, sacrifice, love"
+  },
+  {
+    "name": "Silent Voice Film",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Kyoto Animation feature; deaf girl, redemption"
+  },
+  {
+    "name": "Five Centimeters per Second",
+    "year": 2007,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Shinkai short trilogy; distance, memory"
+  },
+  {
+    "name": "The Taste of Tea",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Katsuhito Ishii surrealism; family, dreams"
+  },
+  {
+    "name": "Sword of the Stranger",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Samurai action film; breathtaking combat"
+  },
+  {
+    "name": "Afro Samurai",
+    "year": 2007,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Hip-hop aesthetic; revenge, tournament"
+  },
+  {
+    "name": "Pokémon the Movie: Mewtwo Strikes Back",
+    "year": 1998,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Franchise film; philosophical, haunting"
+  },
+  {
+    "name": "Digimon Adventure: Our War Game!",
+    "year": 2000,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Digital monsters; Y2K, children heroes"
+  },
+  {
+    "name": "Digimon Adventure tri. Reunion",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Reboot trilogy; nostalgia, growing up"
+  },
+  {
+    "name": "Bubblegum Crisis",
+    "year": 1987,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Cyberpunk OVA; androids, punk"
+  },
+  {
+    "name": "Gundam: Mobile Suit Gundam 0080 — War in the Pocket",
+    "year": 1989,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "OVA masterpiece; coming-of-age, war"
+  },
+  {
+    "name": "Gundam F91",
+    "year": 1991,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Gundam theatrical film; new generation"
+  },
+  {
+    "name": "Gundam Wing: Endless Waltz",
+    "year": 1997,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "OVA continuation; peace, redemption"
+  },
+  {
+    "name": "Martian Successor Nadesico",
+    "year": 1996,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Mecha comedy; fleet, pirate"
+  },
+  {
+    "name": "Tengen Toppa Gurren Lagann",
+    "year": 2007,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Gainax's energy; mecha, escalation, spirit"
+  },
+  {
+    "name": "Neon Genesis Evangelion 3.0 You Can (Not) Redo",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Rebuild reinterpretation; angst, apocalypse"
+  },
+  {
+    "name": "Flcl",
+    "year": 2000,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Gainax absurdist OVA; comedy, puberty"
+  },
+  {
+    "name": "Paniponi Dash",
+    "year": 2005,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Shaft madness; visual gags, rapid-fire"
+  },
+  {
+    "name": "Puella Magi Madoka Magica the Movie — Rebellion",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Continuation film; psychological, twisted"
+  },
+  {
+    "name": "Mahou Shoujo Madoka Magica Portable Gacha & Magia Record",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Side story manga adaptation; expanded universe"
+  },
+  {
+    "name": "Magical Girl Site",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Dark magical girl deconstruction"
+  },
+  {
+    "name": "Little Witch Academia",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Trigger's school magic; creativity, ambition"
+  },
+  {
+    "name": "Michiko & Hatchin",
+    "year": 2008,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Sunao Katabuchi road trip; escapism"
+  },
+  {
+    "name": "Carole & Tuesday: Odyssey",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Prequel film; music, Mars"
+  },
+  {
+    "name": "Puzzle & Dragons X",
+    "year": 2015,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Game tie-in; adventure, monsters"
+  },
+  {
+    "name": "Made in Abyss",
+    "year": 2017,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Kinema Citrus; cute designs, dark depths"
+  },
+  {
+    "name": "Made in Abyss: Binary Star Falling into Darkness",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Prequel film; origins, horror"
+  },
+  {
+    "name": "Vivy: Fluorite Eye's Song",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "A-1 Pictures sci-fi; AI singer, time wars"
+  },
+  {
+    "name": "Devilman Crybaby",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Masaaki Yuasa remake; brutal, psychological"
+  },
+  {
+    "name": "Night Head 2041",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Sci-fi mystery; ESP, government"
+  },
+  {
+    "name": "Keep Your Hands Off Eizouken!",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Masaaki Yuasa manga adaptation; anime creation"
+  },
+  {
+    "name": "Aggretsuko",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Netflix stop-motion comedy; salary worker rage"
+  },
+  {
+    "name": "Neo Yokio",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Netflix comedy; fashion, demon"
+  },
+  {
+    "name": "Devilman Crybaby: Devilman vs Cyborg 009",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Mashup film; vintage manga"
+  },
+  {
+    "name": "Futari wa Pretty Cure",
+    "year": 2004,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Toei magical girl; twin transformation"
+  },
+  {
+    "name": "Fate/Kaleid Liner Prisma Illya",
+    "year": 2013,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Fate universe middle-school spin-off"
+  },
+  {
+    "name": "Lycoris Recoil",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "A-1 action comedy; spies, yuri subtext"
+  },
+  {
+    "name": "Kaguya-sama: Love Is War Ultra Romantic",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Feature continuation; school festivals"
+  },
+  {
+    "name": "Cyberpunk 2077: Phantom Liberty Anime Prologue",
+    "year": 2023,
+    "type": "series",
+    "priority": 1,
+    "bucket": "anime-depth",
+    "why": "Game prequel short; noir prologue"
+  },
+  {
+    "name": "Vinland Saga Season 2",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "MAPPA continuation; redemption, farming"
+  },
+  {
+    "name": "Wind Breaker",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "High school martial arts; gang culture"
+  },
+  {
+    "name": "Jigoku Sensei Nube",
+    "year": 1996,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "School supernatural comedy; demon hand"
+  },
+  {
+    "name": "Kamisama Dolls",
+    "year": 2011,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Living dolls; mystery, possession"
+  },
+  {
+    "name": "Anime Is Finished",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Meta comedy about anime industry"
+  },
+  {
+    "name": "Free! Iwatobi Swim Club",
+    "year": 2013,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Kyoto Animation; competitive swimming, bromance"
+  },
+  {
+    "name": "Haikyu!!",
+    "year": 2014,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Sports anime excellence; volleyball, teamwork"
+  },
+  {
+    "name": "Haikyu!! TO THE TOP",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Continuation; tournament, nationals"
+  },
+  {
+    "name": "Run with the Wind",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Distance running relay; determination"
+  },
+  {
+    "name": "Days",
+    "year": 2016,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Soccer sports anime; underdog, passion"
+  },
+  {
+    "name": "Kuroko's Basketball",
+    "year": 2012,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Basketball sports shounen; phantom player"
+  },
+  {
+    "name": "Blue Lock",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Soccer utopia; selection, genius"
+  },
+  {
+    "name": "Food Wars",
+    "year": 2015,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Culinary shounen; competitions, passion"
+  },
+  {
+    "name": "Restaurant to Another World",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Fantasy food fantasy; magical patrons"
+  },
+  {
+    "name": "Astra: Lost in Space",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Space adventure mystery; stranded, bonding"
+  },
+  {
+    "name": "Akudama Drive",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Cyberpunk thriller; criminals, color"
+  },
+  {
+    "name": "Megastructure",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Sci-fi architecture hard SF"
+  },
+  {
+    "name": "Battle Royale",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Live-action cult film; influencing anime"
+  },
+  {
+    "name": "Perfect Blue",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Satoshi Kon; identity, psychological"
+  },
+  {
+    "name": "Millennium Actress",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Satoshi Kon cinema; biographical, dreamy"
+  },
+  {
+    "name": "Tokyo Godfathers",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Satoshi Kon Christmas; found family"
+  },
+  {
+    "name": "Pompeii",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Disaster historical; volcano aftermath"
+  },
+  {
+    "name": "Ancient Magus Bride OVA",
+    "year": 2013,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Prep episodes; alchemist, bride"
+  },
+  {
+    "name": "The Apothecary Diaries",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Historical mystery; poison, China"
+  },
+  {
+    "name": "Frieren: Beyond Journey's End",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Post-adventure reflection; elf, time"
+  },
+  {
+    "name": "Heavenly Delusion",
+    "year": 2023,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Post-apocalyptic mystery; duality"
+  },
+  {
+    "name": "Solo Leveling",
+    "year": 2024,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Web novel action; monster hunter, gates"
+  },
+  {
+    "name": "Tower of God",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Webtoon adaptation; climbing, powers"
+  },
+  {
+    "name": "The God of High School",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Webtoon martial arts; spectacular combat"
+  },
+  {
+    "name": "Grave of the Fireflies",
+    "year": 1988,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Isao Takahata; WWII tragedy, poetry"
+  },
+  {
+    "name": "Princess Mononoke",
+    "year": 1997,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Miyazaki's eco-epic; forests, balance"
+  },
+  {
+    "name": "Kiki's Delivery Service",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Miyazaki; witch, independence, wholesome"
+  },
+  {
+    "name": "Porco Rosso",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Miyazaki; flying, Adriatic, adventure"
+  },
+  {
+    "name": "Only Yesterday",
+    "year": 1991,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Isao Takahata; rural nostalgia, memory"
+  },
+  {
+    "name": "Pom Poko",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Isao Takahata; raccoons, development"
+  },
+  {
+    "name": "Perfect Days",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Wim Wenders Tokyo film; routines, beauty"
+  },
+  {
+    "name": "The Woman Called Fujiko Mine",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Lupin III prequel; noir, backstory"
+  },
+  {
+    "name": "Lupin III: Part IV",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Heist series; color, mystery"
+  },
+  {
+    "name": "Ergo Proxy: Complete Series",
+    "year": 2006,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Philosophical post-apocalypse; androids"
+  },
+  {
+    "name": "Cyberpunk 2077: Cyberpunk: Edgerunners",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "CD Projekt Red adaptation; neon tragedy"
+  },
+  {
+    "name": "The Tatami Galaxy",
+    "year": 2010,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Masaaki Yuasa; rotoscope, university regrets"
+  },
+  {
+    "name": "Odd Taxi",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Animal noir mystery; crime, twist"
+  },
+  {
+    "name": "Sonny Boy",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Surreal drifting; philosophy, beauty"
+  },
+  {
+    "name": "Garden of Sinners",
+    "year": 2008,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Type-Moon; supernatural detective"
+  },
+  {
+    "name": "Puella Magi Madoka Magica Side Story: Magia Record",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Expanded Madoka universe; new magical girls"
+  },
+  {
+    "name": "Michiko to Hatchin",
+    "year": 2008,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Road trip escape; freedom, connection"
+  },
+  {
+    "name": "Amagi Brilliant Park",
+    "year": 2014,
+    "type": "series",
+    "priority": 2,
+    "bucket": "anime-depth",
+    "why": "Kyoto Animation; theme park, magic"
+  },
+  {
+    "name": "Inuyasha",
+    "year": 2000,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Rumiko Takahashi; historical fantasy, romance"
+  },
+  {
+    "name": "Ranma 1/2",
+    "year": 1989,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Rumiko Takahashi; transformation, comedy"
+  },
+  {
+    "name": "Urusei Yatsura",
+    "year": 1981,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Rumiko Takahashi; alien comedy, early"
+  },
+  {
+    "name": "Devilman",
+    "year": 1972,
+    "type": "series",
+    "priority": 3,
+    "bucket": "anime-depth",
+    "why": "Go Nagai; devils, body horror, classic"
+  },
+  {
+    "name": "Mazinger Z",
+    "year": 1972,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Super robot; giant mecha, action"
+  },
+  {
+    "name": "Space Battleship Yamato",
+    "year": 1974,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Space opera; military, epic journey"
+  },
+  {
+    "name": "Mobile Suit Gundam",
+    "year": 1979,
+    "type": "series",
+    "priority": 5,
+    "bucket": "anime-depth",
+    "why": "Sunrise; mecha wars, realism, landmark"
+  },
+  {
+    "name": "Gunbuster",
+    "year": 1988,
+    "type": "series",
+    "priority": 4,
+    "bucket": "anime-depth",
+    "why": "Gainax OVA; mecha, romance, time"
+  }
+]

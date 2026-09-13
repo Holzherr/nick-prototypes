@@ -1,0 +1,1602 @@
+[
+  {
+    "name": "Civilisation",
+    "year": 1969,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Kenneth Clark's landmark BBC series on Western art and culture."
+  },
+  {
+    "name": "The Ascent of Man",
+    "year": 1973,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Jacob Bronowski's definitive history of science and human progress."
+  },
+  {
+    "name": "Life on Earth",
+    "year": 1979,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Attenborough's pioneering natural history epic across 13 episodes."
+  },
+  {
+    "name": "The Blue Planet",
+    "year": 2001,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Ocean life documentary; groundbreaking cinematography and scope."
+  },
+  {
+    "name": "Planet Earth",
+    "year": 2006,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Attenborough's complete Earth ecosystems survey."
+  },
+  {
+    "name": "The Crown",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Royal family drama-documentary hybrid; deeply researched."
+  },
+  {
+    "name": "Dynasties",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Five animal dynasties across continents; Attenborough's narration."
+  },
+  {
+    "name": "Frozen Planet",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Arctic and Antarctic ecosystems; Attenborough."
+  },
+  {
+    "name": "Our Planet",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Netflix climate-focused natural history series."
+  },
+  {
+    "name": "The Pale Blue Dot",
+    "year": 2013,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Space and cosmos documentary series."
+  },
+  {
+    "name": "Cosmos: A Spacetime Odyssey",
+    "year": 2014,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Carl Sagan's Cosmos reboot with Neil deGrasse Tyson."
+  },
+  {
+    "name": "Horizon",
+    "year": 1964,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "BBC's longest-running science documentary series."
+  },
+  {
+    "name": "Panorama",
+    "year": 1953,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Landmark BBC current affairs and investigative journalism."
+  },
+  {
+    "name": "Arena",
+    "year": 1975,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "BBC arts documentary strand; cinema, music, theatre."
+  },
+  {
+    "name": "Storyville",
+    "year": 1997,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "BBC curated international documentary series."
+  },
+  {
+    "name": "Masterpiece Theatre",
+    "year": 1971,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "PBS arts and drama documentary strand."
+  },
+  {
+    "name": "American Masters",
+    "year": 1986,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "PBS biography series on American artists."
+  },
+  {
+    "name": "Frontline",
+    "year": 1983,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "PBS investigative journalism landmark series."
+  },
+  {
+    "name": "Nova",
+    "year": 1974,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "PBS science documentary series; runs continuously."
+  },
+  {
+    "name": "Ken Burns' The Civil War",
+    "year": 1990,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Definitive 11-hour history of American Civil War."
+  },
+  {
+    "name": "Ken Burns' Baseball",
+    "year": 1994,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "American sport, culture and history through baseball."
+  },
+  {
+    "name": "Ken Burns' Jazz",
+    "year": 2001,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "10-hour history of American jazz music."
+  },
+  {
+    "name": "Ken Burns' The War",
+    "year": 2007,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "WWII history through American perspectives."
+  },
+  {
+    "name": "Ken Burns' The Roosevelts",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Biography of FDR, Theodore Roosevelt, Eleanor Roosevelt."
+  },
+  {
+    "name": "The Vietnam War",
+    "year": 2017,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Ken Burns' 18-hour comprehensive history."
+  },
+  {
+    "name": "Murderball",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Paralympic wheelchair basketball team documentary."
+  },
+  {
+    "name": "Touching the Void",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Mountain climbing survival drama-documentary hybrid."
+  },
+  {
+    "name": "Grizzly Man",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Werner Herzog on bear enthusiast Timothy Treadwell."
+  },
+  {
+    "name": "The Cove",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Dolphin hunting investigation; Oscar-winning."
+  },
+  {
+    "name": "Blackfish",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Orca captivity at SeaWorld; influential activism documentary."
+  },
+  {
+    "name": "The Imposter",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "True crime identity fraud investigation."
+  },
+  {
+    "name": "Searching for Sugar Man",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Lost musician discovery; Oscar winner."
+  },
+  {
+    "name": "Jiro Dreams of Sushi",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Japanese master chef and sushi craftsmanship."
+  },
+  {
+    "name": "The Act of Killing",
+    "year": 2012,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Indonesia genocide perpetrators self-document. Groundbreaking."
+  },
+  {
+    "name": "The Look of Silence",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Sequel-adjacent; victims' families confront perpetrators."
+  },
+  {
+    "name": "Senna",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Ayrton Senna biography through archive footage."
+  },
+  {
+    "name": "Amy",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Amy Winehouse biography; Oscar winner."
+  },
+  {
+    "name": "Kurt Cobain: Montage of Heck",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Nirvana frontman life and death."
+  },
+  {
+    "name": "Iris",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Fashion icon Iris Apfel at 93."
+  },
+  {
+    "name": "Valentino: The Last Emperor",
+    "year": 2020,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Fashion designer Valentino Garavani retrospective."
+  },
+  {
+    "name": "The Toys That Made Us",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Netflix pop culture toy history episodes."
+  },
+  {
+    "name": "Abstract: The Art of Design",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Netflix design documentary series."
+  },
+  {
+    "name": "Chef's Table",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "World-class chefs and culinary innovation."
+  },
+  {
+    "name": "Godfather of Harlem",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Crime drama with documentary foundation."
+  },
+  {
+    "name": "Making a Murderer",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Wisconsin murder case investigation."
+  },
+  {
+    "name": "The Staircase",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Death case retold across HBO series."
+  },
+  {
+    "name": "Tiger King",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Exotic animal breeding underworld chaos."
+  },
+  {
+    "name": "Don't F**k with Cats",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Internet sleuths hunt animal abuser."
+  },
+  {
+    "name": "The Toys That Made Us: Hello Kitty",
+    "year": 2017,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-depth",
+    "why": "Sanrio icon cultural history."
+  },
+  {
+    "name": "The Midnight Sky",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Space exploration drama-documentary."
+  },
+  {
+    "name": "Apollo 11",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Moon landing archive footage reconstruction."
+  },
+  {
+    "name": "Moon",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "BBC lunar history and exploration."
+  },
+  {
+    "name": "First Man",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Neil Armstrong biography with documentary elements."
+  },
+  {
+    "name": "The Right Stuff",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Mercury Seven astronauts; thoroughly researched."
+  },
+  {
+    "name": "Hidden Figures",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Black female mathematicians at NASA."
+  },
+  {
+    "name": "The Fabric of the Cosmos",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Brian Greene PBS physics documentary series."
+  },
+  {
+    "name": "Genius by Stephen Hawking",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Hawking-hosted science documentary."
+  },
+  {
+    "name": "Our Universe",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Netflix universe and cosmos series."
+  },
+  {
+    "name": "Leaning Into It",
+    "year": 2024,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Climate action documentary series."
+  },
+  {
+    "name": "Chernobyl: The Lost Tapes",
+    "year": 2022,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Nuclear disaster archive reconstruction."
+  },
+  {
+    "name": "Chernobyl",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "HBO five-part nuclear disaster drama."
+  },
+  {
+    "name": "The Last Dance",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Michael Jordan final season documentary."
+  },
+  {
+    "name": "Hoop Dreams",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Basketball and race in America; landmark."
+  },
+  {
+    "name": "Pumping Iron",
+    "year": 1977,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Bodybuilding culture; early Schwarzenegger."
+  },
+  {
+    "name": "The Dawn Wall",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "El Capitan big wall climb documentary."
+  },
+  {
+    "name": "Meru",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Mountain climbing struggle and obsession."
+  },
+  {
+    "name": "Free Solo",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Climber Alex Honnold free solo El Capitan."
+  },
+  {
+    "name": "The Battered Bastards of Baseball",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Family baseball team against all odds."
+  },
+  {
+    "name": "O.J.: Made in America",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "30 for 30 epic 5-part Simpson trial."
+  },
+  {
+    "name": "The Two Escobars",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "30 for 30; footballer and drug lord."
+  },
+  {
+    "name": "Tickled",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Competitive tickling rabbit hole."
+  },
+  {
+    "name": "The Eric Andre Show",
+    "year": 2012,
+    "type": "series",
+    "priority": 2,
+    "bucket": "doc-depth",
+    "why": "Absurdist talk show with documentary feel."
+  },
+  {
+    "name": "Fyre: The Greatest Party That Never Happened",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Festival fraud and influencer hype."
+  },
+  {
+    "name": "Fyre Fraud",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Competing Fyre Festival documentary."
+  },
+  {
+    "name": "Enron: Smartest Guys in the Room",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Corporate fraud and collapse."
+  },
+  {
+    "name": "The Big Short",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "2008 financial crisis with documentary foundation."
+  },
+  {
+    "name": "Inside Job",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Financial crisis documentary; Oscar winner."
+  },
+  {
+    "name": "The China Hustle",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Stock fraud and Chinese companies."
+  },
+  {
+    "name": "Fyre: The Greatest Party That Never Happened",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Festival fraud documentation."
+  },
+  {
+    "name": "The Inventor: Out for Blood in Silicon Valley",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Theranos fraud with Elizabeth Holmes."
+  },
+  {
+    "name": "The Dropout",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Theranos founder dramatized documentary."
+  },
+  {
+    "name": "WeWork: or the Making and Breaking of a $47B Unicorn",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Corporate fraud and hype cycle."
+  },
+  {
+    "name": "The Rise and Fall of Theranos",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Multiple perspectives on fraud."
+  },
+  {
+    "name": "Documentaries on World War II",
+    "year": 1945,
+    "type": "series",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "BBC War Report footage collection."
+  },
+  {
+    "name": "World War II in Colour",
+    "year": 2008,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Colourized WWII archive footage."
+  },
+  {
+    "name": "The Nazis: A Warning from History",
+    "year": 1997,
+    "type": "series",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "BBC Hitler and Nazi rise analysis."
+  },
+  {
+    "name": "Shoah",
+    "year": 1985,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "9.5 hour Holocaust documentary epic."
+  },
+  {
+    "name": "Night and Fog",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Auschwitz 30-minute landmark film."
+  },
+  {
+    "name": "The Act of Killing",
+    "year": 2012,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Indonesian genocide perpetrators and memory."
+  },
+  {
+    "name": "Come and See",
+    "year": 1985,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Soviet WWII horror film with documentary feel."
+  },
+  {
+    "name": "Grave of the Fireflies",
+    "year": 1988,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Animated WWII Japan tragedy."
+  },
+  {
+    "name": "In the Mood for Love",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Wong Kar-wai Hong Kong romance visual essay."
+  },
+  {
+    "name": "Harakiri",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Japanese samurai ritual; historical critique."
+  },
+  {
+    "name": "Seven Samurai",
+    "year": 1954,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Kurosawa samurai epic; foundational cinema."
+  },
+  {
+    "name": "Rashomon",
+    "year": 1950,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Kurosawa truth and perspective masterpiece."
+  },
+  {
+    "name": "Tokyo Story",
+    "year": 1953,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Ozu family narrative; deeply observed."
+  },
+  {
+    "name": "Ikiru",
+    "year": 1952,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Kurosawa dying man finds purpose."
+  },
+  {
+    "name": "The Truman Show",
+    "year": 1998,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Reality television prophecy-documentary."
+  },
+  {
+    "name": "Synecdoche, New York",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Kaufman reality blur meta-narrative."
+  },
+  {
+    "name": "Mulholland Drive",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Lynch Hollywood reality deconstruction."
+  },
+  {
+    "name": "The Exterminating Angel",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Buñuel surrealist social commentary."
+  },
+  {
+    "name": "Man with a Movie Camera",
+    "year": 1929,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Soviet avant-garde city documentary."
+  },
+  {
+    "name": "Battleship Potemkin",
+    "year": 1925,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Eisenstein revolutionary montage cinema."
+  },
+  {
+    "name": "October: Ten Days That Shook the World",
+    "year": 1928,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Eisenstein Russian revolution reconstruction."
+  },
+  {
+    "name": "Nanook of the North",
+    "year": 1922,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "First feature documentary; Inuit survival."
+  },
+  {
+    "name": "Flaherty's Man of Aran",
+    "year": 1934,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Irish island fishing community."
+  },
+  {
+    "name": "Lumière Brothers' First Films",
+    "year": 1894,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Cinema invention; early actuality films."
+  },
+  {
+    "name": "The Death of Klinghoffer",
+    "year": 1991,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Opera on cruise ship hijacking."
+  },
+  {
+    "name": "The Woman in the Window",
+    "year": 1944,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Film noir observation and paranoia."
+  },
+  {
+    "name": "Sunset Boulevard",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Wilder Hollywood decay narrative."
+  },
+  {
+    "name": "The Killing",
+    "year": 1956,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Kubrick nonlinear crime story."
+  },
+  {
+    "name": "The Third Man",
+    "year": 1949,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Post-war Vienna espionage noir."
+  },
+  {
+    "name": "The Leopard",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Visconti Italy transition historical epic."
+  },
+  {
+    "name": "8½",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Fellini filmmaker's crisis masterpiece."
+  },
+  {
+    "name": "La Dolce Vita",
+    "year": 1960,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Fellini Rome decadence and paparazzi."
+  },
+  {
+    "name": "The 400 Blows",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Truffaut youth and freedom."
+  },
+  {
+    "name": "Hiroshima Mon Amour",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Resnais memory and bomb aftermath."
+  },
+  {
+    "name": "Last Year at Marienbad",
+    "year": 1961,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Robbe-Grillet puzzle narrative."
+  },
+  {
+    "name": "Cléo from 5 to 7",
+    "year": 1962,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Varda real-time Paris walk."
+  },
+  {
+    "name": "Godard's Breathless",
+    "year": 1960,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "New Wave jump cuts revolution."
+  },
+  {
+    "name": "Vivre Sa Vie",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Godard woman and prostitution."
+  },
+  {
+    "name": "Pierrot le Fou",
+    "year": 1965,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Godard couple on the run."
+  },
+  {
+    "name": "Contempt",
+    "year": 1963,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Godard cinema and marriage."
+  },
+  {
+    "name": "Weekend",
+    "year": 1967,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Godard apocalyptic road movie."
+  },
+  {
+    "name": "Stalker",
+    "year": 1979,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Tarkovsky metaphysical sci-fi."
+  },
+  {
+    "name": "The Mirror",
+    "year": 1975,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Tarkovsky memory and time."
+  },
+  {
+    "name": "Solaris",
+    "year": 1972,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Tarkovsky space and psychology."
+  },
+  {
+    "name": "Andrei Rublev",
+    "year": 1966,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Tarkovsky Russian icon painter."
+  },
+  {
+    "name": "Nostalgia",
+    "year": 1983,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Tarkovsky exile and return."
+  },
+  {
+    "name": "The Sacrifice",
+    "year": 1986,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Tarkovsky final apocalyptic film."
+  },
+  {
+    "name": "Synecdoche, New York",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Kaufman art and self-reference."
+  },
+  {
+    "name": "Eternal Sunshine of the Spotless Mind",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Kaufman and Gondry memory."
+  },
+  {
+    "name": "Her",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Spike Jonze AI relationship."
+  },
+  {
+    "name": "Being John Malkovich",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Kaufman consciousness exploration."
+  },
+  {
+    "name": "After Hours",
+    "year": 1985,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Scorsese New York night surreal."
+  },
+  {
+    "name": "Taxi Driver",
+    "year": 1976,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Scorsese urban alienation classic."
+  },
+  {
+    "name": "Raging Bull",
+    "year": 1980,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Scorsese boxer violence fury."
+  },
+  {
+    "name": "Goodfellas",
+    "year": 1990,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Scorsese mafia rise and fall."
+  },
+  {
+    "name": "Casino",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Scorsese Vegas corruption."
+  },
+  {
+    "name": "The Aviator",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Scorsese Hughes obsession."
+  },
+  {
+    "name": "The Wolf of Wall Street",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Scorsese Belfort excess and fraud."
+  },
+  {
+    "name": "Killers of the Flower Moon",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Scorsese Oklahoma Osage crime."
+  },
+  {
+    "name": "Invasion of the Body Snatchers",
+    "year": 1956,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Siegel Cold War paranoia sci-fi."
+  },
+  {
+    "name": "Vertigo",
+    "year": 1958,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Hitchcock obsession and identity."
+  },
+  {
+    "name": "Psycho",
+    "year": 1960,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Hitchcock shower scene landmark."
+  },
+  {
+    "name": "Rope",
+    "year": 1948,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Hitchcock realtime thriller."
+  },
+  {
+    "name": "Shadow of a Doubt",
+    "year": 1943,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Hitchcock small town evil."
+  },
+  {
+    "name": "The Man Who Shot Liberty Valance",
+    "year": 1962,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Ford myth and history."
+  },
+  {
+    "name": "The Searchers",
+    "year": 1956,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Ford Western racism and obsession."
+  },
+  {
+    "name": "My Darling Clementine",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Ford Wyatt Earp mythology."
+  },
+  {
+    "name": "The Grapes of Wrath",
+    "year": 1940,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Ford Depression Steinbeck."
+  },
+  {
+    "name": "Stagecoach",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Ford Western action template."
+  },
+  {
+    "name": "Citizen Kane",
+    "year": 1941,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Welles journalism and power."
+  },
+  {
+    "name": "The Magnificent Ambersons",
+    "year": 1942,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Welles family decline."
+  },
+  {
+    "name": "F for Fake",
+    "year": 1973,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Welles art fraud essay."
+  },
+  {
+    "name": "Touch of Evil",
+    "year": 1958,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Welles border corruption noir."
+  },
+  {
+    "name": "The Third Man",
+    "year": 1949,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Reed Vienna postwar."
+  },
+  {
+    "name": "Odd Man Out",
+    "year": 1947,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Reed Belfast fugitive noir."
+  },
+  {
+    "name": "The Blue Lamp",
+    "year": 1950,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Dearden police procedural."
+  },
+  {
+    "name": "The Lavender Hill Mob",
+    "year": 1951,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Ealing comedy heist."
+  },
+  {
+    "name": "The Ladykillers",
+    "year": 1955,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Ealing comedy criminals."
+  },
+  {
+    "name": "Kind Hearts and Coronets",
+    "year": 1949,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Ealing Alec Guinness inheritance."
+  },
+  {
+    "name": "Passport to Pimlico",
+    "year": 1949,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Ealing postwar London."
+  },
+  {
+    "name": "Dead of Night",
+    "year": 1945,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Ealing horror anthology."
+  },
+  {
+    "name": "Witness for the Prosecution",
+    "year": 1957,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Wilder courtroom legal drama."
+  },
+  {
+    "name": "Some Like It Hot",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Wilder gender comedy masterpiece."
+  },
+  {
+    "name": "The Apartment",
+    "year": 1960,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Wilder corporate romance."
+  },
+  {
+    "name": "The Producers",
+    "year": 1967,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Brooks theatre satire."
+  },
+  {
+    "name": "Singin' in the Rain",
+    "year": 1952,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Donen Kelly Hollywood musical."
+  },
+  {
+    "name": "An American in Paris",
+    "year": 1951,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Minnelli dance and romance."
+  },
+  {
+    "name": "The Wizard of Oz",
+    "year": 1939,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Fleming musical fantasy icon."
+  },
+  {
+    "name": "Breakfast at Tiffany's",
+    "year": 1961,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Edwards Holly Golightly."
+  },
+  {
+    "name": "Rebel Without a Cause",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Ray teenage rebellion."
+  },
+  {
+    "name": "The Searchers",
+    "year": 1956,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Ford Western racism epic."
+  },
+  {
+    "name": "Plan 9 from Outer Space",
+    "year": 1959,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "doc-depth",
+    "why": "Wood cult sci-fi bad movie."
+  },
+  {
+    "name": "The House on Haunted Hill",
+    "year": 1959,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Castle horror haunting."
+  },
+  {
+    "name": "Creature from the Black Lagoon",
+    "year": 1954,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Arnold monster sci-fi."
+  },
+  {
+    "name": "Metropolis",
+    "year": 1927,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Lang futurism and class struggle."
+  },
+  {
+    "name": "M",
+    "year": 1931,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Lang serial killer Weimar."
+  },
+  {
+    "name": "Nosferatu",
+    "year": 1922,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Murnau vampire expressionist."
+  },
+  {
+    "name": "The Cabinet of Dr. Caligari",
+    "year": 1920,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Wiene expressionist horror."
+  },
+  {
+    "name": "It's a Wonderful Life",
+    "year": 1946,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Capra small-town America."
+  },
+  {
+    "name": "Mr. Smith Goes to Washington",
+    "year": 1939,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Capra politics idealism."
+  },
+  {
+    "name": "Sunrise",
+    "year": 1927,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Murnau German-American masterpiece."
+  },
+  {
+    "name": "Sherlock Jr.",
+    "year": 1924,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Keaton cinema meta-narrative."
+  },
+  {
+    "name": "The General",
+    "year": 1926,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Keaton Civil War stunt comedy."
+  },
+  {
+    "name": "The Jazz Singer",
+    "year": 1927,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Crosland first talkie."
+  },
+  {
+    "name": "Intolerance",
+    "year": 1916,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Griffith epic historical scope."
+  },
+  {
+    "name": "Birth of a Nation",
+    "year": 1915,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Griffith cinema invention; racist."
+  },
+  {
+    "name": "The Kid",
+    "year": 1921,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Chaplin pathos and comedy."
+  },
+  {
+    "name": "Modern Times",
+    "year": 1936,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Chaplin industrialization satire."
+  },
+  {
+    "name": "The Gold Rush",
+    "year": 1925,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Chaplin prospector comedy."
+  },
+  {
+    "name": "City Lights",
+    "year": 1931,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Chaplin blind girl romance."
+  },
+  {
+    "name": "Singin' in the Rain",
+    "year": 1952,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "doc-depth",
+    "why": "Golden age Hollywood musical."
+  },
+  {
+    "name": "Sunset Boulevard",
+    "year": 1950,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Wilder Hollywood decay."
+  },
+  {
+    "name": "Oppenheimer",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Nolan atomic bomb maker."
+  },
+  {
+    "name": "Dunkirk",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Nolan WWII evacuation."
+  },
+  {
+    "name": "Tenet",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "doc-depth",
+    "why": "Nolan time inversion action."
+  },
+  {
+    "name": "Inception",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Nolan dream architecture heist."
+  },
+  {
+    "name": "The Prestige",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "doc-depth",
+    "why": "Nolan magician obsession."
+  }
+]

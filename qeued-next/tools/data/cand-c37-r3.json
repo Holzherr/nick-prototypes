@@ -1,0 +1,1586 @@
+[
+  {
+    "name": "The Archers",
+    "year": 1950,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Longest-running radio drama; institution"
+  },
+  {
+    "name": "Armchair Theatre",
+    "year": 1956,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "ITV anthology plays; longest anthology series"
+  },
+  {
+    "name": "Doctor Who",
+    "year": 1963,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Longest-running sci-fi series; British icon"
+  },
+  {
+    "name": "Softly, Softly",
+    "year": 1966,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Police drama following Z-Cars format"
+  },
+  {
+    "name": "The Forsyte Saga",
+    "year": 1967,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Galsworthy epic family saga; defining period drama"
+  },
+  {
+    "name": "Play for Today",
+    "year": 1970,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "BBC single-play anthology; 200+ innovative dramas"
+  },
+  {
+    "name": "The Sweeney",
+    "year": 1974,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Gritty 1970s flying squad police drama"
+  },
+  {
+    "name": "Boys from the Blackstuff",
+    "year": 1982,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Gritty unemployment drama; iconic 1980s work"
+  },
+  {
+    "name": "Blackadder",
+    "year": 1983,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Comedy classic; award-winning sitcom"
+  },
+  {
+    "name": "Edge of Darkness",
+    "year": 1985,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Political thriller; nuclear industry saga"
+  },
+  {
+    "name": "Morse",
+    "year": 1987,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Oxford detective in classic crime series"
+  },
+  {
+    "name": "Prime Suspect",
+    "year": 1991,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Helen Mirren detective; landmark feminist drama"
+  },
+  {
+    "name": "A Touch of Frost",
+    "year": 1992,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "David Jason detective; major crime drama"
+  },
+  {
+    "name": "This Life",
+    "year": 1997,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Young lawyers drama; cult series defining generation"
+  },
+  {
+    "name": "Lewis",
+    "year": 2006,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Morse spinoff; detective solving Oxford crimes"
+  },
+  {
+    "name": "Endeavour",
+    "year": 2011,
+    "type": "series",
+    "priority": 5,
+    "bucket": "uk-tv-depth",
+    "why": "Morse prequel; young detective Oxford"
+  },
+  {
+    "name": "Hancock's Half Hour",
+    "year": 1954,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Tony Hancock solo comedy sitcom"
+  },
+  {
+    "name": "The Champions",
+    "year": 1965,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Agents with psychic powers; Gerry Anderson"
+  },
+  {
+    "name": "Mary, Queen of Scots",
+    "year": 1968,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Scottish history drama; period piece"
+  },
+  {
+    "name": "Department S",
+    "year": 1969,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Interpol agents solving mysteries"
+  },
+  {
+    "name": "Randall and Hopkirk (Deceased)",
+    "year": 1969,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Ghost detective partner; supernatural comedy-drama"
+  },
+  {
+    "name": "A Ghost Story for Christmas",
+    "year": 1971,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "M.R. James seasonal horror anthology"
+  },
+  {
+    "name": "Jason King",
+    "year": 1971,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Department S spinoff; international adventurer"
+  },
+  {
+    "name": "The Persuaders!",
+    "year": 1971,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Roger Moore & Tony Curtis jet-set adventure"
+  },
+  {
+    "name": "Clouds of Witness",
+    "year": 1972,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Sayers mystery; 1920s detective"
+  },
+  {
+    "name": "Whatever Happened to the Likely Lads?",
+    "year": 1973,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Likely Lads sequel; mature sitcom"
+  },
+  {
+    "name": "Penda's Fen",
+    "year": 1974,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Cult horror fantasy single drama"
+  },
+  {
+    "name": "North and South",
+    "year": 1975,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Industrial revolution family saga drama"
+  },
+  {
+    "name": "The New Avengers",
+    "year": 1976,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Avengers revival; 1970s spy-fi"
+  },
+  {
+    "name": "Danger UXB",
+    "year": 1979,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "WWII bomb-disposal; tense realistic drama"
+  },
+  {
+    "name": "Minder",
+    "year": 1979,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Terry McCann criminal advisor; London underworld"
+  },
+  {
+    "name": "Shoestring",
+    "year": 1979,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Radio detective drama comedy-thriller"
+  },
+  {
+    "name": "Testament of Youth",
+    "year": 1979,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Vera Brittain WWI memoir drama"
+  },
+  {
+    "name": "Pride and Prejudice",
+    "year": 1980,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Jane Austen Regency comedy"
+  },
+  {
+    "name": "Tenko",
+    "year": 1981,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Women POWs in Japanese camps; acclaimed drama"
+  },
+  {
+    "name": "Jane Eyre",
+    "year": 1983,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Charlotte Bronte gothic romance"
+  },
+  {
+    "name": "The Citadel",
+    "year": 1983,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "A.J. Cronin doctor drama adaptation"
+  },
+  {
+    "name": "The Bill",
+    "year": 1984,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Sun Hill police procedural; long-running"
+  },
+  {
+    "name": "Bread",
+    "year": 1986,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Liverpool working-class family sitcom"
+  },
+  {
+    "name": "Casualty",
+    "year": 1986,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "A&E hospital drama; flagship BBC series"
+  },
+  {
+    "name": "London's Burning",
+    "year": 1986,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "London firefighters soap-drama hybrid"
+  },
+  {
+    "name": "Gaudy Night",
+    "year": 1987,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Dorothy L. Sayers crime mystery"
+  },
+  {
+    "name": "Lord Peter Wimsey",
+    "year": 1987,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Sayers detective; 1920s mysteries"
+  },
+  {
+    "name": "Birds of a Feather",
+    "year": 1989,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Sisters sitcom; long-running comedy"
+  },
+  {
+    "name": "Desmond's",
+    "year": 1989,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Black barber-shop sitcom; groundbreaking cast"
+  },
+  {
+    "name": "Drop the Dead Donkey",
+    "year": 1990,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Newsroom sitcom; satirical workplace comedy"
+  },
+  {
+    "name": "Have I Got News for You",
+    "year": 1990,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "News satire panel show; long-running"
+  },
+  {
+    "name": "Jeeves and Wooster",
+    "year": 1990,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "P.G. Wodehouse comedy adaptation"
+  },
+  {
+    "name": "Bottom",
+    "year": 1991,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Gross-out sitcom; Ade Edmondson & Rik Mayall"
+  },
+  {
+    "name": "GBH",
+    "year": 1991,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Alan Bleasdale political corruption drama"
+  },
+  {
+    "name": "Between the Lines",
+    "year": 1992,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Cops investigating corrupt police"
+  },
+  {
+    "name": "Ghostwatch",
+    "year": 1992,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Halloween faux-documentary; haunting premise"
+  },
+  {
+    "name": "Takin' Over the Asylum",
+    "year": 1994,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "BBC Two comedy-drama; mental health theme"
+  },
+  {
+    "name": "The Day Today",
+    "year": 1994,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Satirical sketch news; absurdist comedy"
+  },
+  {
+    "name": "Never Mind the Buzzcocks",
+    "year": 1996,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Music panel show; irreverent banter"
+  },
+  {
+    "name": "Touching Evil",
+    "year": 1997,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Cop thriller following head injury recovery"
+  },
+  {
+    "name": "Great Expectations",
+    "year": 1999,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Dickens Victorian drama adaptation"
+  },
+  {
+    "name": "Holby City",
+    "year": 1999,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Hospital soap; Casualty spinoff universe"
+  },
+  {
+    "name": "Queer as Folk UK",
+    "year": 1999,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Groundbreaking gay men drama series"
+  },
+  {
+    "name": "Doctors",
+    "year": 2000,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "BBC medical drama; daytime series ongoing"
+  },
+  {
+    "name": "Waking the Dead",
+    "year": 2000,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Police cold-case unit psychological drama"
+  },
+  {
+    "name": "Phoenix Nights",
+    "year": 2001,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Working-class nightclub comedy-drama"
+  },
+  {
+    "name": "Wire in the Blood",
+    "year": 2002,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Psychology-based crime drama; contemporary"
+  },
+  {
+    "name": "QI",
+    "year": 2003,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "General ignorance quiz; Stephen Fry hosted"
+  },
+  {
+    "name": "8 Out of 10 Cats",
+    "year": 2005,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Survey-based comedy panel show"
+  },
+  {
+    "name": "This is England",
+    "year": 2006,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "1980s skinhead coming-of-age film drama"
+  },
+  {
+    "name": "Dirk Gently's Holistic Detective Agency",
+    "year": 2010,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Douglas Adams quirky detective drama"
+  },
+  {
+    "name": "Fresh Meat",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "University students fresh start drama"
+  },
+  {
+    "name": "Friday Night Dinner",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Jewish family comedy sitcom series"
+  },
+  {
+    "name": "Silk",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Barrister chambers legal drama series"
+  },
+  {
+    "name": "The Fades",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Ghosts revealed apocalyptic drama"
+  },
+  {
+    "name": "Trollied",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Supermarket workers comedy-drama series"
+  },
+  {
+    "name": "Twenty Twelve",
+    "year": 2011,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Olympic Games administrative comedy"
+  },
+  {
+    "name": "Derek",
+    "year": 2012,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Care home staff comedy-drama gentle"
+  },
+  {
+    "name": "The Wrong Mans",
+    "year": 2013,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Workplace buddies thriller comedy-drama"
+  },
+  {
+    "name": "Thirteen",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Kidnapping trauma aftermath psychological drama"
+  },
+  {
+    "name": "McMafia",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Russian organized crime London drama"
+  },
+  {
+    "name": "Years and Years",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Near-future political family drama"
+  },
+  {
+    "name": "The Serpent",
+    "year": 2021,
+    "type": "series",
+    "priority": 4,
+    "bucket": "uk-tv-depth",
+    "why": "Serial killer con-artist crime drama"
+  },
+  {
+    "name": "The Benny Hill Show",
+    "year": 1955,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Sketch variety comedy show"
+  },
+  {
+    "name": "Ghost Squad",
+    "year": 1961,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Children's detective mystery series"
+  },
+  {
+    "name": "Crossroads",
+    "year": 1964,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Midlands motel soap; unique format drama"
+  },
+  {
+    "name": "The Wednesday Play",
+    "year": 1964,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "BBC innovative drama strand"
+  },
+  {
+    "name": "Theatre 625",
+    "year": 1964,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "ITV single plays anthology"
+  },
+  {
+    "name": "Blue Peter",
+    "year": 1965,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Children's magazine show; longest running"
+  },
+  {
+    "name": "Jackanory",
+    "year": 1965,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Storytelling children's strand; iconic format"
+  },
+  {
+    "name": "ITV Playhouse",
+    "year": 1967,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "ITV anthology single dramas"
+  },
+  {
+    "name": "Softly Softly: Task Force",
+    "year": 1969,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Police task force spinoff series"
+  },
+  {
+    "name": "The Clangers",
+    "year": 1969,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Cybernetic sheep moon creatures; surreal"
+  },
+  {
+    "name": "The Owl Service",
+    "year": 1969,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Children's folklore fantasy drama"
+  },
+  {
+    "name": "Crown Court",
+    "year": 1972,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Realistic courtroom drama procedural"
+  },
+  {
+    "name": "Bagpuss",
+    "year": 1974,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Stop-motion children's fantasy"
+  },
+  {
+    "name": "Regan",
+    "year": 1974,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Sweeney film spinoff; detective action"
+  },
+  {
+    "name": "Tiswas",
+    "year": 1974,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Saturday morning children's comedy variety"
+  },
+  {
+    "name": "Rentaghost",
+    "year": 1976,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Ghost removal service sitcom; supernatural comedy"
+  },
+  {
+    "name": "Sweeney!",
+    "year": 1976,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Sweeney second film; flying squad action"
+  },
+  {
+    "name": "No.5",
+    "year": 1979,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Cul-de-sac children's sci-fi drama"
+  },
+  {
+    "name": "Juliet Bravo",
+    "year": 1980,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Female police sergeant comedy-drama"
+  },
+  {
+    "name": "The Gentle Touch",
+    "year": 1980,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Woman detective in tough job"
+  },
+  {
+    "name": "Cagney",
+    "year": 1981,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Woman police detective drama"
+  },
+  {
+    "name": "Chocky",
+    "year": 1984,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "John Wyndham alien contact drama"
+  },
+  {
+    "name": "Screen Two",
+    "year": 1985,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "BBC single dramas; acclaimed anthology"
+  },
+  {
+    "name": "Supergran",
+    "year": 1985,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Elderly woman with super powers"
+  },
+  {
+    "name": "Blackadder II",
+    "year": 1986,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Blackadder Elizabethan comedy sequel"
+  },
+  {
+    "name": "Blackadder III",
+    "year": 1987,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Blackadder Georgian comedy sequel"
+  },
+  {
+    "name": "Going Live!",
+    "year": 1987,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "BBC Saturday morning live children's show"
+  },
+  {
+    "name": "Thirty-Minute Theatre",
+    "year": 1987,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Single drama series; varied storytelling"
+  },
+  {
+    "name": "After Henry",
+    "year": 1988,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Post-divorce relationship sitcom"
+  },
+  {
+    "name": "Hound of the Baskervilles",
+    "year": 1988,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Conan Doyle supernatural mystery"
+  },
+  {
+    "name": "Blackadder Goes Forth",
+    "year": 1989,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Blackadder WWI comedy sequel"
+  },
+  {
+    "name": "Byker Grove",
+    "year": 1989,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Youth club Newcastle drama; teen ensemble"
+  },
+  {
+    "name": "Just Good Friends",
+    "year": 1989,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Reunited lovers workplace sitcom"
+  },
+  {
+    "name": "Press Gang",
+    "year": 1989,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "School newspaper drama comedy"
+  },
+  {
+    "name": "Screen One",
+    "year": 1989,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "BBC films; continuing drama series"
+  },
+  {
+    "name": "Keeping Up Appearances",
+    "year": 1990,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Hyacinth Bucket snobbery sitcom"
+  },
+  {
+    "name": "The Gravy Train",
+    "year": 1990,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Workplace relationship comedy-drama"
+  },
+  {
+    "name": "The Paradise Club",
+    "year": 1990,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Club nightclub workers drama"
+  },
+  {
+    "name": "Dark Season",
+    "year": 1991,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Children's sci-fi thriller; spooky premise"
+  },
+  {
+    "name": "Deadline Midnight",
+    "year": 1992,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Newsroom drama series"
+  },
+  {
+    "name": "Frank Stubbs Promotes",
+    "year": 1992,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Comic promoter comedy drama"
+  },
+  {
+    "name": "Century Falls",
+    "year": 1993,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Welsh village secrets children's drama"
+  },
+  {
+    "name": "Baldrick's Medieval World",
+    "year": 1994,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Blackadder spinoff special comedy"
+  },
+  {
+    "name": "Earthfasts",
+    "year": 1994,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Yorkshire children adventure fantasy"
+  },
+  {
+    "name": "Dangerfield",
+    "year": 1995,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "School drama comedy-drama"
+  },
+  {
+    "name": "Get Well Soon",
+    "year": 1995,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Hospital ward comedy humorous drama"
+  },
+  {
+    "name": "Baldrick's Video Nasties",
+    "year": 1996,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Blackadder out-of-character comedy"
+  },
+  {
+    "name": "Puffball",
+    "year": 1996,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Fay Weldon adaptation modern folk horror"
+  },
+  {
+    "name": "Aquila",
+    "year": 1997,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Teen archaeologists; children's adventure drama"
+  },
+  {
+    "name": "Baldrick's Scrapbook",
+    "year": 1998,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Behind-scenes Blackadder comedy"
+  },
+  {
+    "name": "The Demon Headmaster",
+    "year": 1999,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Children's sci-fi adventure mystery"
+  },
+  {
+    "name": "The New Professionals",
+    "year": 1999,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Professionals reboot action-spy"
+  },
+  {
+    "name": "The Road Home",
+    "year": 1999,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Family farm drama rural stories"
+  },
+  {
+    "name": "Coupling",
+    "year": 2000,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Thirty-somethings dating romantic comedy"
+  },
+  {
+    "name": "Teachers",
+    "year": 2001,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Inner-city school staff comedy-drama"
+  },
+  {
+    "name": "Baldrick's Secret Sketches",
+    "year": 2002,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Extended Blackadder comedy"
+  },
+  {
+    "name": "League of Gentlemen",
+    "year": 2002,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Sketch horror grotesque characters"
+  },
+  {
+    "name": "Look Around You",
+    "year": 2002,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Science parody comedy absurdist"
+  },
+  {
+    "name": "The Story of Tracey Beaker",
+    "year": 2002,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Children's home drama; original cast"
+  },
+  {
+    "name": "Saxondale",
+    "year": 2006,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Irritable removal man sitcom comedy"
+  },
+  {
+    "name": "Funny Games",
+    "year": 2007,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Horror thriller parody violence"
+  },
+  {
+    "name": "Limmy's Show",
+    "year": 2007,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Scottish sketch comedy variety"
+  },
+  {
+    "name": "Summer Heights High",
+    "year": 2007,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Australian school mockumentary comedy"
+  },
+  {
+    "name": "Rush",
+    "year": 2008,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Edinburgh hospital medical drama"
+  },
+  {
+    "name": "An Idiot Abroad",
+    "year": 2010,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Travel comedy reality show series"
+  },
+  {
+    "name": "Cradle 2 the Grave",
+    "year": 2010,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Street crime drama British series"
+  },
+  {
+    "name": "DCI Banks",
+    "year": 2010,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Yorkshire detective crime series"
+  },
+  {
+    "name": "Tracey Beaker Returns",
+    "year": 2010,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "CBBC children's home comedy-drama"
+  },
+  {
+    "name": "Bedlam",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Haunted student house supernatural drama"
+  },
+  {
+    "name": "Death in Paradise",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Caribbean detective mystery comedy-drama"
+  },
+  {
+    "name": "Gangsta Granny",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Children's comedy; David Walliams adaptation"
+  },
+  {
+    "name": "In Betweeners Movie",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Film expansion comedy series"
+  },
+  {
+    "name": "Scott & Bailey",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Women detectives Manchester crime"
+  },
+  {
+    "name": "Citizen Khan",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "British Muslim family sitcom comedy"
+  },
+  {
+    "name": "Skins Fire",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Skins spinoff newer cast series"
+  },
+  {
+    "name": "Gold Diggers",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "LGBTQ characters ensemble drama"
+  },
+  {
+    "name": "The Watchmen",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Superhero alternate history drama"
+  },
+  {
+    "name": "Behind Her Eyes",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Psychological thriller mystery thriller"
+  },
+  {
+    "name": "Stay Close",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Disappearance mystery past present drama"
+  },
+  {
+    "name": "Trigger Point",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "uk-tv-depth",
+    "why": "Bomb disposal female officer action thriller"
+  },
+  {
+    "name": "I'm Sorry I Haven't a Clue",
+    "year": 1972,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Radio comedy panel show; longstanding"
+  },
+  {
+    "name": "Spitting Image",
+    "year": 1984,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Puppet satire; political impressions"
+  },
+  {
+    "name": "The Johnny Ball Gobbledygook",
+    "year": 1989,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Children's presenter comedy"
+  },
+  {
+    "name": "Mr. Bean",
+    "year": 1990,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Silent comedy; Rowan Atkinson character"
+  },
+  {
+    "name": "And There's More",
+    "year": 1992,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Mathematical puzzle family show"
+  },
+  {
+    "name": "The Mary Whitehouse Experience",
+    "year": 1992,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Comedy double-act chat show"
+  },
+  {
+    "name": "The Detectives",
+    "year": 1993,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Bumbling detectives comedy series"
+  },
+  {
+    "name": "Knowing Me Knowing You",
+    "year": 1994,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Talk show parody comedy"
+  },
+  {
+    "name": "A Magnum Opus",
+    "year": 1995,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Comedy variation show"
+  },
+  {
+    "name": "I.O.U.",
+    "year": 1996,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Networking comedy musical guests"
+  },
+  {
+    "name": "The Blame Game",
+    "year": 1996,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Satirical comedy panel show"
+  },
+  {
+    "name": "Threesome",
+    "year": 1996,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Student flat-sharing comedy-drama"
+  },
+  {
+    "name": "Rizzoli",
+    "year": 1998,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Detective investigation drama"
+  },
+  {
+    "name": "So Graham Norton",
+    "year": 1998,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Graham Norton early talk show"
+  },
+  {
+    "name": "My Hero",
+    "year": 1999,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Superhero lodger comedy sitcom"
+  },
+  {
+    "name": "League of Gentlemen's Apocalypse",
+    "year": 2005,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Horror comedy parody film"
+  },
+  {
+    "name": "The Office US",
+    "year": 2005,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "American adaptation workplace comedy"
+  },
+  {
+    "name": "Hyperdrive",
+    "year": 2006,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Sci-fi space comedy parody series"
+  },
+  {
+    "name": "Live at the Apollo",
+    "year": 2006,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Comedy venue stand-up showcase series"
+  },
+  {
+    "name": "Stewart Lee's Comedy Vehicle",
+    "year": 2009,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Comedian storyteller comedy series"
+  },
+  {
+    "name": "EastEnders: E20",
+    "year": 2010,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "EastEnders spinoff; young cast drama"
+  },
+  {
+    "name": "Friday Night Drinks",
+    "year": 2010,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Comedy sketch show variety"
+  },
+  {
+    "name": "Actual Reality",
+    "year": 2012,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Mockumentary comedy series"
+  },
+  {
+    "name": "Passenger 23",
+    "year": 2012,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Hijacking thriller plane drama"
+  },
+  {
+    "name": "Whitcastle",
+    "year": 2012,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Medieval village drama comedy"
+  },
+  {
+    "name": "Insecure",
+    "year": 2016,
+    "type": "series",
+    "priority": 2,
+    "bucket": "uk-tv-depth",
+    "why": "Los Angeles Black women friendship comedy-drama"
+  },
+  {
+    "name": "Coronation Street Omnibus",
+    "year": 1961,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "Granada soap omnibus edition"
+  },
+  {
+    "name": "Compact",
+    "year": 1962,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "Magazine office soap; glossy predecessor"
+  },
+  {
+    "name": "Emmerdale Omnibus",
+    "year": 1972,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "Farm soap omnibus edition recap"
+  },
+  {
+    "name": "The Box of Delights Omnibus",
+    "year": 1984,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "Christmas special omnibus edition"
+  },
+  {
+    "name": "Bitty Butterfinger",
+    "year": 1985,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "Children's adventure sci-fi drama"
+  },
+  {
+    "name": "Eastenders Omnibus",
+    "year": 1985,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "BBC soap weekly omnibus edition"
+  },
+  {
+    "name": "Neighbours Omnibus",
+    "year": 1985,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "Australian soap omnibus; weekly"
+  },
+  {
+    "name": "Home and Away Omnibus",
+    "year": 1988,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "Australian soap omnibus recap"
+  },
+  {
+    "name": "The Greatest Show in the Galaxy",
+    "year": 1989,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "Doctor Who story arc; dark circus"
+  },
+  {
+    "name": "The Phantom Flan Flinger",
+    "year": 1990,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "CBBC children's comedy adventure"
+  },
+  {
+    "name": "Trillions",
+    "year": 1990,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "CBBC sci-fi children's drama series"
+  },
+  {
+    "name": "Madness in the Fast Lane",
+    "year": 1996,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "Short comedy series"
+  },
+  {
+    "name": "Dead Ringers",
+    "year": 2000,
+    "type": "series",
+    "priority": 1,
+    "bucket": "uk-tv-depth",
+    "why": "Radio sketch show; long-running"
+  }
+]
