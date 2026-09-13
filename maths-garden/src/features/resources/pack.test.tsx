@@ -13,7 +13,7 @@ describe('stage pack', () => {
     const options = {
       name: 'Tara',
       icon: '🦄',
-      stages: { subitising: 2, counting: 1, numerals: 3, comparison: 2, adding: 1, bonds: 2, subtracting: 1, teens: 3, rote: 2 } as const,
+      stages: { subitising: 2, counting: 1, numerals: 3, comparison: 2, adding: 1, bonds: 2, subtracting: 1, teens: 3, shapes: 3, rote: 2 } as const,
     };
     expect(packFromParams(new URLSearchParams(packLink(options).split('?')[1]))).toEqual(options);
   });

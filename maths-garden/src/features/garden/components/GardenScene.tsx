@@ -12,6 +12,7 @@ const FLOWERS: Record<GameId, { petal: string; centre: string; petals: number }>
   bond: { petal: '#8fd0ff', centre: '#fffdf9', petals: 6 },
   fewer: { petal: '#ff9f6b', centre: '#fffdf9', petals: 5 },
   teen: { petal: '#7ee0c8', centre: '#ffc94d', petals: 7 },
+  shape: { petal: '#ffe17a', centre: '#ff7bac', petals: 6 },
 };
 
 const STEM = '#3d9967';

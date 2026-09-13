@@ -1,5 +1,6 @@
 import { arrangementsFor, type Arrangement } from '@/features/resources/subitising/patterns';
 import { OBJECT_SETS, QUESTIONS_PER_ROUND, type GameId, type GameLevel } from './catalog';
+import { SHAPE_IDS, SHAPES, type ShapeId } from './shapes';
 
 /** Random source in [0, 1). Injected so tests and stories are deterministic. */
 export type Rng = () => number;
@@ -16,9 +17,14 @@ export type Question =
   /** `base` balloons, `taken` float away. */
   | { game: 'fewer'; answer: number; options: number[]; base: number; taken: number; emoji: string }
   /** A full ten and `extra` loose ones. */
-  | { game: 'teen'; answer: number; options: number[]; extra: number; frame: boolean };
+  | { game: 'teen'; answer: number; options: number[]; extra: number; frame: boolean }
+  /**
+   * Which one is the hexagon (`ask: 'name'`), or which one has six sides (`ask: 'sides'`). `rotate` turns
+   * every shape on screen by the same angle, so the shape has to be read rather than recognised as a picture.
+   */
+  | { game: 'shape'; answer: ShapeId; options: ShapeId[]; ask: 'name' | 'sides'; rotate: number };
 
-export type Choice = number | Side;
+export type Choice = number | Side | ShapeId;
 
 /** Integer in [min, max]. */
 export const between = (rng: Rng, min: number, max: number) => min + Math.floor(rng() * (max - min + 1));
@@ -47,6 +53,17 @@ export function choices(rng: Rng, answer: number, min: number, max: number, coun
     set.add(nearTries++ < 20 && near >= min && near <= hi ? near : between(rng, min, hi));
   }
   return shuffle(rng, [...set]);
+}
+
+/**
+ * The answer plus other shapes from the level's set. When the question asks for a side count, every wrong
+ * option must have a different number of sides: a square and a diamond both have four, and a child who taps
+ * either one is right.
+ */
+export function shapeChoices(rng: Rng, answer: ShapeId, pool: readonly ShapeId[], count: number, bySides: boolean): ShapeId[] {
+  const usable = (id: ShapeId) => id !== answer && (!bySides || SHAPES[id].sides !== SHAPES[answer].sides);
+  const rest = shuffle(rng, pool.filter(usable));
+  return shuffle(rng, [answer, ...rest.slice(0, Math.max(1, count - 1))]);
 }
 
 /** 23 → 32: the numeral mix-up to test once numbers have two digits. */
@@ -107,6 +124,14 @@ export function makeQuestion(game: GameId, level: GameLevel, rng: Rng = Math.ran
     case 'teen': {
       const answer = between(rng, Math.max(level.min ?? 11, 11), max);
       return { game, answer, extra: answer - 10, frame: !level.hideFrame, options: choices(rng, answer, 11, max, count) };
+    }
+    case 'shape': {
+      const pool = level.shapes ?? SHAPE_IDS;
+      const sided = pool.filter((id) => SHAPES[id].sides > 0);
+      // Where both questions are allowed they alternate at random, so she cannot settle into one habit.
+      const ask = level.bySides && sided.length > 2 && rng() < 0.5 ? 'sides' : 'name';
+      const answer = pick(rng, ask === 'sides' ? sided : pool);
+      return { game, answer, ask, options: shapeChoices(rng, answer, pool, count, ask === 'sides'), rotate: level.spin ? between(rng, 0, 11) * 30 : 0 };
     }
   }
 }

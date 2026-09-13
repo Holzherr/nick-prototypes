@@ -5,12 +5,13 @@ import { Button } from '@/shared/components/ui/button';
 import { A4Page } from './A4Page';
 import { SHEET_FOR_SKILL, type PackOptions } from './pack';
 import { BondFrames } from './sheets/BondFrames';
-import { SHEETS } from './sheets/catalog';
+import { SHEETS, type SheetId } from './sheets/catalog';
 import { CountingMats } from './sheets/CountingMats';
 import { GuideSheet } from './sheets/GuideSheet';
 import { MoreOrFewer } from './sheets/MoreOrFewer';
 import { NumberTrack } from './sheets/NumberTrack';
 import { NumeralCards } from './sheets/NumeralCards';
+import { ShapeCards } from './sheets/ShapeCards';
 import { TakeAwayStories } from './sheets/TakeAwayStories';
 import { TeenFrames } from './sheets/TeenFrames';
 import { UnicornStories } from './sheets/UnicornStories';
@@ -25,8 +26,10 @@ const VIEWS = {
   'bond-frames': BondFrames,
   'take-away-stories': TakeAwayStories,
   'teen-frames': TeenFrames,
+  'shape-cards': ShapeCards,
   'number-track': NumberTrack,
-};
+  // Typed against SheetId so a new sheet cannot be left out here and render as undefined in the pack.
+} satisfies Record<SheetId, unknown>;
 
 /** The whole pack for a child's current stages: a cover page, the Quick Peek cards, then every sheet. */
 export function PackScreen({ options }: { options: PackOptions }) {

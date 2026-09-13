@@ -3,6 +3,7 @@ import { arrangementsFor } from '@/features/resources/subitising/patterns';
 import { mulberry32 as seeded } from '@/shared/utils/random';
 import { gameById, GAMES, type GameId, type GameLevel } from './catalog';
 import { between, choices, makeQuestion, makeRound, questionKey, swapDigits } from './questions';
+import { SHAPE_IDS, SHAPES } from './shapes';
 
 describe('choices', () => {
   it('includes the answer, has no duplicates and stays in range', () => {
@@ -94,6 +95,21 @@ describe('makeQuestion', () => {
               expect(q.frame).toBe(!level.hideFrame);
               expect(q.options).toContain(q.answer);
               expect(q.options).toHaveLength(level.choices ?? 3);
+              break;
+            case 'shape': {
+              const allowed = level.shapes ?? SHAPE_IDS;
+              expect(allowed).toContain(q.answer);
+              expect(q.options).toContain(q.answer);
+              expect(new Set(q.options).size).toBe(q.options.length);
+              for (const id of q.options) expect(allowed).toContain(id);
+              // Whatever is being asked, exactly one option can be the answer.
+              const sides = SHAPES[q.answer].sides;
+              if (q.ask === 'sides') {
+                expect(sides).toBeGreaterThan(0);
+                expect(q.options.filter((id) => SHAPES[id].sides === sides)).toHaveLength(1);
+              }
+              expect(level.spin ? q.rotate : 0).toBe(q.rotate);
+            }
           }
         }
       }
@@ -130,6 +146,41 @@ describe('makeRound', () => {
     const rng = seeded(11);
     for (let i = 0; i < 100; i++) {
       expect(new Set(makeRound('find', { max: 20 }, rng).map(questionKey)).size).toBe(5);
+    }
+  });
+});
+
+describe('Spot the Shape', () => {
+  it('brings in pentagons and hexagons at stage 3, not before', () => {
+    const [one, two, three] = gameById('shape').levels;
+    for (const shape of ['pentagon', 'hexagon'] as const) {
+      expect(one.shapes).not.toContain(shape);
+      expect(two.shapes).not.toContain(shape);
+      expect(three.shapes).toContain(shape);
+    }
+  });
+
+  it('asks for a side count often enough to be a real second question, and only on shapes that have sides', () => {
+    const rng = seeded(21);
+    const top = gameById('shape').levels[4];
+    let bySides = 0;
+    for (let i = 0; i < 600; i++) {
+      const q = makeQuestion('shape', top, rng);
+      if (q.game !== 'shape' || q.ask !== 'sides') continue;
+      bySides++;
+      expect(SHAPES[q.answer].sides).toBeGreaterThan(0);
+      expect(q.options.filter((id) => SHAPES[id].sides === SHAPES[q.answer].sides)).toHaveLength(1);
+    }
+    expect(bySides).toBeGreaterThan(100);
+  });
+
+  it('never asks for a side count below the top level', () => {
+    const rng = seeded(22);
+    for (const level of gameById('shape').levels.slice(0, 4)) {
+      for (let i = 0; i < 200; i++) {
+        const q = makeQuestion('shape', level, rng);
+        if (q.game === 'shape') expect(q.ask).toBe('name');
+      }
     }
   });
 });

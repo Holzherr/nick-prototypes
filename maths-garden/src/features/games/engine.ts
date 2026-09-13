@@ -78,6 +78,9 @@ export function targetMs(game: GameId, target: string): number {
       return 3000;
     case 'teen':
       return 3000;
+    // Looking at a shape and naming it is quick; counting its sides to check is not, so allow for both.
+    case 'shape':
+      return 3000;
   }
 }
 
