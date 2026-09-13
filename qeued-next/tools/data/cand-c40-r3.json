@@ -1,0 +1,1026 @@
+[
+  {
+    "name": "Engrenages",
+    "year": 2005,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "Landmark French crime procedural; visceral, unflinching, critical hit"
+  },
+  {
+    "name": "Tatort",
+    "year": 1970,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "German crime anthology running 50+ years; defining European detective format"
+  },
+  {
+    "name": "4 Blocks",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Berlin crime saga; raw, intense, multilingual Arab-German criminal world"
+  },
+  {
+    "name": "Unorthodox",
+    "year": 2020,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "German-Yiddish drama; Orthodox Jewish woman's escape; Emmy winner"
+  },
+  {
+    "name": "The Tunnel",
+    "year": 2013,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "UK-Sweden co-prod; female detective anchors Malm\u00f6-Copenhagen crime"
+  },
+  {
+    "name": "Vienna Blood",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Austria 1900s murder mysteries; Viennese atmosphere, BBC production"
+  },
+  {
+    "name": "Dicte",
+    "year": 2013,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Danish crime drama; journalist-lawyer duo investigate Aarhus murders"
+  },
+  {
+    "name": "Unit One",
+    "year": 2000,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Danish homicide unit; pioneering procedural with dark humour"
+  },
+  {
+    "name": "Undercover",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Dutch crime thriller; undercover cop in crime family; intense"
+  },
+  {
+    "name": "Inspector Rex",
+    "year": 1994,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Austrian detective with German shepherd partner; long-running charm"
+  },
+  {
+    "name": "Alex Hugo",
+    "year": 2011,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "French alpine village mysteries; former cop returns as consultant"
+  },
+  {
+    "name": "Section Zero",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "French sci-fi thriller; parallel dimensions, mystery agency"
+  },
+  {
+    "name": "Bordertown",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Finnish crime procedural; detective on Swedish-Finnish border"
+  },
+  {
+    "name": "J\u00f3hann",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Icelandic historical drama; 1200s feudal Iceland"
+  },
+  {
+    "name": "Bron/Broen",
+    "year": 2011,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "Swedish-Danish crime epic; iconic detective duo, runaway success"
+  },
+  {
+    "name": "The Bridge",
+    "year": 2011,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "English title for Bron/Broen; landmark Nordic noir"
+  },
+  {
+    "name": "The Protectors",
+    "year": 2009,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Norwegian security service thriller; espionage and loyalty"
+  },
+  {
+    "name": "1670",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Polish historical drama; Swedish invasion of Poland"
+  },
+  {
+    "name": "Hexe",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Polish historical; witch trial hysteria, 1690s Silesia"
+  },
+  {
+    "name": "The Decalogue",
+    "year": 1989,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "Kieslowski masterpiece; ten films on ten commandments"
+  },
+  {
+    "name": "Anything Left Unsaid",
+    "year": 2016,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Czech coming-of-age drama; rural family secrets surface"
+  },
+  {
+    "name": "Il Nome della Rosa",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Italian Umberto Eco adaptation; medieval monastery mysteries"
+  },
+  {
+    "name": "Leonardo",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Italian historical; Leonardo da Vinci life and work"
+  },
+  {
+    "name": "1992",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Italian historical thriller; mafia, politics, Berlusconi era"
+  },
+  {
+    "name": "1993",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Italian follow-up; bomb plots, power struggles in Rome"
+  },
+  {
+    "name": "Acciaio",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Italian drama; steel factory inheritance and corruption"
+  },
+  {
+    "name": "Baby",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Italian teen scandal drama; wealthy Rome, exploitation"
+  },
+  {
+    "name": "Gomorrah",
+    "year": 2014,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "Italian crime epic; Naples mafia soap opera, five seasons"
+  },
+  {
+    "name": "Merli",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Spanish Barcelona school drama; philosophy teacher, troubled teens"
+  },
+  {
+    "name": "El Ministerio del Tiempo",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Spanish time-travel adventure; Spanish history, witty drama"
+  },
+  {
+    "name": "Patria",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Spanish Basque drama; Amat epic about ETA violence aftermath"
+  },
+  {
+    "name": "Intimidad",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Spanish relationship drama; infidelity, suburban secrets"
+  },
+  {
+    "name": "Lazarus",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "French-Czech drama; resurrection mystery; supernatural"
+  },
+  {
+    "name": "Villains",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "French crime comedy; criminals training young thieves"
+  },
+  {
+    "name": "Run",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "German thriller; mother-son on run, dark secrets"
+  },
+  {
+    "name": "Stern",
+    "year": 2012,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "German detective procedural; Hamburg homicide"
+  },
+  {
+    "name": "Line of Duty",
+    "year": 2012,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "German police corruption; AC-12 style investigation"
+  },
+  {
+    "name": "Polizeiruf 110",
+    "year": 1971,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "East German police procedural; long-running series"
+  },
+  {
+    "name": "Generation War",
+    "year": 2013,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "German WWII drama; five friends' parallel stories"
+  },
+  {
+    "name": "You Don't Know Me",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "German crime drama; young man trial, hidden identity"
+  },
+  {
+    "name": "Der Pass",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Austrian-German thriller; Alpine pass, body found"
+  },
+  {
+    "name": "Passage",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "English title for Der Pass; border crime"
+  },
+  {
+    "name": "Coming Home",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Austrian drama; man returns home after decades"
+  },
+  {
+    "name": "Berlin Alexanderplatz",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "German Fassbinder remake; Weimar Berlin, social breakdown"
+  },
+  {
+    "name": "Babylon Berlin",
+    "year": 2017,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "German crime epic; 1920s Berlin nightlife, corruption"
+  },
+  {
+    "name": "Rita",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Danish school drama; tough teacher, troubled kids"
+  },
+  {
+    "name": "Arvingerne",
+    "year": 2014,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Danish family drama; inheritance battle in Copenhagen"
+  },
+  {
+    "name": "Runaway",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Swedish-Danish teen drama; runaways in Stockholm"
+  },
+  {
+    "name": "Gina",
+    "year": 2015,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Swedish drama; woman's complex life, family secrets"
+  },
+  {
+    "name": "Eyewitness",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Norwegian crime thriller; gay couple witnesses murder"
+  },
+  {
+    "name": "Fortitude",
+    "year": 2015,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Norwegian Arctic noir; isolated settlement, murders"
+  },
+  {
+    "name": "Bloodhound",
+    "year": 2005,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Norwegian crime; detective hunts serial killer in Oslo"
+  },
+  {
+    "name": "Storm",
+    "year": 2011,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Norwegian police procedural; modern team dynamics"
+  },
+  {
+    "name": "Sorjonen",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Finnish crime; detective with photographic memory"
+  },
+  {
+    "name": "The Killing",
+    "year": 2007,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "Danish noir classic; Sarah Lund investigates murder"
+  },
+  {
+    "name": "Wallander",
+    "year": 2005,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "Swedish crime; Henning Mankell adaptation, dark Sweden"
+  },
+  {
+    "name": "Trapped",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Icelandic noir; isolated island murder investigation"
+  },
+  {
+    "name": "Commuter",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Dutch thriller; daily commute turns sinister"
+  },
+  {
+    "name": "All Things Equal",
+    "year": 2010,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Dutch cop and judge procedural; partnership drama"
+  },
+  {
+    "name": "Outlaws",
+    "year": 2017,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Dutch crime; biker gang, police corruption"
+  },
+  {
+    "name": "Bloedverwant",
+    "year": 2019,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Dutch family saga; generations of secrets"
+  },
+  {
+    "name": "Ares",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Dutch student society occult horror; dark academia"
+  },
+  {
+    "name": "The Miniaturist",
+    "year": 2014,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Dutch Golden Age mystery; Amsterdam merchant's wife"
+  },
+  {
+    "name": "Chyno",
+    "year": 2022,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Slovak-Hungarian crime; drug trafficking through Balkans"
+  },
+  {
+    "name": "Kuduz",
+    "year": 2015,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Serbian crime saga; Belgrade underworld, organized crime"
+  },
+  {
+    "name": "The Trap",
+    "year": 2015,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Serbian thriller; young girl, predatory web"
+  },
+  {
+    "name": "Grad",
+    "year": 2016,
+    "type": "series",
+    "priority": 1,
+    "bucket": "europe-tv-depth",
+    "why": "Bosnian urban drama; post-war Sarajevo"
+  },
+  {
+    "name": "Svindlerkollektivet",
+    "year": 2020,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Danish con-artist dramedy; group of grifters"
+  },
+  {
+    "name": "Fabian Going Down",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "German Weimar noir; journalist chronicles decline"
+  },
+  {
+    "name": "Berlin Station",
+    "year": 2016,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "German-American spy thriller; Cold War echoes"
+  },
+  {
+    "name": "Freud",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Austrian historical fantasy; young Freud solves murders"
+  },
+  {
+    "name": "The Girl in the Spider's Web",
+    "year": 2018,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Swedish noir continuation; Lisbeth Salander revenge"
+  },
+  {
+    "name": "A Prophet",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "French prison drama; Palme d'Or winner; Arab-French tensions"
+  },
+  {
+    "name": "Am\u00e9lie",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "French whimsy; Parisian waitress does acts of kindness"
+  },
+  {
+    "name": "Climax",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Swiss-French-German horror; dance troupe, psychological descent"
+  },
+  {
+    "name": "Girl with a Dragon Tattoo",
+    "year": 2009,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Swedish Noir; hacker and journalist solve cold case"
+  },
+  {
+    "name": "The Salesman",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Iranian, but European circuits; Berlin winner; theater troupe"
+  },
+  {
+    "name": "Cemetery of Forgotten Cars",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Czech-Slovak road movie; old cars, rural village"
+  },
+  {
+    "name": "A Good Man",
+    "year": 2014,
+    "type": "series",
+    "priority": 2,
+    "bucket": "europe-tv-depth",
+    "why": "Czech crime drama; rural detective battles corruption"
+  },
+  {
+    "name": "The Rain",
+    "year": 2018,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Danish post-apocalyptic sci-fi; toxic rain, teen survivors"
+  },
+  {
+    "name": "Insomnia",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Norwegian noir by Nolan; midnight sun investigation"
+  },
+  {
+    "name": "Raw",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Belgian cannibalism horror; vet student's descent"
+  },
+  {
+    "name": "Godless",
+    "year": 2017,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "American Western; woman-run town fights patriarchy"
+  },
+  {
+    "name": "Norsemen",
+    "year": 2016,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Norwegian Viking comedy; absurdist humor, anachronism"
+  },
+  {
+    "name": "The Bletchley Circle",
+    "year": 2012,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "British WWII drama; codebreakers solve murders"
+  },
+  {
+    "name": "The Last Kingdom",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Anglo-Saxon historical; Saxon-Danish conflicts, kingdom building"
+  },
+  {
+    "name": "Poldark",
+    "year": 2015,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British historical; 1780s Cornwall, officer returns home"
+  },
+  {
+    "name": "Penny Dreadful",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "American-British horror; Victorian London monster mashup"
+  },
+  {
+    "name": "The Night Manager",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British spy drama; Le Carr\u00e9 adaptation, arms dealers"
+  },
+  {
+    "name": "Tinker Tailor Soldier Spy",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British Cold War spy noir; Le Carr\u00e9, mole hunt"
+  },
+  {
+    "name": "In the Loop",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "British political satire; government spin and war"
+  },
+  {
+    "name": "The Double",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "British sci-fi noir; Dostoevsky adaptation, doppelganger"
+  },
+  {
+    "name": "Under the Skin",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Scottish sci-fi horror; alien woman hunts men"
+  },
+  {
+    "name": "Aftersun",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Scottish drama; father-daughter hotel holiday, grief"
+  },
+  {
+    "name": "The Prisoner",
+    "year": 1967,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "British surreal thriller; secret island village, identity"
+  },
+  {
+    "name": "The Twilight Zone",
+    "year": 1959,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "American sci-fi anthology; each episode twist ending"
+  },
+  {
+    "name": "The Outer Limits",
+    "year": 1963,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "American sci-fi horror anthology; strange worlds"
+  },
+  {
+    "name": "Black Mirror",
+    "year": 2011,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "British tech-horror anthology; dark digital futures"
+  },
+  {
+    "name": "Yes Minister",
+    "year": 1980,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "British bureaucratic satire; cabinet secretary vs minister"
+  },
+  {
+    "name": "The Office",
+    "year": 2001,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "British workplace comedy; mockumentary, deadpan"
+  },
+  {
+    "name": "IT Crowd",
+    "year": 2006,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Irish tech company comedy; basement IT nerds"
+  },
+  {
+    "name": "Father Ted",
+    "year": 1995,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "Irish-British absurdist comedy; priests on island"
+  },
+  {
+    "name": "Blackadder",
+    "year": 1983,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "British historical comedy; cunning schemes, witty"
+  },
+  {
+    "name": "Monty Python's Flying Circus",
+    "year": 1969,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "British surreal sketch comedy; absurdist masterpiece"
+  },
+  {
+    "name": "Fawlty Towers",
+    "year": 1975,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "British hotel comedy; Basil's incompetence, slapstick"
+  },
+  {
+    "name": "Fleabag",
+    "year": 2016,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "British comedy-drama; woman breaks fourth wall, family"
+  },
+  {
+    "name": "Peep Show",
+    "year": 2003,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British comedy; dual POV, neurotic flatmates"
+  },
+  {
+    "name": "I'm Alan Partridge",
+    "year": 1997,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British comedy; narcissistic radio presenter"
+  },
+  {
+    "name": "League of Gentlemen",
+    "year": 1999,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "British sketch comedy; grotesque characters, dark"
+  },
+  {
+    "name": "The Mighty Boosh",
+    "year": 2004,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "British surreal comedy; musicians in weird scenarios"
+  },
+  {
+    "name": "Absolutely Fabulous",
+    "year": 1992,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British comedy; aging fashion obsessed women"
+  },
+  {
+    "name": "The Crown",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British royal historical drama; Elizabeth's reign"
+  },
+  {
+    "name": "Downton Abbey",
+    "year": 2010,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British period drama; aristocracy and servants"
+  },
+  {
+    "name": "Upstairs Downstairs",
+    "year": 1971,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British period drama; 1900s London household"
+  },
+  {
+    "name": "Dr. Who",
+    "year": 1963,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "British sci-fi legend; time traveler, 60+ years"
+  },
+  {
+    "name": "The Avengers",
+    "year": 1961,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British spy adventure; Emma Peel and Steed"
+  },
+  {
+    "name": "A Very British Scandal",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "British historical drama; 1960s duchess scandal"
+  },
+  {
+    "name": "A Very English Scandal",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British historical drama; 1970s MP homosexual scandal"
+  },
+  {
+    "name": "The Jewel in the Crown",
+    "year": 1984,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British historical drama; India at independence"
+  },
+  {
+    "name": "I, Claudius",
+    "year": 1976,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "British historical; Roman empire intrigues, dour"
+  },
+  {
+    "name": "Sherlock",
+    "year": 2010,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "British mystery; modern London Sherlock Holmes"
+  },
+  {
+    "name": "Mindhunter",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "American crime drama; FBI profiler origin story"
+  },
+  {
+    "name": "Arcane",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "europe-tv-depth",
+    "why": "Animated epic; League of Legends, rebellion, stunning"
+  },
+  {
+    "name": "Castlevania",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Animated horror; vampire hunting, gothic, European"
+  },
+  {
+    "name": "Blue Eye Samurai",
+    "year": 2023,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "Animated samurai revenge; Meiji Japan, mixed race"
+  },
+  {
+    "name": "Daria",
+    "year": 1997,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "American school satire; deadpan teen observer"
+  },
+  {
+    "name": "BoJack Horseman",
+    "year": 2014,
+    "type": "series",
+    "priority": 4,
+    "bucket": "europe-tv-depth",
+    "why": "American animated dramedy; washed-up actor existential"
+  },
+  {
+    "name": "Cyberpunk: Edgerunners",
+    "year": 2022,
+    "type": "series",
+    "priority": 3,
+    "bucket": "europe-tv-depth",
+    "why": "Animated cyberpunk; game universe, night city"
+  }
+]
