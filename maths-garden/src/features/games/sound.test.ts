@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { pronounce, setNameSound, voiceScore } from './sound';
+import { isEnhancedVoice, pronounce, setNameSound, voiceScore } from './sound';
 
 describe('voices', () => {
   it('prefers downloaded British voices and skips novelty and non-English ones', () => {
@@ -15,6 +15,22 @@ describe('voices', () => {
       .sort((a, b) => voiceScore(b) - voiceScore(a))
       .map((v) => v.name);
     expect(ranked).toEqual(['Serena (Premium)', 'Stephanie (Enhanced)', 'Daniel', 'Samantha']);
+  });
+});
+
+describe('spotting a downloaded voice', () => {
+  it('recognises the names Apple and the browsers actually use', () => {
+    for (const name of ['Serena (Premium)', 'Stephanie (Enhanced)', 'Ava (Premium)', 'Google UK English Neural', 'Microsoft Libby Natural']) {
+      expect(isEnhancedVoice({ name })).toBe(true);
+    }
+  });
+
+  it('does not mistake a plain system voice for a downloaded one', () => {
+    // The compact voices every device ships with. Saying "you're all set" here would send a parent away
+    // believing the thin voice is the best available — the opposite of what the panel is for.
+    for (const name of ['Daniel', 'Samantha', 'Karen', 'Google UK English Female']) {
+      expect(isEnhancedVoice({ name })).toBe(false);
+    }
   });
 });
 

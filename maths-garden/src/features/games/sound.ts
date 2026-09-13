@@ -74,6 +74,18 @@ const canSpeak = () => typeof window !== 'undefined' && 'speechSynthesis' in win
 
 export const englishVoices = () => voices.filter((v) => voiceScore(v) >= 0).sort((a, b) => voiceScore(b) - voiceScore(a));
 
+/**
+ * A downloaded high-quality voice, rather than the thin one every device ships with. The same patterns
+ * voiceScore ranks by, named once so the two can never disagree.
+ *
+ * This matters more than any respelling: the app already picks the best voice installed, but it can only
+ * choose from what is there, and on a device with nothing downloaded that is the compact system voice.
+ */
+export const isEnhancedVoice = (v: { name: string }) => /premium|enhanced|neural|natural/i.test(v.name);
+
+/** Whether this device has an enhanced English voice at all — decides whether to explain how to get one. */
+export const hasEnhancedVoice = () => englishVoices().some(isEnhancedVoice);
+
 const refresh = () => {
   voices = canSpeak() ? speechSynthesis.getVoices() : [];
   voice = voices.find((v) => v.voiceURI === settings.voiceURI) ?? englishVoices()[0] ?? null;

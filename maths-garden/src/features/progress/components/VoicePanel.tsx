@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { currentVoice, englishVoices, nameCandidates, onVoicesChanged, say, setNameSound, setVoiceSettings, voiceSettings } from '@/features/games/sound';
+import { currentVoice, englishVoices, hasEnhancedVoice, nameCandidates, onVoicesChanged, say, setNameSound, setVoiceSettings, voiceSettings } from '@/features/games/sound';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
 import { cn } from '@/shared/utils/cn';
@@ -17,12 +17,17 @@ export function VoicePanel({ childId, childName, bare = false }: { childId: stri
   const [rate, setRate] = useState(() => voiceSettings().rate);
   const [voiceURI, setVoiceURI] = useState(() => currentVoice()?.voiceURI ?? '');
   const [soundsLike, setSoundsLike] = useState(() => readJSON<string | null>(nameSoundKey(childId), null) ?? '');
+  const [enhanced, setEnhanced] = useState(hasEnhancedVoice);
+  const [showGuide, setShowGuide] = useState(false);
 
   useEffect(
     () =>
       onVoicesChanged(() => {
         setVoices(englishVoices());
         setVoiceURI(currentVoice()?.voiceURI ?? '');
+        // iOS fires voiceschanged once the download finishes, so coming back from Settings flips the
+        // status by itself — the one moment this check has to be right without a reload.
+        setEnhanced(hasEnhancedVoice());
       }),
     [],
   );
@@ -30,10 +35,51 @@ export function VoicePanel({ childId, childName, bare = false }: { childId: stri
   return (
     <section className={bare ? undefined : 'mt-8'}>
       {!bare && <h3 className="text-2xl font-semibold text-raspberry">Voice</h3>}
-      <p className="mt-1 text-sm text-grape/70">
-        Voices come from this device. For a natural voice on an iPad: Settings → Accessibility → Spoken Content → Voices → English (UK), download one marked
-        Enhanced or Premium, then pick it here.
-      </p>
+      <p className="mt-1 text-sm text-grape/70">Voices come from this device, so the app can only pick the best one installed here.</p>
+
+      {/* The old version of this was one dense line of instructions, which is a good way to be ignored.
+          The check is the useful half: a parent should not be sent to Settings to find out they were
+          already done, nor told everything is fine while the app is using a thin system voice. */}
+      <div className={cn('mt-3 rounded-[24px] p-4', enhanced ? 'bg-leaf/15' : 'bg-sunny/25')}>
+        <p className="font-semibold text-grape">{enhanced ? '✨ A natural voice is installed' : '🔈 Only the basic voice is installed'}</p>
+        <p className="mt-0.5 text-sm text-grape/75">
+          {enhanced
+            ? 'Pick it in the list below if it is not already chosen — the app prefers it automatically.'
+            : 'Downloading one takes a minute and makes a bigger difference than any other setting here.'}
+        </p>
+        {!enhanced && (
+          <Button variant="quiet" size="sm" className="mt-3" onClick={() => setShowGuide((open) => !open)} aria-expanded={showGuide}>
+            {showGuide ? 'Hide the steps' : '✨ Enhance the voice'}
+          </Button>
+        )}
+        {enhanced && (
+          <Button variant="ghost" size="sm" className="mt-2" onClick={() => setShowGuide((open) => !open)} aria-expanded={showGuide}>
+            {showGuide ? 'Hide the steps' : 'Add another voice'}
+          </Button>
+        )}
+        {showGuide && (
+          <div className="mt-3 rounded-[18px] bg-white/70 p-4 text-left">
+            <p className="text-sm font-semibold text-grape">On the iPad, leave this open and:</p>
+            <ol className="mt-2 flex list-decimal flex-col gap-1.5 pl-5 text-sm text-grape/85">
+              <li>Open <b>Settings</b> (the grey cog on the home screen)</li>
+              <li>Tap <b>Accessibility</b></li>
+              <li>Tap <b>Spoken Content</b></li>
+              <li>Tap <b>Voices</b>, then <b>English</b></li>
+              <li>
+                Choose <b>English (United Kingdom)</b>
+              </li>
+              <li>
+                Tap any voice marked <b>Enhanced</b> or <b>Premium</b> — the ⬇︎ downloads it (about 100&nbsp;MB, needs wi-fi)
+              </li>
+              <li>Come back here and pick it in the list below, then tap 🔊 Test the voice</li>
+            </ol>
+            <p className="mt-3 text-sm text-grape/60">
+              Not on an iPad? The same idea works on a Mac (System Settings → Accessibility → Spoken Content) and on Android (Settings → Accessibility →
+              Text-to-speech).
+            </p>
+          </div>
+        )}
+      </div>
       <div className="mt-3 flex flex-col gap-4">
         <label className="flex flex-col gap-1.5">
           <span className="font-semibold">Voice</span>
