@@ -64,6 +64,14 @@ const normalise = (value) =>
  * to accept a match the spaced comparison already nearly made, never to widen one.
  */
 const condense = (value) => normalise(value).replace(/ /g, '');
+
+/** The same name with every article removed, in any language we are likely to meet. */
+const ARTICLES = new Set(['the', 'a', 'an', 'le', 'la', 'les', 'el', 'los', 'las', 'il', 'lo', 'der', 'die', 'das', 'den', 'de', 'het', 'o', 'os', 'as', 'um', 'una', 'un', 'uma']);
+const bareWords = (value) =>
+  normalise(value)
+    .split(' ')
+    .filter((word) => word && !ARTICLES.has(word))
+    .join('');
 /**
  * Apostrophes vanish rather than becoming separators, so "Winter's Bone" is winters-bone.
  *
@@ -106,7 +114,12 @@ const editDistance = (a, b) => {
 const namesFor = (name) => {
   const outer = String(name).replace(/\s*\([^)]*\)\s*$/, '').trim();
   const inner = /\(([^)]+)\)\s*$/.exec(String(name))?.[1]?.trim();
-  return [...new Set([String(name).trim(), outer, inner].filter(Boolean))];
+  // JustWatch files a show once and lists its seasons on that page, so a candidate naming a
+  // season — "Jujutsu Kaisen Season 2" — has no page of its own and only the show does.
+  const unseasoned = [String(name), outer].map((value) =>
+    String(value).replace(/[\s:,-]*\b(season|series|part|s(?:eries)?)\s*\d+\s*$/i, '').trim(),
+  );
+  return [...new Set([String(name).trim(), outer, inner, ...unseasoned].filter(Boolean))];
 };
 
 /**
@@ -119,13 +132,11 @@ const namesFor = (name) => {
  * differ by anything more, which is most of the time: a page's name is often the
  * original-language title ("Hauru no ugoku shiro") and must never overwrite ours.
  */
-const ARTICLE = /^(the|a|an|le|la|les|el|los|il|der|die|das)\s+/;
 const preferredName = (theirs, ours) => {
   const a = normalise(theirs);
   const b = normalise(ours);
   if (!a || !b || a === b) return null;
-  const bare = (value) => condense(value.replace(ARTICLE, ''));
-  if (condense(a) !== condense(b) && bare(a) !== bare(b)) return null;
+  if (condense(a) !== condense(b) && bareWords(a) !== bareWords(b)) return null;
   return decodeEntities(String(theirs)).trim();
 };
 
@@ -149,6 +160,11 @@ const nameAgreement = (theirs, ours) => {
   if (a === b || condense(a) === condense(b)) return 'exact';
   if (a.startsWith(`${b} `) || b.startsWith(`${a} `)) return 'near';
   if (a.endsWith(` ${b}`) || b.endsWith(` ${a}`)) return 'near';
+  // Articles drift in and out anywhere in a title, not just at the front: we hold "The House
+  // of the Flying Daggers" against a page's "House of Flying Daggers", and "El Aura" against
+  // "The Aura". Dropping every article from both sides makes those the same string, and the
+  // exact-year rule on a near match keeps it from over-reaching.
+  if (bareWords(a) === bareWords(b)) return 'near';
   const [x, y] = [condense(a), condense(b)];
   if (Math.min(x.length, y.length) >= 8 && editDistance(x, y) <= 2) return 'near';
   return null;
@@ -351,7 +367,21 @@ const searchForPage = async (name, year, type, { trustNameOverYear = true } = {}
  * year appended; anything whose name or year disagrees with the page is rejected rather
  * than guessed at.
  */
-const resolveTitle = async ({ name, year, type, url: given }) => {
+const resolveTitle = async (entry) => {
+  const found = await resolveAs(entry, entry.type);
+  if (found || entry.url) return found;
+  // A candidate list gets the type wrong often enough to matter: A Taste of Honey and
+  // Accidental Love arrive typed as series and are films, Deux Frères likewise. The other
+  // type is worth one more request, and it is safe because the name and year still have to
+  // agree — the type was never what made a match trustworthy.
+  const other = entry.type === 'series' ? 'movie' : 'series';
+  const crossed = await resolveAs(entry, other);
+  // The page decides what this is. Storing the candidate's type would file A Taste of Honey,
+  // a film, on the television shelf — worse than not holding it at all.
+  return crossed && { ...crossed, correctedType: other };
+};
+
+const resolveAs = async ({ name, year, url: given }, type) => {
   const path = type === 'series' ? 'tv-series' : 'movie';
   const aliases = namesFor(name);
   // Some pages file a work under its subtitle ("Dune: Part One") or drop a leading article.
@@ -381,8 +411,9 @@ const resolveTitle = async ({ name, year, type, url: given }) => {
     // We are only here because a slug derived from our own name had a page, so the name
     // check is confirming rather than searching — a variant spelling still has to bring the
     // exact year with it.
-    const agreement = aliases.map((alias) => nameAgreement(node.name, alias)).find(Boolean);
-    if (!agreement) continue;
+    const matched = aliases.find((alias) => nameAgreement(node.name, alias));
+    if (!matched) continue;
+    const agreement = nameAgreement(node.name, matched);
     const pageYear = Number(String(node.dateCreated ?? '').slice(0, 4));
     // Series pages date from the first season, films from release; allow a couple of years
     // of drift for late UK releases, and reject anything further out as the wrong work.
@@ -391,7 +422,15 @@ const resolveTitle = async ({ name, year, type, url: given }) => {
     // the list will pick either. An exact name on a series is strong enough to carry that.
     const slack = agreement === 'exact' ? (type === 'series' ? 3 : 2) : 0;
     if (year && pageYear && Math.abs(pageYear - year) > slack) continue;
-    return { url, correctedName: preferredName(node.name, name), ...found };
+    // Where the match came from a reduced form of the name — a bracket opened, a season
+    // suffix dropped — the page is the show and its name is the one to keep. Storing
+    // "Jujutsu Kaisen Season 2" against the Jujutsu Kaisen page would file a second copy of
+    // a show we already hold.
+    const reduced = matched !== String(name).trim();
+    const corrected = reduced ? decodeEntities(String(node.name)).trim() : preferredName(node.name, name);
+    // Having decided the page is the work rather than the season, its date is the work's too
+    // — otherwise Jujutsu Kaisen lands at 2023 beside the 2020 record of the same show.
+    return { url, correctedName: corrected, correctedYear: reduced ? pageYear || null : null, ...found };
   }
 
   // Nothing at a derivable slug. Ask what it is filed as, then read that page — trusting the
@@ -405,18 +444,24 @@ const resolveTitle = async ({ name, year, type, url: given }) => {
     // which is the whole title of an unrelated 2024 film, and overriding the year there
     // files the wrong work under the right name.
     searched = await searchForPage(alias, year, type, { trustNameOverYear: alias === name.trim() });
-    if (searched) break;
+    if (searched) { searched.alias = alias; break; }
   }
   if (!searched) return null;
   const found = await fetchRecord(searched.url);
   if (!found) return null;
+  const reduced = searched.alias !== undefined && searched.alias !== String(name).trim();
+  const viaAlias = reduced
+    ? decodeEntities(String(found.node.name)).trim()
+    : preferredName(found.node.name, name);
   const pageYear = Number(String(found.node.dateCreated ?? '').slice(0, 4));
   // The search matched on title and year, so the address is trusted the way an explicitly
   // supplied one is — except where the search deliberately overrode a wrong year, in which
   // case the page's own date is the fact and is handed back to be stored instead.
-  if (searched.correctedYear) return { url: searched.url, correctedYear: pageYear || searched.correctedYear, ...found };
+  if (searched.correctedYear) {
+    return { url: searched.url, correctedYear: pageYear || searched.correctedYear, correctedName: viaAlias, ...found };
+  }
   if (year && pageYear && Math.abs(pageYear - year) > (type === 'series' ? 3 : 2)) return null;
-  return { url: searched.url, ...found };
+  return { url: searched.url, correctedName: viaAlias, correctedYear: reduced ? pageYear || null : null, ...found };
 };
 
 const args = process.argv.slice(2);
@@ -530,7 +575,7 @@ const run = async () => {
       return null;
     }
 
-    const { node, html, url, correctedYear, correctedName } = resolved;
+    const { node, html, url, correctedYear, correctedName, correctedType } = resolved;
     const poster = await posterFrom(html);
     const cast = (node.actor ?? [])
       .map((role) => decodeEntities(role.actor?.name ?? role.name))
@@ -540,7 +585,7 @@ const run = async () => {
     const fields = {
       name: correctedName ?? entry.name,
       year: correctedYear ?? entry.year ?? (Number(String(node.dateCreated ?? '').slice(0, 4)) || null),
-      type: entry.type,
+      type: correctedType ?? entry.type,
       genres: tidyGenres(node.genre),
       certification: node.contentRating ?? null,
       runtime_minutes: minutesFrom(node.duration),
