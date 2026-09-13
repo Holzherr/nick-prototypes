@@ -10,13 +10,15 @@ export interface NoteStripProps {
 
 /** Every note of the piece as a row of chips: progress and a way to jump. */
 export function NoteStrip({ piece, current, played, onSelect }: NoteStripProps) {
-  let bar = -1;
+  /* a chip shows a bar number when it is the first note of its bar */
+  const bars = piece.notes.map(n => barOf(piece, n));
   return (
     <div className="strip">
       {piece.notes.map((n, i) => {
-        const b = barOf(piece, n);
-        const label = b !== bar ? <span key={`b${b}`} className="barlabel">{b + 1}</span> : null;
-        bar = b;
+        const b = bars[i];
+        const label = i === 0 || bars[i - 1] !== b
+          ? <span className="barlabel">{b + 1}</span>
+          : null;
         return (
           <span key={i} style={{ display: 'contents' }}>
             {label}
