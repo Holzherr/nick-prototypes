@@ -31,8 +31,14 @@ const pairs = await queryJson(`
   )) as data
   from public.titles a
   join public.titles b
-    on lower(a.name) = lower(b.name) and a.type = b.type and a.id < b.id
+    on a.type = b.type and a.id < b.id
    and abs(coalesce(a.year, 0) - coalesce(b.year, 0)) <= 2
+   -- Matching names exactly missed the duplicates that actually occur. Two lists spell the
+   -- same work differently and both get catalogued: Harlan County USA against Harlan County
+   -- U.S.A., my-neighbor- against my-neighbour-totoro, three-colours against three-colors.
+   -- Punctuation, case and British spelling are all set aside; the year still has to be
+   -- within two, which is what keeps a remake from being merged into its original.
+   and public.comparable_name(a.name) = public.comparable_name(b.name)
   where a.catalogue_version > 0 and b.catalogue_version > 0`);
 
 if (!pairs.length) {
