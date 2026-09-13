@@ -1,4 +1,4 @@
-import { DROP_BELOW, LEVEL_UP_AT, STREAK } from '@/features/games/engine';
+import { DROP_BELOW, LEVEL_UP_AT, STREAK, SUSTAINED } from '@/features/games/engine';
 import { QUESTIONS_PER_ROUND } from '@/features/games/catalog';
 import { DAILY_GOAL } from '@/features/games/insights';
 import { cn } from '@/shared/utils/cn';
@@ -7,9 +7,11 @@ const UP = Math.round(LEVEL_UP_AT * 100);
 const DOWN = Math.round(DROP_BELOW * 100);
 
 const RULES = [
-  { icon: '⭐', when: 'A perfect round, answered quickly', then: 'Up a level, straight away', tone: 'up' },
+  { icon: '⭐', when: 'A perfect round', then: 'Up a level, straight away', tone: 'up' },
   { icon: '👍', when: `${STREAK} rounds in a row at ${UP}% or better`, then: 'Up a level', tone: 'up' },
-  { icon: '🐢', when: `Both of those rounds were slow`, then: 'Stays put, to build speed first', tone: 'hold' },
+  { icon: '🐢', when: 'That perfect round and the one before it were both slow', then: 'Stays put, to build speed first', tone: 'hold' },
+  { icon: '🚀', when: `${SUSTAINED} rounds in a row at ${UP}% or better`, then: 'Up a level whatever the pace — building speed never becomes forever', tone: 'up' },
+  { icon: '🏆', when: 'A perfect round at the top level', then: 'The game is mastered: gold dots on the tile, and a gold sticker from Nova', tone: 'up' },
   { icon: '🌱', when: `${STREAK} rounds in a row under ${DOWN}%`, then: 'Back a level', tone: 'down' },
   { icon: '🤝', when: 'Two misses in a row inside a round', then: 'The next question comes from the level below', tone: 'hold' },
 ] as const;
@@ -40,7 +42,11 @@ export function ScoringDiagram({ className }: { className?: string }) {
         <Step n="🎲" title={`${QUESTIONS_PER_ROUND} questions`} text="One round. Each answer is marked right or wrong, and timed from the moment the answer buttons appear." />
         <Step n="📊" title="Two measurements" text="Accuracy for the round, and the median answer time against what is reasonable for that question." />
         <Step n="⚖️" title="The rules below" text="Applied to the last two rounds at the current level." />
-        <Step n="🖨" title="Stage and sheets" text="Levels 1–3 are printable stages 1–3. Crossing into a new stage emails you the report and the next sheets." />
+        <Step
+          n="🖨"
+          title="Stage and sheets"
+          text="Levels 1–3 are printable stages 1–3; 4–6 are challenge levels with no new paper. Crossing into a new stage emails you the report and the next sheets."
+        />
       </ol>
 
       <ul className="flex flex-col gap-2">
