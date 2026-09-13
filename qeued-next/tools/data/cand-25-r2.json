@@ -1,0 +1,1602 @@
+[
+  {
+    "name": "Mother India",
+    "year": 1957,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Bhatwadekar's landmark; India's first Oscar nomination"
+  },
+  {
+    "name": "Awara",
+    "year": 1951,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Raj Kapoor's masterwork; foundational Hindi cinema"
+  },
+  {
+    "name": "Sholay",
+    "year": 1975,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Bollywood's greatest film; cultural milestone"
+  },
+  {
+    "name": "Pakeezah",
+    "year": 1971,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Nargis final film; romantic masterpiece"
+  },
+  {
+    "name": "Neecha Nagar",
+    "year": 1946,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "First Palme d'Or to Indian film; Ray contemporary"
+  },
+  {
+    "name": "Apur Sansar",
+    "year": 1959,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Ray's Apu Trilogy finale; complete vision"
+  },
+  {
+    "name": "Nayakan",
+    "year": 1987,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Mani Ratnam's Tamil masterpiece; Kamal's finest"
+  },
+  {
+    "name": "Jai Bhim",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Suriya's social justice drama; OTT landmark"
+  },
+  {
+    "name": "The Great Indian Kitchen",
+    "year": 2021,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Malayalam feminist film; viral phenomenon"
+  },
+  {
+    "name": "Dil Se",
+    "year": 1998,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Mani Ratnam's political love poem; epic"
+  },
+  {
+    "name": "Dil Chahta Hai",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Farhan Akhtar's modern friendship film; game-changer"
+  },
+  {
+    "name": "Scam 1992",
+    "year": 2020,
+    "type": "series",
+    "priority": 5,
+    "bucket": "india",
+    "why": "SonyLiv financial crime epic; Harshvardhan"
+  },
+  {
+    "name": "Sacred Games",
+    "year": 2018,
+    "type": "series",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Netflix crime epic; Saif Ali Khan, Nawazuddin"
+  },
+  {
+    "name": "Jai Bhim Web Series",
+    "year": 2021,
+    "type": "series",
+    "priority": 5,
+    "bucket": "india",
+    "why": "OTT legal drama pioneer; breakthrough"
+  },
+  {
+    "name": "36 India Avant-Garde",
+    "year": 1989,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Shatrughan Sinha; parallel cinema"
+  },
+  {
+    "name": "Rang De Basanti",
+    "year": 2006,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Aamir Khan activism film; cultural"
+  },
+  {
+    "name": "Lagaan",
+    "year": 2001,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Aamir Khan cricket epic; iconic"
+  },
+  {
+    "name": "3 Idiots",
+    "year": 2009,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Aamir Khan education film; blockbuster"
+  },
+  {
+    "name": "Dilwale Dulhania Le Jayenge",
+    "year": 1995,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "SRK Kajol romance; watershed"
+  },
+  {
+    "name": "Charulata",
+    "year": 1964,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Satyajit Ray; Madhabi Mukherjee"
+  },
+  {
+    "name": "Pather Panchali",
+    "year": 1955,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Satyajit Ray; Apu begins"
+  },
+  {
+    "name": "Aparajito",
+    "year": 1956,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Ray Apu middle; continuation"
+  },
+  {
+    "name": "RRR",
+    "year": 2022,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "S.S. Rajamouli Telugu epic; Oscar"
+  },
+  {
+    "name": "Shree 420",
+    "year": 1955,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Raj Kapoor's satirical comedy; iconic"
+  },
+  {
+    "name": "Guide",
+    "year": 1965,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Vijayanthimala's tour-de-force drama"
+  },
+  {
+    "name": "Drishyam",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Malayalam thriller; franchise-launching masterpiece"
+  },
+  {
+    "name": "Chandni",
+    "year": 1989,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Sridevi romance; defining Yash Chopra film"
+  },
+  {
+    "name": "Gangs of Wasseypur",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Anurag Kashyap's sprawling crime epic"
+  },
+  {
+    "name": "Kahaani",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Sujoy Ghosh's suspense thriller; Vidya Balan"
+  },
+  {
+    "name": "Sardar Udham",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Vicky Kaushal's historical biopic; nationalist hero"
+  },
+  {
+    "name": "Chatushkone",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Srijit Mukherji's Bengali thriller; Prosenjit"
+  },
+  {
+    "name": "Ponniyin Selvan: I",
+    "year": 2022,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Mani Ratnam's Tamil period epic; massive"
+  },
+  {
+    "name": "Ponniyin Selvan: II",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Ratnam epic conclusion; grand finale"
+  },
+  {
+    "name": "KGF: Chapter 1",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Kannada action franchise; Yash stardom-maker"
+  },
+  {
+    "name": "Pushpa: The Rise",
+    "year": 2021,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Sukumar's Telugu action drama; Allu Arjun"
+  },
+  {
+    "name": "Padaiyottam",
+    "year": 1931,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "First Malayalam talkie; cinema history"
+  },
+  {
+    "name": "Chemmeen",
+    "year": 1964,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "First Malayalam Cannes entry; tragic romance"
+  },
+  {
+    "name": "Sairat",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Nagraj Manjule's Marathi romance; youth culture"
+  },
+  {
+    "name": "Andhadhun",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Sriram Raghavan thriller; blind pianist twist"
+  },
+  {
+    "name": "Raazi",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Meghna Gulzar's spy thriller; Alia's peak"
+  },
+  {
+    "name": "Udta Punjab",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Abhishek Chaubey's Punjabi drug drama; Shahid"
+  },
+  {
+    "name": "Badhaai Ho",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Amit V. Masurkar's comedy; mature parents"
+  },
+  {
+    "name": "Kal Ho Naa Ho",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Nikkhil Advani's terminal-romance drama"
+  },
+  {
+    "name": "Zindagi Na Milegi Dobara",
+    "year": 2011,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Zoya Akhtar's friendship road film; iconic"
+  },
+  {
+    "name": "Gully Boy",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Zoya Akhtar's Mumbai hip-hop drama"
+  },
+  {
+    "name": "Don",
+    "year": 2006,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Farhan Akhtar's crime remake; SRK"
+  },
+  {
+    "name": "Masaan",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Neeraj Ghaywan's Varanasi-set drama; Vicky"
+  },
+  {
+    "name": "Water",
+    "year": 2005,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Deepa Mehta's widow drama; Oscar nominee"
+  },
+  {
+    "name": "Fire",
+    "year": 1996,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Deepa Mehta's sapphic drama; controversial"
+  },
+  {
+    "name": "Queen",
+    "year": 2013,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Vikas Bahl's solo-travel romance; Kangana"
+  },
+  {
+    "name": "Bandit Queen",
+    "year": 1994,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Shekhar Kapur's dacoit feminist drama; Seema"
+  },
+  {
+    "name": "Delhi Crime",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Netflix crime procedural; Nirbhaya aftermath"
+  },
+  {
+    "name": "Panchayat",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Amazon rural comedy-drama; sleeper hit"
+  },
+  {
+    "name": "Mirzapur",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Amazon crime epic; cult series"
+  },
+  {
+    "name": "Paatal Lok",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Amazon thriller; Anushka Sharma"
+  },
+  {
+    "name": "The Family Man",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Amazon spy thriller; Manoj Bajpayee"
+  },
+  {
+    "name": "Aarya",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Disney+ crime thriller; Sushmita Singh"
+  },
+  {
+    "name": "Satya",
+    "year": 1998,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Ram Gopal Varma's Mumbai underworld epic"
+  },
+  {
+    "name": "Udaan",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Vikramaditya Motwane's father-son drama"
+  },
+  {
+    "name": "Bombay",
+    "year": 1995,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Mani Ratnam's intercommunal love epic"
+  },
+  {
+    "name": "A Suitable Boy",
+    "year": 2020,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "BBC/Netflix adaptation; Mira Nair"
+  },
+  {
+    "name": "Jaane Bhi Do Yaaro",
+    "year": 1983,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Kundan Shah's satirical buddy-film classic"
+  },
+  {
+    "name": "Bahubali: The Beginning",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "S.S. Rajamouli's Telugu fantasy epic"
+  },
+  {
+    "name": "Bahubali 2: The Conclusion",
+    "year": 2017,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Rajamouli's massive sequel"
+  },
+  {
+    "name": "Eega",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Rajamouli's Telugu revenge-as-fly film"
+  },
+  {
+    "name": "Bajrangi Bhaijaan",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Kabir Khan's cross-border love story"
+  },
+  {
+    "name": "Padmaavat",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Sanjay Leela Bhansali's period epic"
+  },
+  {
+    "name": "Hum Dil De Chuke Sanam",
+    "year": 1999,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Bhansali's romantic grand guignol"
+  },
+  {
+    "name": "Bajirao Mastani",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Bhansali's period romance epic"
+  },
+  {
+    "name": "Kabhi Khushi Kabhie Gham",
+    "year": 2001,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Karan Johar's family saga masterpiece"
+  },
+  {
+    "name": "My Name Is Khan",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Karan Johar's post-9/11 Islamophobia drama"
+  },
+  {
+    "name": "Jab Tak Hai Jaan",
+    "year": 2012,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Yash Chopra's final romance epic"
+  },
+  {
+    "name": "Mohabbatein",
+    "year": 2000,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Aditya Chopra's teacher-student romance"
+  },
+  {
+    "name": "Veer-Zaara",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Yash Chopra's Pakistan-India romance"
+  },
+  {
+    "name": "Silsila",
+    "year": 1981,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Yash Chopra's infidelity classic"
+  },
+  {
+    "name": "Lamhe",
+    "year": 1989,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Yash Chopra's controversial romance"
+  },
+  {
+    "name": "Dabangg",
+    "year": 2010,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Abhinav Kashyap's cop action film; Salman"
+  },
+  {
+    "name": "Made in Heaven",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Amazon wedding-industry drama; indie"
+  },
+  {
+    "name": "Criminal Justice",
+    "year": 2019,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Disney+ legal thriller; Vikrant"
+  },
+  {
+    "name": "Breathe",
+    "year": 2018,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Amazon survival thriller; Abhishek"
+  },
+  {
+    "name": "Naseeruddin Shah Spotlight",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Bollywood icon; representative work"
+  },
+  {
+    "name": "Sarabhai vs Sarabhai",
+    "year": 2005,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "SAB TV sitcom; cult classic"
+  },
+  {
+    "name": "Devdas",
+    "year": 2002,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Sanjay Leela Bhansali; Aishwarya"
+  },
+  {
+    "name": "Drishyam 2",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Malayalam thriller sequel; strong follow-up"
+  },
+  {
+    "name": "Maidaan",
+    "year": 2023,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Ajay Devgn sports drama; football epic"
+  },
+  {
+    "name": "Master",
+    "year": 2021,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Lokesh Kanagaraj's Tamil action thriller"
+  },
+  {
+    "name": "KGF: Chapter 2",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Prashanth Neel's action sequel; pan-Indian hit"
+  },
+  {
+    "name": "Pushpa: The Rule",
+    "year": 2024,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Sukumar's Telugu sequel; ongoing saga"
+  },
+  {
+    "name": "Kabali",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Rajinikanth Tamil crime drama"
+  },
+  {
+    "name": "Natrang",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Marathi theatrical drama; unique genre"
+  },
+  {
+    "name": "Mulk",
+    "year": 2018,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Anubhav Sinha's socio-political thriller"
+  },
+  {
+    "name": "Article 15",
+    "year": 2019,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Anubhav Sinha's caste-system exploration"
+  },
+  {
+    "name": "Thappad",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Anubhav Sinha's feminist drama; Taapsee"
+  },
+  {
+    "name": "Talvar",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Meghna Gulzar's crime procedural; Irrfan"
+  },
+  {
+    "name": "Chup: Revenge of the Artist",
+    "year": 2022,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Balaji Mohan's meta thriller; R. Madhavan"
+  },
+  {
+    "name": "Toilet: Ek Prem Katha",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Shree Narayan Singh's toilet-access drama"
+  },
+  {
+    "name": "Piku",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Deepika Padukone family dramedy"
+  },
+  {
+    "name": "Love Aaj Kal",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Imtiaz Ali's dual-timeline romance"
+  },
+  {
+    "name": "Tere Naam",
+    "year": 2003,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Salman Khan romantic thriller"
+  },
+  {
+    "name": "Lakshya",
+    "year": 2004,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Farhan Akhtar's coming-of-age military drama"
+  },
+  {
+    "name": "Margarita with a Straw",
+    "year": 2014,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Shonali Bose's queer love story; Kalki"
+  },
+  {
+    "name": "Paheli",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Amol Gupte's magical realist folk tale"
+  },
+  {
+    "name": "Parched",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Leena Yadav's rural female sexuality drama"
+  },
+  {
+    "name": "Hey Ram",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Kamal Haasan's partition drama; director Haasan"
+  },
+  {
+    "name": "Page 3",
+    "year": 2005,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Madhur Bhandarkar's Delhi high-society satire"
+  },
+  {
+    "name": "Fashion",
+    "year": 2008,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Madhur Bhandarkar's fashion-world drama"
+  },
+  {
+    "name": "Natarang",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Marathi theatrical drama; Atul Kulkarni"
+  },
+  {
+    "name": "Asur",
+    "year": 2020,
+    "type": "series",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Voot supernatural crime thriller"
+  },
+  {
+    "name": "The Family Man: Season 2",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Spy series sequel; ongoing saga"
+  },
+  {
+    "name": "Sacred Games: Season 2",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Netflix thriller continuation"
+  },
+  {
+    "name": "Maharani",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "india",
+    "why": "SonyLiv political drama; Huma Qureshi"
+  },
+  {
+    "name": "Tandav",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Amazon political thriller; Saif Ali Khan"
+  },
+  {
+    "name": "Khakee",
+    "year": 2004,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Rajkumar Hirani's heist thriller"
+  },
+  {
+    "name": "Company",
+    "year": 2003,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Ram Gopal Varma's crime drama"
+  },
+  {
+    "name": "Lootera",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Vikramaditya Motwane's period romance"
+  },
+  {
+    "name": "Raman Raghav 2.0",
+    "year": 2016,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Anurag Kashyap serial-killer thriller"
+  },
+  {
+    "name": "Ugly",
+    "year": 2014,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Anurag Kashyap's family dysfunction drama"
+  },
+  {
+    "name": "Iruvar",
+    "year": 1997,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Mani Ratnam's cinema-industry meta-drama"
+  },
+  {
+    "name": "O Kadhal Kanmani",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Mani Ratnam's urban couple romance"
+  },
+  {
+    "name": "Kannathil Muthamittal",
+    "year": 2002,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Mani Ratnam's child-adoption drama"
+  },
+  {
+    "name": "Badlapur",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Sriram Raghavan's revenge thriller; Varun"
+  },
+  {
+    "name": "Natsamrat",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Mahesh Manjrekar's Marathi actor drama"
+  },
+  {
+    "name": "Fandry",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Nagraj Manjule's Marathi caste drama"
+  },
+  {
+    "name": "Bombay Begums",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Netflix female ensemble drama"
+  },
+  {
+    "name": "Woh Saat Din",
+    "year": 1983,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Barun Roy's romance; Deepti Naval"
+  },
+  {
+    "name": "Mandi",
+    "year": 1983,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Shyam Benegal's brothel-town satire"
+  },
+  {
+    "name": "Mirch Masala",
+    "year": 1985,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Ketan Mehta's women-power drama"
+  },
+  {
+    "name": "Aakrosh",
+    "year": 1980,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Govind Nihalani's tribal-rights drama"
+  },
+  {
+    "name": "Hera Pheri",
+    "year": 2000,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Priyadarshan's comedy crime caper"
+  },
+  {
+    "name": "Tanu Weds Manu",
+    "year": 2011,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Anand L. Rai's romance; hit couple"
+  },
+  {
+    "name": "Magadheera",
+    "year": 2009,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Rajamouli's Telugu action romance"
+  },
+  {
+    "name": "Vidhaata",
+    "year": 1982,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Subhash Ghai's vigilante action drama"
+  },
+  {
+    "name": "Tezaab",
+    "year": 1988,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "N. Chandra's dance-driven action romance"
+  },
+  {
+    "name": "Sahib Bibi Aur Ghulam",
+    "year": 1962,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Abrar Alvi's decay-of-wealth drama"
+  },
+  {
+    "name": "Mai",
+    "year": 2021,
+    "type": "series",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Netflix thriller; Sakshi Tanwar"
+  },
+  {
+    "name": "Raees",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Rahul Dholakia's gangster drama; Shah Rukh"
+  },
+  {
+    "name": "Ek Tha Tiger",
+    "year": 2012,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Kabir Khan's spy action romance"
+  },
+  {
+    "name": "Tiger Zinda Hai",
+    "year": 2017,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Kabir Khan's spy sequel"
+  },
+  {
+    "name": "Devi",
+    "year": 1960,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Satyajit Ray's upper-class superstition drama"
+  },
+  {
+    "name": "Nayak",
+    "year": 2001,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Sanjay Leela Bhansali's filmmaking drama"
+  },
+  {
+    "name": "Goliyon Ki Raasleela Ram-Leela",
+    "year": 2013,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Bhansali's Romeo-Juliet fusion"
+  },
+  {
+    "name": "Ae Dil Hai Mushkil",
+    "year": 2016,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Karan Johar's tragic love triangle"
+  },
+  {
+    "name": "Kabhi Alvida Naa Kehna",
+    "year": 2006,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Karan Johar's infidelity drama; Shah Rukh"
+  },
+  {
+    "name": "Bhumika",
+    "year": 1977,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Shyam Benegal's actress biopic; Smita"
+  },
+  {
+    "name": "Ala Vaikunthapurramuloo",
+    "year": 2020,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Trivikram Srinivas Telugu comedy"
+  },
+  {
+    "name": "Dilwale",
+    "year": 2015,
+    "type": "movie",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Rohit Shetty SRK action romance"
+  },
+  {
+    "name": "Race",
+    "year": 2008,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Abbas Tyrewala thriller; Amitabh"
+  },
+  {
+    "name": "War",
+    "year": 2019,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Siddharth Anand action thriller; SRK"
+  },
+  {
+    "name": "Little Things",
+    "year": 2016,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "TVF romance series; web pioneer"
+  },
+  {
+    "name": "Inside Edge",
+    "year": 2017,
+    "type": "series",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Amazon cricket-corruption drama"
+  },
+  {
+    "name": "Hostages",
+    "year": 2019,
+    "type": "series",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Disney+ hostage thriller; Ronit Roy"
+  },
+  {
+    "name": "Bhaiyya Ji",
+    "year": 2023,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Apoorv Singh Karki Marathi action drama"
+  },
+  {
+    "name": "Varma",
+    "year": 2015,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Hindi thriller; Chay Akkineni"
+  },
+  {
+    "name": "Prem Granth",
+    "year": 1992,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Rajiv Rani Sridevi love story"
+  },
+  {
+    "name": "Nukkad",
+    "year": 1986,
+    "type": "series",
+    "priority": 3,
+    "bucket": "india",
+    "why": "Doordarshan street-corner sitcom"
+  },
+  {
+    "name": "Udayon",
+    "year": 1930,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Early silent Malayalam film"
+  },
+  {
+    "name": "Deool Band",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Marathi heist comedy; underrated gem"
+  },
+  {
+    "name": "Rishi Rich",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Punjabi film; contemporary setting"
+  },
+  {
+    "name": "Jatt and Juliet",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Punjabi comedy; regional hit"
+  },
+  {
+    "name": "Haromoni",
+    "year": 1945,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Early Bengali film; archive curiosity"
+  },
+  {
+    "name": "Karwaan",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Akarsh Khurana's road comedy; Irrfan"
+  },
+  {
+    "name": "Jab Harry Met Sally",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Hindi rom-com; Emraan Hashmi"
+  },
+  {
+    "name": "Rang De Basanti 2",
+    "year": 1956,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Early Hindi film; unrelated title reuse"
+  },
+  {
+    "name": "The Archies",
+    "year": 2023,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Zoya Akhtar's teen musical adaptation"
+  },
+  {
+    "name": "Khiladi 1080",
+    "year": 1992,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Akshay Kumar action film"
+  },
+  {
+    "name": "Khiladi",
+    "year": 1992,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Akshay Kumar debut thriller; franchise origin"
+  },
+  {
+    "name": "Bhaiyyaji Shab",
+    "year": 2014,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Deepti Naval film; indie cinema"
+  },
+  {
+    "name": "Rang Rasiya",
+    "year": 2008,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Ketan Mehta's artist biopic; Ajay Devgn"
+  },
+  {
+    "name": "Chandni Bar",
+    "year": 2001,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Madhur Bhandarkar's controversial dancer drama"
+  },
+  {
+    "name": "Rang",
+    "year": 1993,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Early Madhur Bhandarkar; regional cinema"
+  },
+  {
+    "name": "Begum Jaan",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Srijit Mukherji's partition brothel drama"
+  },
+  {
+    "name": "Shabana Azmi: Faces and Facets",
+    "year": 2018,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Documentary on Azmi; retrospective"
+  },
+  {
+    "name": "Daredevil: Born Again",
+    "year": 2024,
+    "type": "series",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Charlie Cox MCU; limited Indian connection"
+  },
+  {
+    "name": "Rang",
+    "year": 2021,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Contemporary drama; indie release"
+  },
+  {
+    "name": "Aiyyaa",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Sachin Kundalkar's quirky Marathi romance"
+  },
+  {
+    "name": "Balaji Mohan Spotlight",
+    "year": 2021,
+    "type": "series",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Director career overview; limited series"
+  },
+  {
+    "name": "Kadam Kadam",
+    "year": 2016,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Marathi historical film"
+  },
+  {
+    "name": "Yaara",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Tigmanshu Dhulia's crime epic; Vidyut"
+  },
+  {
+    "name": "Saas Bahu Achaar",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Web comedy series; regional"
+  },
+  {
+    "name": "Palangtod",
+    "year": 2018,
+    "type": "series",
+    "priority": 2,
+    "bucket": "india",
+    "why": "ALTBalaji web series; erotic"
+  },
+  {
+    "name": "Hulchul",
+    "year": 2004,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Priyadarshan's Malayalam remake sequel"
+  },
+  {
+    "name": "Tanu Weds Manu: Returns",
+    "year": 2015,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Rai's romantic sequel"
+  },
+  {
+    "name": "Radheshyam",
+    "year": 2022,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Prabhas period romance; Telugu"
+  },
+  {
+    "name": "Khuda Gawah",
+    "year": 1992,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Sridevi Amitabh revenge epic; Pashto"
+  },
+  {
+    "name": "Utsav",
+    "year": 1984,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Girish Kasaravalli's Kannada period drama"
+  },
+  {
+    "name": "Jhoom Barabar Jhoom",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Shaad Ali's rom-com musical"
+  },
+  {
+    "name": "Bhoot",
+    "year": 2003,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Ram Gopal Varma's apartment horror"
+  },
+  {
+    "name": "Bhoot: Part One \u2013 The Haunted",
+    "year": 2020,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Bhanu Pratap Singh's horror reboot"
+  },
+  {
+    "name": "Kaun",
+    "year": 1999,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Ram Gopal Varma's single-location thriller"
+  },
+  {
+    "name": "Jai Santoshi Maa",
+    "year": 1975,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Vijay Sharma's religious devotional drama"
+  },
+  {
+    "name": "Jalsa",
+    "year": 1998,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "David Dhawan's comedy; Govinda"
+  },
+  {
+    "name": "Phir Hera Pheri",
+    "year": 2002,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Priyadarshan's sequel caper comedy"
+  },
+  {
+    "name": "Mohan Lal",
+    "year": 2007,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Malayalam period drama"
+  },
+  {
+    "name": "Operation Parindey",
+    "year": 2012,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Devi Prasad escape thriller; Emraan"
+  },
+  {
+    "name": "F.A.L.T.U",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Ravi Kinagi comedy; Jackky Bhagnani"
+  },
+  {
+    "name": "Happy New Year",
+    "year": 2011,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Farah Khan heist film; ensemble cast"
+  },
+  {
+    "name": "Ajay Devgn Filmography Highlight",
+    "year": 2010,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Khakee: Rajkumar Hirani heist thriller"
+  },
+  {
+    "name": "Nala Damayanthi",
+    "year": 2003,
+    "type": "movie",
+    "priority": 2,
+    "bucket": "india",
+    "why": "Tamil period drama; mythology"
+  },
+  {
+    "name": "Pyaasa",
+    "year": 1957,
+    "type": "movie",
+    "priority": 5,
+    "bucket": "india",
+    "why": "Guru Dutt's poet tragedy; timeless"
+  },
+  {
+    "name": "Kaagaz Ke Phool",
+    "year": 1959,
+    "type": "movie",
+    "priority": 4,
+    "bucket": "india",
+    "why": "Guru Dutt's cinema-world drama; tragic"
+  }
+]

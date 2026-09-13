@@ -1,0 +1,245 @@
+[
+  {
+    "slug": "dali-2023",
+    "reason": "Truncated to one twin's name; the cited page is migi-and-dali.",
+    "fields": {
+      "name": "Migi & Dali"
+    }
+  },
+  {
+    "slug": "our-countrys-good-2026",
+    "reason": "The slug belongs to an unrelated Wertenbaker play; the record is Komasa's film with Stephen Graham.",
+    "fields": {
+      "name": "Good Boy"
+    }
+  },
+  {
+    "slug": "insidious-chapter-2-2013",
+    "reason": "The colon was dropped.",
+    "fields": {
+      "name": "Insidious: Chapter 2"
+    }
+  },
+  {
+    "slug": "dekalog-1989-2",
+    "reason": "A spurious acute accent.",
+    "fields": {
+      "name": "Dekalog"
+    }
+  },
+  {
+    "slug": "the-gangs-of-wasseypur-2012",
+    "reason": "A spurious leading article, and the part number was dropped.",
+    "fields": {
+      "name": "Gangs of Wasseypur – Part 1"
+    }
+  },
+  {
+    "slug": "call-me-by-your-name-2017",
+    "reason": "House styling lower-cases the preposition.",
+    "fields": {
+      "name": "Call Me by Your Name"
+    }
+  },
+  {
+    "slug": "cache-hidden-2005",
+    "reason": "The parenthetical English gloss is not how the rest of the catalogue writes a title.",
+    "fields": {
+      "name": "Caché"
+    }
+  },
+  {
+    "slug": "jeffrey-dahmer-2022",
+    "reason": "The name kept Netflix's all-caps marketing prefix rather than the title.",
+    "fields": {
+      "name": "Monster: The Jeffrey Dahmer Story"
+    }
+  },
+  {
+    "slug": "the-mitchell-vs-the-machines-2021",
+    "reason": "A dropped s, in both name and slug.",
+    "fields": {
+      "name": "The Mitchells vs. the Machines"
+    }
+  },
+  {
+    "slug": "yumis-cells-2021",
+    "reason": "The name was left as the romanised Korean while the slug already had the English.",
+    "fields": {
+      "name": "Yumi's Cells"
+    }
+  },
+  {
+    "slug": "the-magician-1958",
+    "reason": "Bergman's Ansiktet was released in the UK as The Face; The Magician is the American title.",
+    "fields": {
+      "name": "The Face"
+    }
+  },
+  {
+    "slug": "immaculate-2023",
+    "reason": "This is the Romanian film, not the 2024 Sydney Sweeney horror it would otherwise collide with.",
+    "fields": {
+      "name": "Imaculat"
+    }
+  },
+  {
+    "slug": "american-murder-laci-peterson-2021",
+    "reason": "Released in 2024.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "immaculate-2023",
+    "reason": "The Romanian film is 2021.",
+    "fields": {
+      "year": 2021
+    }
+  },
+  {
+    "slug": "jane-eyre-1997-2",
+    "reason": "Zeffirelli's film is 1996; the cited page says so itself.",
+    "fields": {
+      "year": 1996
+    }
+  },
+  {
+    "slug": "gaga-chromatica-ball-2022",
+    "reason": "2022 is the tour; the film was released in 2024.",
+    "fields": {
+      "year": 2024
+    }
+  },
+  {
+    "slug": "unbelievable-2020",
+    "reason": "The limited series aired in September 2019; only the year field disagreed.",
+    "fields": {
+      "year": 2019
+    }
+  },
+  {
+    "slug": "your-friendly-neighborhood-spider-man-2024",
+    "reason": "Premiered January 2025.",
+    "fields": {
+      "year": 2025
+    }
+  },
+  {
+    "slug": "the-plot-against-america-2020",
+    "reason": "Tagged Science-Fiction. It is alternate history with no science-fiction element.",
+    "fields": {
+      "genres": [
+        "Drama",
+        "History"
+      ]
+    }
+  },
+  {
+    "slug": "love-death-and-robots-2019",
+    "reason": "The comma and the ampersand were both dropped.",
+    "fields": {
+      "name": "Love, Death & Robots"
+    }
+  },
+  {
+    "slug": "rec-2007",
+    "reason": "The brackets are part of the title.",
+    "fields": {
+      "name": "[REC]"
+    }
+  },
+  {
+    "slug": "the-boy-in-the-striped-pajamas-2008",
+    "reason": "American spelling in a British catalogue.",
+    "fields": {
+      "name": "The Boy in the Striped Pyjamas"
+    }
+  },
+  {
+    "slug": "summer-of-soul-2021",
+    "reason": "The subtitle was dropped, and it is the part of the title that says what the film is.",
+    "fields": {
+      "name": "Summer of Soul (…Or, When the Revolution Could Not Be Televised)"
+    }
+  },
+  {
+    "slug": "spider-man-freshman-year-2024",
+    "reason": "Retitled before it aired; the working title survived in the record.",
+    "fields": {
+      "name": "Your Friendly Neighborhood Spider-Man",
+      "year": 2025
+    }
+  },
+  {
+    "slug": "the-tale-of-tales-2015",
+    "reason": "A spurious leading article in the slug; Garrone's film is Tale of Tales.",
+    "fields": {
+      "name": "Tale of Tales"
+    }
+  },
+  {
+    "slug": "odd-taxi-2021-2",
+    "reason": "The all-caps stylisation is not how a British viewer writes it.",
+    "fields": {
+      "name": "Odd Taxi"
+    }
+  },
+  {
+    "slug": "la-bete-2024",
+    "reason": "The UK release title is The Beast.",
+    "fields": {
+      "name": "The Beast"
+    }
+  },
+  {
+    "slug": "sen-cal-kap-m-2020",
+    "reason": "The slug mangled the Turkish; the name is the UK release title and is correct.",
+    "fields": {
+      "name": "Love Is in the Air"
+    }
+  },
+  {
+    "slug": "naomi-2020",
+    "reason": "The CW series premiered in 2022.",
+    "fields": {
+      "year": 2022
+    }
+  },
+  {
+    "slug": "the-changeling-2024",
+    "reason": "The Apple TV+ series premiered in 2023.",
+    "fields": {
+      "year": 2023
+    }
+  },
+  {
+    "slug": "maya-2026",
+    "reason": "A 2025 release; the cited page is filed at maya-2023.",
+    "fields": {
+      "year": 2025
+    }
+  },
+  {
+    "slug": "satantango-1994",
+    "reason": "The page reported 432 minutes; the standard running time is 439.",
+    "fields": {
+      "runtime_minutes": 439
+    }
+  },
+  {
+    "slug": "ready-or-not-2019",
+    "reason": "The scraped director and cast are a twelve-minute short, not the Bettinelli-Olpin and Gillett horror comedy the name and the cited page both point at.",
+    "fields": {
+      "director": "Matt Bettinelli-Olpin, Tyler Gillett",
+      "runtime_minutes": 95,
+      "cast_members": [
+        "Samara Weaving",
+        "Adam Brody",
+        "Mark O'Brien",
+        "Henry Czerny",
+        "Andie MacDowell"
+      ]
+    }
+  }
+]
