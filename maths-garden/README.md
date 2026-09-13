@@ -219,8 +219,26 @@ Migrations 0001–0003 are applied. 0003 adds `maths_level_events` (every level 
 a migration runs.
 
 **Report email.** `supabase/functions/send-report` posts the report to Resend. It takes the address from
-the caller's own session, so it can only ever email the signed-in parent. Until it is deployed the app
-still shows the report; sending just fails quietly.
+the caller's own session, so it can only ever email the signed-in parent. **Deployed 13 Sep 2026** through
+the dashboard's in-browser editor: the Supabase CLI on this machine is signed in to a different account and
+gets 403 on this project ref, so the commands below only work once logged in as the account that owns it.
+Until `RESEND_API_KEY` is set the function answers 501 ("Email is not set up yet") and the app carries on —
+the report is still on the grown-ups screen.
+
+Verified after deploying, without credentials: `OPTIONS` returns 200 carrying this function's own CORS
+headers (`authorization, x-client-info, apikey, content-type`), which is proof the deployed code is *this
+file* and not merely that something answers; an unauthenticated `POST` returns 401 rather than the 404 it
+gave before.
+
+**Unverified, worth checking on the first real send.** The function has **Verify JWT with legacy secret**
+ON, while `/auth/v1/.well-known/jwks.json` publishes an ES256 key and the app ships an `sb_publishable_…`
+key rather than a legacy `eyJ…` anon key. If user tokens are signed asymmetrically, that toggle rejects
+them at the platform gate *before* the function runs, and every send fails 401 however good the Resend key
+is. The fix is to turn it off: this function does its own auth (no `Authorization` header → 401,
+`getUser()` → 401, recipient taken from the session and never from the body), which is exactly the case
+Supabase's own note calls "Recommended: OFF with JWT and custom auth logic in your function code". It is
+unconfirmed because the dashboard's function settings page would not render — three routes gave a partial
+render, a blank page, and a list stuck on skeletons.
 
 ```
 npx supabase functions deploy send-report --project-ref gzdfoptvdocauvgxltjk
@@ -229,8 +247,10 @@ npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboar
 
 ## Next
 
-- Deploy `send-report` and set the Resend key, so stage-up emails actually go out.
+- Set `RESEND_API_KEY` so stage-up emails actually go out — the function itself is deployed. If the first
+  send fails 401, turn off "Verify JWT with legacy secret" on the function (see **Report email** above).
 - More sheets per stage (cut-and-stick, dot-to-dot, ten-frame bonds): provider research and work plan in
   the assistant repo, `me/projects/maths-garden/`.
-- Games for the gaps: number bonds, teen numbers and place value, ordering, shapes and patterns.
+- Games for the remaining gaps: place value, ordering and patterns. Number bonds (Make Ten), teen numbers
+  (Ten and Some More) and shapes (Spot the Shape) now have games of their own.
 - A daily quest round drawn from the weakest skills, instead of five silos.
