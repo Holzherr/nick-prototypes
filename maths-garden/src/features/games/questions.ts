@@ -93,7 +93,7 @@ export function makeQuestion(game: GameId, level: GameLevel, rng: Rng = Math.ran
     }
     case 'bond': {
       // Never the whole and never nothing: "5 and none make 5" teaches nothing at this age.
-      const whole = max;
+      const whole = level.wholes ? pick(rng, level.wholes) : max;
       const shown = between(rng, 1, whole - 1);
       const answer = whole - shown;
       return { game, whole, shown, answer, frame: !level.hideFrame, options: choices(rng, answer, 1, whole - 1, count) };
@@ -125,15 +125,21 @@ export function questionKey(q: Question): string {
   }
 }
 
-/** A round of questions that never asks the same thing twice in a row. */
+/**
+ * A round of questions, preferring ones this round has not asked at all and never asking the same thing
+ * twice in a row. The easiest levels have fewer distinct questions than a round has slots (there are only
+ * three ways to flash 1–3 dots), so a repeat is sometimes unavoidable — it just never lands back to back.
+ */
 export function makeRound(game: GameId, level: GameLevel, rng: Rng = Math.random, count = QUESTIONS_PER_ROUND): Question[] {
   const round: Question[] = [];
-  let retries = 0;
+  const asked = new Set<string>();
   while (round.length < count) {
-    const q = makeQuestion(game, level, rng);
+    let q = makeQuestion(game, level, rng);
+    for (let i = 0; i < 40 && asked.has(questionKey(q)); i++) q = makeQuestion(game, level, rng);
     const prev = round[round.length - 1];
-    if (prev && questionKey(prev) === questionKey(q) && retries++ < 20) continue;
+    for (let i = 0; i < 20 && prev && questionKey(prev) === questionKey(q); i++) q = makeQuestion(game, level, rng);
     round.push(q);
+    asked.add(questionKey(q));
   }
   return round;
 }
