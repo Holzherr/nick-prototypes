@@ -38,6 +38,8 @@ interface CachedRecs {
   shared: Recommendation[];
   timestamp: number;
   filters: string;
+  /** False when this slate was ranked from saved data alone. Drives whether to ask for a refresh. */
+  scored?: boolean;
 }
 
 const getCachedRecs = (filterKey: string): CachedRecs | null => {
@@ -53,9 +55,14 @@ const getCachedRecs = (filterKey: string): CachedRecs | null => {
   }
 };
 
-const setCachedRecs = (personal: Recommendation[], shared: Recommendation[], filterKey: string) => {
+const setCachedRecs = (
+  personal: Recommendation[],
+  shared: Recommendation[],
+  filterKey: string,
+  scored: boolean,
+) => {
   try {
-    const data: CachedRecs = { personal, shared, timestamp: Date.now(), filters: filterKey };
+    const data: CachedRecs = { personal, shared, timestamp: Date.now(), filters: filterKey, scored };
     localStorage.setItem(CACHE_KEY, JSON.stringify(data));
   } catch {}
 };
@@ -70,12 +77,22 @@ const Index = () => {
   const [watchCount, setWatchCount] = useState<number | null>(null);
   const loadingRef = useRef(false);
 
+  // A model-scored slate that landed while someone was reading the fast one. It waits here
+  // until they ask for it, so the page never rearranges itself under them.
+  const [pending, setPending] = useState<{ personal: Recommendation[]; shared: Recommendation[] } | null>(null);
+  const refreshingRef = useRef(false);
+  const shownRef = useRef<string[]>([]);
+
   // Filters
   const [mood, setMood] = useState("");
   const [type, setType] = useState("");
   const [time, setTime] = useState("");
 
   const filterKey = `${mood}|${type}|${time}`;
+
+  useEffect(() => {
+    shownRef.current = recommendations.map((r) => r.title);
+  }, [recommendations]);
 
   useEffect(() => {
     if (user) {
@@ -96,8 +113,10 @@ const Index = () => {
         setRecommendations(cached.personal);
         setSharedRecs(cached.shared);
         setLoading(false);
+        if (cached.scored !== true) requestRefresh();
       } else {
-        await loadRecommendations();
+        const scored = await loadRecommendations();
+        if (!scored) requestRefresh();
       }
     } else {
       setLoading(false);
@@ -127,8 +146,8 @@ const Index = () => {
     return names;
   };
 
-  const loadRecommendations = async (append = false) => {
-    if (loadingRef.current) return;
+  const loadRecommendations = async (append = false): Promise<boolean> => {
+    if (loadingRef.current) return false;
     loadingRef.current = true;
 
     if (!append) setLoading(true);
@@ -190,15 +209,61 @@ const Index = () => {
 
       // Cache results (only for non-append loads)
       if (!append) {
-        setCachedRecs(newPersonal, newShared, filterKey);
+        setCachedRecs(newPersonal, newShared, filterKey, data?.scored === true);
       }
+      return data?.scored === true;
     } catch (e) {
       console.error("Failed to load recommendations", e);
+      return false;
     } finally {
       setLoading(false);
       setLoadingMore(false);
       loadingRef.current = false;
     }
+  };
+
+  /**
+   * Asks for a model-scored slate and deliberately does not wait for it. Whoever is here is
+   * already looking at the slate ranked from saved data; when the better one arrives it sits
+   * behind a button rather than moving what they are reading. The function holds its own
+   * cooldown, so calling this on every visit costs at most one model call per profile per
+   * half-day, and filtered views are left alone — a slate per filter combination would
+   * multiply that for very little.
+   */
+  const requestRefresh = async () => {
+    if (refreshingRef.current || filterKey !== "||") return;
+    refreshingRef.current = true;
+    try {
+      const excludedSet = await getExcludedTitles();
+      const { data } = await supabase.functions.invoke("get-recommendations", {
+        body: { user_id: user!.id, exclude_titles: Array.from(excludedSet), mode: "refresh" },
+      });
+      if (data?.scored !== true) return;
+
+      const keep = (recs: Recommendation[] | null | undefined) =>
+        (recs ?? []).filter((r) => !excludedSet.has(r.title.toLowerCase()));
+      const personal = keep(data.personal);
+      if (!personal.length) return;
+
+      const unchanged =
+        personal.length === shownRef.current.length &&
+        personal.every((r, i) => r.title === shownRef.current[i]);
+      if (unchanged) return;
+
+      setPending({ personal, shared: keep(data.shared) });
+    } catch (e) {
+      console.error("Background refresh failed", e);
+    } finally {
+      refreshingRef.current = false;
+    }
+  };
+
+  const showPending = () => {
+    if (!pending) return;
+    setRecommendations(pending.personal);
+    setSharedRecs(pending.shared);
+    setCachedRecs(pending.personal, pending.shared, filterKey, true);
+    setPending(null);
   };
 
   const handleNeedMore = useCallback(() => {
@@ -209,6 +274,7 @@ const Index = () => {
 
   const applyFilters = () => {
     localStorage.removeItem(CACHE_KEY);
+    setPending(null);
     setRecommendations([]);
     setSharedRecs([]);
     loadRecommendations();
@@ -311,7 +377,14 @@ const Index = () => {
                     <Button
                       variant="ghost"
                       size="sm"
-                      onClick={() => { localStorage.removeItem(CACHE_KEY); setRecommendations([]); setSharedRecs([]); loadRecommendations(); }}
+                      onClick={async () => {
+                        localStorage.removeItem(CACHE_KEY);
+                        setPending(null);
+                        setRecommendations([]);
+                        setSharedRecs([]);
+                        const scored = await loadRecommendations();
+                        if (!scored) requestRefresh();
+                      }}
                       disabled={loading || loadingMore}
                     >
                       <Loader2 className={cn("h-4 w-4", (loading || loadingMore) && "animate-spin")} />
@@ -321,6 +394,20 @@ const Index = () => {
             </div>
           </div>
         </div>
+      )}
+
+      {pending && (
+        <button
+          type="button"
+          onClick={showPending}
+          className="flex w-full items-center gap-3 rounded-lg border border-primary/30 bg-primary/5 px-4 py-3 text-left transition-colors hover:bg-primary/10"
+        >
+          <Sparkles className="h-4 w-4 shrink-0 text-primary" />
+          <span className="text-sm font-medium">Refresh recommendations</span>
+          <span className="text-sm text-muted-foreground">
+            {pending.personal.length} freshly picked for you
+          </span>
+        </button>
       )}
 
       {/* Recommendations feed */}
