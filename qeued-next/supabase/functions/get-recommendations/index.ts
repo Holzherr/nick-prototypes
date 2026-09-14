@@ -45,6 +45,8 @@ type Result = {
   shared: Rec[] | null;
   /** False when the slate was ranked from saved data alone, with no model involved. */
   scored?: boolean;
+  /** True when a refresh was asked for and the cooldown turned it down. */
+  throttled?: boolean;
 };
 
 /**
@@ -55,6 +57,15 @@ type Result = {
  * shortlist made purely of best-fit titles can only ever confirm what the ranker already
  * believes.
  */
+/**
+ * How long a profile waits between model-scored refreshes. A refresh used to be fired by a
+ * nightly job; it is now fired by someone opening their recommendations, which means a
+ * reload is a request to spend money and this number is what stands in the way. The lock is
+ * taken before the model is called rather than after, so two tabs opened at once still cost
+ * one call.
+ */
+const REFRESH_COOLDOWN_HOURS = 12;
+
 const CANDIDATE_LIMIT = 120;
 const EXPLORATION_SLICE = 40;
 const PERSONAL_SLATE = 8;
@@ -162,11 +173,14 @@ const slateFrom = (
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: corsHeaders });
+  // Held outside the try so a failed refresh can hand its turn back rather than locking the
+  // profile out for the rest of the cooldown.
+  let heldLock: string | null = null;
+  const supabase = serviceClient();
   try {
     const { user_id, profile_id, partner_id, exclude_titles, mood, type_filter, time_filter, mode } = await req.json();
     if (!user_id) return json({ error: 'user_id required' }, 400);
 
-    const supabase = serviceClient();
     const hasExclusions = Array.isArray(exclude_titles) && exclude_titles.length > 0;
     const filterSuffix = [mood, type_filter, time_filter].filter(Boolean).join(':');
     const who = profile_id ?? user_id;
@@ -177,6 +191,30 @@ Deno.serve(async (req) => {
     if (!hasExclusions && mode !== 'refresh') {
       const { data: cached } = await supabase.from('ai_cache').select('response_data, expires_at').eq('cache_key', cacheKey).single();
       if (cached && new Date(cached.expires_at) > new Date()) return json(cached.response_data);
+    }
+
+    // The cooldown. A refresh that is turned down still answers with the slate we hold, so a
+    // client that asked for one has something to show either way.
+    if (mode === 'refresh') {
+      const lockKey = `refresh-lock:${cacheKey}`;
+      const { data: lock } = await supabase
+        .from('ai_cache')
+        .select('expires_at')
+        .eq('cache_key', lockKey)
+        .maybeSingle();
+      if (lock && new Date(lock.expires_at) > new Date()) {
+        const { data: cached } = await supabase.from('ai_cache').select('response_data').eq('cache_key', cacheKey).maybeSingle();
+        return json({ personal: [], shared: null, ...(cached?.response_data ?? {}), throttled: true });
+      }
+      await supabase.from('ai_cache').upsert(
+        {
+          cache_key: lockKey,
+          response_data: { claimed_at: new Date().toISOString() },
+          expires_at: new Date(Date.now() + REFRESH_COOLDOWN_HOURS * 60 * 60 * 1000).toISOString(),
+        },
+        { onConflict: 'cache_key' },
+      );
+      heldLock = lockKey;
     }
 
     const entryColumns = 'status, watched_rating, title_id, title:titles(name, genres, tones, themes)';
@@ -341,6 +379,7 @@ Deno.serve(async (req) => {
     return json(result);
   } catch (e) {
     console.error('get-recommendations error:', e);
+    if (heldLock) await supabase.from('ai_cache').delete().eq('cache_key', heldLock);
     return claudeErrorResponse(e, { ...corsHeaders, 'Content-Type': 'application/json' }) ?? json({ error: e instanceof Error ? e.message : 'Unknown error' }, 500);
   }
 });
