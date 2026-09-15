@@ -5,7 +5,7 @@ export async function fetchPosterUrl(title: string, type: string, year: number):
   for (const q of queries) {
     try {
       const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`, {
-        headers: { 'User-Agent': 'Qeued/1.0' },
+        headers: { 'User-Agent': 'qeued/1.0' },
       });
       if (res.ok) {
         const data = await res.json();

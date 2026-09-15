@@ -1,12 +1,12 @@
-# Qeued list curation brief
+# qeued list curation brief
 
-Qeued is a watchlist app with its own catalogue — around 4,300 titles, each with a synopsis
-written for Qeued, verified poster art and UK availability. You are writing the browsing
+qeued is a watchlist app with its own catalogue — around 4,300 titles, each with a synopsis
+written for qeued, verified poster art and UK availability. You are writing the browsing
 lists: the catalogue arranged by judgement rather than by a query.
 
 ## Why these are not a Top 250
 
-IMDb ranks by an aggregated user score. Qeued has no users to aggregate and will not import
+IMDb ranks by an aggregated user score. qeued has no users to aggregate and will not import
 somebody else's score, so a numbered leaderboard here would be a borrowed opinion wearing a
 number. These lists are editorial instead. Each one is a position somebody took, in an order
 that means something, with a line saying why each title earned its place.

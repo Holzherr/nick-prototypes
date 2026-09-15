@@ -79,7 +79,7 @@ const AgentsScreen = () => {
       <Card className="space-y-3 p-4">
         <div className="flex items-center gap-2 font-medium"><Bot className="h-4 w-4" /> Connection details</div>
         <p className="text-sm text-muted-foreground">
-          Add Qeued as an MCP server in Claude, or any assistant that speaks MCP. Point it at this URL
+          Add qeued as an MCP server in Claude, or any assistant that speaks MCP. Point it at this URL
           and give it a token below.
         </p>
         <div className="flex items-center gap-2">

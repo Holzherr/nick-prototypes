@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * One-off: copy Qeued data from the Lovable-managed Supabase project into the qeued project.
+ * One-off: copy qeued data from the Lovable-managed Supabase project into the qeued project.
  *
  *   OLD_URL=https://zfek….supabase.co OLD_ANON=… \
  *   NEW_URL=https://piwf….supabase.co NEW_SERVICE_KEY=… \

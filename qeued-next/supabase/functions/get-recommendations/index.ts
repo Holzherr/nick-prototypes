@@ -13,7 +13,7 @@ import {
 } from '../_shared/ranking.ts';
 
 /**
- * Recommends out of Qeued's own catalogue, and returns real rows.
+ * Recommends out of qeued's own catalogue, and returns real rows.
  *
  * Two things this deliberately does not do. It does not ask the model to name titles — it
  * hands over the catalogue and asks for scores, so every recommendation is a row that

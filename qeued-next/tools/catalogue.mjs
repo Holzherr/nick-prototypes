@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Catalogue pipeline: fill Qeued's own title records from researched sources.
+ * Catalogue pipeline: fill qeued's own title records from researched sources.
  *
  * Bulk research happens outside the app (an assistant with search tools drives this
  * script); the app only researches on demand, when a user asks for a title we don't hold.
@@ -17,7 +17,7 @@
  * Record shape (see RECORD_FIELDS for the full list of writable columns):
  *   {
  *     "id": "<uuid, omit to match on name+year>", "name": "Devs", "year": 2020,
- *     "type": "series", "synopsis": "<written for Qeued, never copied>",
+ *     "type": "series", "synopsis": "<written for qeued, never copied>",
  *     "genres": ["Drama"], "certification": "15", "runtime_minutes": 50,
  *     "seasons": 1, "episodes": 8, "cast_members": ["Sonoya Mizuno"],
  *     "image_url": "…", "image_license": "CC-BY-SA-4.0", "image_attribution": "…",

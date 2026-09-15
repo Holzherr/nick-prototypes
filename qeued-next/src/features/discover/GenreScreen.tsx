@@ -55,7 +55,7 @@ const GenrePage = () => {
           Top {decodedGenre} watches by our users
         </h1>
         <p className="text-muted-foreground mt-2">
-          {decodedGenre} movies and series tracked by the Qeued community.
+          {decodedGenre} movies and series tracked by the qeued community.
         </p>
       </div>
 

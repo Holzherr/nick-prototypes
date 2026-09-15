@@ -159,7 +159,7 @@ const LandingPage = () => {
         <section className="mx-auto max-w-5xl px-4 pb-16">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-semibold flex items-center gap-2">
-              <Users className="h-6 w-6 text-primary" /> People on Qeued
+              <Users className="h-6 w-6 text-primary" /> People on qeued
             </h2>
             <Link to="/explore" className="text-sm text-primary hover:underline font-medium">
               View all →

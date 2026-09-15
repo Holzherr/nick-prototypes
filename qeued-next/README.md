@@ -1,4 +1,4 @@
-# Qeued (next)
+# qeued (next)
 
 Shared watchlist + recommendations: track titles as watched / watching / want to watch / dropped,
 rate them, follow people, connect with a partner for joint picks, and let "Watch Tonight" choose
@@ -66,7 +66,7 @@ story only for their first frame.
 
 ## The catalogue
 
-Qeued holds its own records rather than licensing a feed, so the scripts in `tools/` are how
+qeued holds its own records rather than licensing a feed, so the scripts in `tools/` are how
 the catalogue gets built and kept honest.
 
 ### Growing it
@@ -131,7 +131,7 @@ node tools/tidy.mjs --sql tidy.sql
 npx supabase db query -f <file> --db-url "$QEUED_DB_URL"
 ```
 
-Writing what a page cannot supply — the synopsis, because Qeued's are written for Qeued, and
+Writing what a page cannot supply — the synopsis, because qeued's are written for qeued, and
 the tone and theme tags, because no page carries them — is a research pass rather than a
 scrape:
 

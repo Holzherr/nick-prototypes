@@ -1,6 +1,6 @@
 {
-  "name": "Qeued",
-  "short_name": "Qeued",
+  "name": "qeued",
+  "short_name": "qeued",
   "description": "Track movies and series, get recommendations, and share your watchlist with friends.",
   "start_url": "./",
   "scope": "./",

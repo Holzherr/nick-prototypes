@@ -5,7 +5,7 @@
  * Facts come from the page's schema.org block — certificate, runtime, cast, director,
  * genres, country, release date — so nothing is recalled from memory and every field has a
  * citation. Poster art is taken from the same page and fetched before it is stored. The
- * page's own synopsis is deliberately NOT copied: Qeued's synopses are written for Qeued,
+ * page's own synopsis is deliberately NOT copied: qeued's synopses are written for qeued,
  * so this leaves the field empty and `catalogue.mjs todo` reports it as outstanding.
  *
  *   SUPABASE_SERVICE_ROLE_KEY=… node tools/expand.mjs titles.json [--dry-run] [--limit N]

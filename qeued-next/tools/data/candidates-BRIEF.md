@@ -1,6 +1,6 @@
-# Qeued catalogue candidate list
+# qeued catalogue candidate list
 
-Qeued (qeued.com) is a watchlist app with its own catalogue, built by reading JustWatch UK
+qeued (qeued.com) is a watchlist app with its own catalogue, built by reading JustWatch UK
 pages. It holds 653 titles and is growing to several thousand. You are producing candidates
 for one slice of that expansion.
 
