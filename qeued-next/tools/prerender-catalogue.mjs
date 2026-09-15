@@ -2,7 +2,7 @@
 /**
  * Writes the public catalogue as static pages, plus the files that let agents find it.
  *
- * Qeued is a client-rendered SPA on GitHub Pages, so a crawler — or an assistant fetching a
+ * qeued is a client-rendered SPA on GitHub Pages, so a crawler — or an assistant fetching a
  * URL — gets an empty shell. This runs after the Vite build and emits one real HTML page per
  * catalogued title: the SPA shell, with the head filled in and the facts repeated in markup
  * that needs no JavaScript. The app still takes over on load; nobody sees the static copy.
@@ -86,7 +86,7 @@ const availabilityMarkup = (offers) => {
 
 const page = (shell, title, stats) => {
   const heading = `${title.name}${title.year ? ` (${title.year})` : ''}`;
-  const description = (title.synopsis ?? `${heading} on Qeued.`).slice(0, 300);
+  const description = (title.synopsis ?? `${heading} on qeued.`).slice(0, 300);
   const facts = [
     title.type === 'series' ? 'Series' : 'Film',
     title.certification,
@@ -97,7 +97,7 @@ const page = (shell, title, stats) => {
   ].filter(Boolean);
 
   const head = [
-    `<title>${escape(heading)} — Qeued</title>`,
+    `<title>${escape(heading)} — qeued</title>`,
     `<meta name="description" content="${escape(description)}">`,
     `<link rel="canonical" href="${SITE}/titles/${escape(title.slug)}">`,
     `<meta property="og:title" content="${escape(heading)}">`,
@@ -116,7 +116,7 @@ const page = (shell, title, stats) => {
     title.director ? `<p>Directed by ${escape(title.director)}</p>` : '',
     title.cast_members?.length ? `<p>Starring ${escape(title.cast_members.slice(0, 6).join(', '))}</p>` : '',
     availabilityMarkup(title.title_availability),
-    stats?.watchers ? `<p>${stats.watchers} Qeued ${stats.watchers === 1 ? 'member has' : 'members have'} watched this${stats.average ? `, averaging ${stats.average} out of 5` : ''}.</p>` : '',
+    stats?.watchers ? `<p>${stats.watchers} qeued ${stats.watchers === 1 ? 'member has' : 'members have'} watched this${stats.average ? `, averaging ${stats.average} out of 5` : ''}.</p>` : '',
     title.title_sources?.length
       ? `<h2>Sources</h2><ul>${title.title_sources.slice(0, 8).map((s) => `<li><a href="${escape(s.source_url)}" rel="nofollow">${escape(s.source_name ?? s.source_url)}</a> — ${escape(s.field)}</li>`).join('')}</ul>`
       : '',
@@ -163,7 +163,7 @@ const listPage = (shell, list, entries) => {
     '</ol>',
   ].filter(Boolean).join('\n      ');
   return staticPage(shell, {
-    title: `${list.name} — Qeued`,
+    title: `${list.name} — qeued`,
     description: list.blurb ?? `${entries.length} titles, in order.`,
     canonical: `${SITE}/lists/${list.slug}`,
     body,
@@ -180,8 +180,8 @@ const listsIndexPage = (shell, lists) => {
     '</ul>',
   ].join('\n      ');
   return staticPage(shell, {
-    title: 'Lists — Qeued',
-    description: "Qeued's own lists: the best of each year, each decade and each kind.",
+    title: 'Lists — qeued',
+    description: "qeued's own lists: the best of each year, each decade and each kind.",
     canonical: `${SITE}/lists`,
     body,
   });
@@ -287,22 +287,22 @@ const run = async () => {
   await writeFile(
     join(DIST, 'llms.txt'),
     [
-      '# Qeued',
+      '# qeued',
       '',
       '> A personal watchlist for films and series: what someone wants to watch, what they have seen,',
-      '> and where each title streams in the UK. Every record is written for Qeued from researched',
+      '> and where each title streams in the UK. Every record is written for qeued from researched',
       '> sources, with citations kept per field.',
       '',
       '## For agents',
       '',
-      `Qeued exposes an MCP server so an assistant can keep its user's list directly:`,
+      `qeued exposes an MCP server so an assistant can keep its user's list directly:`,
       '',
       `- MCP endpoint: ${MCP_ENDPOINT} (streamable HTTP, JSON-RPC 2.0)`,
       `- Docs: ${SITE}/agents`,
       '- Tools: whoami, provision_account, search_catalogue, add_to_queue, list_queue, mark_watched,',
       '  whats_on_tonight, where_to_watch',
       '',
-      'A user with no Qeued account does not block you: call provision_account to start a list',
+      'A user with no qeued account does not block you: call provision_account to start a list',
       'immediately and hand the user the claim link it returns.',
       '',
       '## Catalogue',

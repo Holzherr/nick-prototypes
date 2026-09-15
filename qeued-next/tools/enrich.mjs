@@ -2,7 +2,7 @@
 /**
  * Applies written catalogue entries to the titles already in the catalogue.
  *
- * The synopses in data/synopses-*.json are written for Qeued rather than copied, so there
+ * The synopses in data/synopses-*.json are written for qeued rather than copied, so there
  * is no page to cite for them; the facts alongside (episode length, seasons, countries,
  * languages) are only written where the writer was confident, and a null is left as a null.
  *

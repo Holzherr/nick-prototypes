@@ -74,7 +74,7 @@ const Auth = () => {
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
             <Film className="h-6 w-6" />
           </div>
-          <CardTitle className="text-2xl">Welcome to Qeued</CardTitle>
+          <CardTitle className="text-2xl">Welcome to qeued</CardTitle>
           <CardDescription>Track what you watch, get recommendations</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

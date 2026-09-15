@@ -1,7 +1,7 @@
 /**
  * A database connection for the catalogue tools that needs no service-role key.
  *
- * Both of Qeued's repositories are public, so the service key should not sit on disk here.
+ * Both of qeued's repositories are public, so the service key should not sit on disk here.
  * The Supabase CLI already holds a working connection, and `supabase db query` will run
  * arbitrary SQL over it, so that is what these tools use.
  *

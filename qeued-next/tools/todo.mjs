@@ -5,8 +5,8 @@
  *   QEUED_DB_URL=… node tools/todo.mjs synopsis --out work/ --chunk 60
  *   QEUED_DB_URL=… node tools/todo.mjs tags     --out work/ --chunk 100
  *
- * Two fields are written here rather than scraped — the synopsis, because Qeued's are
- * written for Qeued rather than copied, and the tone and theme tags, because no page
+ * Two fields are written here rather than scraped — the synopsis, because qeued's are
+ * written for qeued rather than copied, and the tone and theme tags, because no page
  * carries them. Both are done by research in batches, so this exists to cut the work up.
  *
  * Each chunk carries exactly what the brief for that field needs and nothing else: a

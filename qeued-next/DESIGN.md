@@ -1,5 +1,5 @@
 ---
-name: Qeued
+name: qeued
 description: Clean, near-white app with one blue for actions and a pink→purple→blue gradient Q as the mark. shadcn/Radix shapes — 12px radius, 1px hairlines, soft shadows — kept from the Lovable build.
 colors:
   primary: '#3b82f6'
@@ -45,7 +45,7 @@ spacing:
   section-gap: '24px'
 ---
 
-# Qeued design tokens
+# qeued design tokens
 
 Tokens live in `src/styles/tailwind.css` as the shadcn hsl variables (`--primary: 217 91% 60%`)
 mapped into Tailwind 4 with `@theme inline`, so the class names the Lovable build used

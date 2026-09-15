@@ -1,6 +1,6 @@
-# Qeued tone & theme tagging brief
+# qeued tone & theme tagging brief
 
-Qeued ranks recommendations on five axes. Two of them — tone and theme — are currently
+qeued ranks recommendations on five axes. Two of them — tone and theme — are currently
 inferred from genre overlap, which cannot tell a bleak procedural from a warm family
 comedy once both are filed under "Drama". You are producing the evidence those two axes
 should use instead.
