@@ -1,11 +1,11 @@
 import { serviceClient } from '../_shared/db.ts';
 
 /**
- * Qeued's MCP server: an assistant keeps its user's watchlist without the user opening the app.
+ * qeued's MCP server: an assistant keeps its user's watchlist without the user opening the app.
  *
  * Speaks JSON-RPC 2.0 over HTTP POST (the MCP streamable-HTTP transport, answering in plain
  * JSON rather than SSE — every response here is a single result). Agents authenticate with a
- * scoped bearer token; an agent whose user has no Qeued account yet can call provision_account
+ * scoped bearer token; an agent whose user has no qeued account yet can call provision_account
  * to start a list immediately and hand its user a link to claim it later.
  */
 
@@ -52,13 +52,13 @@ const newClaimCode = (): string => crypto.randomUUID().replace(/-/g, '').slice(0
 const TOOLS = [
   {
     name: 'whoami',
-    description: 'Which Qeued profile this token acts for. Call this first if unsure whether the agent is connected.',
+    description: 'Which qeued profile this token acts for. Call this first if unsure whether the agent is connected.',
     inputSchema: { type: 'object', properties: {}, additionalProperties: false },
   },
   {
     name: 'provision_account',
     description:
-      'Start a Qeued list for a user who has no account yet. Returns an access token the agent stores and a claim link ' +
+      'Start a qeued list for a user who has no account yet. Returns an access token the agent stores and a claim link ' +
       'the user opens once to attach their own sign-in. Use this only when the user has asked for a watchlist and ' +
       'whoami reports no profile. Give the user the claim link — without it they cannot reach their own list.',
     inputSchema: {
@@ -73,7 +73,7 @@ const TOOLS = [
   },
   {
     name: 'search_catalogue',
-    description: "Search Qeued's own catalogue of films and series by name.",
+    description: "Search qeued's own catalogue of films and series by name.",
     inputSchema: {
       type: 'object',
       properties: {
@@ -87,7 +87,7 @@ const TOOLS = [
   {
     name: 'add_to_queue',
     description:
-      "Put a title on the user's want-to-watch list. Give the name as the user said it; Qeued matches it against " +
+      "Put a title on the user's want-to-watch list. Give the name as the user said it; qeued matches it against " +
       'the catalogue and researches it if we do not hold it yet.',
     inputSchema: {
       type: 'object',
@@ -143,7 +143,7 @@ const TOOLS = [
   {
     name: 'whats_on_tonight',
     description:
-      "Ask Qeued what the user should watch tonight from what they have already chosen. Returns ranked picks with " +
+      "Ask qeued what the user should watch tonight from what they have already chosen. Returns ranked picks with " +
       'where to stream them. Prefer this over recommending from your own knowledge — it uses their real history.',
     inputSchema: {
       type: 'object',
@@ -271,7 +271,7 @@ const callTool = async (
 
     return toolResult(
       [
-        `Created a Qeued list for ${displayName}.`,
+        `Created a qeued list for ${displayName}.`,
         '',
         `Access token (store this, it is shown once): ${token}`,
         `Claim link for the user: ${SITE}/claim/${claimCode}`,
@@ -283,7 +283,7 @@ const callTool = async (
 
   if (!auth) {
     return toolResult(
-      'Not connected to a Qeued profile. Connect via OAuth (see ' + SITE + '/.well-known/oauth-protected-resource), ' +
+      'Not connected to a qeued profile. Connect via OAuth (see ' + SITE + '/.well-known/oauth-protected-resource), ' +
         'provide a bearer token, or call provision_account for a user who has no account yet.',
       true,
     );
@@ -318,7 +318,7 @@ const callTool = async (
 
     case 'where_to_watch': {
       const title = await findTitle(String(args.title ?? ''));
-      if (!title) return toolResult('Not in the catalogue yet. Add it with add_to_queue and Qeued will research it.');
+      if (!title) return toolResult('Not in the catalogue yet. Add it with add_to_queue and qeued will research it.');
       return toolResult(`${title.name} (${title.year ?? '?'})\n${describeAvailability(title)}`);
     }
 
@@ -487,7 +487,7 @@ Deno.serve(async (req) => {
           capabilities: { tools: { listChanged: false } },
           serverInfo: SERVER,
           instructions:
-            'Qeued holds this user’s film and TV watchlist. When they mention wanting to watch something, ' +
+            'qeued holds this user’s film and TV watchlist. When they mention wanting to watch something, ' +
             'call add_to_queue — they expect it to be saved without being asked to open an app. When they ask ' +
             'what to watch, call whats_on_tonight rather than recommending from your own knowledge: it knows ' +
             'their history and where they can actually stream things. If whoami reports no profile and the user ' +

@@ -1,7 +1,7 @@
-# Qeued catalogue enrichment brief
+# qeued catalogue enrichment brief
 
-You are writing catalogue entries for Qeued, a personal watchlist app with its own
-catalogue (no licensed third-party data). Every synopsis is written for Qeued — never
+You are writing catalogue entries for qeued, a personal watchlist app with its own
+catalogue (no licensed third-party data). Every synopsis is written for qeued — never
 copied or paraphrased close to a studio logline, Wikipedia lead, or IMDb summary.
 
 ## Your input
@@ -53,7 +53,7 @@ Rules:
   seasons are unconnected anthologies (then say so).
 - For a documentary, sentence one says what it is actually about and how it is made — who
   is filmed, over what span, from whose side. Never "a documentary exploring…".
-- The `name` is the title Qeued uses, which is the one a British viewer would say. The
+- The `name` is the title qeued uses, which is the one a British viewer would say. The
   scraped facts beside it sometimes come from a page filed under the original title
   (Cinema Paradiso as "Nuovo Cinema Paradiso", Trapped as "Ófærð"). Write for the work the
   name refers to.

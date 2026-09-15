@@ -72,7 +72,7 @@ const PublicTitleScreen = () => {
         <main className="mx-auto max-w-3xl px-4 py-12 text-center">
           <h1 className="text-xl font-semibold">We don't have that one yet</h1>
           <p className="mt-2 text-muted-foreground">
-            <Link to="/" className="underline">Browse Qeued</Link>
+            <Link to="/" className="underline">Browse qeued</Link>
           </p>
         </main>
       </div>
@@ -117,7 +117,7 @@ const PublicTitleScreen = () => {
             </div>
             {stats && (
               <p className="mt-3 text-sm text-muted-foreground">
-                Watched by {stats.watchers} on Qeued{stats.average ? `, averaging ${stats.average}/5` : ""}.
+                Watched by {stats.watchers} on qeued{stats.average ? `, averaging ${stats.average}/5` : ""}.
               </p>
             )}
           </div>

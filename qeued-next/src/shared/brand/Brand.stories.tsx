@@ -8,7 +8,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'The Q tile (pink→purple→blue gradient, white bold Q, rounded) with the "Qeued" wordmark. AppIcon is the tile alone and is also rendered to the PWA icons in public/icons.',
+        component: 'The Q tile (pink→purple→blue gradient, white bold Q, rounded) with the "qeued" wordmark. AppIcon is the tile alone and is also rendered to the PWA icons in public/icons.',
       },
     },
   },

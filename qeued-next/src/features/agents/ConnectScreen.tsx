@@ -78,14 +78,14 @@ const ConnectScreen = () => {
             <ShieldAlert className="h-8 w-8 text-destructive" />
             <h1 className="text-xl font-semibold">Can't connect that</h1>
             <p className="text-sm text-muted-foreground">{error}</p>
-            <Button variant="outline" className="w-full" onClick={() => navigate("/")}>Go to Qeued</Button>
+            <Button variant="outline" className="w-full" onClick={() => navigate("/")}>Go to qeued</Button>
           </>
         ) : !user ? (
           <>
             <Bot className="h-8 w-8 text-primary" />
             <h1 className="text-xl font-semibold">Sign in to connect</h1>
             <p className="text-sm text-muted-foreground">
-              <strong>{clientName}</strong> wants to read and update a Qeued list. Sign in and you can choose which one.
+              <strong>{clientName}</strong> wants to read and update a qeued list. Sign in and you can choose which one.
             </p>
             <Button
               className="w-full"

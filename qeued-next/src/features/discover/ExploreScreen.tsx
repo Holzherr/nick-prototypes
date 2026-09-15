@@ -53,7 +53,7 @@ const ExplorePage = () => {
             Explore people
           </h1>
           <p className="text-muted-foreground text-sm mt-1">
-            Discover users on Qeued and see what they're watching.
+            Discover users on qeued and see what they're watching.
           </p>
         </div>
 

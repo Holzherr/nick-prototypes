@@ -71,7 +71,7 @@ const ClaimScreen = () => {
             <AlertCircle className="mx-auto h-8 w-8 text-destructive" />
             <h1 className="text-xl font-semibold">That link didn't work</h1>
             <p className="text-sm text-muted-foreground">{message}</p>
-            <Button variant="outline" className="w-full" onClick={() => navigate("/")}>Go to Qeued</Button>
+            <Button variant="outline" className="w-full" onClick={() => navigate("/")}>Go to qeued</Button>
           </>
         )}
       </Card>

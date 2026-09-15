@@ -45,7 +45,7 @@ const ListsIndexScreen = () => {
         <header>
           <h1 className="text-2xl font-bold">Lists</h1>
           <p className="mt-2 max-w-prose text-muted-foreground">
-            These are not rankings by score — Qeued has no crowd to average and will not borrow
+            These are not rankings by score — qeued has no crowd to average and will not borrow
             anybody else's. They are positions somebody took, in an order that means something.
           </p>
         </header>
