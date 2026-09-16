@@ -72,4 +72,17 @@ describe('which screen an open of the app lands on', () => {
     await open('#/home');
     await waitFor(() => expect(screen.queryByPlaceholderText(/email/i)).not.toBeInTheDocument());
   });
+
+  /**
+   * Shipped green, and on the first screen a signed-out visitor sees: the profiles screen rendered "Sign
+   * out" whoever was looking, so the only account action offered to a guest was to leave an account they
+   * had never had — and signing in, the thing they actually wanted, had no button on the page at all.
+   */
+  it('offers a guest the way in, not a way out of an account they never had', async () => {
+    localStorage.setItem('maths-garden:guest', 'true');
+    await open('#/');
+    await waitFor(() => expect(screen.getByText(/Add your child/i)).toBeInTheDocument());
+    expect(screen.getByRole('button', { name: /sign in to save/i })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /sign out/i })).not.toBeInTheDocument();
+  });
 });

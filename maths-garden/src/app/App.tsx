@@ -90,6 +90,7 @@ function Family({ label, profiles, loaded, create, repo, activeKey, allowGuestIm
     <ProfilesScreen
       profiles={profiles}
       email={label}
+      guestMode={guestMode}
       busy={busy}
       error={error}
       onPick={(child) => open(child.id)}
@@ -180,7 +181,20 @@ function Root({ startGame, wantsApp, wantsLogin }: { startGame?: GameId; wantsAp
   // Asking for #/login is asking for the sign-in form, so it beats the flag too. While the flag swallowed
   // that route the form could not be reached at all: the only way back to it was "Sign in to save →" on
   // the grown-ups screen, behind the sum — which is the last place a parent looking to sign in would look.
-  if (guest && !wantsLogin) return <GuestFamily onExit={() => setGuestMode(false)} startGame={startGame} />;
+  // Leaving guest mode means "take me to the sign-in form", which is what the button now says. It used to
+  // drop a guest on the marketing homepage instead, because at #/ there is no route asking for the app —
+  // so the one action offered to a signed-out visitor led away from the thing it offered.
+  if (guest && !wantsLogin) {
+    return (
+      <GuestFamily
+        onExit={() => {
+          setGuestMode(false);
+          window.location.hash = '/login';
+        }}
+        startGame={startGame}
+      />
+    );
+  }
   if (wantsApp) return <AuthScreen onGuest={() => setGuestMode(true)} />;
   return (
     <MarketingLayout>
