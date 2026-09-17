@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { FeedbackButton } from '@/features/feedback/FeedbackButton';
+import { printableTitle, skillName } from '@/features/i18n/content';
 import { useT } from '@/features/i18n/i18n';
 import { LanguagePicker } from '@/features/i18n/LanguagePicker';
 import { Logo } from '@/shared/brand/Logo';
@@ -63,9 +64,9 @@ export function MarketingLayout({ children }: { children: ReactNode }) {
                           className="block rounded-2xl px-3 py-2 transition-colors hover:bg-blush"
                         >
                           <b>
-                            {skill.emoji} {printable.title}
+                            {skill.emoji} {printableTitle(printable.id)}
                           </b>
-                          <span className="block text-sm text-grape/70">{skill.name}</span>
+                          <span className="block text-sm text-grape/70">{skillName(skill.id)}</span>
                         </a>
                       ))}
                     </li>
@@ -102,7 +103,7 @@ export function MarketingLayout({ children }: { children: ReactNode }) {
               {RESOURCE_MENU.slice(0, 4).map(({ skill, printables }) => (
                 <li key={skill.id}>
                   <a href={printables[0].link?.(1)} className="hover:text-raspberry">
-                    {printables[0].title}
+                    {printableTitle(printables[0].id)}
                   </a>
                 </li>
               ))}

@@ -1,6 +1,7 @@
 import type { Game } from '@/features/games/catalog';
 import { levelOf, mastered, type Levels, type RoundRecord } from '@/features/games/engine';
 import { collected, isSpecial, packProgress, SPECIAL_PACK, unlockedPacks } from './catalog';
+import { gameName } from '@/features/i18n/content';
 
 type StickerLike = { sticker: string; shiny: boolean };
 
@@ -33,9 +34,9 @@ export function milestonesReached(records: readonly StickerLike[], levels: Level
   }
   for (const game of games) {
     const level = levels[game.id] ?? 0;
-    if (level >= 2) list.push({ key: `${game.id}-lv3`, line: (name) => `${name} reached level 3 in ${game.name}!` });
-    if (level >= 4) list.push({ key: `${game.id}-lv5`, line: (name) => `Level 5 in ${game.name}! You're a superstar, ${name}!` });
-    if (mastered(rounds, game)) list.push({ key: `${game.id}-gold`, line: (name) => `Gold star, ${name}! You have mastered ${game.name}!` });
+    if (level >= 2) list.push({ key: `${game.id}-lv3`, line: (name) => `${name} reached level 3 in ${gameName(game.id)}!` });
+    if (level >= 4) list.push({ key: `${game.id}-lv5`, line: (name) => `Level 5 in ${gameName(game.id)}! You're a superstar, ${name}!` });
+    if (mastered(rounds, game)) list.push({ key: `${game.id}-gold`, line: (name) => `Gold star, ${name}! You have mastered ${gameName(game.id)}!` });
   }
   return list;
 }

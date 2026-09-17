@@ -1,5 +1,6 @@
 import type { Game, GameId } from './catalog';
 import { accuracy, byTime, finished, LEVEL_UP_AT, levelOf, roundsOf, type Levels, type RoundRecord } from './engine';
+import { translate } from '@/features/i18n/i18n';
 
 /**
  * Which game to put in front of the child next. Five tiles is a menu, and a four-year-old picks the one
@@ -18,14 +19,9 @@ export interface Recommendation {
   why: Why;
 }
 
-const REASONS: Record<Why, string> = {
-  new: 'A new one to try! ✨',
-  nearly: 'One good round to level up! 🌟',
-  practise: 'Let’s have another go at this 💪',
-  today: 'Not played yet today',
-  stale: 'It’s been a while! 👋',
-  variety: 'Something different 🎲',
-};
+/** Why this game is suggested, in the reader's language. The key IS the reason, so the sentence lives in
+    the catalogue with every other sentence rather than in the picking logic. */
+export const reasonFor = (why: Why) => translate(`why.${why}` as never);
 
 const DAY = 24 * 60 * 60 * 1000;
 /** Highest priority first: the reason shown is the strongest one that applied. */
@@ -36,6 +32,7 @@ export interface Scored {
   score: number;
   why: Why;
 }
+
 
 export interface RecommendOptions {
   now?: Date;
@@ -108,5 +105,5 @@ export function rankGames(rounds: readonly RoundRecord[], levels: Levels, games:
 /** The one game to lead with. */
 export function recommendGame(rounds: readonly RoundRecord[], levels: Levels, games: readonly Game[], options: RecommendOptions = {}): Recommendation {
   const [best] = rankGames(rounds, levels, games, options);
-  return { game: best.game, reason: REASONS[best.why], why: best.why };
+  return { game: best.game, reason: reasonFor(best.why), why: best.why };
 }
