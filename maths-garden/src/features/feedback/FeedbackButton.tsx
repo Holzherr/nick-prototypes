@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { useLocale } from '@/features/i18n/i18n';
+import { useLocale, useT } from '@/features/i18n/i18n';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
 import { CONTACT_MAX, MESSAGE_MAX, sendFeedback } from './send-feedback';
@@ -15,6 +15,7 @@ import { CONTACT_MAX, MESSAGE_MAX, sendFeedback } from './send-feedback';
  * arrive, so they can keep it rather than discover later that it went nowhere.
  */
 export function FeedbackButton({ className }: { className?: string }) {
+  const t = useT();
   const locale = useLocale();
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState('');
@@ -40,7 +41,7 @@ export function FeedbackButton({ className }: { className?: string }) {
   if (!open) {
     return (
       <Button variant="quiet" size="sm" className={className} onClick={() => setOpen(true)}>
-        💬 Tell us what you think
+        {t('footer.feedback')}
       </Button>
     );
   }
