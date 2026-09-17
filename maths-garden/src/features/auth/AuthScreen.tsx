@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { track } from '@/features/analytics/events';
+import { GOOGLE_SIGN_IN } from '@/app/config';
 import { guestProfiles } from '@/features/progress/guest';
 import { cloudConfigured, supabase } from '@/shared/supabase/client';
 import { AuthForm, type AuthMode } from './AuthForm';
@@ -45,7 +46,7 @@ export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
 
   return (
     <AuthForm
-      onGoogle={google}
+      onGoogle={GOOGLE_SIGN_IN ? google : undefined}
       onGuest={onGuest}
       guestProfiles={guests}
       mode={mode}

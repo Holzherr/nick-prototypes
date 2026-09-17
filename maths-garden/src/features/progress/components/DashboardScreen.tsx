@@ -2,6 +2,7 @@ import { ageLabel, possessive, type Child } from '@/features/children/model';
 import { skillForGame, SKILLS, type SkillId, type StageNumber } from '@/features/curriculum/skills';
 import { GAMES, gameById, type GameId } from '@/features/games/catalog';
 import { stageOf } from '@/features/report/report';
+import { ARTICLES } from '@/features/marketing/articles';
 import { printablesFor } from '@/features/resources/catalog';
 import { packLink } from '@/features/resources/pack';
 import { levelOf, mastered, oftenMissed, skillStats, weekSummary } from '@/features/games/engine';
@@ -202,9 +203,17 @@ export function DashboardScreen({
 
         {/* Account, sync state, switch child and sign in/out all live in the panel at the top. */}
         <footer className="mt-8 flex flex-col items-center gap-3">
-          <a href="#/resources" className={buttonVariants({ variant: 'quiet' })}>
-            🖨 Free printables
-          </a>
+          {/* The guides and the rest of the homepage were written for exactly the person reading this
+              screen, and until now nothing inside the app linked to any of it: signing in replaces the
+              homepage with the garden, so #/home could only be reached by editing the address bar. */}
+          <div className="flex flex-wrap justify-center gap-3">
+            <a href="#/resources" className={buttonVariants({ variant: 'quiet' })}>
+              🖨 Free printables
+            </a>
+            <a href={`#/guides/${ARTICLES[0].slug}`} className={buttonVariants({ variant: 'quiet' })}>
+              📚 Guides for grown-ups
+            </a>
+          </div>
           {/* A device can sit on a cached build for days with no way to tell from the screen. One glance
               here says which build it is actually running, which is otherwise pure guesswork — and the
               link opens everything else worth knowing about this device. */}
