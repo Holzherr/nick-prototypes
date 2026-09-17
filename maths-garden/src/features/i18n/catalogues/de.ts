@@ -7,6 +7,8 @@ const DE: Partial<Catalogue> = {
   'home.titlePrefix': '',
   'home.titleSuffix': 's Mathe-Garten',
   'home.pickIcon': 'Wähle dein Symbol — es ändert auch die Farben',
+  'home.changeIcon': 'Symbol wechseln',
+  'home.tapToChange': 'Zum Wechseln tippen ↑',
   'home.start': 'Losspielen →',
   'home.needName': 'Bitte zuerst einen Namen eingeben — er steht auch auf den Arbeitsblättern.',
   'home.noAccount': 'Kein Konto, keine E-Mail. Alles bleibt auf diesem Gerät — später können Sie es in einem Konto sichern.',

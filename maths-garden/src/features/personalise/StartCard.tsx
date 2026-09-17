@@ -3,8 +3,9 @@ import { useT } from '@/features/i18n/i18n';
 import { guestProfiles } from '@/features/progress/guest';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
+import { cn } from '@/shared/utils/cn';
 import { cleanName, NAME_MAX, readName, readTheme, startPlaying, writeTheme } from './player';
-import { type ThemeId } from './themes';
+import { nextTheme, type ThemeId } from './themes';
 import { ThemeMark } from './ThemeMark';
 import { ThemePicker } from './ThemePicker';
 
@@ -23,10 +24,13 @@ export function StartCard() {
   const [name, setName] = useState(readName);
   const [theme, setTheme] = useState<ThemeId>(readTheme);
   const [missing, setMissing] = useState(false);
+  // The nudge stops the moment someone discovers the control; it is a hint, not a decoration.
+  const [touched, setTouched] = useState(false);
 
   const returning = existing[0];
   const pick = (id: ThemeId) => {
     setTheme(id);
+    setTouched(true);
     writeTheme(id);
   };
 
@@ -40,7 +44,9 @@ export function StartCard() {
   if (returning) {
     return (
       <div className="mx-auto max-w-[620px] text-center">
-        <ThemeMark theme={theme} size={84} className="mx-auto" />
+        <button type="button" onClick={() => pick(nextTheme(theme))} aria-label={t('home.changeIcon')} className="mx-auto block rounded-[26px] transition-transform hover:-translate-y-1 active:translate-y-0.5">
+          <ThemeMark theme={theme} size={84} />
+        </button>
         <h1 className="mt-5 text-[clamp(30px,5.5vw,54px)] font-bold leading-[1.05] text-raspberry">{t('home.welcomeBack', { name: returning.child.name })}</h1>
         <p className="mt-3 text-lg text-grape/80">
           {t('home.soFar', { count: returning.rounds, stickers: returning.stickers })}
@@ -54,7 +60,28 @@ export function StartCard() {
 
   return (
     <form onSubmit={submit} className="mx-auto max-w-[880px] text-center">
-      <ThemeMark theme={theme} size={84} className="mx-auto" />
+      {/* The tile is the thing a person reaches for, so it has to be the control. Left as a plain picture
+          it read as decoration: a grey pencil nobody knew was a door. It now presses like a button, wears
+          a badge saying what tapping does, and nudges itself until someone has actually changed it. */}
+      <button
+        type="button"
+        onClick={() => pick(nextTheme(theme))}
+        aria-label={t('home.changeIcon')}
+        className={cn(
+          'group relative mx-auto block rounded-[26px] transition-transform focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-raspberry',
+          'hover:-translate-y-1 active:translate-y-0.5',
+          !touched && 'motion-safe:animate-bounce-slow',
+        )}
+      >
+        <ThemeMark theme={theme} size={84} />
+        <span
+          aria-hidden
+          className="absolute -bottom-1.5 -right-1.5 flex size-8 items-center justify-center rounded-full bg-cream text-[17px] shadow-[0_2px_0_var(--color-petal)] transition-transform group-hover:rotate-90"
+        >
+          🎨
+        </span>
+      </button>
+      <p className="mt-2 text-sm font-semibold text-bubble">{t('home.tapToChange')}</p>
       <h1 className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[clamp(30px,5.5vw,54px)] font-bold leading-[1.05] text-raspberry">
         {t('home.titlePrefix') && <span>{t('home.titlePrefix')}</span>}
         <span className="relative">
