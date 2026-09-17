@@ -77,6 +77,14 @@ export type Database = {
         Update: { id?: string; child_id?: string; sticker?: string; shiny?: boolean; round_id?: string | null; earned_at?: string };
         Relationships: [];
       };
+      // Anonymous counting. Insert-only by policy: there is no select policy, so these rows are reachable
+      // only to the project owner in SQL.
+      maths_events: {
+        Row: { id: string; name: string; path: string | null; ref: string | null; session: string | null; at: string };
+        Insert: { id?: string; name: string; path?: string | null; ref?: string | null; session?: string | null; at?: string };
+        Update: { id?: string; name?: string; path?: string | null; ref?: string | null; session?: string | null; at?: string };
+        Relationships: [];
+      };
     };
     Views: { [_ in never]: never };
     Functions: {

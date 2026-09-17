@@ -59,7 +59,7 @@ export const FAQ: readonly FaqItem[] = [
   {
     question: 'What happens to our data?',
     answer:
-      'Accounts and progress live in a Supabase database in Europe, and database rules mean a parent can only ever read their own children’s rows. There are no ads, no trackers, no analytics on the children’s side and nothing is sold or shared. Guest mode keeps everything on the device and sends nothing anywhere. Children need no email address, no name beyond what you type, and no photo.',
+      'Accounts and progress live in a Supabase database in Europe, and database rules mean a parent can only ever read their own children’s rows. There are no ads, no trackers and no third parties, and nothing is sold or shared. We do count anonymous page views and taps in that same database — how many people arrive, sign up and play — with no cookies, no profile, no identifier that outlives the browser tab, and never a child’s name or picture. Guest mode keeps everything on the device and sends nothing anywhere, counting included. Children need no email address, no name beyond what you type, and no photo.',
   },
   {
     question: 'Does my child get pestered to come back?',
