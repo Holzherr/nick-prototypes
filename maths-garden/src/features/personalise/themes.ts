@@ -39,7 +39,7 @@ export const THEMES = [
     label: 'Plain',
     glyph: '✏️',
     drift: ['✏️', '📘', '⭐', '🔢'],
-    colors: { blush: '#f4f2ee', petal: '#e0dcd4', bubble: '#6f6a61', raspberry: '#1c1b18', grape: '#33302b' },
+    colors: { blush: '#fbfaf7', petal: '#e7e3da', bubble: '#4a453f', raspberry: '#121110', grape: '#2c2925' },
   },
   {
     id: 'unicorn',
@@ -111,3 +111,9 @@ export function applyTheme(id: ThemeId, root: HTMLElement = document.documentEle
   root.dataset.theme = id;
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', colors.blush);
 }
+
+/** The next icon along, wrapping — what tapping the big tile does. */
+export const nextTheme = (id: ThemeId): ThemeId => {
+  const at = THEMES.findIndex((t) => t.id === id);
+  return THEMES[(at + 1) % THEMES.length].id;
+};

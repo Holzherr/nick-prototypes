@@ -7,6 +7,8 @@ const NL: Partial<Catalogue> = {
   'home.titlePrefix': 'De rekentuin van ',
   'home.titleSuffix': '',
   'home.pickIcon': 'Kies je icoon — het verandert ook de kleuren',
+  'home.changeIcon': 'Wissel van icoon',
+  'home.tapToChange': 'Tik om te wisselen ↑',
   'home.start': 'Beginnen met spelen →',
   'home.needName': 'Typ eerst een naam — die komt ook op de werkbladen.',
   'home.noAccount': 'Geen account, geen e-mail. Alles blijft op dit apparaat — later kun je het in een account bewaren.',
