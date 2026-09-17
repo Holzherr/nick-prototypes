@@ -1,4 +1,7 @@
 import { useState, type ReactNode } from 'react';
+import { FeedbackButton } from '@/features/feedback/FeedbackButton';
+import { useT } from '@/features/i18n/i18n';
+import { LanguagePicker } from '@/features/i18n/LanguagePicker';
 import { Logo } from '@/shared/brand/Logo';
 import { buttonVariants } from '@/shared/components/ui/button';
 import { cn } from '@/shared/utils/cn';
@@ -26,12 +29,13 @@ const NavJump = ({ id, children }: { id: string; children: ReactNode }) => (
 
 /** Header, with the free-resources menu, plus the footer. Wraps every signed-out page. */
 export function MarketingLayout({ children }: { children: ReactNode }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
 
   return (
     <div className="relative z-10 min-h-dvh">
       <header className="mx-auto flex max-w-[1100px] flex-wrap items-center gap-x-2 gap-y-3 px-5 py-5">
-        <a href="#/home" aria-label="Maths Garden home" className="mr-auto">
+        <a href="#/home" aria-label={t('nav.home')} className="mr-auto">
           <Logo size={42} />
         </a>
 
@@ -42,7 +46,7 @@ export function MarketingLayout({ children }: { children: ReactNode }) {
             onClick={() => setOpen((o) => !o)}
             className="rounded-full px-3 py-2 font-semibold text-grape/80 transition-colors hover:bg-blush hover:text-raspberry"
           >
-            Free printables ▾
+            {t('nav.freePrintables')} ▾
           </button>
           {open && (
             <>
@@ -68,18 +72,19 @@ export function MarketingLayout({ children }: { children: ReactNode }) {
                   ))}
                 </ul>
                 <a href="#/resources" onClick={() => setOpen(false)} className={cn(buttonVariants({ variant: 'quiet', size: 'sm' }), 'mt-2 w-full')}>
-                  All printables →
+                  {t('nav.allPrintables')}
                 </a>
               </div>
             </>
           )}
         </div>
 
-        <NavJump id="how">How it works</NavJump>
-        <NavLink href={`#/guides/${ARTICLES[0].slug}`}>Guides</NavLink>
-        <NavJump id="faq">FAQ</NavJump>
+        <NavJump id="how">{t('nav.howItWorks')}</NavJump>
+        <NavLink href={`#/guides/${ARTICLES[0].slug}`}>{t('nav.guides')}</NavLink>
+        <NavJump id="faq">{t('nav.faq')}</NavJump>
+        <LanguagePicker />
         <a href="#/login" className={buttonVariants({ size: 'sm' })}>
-          Sign in
+          {t('nav.signIn')}
         </a>
       </header>
 
@@ -103,7 +108,7 @@ export function MarketingLayout({ children }: { children: ReactNode }) {
               ))}
               <li>
                 <a href="#/resources" className="font-semibold hover:text-raspberry">
-                  All printables →
+                  {t('nav.allPrintables')}
                 </a>
               </li>
             </ul>
@@ -135,6 +140,9 @@ export function MarketingLayout({ children }: { children: ReactNode }) {
               </li>
             </ul>
           </div>
+        </div>
+        <div className="mt-8 flex justify-center">
+          <FeedbackButton />
         </div>
         <p className="mt-8 text-xs text-grape/50">Made by a parent for his daughter. Shared as-is, and not a substitute for a teacher, tutor or clinician.</p>
       </footer>

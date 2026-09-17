@@ -87,7 +87,7 @@ export function ArticleScreen({ article }: { article: Article }) {
         {article.minutes} min read · updated {when(article.updated)}
       </p>
 
-      <article>
+      <article dir="auto">
         {article.blocks.map((block, i) => (
           <Piece key={i} block={block} />
         ))}

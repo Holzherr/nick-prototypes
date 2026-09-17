@@ -2,6 +2,8 @@ import { ageLabel, possessive, type Child } from '@/features/children/model';
 import { skillForGame, SKILLS, type SkillId, type StageNumber } from '@/features/curriculum/skills';
 import { GAMES, gameById, type GameId } from '@/features/games/catalog';
 import { stageOf } from '@/features/report/report';
+import { FeedbackButton } from '@/features/feedback/FeedbackButton';
+import { LanguagePicker } from '@/features/i18n/LanguagePicker';
 import { ARTICLES } from '@/features/marketing/articles';
 import { printablesFor } from '@/features/resources/catalog';
 import { packLink } from '@/features/resources/pack';
@@ -213,6 +215,10 @@ export function DashboardScreen({
             <a href={`#/guides/${ARTICLES[0].slug}`} className={buttonVariants({ variant: 'quiet' })}>
               📚 Guides for grown-ups
             </a>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <LanguagePicker />
+            <FeedbackButton />
           </div>
           {/* A device can sit on a cached build for days with no way to tell from the screen. One glance
               here says which build it is actually running, which is otherwise pure guesswork — and the
