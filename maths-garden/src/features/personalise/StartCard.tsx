@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import { useT } from '@/features/i18n/i18n';
 import { guestProfiles } from '@/features/progress/guest';
 import { Button } from '@/shared/components/ui/button';
@@ -24,6 +24,7 @@ export function StartCard() {
   const [name, setName] = useState(readName);
   const [theme, setTheme] = useState<ThemeId>(readTheme);
   const [missing, setMissing] = useState(false);
+  const nameRef = useRef<HTMLInputElement>(null);
   // The nudge stops the moment someone discovers the control; it is a hint, not a decoration.
   const [touched, setTouched] = useState(false);
 
@@ -36,7 +37,15 @@ export function StartCard() {
 
   const submit = (event: FormEvent) => {
     event.preventDefault();
-    if (!cleanName(name)) return setMissing(true);
+    if (!cleanName(name)) {
+      // Say it, point at it, and put the cursor in it. The button is at the bottom of a tall hero and the
+      // field is up in the heading, so a message next to the button explains nothing about where to go —
+      // on a laptop the two are not even on screen together.
+      setMissing(true);
+      nameRef.current?.focus();
+      nameRef.current?.select();
+      return;
+    }
     startPlaying(name, theme);
     window.location.hash = '/app';
   };
@@ -86,6 +95,7 @@ export function StartCard() {
         {t('home.titlePrefix') && <span>{t('home.titlePrefix')}</span>}
         <span className="relative">
           <Input
+            ref={nameRef}
             value={name}
             onChange={(e) => {
               setName(e.target.value);
@@ -99,18 +109,28 @@ export function StartCard() {
             autoCapitalize="words"
             spellCheck={false}
             size={11}
-            className="h-auto w-[min(11ch,68vw)] rounded-3xl border-dashed px-3 py-1 text-center text-[clamp(28px,5vw,50px)] font-bold text-raspberry placeholder:font-normal placeholder:text-grape/35"
+            className={cn(
+              'h-auto w-[min(11ch,68vw)] rounded-3xl border-dashed px-3 py-1 text-center text-[clamp(28px,5vw,50px)] font-bold text-raspberry placeholder:font-normal placeholder:text-grape/35',
+              // clay, not raspberry: raspberry is the accent, and in the plain theme the accent is black,
+              // so an error drawn in it is indistinguishable from ordinary text. clay means warning in every
+              // theme because no theme overrides it.
+              missing && 'border-solid border-clay bg-clay/5 motion-safe:animate-wobble placeholder:text-clay/60',
+            )}
           />
         </span>
         {t('home.titleSuffix') && <span>{t('home.titleSuffix')}</span>}
       </h1>
 
+      {/* Under the field it refers to, not next to the button that triggered it. role=alert so it is
+          spoken rather than only drawn. */}
+      <p role="alert" className={cn('mt-3 font-semibold text-clay transition-opacity', missing ? 'opacity-100' : 'sr-only opacity-0')}>
+        {missing ? t('home.needName') : ''}
+      </p>
+
       <p className="mt-5 font-semibold text-grape/80">{t('home.pickIcon')}</p>
       <div className="mt-3">
         <ThemePicker value={theme} onChange={pick} />
       </div>
-
-      {missing && <p className="mt-4 font-semibold text-raspberry">{t('home.needName')}</p>}
 
       <Button type="submit" size="lg" className="mt-7">
         {t('home.start')}
