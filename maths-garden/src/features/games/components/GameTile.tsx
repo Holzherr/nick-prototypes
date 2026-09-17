@@ -1,5 +1,6 @@
 import { cn } from '@/shared/utils/cn';
 import type { Game } from '../catalog';
+import { gameName } from '@/features/i18n/content';
 
 const SHAPES = [
   '52% 48% 44% 56% / 58% 44% 56% 42%',
@@ -37,7 +38,7 @@ export const GameTile = ({ game, level, mastered = false, shape = 0, onClick }: 
     className="flex h-[clamp(150px,24vw,190px)] w-[clamp(160px,27vw,212px)] flex-col items-center justify-center gap-2 bg-cream text-[clamp(17px,2.6vw,22px)] font-semibold text-grape candy-petal [--candy:10px] transition-transform active:translate-y-1.5 active:scale-[.98] active:[--candy:4px]"
   >
     <span className="text-[clamp(44px,7vw,56px)] leading-none">{game.emoji}</span>
-    <span className="px-2 text-center leading-tight">{game.name}</span>
+    <span className="px-2 text-center leading-tight">{gameName(game.id)}</span>
     <LevelDots count={game.levels.length} level={level} mastered={mastered} />
   </button>
 );

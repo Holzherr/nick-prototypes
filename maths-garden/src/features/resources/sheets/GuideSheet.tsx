@@ -5,6 +5,7 @@ import { A4Page } from '../A4Page';
 import { appUrl } from '../qr';
 import type { SheetMeta, SheetOptions } from './catalog';
 import { QrBadge } from './QrBadge';
+import { gameName } from '@/features/i18n/content';
 
 /** Where the sheet's QR code goes: straight into the game that checks the same skill. */
 export const gameLink = (meta: SheetMeta) => (meta.game ? appUrl(`#/play/${meta.game}`) : appUrl('#/'));
@@ -59,7 +60,7 @@ export function GuideSheet({ meta, options }: { meta: SheetMeta; options: SheetO
             <p>
               {game ? (
                 <>
-                  Play <b>{game.name}</b> in Maths Garden to check. Two rounds in a row at 80%+ (or one quick perfect round) moves the level up, and the
+                  Play <b>{gameName(game.id)}</b> in Maths Garden to check. Two rounds in a row at 80%+ (or one quick perfect round) moves the level up, and the
                   grown-ups screen then links to the next stage of this sheet.
                 </>
               ) : (
@@ -67,7 +68,7 @@ export function GuideSheet({ meta, options }: { meta: SheetMeta; options: SheetO
               )}
             </p>
           </div>
-          <QrBadge url={gameLink(meta)} label={game ? `Scan to play ${game.name}` : 'Scan to open Maths Garden'} size={22} />
+          <QrBadge url={gameLink(meta)} label={game ? `Scan to play ${gameName(game.id)}` : 'Scan to open Maths Garden'} size={22} />
         </div>
       </div>
     </A4Page>

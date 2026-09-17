@@ -1,5 +1,6 @@
 import type { Game, GameId } from './catalog';
 import { accuracy, byTime, DROP_BELOW, finished, LEVEL_UP_AT, median, roundsOf, speedOf, type Pace, type RoundRecord } from './engine';
+import { gameName } from '@/features/i18n/content';
 
 /**
  * Motivation and coaching signals from the round log: today's goal, when to suggest a break, personal
@@ -133,11 +134,11 @@ export function coachingNotes(rounds: readonly RoundRecord[], games: readonly Ga
   const week = rounds.filter((r) => new Date(r.playedAt).getTime() > since);
   for (const game of games) {
     const quits = week.filter((r) => r.game === game.id && !finished(r)).length;
-    if (quits >= 2) notes.push(`Left ${game.name} early ${quits} times this week. Try a level down, or play it together.`);
+    if (quits >= 2) notes.push(`Left ${gameName(game.id)} early ${quits} times this week. Try a level down, or play it together.`);
     const recent = roundsOf(rounds, game.id).slice(-3);
     if (recent.length >= 2) {
       const pct = recent.reduce((sum, r) => sum + accuracy(r), 0) / recent.length;
-      if (pct >= LEVEL_UP_AT && speedOf(recent).pace === 'slow') notes.push(`${game.name}: accurate but slow. Short, frequent rounds at this level build speed.`);
+      if (pct >= LEVEL_UP_AT && speedOf(recent).pace === 'slow') notes.push(`${gameName(game.id)}: accurate but slow. Short, frequent rounds at this level build speed.`);
     }
   }
 
