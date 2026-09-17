@@ -37,8 +37,14 @@ const STEPS = [
   ['📬', 'Print the next stage', 'When a skill crosses into a new stage you get an email with the report and links to the sheets that suit them now.'],
 ] as const;
 
+/**
+ * `dir="auto"` on every section: while some strings are translated and some are not, an English paragraph
+ * inside an Arabic page would otherwise inherit RTL and hang its full stop off the left-hand end. Letting
+ * the browser infer direction per block from its own first strong character costs nothing once everything
+ * is translated, and keeps the half-way state readable.
+ */
 const Section = ({ id, children, className }: { id?: string; children: React.ReactNode; className?: string }) => (
-  <section id={id} className={cn('mx-auto max-w-[1100px] scroll-mt-6 px-5', className)}>
+  <section id={id} dir="auto" className={cn('mx-auto max-w-[1100px] scroll-mt-6 px-5', className)}>
     {children}
   </section>
 );
