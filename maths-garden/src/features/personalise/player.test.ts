@@ -68,9 +68,13 @@ describe('starting play from the homepage', () => {
 describe('the chosen icon', () => {
   beforeEach(() => localStorage.clear());
 
-  it('falls back to the plain one when storage holds something unknown', () => {
+  it('falls back to the default when storage holds something unknown', () => {
     localStorage.setItem('maths-garden:theme', JSON.stringify('wizard'));
-    expect(readTheme()).toBe('plain');
+    expect(readTheme()).toBe('unicorn');
+  });
+
+  it('opens on the unicorn, which is also the favicon and the installed icon', () => {
+    expect(readTheme()).toBe('unicorn');
   });
 
   it('survives a reload', () => {

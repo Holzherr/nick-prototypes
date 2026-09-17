@@ -35,13 +35,6 @@ export interface Theme {
 
 export const THEMES = [
   {
-    id: 'plain',
-    label: 'Plain',
-    glyph: '✏️',
-    drift: ['✏️', '📘', '⭐', '🔢'],
-    colors: { blush: '#fbfaf7', petal: '#e7e3da', bubble: '#4a453f', raspberry: '#121110', grape: '#2c2925' },
-  },
-  {
     id: 'unicorn',
     label: 'Unicorn',
     glyph: '🦄',
@@ -90,11 +83,18 @@ export const THEMES = [
     drift: ['⚽️', '🥅', '⭐', '🏆'],
     colors: { blush: '#eef3ee', petal: '#cfe0d1', bubble: '#5c8f63', raspberry: '#1f5c2b', grape: '#1b3320' },
   },
+  {
+    id: 'plain',
+    label: 'Plain',
+    glyph: '✏️',
+    drift: ['✏️', '📘', '⭐', '🔢'],
+    colors: { blush: '#fbfaf7', petal: '#e7e3da', bubble: '#4a453f', raspberry: '#121110', grape: '#2c2925' },
+  },
 ] as const satisfies readonly Theme[];
 
-export type ThemeId = 'plain' | 'unicorn' | 'car' | 'dragon' | 'rocket' | 'dinosaur' | 'cat' | 'football';
+export type ThemeId = 'unicorn' | 'plain' | 'car' | 'dragon' | 'rocket' | 'dinosaur' | 'cat' | 'football';
 
-export const DEFAULT_THEME: ThemeId = 'plain';
+export const DEFAULT_THEME: ThemeId = 'unicorn';
 
 export const themeById = (id: string | null | undefined): Theme => THEMES.find((t) => t.id === id) ?? THEMES[0];
 
