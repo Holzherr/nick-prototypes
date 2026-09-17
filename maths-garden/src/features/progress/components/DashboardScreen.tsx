@@ -2,6 +2,7 @@ import { ageLabel, possessive, type Child } from '@/features/children/model';
 import { skillForGame, SKILLS, type SkillId, type StageNumber } from '@/features/curriculum/skills';
 import { GAMES, gameById, type GameId } from '@/features/games/catalog';
 import { stageOf } from '@/features/report/report';
+import { EditChildPanel } from '@/features/children/components/EditChildPanel';
 import { FeedbackButton } from '@/features/feedback/FeedbackButton';
 import { LanguagePicker } from '@/features/i18n/LanguagePicker';
 import { ARTICLES } from '@/features/marketing/articles';
@@ -51,6 +52,8 @@ export interface DashboardScreenProps {
   onHistory?: () => void;
   onAddCheckin: (scores: CheckinScores, note: string) => void;
   onSwitchChild: () => void;
+  /** Rename this child or change their picture. Absent when there is nowhere to save it to. */
+  onUpdateChild?: (patch: Partial<Omit<Child, 'id'>>) => Promise<unknown>;
   onSignOut: () => void;
   onClose: () => void;
 }
@@ -72,6 +75,7 @@ export function DashboardScreen({
   onHistory,
   onAddCheckin,
   onSwitchChild,
+  onUpdateChild,
   onSignOut,
   onClose,
 }: DashboardScreenProps) {
@@ -202,6 +206,12 @@ export function DashboardScreen({
         <Section icon="🔊" title="Voice and name" summary={`How the app says ${child.name}'s name, and which voice it uses`}>
           <VoicePanel childId={child.id} childName={child.name} bare />
         </Section>
+
+        {onUpdateChild && (
+          <Section icon={child.avatar} title="Name and picture" summary={`Change ${child.name}'s name, picture or birthday`}>
+            <EditChildPanel child={child} onSave={onUpdateChild} />
+          </Section>
+        )}
 
         {/* Account, sync state, switch child and sign in/out all live in the panel at the top. */}
         <footer className="mt-8 flex flex-col items-center gap-3">
