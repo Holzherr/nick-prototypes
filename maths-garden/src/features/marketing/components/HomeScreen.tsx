@@ -1,5 +1,6 @@
 import { stageAge } from '@/features/curriculum/skills';
 import { GAMES } from '@/features/games/catalog';
+import { useT } from '@/features/i18n/i18n';
 import { StartCard } from '@/features/personalise/StartCard';
 import { buttonVariants } from '@/shared/components/ui/button';
 import { cn } from '@/shared/utils/cn';
@@ -7,34 +8,19 @@ import { ARTICLES } from '../articles';
 import { FAQ } from '../faq';
 import { RESOURCE_MENU } from '../menu';
 
+// The copy itself lives in the string catalogue; only the emoji and the key stay here.
 const WHY = [
-  {
-    emoji: '🖨',
-    title: 'Paper first, screen second',
-    text: 'The teaching happens away from the tablet: dot cards, counting mats, tracing, a number hunt. The games are the check, not the lesson.',
-  },
-  {
-    emoji: '🎯',
-    title: 'It finds the right level',
-    text: 'Every round is scored on accuracy and speed, so the questions sit where your child gets about four in five right — hard enough to be worth doing, easy enough to stay fun.',
-  },
-  {
-    emoji: '📋',
-    title: 'You get told what to do next',
-    text: 'A plain-English report says what they are good at, what needs work, and exactly which sheet to print next — emailed to you when they move up a stage.',
-  },
-  {
-    emoji: '💝',
-    title: 'Free, and quiet',
-    text: 'No ads, no purchases, no notifications, no streaks to lose, no leaderboards. Nothing is sold and nothing needs an app store.',
-  },
-];
+  { emoji: '🖨', key: 'paper' },
+  { emoji: '🎯', key: 'level' },
+  { emoji: '📋', key: 'next' },
+  { emoji: '💝', key: 'free' },
+] as const;
 
 const STEPS = [
-  ['🖨', 'Print', 'Pick a skill and a stage and print the sheet. Play it at the table with real objects — five minutes is plenty.'],
-  ['📱', 'Check', 'Scan the QR code on the sheet, or open the app. Five questions, about two minutes, scored as they go.'],
-  ['🌟', 'Move up', 'A quick perfect round, or two good ones, moves that skill up a level. The garden grows a flower for every round.'],
-  ['📬', 'Print the next stage', 'When a skill crosses into a new stage you get an email with the report and links to the sheets that suit them now.'],
+  { emoji: '🖨', key: 'print' },
+  { emoji: '📱', key: 'check' },
+  { emoji: '🌟', key: 'moveUp' },
+  { emoji: '📬', key: 'nextStage' },
 ] as const;
 
 /**
@@ -51,57 +37,56 @@ const Section = ({ id, children, className }: { id?: string; children: React.Rea
 
 /** The front door: what it is, why it is different, how the loop works, what you get, the guides and the FAQ. */
 export function HomeScreen() {
+  const t = useT();
   return (
     <main>
       <Section className="pt-6 text-center sm:pt-10">
         <StartCard />
         <p className="mx-auto mt-10 max-w-[620px] text-[clamp(17px,2.2vw,21px)] leading-relaxed text-grape/80">
-          Free printables and {GAMES.length} small games for three- to six-year-olds. Print a sheet, play it together, then let the app check what stuck — it
-          scores every round, moves your child up when they are ready, and tells you what to print next.
+          {t('home.blurb', { games: GAMES.length })}
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a href="#/resources" className={buttonVariants({ variant: 'quiet', size: 'lg' })}>
-            🖨 Browse the printables
+            {t('home.browsePrintables')}
           </a>
         </div>
-        <p className="mt-4 text-sm text-grape/60">No account needed · no ads · works offline on an iPad</p>
+        <p className="mt-4 text-sm text-grape/60">{t('home.noAccountNeeded')}</p>
       </Section>
 
       <Section className="mt-16">
         <div className="grid gap-4 sm:grid-cols-2">
           {WHY.map((item) => (
-            <div key={item.title} className="rounded-[32px] bg-cream p-6 candy-petal [--candy:9px]">
+            <div key={item.key} className="rounded-[32px] bg-cream p-6 candy-petal [--candy:9px]">
               <span className="text-3xl">{item.emoji}</span>
-              <h2 className="mt-2 text-2xl font-semibold text-raspberry">{item.title}</h2>
-              <p className="mt-1 text-grape/80">{item.text}</p>
+              <h2 className="mt-2 text-2xl font-semibold text-raspberry">{t(`why.${item.key}.title`)}</h2>
+              <p className="mt-1 text-grape/80">{t(`why.${item.key}.text`)}</p>
             </div>
           ))}
         </div>
       </Section>
 
       <Section id="how" className="mt-16">
-        <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">How it works</h2>
+        <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">{t('how.title')}</h2>
         <p className="mx-auto mt-2 max-w-[620px] text-center text-grape/75">
-          One loop, repeated. Paper teaches, the game marks, the level moves, the next sheet arrives.
+          {t('how.standfirst')}
         </p>
         <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {STEPS.map(([emoji, title, text], i) => (
-            <li key={title} className="rounded-[28px] bg-blush/70 p-5">
-              <span className="text-3xl">{emoji}</span>
+          {STEPS.map((step, i) => (
+            <li key={step.key} className="rounded-[28px] bg-blush/70 p-5">
+              <span className="text-3xl">{step.emoji}</span>
               <h3 className="mt-1 text-xl font-semibold">
-                {i + 1}. {title}
+                {i + 1}. {t(`how.${step.key}.title`)}
               </h3>
-              <p className="mt-1 text-sm text-grape/80">{text}</p>
+              <p className="mt-1 text-sm text-grape/80">{t(`how.${step.key}.text`)}</p>
             </li>
           ))}
         </ol>
       </Section>
 
       <Section id="printables" className="mt-16">
-        <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">Free resources</h2>
+        <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">{t('resources.title')}</h2>
         <p className="mx-auto mt-2 max-w-[620px] text-center text-grape/75">
-          Every sheet is personalised with your child’s name and a picture they like, in three stages. The ages are typical, not targets — most children are on
-          different stages for different skills. No sign-in, no email, no watermark.
+          {t('resources.standfirst')}
         </p>
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {RESOURCE_MENU.map(({ skill, printables }) => (
@@ -116,7 +101,7 @@ export function HomeScreen() {
                   <div className="mt-2 flex flex-wrap gap-2">
                     {printable.stages.map((stage) => (
                       <a key={stage} href={printable.link?.(stage)} className={buttonVariants({ variant: 'quiet', size: 'sm' })}>
-                        Stage {stage} · {stageAge(skill.id, stage)}
+                        {t('resources.stage', { stage })} · {stageAge(skill.id, stage)}
                       </a>
                     ))}
                   </div>
@@ -127,13 +112,13 @@ export function HomeScreen() {
         </div>
         <p className="mt-6 text-center">
           <a href="#/resources" className={buttonVariants({ size: 'md' })}>
-            All printables →
+            {t('nav.allPrintables')}
           </a>
         </p>
       </Section>
 
       <Section className="mt-16">
-        <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">And {GAMES.length} games that mark themselves</h2>
+        <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">{t('games.title', { games: GAMES.length })}</h2>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           {GAMES.map((game) => (
             <div key={game.id} className="w-[210px] rounded-[26px] bg-cream p-4 text-center candy-petal [--candy:7px]">
@@ -146,22 +131,24 @@ export function HomeScreen() {
       </Section>
 
       <Section id="guides" className="mt-16">
-        <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">Guides for grown-ups</h2>
-        <p className="mx-auto mt-2 max-w-[620px] text-center text-grape/75">The research behind all of this, including the bits that argue against apps like this one.</p>
+        <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">{t('guides.title')}</h2>
+        <p className="mx-auto mt-2 max-w-[620px] text-center text-grape/75">
+          {t('guides.standfirst')} <span className="text-grape/55">{t('guides.englishOnly')}</span>
+        </p>
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {ARTICLES.map((article) => (
             <a key={article.slug} href={`#/guides/${article.slug}`} className="rounded-[32px] bg-cream p-6 transition-transform candy-petal [--candy:9px] hover:-translate-y-0.5">
               <span className="text-3xl">{article.emoji}</span>
               <h3 className="mt-2 text-2xl font-semibold text-raspberry">{article.title}</h3>
               <p className="mt-1 text-grape/80">{article.standfirst}</p>
-              <p className="mt-3 text-sm font-semibold text-bubble">{article.minutes} min read →</p>
+              <p className="mt-3 text-sm font-semibold text-bubble">{t('guides.minutes', { minutes: article.minutes })}</p>
             </a>
           ))}
         </div>
       </Section>
 
       <Section id="faq" className="mt-16">
-        <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">Questions</h2>
+        <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">{t('faq.title')}</h2>
         <div className="mx-auto mt-8 max-w-[760px] overflow-hidden rounded-[32px] bg-cream candy-petal [--candy:9px]">
           {FAQ.map((item) => (
             <details key={item.question} className="group border-b-2 border-dashed border-petal last:border-b-0">
@@ -184,16 +171,16 @@ export function HomeScreen() {
 
       <Section className="mt-16">
         <div className="rounded-[36px] bg-petal/60 p-8 text-center">
-          <h2 className="text-[clamp(24px,3.5vw,36px)] font-bold text-raspberry">Print a sheet tonight, play it tomorrow</h2>
+          <h2 className="text-[clamp(24px,3.5vw,36px)] font-bold text-raspberry">{t('cta.title')}</h2>
           <p className="mx-auto mt-2 max-w-[560px] text-grape/80">
-            Start with the printables — they need no account at all. When you want the scores kept, the games take about ten seconds to set up.
+            {t('cta.text')}
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <a href="#/resources" className={buttonVariants({ size: 'lg' })}>
-              🖨 Free printables
+              {t('cta.printables')}
             </a>
             <a href="#/login" className={buttonVariants({ variant: 'quiet', size: 'lg' })}>
-              Create a free account
+              {t('cta.account')}
             </a>
           </div>
         </div>

@@ -94,10 +94,10 @@ export function MarketingLayout({ children }: { children: ReactNode }) {
         <div className="flex flex-wrap items-start justify-between gap-6 border-t-2 border-dashed border-petal pt-8 text-sm text-grape/70">
           <div className="max-w-[320px]">
             <Logo size={34} />
-            <p className="mt-2">Free early-maths games and printables for three- to six-year-olds. No ads, no purchases, no paywall.</p>
+            <p className="mt-2">{t('footer.blurb')}</p>
           </div>
           <div>
-            <h3 className="font-semibold text-grape">Printables</h3>
+            <h3 className="font-semibold text-grape">{t('footer.printables')}</h3>
             <ul className="mt-1 flex flex-col gap-1">
               {RESOURCE_MENU.slice(0, 4).map(({ skill, printables }) => (
                 <li key={skill.id}>
@@ -114,7 +114,7 @@ export function MarketingLayout({ children }: { children: ReactNode }) {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-grape">Guides</h3>
+            <h3 className="font-semibold text-grape">{t('footer.guides')}</h3>
             <ul className="mt-1 flex flex-col gap-1">
               {ARTICLES.map((article) => (
                 <li key={article.slug}>
@@ -126,16 +126,16 @@ export function MarketingLayout({ children }: { children: ReactNode }) {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-grape">Get started</h3>
+            <h3 className="font-semibold text-grape">{t('footer.getStarted')}</h3>
             <ul className="mt-1 flex flex-col gap-1">
               <li>
                 <a href="#/login" className="hover:text-raspberry">
-                  Sign in or create an account
+                  {t('footer.signIn')}
                 </a>
               </li>
               <li>
                 <button type="button" onClick={() => jump('faq')} className="hover:text-raspberry">
-                  Questions
+                  {t('footer.questions')}
                 </button>
               </li>
             </ul>
@@ -144,7 +144,7 @@ export function MarketingLayout({ children }: { children: ReactNode }) {
         <div className="mt-8 flex justify-center">
           <FeedbackButton />
         </div>
-        <p className="mt-8 text-xs text-grape/50">Made by a parent for his daughter. Shared as-is, and not a substitute for a teacher, tutor or clinician.</p>
+        <p className="mt-8 text-xs text-grape/50">{t('footer.madeBy')}</p>
       </footer>
     </div>
   );

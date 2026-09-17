@@ -127,3 +127,25 @@ describe('switching language', () => {
     expect(translate('nav.signIn')).toBe('Sign in');
   });
 });
+
+
+/**
+ * The bug this guards against was not a crash: every catalogue was valid, every test passed, and switching
+ * to French changed the nav and the heading while seven thousand characters of page stayed English. The
+ * picker looked broken because it nearly was. A language that falls far behind English should fail here
+ * rather than ship looking like a dead control.
+ */
+describe('how much of the app each language actually covers', () => {
+  const TOTAL = Object.keys(EN).length;
+  const FLOOR = 0.9;
+
+  it.each(Object.entries(CATALOGUES))('%s covers at least 90% of the English strings', (_code, catalogue) => {
+    const covered = Object.keys(catalogue).filter((key) => key in EN).length;
+    expect(covered / TOTAL).toBeGreaterThanOrEqual(FLOOR);
+  });
+
+  it('names every English key that no catalogue has translated, so the gap is visible', () => {
+    const untranslated = Object.keys(EN).filter((key) => !Object.values(CATALOGUES).some((c) => key in c));
+    expect(untranslated).toEqual([]);
+  });
+});
