@@ -121,6 +121,60 @@ export const EN = {
   'grownUps.signOut': 'Sign out',
   'grownUps.switchChild': 'Switch or add child',
   'grownUps.signInToSave': 'Sign in to save →',
+
+  // ── Homepage body ─────────────────────────────────────────────────────────
+  'why.paper.title': 'Paper first, screen second',
+  'why.paper.text':
+    'The teaching happens away from the tablet: dot cards, counting mats, tracing, a number hunt. The games are the check, not the lesson.',
+  'why.level.title': 'It finds the right level',
+  'why.level.text':
+    'Every round is scored on accuracy and speed, so the questions sit where your child gets about four in five right — hard enough to be worth doing, easy enough to stay fun.',
+  'why.next.title': 'You get told what to do next',
+  'why.next.text':
+    'A plain-English report says what they are good at, what needs work, and exactly which sheet to print next — emailed to you when they move up a stage.',
+  'why.free.title': 'Free, and quiet',
+  'why.free.text': 'No ads, no purchases, no notifications, no streaks to lose, no leaderboards. Nothing is sold and nothing needs an app store.',
+
+  'how.title': 'How it works',
+  'how.standfirst': 'One loop, repeated. Paper teaches, the game marks, the level moves, the next sheet arrives.',
+  'how.print.title': 'Print',
+  'how.print.text': 'Pick a skill and a stage and print the sheet. Play it at the table with real objects — five minutes is plenty.',
+  'how.check.title': 'Check',
+  'how.check.text': 'Scan the QR code on the sheet, or open the app. Five questions, about two minutes, scored as they go.',
+  'how.moveUp.title': 'Move up',
+  'how.moveUp.text': 'A quick perfect round, or two good ones, moves that skill up a level. The garden grows a flower for every round.',
+  'how.nextStage.title': 'Print the next stage',
+  'how.nextStage.text':
+    'When a skill crosses into a new stage you get an email with the report and links to the sheets that suit them now.',
+
+  'resources.title': 'Free resources',
+  'resources.standfirst':
+    'Every sheet is personalised with your child’s name and a picture they like, in three stages. The ages are typical, not targets — most children are on different stages for different skills. No sign-in, no email, no watermark.',
+  'resources.stage': 'Stage {stage}',
+
+  'games.title': 'And {games} games that mark themselves',
+
+  'guides.title': 'Guides for grown-ups',
+  'guides.standfirst': 'The research behind all of this, including the bits that argue against apps like this one.',
+  'guides.minutes': '{minutes} min read →',
+  'guides.englishOnly': 'The guides are in English.',
+
+  'faq.title': 'Questions',
+
+  'cta.title': 'Print a sheet tonight, play it tomorrow',
+  'cta.text':
+    'Start with the printables — they need no account at all. When you want the scores kept, the games take about ten seconds to set up.',
+  'cta.printables': '🖨 Free printables',
+  'cta.account': 'Create a free account',
+
+  'footer.blurb': 'Free early-maths games and printables for three- to six-year-olds. No ads, no purchases, no paywall.',
+  'footer.printables': 'Printables',
+  'footer.guides': 'Guides',
+  'footer.getStarted': 'Get started',
+  'footer.signIn': 'Sign in or create an account',
+  'footer.questions': 'Questions',
+  'footer.madeBy': 'Made by a parent for his daughter. Shared as-is, and not a substitute for a teacher, tutor or clinician.',
+  'footer.feedback': '💬 Tell us what you think',
 } as const satisfies Record<string, string | Plural>;
 
 export type StringKey = keyof typeof EN;
