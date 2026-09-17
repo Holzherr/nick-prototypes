@@ -210,13 +210,40 @@ describes the visual layout. `Screens/Garden (playable)` runs the whole child ap
 
 Supabase project `gzdfoptvdocauvgxltjk` (eu-west-1) on its own Supabase account, set up 11 Sep 2026.
 Tables: `children`, `maths_rounds`, `maths_levels`, `maths_level_events`, `maths_checkins`,
-`maths_stickers`; RLS gives a parent their own children and those children's rows only. Schema changes: add
-a migration, apply it through the session pooler (the direct database host is IPv6-only), update
-`src/shared/supabase/types.ts`. Intended auth settings are in `supabase/config.toml`.
+`maths_stickers`, `maths_events`; RLS gives a parent their own children and those children's rows only.
+Schema changes: add a migration, apply it through the session pooler (the direct database host is
+IPv6-only), update `src/shared/supabase/types.ts`. Intended auth settings are in `supabase/config.toml`.
 
-Migrations 0001–0003 are applied. 0003 adds `maths_level_events` (every level change with its reason) and
+Migrations 0001–0004 are applied. 0003 adds `maths_level_events` (every level change with its reason) and
 `maths_rounds.level_max`; the app degrades gracefully if a history table is missing, so code can ship before
 a migration runs.
+
+**Counting** (`features/analytics/events.ts`, migration 0004). Anonymous and first-party: how many people
+arrive, sign up and play. No cookies, no third party, no script from anyone else, and no identifier that
+outlives the browser tab — the session id is random and lives in `sessionStorage`. Events: `visit`,
+`signup`, `sign_in`, `guest_start`, `game_start`, `round_done`.
+
+Three rules make it safe to keep on a children's site, and each is load-bearing:
+
+- **A printable's link carries the child's NAME and avatar** (`#/resources/sheet?id=…&name=Tara&icon=🦄`),
+  so `cleanPath` is an allowlist — only `id` and `stage` survive — and it is tested as one. Recording a raw
+  path would put a four-year-old's name in an analytics table.
+- **Guest mode records nothing at all.** The homepage promises "Guest mode keeps everything on the device
+  and sends nothing anywhere"; `track()` returns early when the guest flag is set, so that stays true. The
+  cost is that guest play is invisible, which is the right trade.
+- **`maths_events` has an insert policy and no select policy**, so a signed-out visitor can record one and
+  nobody can read the site's traffic back out through the API. Counts are for the project owner in SQL.
+
+`track()` never throws, never blocks and never reports a failure — a counter must not be able to spoil a
+round. It is also off on localhost and when Do Not Track is set. Reading the numbers:
+
+```sql
+select date_trunc('day', at) as day, name, count(*), count(distinct session) as sessions
+from maths_events group by 1, 2 order by 1 desc, 2;
+```
+
+Raw traffic (visits, referrers, countries) needs nothing in the page: the domain is behind Cloudflare, so
+it is already counted at the edge and lives in the Cloudflare dashboard.
 
 **Report email.** `supabase/functions/send-report` posts the report to Resend. It takes the address from
 the caller's own session, so it can only ever email the signed-in parent. **Deployed 13 Sep 2026** through
@@ -247,8 +274,14 @@ npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboar
 
 ## Next
 
-- Set `RESEND_API_KEY` so stage-up emails actually go out — the function itself is deployed. If the first
-  send fails 401, turn off "Verify JWT with legacy secret" on the function (see **Report email** above).
+- **Harden `send-report` BEFORE setting `RESEND_API_KEY`.** `enable_confirmations = false`, so anyone can
+  sign up as any address and get a session; the function then takes `subject`/`html` verbatim from the
+  request body and hands them to Resend, delivered "From: Maths Garden". That is a free phishing relay on
+  the project's Resend account, and it is harmless today only because the missing key makes the function
+  501. Fix first: reject when `email_confirmed_at` is null, build the body server-side from report data
+  rather than trusting client HTML, cap the payload length, and scope CORS off `*`.
+- Then set `RESEND_API_KEY` so stage-up emails go out. If the first send fails 401, turn off "Verify JWT
+  with legacy secret" on the function (see **Report email** above).
 - More sheets per stage (cut-and-stick, dot-to-dot, ten-frame bonds): provider research and work plan in
   the assistant repo, `me/projects/maths-garden/`.
 - Games for the remaining gaps: place value, ordering and patterns. Number bonds (Make Ten), teen numbers

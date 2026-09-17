@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { track } from '@/features/analytics/events';
 import { guestProfiles } from '@/features/progress/guest';
 import { cloudConfigured, supabase } from '@/shared/supabase/client';
 import { AuthForm, type AuthMode } from './AuthForm';
@@ -21,6 +22,10 @@ export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
         : await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${location.origin}${import.meta.env.BASE_URL}` } });
     setBusy(false);
     if (authError) return setError(authError.message);
+    // Counted from the form only. Doing it from the auth state change would count every session restore
+    // as a sign-in, which would make the number meaningless. Google sign-in returns via a redirect and so
+    // is not counted here — the visit that follows it still is.
+    track(mode === 'sign-in' ? 'sign_in' : 'signup');
     if (mode === 'sign-up' && !data.session) setNotice('Check your email to confirm the account, then sign in.');
   };
 
