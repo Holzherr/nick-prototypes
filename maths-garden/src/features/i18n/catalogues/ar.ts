@@ -11,6 +11,8 @@ const AR: Partial<Catalogue> = {
   'home.titlePrefix': 'حديقة الرياضيات الخاصة بـ',
   'home.titleSuffix': '',
   'home.pickIcon': 'اختر أيقونتك — إنها تغيّر الألوان أيضًا',
+  'home.changeIcon': 'غيّر أيقونتك',
+  'home.tapToChange': 'اضغط للتغيير ↑',
   'home.start': '← ابدأ اللعب',
   'home.needName': 'اكتب اسمًا أولًا — سيظهر أيضًا على أوراق الطباعة.',
   'home.noAccount': 'بلا حساب وبلا بريد إلكتروني. كل شيء يبقى على هذا الجهاز، ويمكنك حفظه في حساب لاحقًا.',

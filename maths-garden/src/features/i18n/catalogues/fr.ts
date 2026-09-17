@@ -7,6 +7,8 @@ const FR: Partial<Catalogue> = {
   'home.titlePrefix': 'Le jardin des maths de ',
   'home.titleSuffix': '',
   'home.pickIcon': 'Choisis ton icône — elle change aussi les couleurs',
+  'home.changeIcon': 'Changer d’icône',
+  'home.tapToChange': 'Touche pour changer ↑',
   'home.start': 'Commencer à jouer →',
   'home.needName': 'Écris d’abord un prénom — il apparaît aussi sur les fiches.',
   'home.noAccount': 'Sans compte, sans e-mail. Tout reste sur cet appareil et vous pourrez l’enregistrer sur un compte plus tard.',

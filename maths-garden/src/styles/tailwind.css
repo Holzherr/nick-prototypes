@@ -19,6 +19,9 @@
   --animate-pop-in: pop-in 0.45s;
   --animate-bounce-once: bounce-once 0.5s;
   --animate-wobble: wobble 0.5s;
+  /* A slow, small nudge on a control nobody has noticed yet. Big enough to catch the eye on a still
+     page, small enough not to read as an error. Stops as soon as the control is used. */
+  --animate-bounce-slow: bounce-slow 2.4s ease-in-out infinite;
   --animate-fly: fly 1s ease-out forwards;
 
   @keyframes drift {
@@ -47,6 +50,19 @@
     }
     50% {
       transform: scale(1.2);
+    }
+  }
+  @keyframes bounce-slow {
+    0%,
+    72%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    80% {
+      transform: translateY(-7px) rotate(-4deg);
+    }
+    90% {
+      transform: translateY(-3px) rotate(3deg);
     }
   }
   @keyframes wobble {

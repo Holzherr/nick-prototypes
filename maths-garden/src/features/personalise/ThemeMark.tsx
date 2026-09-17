@@ -2,6 +2,8 @@ import { UnicornMark } from '@/shared/brand/UnicornMark';
 import { cn } from '@/shared/utils/cn';
 import { themeById, type ThemeId } from './themes';
 
+/** The tile on its own, without the button wrapper — used inside the picker and the logo. */
+
 /**
  * The chosen icon on its tile — the themed replacement for AppIcon.
  *

@@ -7,6 +7,8 @@ const HI: Partial<Catalogue> = {
   'home.titlePrefix': '',
   'home.titleSuffix': ' का गणित बगीचा',
   'home.pickIcon': 'अपना चिह्न चुनो — इससे रंग भी बदल जाते हैं',
+  'home.changeIcon': 'अपना चिह्न बदलो',
+  'home.tapToChange': 'बदलने के लिए दबाओ ↑',
   'home.start': 'खेलना शुरू करो →',
   'home.needName': 'पहले नाम लिखो — यह छपने वाली शीटों पर भी आता है।',
   'home.noAccount': 'न खाता, न ई-मेल। सब कुछ इसी डिवाइस पर रहता है — बाद में आप इसे खाते में सहेज सकते हैं।',
