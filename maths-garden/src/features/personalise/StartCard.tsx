@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { useT } from '@/features/i18n/i18n';
 import { guestProfiles } from '@/features/progress/guest';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
@@ -17,6 +18,7 @@ import { ThemePicker } from './ThemePicker';
  * returning child to type their name again is how you lose the history they already have.
  */
 export function StartCard() {
+  const t = useT();
   const [existing] = useState(() => guestProfiles());
   const [name, setName] = useState(readName);
   const [theme, setTheme] = useState<ThemeId>(readTheme);
@@ -39,13 +41,12 @@ export function StartCard() {
     return (
       <div className="mx-auto max-w-[620px] text-center">
         <ThemeMark theme={theme} size={84} className="mx-auto" />
-        <h1 className="mt-5 text-[clamp(30px,5.5vw,54px)] font-bold leading-[1.05] text-raspberry">Welcome back, {returning.child.name}</h1>
+        <h1 className="mt-5 text-[clamp(30px,5.5vw,54px)] font-bold leading-[1.05] text-raspberry">{t('home.welcomeBack', { name: returning.child.name })}</h1>
         <p className="mt-3 text-lg text-grape/80">
-          {returning.rounds} round{returning.rounds === 1 ? '' : 's'} played and {returning.stickers} sticker{returning.stickers === 1 ? '' : 's'} so far, kept on
-          this device.
+          {t('home.soFar', { count: returning.rounds, stickers: returning.stickers })}
         </p>
         <Button size="lg" className="mt-6" onClick={() => (window.location.hash = '/app')}>
-          Carry on playing →
+          {t('home.carryOn')}
         </Button>
       </div>
     );
@@ -55,6 +56,7 @@ export function StartCard() {
     <form onSubmit={submit} className="mx-auto max-w-[880px] text-center">
       <ThemeMark theme={theme} size={84} className="mx-auto" />
       <h1 className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[clamp(30px,5.5vw,54px)] font-bold leading-[1.05] text-raspberry">
+        {t('home.titlePrefix') && <span>{t('home.titlePrefix')}</span>}
         <span className="relative">
           <Input
             value={name}
@@ -63,9 +65,9 @@ export function StartCard() {
               setMissing(false);
             }}
             maxLength={NAME_MAX}
-            aria-label="Your child’s name"
+            aria-label={t('home.nameLabel')}
             aria-invalid={missing}
-            placeholder="Your name"
+            placeholder={t('home.namePlaceholder')}
             autoComplete="off"
             autoCapitalize="words"
             spellCheck={false}
@@ -73,23 +75,23 @@ export function StartCard() {
             className="h-auto w-[min(11ch,68vw)] rounded-3xl border-dashed px-3 py-1 text-center text-[clamp(28px,5vw,50px)] font-bold text-raspberry placeholder:font-normal placeholder:text-grape/35"
           />
         </span>
-        <span>’s Maths Garden</span>
+        {t('home.titleSuffix') && <span>{t('home.titleSuffix')}</span>}
       </h1>
 
-      <p className="mt-5 font-semibold text-grape/80">Pick your icon — it changes the colours too</p>
+      <p className="mt-5 font-semibold text-grape/80">{t('home.pickIcon')}</p>
       <div className="mt-3">
         <ThemePicker value={theme} onChange={pick} />
       </div>
 
-      {missing && <p className="mt-4 font-semibold text-raspberry">Type a name first — it goes on the printables too.</p>}
+      {missing && <p className="mt-4 font-semibold text-raspberry">{t('home.needName')}</p>}
 
       <Button type="submit" size="lg" className="mt-7">
-        Start playing →
+        {t('home.start')}
       </Button>
       <p className="mt-3 text-sm text-grape/60">
-        No account, no email. Everything stays on this device — you can save it to an account later.{' '}
+        {t('home.noAccount')}{' '}
         <a href="#/login" className="font-semibold text-raspberry underline">
-          Already have one?
+          {t('home.haveAccount')}
         </a>
       </p>
     </form>

@@ -85,6 +85,23 @@ export type Database = {
         Update: { id?: string; name?: string; path?: string | null; ref?: string | null; session?: string | null; at?: string };
         Relationships: [];
       };
+      // What people write in the feedback box. Insert-only by policy for the same reason as the events
+      // above, and more sharply: an open select would hand every visitor everyone else's messages and
+      // their contact addresses.
+      maths_feedback: {
+        Row: { id: string; message: string; contact: string | null; path: string | null; locale: string | null; session: string | null; at: string };
+        Insert: { id?: string; message: string; contact?: string | null; path?: string | null; locale?: string | null; session?: string | null; at?: string };
+        Update: {
+          id?: string;
+          message?: string;
+          contact?: string | null;
+          path?: string | null;
+          locale?: string | null;
+          session?: string | null;
+          at?: string;
+        };
+        Relationships: [];
+      };
     };
     Views: { [_ in never]: never };
     Functions: {
