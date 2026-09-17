@@ -80,9 +80,28 @@ describe('which screen an open of the app lands on', () => {
    */
   it('offers a guest the way in, not a way out of an account they never had', async () => {
     localStorage.setItem('maths-garden:guest', 'true');
-    await open('#/');
+    await open('#/app');
     await waitFor(() => expect(screen.getByText(/Add your child/i)).toBeInTheDocument());
     expect(screen.getByRole('button', { name: /sign in to save/i })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /sign out/i })).not.toBeInTheDocument();
+  });
+
+  /**
+   * The flag used to answer for every route, so one tap on guest mode hid the homepage on that device
+   * for good — with it the guides, the printables menu and the sign-in link, none of which the garden
+   * links to. A guest keeps their play; what they get back is the front door.
+   */
+  it('gives a guest the homepage at #/, not the app', async () => {
+    localStorage.setItem('maths-garden:guest', 'true');
+    await open('#/');
+    await waitFor(() => expect(screen.getByRole('heading', { name: /Maths Garden/i })).toBeInTheDocument());
+    expect(screen.queryByText(/Add your child/i)).not.toBeInTheDocument();
+  });
+
+  /** The installed iPad icon opens #/app, so a guest still goes straight to play from the home screen. */
+  it('still opens the garden for a guest at #/app', async () => {
+    localStorage.setItem('maths-garden:guest', 'true');
+    await open('#/app');
+    await waitFor(() => expect(screen.getByText(/Add your child/i)).toBeInTheDocument());
   });
 });

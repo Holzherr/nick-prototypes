@@ -1,6 +1,6 @@
 import { stageAge } from '@/features/curriculum/skills';
 import { GAMES } from '@/features/games/catalog';
-import { AppIcon } from '@/shared/brand/AppIcon';
+import { StartCard } from '@/features/personalise/StartCard';
 import { buttonVariants } from '@/shared/components/ui/button';
 import { cn } from '@/shared/utils/cn';
 import { ARTICLES } from '../articles';
@@ -48,24 +48,17 @@ export function HomeScreen() {
   return (
     <main>
       <Section className="pt-6 text-center sm:pt-10">
-        <AppIcon size={84} className="mx-auto" />
-        <h1 className="mt-5 text-[clamp(34px,6.5vw,64px)] font-bold leading-[1.05] text-raspberry">
-          Early maths that starts
-          <br className="hidden sm:block" /> on paper, not on a screen
-        </h1>
-        <p className="mx-auto mt-4 max-w-[620px] text-[clamp(17px,2.2vw,21px)] leading-relaxed text-grape/80">
-          Free printables and five small games for three- to six-year-olds. Print a sheet, play it together, then let the app check what stuck — it scores every
-          round, moves your child up when they are ready, and tells you what to print next.
+        <StartCard />
+        <p className="mx-auto mt-10 max-w-[620px] text-[clamp(17px,2.2vw,21px)] leading-relaxed text-grape/80">
+          Free printables and {GAMES.length} small games for three- to six-year-olds. Print a sheet, play it together, then let the app check what stuck — it
+          scores every round, moves your child up when they are ready, and tells you what to print next.
         </p>
-        <div className="mt-7 flex flex-wrap justify-center gap-3">
-          <a href="#/login" className={buttonVariants({ size: 'lg' })}>
-            Start free
-          </a>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a href="#/resources" className={buttonVariants({ variant: 'quiet', size: 'lg' })}>
             🖨 Browse the printables
           </a>
         </div>
-        <p className="mt-4 text-sm text-grape/60">No account needed for printables · no ads · works offline on an iPad</p>
+        <p className="mt-4 text-sm text-grape/60">No account needed · no ads · works offline on an iPad</p>
       </Section>
 
       <Section className="mt-16">
@@ -134,7 +127,7 @@ export function HomeScreen() {
       </Section>
 
       <Section className="mt-16">
-        <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">And five games that mark themselves</h2>
+        <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">And {GAMES.length} games that mark themselves</h2>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           {GAMES.map((game) => (
             <div key={game.id} className="w-[210px] rounded-[26px] bg-cream p-4 text-center candy-petal [--candy:7px]">

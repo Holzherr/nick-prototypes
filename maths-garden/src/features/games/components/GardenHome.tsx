@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { possessive } from '@/features/children/model';
 import { GardenScene } from '@/features/garden/components/GardenScene';
 import type { Garden } from '@/features/garden/garden-state';
-import { AppIcon } from '@/shared/brand/AppIcon';
+import { readTheme } from '@/features/personalise/player';
+import { ThemeMark } from '@/features/personalise/ThemeMark';
 import { Button } from '@/shared/components/ui/button';
 import { cn } from '@/shared/utils/cn';
 import { GAMES, type Game, type GameId } from '../catalog';
@@ -48,7 +49,7 @@ export interface GardenHomeProps {
 }
 
 /**
- * Unicorn tile, "Tara's Maths Garden", then one big suggested game with the reason under it and the rest
+ * The chosen icon's tile, "Tara's Maths Garden", then one big suggested game with the reason under it and the rest
  * behind "Or pick another game". Daily goal (🎯 n/3) top left, sticker book (📒 n) top right, the garden
  * growing along the bottom, faint "Grown-ups" bottom right.
  */
@@ -119,7 +120,7 @@ export function GardenHome({
         📒 {stickerCount}
       </Button>
 
-      <AppIcon size={68} className="mb-2" />
+      <ThemeMark theme={readTheme()} size={68} className="mb-2" />
       <h1 className="text-center text-[clamp(30px,5vw,52px)] font-bold leading-tight text-raspberry">{possessive(childName)} Maths Garden</h1>
 
       {windDown && (

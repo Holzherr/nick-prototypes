@@ -12,7 +12,8 @@ export interface AuthFormProps {
   mode: AuthMode;
   onModeChange: (mode: AuthMode) => void;
   onSubmit: (email: string, password: string) => void;
-  onGoogle: () => void;
+  /** Omitted while the Google provider is disabled in Supabase; the button is hidden rather than shown broken. */
+  onGoogle?: () => void;
   /** Play without an account; progress stays on the device. */
   onGuest: () => void;
   /** Guest play already on this device, so the card can say where it is instead of looking like it is gone. */
@@ -64,16 +65,20 @@ export function AuthForm({ mode, onModeChange, onSubmit, onGoogle, onGuest, gues
           <Logo size={52} />
         </div>
         <p className="mt-3 text-center text-grape/70">Grown-ups sign in here. Your child plays without needing to, and this device stays signed in.</p>
-        <Button variant="quiet" size="md" className="mt-6 w-full" onClick={onGoogle} disabled={busy || Boolean(unavailable)}>
-          <GoogleMark />
-          Continue with Google
-        </Button>
-        <div className="mt-5 flex items-center gap-3 text-xs uppercase text-grape/50">
-          <span className="h-0.5 flex-1 bg-petal" />
-          or
-          <span className="h-0.5 flex-1 bg-petal" />
-        </div>
-        <form onSubmit={submit} className="mt-4 flex flex-col gap-3">
+        {onGoogle && (
+          <>
+            <Button variant="quiet" size="md" className="mt-6 w-full" onClick={onGoogle} disabled={busy || Boolean(unavailable)}>
+              <GoogleMark />
+              Continue with Google
+            </Button>
+            <div className="mt-5 flex items-center gap-3 text-xs uppercase text-grape/50">
+              <span className="h-0.5 flex-1 bg-petal" />
+              or
+              <span className="h-0.5 flex-1 bg-petal" />
+            </div>
+          </>
+        )}
+        <form onSubmit={submit} className="mt-6 flex flex-col gap-3">
           <Input
             type="email"
             placeholder="Email"
