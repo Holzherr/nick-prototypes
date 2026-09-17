@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { track } from '@/features/analytics/events';
 import { AuthProvider, useAuth } from '@/features/auth/AuthContext';
 import AuthScreen from '@/features/auth/AuthScreen';
 import { ProfilesScreen } from '@/features/children/components/ProfilesScreen';
@@ -168,6 +169,8 @@ function Root({ startGame, wantsApp, wantsLogin }: { startGame?: GameId; wantsAp
   const { user, loading } = useAuth();
   const [guest, setGuest] = useState(() => readJSON(GUEST, false));
   const setGuestMode = (on: boolean) => {
+    // Counted before the flag is written, because once it is set nothing is recorded at all.
+    if (on) track('guest_start');
     setGuest(on);
     writeJSON(GUEST, on || null);
   };
@@ -212,6 +215,10 @@ function Printables({ path, params }: { path: string; params: URLSearchParams })
 
 export default function App() {
   const { path, params } = useHashRoute();
+  // One anonymous count per page, above every early return so the printables and the guides count too.
+  useEffect(() => {
+    track('visit');
+  }, [path]);
   if (path.startsWith('/resources')) {
     return (
       <>

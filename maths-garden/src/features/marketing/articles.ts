@@ -344,7 +344,7 @@ const SCORING: Article = {
     },
     {
       kind: 'p',
-      text: 'There are no adverts, no analytics and no third parties. A child needs no email address and no surname. Guest mode keeps everything on the device and sends nothing anywhere.',
+      text: 'There are no adverts and no third parties. We count anonymous page views and taps in our own database — how many people arrive, sign up and play — with no cookies, no profile, nothing that outlives the browser tab, and never a child’s name. A child needs no email address and no surname. Guest mode keeps everything on the device and sends nothing anywhere, counting included.',
     },
     { kind: 'h', text: 'What the charts show' },
     {

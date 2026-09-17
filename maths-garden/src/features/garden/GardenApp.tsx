@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { track } from '@/features/analytics/events';
 import type { Child } from '@/features/children/model';
 import { skillForGame, type StageNumber } from '@/features/curriculum/skills';
 import { GAMES, gameById, type Game, type GameId } from '@/features/games/catalog';
@@ -160,6 +161,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
 
   const play = (game: Game) => {
     unlockAudio();
+    track('game_start');
     // Starting something else is the moment the paused round is really given up: record what was answered.
     if (paused && paused.game.id !== game.id) dropPaused();
     runs.current += 1;
@@ -187,6 +189,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
     const all = [...latest.current.rounds, round];
     const next = nextLevel(all, game, level);
     apply({ kind: 'round', round });
+    track('round_done');
     if (next !== level) {
       apply(levelChange(child.id, game.id, level, next, next > level ? 'earned' : 'dropped'));
       if (stageOf(next) > stageOf(level)) void emailStageUp(game, stageOf(next));
