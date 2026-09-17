@@ -14,3 +14,13 @@ export async function createChild(input: Omit<Child, 'id'>): Promise<Child> {
   if (error) throw error;
   return data;
 }
+
+/**
+ * Change a child's name or picture. Only the fields passed are touched, so editing the picture cannot
+ * quietly blank a birthday that was set months ago on another device.
+ */
+export async function updateChild(id: string, patch: Partial<Omit<Child, 'id'>>): Promise<Child> {
+  const { data, error } = await supabase.from('children').update(patch).eq('id', id).select(COLUMNS).single();
+  if (error) throw error;
+  return data;
+}

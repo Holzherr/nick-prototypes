@@ -39,6 +39,8 @@ interface FamilyProps {
   profiles: Child[];
   loaded: boolean;
   create: (input: Omit<Child, 'id'>) => Promise<Child>;
+  /** Rename a child or change their picture, from the grown-ups screen. */
+  update: (id: string, patch: Partial<Omit<Child, 'id'>>) => Promise<Child>;
   repo: ProgressRepo;
   /** Where this device remembers the last child. */
   activeKey: string;
@@ -54,7 +56,7 @@ interface FamilyProps {
 }
 
 /** Open the remembered child (or the only one), otherwise ask who's playing. */
-function Family({ label, profiles, loaded, create, repo, activeKey, allowGuestImport, guestMode, startGame, parentEmail, onSignOut }: FamilyProps) {
+function Family({ label, profiles, loaded, create, update, repo, activeKey, allowGuestImport, guestMode, startGame, parentEmail, onSignOut }: FamilyProps) {
   const [activeId, setActiveId] = useState<string | null>(() => readJSON(activeKey, null));
   const [choosing, setChoosing] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -74,6 +76,7 @@ function Family({ label, profiles, loaded, create, repo, activeKey, allowGuestIm
         key={active.id}
         child={active}
         repo={repo}
+        onUpdateChild={(patch) => update(active.id, patch)}
         allowGuestImport={allowGuestImport}
         guestMode={guestMode}
         startGame={startGame}
@@ -116,13 +119,14 @@ function Family({ label, profiles, loaded, create, repo, activeKey, allowGuestIm
 
 function CloudFamily({ userId, email, startGame }: { userId: string; email: string; startGame?: GameId }) {
   const { signOut } = useAuth();
-  const { profiles, loaded, create } = useChildren(userId);
+  const { profiles, loaded, create, update } = useChildren(userId);
   return (
     <Family
       label={email}
       profiles={profiles}
       loaded={loaded}
       create={create}
+      update={update}
       repo={cloudRepo}
       activeKey="maths-garden:active-child"
       allowGuestImport
@@ -145,12 +149,23 @@ function GuestFamily({ onExit, startGame }: { onExit: () => void; startGame?: Ga
     });
     return child;
   };
+  // Guest profiles live only in this device's storage, so an edit is a local write and nothing else.
+  const update = async (id: string, patch: Partial<Omit<Child, 'id'>>) => {
+    let saved: Child | undefined;
+    setProfiles((current) => {
+      const next = current.map((c) => (c.id === id ? ((saved = { ...c, ...patch }), saved) : c));
+      writeJSON(GUEST_CHILDREN, next);
+      return next;
+    });
+    return saved ?? (profiles.find((c) => c.id === id) as Child);
+  };
   return (
     <Family
       label="a guest (saved on this device only)"
       profiles={profiles}
       loaded
       create={create}
+      update={update}
       repo={guestRepo}
       activeKey="maths-garden:guest-active-child"
       guestMode
