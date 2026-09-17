@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { readJSON, writeJSON } from '@/shared/utils/storage';
-import { createChild, listChildren } from './api';
+import { createChild, listChildren, updateChild } from './api';
 import type { Child } from './model';
 
 const cacheKey = (userId: string) => `maths-garden:children:${userId}`;
@@ -42,5 +42,18 @@ export function useChildren(userId: string) {
     [userId],
   );
 
-  return { profiles, loaded, create };
+  const update = useCallback(
+    async (id: string, patch: Partial<Omit<Child, 'id'>>) => {
+      const saved = await updateChild(id, patch);
+      setProfiles((current) => {
+        const next = current.map((c) => (c.id === id ? saved : c));
+        writeJSON(cacheKey(userId), next);
+        return next;
+      });
+      return saved;
+    },
+    [userId],
+  );
+
+  return { profiles, loaded, create, update };
 }

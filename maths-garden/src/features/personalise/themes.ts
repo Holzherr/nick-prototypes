@@ -117,3 +117,6 @@ export const nextTheme = (id: ThemeId): ThemeId => {
   const at = THEMES.findIndex((t) => t.id === id);
   return THEMES[(at + 1) % THEMES.length].id;
 };
+
+/** The theme whose glyph is this avatar, if any — so picking a picture repaints the app to match. */
+export const themeForGlyph = (glyph: string): ThemeId | null => THEMES.find((t) => t.glyph === glyph)?.id ?? null;

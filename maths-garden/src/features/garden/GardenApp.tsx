@@ -77,6 +77,8 @@ export interface GardenAppProps {
   /** The signed-in parent's address; tutor reports are emailed there. */
   parentEmail?: string;
   onSwitchChild: () => void;
+  /** Save a new name or picture for this child, from the grown-ups screen. */
+  onUpdateChild?: (patch: Partial<Omit<Child, 'id'>>) => Promise<Child>;
   onSignOut: () => void;
 }
 
@@ -90,7 +92,7 @@ const today = () => {
  * screen. Nova pops up over home or the end screen when a milestone is owed a special sticker, at most once
  * between games.
  */
-export function GardenApp({ child, repo, allowGuestImport = false, guestMode = false, startGame, parentEmail, onSwitchChild, onSignOut }: GardenAppProps) {
+export function GardenApp({ child, repo, allowGuestImport = false, guestMode = false, startGame, parentEmail, onSwitchChild, onUpdateChild, onSignOut }: GardenAppProps) {
   const [progress, setProgress] = useState(() => repo.cached(child.id));
   const [pending, setPending] = useState(() => repo.pending());
   // Guest play belongs to a different child id, so once you sign in it vanishes from view. Offering it
@@ -426,6 +428,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             onHistory={() => setScreen({ name: 'history' })}
             onAddCheckin={addCheckin}
             onSwitchChild={onSwitchChild}
+            onUpdateChild={onUpdateChild}
             onSignOut={onSignOut}
             onClose={home}
           />

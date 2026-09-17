@@ -6,7 +6,22 @@ export interface Child {
   avatar: string;
 }
 
-export const AVATARS = ['🌸', '🦋', '🐰', '🦄', '🐞', '⭐'] as const;
+/**
+ * The pictures a child can be.
+ *
+ * The first eight are the homepage icons, in the same order, because a child who picked the dragon on the
+ * way in then met a profile screen offering a butterfly, a rabbit and a ladybird and none of what they had
+ * just chosen. Picking one of those eight here also repaints the app, which is what the homepage promised
+ * when it said the icon changes the colours too.
+ *
+ * The rest are extra pictures with no theme behind them. Six was too few to find yourself in; a stored
+ * avatar is free text, so nothing breaks for a child already wearing one that has since left the list.
+ */
+export const THEME_AVATARS = ['🦄', '🏎️', '🐉', '🚀', '🦕', '🐱', '⚽️', '✏️'] as const;
+
+export const EXTRA_AVATARS = ['🌸', '🦋', '🐰', '🐞', '⭐', '🌈', '🦊', '🐼', '🐢', '🦁', '🐙', '🍀', '🐝', '🦖', '🌟', '🎨'] as const;
+
+export const AVATARS = [...THEME_AVATARS, ...EXTRA_AVATARS] as const;
 
 /** "4 years 3 months" from a yyyy-mm-dd birthdate, or null. */
 export function ageLabel(birthdate: string | null, today = new Date()): string | null {
