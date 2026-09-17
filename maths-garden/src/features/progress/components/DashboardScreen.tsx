@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ageLabel, possessive, type Child } from '@/features/children/model';
 import { skillForGame, SKILLS, type SkillId, type StageNumber } from '@/features/curriculum/skills';
 import { GAMES, gameById, type GameId } from '@/features/games/catalog';
@@ -106,6 +107,8 @@ export function DashboardScreen({
     ? `Last done ${new Date(`${lastCheckin}T12:00:00`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}`
     : 'Five minutes with real objects, away from the iPad';
 
+  const [editing, setEditing] = useState(false);
+
   const shiftAll = (by: 1 | -1) => {
     for (const game of GAMES) {
       const level = levelOf(progress.levels, game);
@@ -119,8 +122,24 @@ export function DashboardScreen({
       <Card className="w-full max-w-[760px] p-[clamp(20px,4vw,34px)]">
         <header className="flex flex-wrap items-start justify-between gap-3">
           <div>
+            {/* The name and icon at the top is where a parent looks to change the name and icon, so that
+                is what it does. It lived five sections down under its own heading and was reported as
+                missing by the person who asked for it. */}
             <h2 className="text-3xl font-semibold text-raspberry">
-              {child.avatar} {possessive(child.name)} progress
+              {onUpdateChild ? (
+                <button
+                  type="button"
+                  onClick={() => setEditing((open) => !open)}
+                  aria-expanded={editing}
+                  className="rounded-2xl text-left transition-colors hover:text-bubble focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-raspberry"
+                >
+                  {child.avatar} {possessive(child.name)} progress <span className="whitespace-nowrap text-base font-semibold text-bubble">✏️ edit</span>
+                </button>
+              ) : (
+                <>
+                  {child.avatar} {possessive(child.name)} progress
+                </>
+              )}
             </h2>
             <p className="mt-1 text-sm text-grape/70">{summary.join(' · ')}</p>
           </div>
@@ -128,6 +147,12 @@ export function DashboardScreen({
             Close
           </Button>
         </header>
+
+        {onUpdateChild && editing && (
+          <div className="mt-4 rounded-[28px] bg-blush/60 p-5">
+            <EditChildPanel child={child} onSave={onUpdateChild} />
+          </div>
+        )}
 
         <AccountPanel email={guestMode ? undefined : parentEmail} pending={pending} onSwitchChild={onSwitchChild} onSignOut={onSignOut} />
 
@@ -207,11 +232,6 @@ export function DashboardScreen({
           <VoicePanel childId={child.id} childName={child.name} bare />
         </Section>
 
-        {onUpdateChild && (
-          <Section icon={child.avatar} title="Name and picture" summary={`Change ${child.name}'s name, picture or birthday`}>
-            <EditChildPanel child={child} onSave={onUpdateChild} />
-          </Section>
-        )}
 
         {/* Account, sync state, switch child and sign in/out all live in the panel at the top. */}
         <footer className="mt-8 flex flex-col items-center gap-3">
