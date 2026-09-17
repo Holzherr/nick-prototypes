@@ -7,6 +7,7 @@ import { cn } from '@/shared/utils/cn';
 import { ARTICLES } from '../articles';
 import { FAQ } from '../faq';
 import { RESOURCE_MENU } from '../menu';
+import { faqAnswer, faqQuestion, gameAbout, gameName, printableDescription, printableTitle, skillName } from '@/features/i18n/content';
 
 // The copy itself lives in the string catalogue; only the emoji and the key stay here.
 const WHY = [
@@ -92,12 +93,12 @@ export function HomeScreen() {
           {RESOURCE_MENU.map(({ skill, printables }) => (
             <div key={skill.id} className="rounded-[28px] bg-cream p-5 candy-petal [--candy:8px]">
               <h3 className="text-xl font-semibold text-raspberry">
-                {skill.emoji} {skill.name}
+                {skill.emoji} {skillName(skill.id)}
               </h3>
               {printables.map((printable) => (
                 <div key={printable.id} className="mt-2">
-                  <b>{printable.title}</b>
-                  <p className="text-sm text-grape/75">{printable.description}</p>
+                  <b>{printableTitle(printable.id)}</b>
+                  <p className="text-sm text-grape/75">{printableDescription(printable.id)}</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {printable.stages.map((stage) => (
                       <a key={stage} href={printable.link?.(stage)} className={buttonVariants({ variant: 'quiet', size: 'sm' })}>
@@ -123,8 +124,8 @@ export function HomeScreen() {
           {GAMES.map((game) => (
             <div key={game.id} className="w-[210px] rounded-[26px] bg-cream p-4 text-center candy-petal [--candy:7px]">
               <span className="text-4xl">{game.emoji}</span>
-              <h3 className="mt-1 font-semibold">{game.name}</h3>
-              <p className="text-sm text-grape/75">{game.about}</p>
+              <h3 className="mt-1 font-semibold">{gameName(game.id)}</h3>
+              <p className="text-sm text-grape/75">{gameAbout(game.id)}</p>
             </div>
           ))}
         </div>
@@ -150,14 +151,14 @@ export function HomeScreen() {
       <Section id="faq" className="mt-16">
         <h2 className="text-center text-[clamp(26px,4vw,40px)] font-bold text-raspberry">{t('faq.title')}</h2>
         <div className="mx-auto mt-8 max-w-[760px] overflow-hidden rounded-[32px] bg-cream candy-petal [--candy:9px]">
-          {FAQ.map((item) => (
+          {FAQ.map((item, i) => (
             <details key={item.question} className="group border-b-2 border-dashed border-petal last:border-b-0">
               <summary className="cursor-pointer list-none px-6 py-4 text-lg font-semibold text-grape marker:hidden hover:text-raspberry">
                 <span className="mr-2 inline-block text-bubble transition-transform group-open:rotate-90">▸</span>
-                {item.question}
+                {faqQuestion(i)}
               </summary>
               <div className="px-6 pb-5 pl-12 text-grape/85">
-                <p>{item.answer}</p>
+                <p>{faqAnswer(i)}</p>
                 {item.link && (
                   <a href={item.link.href} className="mt-2 inline-block font-semibold text-raspberry underline">
                     {item.link.label} →

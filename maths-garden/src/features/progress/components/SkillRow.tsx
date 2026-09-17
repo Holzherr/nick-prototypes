@@ -2,6 +2,7 @@ import type { Game } from '@/features/games/catalog';
 import { advice, type SkillStats } from '@/features/games/engine';
 import type { SpeedTrend } from '@/features/games/insights';
 import { Button } from '@/shared/components/ui/button';
+import { gameName } from '@/features/i18n/content';
 
 export interface SkillRowProps {
   game: Game;
@@ -36,7 +37,7 @@ export const SkillRow = ({ game, level, mastered = false, stats, missed, onSetLe
     </div>
     <div className="w-14 text-right font-bold">{stats ? `${stats.pct}%` : '—'}</div>
     <div className="flex items-center gap-2">
-      <Button variant="quiet" size="icon" className="size-[38px] text-xl [--candy:4px]" aria-label={`Lower ${game.name} level`} disabled={level === 0} onClick={() => onSetLevel(level - 1)}>
+      <Button variant="quiet" size="icon" className="size-[38px] text-xl [--candy:4px]" aria-label={`Lower ${gameName(game.id)} level`} disabled={level === 0} onClick={() => onSetLevel(level - 1)}>
         −
       </Button>
       <span className="w-11 text-center text-sm font-semibold">Lv {level + 1}</span>
@@ -44,7 +45,7 @@ export const SkillRow = ({ game, level, mastered = false, stats, missed, onSetLe
         variant="quiet"
         size="icon"
         className="size-[38px] text-xl [--candy:4px]"
-        aria-label={`Raise ${game.name} level`}
+        aria-label={`Raise ${gameName(game.id)} level`}
         disabled={level === game.levels.length - 1}
         onClick={() => onSetLevel(level + 1)}
       >

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { possessive } from '@/features/children/model';
 import { GardenScene } from '@/features/garden/components/GardenScene';
 import type { Garden } from '@/features/garden/garden-state';
 import { readTheme } from '@/features/personalise/player';
@@ -11,6 +10,8 @@ import { levelOf, type Levels } from '../engine';
 import type { BreakReason } from '../insights';
 import type { Recommendation } from '../recommend';
 import { GameTile, LevelDots } from './GameTile';
+import { gameName } from '@/features/i18n/content';
+import { useT } from '@/features/i18n/i18n';
 
 /** What to say to the child when stopping would be better than another round. Her words, not the parent's. */
 const WIND_DOWN: Record<BreakReason, string> = {
@@ -70,6 +71,7 @@ export function GardenHome({
   onGarden,
   onGrownUps,
 }: GardenHomeProps) {
+  const t = useT();
   const [showAll, setShowAll] = useState(!recommended);
   const others = recommended ? GAMES.filter((game) => game.id !== recommended.game.id) : GAMES;
 
@@ -78,18 +80,18 @@ export function GardenHome({
   const pausedCard = paused && onResume && (
     <section className="mb-5 w-full max-w-[440px] rounded-[28px] bg-sunny/30 p-4 text-center">
       <p className="text-[clamp(18px,2.6vw,22px)] font-semibold text-grape">
-        {paused.game.emoji} You were playing {paused.game.name}
+        {t('garden.wasPlaying', { emoji: paused.game.emoji, game: gameName(paused.game.id) })}
       </p>
       <p className="mt-0.5 text-grape/70">
-        {paused.answered} of {paused.total} done — carry on where you stopped?
+        {t('garden.carryOnWhere', { answered: paused.answered, total: paused.total })}
       </p>
       <div className="mt-3 flex flex-wrap justify-center gap-3">
         <Button size="lg" onClick={onResume}>
-          Carry on 💗
+          {t('garden.carryOn')}
         </Button>
         {onDropPaused && (
           <Button variant="quiet" size="lg" onClick={onDropPaused}>
-            Start something else
+            {t('garden.startSomethingElse')}
           </Button>
         )}
       </div>
@@ -105,36 +107,36 @@ export function GardenHome({
             'fixed left-5 top-[max(16px,env(safe-area-inset-top))] z-20 flex min-h-[68px] items-center rounded-full px-6 text-[clamp(20px,2.6vw,26px)] font-semibold',
             today.done >= today.goal ? 'bg-leaf text-white' : 'bg-cream candy-petal [--candy:8px]',
           )}
-          aria-label={`Daily goal: ${Math.min(today.done, today.goal)} of ${today.goal} rounds`}
+          aria-label={t('garden.dailyGoal', { done: Math.min(today.done, today.goal), goal: today.goal })}
         >
-          🎯 {today.done >= today.goal ? 'Done!' : `${today.done}/${today.goal}`}
+          🎯 {today.done >= today.goal ? t('garden.done') : `${today.done}/${today.goal}`}
         </p>
       )}
       <Button
         variant="quiet"
         size="lg"
         className="fixed right-5 top-[max(16px,env(safe-area-inset-top))] z-20 px-6"
-        aria-label={`My stickers: ${stickerCount}`}
+        aria-label={t('garden.stickers', { count: stickerCount })}
         onClick={onStickers}
       >
         📒 {stickerCount}
       </Button>
 
       <ThemeMark theme={readTheme()} size={68} className="mb-2" />
-      <h1 className="text-center text-[clamp(30px,5vw,52px)] font-bold leading-tight text-raspberry">{possessive(childName)} Maths Garden</h1>
+      <h1 className="text-center text-[clamp(30px,5vw,52px)] font-bold leading-tight text-raspberry">{t('garden.title', { name: childName })}</h1>
 
       {windDown && (
         <section className="mb-4 w-full max-w-[440px] rounded-[28px] bg-leaf/15 p-5 text-center">
-          <p className="text-[clamp(20px,3vw,26px)] font-semibold text-leaf-deep">🌈 What a lot of playing!</p>
+          <p className="text-[clamp(20px,3vw,26px)] font-semibold text-leaf-deep">{t('garden.lotsOfPlaying')}</p>
           <p className="mt-1 text-grape/75">{WIND_DOWN[windDown]}</p>
           <div className="mt-3 flex flex-wrap justify-center gap-3">
             {onGarden && (
               <Button size="lg" onClick={onGarden}>
-                See my garden 🌷
+                {t('garden.seeGarden')}
               </Button>
             )}
             <Button variant="quiet" size="lg" onClick={onStickers}>
-              My stickers 📒
+              {t('garden.myStickers')}
             </Button>
           </div>
         </section>
@@ -142,21 +144,21 @@ export function GardenHome({
 
       {recommended ? (
         <>
-          <p className="mb-4 mt-1 text-center text-xl font-medium text-grape/75">{windDown ? 'Or one more if you like 💗' : 'Let’s play this one! 🌸'}</p>
+          <p className="mb-4 mt-1 text-center text-xl font-medium text-grape/75">{windDown ? t('garden.oneMore') : t('garden.playThis')}</p>
           <button
             type="button"
             onClick={() => onPlay(recommended.game)}
-            aria-label={`Play ${recommended.game.name}. ${recommended.reason}`}
+            aria-label={`Play ${gameName(recommended.game.id)}. ${recommended.reason}`}
             className="flex w-[clamp(280px,72vw,420px)] animate-pop-in flex-col items-center justify-center gap-2 rounded-[64px] bg-cream px-6 py-[clamp(22px,4vh,38px)] candy-bubble [--candy:12px] transition-transform active:translate-y-2 active:scale-[.98] active:[--candy:4px]"
           >
             <span className="text-[clamp(64px,13vw,104px)] leading-none">{recommended.game.emoji}</span>
-            <span className="text-center text-[clamp(24px,4vw,34px)] font-bold leading-tight text-raspberry">{recommended.game.name}</span>
+            <span className="text-center text-[clamp(24px,4vw,34px)] font-bold leading-tight text-raspberry">{gameName(recommended.game.id)}</span>
             <span className="rounded-full bg-petal/70 px-4 py-1 text-center text-[clamp(15px,2.2vw,19px)] font-semibold text-grape">{recommended.reason}</span>
             <LevelDots count={recommended.game.levels.length} level={levelOf(levels, recommended.game)} mastered={mastered.has(recommended.game.id)} />
           </button>
 
           <Button variant="ghost" size="md" className="mt-4 text-[clamp(17px,2.4vw,21px)] text-grape/70" onClick={() => setShowAll((open) => !open)}>
-            {showAll ? 'Hide the other games' : 'Or pick another game →'}
+            {showAll ? t('garden.hideOthers') : t('garden.pickAnother')}
           </Button>
         </>
       ) : (
@@ -182,7 +184,7 @@ export function GardenHome({
         </button>
       )}
       <Button variant="ghost" className="fixed bottom-[max(14px,env(safe-area-inset-bottom))] right-4" onClick={onGrownUps}>
-        ⚙️ Grown-ups
+        ⚙️ {t('garden.grownUps')}
       </Button>
     </main>
   );
