@@ -187,7 +187,12 @@ function Root({ startGame, wantsApp, wantsLogin }: { startGame?: GameId; wantsAp
   // Leaving guest mode means "take me to the sign-in form", which is what the button now says. It used to
   // drop a guest on the marketing homepage instead, because at #/ there is no route asking for the app —
   // so the one action offered to a signed-out visitor led away from the thing it offered.
-  if (guest && !wantsLogin) {
+  //
+  // The flag only answers for routes that asked for the app. It used to answer for every route including
+  // #/, so one tap on "guest mode" hid the homepage on that device for good — no guides, no printables
+  // menu, no way back to any of it. The installed iPad icon still opens the garden directly because its
+  // start_url is #/app, which is a route that asks.
+  if (guest && wantsApp && !wantsLogin) {
     return (
       <GuestFamily
         onExit={() => {
