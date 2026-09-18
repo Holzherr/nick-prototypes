@@ -129,6 +129,10 @@ const IT: Partial<Catalogue> = {
   'footer.questions': 'Domande',
   'footer.madeBy': 'Fatto da un genitore per sua figlia. Condiviso così com’è, e non sostituisce un insegnante, un tutor o un clinico.',
   'footer.feedback': '💬 Dicci cosa ne pensi',
+  'footer.terms': 'Termini e condizioni',
+  'footer.privacy': 'Informativa sulla privacy',
+  'legal.englishOnly': 'Questo documento è in inglese.',
+  'legal.agreePlaying': 'Giocando accetti i',
 
   // ── Games ───────────────────────────────────────────────────────────────
   'game.peek.name': 'Sbircia veloce',

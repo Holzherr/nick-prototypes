@@ -145,7 +145,17 @@ export function MarketingLayout({ children }: { children: ReactNode }) {
         <div className="mt-8 flex justify-center">
           <FeedbackButton />
         </div>
-        <p className="mt-8 text-xs text-grape/50">{t('footer.madeBy')}</p>
+        <div className="mt-8 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 text-xs text-grape/50">
+          <p>{t('footer.madeBy')}</p>
+          <nav aria-label="Legal" className="flex gap-4">
+            <a href="#/terms" className="underline hover:text-raspberry">
+              {t('footer.terms')}
+            </a>
+            <a href="#/privacy" className="underline hover:text-raspberry">
+              {t('footer.privacy')}
+            </a>
+          </nav>
+        </div>
       </footer>
     </div>
   );

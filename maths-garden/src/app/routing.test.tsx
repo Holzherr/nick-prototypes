@@ -53,6 +53,14 @@ describe('which screen an open of the app lands on', () => {
     await waitFor(() => expect(screen.getByPlaceholderText(/email/i)).toBeInTheDocument());
   });
 
+  it('serves the Terms and the Privacy Policy without an account', async () => {
+    await open('#/terms');
+    await waitFor(() => expect(screen.getByRole('heading', { level: 1, name: 'Terms and Conditions' })).toBeInTheDocument());
+    window.location.hash = '';
+    await open('#/privacy');
+    await waitFor(() => expect(screen.getByRole('heading', { level: 1, name: 'Privacy Policy' })).toBeInTheDocument());
+  });
+
   it('still shows the sign-in form at #/login when guest mode was tapped before', async () => {
     // The exact state that made signing in impossible: the flag is sticky, and it used to win the route.
     localStorage.setItem('maths-garden:guest', 'true');

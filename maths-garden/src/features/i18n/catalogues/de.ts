@@ -129,6 +129,10 @@ const DE: Partial<Catalogue> = {
   'footer.questions': 'Fragen',
   'footer.madeBy': 'Von einem Vater für seine Tochter gemacht. So geteilt, wie es ist, und kein Ersatz für Lehrkraft, Nachhilfe oder Fachperson.',
   'footer.feedback': '💬 Sagen Sie uns Ihre Meinung',
+  'footer.terms': 'AGB',
+  'footer.privacy': 'Datenschutzerklärung',
+  'legal.englishOnly': 'Dieses Dokument ist auf Englisch.',
+  'legal.agreePlaying': 'Mit dem Spielen stimmst du zu:',
 
   // ── Games ───────────────────────────────────────────────────────────────
   'game.peek.name': 'Kurz geschaut',

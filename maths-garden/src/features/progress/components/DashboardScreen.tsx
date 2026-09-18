@@ -256,6 +256,14 @@ export function DashboardScreen({
           <a href="#/diagnostics" className="text-xs text-grape/45 underline">
             Build {__BUILD__} · about this device
           </a>
+          <nav aria-label="Legal" className="flex gap-4 text-xs text-grape/45">
+            <a href="#/terms" className="underline hover:text-raspberry">
+              Terms and Conditions
+            </a>
+            <a href="#/privacy" className="underline hover:text-raspberry">
+              Privacy Policy
+            </a>
+          </nav>
         </footer>
       </Card>
     </div>
