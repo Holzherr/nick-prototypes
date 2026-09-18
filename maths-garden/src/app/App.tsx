@@ -1,46 +1,52 @@
-import { useEffect, useState } from 'react';
-import { track } from '@/features/analytics/events';
-import { AuthProvider, useAuth } from '@/features/auth/AuthContext';
-import AuthScreen from '@/features/auth/AuthScreen';
-import { ProfilesScreen } from '@/features/children/components/ProfilesScreen';
-import type { Child } from '@/features/children/model';
-import { useChildren } from '@/features/children/use-children';
-import { isGameId, type GameId } from '@/features/games/catalog';
-import { GardenApp } from '@/features/garden/GardenApp';
-import { articleBySlug } from '@/features/marketing/articles';
-import { ArticleScreen } from '@/features/marketing/components/ArticleScreen';
-import { HomeScreen } from '@/features/marketing/components/HomeScreen';
-import { MarketingLayout } from '@/features/marketing/components/MarketingLayout';
-import { DiagnosticsScreen } from '@/features/progress/components/DiagnosticsScreen';
-import { localRemote } from '@/features/progress/local-remote';
-import { createRepo, type ProgressRepo } from '@/features/progress/repo';
-import { supabaseRemote } from '@/features/progress/supabase-remote';
-import { packFromParams } from '@/features/resources/pack';
-import { PackScreen } from '@/features/resources/PackScreen';
-import { ResourcesScreen } from '@/features/resources/ResourcesScreen';
-import { sheetOptionsFromParams } from '@/features/resources/sheets/catalog';
-import { SheetScreen } from '@/features/resources/sheets/SheetScreen';
-import { optionsFromParams } from '@/features/resources/subitising/cards';
-import { SubitisingCardsScreen } from '@/features/resources/subitising/SubitisingCardsScreen';
-import { FloatingHearts } from '@/shared/layout/FloatingHearts';
-import { Splash } from '@/shared/layout/Splash';
-import { readJSON, writeJSON } from '@/shared/utils/storage';
-import { useHashRoute } from './use-hash-route';
+import { useEffect, useState } from "react";
+import { track } from "@/features/analytics/events";
+import { AuthProvider, useAuth } from "@/features/auth/AuthContext";
+import AuthScreen from "@/features/auth/AuthScreen";
+import { ProfilesScreen } from "@/features/children/components/ProfilesScreen";
+import type { Child } from "@/features/children/model";
+import { useChildren } from "@/features/children/use-children";
+import { isGameId, type GameId } from "@/features/games/catalog";
+import { GardenApp } from "@/features/garden/GardenApp";
+import { articleBySlug } from "@/features/marketing/articles";
+import { ArticleScreen } from "@/features/marketing/components/ArticleScreen";
+import { HomeScreen } from "@/features/marketing/components/HomeScreen";
+import { PRIVACY, TERMS } from "@/features/legal/documents";
+import { LegalScreen } from "@/features/legal/LegalScreen";
+import { MarketingLayout } from "@/features/marketing/components/MarketingLayout";
+import { DiagnosticsScreen } from "@/features/progress/components/DiagnosticsScreen";
+import { localRemote } from "@/features/progress/local-remote";
+import { createRepo, type ProgressRepo } from "@/features/progress/repo";
+import { supabaseRemote } from "@/features/progress/supabase-remote";
+import { packFromParams } from "@/features/resources/pack";
+import { PackScreen } from "@/features/resources/PackScreen";
+import { ResourcesScreen } from "@/features/resources/ResourcesScreen";
+import { sheetOptionsFromParams } from "@/features/resources/sheets/catalog";
+import { SheetScreen } from "@/features/resources/sheets/SheetScreen";
+import { optionsFromParams } from "@/features/resources/subitising/cards";
+import { SubitisingCardsScreen } from "@/features/resources/subitising/SubitisingCardsScreen";
+import { FloatingHearts } from "@/shared/layout/FloatingHearts";
+import { Splash } from "@/shared/layout/Splash";
+import { readJSON, writeJSON } from "@/shared/utils/storage";
+import { useHashRoute } from "./use-hash-route";
 
 const cloudRepo = createRepo(supabaseRemote, localStorage);
 // Guest progress has its own outbox so it can never be uploaded against a parent's account.
-const guestRepo = createRepo(localRemote, localStorage, 'maths-garden:guest-outbox');
-const GUEST = 'maths-garden:guest';
-const GUEST_CHILDREN = 'maths-garden:guest-children';
+const guestRepo = createRepo(
+  localRemote,
+  localStorage,
+  "maths-garden:guest-outbox",
+);
+const GUEST = "maths-garden:guest";
+const GUEST_CHILDREN = "maths-garden:guest-children";
 
 interface FamilyProps {
   /** Who is signed in, for the profiles screen footer. */
   label: string;
   profiles: Child[];
   loaded: boolean;
-  create: (input: Omit<Child, 'id'>) => Promise<Child>;
+  create: (input: Omit<Child, "id">) => Promise<Child>;
   /** Rename a child or change their picture, from the grown-ups screen. */
-  update: (id: string, patch: Partial<Omit<Child, 'id'>>) => Promise<Child>;
+  update: (id: string, patch: Partial<Omit<Child, "id">>) => Promise<Child>;
   repo: ProgressRepo;
   /** Where this device remembers the last child. */
   activeKey: string;
@@ -56,8 +62,23 @@ interface FamilyProps {
 }
 
 /** Open the remembered child (or the only one), otherwise ask who's playing. */
-function Family({ label, profiles, loaded, create, update, repo, activeKey, allowGuestImport, guestMode, startGame, parentEmail, onSignOut }: FamilyProps) {
-  const [activeId, setActiveId] = useState<string | null>(() => readJSON(activeKey, null));
+function Family({
+  label,
+  profiles,
+  loaded,
+  create,
+  update,
+  repo,
+  activeKey,
+  allowGuestImport,
+  guestMode,
+  startGame,
+  parentEmail,
+  onSignOut,
+}: FamilyProps) {
+  const [activeId, setActiveId] = useState<string | null>(() =>
+    readJSON(activeKey, null),
+  );
   const [choosing, setChoosing] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -68,7 +89,10 @@ function Family({ label, profiles, loaded, create, update, repo, activeKey, allo
     setChoosing(false);
   };
 
-  const active = choosing ? undefined : (profiles.find((c) => c.id === activeId) ?? (profiles.length === 1 ? profiles[0] : undefined));
+  const active = choosing
+    ? undefined
+    : (profiles.find((c) => c.id === activeId) ??
+      (profiles.length === 1 ? profiles[0] : undefined));
 
   if (active) {
     return (
@@ -106,7 +130,10 @@ function Family({ label, profiles, loaded, create, update, repo, activeKey, allo
           open(child.id);
           return true;
         } catch (err) {
-          setError((err as { message?: string }).message ?? 'Could not save the profile.');
+          setError(
+            (err as { message?: string }).message ??
+              "Could not save the profile.",
+          );
           return false;
         } finally {
           setBusy(false);
@@ -117,7 +144,15 @@ function Family({ label, profiles, loaded, create, update, repo, activeKey, allo
   );
 }
 
-function CloudFamily({ userId, email, startGame }: { userId: string; email: string; startGame?: GameId }) {
+function CloudFamily({
+  userId,
+  email,
+  startGame,
+}: {
+  userId: string;
+  email: string;
+  startGame?: GameId;
+}) {
   const { signOut } = useAuth();
   const { profiles, loaded, create, update } = useChildren(userId);
   return (
@@ -138,9 +173,17 @@ function CloudFamily({ userId, email, startGame }: { userId: string; email: stri
 }
 
 /** No account: profiles and progress live only in this device's storage. */
-function GuestFamily({ onExit, startGame }: { onExit: () => void; startGame?: GameId }) {
-  const [profiles, setProfiles] = useState<Child[]>(() => readJSON(GUEST_CHILDREN, []));
-  const create = async (input: Omit<Child, 'id'>) => {
+function GuestFamily({
+  onExit,
+  startGame,
+}: {
+  onExit: () => void;
+  startGame?: GameId;
+}) {
+  const [profiles, setProfiles] = useState<Child[]>(() =>
+    readJSON(GUEST_CHILDREN, []),
+  );
+  const create = async (input: Omit<Child, "id">) => {
     const child: Child = { id: crypto.randomUUID(), ...input };
     setProfiles((current) => {
       const next = [...current, child];
@@ -150,10 +193,12 @@ function GuestFamily({ onExit, startGame }: { onExit: () => void; startGame?: Ga
     return child;
   };
   // Guest profiles live only in this device's storage, so an edit is a local write and nothing else.
-  const update = async (id: string, patch: Partial<Omit<Child, 'id'>>) => {
+  const update = async (id: string, patch: Partial<Omit<Child, "id">>) => {
     let saved: Child | undefined;
     setProfiles((current) => {
-      const next = current.map((c) => (c.id === id ? ((saved = { ...c, ...patch }), saved) : c));
+      const next = current.map((c) =>
+        c.id === id ? ((saved = { ...c, ...patch }), saved) : c,
+      );
       writeJSON(GUEST_CHILDREN, next);
       return next;
     });
@@ -180,12 +225,20 @@ function GuestFamily({ onExit, startGame }: { onExit: () => void; startGame?: Ga
  * landed, which is what the iPad's home-screen icon does. A signed-out visitor gets the homepage instead,
  * unless they asked for the app or the sign-in page.
  */
-function Root({ startGame, wantsApp, wantsLogin }: { startGame?: GameId; wantsApp: boolean; wantsLogin: boolean }) {
+function Root({
+  startGame,
+  wantsApp,
+  wantsLogin,
+}: {
+  startGame?: GameId;
+  wantsApp: boolean;
+  wantsLogin: boolean;
+}) {
   const { user, loading } = useAuth();
   const [guest, setGuest] = useState(() => readJSON(GUEST, false));
   const setGuestMode = (on: boolean) => {
     // Counted before the flag is written, because once it is set nothing is recorded at all.
-    if (on) track('guest_start');
+    if (on) track("guest_start");
     setGuest(on);
     writeJSON(GUEST, on || null);
   };
@@ -195,7 +248,15 @@ function Root({ startGame, wantsApp, wantsLogin }: { startGame?: GameId; wantsAp
   // GuestFamily passes allowGuestImport={false}. Nothing is lost by preferring the account: GardenApp
   // offers the guest play on the way in. The cost is that a guest waits on the session check, a local read.
   if (loading) return <Splash />;
-  if (user) return <CloudFamily key={user.id} userId={user.id} email={user.email ?? ''} startGame={startGame} />;
+  if (user)
+    return (
+      <CloudFamily
+        key={user.id}
+        userId={user.id}
+        email={user.email ?? ""}
+        startGame={startGame}
+      />
+    );
   // Asking for #/login is asking for the sign-in form, so it beats the flag too. While the flag swallowed
   // that route the form could not be reached at all: the only way back to it was "Sign in to save →" on
   // the grown-ups screen, behind the sum — which is the last place a parent looking to sign in would look.
@@ -212,7 +273,7 @@ function Root({ startGame, wantsApp, wantsLogin }: { startGame?: GameId; wantsAp
       <GuestFamily
         onExit={() => {
           setGuestMode(false);
-          window.location.hash = '/login';
+          window.location.hash = "/login";
         }}
         startGame={startGame}
       />
@@ -226,10 +287,31 @@ function Root({ startGame, wantsApp, wantsLogin }: { startGame?: GameId; wantsAp
   );
 }
 
-function Printables({ path, params }: { path: string; params: URLSearchParams }) {
-  if (path === '/resources/subitising-cards') return <SubitisingCardsScreen key={params.toString()} initial={optionsFromParams(params)} />;
-  if (path === '/resources/sheet') return <SheetScreen key={params.toString()} initial={sheetOptionsFromParams(params)} />;
-  if (path === '/resources/pack') return <PackScreen key={params.toString()} options={packFromParams(params)} />;
+function Printables({
+  path,
+  params,
+}: {
+  path: string;
+  params: URLSearchParams;
+}) {
+  if (path === "/resources/subitising-cards")
+    return (
+      <SubitisingCardsScreen
+        key={params.toString()}
+        initial={optionsFromParams(params)}
+      />
+    );
+  if (path === "/resources/sheet")
+    return (
+      <SheetScreen
+        key={params.toString()}
+        initial={sheetOptionsFromParams(params)}
+      />
+    );
+  if (path === "/resources/pack")
+    return (
+      <PackScreen key={params.toString()} options={packFromParams(params)} />
+    );
   return <ResourcesScreen />;
 }
 
@@ -237,9 +319,9 @@ export default function App() {
   const { path, params } = useHashRoute();
   // One anonymous count per page, above every early return so the printables and the guides count too.
   useEffect(() => {
-    track('visit');
+    track("visit");
   }, [path]);
-  if (path.startsWith('/resources')) {
+  if (path.startsWith("/resources")) {
     return (
       <>
         <FloatingHearts />
@@ -249,7 +331,7 @@ export default function App() {
   }
   // Public on purpose, and above AuthProvider: the moment this screen is needed most is when signing in is
   // the thing that is broken, or when a device is stuck on an old build and nothing on it says so.
-  if (path === '/diagnostics') {
+  if (path === "/diagnostics") {
     return (
       <>
         <FloatingHearts />
@@ -258,24 +340,41 @@ export default function App() {
     );
   }
   // The public pages need no account, so they never wait on a session.
-  if (path === '/home' || path.startsWith('/guides')) {
-    const article = articleBySlug(path.replace('/guides/', ''));
+  if (path === "/terms" || path === "/privacy") {
     return (
       <>
         <FloatingHearts />
-        <MarketingLayout>{article ? <ArticleScreen article={article} /> : <HomeScreen />}</MarketingLayout>
+        <MarketingLayout>
+          <LegalScreen document={path === "/terms" ? TERMS : PRIVACY} />
+        </MarketingLayout>
+      </>
+    );
+  }
+  if (path === "/home" || path.startsWith("/guides")) {
+    const article = articleBySlug(path.replace("/guides/", ""));
+    return (
+      <>
+        <FloatingHearts />
+        <MarketingLayout>
+          {article ? <ArticleScreen article={article} /> : <HomeScreen />}
+        </MarketingLayout>
       </>
     );
   }
   // #/play/count — the QR code on a printable opens the game that checks the same skill.
-  const asked = path.startsWith('/play/') ? path.slice('/play/'.length) : '';
+  const asked = path.startsWith("/play/") ? path.slice("/play/".length) : "";
   return (
     <AuthProvider>
       <FloatingHearts />
       <Root
         startGame={isGameId(asked) ? asked : undefined}
-        wantsApp={path === '/login' || path === '/app' || path === '/grown-ups' || path.startsWith('/play/')}
-        wantsLogin={path === '/login'}
+        wantsApp={
+          path === "/login" ||
+          path === "/app" ||
+          path === "/grown-ups" ||
+          path.startsWith("/play/")
+        }
+        wantsLogin={path === "/login"}
       />
     </AuthProvider>
   );

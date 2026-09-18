@@ -129,6 +129,10 @@ const SV: Partial<Catalogue> = {
   'footer.questions': 'Frågor',
   'footer.madeBy': 'Gjord av en förälder till hans dotter. Delas i befintligt skick och ersätter inte en lärare, en handledare eller en kliniker.',
   'footer.feedback': '💬 Berätta vad du tycker',
+  'footer.terms': 'Villkor',
+  'footer.privacy': 'Integritetspolicy',
+  'legal.englishOnly': 'Det här dokumentet är på engelska.',
+  'legal.agreePlaying': 'Genom att spela godkänner du',
 
   // ── Games ───────────────────────────────────────────────────────────────
   'game.peek.name': 'Snabb titt',

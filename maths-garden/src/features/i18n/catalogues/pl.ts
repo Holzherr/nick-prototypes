@@ -132,6 +132,10 @@ const PL: Partial<Catalogue> = {
   'footer.questions': 'Pytania',
   'footer.madeBy': 'Zrobione przez rodzica dla córki. Udostępnione tak, jak jest, i nie zastępuje nauczyciela, korepetytora ani specjalisty.',
   'footer.feedback': '💬 Powiedz nam, co myślisz',
+  'footer.terms': 'Regulamin',
+  'footer.privacy': 'Polityka prywatności',
+  'legal.englishOnly': 'Ten dokument jest w języku angielskim.',
+  'legal.agreePlaying': 'Grając, akceptujesz',
 
   // ── Games ───────────────────────────────────────────────────────────────
   'game.peek.name': 'Szybki rzut oka',
