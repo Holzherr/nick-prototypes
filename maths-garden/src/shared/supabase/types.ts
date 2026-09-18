@@ -106,6 +106,7 @@ export type Database = {
     Views: { [_ in never]: never };
     Functions: {
       is_my_child: { Args: { c: string }; Returns: boolean };
+      delete_my_account: { Args: Record<string, never>; Returns: undefined };
     };
     Enums: { [_ in never]: never };
     CompositeTypes: { [_ in never]: never };
