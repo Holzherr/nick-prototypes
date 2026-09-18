@@ -28,6 +28,17 @@ export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
   const [offerResend, setOfferResend] = useState(Boolean(linkProblem));
   const redirectTo = `${location.origin}${import.meta.env.BASE_URL}`;
 
+  const forgot = async (email: string) => {
+    setBusy(true);
+    setError(null);
+    setNotice(null);
+    const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, { redirectTo });
+    setBusy(false);
+    if (resetError) return setError(resetError.message);
+    // Worded so it does not say whether the address has an account.
+    setNotice(`If ${email} has an account, a link to choose a new password is on its way. Open it on this device.`);
+  };
+
   const resend = async (email: string) => {
     setBusy(true);
     setError(null);
@@ -104,6 +115,7 @@ export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
         setOfferResend(false);
       }}
       onSubmit={submit}
+      onForgot={(email) => void forgot(email)}
       onResend={offerResend ? (email) => void resend(email) : undefined}
       busy={busy}
       error={error}

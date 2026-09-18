@@ -17,6 +17,8 @@ import { DiagnosticsScreen } from '@/features/progress/components/DiagnosticsScr
 import { localRemote } from '@/features/progress/local-remote';
 import { createRepo, type ProgressRepo } from '@/features/progress/repo';
 import { supabaseRemote } from '@/features/progress/supabase-remote';
+import { NewPasswordScreen } from '@/features/auth/NewPasswordScreen';
+import { supabase } from '@/shared/supabase/client';
 import { packFromParams } from '@/features/resources/pack';
 import { PackScreen } from '@/features/resources/PackScreen';
 import { ResourcesScreen } from '@/features/resources/ResourcesScreen';
@@ -183,7 +185,7 @@ function GuestFamily({ onExit, startGame }: { onExit: () => void; startGame?: Ga
  * unless they asked for the app or the sign-in page.
  */
 function Root({ startGame, wantsApp, wantsLogin }: { startGame?: GameId; wantsApp: boolean; wantsLogin: boolean }) {
-  const { user, loading } = useAuth();
+  const { user, loading, recovering, endRecovery } = useAuth();
   const [guest, setGuest] = useState(() => readJSON(GUEST, false));
   const setGuestMode = (on: boolean) => {
     // Counted before the flag is written, because once it is set nothing is recorded at all.
@@ -197,6 +199,22 @@ function Root({ startGame, wantsApp, wantsLogin }: { startGame?: GameId; wantsAp
   // GuestFamily passes allowGuestImport={false}. Nothing is lost by preferring the account: GardenApp
   // offers the guest play on the way in. The cost is that a guest waits on the session check, a local read.
   if (loading) return <Splash />;
+  // A reset link signs the parent in; the visit is for choosing a new password, so that comes first.
+  if (user && recovering) {
+    return (
+      <NewPasswordScreen
+        email={user.email ?? ''}
+        onSave={async (password) => {
+          const { error } = await supabase.auth.updateUser({ password });
+          return error ? error.message : null;
+        }}
+        onDone={() => {
+          endRecovery();
+          window.location.hash = '/app';
+        }}
+      />
+    );
+  }
   if (user) return <CloudFamily key={user.id} userId={user.id} email={user.email ?? ''} startGame={startGame} />;
   // Asking for #/login is asking for the sign-in form, so it beats the flag too. While the flag swallowed
   // that route the form could not be reached at all: the only way back to it was "Sign in to save →" on

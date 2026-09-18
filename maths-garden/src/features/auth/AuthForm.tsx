@@ -15,6 +15,8 @@ export interface AuthFormProps {
   onSubmit: (email: string, password: string) => void;
   /** Offered when a confirmation link failed or the address is unconfirmed; sends a fresh link to the typed email. */
   onResend?: (email: string) => void;
+  /** Emails a password-reset link to the typed address. */
+  onForgot?: (email: string) => void;
   /** Omitted while the Google provider is disabled in Supabase; the button is hidden rather than shown broken. */
   onGoogle?: () => void;
   /** Set inside an app's built-in browser (LinkedIn, Instagram, Gmail…), where Google refuses to sign anyone in. */
@@ -90,6 +92,7 @@ export function AuthForm({
   onModeChange,
   onSubmit,
   onResend,
+  onForgot,
   onGoogle,
   inApp,
   onGuest,
@@ -102,6 +105,7 @@ export function AuthForm({
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [show, setShow] = useState(false);
+  const [needEmail, setNeedEmail] = useState(false);
   const [agreed, setAgreed] = useState(false);
   const padded = password !== password.trim();
   const submit = (e: FormEvent) => {
@@ -212,6 +216,17 @@ export function AuthForm({
               </span>
             </label>
           )}
+          {mode === 'sign-in' && onForgot && (
+            <button
+              type="button"
+              disabled={busy}
+              onClick={() => (email.trim() ? onForgot(email.trim()) : setNeedEmail(true))}
+              className="self-end text-sm font-semibold text-raspberry underline"
+            >
+              Forgot password?
+            </button>
+          )}
+          {needEmail && !email.trim() && <p className="text-sm font-medium text-clay">Type your email above, then tap “Forgot password?” again.</p>}
           {error && <p className="text-sm font-medium text-raspberry">{error}</p>}
           {onResend && (
             <Button
