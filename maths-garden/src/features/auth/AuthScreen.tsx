@@ -1,17 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { track } from '@/features/analytics/events';
-import { GOOGLE_SIGN_IN } from '@/app/config';
 import { guestProfiles } from '@/features/progress/guest';
 import { cloudConfigured, supabase } from '@/shared/supabase/client';
 import { TERMS_VERSION } from '@/features/legal/documents';
 import { AuthForm, type AuthMode } from './AuthForm';
 import { clearLinkProblem, takeLinkProblem } from './link-problem';
+import { googleEnabled } from './providers';
 
 export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
   const [mode, setMode] = useState<AuthMode>('sign-in');
   // Read once: it only changes by playing, which cannot happen from this screen.
   const [guests] = useState(() => guestProfiles());
   const [busy, setBusy] = useState(false);
+  const [google, setGoogle] = useState(false);
+  useEffect(() => {
+    let live = true;
+    void googleEnabled().then((on) => live && setGoogle(on));
+    return () => {
+      live = false;
+    };
+  }, []);
   // Arriving from a refused email link says why, and offers a fresh one, instead of a blank form.
   const [linkProblem] = useState(() => takeLinkProblem());
   const [error, setError] = useState<string | null>(linkProblem);
@@ -68,7 +76,7 @@ export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
   };
 
   // Supabase's Google provider; comes back to this app's base URL (nickholzherr.com/maths or the preview).
-  const google = async () => {
+  const continueWithGoogle = async () => {
     setBusy(true);
     setError(null);
     const { error: oauthError } = await supabase.auth.signInWithOAuth({
@@ -83,7 +91,7 @@ export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
 
   return (
     <AuthForm
-      onGoogle={GOOGLE_SIGN_IN ? google : undefined}
+      onGoogle={google ? () => void continueWithGoogle() : undefined}
       onGuest={onGuest}
       guestProfiles={guests}
       mode={mode}
