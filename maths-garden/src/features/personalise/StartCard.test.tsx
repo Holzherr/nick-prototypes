@@ -60,12 +60,12 @@ describe('starting play from the homepage', () => {
 
   it('starts play with a name, and needs no icon chosen first', () => {
     render(<StartCard />);
-    fireEvent.change(field(), { target: { value: 'Xanthe' } });
+    fireEvent.change(field(), { target: { value: 'Juniper' } });
     fireEvent.click(start());
 
     const children = readJSON<Child[]>(GUEST_CHILDREN, []);
     expect(children).toHaveLength(1);
-    expect(children[0].name).toBe('Xanthe');
+    expect(children[0].name).toBe('Juniper');
     expect(window.location.hash).toContain('/app');
   });
 });
