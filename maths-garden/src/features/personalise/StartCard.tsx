@@ -141,6 +141,16 @@ export function StartCard() {
           {t('home.haveAccount')}
         </a>
       </p>
+      <p className="mt-2 text-xs text-grape/55">
+        {t('legal.agreePlaying')}{' '}
+        <a href="#/terms" className="underline hover:text-raspberry">
+          {t('footer.terms')}
+        </a>{' '}
+        ·{' '}
+        <a href="#/privacy" className="underline hover:text-raspberry">
+          {t('footer.privacy')}
+        </a>
+      </p>
     </form>
   );
 }

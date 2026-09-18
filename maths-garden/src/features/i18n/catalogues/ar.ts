@@ -137,6 +137,10 @@ const AR: Partial<Catalogue> = {
   'footer.questions': 'أسئلة',
   'footer.madeBy': 'صنعه أب من أجل ابنته. يُشارَك كما هو، وهو ليس بديلًا عن معلّم أو مدرّس خصوصي أو مختص.',
   'footer.feedback': '💬 أخبرنا برأيك',
+  'footer.terms': 'الشروط والأحكام',
+  'footer.privacy': 'سياسة الخصوصية',
+  'legal.englishOnly': 'هذه الوثيقة باللغة الإنجليزية.',
+  'legal.agreePlaying': 'باللعب فإنك توافق على',
 
   // ── Games ───────────────────────────────────────────────────────────────
   'game.peek.name': 'نظرة سريعة',

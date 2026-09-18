@@ -129,6 +129,10 @@ const NL: Partial<Catalogue> = {
   'footer.questions': 'Vragen',
   'footer.madeBy': 'Gemaakt door een ouder voor zijn dochter. Gedeeld zoals het is, en geen vervanging voor een leerkracht, bijlesdocent of behandelaar.',
   'footer.feedback': '💬 Vertel ons wat je ervan vindt',
+  'footer.terms': 'Algemene voorwaarden',
+  'footer.privacy': 'Privacybeleid',
+  'legal.englishOnly': 'Dit document is in het Engels.',
+  'legal.agreePlaying': 'Door te spelen ga je akkoord met de',
 
   // ── Games ───────────────────────────────────────────────────────────────
   'game.peek.name': 'Snelle blik',

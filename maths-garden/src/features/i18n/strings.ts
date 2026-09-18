@@ -183,6 +183,10 @@ export const EN = {
   'footer.questions': 'Questions',
   'footer.madeBy': 'Made by a parent for his daughter. Shared as-is, and not a substitute for a teacher, tutor or clinician.',
   'footer.feedback': '💬 Tell us what you think',
+  'footer.terms': 'Terms and Conditions',
+  'footer.privacy': 'Privacy Policy',
+  'legal.englishOnly': 'This document is in English.',
+  'legal.agreePlaying': 'By playing you agree to the',
 
   // ── Games ─────────────────────────────────────────────────────────────────
   'game.peek.name': 'Quick Peek',

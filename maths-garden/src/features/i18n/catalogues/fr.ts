@@ -129,6 +129,10 @@ const FR: Partial<Catalogue> = {
   'footer.questions': 'Questions',
   'footer.madeBy': 'Fait par un parent pour sa fille. Partagé tel quel, et ne remplace ni un enseignant, ni un tuteur, ni un clinicien.',
   'footer.feedback': '💬 Dites-nous ce que vous en pensez',
+  'footer.terms': 'Conditions générales',
+  'footer.privacy': 'Politique de confidentialité',
+  'legal.englishOnly': 'Ce document est en anglais.',
+  'legal.agreePlaying': 'En jouant, vous acceptez les',
 
   // ── Games ───────────────────────────────────────────────────────────────
   'game.peek.name': 'Coup d’œil',

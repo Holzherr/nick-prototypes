@@ -129,6 +129,10 @@ const PT: Partial<Catalogue> = {
   'footer.questions': 'Perguntas',
   'footer.madeBy': 'Feito por um pai para a filha. Partilhado como está, e não substitui um professor, explicador ou clínico.',
   'footer.feedback': '💬 Diga-nos o que acha',
+  'footer.terms': 'Termos e condições',
+  'footer.privacy': 'Política de privacidade',
+  'legal.englishOnly': 'Este documento está em inglês.',
+  'legal.agreePlaying': 'Ao jogar, aceita os',
 
   // ── Games ───────────────────────────────────────────────────────────────
   'game.peek.name': 'Espreitadela',
