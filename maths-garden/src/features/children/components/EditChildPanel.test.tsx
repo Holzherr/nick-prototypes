@@ -4,7 +4,7 @@ import { readTheme } from '@/features/personalise/player';
 import type { Child } from '../model';
 import { EditChildPanel } from './EditChildPanel';
 
-const child: Child = { id: 'c1', name: 'Xanthe', birthdate: null, avatar: '🌸' };
+const child: Child = { id: 'c1', name: 'Juniper', birthdate: null, avatar: '🌸' };
 
 const save = () => screen.getByRole('button', { name: /save changes/i });
 const nameField = () => screen.getByRole('textbox', { name: /name/i });
