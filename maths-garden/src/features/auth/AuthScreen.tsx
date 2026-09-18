@@ -59,7 +59,7 @@ export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
       busy={busy}
       error={error}
       notice={notice}
-      unavailable={cloudConfigured ? null : 'Not connected to Supabase yet (src/app/config.ts is blank).'}
+      unavailable={cloudConfigured ? null : 'Not connected to Supabase yet (set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env.local).'}
     />
   );
 }

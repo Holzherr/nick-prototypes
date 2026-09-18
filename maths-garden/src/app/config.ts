@@ -1,7 +1,7 @@
-// Public Supabase config for the maths-garden project (gzdfoptvdocauvgxltjk, own account
-// nickholzherr+maths@gmail.com). The publishable key is safe to ship; row-level security does the gating.
-export const SUPABASE_URL = 'https://gzdfoptvdocauvgxltjk.supabase.co';
-export const SUPABASE_ANON_KEY = 'sb_publishable_b7V7vEv3xUtEZf3uFPrQAg_BX1uAqCH';
+// Supabase config comes from the environment (.env.local, or the publish workflow's repo variables), so a
+// checkout never points at someone else's database. Left blank, the app runs without accounts or cloud sync.
+export const SUPABASE_URL: string = import.meta.env.VITE_SUPABASE_URL ?? '';
+export const SUPABASE_ANON_KEY: string = import.meta.env.VITE_SUPABASE_ANON_KEY ?? '';
 
 /**
  * "Continue with Google" needs a Google Cloud OAuth client (id + secret) pasted into the Supabase

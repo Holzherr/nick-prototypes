@@ -196,6 +196,8 @@ tools/                    icon-square.svg + render-icons.sh (PNG icons via headl
 ## Working on it
 
 ```
+cp .env.example .env.local   # optional: your own Supabase project; blank runs without accounts
+npm install
 npm run storybook        # component workbench on :6008
 npm run dev              # the app on :5173/nick-prototypes/maths-garden/
 npm test
@@ -208,7 +210,9 @@ describes the visual layout. `Screens/Garden (playable)` runs the whole child ap
 
 ## Backend
 
-Supabase project `gzdfoptvdocauvgxltjk` (eu-west-1) on its own Supabase account, set up 11 Sep 2026.
+A Supabase project of its own. The app reads its address and publishable key from `VITE_SUPABASE_URL` and
+`VITE_SUPABASE_ANON_KEY` (`.env.local` locally; `MATHS_SUPABASE_URL`/`MATHS_SUPABASE_ANON_KEY` repo variables in
+the publish workflows). Without them it runs guest-only. To stand up your own: apply `supabase/migrations/` in order.
 Tables: `children`, `maths_rounds`, `maths_levels`, `maths_level_events`, `maths_checkins`,
 `maths_stickers`, `maths_events`; RLS gives a parent their own children and those children's rows only.
 Schema changes: add a migration, apply it through the session pooler (the direct database host is
@@ -268,18 +272,17 @@ unconfirmed because the dashboard's function settings page would not render — 
 render, a blank page, and a list stuck on skeletons.
 
 ```
-npx supabase functions deploy send-report --project-ref gzdfoptvdocauvgxltjk
-npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboarding@resend.dev>'
+npx supabase functions deploy send-report --project-ref <project-ref>
+npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboarding@resend.dev>' \
+  REPORT_ORIGINS='https://nickholzherr.com,http://localhost:5173'
 ```
 
 ## Next
 
-- **Harden `send-report` BEFORE setting `RESEND_API_KEY`.** `enable_confirmations = false`, so anyone can
-  sign up as any address and get a session; the function then takes `subject`/`html` verbatim from the
-  request body and hands them to Resend, delivered "From: Maths Garden". That is a free phishing relay on
-  the project's Resend account, and it is harmless today only because the missing key makes the function
-  501. Fix first: reject when `email_confirmed_at` is null, build the body server-side from report data
-  rather than trusting client HTML, cap the payload length, and scope CORS off `*`.
+- **Redeploy `send-report` before setting `RESEND_API_KEY`.** The code in this repo is hardened (confirmed
+  address only, payload caps, CORS limited to `REPORT_ORIGINS`, mail-service errors logged not echoed); the
+  deployed copy predates that. Still open: a per-user send limit, and building the HTML server-side instead
+  of taking it from the client — today the HTML can only reach the sender's own confirmed inbox.
 - Then set `RESEND_API_KEY` so stage-up emails go out. If the first send fails 401, turn off "Verify JWT
   with legacy secret" on the function (see **Report email** above).
 - More sheets per stage (cut-and-stick, dot-to-dot, ten-frame bonds): provider research and work plan in
