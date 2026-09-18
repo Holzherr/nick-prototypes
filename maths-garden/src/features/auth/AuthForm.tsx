@@ -17,6 +17,8 @@ export interface AuthFormProps {
   onResend?: (email: string) => void;
   /** Omitted while the Google provider is disabled in Supabase; the button is hidden rather than shown broken. */
   onGoogle?: () => void;
+  /** Set inside an app's built-in browser (LinkedIn, Instagram, Gmail…), where Google refuses to sign anyone in. */
+  inApp?: string | null;
   /** Play without an account; progress stays on the device. */
   onGuest: () => void;
   /** Guest play already on this device, so the card can say where it is instead of looking like it is gone. */
@@ -45,6 +47,34 @@ const GoogleMark = () => (
 );
 
 /**
+ * Stands in for the Google button inside an app's own browser. Google answers sign-ins from there with
+ * "Error 403: disallowed_useragent", so the honest offer is the way out to Safari — or email, just below.
+ */
+function OpenInBrowser({ app }: { app: string }) {
+  const [copied, setCopied] = useState(false);
+  const where = app === 'an app' ? 'this app’s built-in browser' : `${app}’s built-in browser`;
+  return (
+    <div className="mt-6 rounded-[20px] bg-sunny/25 p-4 text-sm text-grape/85">
+      <p>
+        <b>Google sign-in doesn’t work inside {where}.</b> Tap <b>•••</b> or the share button and choose <b>Open in Safari</b> (or <b>Open in browser</b>) — or
+        use your email below.
+      </p>
+      <Button
+        type="button"
+        variant="quiet"
+        size="sm"
+        className="mt-3"
+        onClick={() => {
+          void navigator.clipboard?.writeText(window.location.href).then(() => setCopied(true));
+        }}
+      >
+        {copied ? '✓ Link copied — paste it into Safari' : '🔗 Copy link to open in Safari'}
+      </Button>
+    </div>
+  );
+}
+
+/**
  * Centred cream card: logo, "Grown-ups sign in here", Continue with Google, then email + password with a pink
  * submit, a sign-in/create-account toggle, and a link to the free printables.
  *
@@ -61,6 +91,7 @@ export function AuthForm({
   onSubmit,
   onResend,
   onGoogle,
+  inApp,
   onGuest,
   guestProfiles = [],
   busy = false,
@@ -87,7 +118,8 @@ export function AuthForm({
           <Logo size={52} />
         </div>
         <p className="mt-3 text-center text-grape/70">Grown-ups sign in here. Your child plays without needing to, and this device stays signed in.</p>
-        {onGoogle && (
+        {onGoogle && inApp && <OpenInBrowser app={inApp} />}
+        {onGoogle && !inApp && (
           <>
             <Button variant="quiet" size="md" className="mt-6 w-full" onClick={onGoogle} disabled={busy || Boolean(unavailable)}>
               <GoogleMark />

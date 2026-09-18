@@ -5,6 +5,7 @@ import { cloudConfigured, supabase } from '@/shared/supabase/client';
 import { TERMS_VERSION } from '@/features/legal/documents';
 import { AuthForm, type AuthMode } from './AuthForm';
 import { clearLinkProblem, takeLinkProblem } from './link-problem';
+import { inAppBrowser } from './in-app-browser';
 import { googleEnabled } from './providers';
 
 export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
@@ -92,6 +93,7 @@ export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
   return (
     <AuthForm
       onGoogle={google ? () => void continueWithGoogle() : undefined}
+      inApp={inAppBrowser()}
       onGuest={onGuest}
       guestProfiles={guests}
       mode={mode}

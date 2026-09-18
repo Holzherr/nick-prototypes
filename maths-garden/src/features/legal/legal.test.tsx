@@ -47,3 +47,12 @@ describe('a confirmation link that failed', () => {
     expect(onResend).toHaveBeenCalledWith('parent@example.com');
   });
 });
+
+describe('Google sign-in inside an app’s browser', () => {
+  it('offers the way out to Safari instead of a button Google will refuse', () => {
+    render(<AuthForm mode="sign-in" onModeChange={() => {}} onSubmit={() => {}} onGoogle={() => {}} inApp="LinkedIn" onGuest={() => {}} />);
+    expect(screen.queryByRole('button', { name: /Continue with Google/ })).toBeNull();
+    expect(screen.getByText(/doesn’t work inside LinkedIn’s built-in browser/)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Email')).toBeInTheDocument();
+  });
+});
