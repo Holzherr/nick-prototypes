@@ -13,6 +13,7 @@ import '@fontsource/fredoka/latin-ext-400.css';
 import '@fontsource/fredoka/latin-ext-500.css';
 import '@fontsource/fredoka/latin-ext-600.css';
 import '@fontsource/fredoka/latin-ext-700.css';
+import { captureLinkProblem } from './features/auth/link-problem';
 import { bootLocale } from './features/i18n/i18n';
 import { bootTheme } from './features/personalise/player';
 import App from './app/App';
@@ -23,6 +24,8 @@ import './styles/tailwind.css';
 // render, so the page never flashes the default of either.
 bootTheme();
 bootLocale();
+// Before the first render, so the router sees #/login rather than a hash full of error codes.
+captureLinkProblem();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
