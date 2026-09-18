@@ -4,7 +4,7 @@ Shared watchlist + recommendations: track titles as watched / watching / want to
 rate them, follow people, connect with a partner for joint picks, and let "Watch Tonight" choose
 three from a mood. Built in Lovable (Mar–Apr 2026, exported to
 [Holzherr/joint-watch-joy](https://github.com/Holzherr/joint-watch-joy)), moved into this
-structure on 9 Sep 2026. Conventions mirror `../workout-hub-next` (and GitLaw's front-law repo).
+structure on 9 Sep 2026. Conventions mirror [TigerWorkouts](https://github.com/Holzherr/tigerworkouts) (and GitLaw's front-law repo).
 
 - **Live:** https://qeued.com (built by the workflow in Holzherr/qeued from this folder)
 - **Preview:** https://holzherr.github.io/nick-prototypes/qeued-next/
