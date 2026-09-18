@@ -4,7 +4,7 @@ Early-maths games for four-year-olds, plus free printables that feed them. Paper
 home; the games on an iPad or phone check it, score every round and move the child up a level, which
 unlocks the next stage's printables. Built for Tara (4). Started as a single HTML file from a claude.ai
 chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirror `../qeued-next` and
-`../workout-hub-next` (and GitLaw's front-law repo).
+[TigerWorkouts](https://github.com/Holzherr/tigerworkouts) (and GitLaw's front-law repo).
 
 - **Live:** https://nickholzherr.com/maths/ (published by `.github/workflows/maths.yml` in Holzherr/nickholzherr.com;
   run `gh workflow run maths.yml -R Holzherr/nickholzherr.com` after merging here)
