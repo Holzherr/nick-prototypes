@@ -14,6 +14,7 @@ import '@fontsource/fredoka/latin-ext-500.css';
 import '@fontsource/fredoka/latin-ext-600.css';
 import '@fontsource/fredoka/latin-ext-700.css';
 import { captureLinkProblem } from './features/auth/link-problem';
+import { captureRecovery } from './features/auth/recovery';
 import { bootLocale } from './features/i18n/i18n';
 import { bootTheme } from './features/personalise/player';
 import App from './app/App';
@@ -26,10 +27,11 @@ bootTheme();
 bootLocale();
 // Before the first render, so the router sees #/login rather than a hash full of error codes.
 captureLinkProblem();
+captureRecovery();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
     <UpdatePrompt />
-  </StrictMode>
+  </StrictMode>,
 );
