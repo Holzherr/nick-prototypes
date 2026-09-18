@@ -5,7 +5,7 @@ import { guestProfiles } from '@/features/progress/guest';
 import { cloudConfigured, supabase } from '@/shared/supabase/client';
 import { TERMS_VERSION } from '@/features/legal/documents';
 import { AuthForm, type AuthMode } from './AuthForm';
-import { takeLinkProblem } from './link-problem';
+import { clearLinkProblem, takeLinkProblem } from './link-problem';
 
 export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
   const [mode, setMode] = useState<AuthMode>('sign-in');
@@ -27,6 +27,7 @@ export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
     setBusy(false);
     if (resendError) return setError(resendError.message);
     setOfferResend(false);
+    clearLinkProblem();
     setNotice(`A fresh link is on its way to ${email}. Tap it once — on an iPhone, open it in Safari if the mail app asks.`);
   };
 
@@ -61,6 +62,7 @@ export default function AuthScreen({ onGuest }: { onGuest: () => void }) {
     // Counted from the form only. Doing it from the auth state change would count every session restore
     // as a sign-in, which would make the number meaningless. Google sign-in returns via a redirect and so
     // is not counted here — the visit that follows it still is.
+    clearLinkProblem();
     track(mode === 'sign-in' ? 'sign_in' : 'signup');
     if (mode === 'sign-up' && !data.session) setNotice('Check your email to confirm the account, then sign in.');
   };
