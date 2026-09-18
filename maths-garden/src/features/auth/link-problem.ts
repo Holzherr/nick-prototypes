@@ -41,9 +41,8 @@ export function captureLinkProblem(win: Pick<Window, 'location' | 'history'> = w
 
 /** The message for this page load; null when the visit did not come from a refused link. */
 export function takeLinkProblem(): string | null {
-  const stored = session()?.getItem(KEY) ?? null;
-  session()?.removeItem(KEY);
-  pending ??= stored;
+  // Left in storage: the page may yet reload under it. It goes when the visitor acts (clearLinkProblem).
+  pending ??= session()?.getItem(KEY) ?? null;
   return pending;
 }
 
