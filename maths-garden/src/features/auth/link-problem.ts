@@ -32,8 +32,7 @@ export function captureLinkProblem(win: Pick<Window, 'location' | 'history'> = w
   const params = new URLSearchParams(raw);
   const code = params.get('error_code') ?? params.get('error') ?? '';
   const detail = params.get('error_description');
-  pending =
-    MESSAGES[code] ?? `That sign-in didn’t work${detail ? ` (${detail})` : ''}. Sign in below, or type your email and send a fresh confirmation link.`;
+  pending = MESSAGES[code] ?? `That sign-in didn’t work${detail ? ` (${detail})` : ''}. Sign in below, or type your email and send a fresh confirmation link.`;
   session()?.setItem(KEY, pending);
   win.history.replaceState(null, '', `${win.location.pathname}${win.location.search}#/login`);
   return pending;
