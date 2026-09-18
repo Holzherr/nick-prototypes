@@ -35,3 +35,15 @@ describe('creating an account', () => {
     expect(screen.queryByRole('checkbox')).toBeNull();
   });
 });
+
+describe('a confirmation link that failed', () => {
+  it('sends a fresh link to the typed address', () => {
+    const onResend = vi.fn();
+    render(<AuthForm mode="sign-in" onModeChange={() => {}} onSubmit={() => {}} onResend={onResend} onGuest={() => {}} />);
+    const send = screen.getByRole('button', { name: /fresh confirmation link/ });
+    expect(send).toBeDisabled();
+    fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: ' parent@example.com ' } });
+    fireEvent.click(send);
+    expect(onResend).toHaveBeenCalledWith('parent@example.com');
+  });
+});
