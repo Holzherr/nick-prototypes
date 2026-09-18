@@ -26,15 +26,15 @@ export const TERMS: LegalDocument = {
       "heading": "2. About the Service",
       "paragraphs": [
         "The Game provides progressive-difficulty maths quizzes and related learning activities for children. It is designed to support practice and exploration of maths skills.",
-        "A parent or legal guardian (a “Parent”) creates and controls the account. A child may use the Game only through that Parent’s account and under the Parent’s supervision."
+        "The Game can be played as a Guest without creating an account. A parent or legal guardian (a “Parent”) may create and control a Parent account. Account features require Parent sign-in."
       ]
     },
     {
       "heading": "3. Eligibility and parental responsibility",
       "paragraphs": [
-        "You must be a Parent with authority to accept these Terms for yourself and for any child you permit to use the Service. Children must not create an account in their own name.",
-        "Parents are responsible for the child’s use of the Service, for supervising that use, and for ensuring that account information is accurate and kept secure.",
-        "Where a child is under 13, or below the applicable age of digital consent in the country where the child lives (which may be up to 16), the child must use the Service through a Parent’s account. We do not knowingly contract directly with children."
+        "To create a Parent account, you must be a Parent with authority to accept these Terms for yourself and for any child you permit to use that account. Children must not create a Parent account in their own name.",
+        "Where a Parent account is used, the Parent is responsible for the child’s use of the Service through that account, for supervising that use, and for ensuring that account information is accurate and kept secure.",
+        "Guest play is available without an account. We encourage Parents to supervise young children’s use of the Service, including when they play as Guests. We do not knowingly create accounts for children in their own name."
       ]
     },
     {
@@ -56,7 +56,7 @@ export const TERMS: LegalDocument = {
     {
       "heading": "6. Licence and intellectual property",
       "paragraphs": [
-        "Subject to these Terms, Nick Holzherr grants the Parent and the child using the Parent account a limited, personal, non-exclusive, non-transferable, revocable licence to access and use the Service for non-commercial educational purposes.",
+        "Subject to these Terms, Nick Holzherr grants users of the Service a limited, personal, non-exclusive, non-transferable, revocable licence to access and use the Service for non-commercial educational purposes.",
         "All intellectual-property rights in the Service, including its quizzes, software, design, content, and branding, are owned by or licensed to Nick Holzherr. Except for the licence above and rights that cannot lawfully be restricted, no rights are granted to you."
       ]
     },
@@ -64,6 +64,7 @@ export const TERMS: LegalDocument = {
       "heading": "7. Limited profile content",
       "paragraphs": [
         "The limited information a Parent or child enters into a profile, such as a first name or favourite emoji, remains the responsibility of the Parent. You grant us a non-exclusive, worldwide, royalty-free licence to use that information only as needed to provide, secure, support, and improve the Service in accordance with these Terms and the Privacy Policy.",
+        "If you submit feedback through the Service, it may include a message and optional contact details. You grant us a non-exclusive, worldwide, royalty-free licence to use that feedback to improve the Service. We have no obligation to respond. You must not submit feedback that is unlawful, infringing, or inappropriate.",
         "Please do not enter unnecessary sensitive personal information or content that is unlawful, infringing, or inappropriate for a children’s service."
       ]
     },
@@ -110,7 +111,7 @@ export const TERMS: LegalDocument = {
     {
       "heading": "14. Suspension and termination",
       "paragraphs": [
-        "You may stop using the Service at any time. We may suspend or terminate access where reasonably necessary for the reasons described in these Terms, including a material breach, protection of children or other users, security, legal compliance, or discontinuance of the Service.",
+        "You may stop using the Service at any time. To request closure and deletion of a Parent account, please email us at nick@nickholzherr.com. We will close and delete the Parent account on request and handle any personal data in accordance with the Privacy Policy and applicable law. We may suspend or terminate access where reasonably necessary for the reasons described in these Terms, including a material breach, protection of children or other users, security, legal compliance, or discontinuance of the Service.",
         "On termination, the licence to use the Service ends. We will handle personal data in accordance with the Privacy Policy and applicable law."
       ]
     },
@@ -118,7 +119,7 @@ export const TERMS: LegalDocument = {
       "heading": "15. Changes to these Terms",
       "paragraphs": [
         "We may change these Terms to reflect changes in law, security, technology, or the Service. For material changes, we will give at least 30 days’ notice by a prominent notice in the Service or by email where we have your email address.",
-        "If you do not agree with a material change, you may stop using the Service and close your account before the change takes effect. Continued use after the effective date means you accept the updated Terms to the extent permitted by law."
+        "If you do not agree with a material change, you may stop using the Service and request closure of your account as described in Section 14 before the change takes effect. Continued use after the effective date means you accept the updated Terms to the extent permitted by law."
       ]
     },
     {
@@ -158,14 +159,14 @@ export const PRIVACY: LegalDocument = {
   "updated": "18 September 2026",
   "intro": [
     "Nick Holzherr, an individual based in the United Kingdom, is the controller of the personal data described in this Privacy Policy. In this policy, “we”, “us” and “our” mean Nick Holzherr.",
-    "This policy explains how we use personal data in our educational maths quiz game for children. A parent or other person with parental responsibility creates and controls the account; the child uses the game through that account.",
+    "This policy explains how we use personal data in our educational maths quiz game for children. Anyone can play as a Guest without an account. A parent or other person with parental responsibility may create and control an account, and a child may use the game through that account.",
     "Contact us about this policy or a privacy request at nick@nickholzherr.com or 63 Wellington Road, Birmingham, B15 2ET, UK."
   ],
   "sections": [
     {
       "heading": "At a glance",
       "paragraphs": [
-        "We design the game with children’s best interests as a primary consideration. We collect only the information we need to run the game, help a child learn maths and let the parent see learning progress.",
+        "We design the game with children’s best interests as a primary consideration. We collect only the information we need to run the game, help a child learn maths and, where a parent account is used, let the parent see learning progress.",
         "We do not show advertising, sell personal data, or share personal data with third parties for their marketing or unrelated commercial purposes. We do not use children’s data for commercial exploitation or profile children for that purpose."
       ]
     },
@@ -173,15 +174,17 @@ export const PRIVACY: LegalDocument = {
       "heading": "Information we collect",
       "paragraphs": [
         "Parent account information. We collect the email address or other sign-in identifier a parent provides, and the account sign-in credentials needed to create, secure and operate the parent account. We do not ask for phone numbers or payment-card details as part of the standard free game.",
-        "Child learning information. Under the parent account, we collect the child’s first name, favourite emoji, and progress and performance information. This can include the time taken to complete challenges, areas of strength and weakness, and suggested next maths activities.",
-        "Technical and security information. We collect limited technical information that is necessary to deliver and protect the game, such as IP address, device and browser information, and security or error logs."
+        "Child learning information. Under the parent account, a child profile may include the child’s first name, favourite emoji, optional birthday, and progress and performance information. This can include the time taken to complete challenges, areas of strength and weakness, and suggested next maths activities.",
+        "Technical and security information. We collect limited technical information that is necessary to deliver and protect the game, such as IP address, device and browser information, security or error logs, and the visit-counting information described below.",
+        "Feedback information. We collect a feedback message and, if the person chooses to provide it, an optional contact address. Feedback may relate to a parent or any other user, including a Guest player.",
+        "Visit counting. To count visits, we use a random identifier for each browser tab. This identifier is not a cookie and is not used for advertising."
       ]
     },
     {
       "heading": "How and why we use information",
       "paragraphs": [
-        "We use parent account information and child learning information to provide the game, personalise the learning path, suggest appropriate next maths activities, and let the parent view the child’s progress. Our usual legal basis is that this is necessary to provide the service requested by the parent through the account.",
-        "We use limited technical and security information to operate, secure and troubleshoot the service. We rely on our legitimate interests in keeping the service safe and reliable, while taking particular care to protect children’s privacy and rights.",
+        "We use parent account information and child learning information to provide the game, personalise the learning path, suggest appropriate next maths activities, and let the parent view the child’s progress. In Guest mode, we use limited technical and visit-counting information to operate, secure and understand use of the game. Our usual legal basis is that this is necessary to provide the service requested through an account or, for Guest mode, our legitimate interests in operating the game while taking particular care to protect children’s privacy and rights.",
+        "We use limited technical and security information to operate, secure and troubleshoot the service. We use feedback messages and any optional contact address to respond where contact details are provided and to improve the service. We rely on our legitimate interests in keeping the service safe, reliable and useful, while taking particular care to protect children’s privacy and rights.",
         "We may use aggregated or anonymised information to understand how the game works and improve it. Where possible, we remove or aggregate identifying information before doing this. We rely on carefully balanced legitimate interests for this limited improvement work.",
         "Where UK data protection law requires consent for a child’s data or a particular use of technology, we seek it from the parent or person with parental responsibility. A parent may withdraw consent, but this may affect features that depend on it."
       ]
@@ -201,21 +204,22 @@ export const PRIVACY: LegalDocument = {
     {
       "heading": "Service providers and international processing",
       "paragraphs": [
-        "We may use strictly necessary processors, such as hosting or analytics infrastructure providers, to run and secure the game. Current named service providers, if any: Supabase, GitHub.",
-        "The game is available globally. Personal data may be processed in the United Kingdom and, if our service providers process it elsewhere, outside the United Kingdom. Relevant processing locations, if any: United Kingdom.",
-        "When personal data is transferred outside the United Kingdom, we use safeguards required by applicable law, such as an adequacy decision or the UK International Data Transfer Agreement or Addendum, as appropriate. You can contact us for further information about the safeguards that apply."
+        "We use necessary service providers to run and secure the game. Current named service providers: Supabase (database and hosting), Cloudflare (security and content delivery).",
+        "Nick Holzherr operates the Service from the United Kingdom. Personal data may be processed in the following locations, as applicable: United Kingdom (operator), Ireland (Supabase eu-west-1), and Cloudflare's global edge network, as applicable.",
+        "Transfers from the United Kingdom to Ireland, which is in the EEA, are covered by UK adequacy regulations. If personal data is transferred to another location, we use safeguards required by applicable law, such as an adequacy decision or the UK International Data Transfer Agreement or Addendum, as appropriate. You can contact us for further information about the safeguards that apply."
       ]
     },
     {
       "heading": "Cookies and similar technology",
       "paragraphs": [
-        "We use only the cookies or similar technologies needed to run, secure and remember choices in the game unless we ask for consent for another use. We do not use advertising cookies. If we use non-essential analytics technology, we will explain the choice available to you and obtain consent or offer an opt-out where the law requires or permits that approach."
+        "We use only the cookies or similar technologies needed to run, secure and remember choices in the game unless we ask for consent for another use. The random identifier used for visit counting is not a cookie. We do not use advertising cookies or use the visit-counting identifier for advertising."
       ]
     },
     {
       "heading": "How long we keep information",
       "paragraphs": [
-        "We keep parent account information and child learning information for the life of the account and for 0 days after the account is closed, unless we need to keep it longer to meet a legal obligation, resolve a dispute or protect the service. We then delete or anonymise it.",
+        "We keep parent account information and child learning information for the life of the account. To request deletion, email us using the contact details below. After a verified deletion request, we will delete or anonymise that information without undue delay and normally within one month following a verified deletion request. There is no in-app self-service deletion control. We may keep information longer where needed to meet a legal obligation, resolve a dispute or protect the service.",
+        "For Guest players, we keep limited technical and security information and visit-counting identifiers only briefly, for as long as reasonably necessary to operate, secure and count visits to the game. We keep feedback messages and any optional contact address only for as long as reasonably necessary to respond, where contact details are provided, and improve the service.",
         "We may keep genuinely anonymised, aggregated information for longer because it can no longer identify a parent or child."
       ]
     },
@@ -237,7 +241,7 @@ export const PRIVACY: LegalDocument = {
       "heading": "Your rights and how to complain",
       "paragraphs": [
         "Under the UK GDPR and the Data Protection Act 2018, you may have rights to access, correct, erase, restrict, receive a portable copy of, or object to the use of your personal data. You may also withdraw consent where we rely on consent. A parent or person with parental responsibility may exercise these rights for their child’s learning data by contacting us using the details above.",
-        "Please contact us first if you have a privacy concern or complaint, so that we can investigate and respond. You also have the right to complain to the Information Commissioner’s Office (ICO), the UK data protection regulator, at www.ico.org.uk/make-a-complaint. If you use the game outside the United Kingdom, local law may give you additional rights."
+        "Please contact us first if you have a privacy concern or complaint, so that we can investigate and respond. We will acknowledge your complaint within 30 days and notify you of its outcome. You also have the right to complain to the Information Commissioner’s Office (ICO), the UK data protection regulator, at www.ico.org.uk/make-a-complaint. If you use the game outside the United Kingdom, local law may give you additional rights."
       ]
     },
     {
