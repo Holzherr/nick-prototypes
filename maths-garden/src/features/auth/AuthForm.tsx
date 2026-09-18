@@ -93,6 +93,16 @@ export function AuthForm({
               <GoogleMark />
               Continue with Google
             </Button>
+            {mode === 'sign-up' && (
+              // Google sign-up skips the form below and its box, so the agreement is stated where the button is.
+              <p className="mt-2 text-center text-xs text-grape/60">
+                By continuing with Google you confirm you’re the child’s parent or guardian and agree to the{' '}
+                <a href="#/terms" target="_blank" rel="noopener" className="underline">
+                  Terms and Conditions
+                </a>
+                .
+              </p>
+            )}
             <div className="mt-5 flex items-center gap-3 text-xs uppercase text-grape/50">
               <span className="h-0.5 flex-1 bg-petal" />
               or
