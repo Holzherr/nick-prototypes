@@ -42,19 +42,14 @@ jobs:
         with:
           node-version: '24'
           cache: npm
-          cache-dependency-path: workout-hub-next/package-lock.json
+          cache-dependency-path: |
+            qeued-next/package-lock.json
+            maths-garden/package-lock.json
 
-      # workout-hub-next is a Vite + Storybook project; it builds into workout-hub-next/dist
-      # (app at /, Storybook at /storybook/). Everything else on the site is static.
-      - name: Build workout-hub-next
-        working-directory: workout-hub-next
-        run: |
-          npm ci
-          npm test
-          npm run build
-          npm run build-storybook
+      # TigerWorkouts moved to Holzherr/tigerworkouts on 18 Sep 2026. workout-hub/ and
+      # workout-hub-next/ are now static redirects, copied with everything else.
 
-      # qeued-next is the same shape (Vite + Storybook, base /nick-prototypes/qeued-next/).
+      # qeued-next is a Vite + Storybook project (base /nick-prototypes/qeued-next/).
       - name: Build qeued-next
         working-directory: qeued-next
         run: |
@@ -82,8 +77,7 @@ jobs:
       - name: Assemble site
         run: |
           mkdir _site
-          rsync -a --exclude .git --exclude _site --exclude node_modules --exclude workout-hub-next --exclude qeued-next --exclude maths-garden ./ _site/
-          cp -r workout-hub-next/dist _site/workout-hub-next
+          rsync -a --exclude .git --exclude _site --exclude node_modules --exclude qeued-next --exclude maths-garden ./ _site/
           cp -r qeued-next/dist _site/qeued-next
           cp -r maths-garden/dist _site/maths-garden
 
