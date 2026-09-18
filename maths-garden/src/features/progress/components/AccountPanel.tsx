@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { deleteAccount } from '@/features/auth/delete-account';
 import { Button } from '@/shared/components/ui/button';
 import { cn } from '@/shared/utils/cn';
 
@@ -9,6 +11,8 @@ export interface AccountPanelProps {
   onSwitchChild: () => void;
   /** Sign out, or — as a guest — go and sign in. */
   onSignOut: () => void;
+  /** Deletes the account; resolves to an error message, or null once it is gone. Replaced in stories and tests. */
+  onDeleteAccount?: () => Promise<string | null>;
 }
 
 /**
@@ -21,8 +25,19 @@ export interface AccountPanelProps {
  * signed in, and as whom?" without reading a paragraph. Now the state is a full-width bar and the account
  * name is the largest thing in the panel, so the answer arrives before anything else on the page.
  */
-export function AccountPanel({ email, pending, onSwitchChild, onSignOut }: AccountPanelProps) {
+export function AccountPanel({ email, pending, onSwitchChild, onSignOut, onDeleteAccount = deleteAccount }: AccountPanelProps) {
   const signedIn = Boolean(email);
+  const [confirming, setConfirming] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const remove = async () => {
+    setDeleting(true);
+    setError(null);
+    const failed = await onDeleteAccount();
+    setDeleting(false);
+    if (failed) return setError(failed);
+    window.location.hash = '#/home';
+  };
   return (
     <section className={cn('mt-6 overflow-hidden rounded-[28px]', signedIn ? 'bg-leaf/10' : 'bg-sunny/25')}>
       <p className={cn('px-5 py-2 text-sm font-bold tracking-wide', signedIn ? 'bg-leaf text-white' : 'bg-sunny text-grape')}>
@@ -60,6 +75,31 @@ export function AccountPanel({ email, pending, onSwitchChild, onSignOut }: Accou
           )}
         </div>
       </div>
+      {signedIn && (
+        <div className="border-t-2 border-dashed border-leaf/20 px-5 py-3">
+          {!confirming ? (
+            <button type="button" onClick={() => setConfirming(true)} className="text-sm text-grape/55 underline hover:text-clay">
+              Delete account
+            </button>
+          ) : (
+            <div role="alertdialog" aria-labelledby="delete-account-title" className="flex flex-col gap-3">
+              <p id="delete-account-title" className="text-sm font-semibold text-clay">
+                Delete {email} for good? This removes every child profile on it and all their rounds, levels and stickers. It can’t be undone.
+              </p>
+              {pending > 0 && <p className="text-sm text-grape/80">{pending} change{pending === 1 ? '' : 's'} not yet uploaded will be lost too.</p>}
+              <div className="flex flex-wrap gap-2">
+                <Button size="sm" className="bg-clay hover:bg-clay/90" disabled={deleting} onClick={() => void remove()}>
+                  {deleting ? 'Deleting…' : 'Yes, delete everything'}
+                </Button>
+                <Button variant="quiet" size="sm" disabled={deleting} onClick={() => setConfirming(false)}>
+                  Keep my account
+                </Button>
+              </div>
+              {error && <p className="text-sm font-medium text-clay">{error}</p>}
+            </div>
+          )}
+        </div>
+      )}
     </section>
   );
 }
