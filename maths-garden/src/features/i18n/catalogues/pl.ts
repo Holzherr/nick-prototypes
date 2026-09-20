@@ -9,7 +9,6 @@ const PL: Partial<Catalogue> = {
   'home.titleSuffix': '',
   'home.pickIcon': 'Wybierz swoją ikonę — zmienia też kolory',
   'home.changeIcon': 'Zmień ikonę',
-  'home.tapToChange': 'Dotknij, aby zmienić ↑',
   'home.start': 'Zacznij grać →',
   'home.needName': 'Najpierw wpisz imię — pojawia się też na kartach do druku.',
   'home.noAccount': 'Bez konta, bez e-maila. Wszystko zostaje na tym urządzeniu — później możesz zapisać to na koncie.',
@@ -32,6 +31,7 @@ const PL: Partial<Catalogue> = {
   'nav.guides': 'Poradniki',
   'nav.faq': 'Pytania',
   'nav.signIn': 'Zaloguj się',
+  'nav.menu': 'Menu',
   'nav.allPrintables': 'Wszystkie karty →',
   'nav.home': 'Strona główna Maths Garden',
 

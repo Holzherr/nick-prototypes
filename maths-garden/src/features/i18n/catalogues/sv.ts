@@ -8,7 +8,6 @@ const SV: Partial<Catalogue> = {
   'home.titleSuffix': 's matteträdgård',
   'home.pickIcon': 'Välj din ikon — den ändrar färgerna också',
   'home.changeIcon': 'Byt ikon',
-  'home.tapToChange': 'Tryck för att byta ↑',
   'home.start': 'Börja spela →',
   'home.needName': 'Skriv ett namn först — det hamnar även på utskrifterna.',
   'home.noAccount': 'Inget konto, ingen e-post. Allt stannar på den här enheten — du kan spara det på ett konto senare.',
@@ -29,6 +28,7 @@ const SV: Partial<Catalogue> = {
   'nav.guides': 'Guider',
   'nav.faq': 'Frågor',
   'nav.signIn': 'Logga in',
+  'nav.menu': 'Meny',
   'nav.allPrintables': 'Alla utskrifter →',
   'nav.home': 'Maths Garden startsida',
 
