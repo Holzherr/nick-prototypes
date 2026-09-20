@@ -1,6 +1,6 @@
 import { createElement } from 'react';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { rankTonight, type TonightEntry } from './fastTonight';
 import { CACHE_KEY } from './slateCache';
 import TonightScreen, { type TonightResult } from './TonightScreen';
@@ -61,9 +61,10 @@ describe('rankTonight', () => {
 });
 
 const invoke = vi.fn();
+const load = vi.fn();
 vi.mock('@/shared/supabase/client', () => ({
   supabase: {
-    from: () => ({ select: () => ({ eq: () => Promise.resolve({ data: queue }) }) }),
+    from: () => ({ select: () => ({ eq: () => load() }) }),
     functions: { invoke: (...args: unknown[]) => invoke(...args) },
   },
 }));
@@ -78,10 +79,34 @@ const best = () => screen.getAllByRole('heading', { level: 3 })[0].textContent;
 const button = (name: RegExp | string) => screen.getByRole('button', { name });
 
 describe('TonightScreen', () => {
+  beforeEach(() => load.mockResolvedValue({ data: queue, error: null }));
   afterEach(() => {
     cleanup();
     localStorage.clear();
     invoke.mockReset();
+    load.mockReset();
+  });
+
+  it('shows a retry, not the empty-list copy, when the list cannot be read, and paints after a retry', async () => {
+    load.mockResolvedValueOnce({ data: null, error: { message: 'Failed to fetch' } });
+    render(createElement(TonightScreen));
+    await screen.findByText("Couldn't load your list");
+    expect(screen.getByText('Failed to fetch')).toBeInTheDocument();
+    expect(screen.queryByText(/Nothing on your list yet/)).not.toBeInTheDocument();
+    expect(screen.queryByText('Put this on')).not.toBeInTheDocument();
+    expect(button(/Sharpen these/)).toBeDisabled();
+    fireEvent.click(button('Retry'));
+    await screen.findByText('Put this on');
+    expect(screen.queryByText("Couldn't load your list")).not.toBeInTheDocument();
+    expect(load).toHaveBeenCalledTimes(2);
+    expect(invoke).not.toHaveBeenCalled();
+  });
+
+  it('shows the empty-list copy only when the read returns no rows', async () => {
+    load.mockResolvedValueOnce({ data: [], error: null });
+    render(createElement(TonightScreen));
+    await screen.findByText(/Nothing on your list yet/);
+    expect(screen.queryByText("Couldn't load your list")).not.toBeInTheDocument();
   });
 
   it('paints two picks and the ranked queue without calling an edge function, and re-ranks on mood or length at once', async () => {
