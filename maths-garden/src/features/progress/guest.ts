@@ -60,7 +60,10 @@ export function importChanges(guest: Progress, target: Progress, childId: string
     const earned = guest.levelEvents.filter((e) => e.game === game && missing(target.levelEvents, e.id)).sort((a, b) => a.at.localeCompare(b.at));
     for (const event of earned) changes.push({ kind: 'level', childId, game, level: event.to, event: { ...event, childId } });
     // Then the jump itself, as its own event, so the Analyst and the Progress screen can tell it from live play.
-    changes.push(levelChange(childId, game, current, level, 'import'));
+    // It starts where the copied steps ended, not at the account's old level: otherwise the earned steps
+    // would be counted twice, once each and once more inside the import.
+    const reached = earned.at(-1)?.to ?? current;
+    changes.push(levelChange(childId, game, reached, level, 'import'));
   }
   for (const checkin of guest.checkins) if (missing(target.checkins, checkin.id)) changes.push({ kind: 'checkin', checkin: { ...checkin, childId } });
   for (const sticker of guest.stickers) if (missing(target.stickers, sticker.id)) changes.push({ kind: 'sticker', sticker: { ...sticker, childId } });
