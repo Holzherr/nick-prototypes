@@ -8,7 +8,6 @@ const FR: Partial<Catalogue> = {
   'home.titleSuffix': '',
   'home.pickIcon': 'Choisis ton icône — elle change aussi les couleurs',
   'home.changeIcon': 'Changer d’icône',
-  'home.tapToChange': 'Touche pour changer ↑',
   'home.start': 'Commencer à jouer →',
   'home.needName': 'Écris d’abord un prénom — il apparaît aussi sur les fiches.',
   'home.noAccount': 'Sans compte, sans e-mail. Tout reste sur cet appareil et vous pourrez l’enregistrer sur un compte plus tard.',
@@ -29,6 +28,7 @@ const FR: Partial<Catalogue> = {
   'nav.guides': 'Guides',
   'nav.faq': 'Questions',
   'nav.signIn': 'Se connecter',
+  'nav.menu': 'Menu',
   'nav.allPrintables': 'Toutes les fiches →',
   'nav.home': 'Accueil Maths Garden',
 

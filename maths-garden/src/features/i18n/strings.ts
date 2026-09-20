@@ -35,7 +35,6 @@ export const EN = {
   'home.titleSuffix': '’s Maths Garden',
   'home.pickIcon': 'Pick your icon — it changes the colours too',
   'home.changeIcon': 'Change your icon',
-  'home.tapToChange': 'Tap to change ↑',
   'home.start': 'Start playing →',
   'home.needName': 'Type a name first — it goes on the printables too.',
   'home.noAccount': 'No account, no email. Everything stays on this device — you can save it to an account later.',
@@ -57,6 +56,8 @@ export const EN = {
   'nav.guides': 'Guides',
   'nav.faq': 'FAQ',
   'nav.signIn': 'Sign in',
+  // The phone header's one button, holding the four links above and the language picker.
+  'nav.menu': 'Menu',
   'nav.allPrintables': 'All printables →',
   'nav.home': 'Maths Garden home',
 

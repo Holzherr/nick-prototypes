@@ -12,7 +12,6 @@ const AR: Partial<Catalogue> = {
   'home.titleSuffix': '',
   'home.pickIcon': 'اختر أيقونتك — إنها تغيّر الألوان أيضًا',
   'home.changeIcon': 'غيّر أيقونتك',
-  'home.tapToChange': 'اضغط للتغيير ↑',
   'home.start': '← ابدأ اللعب',
   'home.needName': 'اكتب اسمًا أولًا — سيظهر أيضًا على أوراق الطباعة.',
   'home.noAccount': 'بلا حساب وبلا بريد إلكتروني. كل شيء يبقى على هذا الجهاز، ويمكنك حفظه في حساب لاحقًا.',
@@ -37,6 +36,7 @@ const AR: Partial<Catalogue> = {
   'nav.guides': 'أدلة',
   'nav.faq': 'أسئلة',
   'nav.signIn': 'تسجيل الدخول',
+  'nav.menu': 'القائمة',
   'nav.allPrintables': '← كل الأوراق',
   'nav.home': 'الصفحة الرئيسية لحديقة الرياضيات',
 
