@@ -102,6 +102,12 @@ describe('guest import', () => {
       [2, 'e2', 'tara', 'earned'],
       [2, expect.any(String), 'tara', 'import'],
     ]);
+    // The import starts where the earned steps ended, so the two steps are not counted a second time as one jump.
+    expect(peek.map((c) => [c.event?.from, c.event?.to])).toEqual([
+      [0, 1],
+      [1, 2],
+      [2, 2],
+    ]);
 
     // Ids are kept, so a second import adds nothing — and the account ends where the guest was.
     const merged = changes.reduce(applyChange, emptyProgress());
