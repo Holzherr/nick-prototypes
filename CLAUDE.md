@@ -45,3 +45,7 @@ Type **`/work-prototype <slug>`** to start a session — that command walks the 
 3. Push to `main`. Pages auto-deploys.
 
 The landing page lives at `prototypes/index.html` — the GitHub Pages site root.
+
+## Specs, goals and learnings
+
+Each app keeps its product context in its own `specs/` folder: `maths-garden/specs/`, `qeued-next/specs/`, `piano/specs/`. Read `README.md` there first, then the spec your task cites. `GOALS.md` is Nick's and stays untouched. `DECISIONS.md` and `LEARNINGS.md` are append-only: add a dated line when you decide or learn something, never rewrite. One spec per feature, first line `Status: draft | agreed | building | built`. Backlog and nightly agent runs: https://github.com/Holzherr/agent-team.
