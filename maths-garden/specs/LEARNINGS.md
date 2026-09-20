@@ -5,3 +5,4 @@ Append-only. One line per gotcha: `- <date> <role>: <what turned out to be true>
 - 2026-09-18 Nick: publishing takes two workflow runs (publish, then pages-build-deployment); cache-bust index.html or you read a stale bundle.
 - 2026-09-19 runner: git pushes to GitHub stall on HTTP/2 from these machines; set http.version=HTTP/1.1 per clone.
 - 2026-09-20 runner: the keychain is unreadable over SSH and from launchd; secrets for headless runs live in ~/.config/agent-team/env on the iMac.
+- 2026-09-20 builder: Playwright is not a project dependency and must not become one; `npx playwright screenshot --browser=chromium --viewport-size=390,844 <url> out.png` against `npm run preview` works, and the built Storybook serves any story at `storybook/iframe.html?viewMode=story&id=<title-slug>--<story-slug>`, so screens with state (paused, windDown) are screenshotted from stories rather than by driving the app.

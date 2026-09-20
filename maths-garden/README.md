@@ -90,8 +90,12 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   sticker ids are a contract (`maths_stickers.sticker` stores `"<pack>/<name>"`), so they are covered by a
   test and must never be renamed.
 - **Winding down** (`breakSuggestion` → `GardenHome`): after eight finished rounds in a day — or two poor
-  rounds, two quits, or a sudden slow-down — home leads with "What a lot of playing!" and offers the garden
-  and the sticker book, and the suggested game drops to "Or one more if you like". The signal already
+  rounds, two quits, or a sudden slow-down — home leads with one short line ("Lots of playing today!", six
+  words or fewer, `WIND_DOWN`) and one pink button, "See my garden", with the sticker book in cream beside it;
+  the suggested game and its "Or pick another game" toggle are folded behind a faint "Or one more if you
+  like". A paused round outranks it: "Carry on" is then the one pink button and the garden goes cream, so the
+  quit-then-home path never shows two. Grown-ups sits last in the flow rather than fixed bottom-right, where
+  it used to cover the suggested game's title on a phone. The signal already
   existed and did nothing: the end screen flipped its buttons and said "time for a little break", then
   returned her to a home screen identical to round one, whose loudest element was "Let's play this one!".
   Tara did 21 rounds in a day against a goal of 3, so `breakSuggestion` had been returning `lots` for her

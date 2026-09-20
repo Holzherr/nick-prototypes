@@ -16,7 +16,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The child-facing screens. Home: unicorn tile, "Tara’s Maths Garden", one big suggested game with the reason under it ("Not played yet today", "One good round to level up!") and the rest behind "Or pick another game"; sticker count top right, faint Grown-ups bottom right. Game: home button, star row, one question at a time. End: stars, score line, optional "New level unlocked!", then the sticker pack chooser; after picking, the sticker pops in with Play again / My stickers / All games. Gate: "Grown-ups only — What is 7 + 5?".',
+          'The child-facing screens. Home: unicorn tile, "Tara’s Maths Garden", one big suggested game with the reason under it ("Not played yet today", "One good round to level up!") and the rest behind "Or pick another game"; sticker count top right, faint Grown-ups last. Winding down: one short line, one pink button (See my garden, or Carry on when a round is paused), the games behind "Or one more if you like". Game: home button, star row, one question at a time. End: stars, score line, optional "New level unlocked!", then the sticker pack chooser; after picking, the sticker pops in with Play again / My stickers / All games. Gate: "Grown-ups only — What is 7 + 5?".',
       },
     },
   },
@@ -30,8 +30,18 @@ export const Home: Story = { args: { recommended: recommendGame([], { peek: 1, f
 export const HomeEveryGame: Story = { name: 'Home (all games open)', args: { recommended: undefined } };
 
 export const HomeWindDown: Story = {
-  name: 'Home (played a lot today)',
+  name: 'Home (winding down)',
   args: { recommended: recommendGame([], { peek: 1, find: 2 }, GAMES), windDown: 'lots', onGarden: fn() },
+};
+// The quit path: 🏠 mid-round sets `paused`, and the same render can carry `windDown`. Carry on is the one pink button.
+export const HomeWindDownPaused: Story = {
+  name: 'Home (winding down, paused)',
+  args: {
+    ...HomeWindDown.args,
+    paused: { game: gameById('count'), answered: 2, total: 5 },
+    onResume: fn(),
+    onDropPaused: fn(),
+  },
 };
 
 export const Game: Story = {

@@ -50,7 +50,6 @@ const FR: Partial<Catalogue> = {
   'garden.carryOnWhere': '{answered} sur {total} — on reprend où tu t’es arrêté ?',
   'garden.carryOn': 'Continuer 💗',
   'garden.startSomethingElse': 'Commencer autre chose',
-  'garden.lotsOfPlaying': '🌈 Tu as beaucoup joué !',
 
   'auth.grownUpsSignIn': 'Les adultes se connectent ici. Votre enfant joue sans avoir besoin de le faire, et cet appareil reste connecté.',
   'auth.email': 'E-mail',

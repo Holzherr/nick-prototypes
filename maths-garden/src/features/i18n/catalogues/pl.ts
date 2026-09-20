@@ -53,7 +53,6 @@ const PL: Partial<Catalogue> = {
   'garden.carryOnWhere': '{answered} z {total} — wrócić tam, gdzie skończyłeś?',
   'garden.carryOn': 'Dalej 💗',
   'garden.startSomethingElse': 'Zacznij coś innego',
-  'garden.lotsOfPlaying': '🌈 Ale dużo grania!',
 
   'auth.grownUpsSignIn': 'Dorośli logują się tutaj. Dziecko może grać bez logowania, a to urządzenie pozostaje zalogowane.',
   'auth.email': 'E-mail',

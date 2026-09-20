@@ -50,7 +50,6 @@ const HI: Partial<Catalogue> = {
   'garden.carryOnWhere': '{total} में से {answered} पूरे — जहाँ छोड़ा था वहीं से चलें?',
   'garden.carryOn': 'आगे बढ़ो 💗',
   'garden.startSomethingElse': 'कुछ और शुरू करो',
-  'garden.lotsOfPlaying': '🌈 कितना खेल लिया!',
 
   'auth.grownUpsSignIn': 'बड़े यहाँ साइन इन करते हैं। आपका बच्चा बिना इसके भी खेल सकता है, और यह डिवाइस साइन इन रहता है।',
   'auth.email': 'ई-मेल',
