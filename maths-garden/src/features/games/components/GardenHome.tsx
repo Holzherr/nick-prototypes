@@ -13,12 +13,15 @@ import { GameTile, LevelDots } from './GameTile';
 import { gameName } from '@/features/i18n/content';
 import { useT } from '@/features/i18n/i18n';
 
-/** What to say to the child when stopping would be better than another round. Her words, not the parent's. */
-const WIND_DOWN: Record<BreakReason, string> = {
-  lots: 'You have played lots today. Shall we look at your garden instead?',
-  struggling: 'Those were tricky ones! Let’s stop on a win and play again later.',
-  quitting: 'Shall we do something else for a bit?',
-  slowing: 'That was a big think! Time for a rest.',
+/**
+ * What to say to the child when stopping would be better than another round. One line of six words or fewer:
+ * a paragraph is reading for a four-year-old, and the buttons under it say the rest.
+ */
+export const WIND_DOWN: Record<BreakReason, string> = {
+  lots: 'Lots of playing today!',
+  struggling: 'Tricky ones! Let’s rest now.',
+  quitting: 'Shall we do something else?',
+  slowing: 'Big think! Time for a rest.',
 };
 
 export interface GardenHomeProps {
@@ -52,7 +55,11 @@ export interface GardenHomeProps {
 /**
  * The chosen icon's tile, "Tara's Maths Garden", then one big suggested game with the reason under it and the rest
  * behind "Or pick another game". Daily goal (🎯 n/3) top left, sticker book (📒 n) top right, the garden
- * growing along the bottom, faint "Grown-ups" bottom right.
+ * growing along the bottom, faint "Grown-ups" last in the flow.
+ *
+ * One pink button, whatever the state. A paused round's "Carry on" outranks everything; otherwise the
+ * wind-down card's "See my garden" is it. Winding down, the suggested game is folded behind "Or one more if
+ * you like": after a round this screen once put three primary actions in front of a four-year-old at once.
  */
 export function GardenHome({
   childName,
@@ -73,6 +80,9 @@ export function GardenHome({
 }: GardenHomeProps) {
   const t = useT();
   const [showAll, setShowAll] = useState(!recommended);
+  // Winding down, the games stay behind one faint "Or one more if you like" until she asks for them.
+  const [oneMore, setOneMore] = useState(false);
+  const resting = Boolean(windDown) && !oneMore;
   const others = recommended ? GAMES.filter((game) => game.id !== recommended.game.id) : GAMES;
 
   // Above everything, including the suggested game: a half-finished round is the one thing on this screen
@@ -127,11 +137,11 @@ export function GardenHome({
 
       {windDown && (
         <section className="mb-4 w-full max-w-[440px] rounded-[28px] bg-leaf/15 p-5 text-center">
-          <p className="text-[clamp(20px,3vw,26px)] font-semibold text-leaf-deep">{t('garden.lotsOfPlaying')}</p>
-          <p className="mt-1 text-grape/75">{WIND_DOWN[windDown]}</p>
+          <p className="text-[clamp(20px,3vw,26px)] font-semibold text-leaf-deep">{WIND_DOWN[windDown]}</p>
           <div className="mt-3 flex flex-wrap justify-center gap-3">
             {onGarden && (
-              <Button size="lg" onClick={onGarden}>
+              // A paused round already has the one pink button on this screen; the garden steps back to cream.
+              <Button variant={paused ? 'quiet' : 'primary'} size="lg" onClick={onGarden}>
                 {t('garden.seeGarden')}
               </Button>
             )}
@@ -142,9 +152,13 @@ export function GardenHome({
         </section>
       )}
 
-      {recommended ? (
+      {resting ? (
+        <Button variant="ghost" size="md" className="text-[clamp(17px,2.4vw,21px)] text-grape/70" onClick={() => setOneMore(true)}>
+          {t('garden.oneMore')}
+        </Button>
+      ) : recommended ? (
         <>
-          <p className="mb-4 mt-1 text-center text-xl font-medium text-grape/75">{windDown ? t('garden.oneMore') : t('garden.playThis')}</p>
+          <p className="mb-4 mt-1 text-center text-xl font-medium text-grape/75">{t('garden.playThis')}</p>
           <button
             type="button"
             onClick={() => onPlay(recommended.game)}
@@ -165,7 +179,7 @@ export function GardenHome({
         <p className="mb-8 mt-1 text-center text-xl font-medium text-grape/75">Tap a game to play! 🌸</p>
       )}
 
-      {showAll && (
+      {showAll && !resting && (
         <div className={cn('flex max-w-[860px] flex-wrap justify-center gap-[clamp(12px,2.4vw,22px)]', recommended && 'mt-3 animate-pop-in')}>
           {others.map((game, i) => (
             <GameTile key={game.id} game={game} level={levelOf(levels, game)} mastered={mastered.has(game.id)} shape={i} onClick={() => onPlay(game)} />
@@ -183,7 +197,8 @@ export function GardenHome({
           <GardenScene garden={garden} variant="strip" />
         </button>
       )}
-      <Button variant="ghost" className="fixed bottom-[max(14px,env(safe-area-inset-bottom))] right-4" onClick={onGrownUps}>
+      {/* In the flow, not fixed: pinned bottom-right it sat over the suggested game's title on a phone. */}
+      <Button variant="ghost" className="mt-8" onClick={onGrownUps}>
         ⚙️ {t('garden.grownUps')}
       </Button>
     </main>
