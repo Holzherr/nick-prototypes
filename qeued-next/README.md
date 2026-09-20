@@ -130,7 +130,33 @@ proposals does not keep re-suggesting a title that has no UK page.
 
 Proposals come from `tools/data/candidates-*.json`, written by research rather than by hand.
 They overlap heavily, which is fine: import is an upsert on name, year and type, and the
-second proposal of the same title raises its priority rather than adding a row. All of them need `SUPABASE_SERVICE_ROLE_KEY` in the
+second proposal of the same title raises its priority rather than adding a row.
+
+A candidate that fails twice is retired, and the resolver only ever tried the name the
+proposal used. A real film proposed as "Hotaru no haka" is retired because the search's
+leading result is the 2005 remake and the year rule rightly refuses it, while the 1988 page
+sits one name away as Grave of the Fireflies. `tools/data/aliases.json` is where that second
+name is written down, one record per candidate with the reason it exists, the same convention
+as the corrections files. `expand.mjs` reads it itself: a candidate whose own name finds no
+page is tried under each alias in turn, and what comes back is filed under the candidate's
+own name and year, because that is its identity. A candidate with no alias costs exactly
+what it did before. Giving retired candidates a second name goes in this order:
+
+```
+node tools/candidates.mjs failed failed.json    # every retired row, with its last error
+# write aliases for the real titles in that list into tools/data/aliases.json
+node tools/aliases.mjs check                    # shape, no duplicate name+year+type, a why on each
+node tools/candidates.mjs retry --aliased       # requeue only the rows that now have an alias
+node tools/wave.mjs --size 150                  # the wave picks the aliases up by itself
+```
+
+`retry --aliased` prints how many it requeued and how many it left alone. Bare `retry` only
+says how many rows a full requeue would put back and exits without writing; `retry --all`
+is for a change to the resolver itself, and it is the whole retired list, invented titles
+included. `node tools/aliases.mjs apply batch.json` adds an `aliases` array to each record
+of a `candidates.mjs next` batch, for a batch someone wants to read before it runs.
+
+All of the scripts below need `SUPABASE_SERVICE_ROLE_KEY` in the
 environment and all of them take `--dry-run`. Run them in this order for a new wave:
 
 ```
