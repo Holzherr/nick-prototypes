@@ -57,6 +57,15 @@ describe('the marketing header', () => {
     expect(language(header())).toBeInTheDocument();
     // Sign in stays where it was, outside the panel.
     expect(within(header()).getByRole('link', { name: /sign in/i })).toBeVisible();
+
+    // jsdom has no layout, so the anchoring is read off the classes: the panel spans the header
+    // (`relative`, 20px in from each side) instead of hanging 320px wide off the Menu button, which
+    // has Sign in to its right and put the panel's first ~45px past the left edge of a 390px screen.
+    const panel = within(header()).getByRole('link', { name: /free printables/i }).closest('.absolute');
+    expect(panel).toHaveClass('inset-x-5');
+    expect(panel).not.toHaveClass('w-[320px]');
+    expect(header()).toHaveClass('relative');
+    expect(menu.parentElement).not.toHaveClass('relative');
   });
 
   it('at 390px picking from the menu closes it', () => {

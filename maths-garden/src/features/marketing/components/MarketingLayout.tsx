@@ -52,19 +52,30 @@ const useWide = () => useSyncExternalStore(subscribeWide, () => wideQuery()?.mat
 /**
  * A trigger and the panel under it: a backdrop that closes it on a tap anywhere, then a cream card. The
  * children get `close` so picking something shuts the panel as well as navigating.
+ *
+ * By default the panel hangs off the trigger's right edge at a fixed width. With `span` it stretches
+ * across the header instead: the phone trigger has Sign in to its right, so a 320px panel hung off it
+ * started ~45px past the left edge of a 390px screen and every row's first letters were cut off.
  */
-function Menu({ label, children }: { label: string; children: (close: () => void) => ReactNode }) {
+function Menu({ label, span = false, children }: { label: string; span?: boolean; children: (close: () => void) => ReactNode }) {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
   return (
-    <div className="relative">
+    <div className={cn(!span && 'relative')}>
       <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)} className={navClass}>
         {label} <span aria-hidden>▾</span>
       </button>
       {open && (
         <>
           <button type="button" aria-label="Close menu" className="fixed inset-0 z-10 cursor-default" onClick={close} />
-          <div className="absolute right-0 z-20 mt-2 w-[320px] rounded-[28px] bg-cream p-4 text-left candy-petal [--candy:8px]">{children(close)}</div>
+          <div
+            className={cn(
+              'absolute z-20 mt-2 rounded-[28px] bg-cream p-4 text-left candy-petal [--candy:8px]',
+              span ? 'inset-x-5' : 'right-0 w-[320px]',
+            )}
+          >
+            {children(close)}
+          </div>
         </>
       )}
     </div>
@@ -114,7 +125,7 @@ function PhoneMenu() {
     jump(id);
   };
   return (
-    <Menu label={t('nav.menu')}>
+    <Menu label={t('nav.menu')} span>
       {(close) => (
         <>
           <ul className="flex flex-col font-semibold text-grape">
@@ -154,7 +165,8 @@ export function MarketingLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="relative z-10 min-h-dvh">
-      <header className="mx-auto flex max-w-[1100px] flex-wrap items-center gap-x-2 gap-y-3 px-5 py-5">
+      {/* `relative` so the phone menu's spanning panel anchors to the header, not the Menu button. */}
+      <header className="relative mx-auto flex max-w-[1100px] flex-wrap items-center gap-x-2 gap-y-3 px-5 py-5">
         {/* On a phone the wordmark goes: logo, Menu and Sign in run to ~425px in English and wider in
             Polish, so with it the row wrapped and Sign in fell under the logo. The heading right below
             says Maths Garden; the link keeps its name for a screen reader. */}
