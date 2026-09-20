@@ -12,7 +12,9 @@ export function usePractice(piece: Piece, soundOn: boolean) {
   const [bpm, setBpm] = useState(piece.tempoBpm);
   const [playing, setPlaying] = useState(false);
   const timers = useRef<number[]>([]);
-  /** The run she is on, stored after every correct press. Null until the first. */
+  /** The run she is on, stored after every correct press. Null until the first correct
+   *  press, and back to null whenever the run stops being hers from the start: after
+   *  the last note, after a jump via the strip or Next, or when the app plays along. */
   const session = useRef<SessionRecord | null>(null);
   const { play, click, cheer } = useSynth(soundOn);
 
@@ -31,6 +33,7 @@ export function usePractice(piece: Piece, soundOn: boolean) {
     (i: number) => {
       stop();
       setIndex(Math.max(0, Math.min(piece.notes.length - 1, i)));
+      session.current = null;
     },
     [piece.notes.length, stop],
   );
@@ -53,9 +56,11 @@ export function usePractice(piece: Piece, soundOn: boolean) {
         return copy;
       });
       const last = index === piece.notes.length - 1;
-      session.current = logPress(session.current, piece.id, last, new Date());
-      if (last) cheer();
-      else setIndex(index + 1);
+      session.current = logPress(session.current, piece.id, piece.notes.length, new Date());
+      if (last) {
+        session.current = null;
+        cheer();
+      } else setIndex(index + 1);
     },
     [cheer, index, piece.id, piece.notes, play],
   );
@@ -64,6 +69,7 @@ export function usePractice(piece: Piece, soundOn: boolean) {
   const playAlong = useCallback(() => {
     stop();
     setPlaying(true);
+    session.current = null;
     const beat = 60000 / bpm;
     const from = index;
     const origin = piece.notes[from].onset;
