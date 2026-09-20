@@ -1,7 +1,7 @@
 import type { Child } from '@/features/children/model';
 import { isGameId } from '@/features/games/catalog';
 import { readJSON } from '@/shared/utils/storage';
-import { emptyProgress, type Change, type Progress } from './model';
+import { emptyProgress, levelChange, type Change, type Progress } from './model';
 import { cacheKey } from './repo';
 
 /**
@@ -53,7 +53,14 @@ export function importChanges(guest: Progress, target: Progress, childId: string
   for (const round of guest.rounds) if (missing(target.rounds, round.id)) changes.push({ kind: 'round', round: { ...round, childId } });
   for (const [game, level] of Object.entries(guest.levels)) {
     if (!isGameId(game) || level === undefined) continue;
-    if (level > (target.levels[game] ?? 0)) changes.push({ kind: 'level', childId, game, level });
+    const current = target.levels[game] ?? 0;
+    if (level <= current) continue;
+    // The steps the guest earned on the way come first, in order: once any event is recorded the Progress
+    // screen stops inferring, and without them the timeline would sit flat until the import instant.
+    const earned = guest.levelEvents.filter((e) => e.game === game && missing(target.levelEvents, e.id)).sort((a, b) => a.at.localeCompare(b.at));
+    for (const event of earned) changes.push({ kind: 'level', childId, game, level: event.to, event: { ...event, childId } });
+    // Then the jump itself, as its own event, so the Analyst and the Progress screen can tell it from live play.
+    changes.push(levelChange(childId, game, current, level, 'import'));
   }
   for (const checkin of guest.checkins) if (missing(target.checkins, checkin.id)) changes.push({ kind: 'checkin', checkin: { ...checkin, childId } });
   for (const sticker of guest.stickers) if (missing(target.stickers, sticker.id)) changes.push({ kind: 'sticker', sticker: { ...sticker, childId } });
