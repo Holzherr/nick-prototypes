@@ -214,13 +214,42 @@ A Supabase project of its own. The app reads its address and publishable key fro
 `VITE_SUPABASE_ANON_KEY` (`.env.local` locally; `MATHS_SUPABASE_URL`/`MATHS_SUPABASE_ANON_KEY` repo variables in
 the publish workflows). Without them it runs guest-only. To stand up your own: apply `supabase/migrations/` in order.
 Tables: `children`, `maths_rounds`, `maths_levels`, `maths_level_events`, `maths_checkins`,
-`maths_stickers`, `maths_events`; RLS gives a parent their own children and those children's rows only.
+`maths_stickers`, `maths_events`, `maths_feedback`; RLS gives a parent their own children and those
+children's rows only.
 Schema changes: add a migration, apply it through the session pooler (the direct database host is
 IPv6-only), update `src/shared/supabase/types.ts`. Intended auth settings are in `supabase/config.toml`.
 
 Migrations 0001–0004 are applied. 0003 adds `maths_level_events` (every level change with its reason) and
 `maths_rounds.level_max`; the app degrades gracefully if a history table is missing, so code can ship before
 a migration runs.
+
+**Agent snapshot** (migration 0008, written, **not applied**). `agent_snapshot(days int) returns jsonb` is
+the only way the team's Analyst reads this database: one `security definer` function, and one login role
+`agent_reader` holding EXECUTE on that function and no grant on any table, so widening what it sees takes a
+migration rather than a grant. Child ids come back as `md5(child_id::text)`, `children.name` is never read,
+and feedback carries the message, path, locale and time only — no reply address, no session id — so the
+output is safe to paste into a report. To turn it on: apply the migration, set the role's password by hand
+(it is deliberately not in the file, which is public), then store the connection string in the keychain
+under `agent-team-maths-garden-db`; the shape is in the migration's header comment. Nothing in `src/` calls
+it and the app does not change when it is applied. Five sections:
+
+```json
+{
+  "generated_at": "2026-09-20T21:00:00+00:00",
+  "days": 7,
+  "rounds": [{ "day": "2026-09-20", "game": "bond", "level": 3, "child": "9f86d081884c…",
+               "rounds": 4, "completed": 3, "accuracy": 0.850, "median_ms": 4200 }],
+  "quits": [{ "game": "bond", "quits": 1 }],
+  "level_events": [{ "day": "2026-09-20", "game": "bond", "reason": "earned", "changes": 1 }],
+  "events": [{ "day": "2026-09-20", "name": "round_done", "events": 12, "sessions": 3 }],
+  "feedback": [{ "message": "the voice reads the numbers too fast", "path": "/#/app",
+                 "locale": "en", "at": "2026-09-20T19:40:00+00:00" }]
+}
+```
+
+`rounds` is per day × game × level × child, `accuracy` is `sum(score)/sum(total)` and `median_ms` the median
+over every answer's time, not over round averages; `quits` counts rounds left early (`completed = false`)
+per game. `days` is clamped to 1–400 and defaults to 7.
 
 **Counting** (`features/analytics/events.ts`, migration 0004). Anonymous and first-party: how many people
 arrive, sign up and play. No cookies, no third party, no script from anyone else, and no identifier that
