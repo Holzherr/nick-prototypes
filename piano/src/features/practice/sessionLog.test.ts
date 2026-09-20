@@ -22,10 +22,16 @@ describe('the store', () => {
     expect(readSessions()[0].id).toBe('2026-01-01T01:00:00.000Z');
   });
   it('starts a record on the first press, then rewrites that same record', () => {
-    const first = logPress(null, 'this-old-man', false, new Date('2026-09-20T10:00:00Z'));
-    logPress(first, 'this-old-man', true, new Date('2026-09-20T10:00:05Z'));
-    expect(first).toMatchObject({ pieceId: 'this-old-man', startedAt: '2026-09-20T10:00:00.000Z', correctPresses: 1 });
+    const first = logPress(null, 'this-old-man', 2, new Date('2026-09-20T10:00:00Z'));
+    logPress(first, 'this-old-man', 2, new Date('2026-09-20T10:00:05Z'));
+    expect(first).toMatchObject({ pieceId: 'this-old-man', startedAt: '2026-09-20T10:00:00.000Z', correctPresses: 1, reachedLast: false });
     expect(readSessions()).toEqual([{ ...first, lastPressAt: '2026-09-20T10:00:05.000Z', correctPresses: 2, reachedLast: true }]);
+  });
+  it('only marks reachedLast once every note of the piece has been pressed', () => {
+    const first = logPress(null, 'this-old-man', 3, new Date('2026-09-20T10:00:00Z'));
+    const second = logPress(first, 'this-old-man', 3, new Date('2026-09-20T10:00:01Z'));
+    expect(second.reachedLast).toBe(false);
+    expect(logPress(second, 'this-old-man', 3, new Date('2026-09-20T10:00:02Z')).reachedLast).toBe(true);
   });
 });
 

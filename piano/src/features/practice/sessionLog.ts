@@ -25,13 +25,19 @@ export function writeSession(record: SessionRecord): void {
   try { localStorage.setItem(SESSIONS_KEY, JSON.stringify(next)); } catch { /* private window */ }
 }
 
-/** Store one correct press: extends `prev`, or starts a fresh record when it is null. */
-export function logPress(prev: SessionRecord | null, pieceId: string, last: boolean, now: Date): SessionRecord {
+/** Store one correct press: extends `prev`, or starts a fresh record when it is null.
+ *  `reachedLast` means she pressed every one of the piece's `total` notes in this run,
+ *  so a run picked up part-way (Next, the strip, Play along) never counts as a session. */
+export function logPress(prev: SessionRecord | null, pieceId: string, total: number, now: Date): SessionRecord {
   const at = now.toISOString();
   const id = `${now.getTime().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
-  const record = prev
-    ? { ...prev, lastPressAt: at, correctPresses: prev.correctPresses + 1, reachedLast: prev.reachedLast || last }
-    : { id, pieceId, startedAt: at, lastPressAt: at, correctPresses: 1, reachedLast: last };
+  const correctPresses = (prev?.correctPresses ?? 0) + 1;
+  const record = {
+    ...(prev ?? { id, pieceId, startedAt: at }),
+    lastPressAt: at,
+    correctPresses,
+    reachedLast: correctPresses >= total,
+  };
   writeSession(record);
   return record;
 }
