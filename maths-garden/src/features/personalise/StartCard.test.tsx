@@ -3,7 +3,9 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { Child } from '@/features/children/model';
 import { GUEST_CHILDREN, GUEST_FLAG } from '@/features/progress/guest';
 import { readJSON } from '@/shared/utils/storage';
+import { DEFAULT_THEME, readTheme } from './player';
 import { StartCard } from './StartCard';
+import { themeById } from './themes';
 
 vi.mock('@/features/analytics/events', () => ({ track: vi.fn(), cleanPath: () => '/' }));
 
@@ -67,5 +69,33 @@ describe('starting play from the homepage', () => {
     expect(children).toHaveLength(1);
     expect(children[0].name).toBe('Juniper');
     expect(window.location.hash).toContain('/app');
+  });
+
+  /**
+   * The icon used to be offered three ways at once — the big tile cycled on tap, a caption said so, and
+   * the picker row sat below — on the screen with the fewest words on it. The picker is now the one
+   * control; the tile is a preview of what it chose.
+   */
+  it('offers the icon one way: the picker, not the big tile', () => {
+    render(<StartCard />);
+
+    expect(screen.queryByRole('button', { name: /change your icon/i })).toBeNull();
+    expect(screen.queryByText(/tap to change/i)).toBeNull();
+    expect(screen.getByRole('radiogroup', { name: /pick your icon/i })).toBeInTheDocument();
+  });
+
+  it('changes the theme when a picker tile is tapped, and starts play with it', () => {
+    render(<StartCard />);
+    expect(readTheme()).toBe(DEFAULT_THEME);
+    expect(DEFAULT_THEME).not.toBe('dragon');
+
+    const dragon = screen.getByRole('radio', { name: 'Dragon' });
+    fireEvent.click(dragon);
+    expect(dragon).toHaveAttribute('aria-checked', 'true');
+    expect(readTheme()).toBe('dragon');
+
+    fireEvent.change(field(), { target: { value: 'Juniper' } });
+    fireEvent.click(start());
+    expect(readJSON<Child[]>(GUEST_CHILDREN, [])[0].avatar).toBe(themeById('dragon').glyph);
   });
 });

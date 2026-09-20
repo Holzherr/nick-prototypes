@@ -23,6 +23,21 @@ type Story = StoryObj<typeof meta>;
 
 export const Homepage: Story = { render: () => <MarketingLayout><HomeScreen /></MarketingLayout> };
 
+/**
+ * Below `sm` the header is the logo, one Menu button and Sign in on a single row; the four links and the
+ * language picker sit inside the menu. The front door under it offers the icon one way, the picker.
+ */
+export const HomepagePhone: Story = {
+  name: 'Homepage (phone)',
+  render: () => (
+    <MarketingLayout>
+      <HomeScreen />
+    </MarketingLayout>
+  ),
+  parameters: { viewport: { options: { phone: { name: 'Phone (390 × 844)', styles: { width: '390px', height: '844px' }, type: 'mobile' } } } },
+  globals: { viewport: { value: 'phone', isRotated: false } },
+};
+
 export const StagesGuide: Story = {
   name: 'Guide: stages of maths and reading',
   render: () => (
