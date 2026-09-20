@@ -88,9 +88,30 @@ export type Database = {
       // What people write in the feedback box. Insert-only by policy for the same reason as the events
       // above, and more sharply: an open select would hand every visitor everyone else's messages and
       // their contact addresses.
+      // `reporter` and `kind` arrive with migration 0007 and are nullable: a message with neither still lands.
       maths_feedback: {
-        Row: { id: string; message: string; contact: string | null; path: string | null; locale: string | null; session: string | null; at: string };
-        Insert: { id?: string; message: string; contact?: string | null; path?: string | null; locale?: string | null; session?: string | null; at?: string };
+        Row: {
+          id: string;
+          message: string;
+          contact: string | null;
+          path: string | null;
+          locale: string | null;
+          session: string | null;
+          reporter: string | null;
+          kind: string | null;
+          at: string;
+        };
+        Insert: {
+          id?: string;
+          message: string;
+          contact?: string | null;
+          path?: string | null;
+          locale?: string | null;
+          session?: string | null;
+          reporter?: string | null;
+          kind?: string | null;
+          at?: string;
+        };
         Update: {
           id?: string;
           message?: string;
@@ -98,6 +119,8 @@ export type Database = {
           path?: string | null;
           locale?: string | null;
           session?: string | null;
+          reporter?: string | null;
+          kind?: string | null;
           at?: string;
         };
         Relationships: [];
