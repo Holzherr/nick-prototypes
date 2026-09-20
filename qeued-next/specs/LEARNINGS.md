@@ -4,3 +4,4 @@ Append-only. One line per gotcha: `- <date> <role>: <what turned out to be true>
 
 - 2026-09-11 Nick: the Pages custom domain is set through the API (gh api -X PUT repos/Holzherr/qeued/pages -f cname=qeued.com); workflow deploys ignore the CNAME file.
 - 2026-09-19 runner: git pushes to GitHub stall on HTTP/2 from these machines; set http.version=HTTP/1.1 per clone.
+- 2026-09-20 builder: catalogue_candidates.status has four values, not three: pending, held, failed and skipped (0020). published_share in agent_snapshot counts skipped as not held, as QD-001 defines it; candidates.by_status carries the split.
