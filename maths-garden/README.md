@@ -227,6 +227,12 @@ Migrations 0001–0004 are applied. 0003 adds `maths_level_events` (every level 
 `maths_rounds.level_max`; the app degrades gracefully if a history table is missing, so code can ship before
 a migration runs.
 
+**Feedback labels** (migration 0007, written, **not applied**): `maths_feedback.reporter` (one of Nick,
+Priyanka, Tara, remembered on the device under `maths-garden:feedback-reporter`) and `maths_feedback.kind`
+(`bug`, `idea` or `tara-noticed`), both nullable, RLS unchanged. The form offers each as three chips and no
+free text. Until 0007 is applied the labelled insert is refused, so `sendFeedback` retries once without the
+two columns and the message still lands. Story: Screens/Feedback.
+
 **Agent snapshot** (migration 0008, applied 2026-09-20; migration 0009 adds `total_ms`, `eased` and `stickers`,
 written, **not applied**). `agent_snapshot(days int) returns jsonb` is
 the only way the team's Analyst reads this database: one `security definer` function, and one login role
