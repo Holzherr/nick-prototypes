@@ -2,8 +2,11 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import type { RoundRecord } from '@/features/games/engine';
 import { writeJSON } from '@/shared/utils/storage';
 import { guestProfiles, guestProfilesToImport, GUEST_CHILDREN, importChanges } from './guest';
-import { applyChange, emptyProgress, type Progress, type StickerRecord } from './model';
+import { applyChange, emptyProgress, type Change, type Progress, type StickerRecord } from './model';
 import { cacheKey } from './repo';
+
+/** Only the level writes, typed as such. */
+const levelsOf = (changes: Change[]) => changes.flatMap((c) => (c.kind === 'level' ? [c] : []));
 
 const round = (id: string, childId: string, playedAt: string): RoundRecord => ({
   id,
@@ -57,18 +60,53 @@ describe('guest import', () => {
     expect(guestProfilesToImport(partial, 'tara')).toHaveLength(1);
   });
 
-  it('re-keys rounds, stickers and levels onto the account child', () => {
+  it('re-keys rounds, stickers and levels onto the account child, recording each raised level as an import', () => {
     const changes = importChanges(guestProgress(), emptyProgress(), 'tara');
     const merged = changes.reduce(applyChange, emptyProgress());
     expect(merged.rounds.map((r) => r.childId)).toEqual(['tara', 'tara']);
     expect(merged.stickers.map((s) => s.childId)).toEqual(['tara']);
     expect(merged.levels).toEqual({ peek: 2, count: 1 });
+
+    // The jump is a level event like any other, so the Progress screen and the Analyst can tell it from live play.
+    expect(levelsOf(changes).map((c) => c.event)).toEqual([
+      expect.objectContaining({ childId: 'tara', game: 'peek', from: 0, to: 2, reason: 'import' }),
+      expect.objectContaining({ childId: 'tara', game: 'count', from: 0, to: 1, reason: 'import' }),
+    ]);
+    expect(merged.levelEvents).toHaveLength(2);
+    expect(merged.levelEvents.every((e) => e.reason === 'import')).toBe(true);
   });
 
   it('keeps the account level when it is already higher, and imports nothing twice', () => {
     const guest = guestProgress();
-    const target = importChanges(guest, { ...emptyProgress(), levels: { peek: 4 } }, 'tara').reduce(applyChange, { ...emptyProgress(), levels: { peek: 4 } });
+    const changes = importChanges(guest, { ...emptyProgress(), levels: { peek: 4 } }, 'tara');
+    expect(levelsOf(changes).map((c) => c.event)).toEqual([expect.objectContaining({ game: 'count', from: 0, to: 1, reason: 'import' })]);
+
+    const target = changes.reduce(applyChange, { ...emptyProgress(), levels: { peek: 4 } });
     expect(target.levels.peek).toBe(4);
+    expect(target.levelEvents.map((e) => [e.game, e.reason])).toEqual([['count', 'import']]);
     expect(importChanges(guest, target, 'tara')).toEqual([]);
+  });
+
+  it('carries the steps the guest earned on the way, in order and before the import, so the timeline is not flat', () => {
+    const guest: Progress = {
+      ...guestProgress(),
+      levelEvents: [
+        { id: 'e2', childId: 'guest-1', game: 'peek', from: 1, to: 2, reason: 'earned', at: '2026-09-11T17:40:00Z' },
+        { id: 'e1', childId: 'guest-1', game: 'peek', from: 0, to: 1, reason: 'earned', at: '2026-09-10T17:10:00Z' },
+      ],
+    };
+    const changes = importChanges(guest, emptyProgress(), 'tara');
+    const peek = levelsOf(changes).filter((c) => c.game === 'peek');
+    expect(peek.map((c) => [c.level, c.event?.id, c.event?.childId, c.event?.reason])).toEqual([
+      [1, 'e1', 'tara', 'earned'],
+      [2, 'e2', 'tara', 'earned'],
+      [2, expect.any(String), 'tara', 'import'],
+    ]);
+
+    // Ids are kept, so a second import adds nothing — and the account ends where the guest was.
+    const merged = changes.reduce(applyChange, emptyProgress());
+    expect(merged.levels.peek).toBe(2);
+    expect(merged.levelEvents.filter((e) => e.game === 'peek')).toHaveLength(3);
+    expect(importChanges(guest, merged, 'tara')).toEqual([]);
   });
 });
