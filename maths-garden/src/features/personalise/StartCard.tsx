@@ -29,6 +29,9 @@ export function StartCard() {
   const [touched, setTouched] = useState(false);
 
   const returning = existing[0];
+  // The words around the field belong to a name. Without one they read as a broken sentence next to an
+  // empty box ("’s Maths Garden"), so the placeholder stands alone until someone has typed.
+  const named = cleanName(name) !== '';
   const pick = (id: ThemeId) => {
     setTheme(id);
     setTouched(true);
@@ -92,7 +95,7 @@ export function StartCard() {
       </button>
       <p className="mt-2 text-sm font-semibold text-bubble">{t('home.tapToChange')}</p>
       <h1 className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[clamp(30px,5.5vw,54px)] font-bold leading-[1.05] text-raspberry">
-        {t('home.titlePrefix') && <span>{t('home.titlePrefix')}</span>}
+        {named && t('home.titlePrefix') && <span>{t('home.titlePrefix')}</span>}
         <span className="relative">
           <Input
             ref={nameRef}
@@ -118,7 +121,7 @@ export function StartCard() {
             )}
           />
         </span>
-        {t('home.titleSuffix') && <span>{t('home.titleSuffix')}</span>}
+        {named && t('home.titleSuffix') && <span>{t('home.titleSuffix')}</span>}
       </h1>
 
       {/* Under the field it refers to, not next to the button that triggered it. role=alert so it is
