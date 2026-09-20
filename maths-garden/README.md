@@ -30,6 +30,8 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   live in `articles.ts` and `faq.ts`, not in components.
   Signing in moved to `#/login`; `#/app` forces the app and is the PWA `start_url`, so the iPad icon still
   opens straight into the games. Signed-in and guest sessions skip the homepage entirely.
+  The start card's heading is the child's name in a field; the words around it ("’s Maths Garden") appear
+  only once a name has been typed, so an empty field shows the "Your name" placeholder and nothing else.
 - **Parent account** (Supabase email + password) with **child profiles**. The device remembers the child
   and opens straight into their garden; the parent stays signed in.
 - **Nine games**, five questions a round, **six levels each**: Quick Peek (subitising), Count With Me, Find

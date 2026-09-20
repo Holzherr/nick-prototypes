@@ -9,11 +9,35 @@ vi.mock('@/features/analytics/events', () => ({ track: vi.fn(), cleanPath: () =>
 
 const start = () => screen.getByRole('button', { name: /start playing/i });
 const field = () => screen.getByRole('textbox', { name: /name/i });
+// The catalogue spells the possessive with a typographic apostrophe; accept either so the test does not
+// hinge on which one the string holds.
+const possessive = /['’]s Maths Garden/;
 
 describe('starting play from the homepage', () => {
   beforeEach(() => {
     localStorage.clear();
     window.location.hash = '';
+  });
+
+  /**
+   * Before a name exists the heading used to read "'s Maths Garden" next to an empty dashed box: a broken
+   * sentence as the first thing on the front door. The possessive belongs to a name, so it only appears
+   * once there is one.
+   */
+  it('hides the possessive until a name is typed', () => {
+    render(<StartCard />);
+    expect(screen.queryByText(possessive)).not.toBeInTheDocument();
+
+    fireEvent.change(field(), { target: { value: 'Tara' } });
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(possessive);
+    expect(field()).toHaveValue('Tara');
+  });
+
+  it('keeps the possessive hidden for a name of only spaces', () => {
+    render(<StartCard />);
+    fireEvent.change(field(), { target: { value: '   ' } });
+
+    expect(screen.queryByText(possessive)).not.toBeInTheDocument();
   });
 
   /**
