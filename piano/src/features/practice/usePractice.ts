@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSynth } from '@/features/audio/useSynth.ts';
 import type { Piece } from '@/features/score/types.ts';
+import { logPress, type SessionRecord } from './sessionLog.ts';
 
 /** Practice state. There is no fail state anywhere in here on purpose: a wrong
  *  key sounds the note she pressed and leaves the target lit, so exploring the
@@ -11,6 +12,8 @@ export function usePractice(piece: Piece, soundOn: boolean) {
   const [bpm, setBpm] = useState(piece.tempoBpm);
   const [playing, setPlaying] = useState(false);
   const timers = useRef<number[]>([]);
+  /** The run she is on, stored after every correct press. Null until the first. */
+  const session = useRef<SessionRecord | null>(null);
   const { play, click, cheer } = useSynth(soundOn);
 
   const note = piece.notes[index];
@@ -36,6 +39,7 @@ export function usePractice(piece: Piece, soundOn: boolean) {
     stop();
     setPlayed(piece.notes.map(() => false));
     setIndex(0);
+    session.current = null;
   }, [piece.notes, stop]);
 
   /** She pressed a key. Right one moves on; wrong one just sounds. */
@@ -48,10 +52,12 @@ export function usePractice(piece: Piece, soundOn: boolean) {
         copy[index] = true;
         return copy;
       });
-      if (index === piece.notes.length - 1) cheer();
+      const last = index === piece.notes.length - 1;
+      session.current = logPress(session.current, piece.id, last, new Date());
+      if (last) cheer();
       else setIndex(index + 1);
     },
-    [cheer, index, piece.notes, play],
+    [cheer, index, piece.id, piece.notes, play],
   );
 
   /** Play the piece through with a count-in, lighting each note in time. */
