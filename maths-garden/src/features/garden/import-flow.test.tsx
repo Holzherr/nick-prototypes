@@ -24,6 +24,7 @@ describe('bringing guest play into an account', () => {
       { id: 'guest-1', childId: guestId, game: 'count', level: 0, score: 5, total: 5, answers: [], playedAt: new Date().toISOString() },
       { id: 'guest-2', childId: guestId, game: 'count', level: 0, score: 4, total: 5, answers: [], playedAt: new Date().toISOString() },
     ],
+    levels: { count: 1 },
     stickers: [{ id: 'guest-st-1', childId: guestId, sticker: 'unicorn/rainbow', shiny: false, roundId: 'guest-1', earnedAt: new Date().toISOString() }],
   });
 
@@ -65,6 +66,9 @@ describe('bringing guest play into an account', () => {
       // Records keep their ids, which is what makes a repeat import a no-op.
       expect(moved.rounds.map((r) => r.id).sort()).toEqual(['guest-1', 'guest-2']);
       expect(moved.rounds.every((r) => r.childId === account.id)).toBe(true);
+      // The raised level arrives as an event of its own, so the Progress screen never has to guess at it.
+      expect(moved.levels).toEqual({ count: 1 });
+      expect(moved.levelEvents).toEqual([expect.objectContaining({ reason: 'import', game: 'count', childId: account.id, from: 0, to: 1 })]);
     });
   });
 
