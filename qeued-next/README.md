@@ -68,6 +68,8 @@ Deno edge functions in `supabase/functions/` calling the Anthropic API (Haiku 4.
 enrich / popular, Sonnet 5 for recommendations and Watch Tonight) through `_shared/claude.ts`.
 Results cache in `ai_cache`.
 
+**Tonight** never waits on the model: `features/tonight/fastTonight.ts` ranks the profile's list on the device with `_shared/ranking.ts` (one line of data per pick), "Sharpen these" calls `watch-tonight` and the scored slate waits behind a "Sharper picks ready" button; `slateCache.ts` keeps scored slates in localStorage for 24h per profile, mood and length.
+
 **Agent snapshot** (migration 0025, written, **not applied**). `agent_snapshot(days int) returns jsonb`
 is the only way the team's Analyst reads this database: one `security definer` function, and one
 login role `agent_reader` holding EXECUTE on that function and no grant on any table, so widening

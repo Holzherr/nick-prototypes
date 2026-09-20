@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Clapperboard, Loader2, Sparkles, Clock, Tv, Film } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { Card } from "@/shared/components/ui/card";
@@ -8,6 +8,8 @@ import { supabase } from "@/shared/supabase/client";
 import { useAuth } from "@/features/auth/AuthContext";
 import { useProfile } from "@/features/household/ProfileContext";
 import { cn } from "@/shared/utils/cn";
+import { TONIGHT_SELECT, rankTonight, type TonightEntry } from "./fastTonight";
+import { readSlate, writeSlate } from "./slateCache";
 
 export type TonightPick = {
   title: string;
@@ -28,6 +30,8 @@ export type TonightResult = {
   picks: TonightPick[];
   queue_size: number;
   ranked_queue: { title: string; title_id?: string; score: number; explanation: string }[];
+  /** False when ranked on the device from saved data alone; true once the model has scored it. */
+  scored?: boolean;
 };
 
 const moods = [
@@ -86,17 +90,41 @@ export const PickCard = ({ pick, emphasis }: { pick: TonightPick; emphasis?: boo
   </Card>
 );
 
-const TonightScreen = () => {
+const titles = (r: TonightResult) => r.picks.map((p) => p.title).join("|");
+
+/** `preview` is for stories only: rows to rank in place of the profile's list. */
+const TonightScreen = ({ preview }: { preview?: TonightEntry[] } = {}) => {
   const { user } = useAuth();
   const { active } = useProfile();
   const { toast } = useToast();
   const [mood, setMood] = useState<string>("intense");
   const [length, setLength] = useState<string>("short");
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<TonightResult | null>(null);
+  const [fetched, setFetched] = useState<TonightEntry[] | null>(null);
+  // A scored slate waits here, under the key it was asked for, until they press for it, so the
+  // screen never rearranges itself; `shown` is the one they pressed for.
+  const [pending, setPending] = useState<{ key: string; result: TonightResult } | null>(null);
+  const [shown, setShown] = useState<{ key: string; result: TonightResult } | null>(null);
+  const entries = preview ?? fetched;
+  const profileId = active?.id;
+  const key = `${profileId}|${mood}|${length}`;
+
+  useEffect(() => {
+    if (!profileId || preview) return;
+    supabase.from("watch_entries").select(TONIGHT_SELECT).eq("profile_id", profileId)
+      .then(({ data }) => setFetched((data ?? []) as unknown as TonightEntry[]));
+  }, [profileId, preview]);
+
+  // Nothing waits on the model: a saved scored slate for this key wins, else the list is ranked
+  // on the device the moment it, the mood or the length changes.
+  const result = useMemo(
+    () => (!entries ? null : shown?.key === key ? shown.result : readSlate(key) ?? rankTonight(entries, mood, length)),
+    [entries, key, mood, length, shown],
+  );
 
   const decide = async () => {
     if (!user || !active) return;
+    const asked = key;
     setLoading(true);
     const { data, error } = await supabase.functions.invoke("watch-tonight", {
       body: { user_id: user.id, profile_id: active.id, mood, time: length },
@@ -106,7 +134,10 @@ const TonightScreen = () => {
       toast({ title: "Couldn't work that out", description: error.message, variant: "destructive" });
       return;
     }
-    setResult(data as TonightResult);
+    const scored: TonightResult = { ...(data as TonightResult), scored: true };
+    // The server's own cache answered with what is already on screen: nothing to offer.
+    if (result?.scored && titles(result) === titles(scored)) return writeSlate(asked, scored);
+    setPending({ key: asked, result: scored });
   };
 
   return (
@@ -132,11 +163,19 @@ const TonightScreen = () => {
             </Button>
           ))}
         </div>
-        <Button onClick={decide} disabled={loading} className="w-full sm:w-auto">
+        <Button onClick={decide} disabled={loading || !result} className="w-full sm:w-auto">
           {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-          {result ? "Try again" : "Decide for me"}
+          {result?.scored ? "Try again" : "Sharpen these"}
         </Button>
       </div>
+
+      {pending?.key === key && (
+        <button type="button" onClick={() => { writeSlate(key, pending.result); setShown(pending); setPending(null); }} className="flex w-full items-center gap-3 rounded-lg border border-primary/30 bg-primary/5 px-4 py-3 text-left transition-colors hover:bg-primary/10">
+          <Sparkles className="h-4 w-4 shrink-0 text-primary" />
+          <span className="text-sm font-medium">Sharper picks ready</span>
+          <span className="text-sm text-muted-foreground">Tap to see them</span>
+        </button>
+      )}
 
       {result && (
         <div className="space-y-4">
