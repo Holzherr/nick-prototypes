@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Vargtimmen",
+    "year": 1968,
+    "type": "movie",
+    "aliases": ["Hour of the Wolf"],
+    "why": "A valid entry, so the two below are the only problems `aliases.mjs check` should report."
+  },
+  {
+    "name": "vargtimmen",
+    "year": 1968,
+    "type": "movie",
+    "aliases": ["The Hour of the Wolf"],
+    "why": "The same name, year and type as the entry above, differing only in case: a duplicate."
+  },
+  {
+    "name": "Dekalog",
+    "year": 1989,
+    "type": "series",
+    "aliases": ["The Decalogue"]
+  }
+]

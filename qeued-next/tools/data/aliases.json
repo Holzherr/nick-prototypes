@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Vargtimmen",
+    "year": 1968,
+    "type": "movie",
+    "aliases": ["Hour of the Wolf"],
+    "why": "Bergman's film, proposed under its Swedish title; every English catalogue files it as Hour of the Wolf. On 2026-09-20 JustWatch UK had no page under either name (the US site has one at /us/movie/hour-of-the-wolf), so the alias is there for the day a UK page appears."
+  },
+  {
+    "name": "Dekalog",
+    "year": 1989,
+    "type": "series",
+    "aliases": ["The Decalogue"],
+    "why": "Kieślowski's ten films, proposed under both names (candidates-20.json as Dekalog, cand-c40-r3.json as The Decalogue). The UK page is filed as Dekalog; the English name is what an English list writes, and is the one to try if the Polish one ever stops resolving."
+  }
+]
