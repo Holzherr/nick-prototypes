@@ -25,13 +25,10 @@ export function StartCard() {
   const [theme, setTheme] = useState<ThemeId>(readTheme);
   const [missing, setMissing] = useState(false);
   const nameRef = useRef<HTMLInputElement>(null);
-  // The nudge stops the moment someone discovers the control; it is a hint, not a decoration.
-  const [touched, setTouched] = useState(false);
 
   const returning = existing[0];
   const pick = (id: ThemeId) => {
     setTheme(id);
-    setTouched(true);
     writeTheme(id);
   };
 
@@ -69,28 +66,18 @@ export function StartCard() {
 
   return (
     <form onSubmit={submit} className="mx-auto max-w-[880px] text-center">
-      {/* The tile is the thing a person reaches for, so it has to be the control. Left as a plain picture
-          it read as decoration: a grey pencil nobody knew was a door. It now presses like a button, wears
-          a badge saying what tapping does, and nudges itself until someone has actually changed it. */}
-      <button
-        type="button"
-        onClick={() => pick(nextTheme(theme))}
-        aria-label={t('home.changeIcon')}
-        className={cn(
-          'group relative mx-auto block rounded-[26px] transition-transform focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-raspberry',
-          'hover:-translate-y-1 active:translate-y-0.5',
-          !touched && 'motion-safe:animate-bounce-slow',
-        )}
-      >
+      {/* The tile is a preview of the picked icon, and the picker under it is the one way to pick. The
+          tile used to be a control as well — it cycled themes on tap, wore a 🎨 badge and bounced until
+          used, with "Tap to change" underneath — because as a plain picture it had read as decoration.
+          That put three controls for one choice on the screen with the fewest words on it; with the picker
+          directly under the tile, the tile no longer has to explain itself. */}
+      <div className="flex justify-center">
         <ThemeMark theme={theme} size={84} />
-        <span
-          aria-hidden
-          className="absolute -bottom-1.5 -right-1.5 flex size-8 items-center justify-center rounded-full bg-cream text-[17px] shadow-[0_2px_0_var(--color-petal)] transition-transform group-hover:rotate-90"
-        >
-          🎨
-        </span>
-      </button>
-      <p className="mt-2 text-sm font-semibold text-bubble">{t('home.tapToChange')}</p>
+      </div>
+      <div className="mt-3">
+        <ThemePicker value={theme} onChange={pick} />
+      </div>
+      <p className="mt-2 text-sm text-grape/70">{t('home.pickIcon')}</p>
       <h1 className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[clamp(30px,5.5vw,54px)] font-bold leading-[1.05] text-raspberry">
         {t('home.titlePrefix') && <span>{t('home.titlePrefix')}</span>}
         <span className="relative">
@@ -126,11 +113,6 @@ export function StartCard() {
       <p role="alert" className={cn('mt-3 font-semibold text-clay transition-opacity', missing ? 'opacity-100' : 'sr-only opacity-0')}>
         {missing ? t('home.needName') : ''}
       </p>
-
-      <p className="mt-5 font-semibold text-grape/80">{t('home.pickIcon')}</p>
-      <div className="mt-3">
-        <ThemePicker value={theme} onChange={pick} />
-      </div>
 
       <Button type="submit" size="lg" className="mt-7">
         {t('home.start')}

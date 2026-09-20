@@ -30,6 +30,14 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   live in `articles.ts` and `faq.ts`, not in components.
   Signing in moved to `#/login`; `#/app` forces the app and is the PWA `start_url`, so the iPad icon still
   opens straight into the games. Signed-in and guest sessions skip the homepage entirely.
+  **On a phone the header is one row** (`MarketingLayout`): the theme tile, one "Menu" button holding
+  Free printables, How it works, Guides, FAQ and the language picker, and Sign in beside it. Below
+  Tailwind's `sm` the links used to wrap to two rows, so a child creating a profile met six adult links
+  before the name field. The width is read through `matchMedia` rather than `hidden sm:flex`, so only one
+  header is ever in the DOM and a test can render either (`MarketingLayout.test.tsx`); jsdom has no
+  `matchMedia`, and without one the wide header is assumed. The front door (`StartCard`) offers the icon
+  one way: the picker row directly under the big tile, which is now a preview and not a button — it used
+  to cycle themes on tap as well, with a "Tap to change" caption, three controls for one choice.
 - **Parent account** (Supabase email + password) with **child profiles**. The device remembers the child
   and opens straight into their garden; the parent stays signed in.
 - **Nine games**, five questions a round, **six levels each**: Quick Peek (subitising), Count With Me, Find
