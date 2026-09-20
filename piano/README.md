@@ -17,7 +17,7 @@ npm run build        # VITE_BASE=/piano/ npm run build to publish
 - `features/notation` - grand-staff geometry (`layout.ts`, tested) and the `Staff` renderer.
 - `features/keyboard` - the keyboard, including the resting finger badges.
 - `features/hands` - the two hand panels.
-- `features/practice` - state, guidance line, note strip, transport.
+- `features/practice` - state, guidance line, note strip, transport, and the session log (`sessionLog.ts`, localStorage; `?sessions` shows it as JSON).
 - `features/audio` - a small additive synth; no samples, so it works offline.
 
 ## Adding a piece
