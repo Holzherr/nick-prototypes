@@ -100,7 +100,11 @@ const TonightScreen = ({ preview }: { preview?: TonightEntry[] } = {}) => {
   const [mood, setMood] = useState<string>("intense");
   const [length, setLength] = useState<string>("short");
   const [loading, setLoading] = useState(false);
+  // `fetched` stays null until the list has actually arrived, so a failed or offline read is
+  // never mistaken for an empty list; `loadError` holds the message and a retry until it does.
   const [fetched, setFetched] = useState<TonightEntry[] | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [attempt, setAttempt] = useState(0);
   // A scored slate waits here, under the key it was asked for, until they press for it, so the
   // screen never rearranges itself; `shown` is the one they pressed for.
   const [pending, setPending] = useState<{ key: string; result: TonightResult } | null>(null);
@@ -112,8 +116,15 @@ const TonightScreen = ({ preview }: { preview?: TonightEntry[] } = {}) => {
   useEffect(() => {
     if (!profileId || preview) return;
     supabase.from("watch_entries").select(TONIGHT_SELECT).eq("profile_id", profileId)
-      .then(({ data }) => setFetched((data ?? []) as unknown as TonightEntry[]));
-  }, [profileId, preview]);
+      .then(({ data, error }) => {
+        if (error) {
+          setLoadError(error.message);
+          return;
+        }
+        setLoadError(null);
+        setFetched((data ?? []) as unknown as TonightEntry[]);
+      });
+  }, [profileId, preview, attempt]);
 
   // Nothing waits on the model: a saved scored slate for this key wins, else the list is ranked
   // on the device the moment it, the mood or the length changes.
@@ -206,6 +217,16 @@ const TonightScreen = ({ preview }: { preview?: TonightEntry[] } = {}) => {
         <p className="text-sm text-muted-foreground">
           Nothing on your list yet — add a few things and this gets a lot more useful.
         </p>
+      )}
+
+      {loadError && !entries && (
+        <div className="space-y-2 rounded-lg border border-destructive/40 p-4 text-sm">
+          <p className="font-medium">Couldn't load your list</p>
+          <p className="text-muted-foreground">{loadError}</p>
+          <Button size="sm" variant="outline" onClick={() => setAttempt((n) => n + 1)}>
+            Retry
+          </Button>
+        </div>
       )}
     </div>
   );
