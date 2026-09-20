@@ -32,6 +32,37 @@ describe('the session log', () => {
     press(notes[0].pitch);
     expect(readSessions()).toEqual([first, expect.objectContaining({ correctPresses: 1 })]);
   });
+  it('does not count one tap on the last note as a full run after Play along or a jump', () => {
+    const { h, press } = setup();
+    act(() => h.result.current.playAlong());
+    act(() => vi.advanceTimersByTime(60_000));
+    expect(h.result.current.index).toBe(notes.length - 1);
+    press(notes[notes.length - 1].pitch);
+    expect(readSessions()).toEqual([expect.objectContaining({ correctPresses: 1, reachedLast: false })]);
+    act(() => h.result.current.goTo(notes.length - 1));
+    press(notes[notes.length - 1].pitch);
+    expect(readSessions()).toEqual([
+      expect.objectContaining({ correctPresses: 1, reachedLast: false }),
+      expect.objectContaining({ correctPresses: 1, reachedLast: false }),
+    ]);
+  });
+  it('closes the record on the last note; a re-press or a jump starts a new one', () => {
+    const { h, press } = setup();
+    notes.forEach(n => press(n.pitch));
+    press(notes[notes.length - 1].pitch);
+    expect(readSessions()).toEqual([
+      expect.objectContaining({ correctPresses: 30, reachedLast: true }),
+      expect.objectContaining({ correctPresses: 1, reachedLast: false }),
+    ]);
+    act(() => h.result.current.restart());
+    notes.slice(0, 4).forEach(n => press(n.pitch));
+    act(() => h.result.current.goTo(2));
+    notes.slice(2, 4).forEach(n => press(n.pitch));
+    expect(readSessions().slice(2)).toEqual([
+      expect.objectContaining({ correctPresses: 4, reachedLast: false }),
+      expect.objectContaining({ correctPresses: 2, reachedLast: false }),
+    ]);
+  });
   it('ignores play-along and wrong keys', () => {
     const { h, press } = setup();
     act(() => h.result.current.playAlong());
