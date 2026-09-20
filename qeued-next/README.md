@@ -16,10 +16,7 @@ React 19 · TypeScript · Vite · Tailwind 4 (tokens in `src/styles/tailwind.css
 `DESIGN.md`) · Radix primitives via the shadcn wrappers we kept · react-router 6 · react-query ·
 sonner · lucide · Storybook 10 (react-vite) · Vitest · oxlint · vite-plugin-pwa.
 
-Backend: Supabase project `piwfcsvnxcmxmvfhgtbk` (eu-central-1). Schema in
-`supabase/migrations/`, six Deno edge functions in `supabase/functions/` calling the Anthropic
-API (Haiku 4.5 for search / enrich / popular, Sonnet 5 for recommendations and Watch Tonight)
-through `_shared/claude.ts`. Results cache in `ai_cache`.
+Backend: Supabase, see [Backend](#backend) below.
 
 ## Layout
 
@@ -63,6 +60,50 @@ Story conventions (from front-law): CSF3, `satisfies Meta<typeof X>`, `title: 'S
 `parameters.docs.description.component` that describes the **visual layout** so the next person
 (or agent) can find the component instead of rebuilding it. Screens that fetch on mount get a
 story only for their first frame.
+
+## Backend
+
+Supabase project `piwfcsvnxcmxmvfhgtbk` (eu-central-1). Schema in `supabase/migrations/`, six
+Deno edge functions in `supabase/functions/` calling the Anthropic API (Haiku 4.5 for search /
+enrich / popular, Sonnet 5 for recommendations and Watch Tonight) through `_shared/claude.ts`.
+Results cache in `ai_cache`.
+
+**Agent snapshot** (migration 0025, written, **not applied**). `agent_snapshot(days int) returns jsonb`
+is the only way the team's Analyst reads this database: one `security definer` function, and one
+login role `agent_reader` holding EXECUTE on that function and no grant on any table, so widening
+what it sees takes a migration rather than a grant. Profiles come back as `md5(profile_id::text)`
+and no column of `profiles` is read, so the output is safe to paste into a report. To turn it on:
+apply the migration, set the role's password by hand (it is deliberately not in the file, which is
+public), then store the connection string in the keychain under `agent-team-qeued-db`; the shape is
+in the migration's header comment. Nothing in `src/` calls it and the app does not change when it
+is applied. Three sections:
+
+```json
+{
+  "generated_at": "2026-09-20T21:00:00+00:00",
+  "days": 7,
+  "catalogue": { "held": 2140, "titles": 2255, "candidates_not_held": 610, "published_share": 0.778 },
+  "candidates": {
+    "by_status": { "pending": 420, "held": 2140, "failed": 175, "skipped": 15 },
+    "top_errors": [{ "last_error": "no UK page", "candidates": 96 }]
+  },
+  "household_activity": {
+    "measures": "household activity, not recommendations taken",
+    "weeks": [{ "week": "2026-W38", "profile": "9f86d081884c…", "status": "watched",
+                "created": 3, "updated": 1, "rated": 2 }]
+  }
+}
+```
+
+`catalogue.held` is titles with `catalogue_version > 0`, `candidates_not_held` is every
+`catalogue_candidates` row whose status is not `held` (skipped included), and `published_share`
+is `held ÷ (held + candidates_not_held)`, the G-09 number. `candidates.top_errors` is the ten most
+common `last_error` values. `household_activity.weeks` is per ISO week × hashed profile × current
+status: rows created, rows changed after creation (`updated_at > created_at`), and rows carrying a
+`watched_rating`. It measures household activity only: no column says a `watch_entries` row came
+from a recommendation, so recommendations taken (G-10) is not readable until QD-004 adds one, and
+the fixed `measures` key is there so the report never presents this section as that metric.
+`days` is clamped to 1–400 and defaults to 7.
 
 ## The catalogue
 
