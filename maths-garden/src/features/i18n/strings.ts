@@ -88,7 +88,6 @@ export const EN = {
   'garden.carryOnWhere': '{answered} of {total} done — carry on where you stopped?',
   'garden.carryOn': 'Carry on 💗',
   'garden.startSomethingElse': 'Start something else',
-  'garden.lotsOfPlaying': '🌈 What a lot of playing!',
 
   // ── Signing in ────────────────────────────────────────────────────────────
   'auth.grownUpsSignIn': 'Grown-ups sign in here. Your child plays without needing to, and this device stays signed in.',

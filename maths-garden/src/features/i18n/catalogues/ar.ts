@@ -58,7 +58,6 @@ const AR: Partial<Catalogue> = {
   'garden.carryOnWhere': '{answered} من {total} — نكمل من حيث توقفت؟',
   'garden.carryOn': 'أكمل 💗',
   'garden.startSomethingElse': 'ابدأ شيئًا آخر',
-  'garden.lotsOfPlaying': '🌈 كم لعبت اليوم!',
 
   'auth.grownUpsSignIn': 'يسجّل الكبار الدخول من هنا. يلعب طفلك دون الحاجة إلى ذلك، ويبقى هذا الجهاز مسجّلًا.',
   'auth.email': 'البريد الإلكتروني',

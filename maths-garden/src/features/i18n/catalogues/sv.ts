@@ -50,7 +50,6 @@ const SV: Partial<Catalogue> = {
   'garden.carryOnWhere': '{answered} av {total} — fortsätta där du slutade?',
   'garden.carryOn': 'Fortsätt 💗',
   'garden.startSomethingElse': 'Börja med något annat',
-  'garden.lotsOfPlaying': '🌈 Vad mycket du har spelat!',
 
   'auth.grownUpsSignIn': 'Vuxna loggar in här. Ditt barn spelar utan att behöva det, och den här enheten förblir inloggad.',
   'auth.email': 'E-post',

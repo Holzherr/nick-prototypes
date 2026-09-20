@@ -50,7 +50,6 @@ const NL: Partial<Catalogue> = {
   'garden.carryOnWhere': '{answered} van {total} — verder waar je gebleven was?',
   'garden.carryOn': 'Verder 💗',
   'garden.startSomethingElse': 'Iets anders beginnen',
-  'garden.lotsOfPlaying': '🌈 Wat heb je veel gespeeld!',
 
   'auth.grownUpsSignIn': 'Volwassenen loggen hier in. Je kind speelt ook zonder, en dit apparaat blijft ingelogd.',
   'auth.email': 'E-mail',
