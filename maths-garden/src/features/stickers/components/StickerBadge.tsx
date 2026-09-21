@@ -1,4 +1,5 @@
 import { cn } from '@/shared/utils/cn';
+import { Anglerfish } from '../art/Anglerfish';
 import { packById, tiltOf, type Sticker } from '../catalog';
 
 export interface StickerBadgeProps {
@@ -30,17 +31,19 @@ export const StickerBadge = ({ sticker, size = 96, shiny = false, count = 1, til
       rotate: tilted ? `${tiltOf(sticker.id)}deg` : undefined,
     }}
   >
-    <span className="leading-none" style={{ fontSize: size * 0.5 }}>
-      {sticker.emoji}
-    </span>
+    {sticker.art === 'anglerfish' ? (
+      <Anglerfish size={Math.round(size * 0.62)} />
+    ) : (
+      <span className="leading-none" style={{ fontSize: size * 0.5 }}>
+        {sticker.emoji}
+      </span>
+    )}
     {shiny && (
       <span className="absolute -right-[10%] -top-[10%] leading-none" style={{ fontSize: size * 0.3 }}>
         ✨
       </span>
     )}
-    {count > 1 && (
-      <span className="absolute -bottom-[6%] -right-[8%] rounded-full bg-raspberry px-2 py-0.5 text-sm font-bold text-white">×{count}</span>
-    )}
+    {count > 1 && <span className="absolute -bottom-[6%] -right-[8%] rounded-full bg-raspberry px-2 py-0.5 text-sm font-bold text-white">×{count}</span>}
   </span>
 );
 

@@ -19,9 +19,14 @@ export interface Sticker {
   /** "<pack>/<name>", stored in maths_stickers.sticker; never rename one that has been handed out. */
   id: string;
   pack: PackId;
+  /** What shows on the sticker, and the stand-in wherever only text will do. */
   emoji: string;
   name: string;
+  /** Drawn art that replaces the emoji, for things Unicode has no emoji for. */
+  art?: StickerArt;
 }
+
+export type StickerArt = 'anglerfish';
 
 export interface Pack {
   id: PackId;
@@ -41,13 +46,26 @@ export interface Pack {
   stickers: readonly Sticker[];
 }
 
-const makePack = (id: PackId, name: string, cover: string, background: string, unlockAt: PackUnlock, items: readonly (readonly [string, string])[]): Pack => ({
+const makePack = (
+  id: PackId,
+  name: string,
+  cover: string,
+  background: string,
+  unlockAt: PackUnlock,
+  items: readonly (readonly [string, string] | readonly [string, string, StickerArt])[],
+): Pack => ({
   id,
   name,
   cover,
   background,
   unlockAt,
-  stickers: items.map(([emoji, stickerName]) => ({ id: `${id}/${stickerName.replace(/\s+/g, '-')}`, pack: id, emoji, name: stickerName })),
+  stickers: items.map(([emoji, stickerName, art]) => ({
+    id: `${id}/${stickerName.replace(/\s+/g, '-')}`,
+    pack: id,
+    emoji,
+    name: stickerName,
+    ...(art ? { art } : {}),
+  })),
 });
 
 /**
@@ -105,6 +123,7 @@ export const PACKS: readonly Pack[] = [
     ['🐚', 'shell'],
     ['🌊', 'wave'],
     ['🐢', 'turtle'],
+    ['🐟', 'angler fish', 'anglerfish'],
   ]),
   makePack('dino', 'Dinosaurs', '🦕', 'radial-gradient(circle at 32% 28%, #f2ffe9 0%, #a9d98a 48%, #3f6b2a 100%)', { stage: 3, games: 2 }, [
     ['🦕', 'long neck'],
