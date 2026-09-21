@@ -91,8 +91,9 @@ describe('unlocking packs', () => {
     ]);
   });
 
-  it('gives every pack eight stickers and a unique id', () => {
-    for (const pack of PACKS) expect(pack.stickers).toHaveLength(8);
+  // At least eight: the sea pack has a ninth, the drawn angler fish. The book's grid wraps to any count.
+  it('gives every pack at least eight stickers and a unique id', () => {
+    for (const pack of PACKS) expect(pack.stickers.length).toBeGreaterThanOrEqual(8);
     const ids = PACKS.flatMap((p) => p.stickers.map((s) => s.id));
     expect(new Set(ids).size).toBe(ids.length);
   });
