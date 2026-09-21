@@ -9,7 +9,7 @@ import { GardenHome } from '@/features/games/components/GardenHome';
 import { GrownUpsGate, grownUpsPassed } from '@/features/games/components/GrownUpsGate';
 import { levelOf, mastered, nextLevel, type AnswerRecord, type RoundRecord } from '@/features/games/engine';
 import { breakSuggestion, isPersonalBest, todaySummary, type BreakReason } from '@/features/games/insights';
-import { recommendGame } from '@/features/games/recommend';
+import { recommendGame, type Recommendation } from '@/features/games/recommend';
 import { setNameSound, unlockAudio } from '@/features/games/sound';
 import type { CheckinScores } from '@/features/progress/components/CheckInPanel';
 import { DashboardScreen } from '@/features/progress/components/DashboardScreen';
@@ -161,9 +161,11 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
     setScreen(grownUpsPassed() ? { name: 'dashboard' } : { name: 'gate' });
   };
 
-  const play = (game: Game) => {
+  /** `offered`: the game home led with, so a start from home says whether the suggestion was the one picked. */
+  const play = (game: Game, offered?: Recommendation) => {
     unlockAudio();
     track('game_start');
+    if (offered) track(offered.game.id === game.id ? 'offer_taken' : 'offer_skipped');
     // Starting something else is the moment the paused round is really given up: record what was answered.
     if (paused && paused.game.id !== game.id) dropPaused();
     runs.current += 1;
@@ -323,7 +325,8 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
 
   const view = (() => {
     switch (screen.name) {
-      case 'home':
+      case 'home': {
+        const recommended = recommendGame(progress.rounds, progress.levels, GAMES);
         return (
           <GardenHome
             childName={child.name}
@@ -332,17 +335,18 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             stickerCount={progress.stickers.length}
             today={todaySummary(progress.rounds)}
             garden={garden}
-            recommended={recommendGame(progress.rounds, progress.levels, GAMES)}
+            recommended={recommended}
             paused={paused ? { game: paused.game, answered: paused.answers.length, total: paused.questions.length } : null}
             onResume={resumePaused}
             onDropPaused={dropPaused}
             windDown={breakSuggestion(progress.rounds)}
-            onPlay={play}
+            onPlay={(game) => play(game, recommended)}
             onStickers={() => setScreen({ name: 'stickers' })}
             onGarden={() => setScreen({ name: 'garden' })}
             onGrownUps={grownUps}
           />
         );
+      }
       case 'game':
         return (
           <GameScreen
