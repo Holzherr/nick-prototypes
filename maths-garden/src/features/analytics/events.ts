@@ -10,7 +10,8 @@ import { cloudConfigured, supabase } from '@/shared/supabase/client';
  * Guest mode records nothing at all. The homepage promises "Guest mode keeps everything on the device and
  * sends nothing anywhere", and keeping that promise is worth more than the numbers.
  */
-export type EventName = 'visit' | 'signup' | 'sign_in' | 'guest_start' | 'game_start' | 'round_done';
+/** `offer_taken` / `offer_skipped`: a start from home was, or was not, the game home suggested. */
+export type EventName = 'visit' | 'signup' | 'sign_in' | 'guest_start' | 'game_start' | 'round_done' | 'offer_taken' | 'offer_skipped';
 
 const SESSION_KEY = 'maths-garden:analytics-session';
 const GUEST_KEY = 'maths-garden:guest';
