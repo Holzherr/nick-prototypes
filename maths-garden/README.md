@@ -279,7 +279,11 @@ defaults to 7.
 **Counting** (`features/analytics/events.ts`, migration 0004). Anonymous and first-party: how many people
 arrive, sign up and play. No cookies, no third party, no script from anyone else, and no identifier that
 outlives the browser tab — the session id is random and lives in `sessionStorage`. Events: `visit`,
-`signup`, `sign_in`, `guest_start`, `game_start`, `round_done`.
+`signup`, `sign_in`, `guest_start`, `game_start`, `round_done`, `offer_taken`, `offer_skipped`.
+`offer_taken`: a start from home of the game home suggested. `offer_skipped`: a start from home of a
+different game, behind "Or pick another game". Both fire alongside `game_start`; "Play again", a sheet's
+QR link and carrying on a paused round record neither, so per day
+`offer_skipped / (offer_taken + offer_skipped)` is how often the suggestion is passed over.
 
 Three rules make it safe to keep on a children's site, and each is load-bearing:
 
