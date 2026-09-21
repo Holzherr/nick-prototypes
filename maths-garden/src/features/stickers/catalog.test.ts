@@ -40,3 +40,10 @@ describe('sticker catalog', () => {
     expect(map.get('ice/crown')).toEqual({ count: 1, shiny: false });
   });
 });
+
+describe('the angler fish', () => {
+  it('lives in the sea pack under an id that will never change', () => {
+    const angler = stickerById('sea/angler-fish');
+    expect(angler).toMatchObject({ pack: 'sea', name: 'angler fish', art: 'anglerfish' });
+  });
+});
