@@ -242,12 +242,15 @@ free text. Until 0007 is applied the labelled insert is refused, so `sendFeedbac
 two columns and the message still lands. Story: Screens/Feedback.
 
 **Agent snapshot** (migration 0008, applied 2026-09-20; migration 0009 adds `total_ms`, `eased` and `stickers`,
-applied 2026-09-21). `agent_snapshot(days int) returns jsonb` is
+applied 2026-09-21; migration 0010 adds `reporter` and `kind` to feedback rows, written, **not applied** —
+it runs after 0007, because the function body is checked against the columns when it is created).
+`agent_snapshot(days int) returns jsonb` is
 the only way the team's Analyst reads this database: one `security definer` function, and one login role
 `agent_reader` holding EXECUTE on that function and no grant on any table, so widening what it sees takes a
 migration rather than a grant. Child ids come back as `md5(child_id::text)`, `children.name` is never read,
-and feedback carries the message, path, locale and time only — no reply address, no session id — so the
-output is safe to paste into a report. To turn it on: apply the migration, set the role's password by hand
+and feedback carries the message, path, locale, time, reporter and kind only — no reply address, no session
+id — so the output is safe to paste into a report. `reporter` and `kind` are the two labels from 0007, each
+`null` when the form was sent without one. To turn it on: apply the migration, set the role's password by hand
 (it is deliberately not in the file, which is public), then store the connection string in the keychain
 under `agent-team-maths-garden-db`; the shape is in the migration's header comment. Nothing in `src/` calls
 it and the app does not change when it is applied. Six sections:
@@ -263,7 +266,8 @@ it and the app does not change when it is applied. Six sections:
   "level_events": [{ "day": "2026-09-20", "game": "bond", "reason": "earned", "changes": 1 }],
   "events": [{ "day": "2026-09-20", "name": "round_done", "events": 12, "sessions": 3 }],
   "feedback": [{ "message": "the voice reads the numbers too fast", "path": "/#/app",
-                 "locale": "en", "at": "2026-09-20T19:40:00+00:00" }],
+                 "locale": "en", "at": "2026-09-20T19:40:00+00:00",
+                 "reporter": "Priyanka", "kind": "bug" }],
   "stickers": [{ "day": "2026-09-20", "child": "9f86d081884c…", "earned": 3, "shiny": 1, "duplicates": 1 }]
 }
 ```
