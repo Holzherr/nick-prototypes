@@ -242,7 +242,7 @@ free text. Until 0007 is applied the labelled insert is refused, so `sendFeedbac
 two columns and the message still lands. Story: Screens/Feedback.
 
 **Agent snapshot** (migration 0008, applied 2026-09-20; migration 0009 adds `total_ms`, `eased` and `stickers`,
-written, **not applied**). `agent_snapshot(days int) returns jsonb` is
+applied 2026-09-21). `agent_snapshot(days int) returns jsonb` is
 the only way the team's Analyst reads this database: one `security definer` function, and one login role
 `agent_reader` holding EXECUTE on that function and no grant on any table, so widening what it sees takes a
 migration rather than a grant. Child ids come back as `md5(child_id::text)`, `children.name` is never read,
