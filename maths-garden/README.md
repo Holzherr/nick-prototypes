@@ -37,7 +37,10 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   header is ever in the DOM and a test can render either (`MarketingLayout.test.tsx`); jsdom has no
   `matchMedia`, and without one the wide header is assumed. The front door (`StartCard`) offers the icon
   one way: the picker row directly under the big tile, which is now a preview and not a button — it used
-  to cycle themes on tap as well, with a "Tap to change" caption, three controls for one choice.
+  to cycle themes on tap as well, with a "Tap to change" caption, three controls for one choice. Its
+  headline possessive (`home.titleSuffix`, "’s Maths Garden") waits for a name: an empty or blank field
+  shows only the placeholder, so the first line no longer reads "’s Maths Garden" next to an empty box.
+  `home.titlePrefix` always renders, because in fr, es, nl, it, pt, pl and ar it carries the app name.
 - **Parent account** (Supabase email + password) with **child profiles**. The device remembers the child
   and opens straight into their garden; the parent stays signed in.
 - **Nine games**, five questions a round, **six levels each**: Quick Peek (subitising), Count With Me, Find

@@ -102,7 +102,7 @@ describe('which screen an open of the app lands on', () => {
   it('gives a guest the homepage at #/, not the app', async () => {
     localStorage.setItem('maths-garden:guest', 'true');
     await open('#/');
-    await waitFor(() => expect(screen.getByRole('heading', { name: /Maths Garden/i })).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByRole('textbox', { name: /child/i })).toBeInTheDocument());
     expect(screen.queryByText(/Add your child/i)).not.toBeInTheDocument();
   });
 
