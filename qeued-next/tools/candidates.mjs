@@ -5,8 +5,10 @@
  *   node tools/candidates.mjs import <file.json…>   add proposals, skipping what is held
  *   node tools/candidates.mjs next <n> [out.json]   the n most-wanted pending titles
  *   node tools/candidates.mjs reconcile             mark as held anything now in the catalogue
- *   node tools/candidates.mjs retry                 requeue retired ones after a resolver fix
+ *   node tools/candidates.mjs retry --aliased       requeue retired ones that now have an alias
+ *   node tools/candidates.mjs retry --all           requeue every retired one after a resolver fix
  *   node tools/candidates.mjs fail <file.json>      record names that resolved to no page
+ *   node tools/candidates.mjs failed [out.json]     every retired one, with its last error
  *   node tools/candidates.mjs stats                 what is left, by priority
  *
  * Proposals arrive from several slices at once and overlap heavily, so import is an upsert
@@ -15,6 +17,7 @@
  */
 import { readFile, writeFile } from 'node:fs/promises';
 import { query, queryJson, exec, quote, literal, block } from './db.mjs';
+import { aliasedRows } from './aliases.mjs';
 
 const [command, ...args] = process.argv.slice(2);
 
@@ -187,18 +190,55 @@ const fail = async (file) => {
   console.log(`Recorded ${records.length} unresolved candidate(s). A second failure retires one.`);
 };
 
+const FAILED_ROWS = `select coalesce(json_agg(json_build_object('name', name, 'year', year, 'type', type, 'attempts', attempts, 'last_error', last_error) order by priority desc, name), '[]'::json) as data
+     from public.catalogue_candidates where status = 'failed'`;
+
 /**
  * Puts retired candidates back in the queue.
  *
  * A candidate is retired after two failures, which is right when the resolver is a constant.
  * It is not when the resolver improves: every title that failed for a reason since fixed is
- * sitting there marked impossible. Run this after changing how titles are resolved.
+ * sitting there marked impossible. `--all` requeues every one, and is for a change to how
+ * titles are resolved; without a flag the command only says how many that would be, because
+ * a full wave over hundreds of known misses is an easy thing to start by accident.
+ *
+ * `--aliased` requeues only the rows that have gained a second name in tools/data/aliases.json:
+ * a retired row with no alias would fail again for the same reason, and requeueing it spends
+ * a fetch on a known miss. This is the one to run after writing aliases.
  */
-const retry = async () => {
+const retry = async (flags) => {
+  const failed = await queryJson(FAILED_ROWS);
+  if (flags.includes('--aliased')) {
+    const chosen = aliasedRows(failed);
+    if (chosen.length) {
+      await exec(block(chosen.map(
+        (r) =>
+          `update public.catalogue_candidates set status = 'pending', attempts = 0, last_error = null, updated_at = now() ` +
+          `where status = 'failed' and lower(name) = lower(${quote(r.name)}) and coalesce(year, 0) = ${Number(r.year) || 0} and type = ${quote(r.type)};`,
+      )));
+    }
+    console.log(`Requeued ${chosen.length} retired candidate(s) with an alias; left ${failed.length - chosen.length} alone.`);
+    return;
+  }
+  if (!flags.includes('--all')) {
+    console.log(`${failed.length} retired candidate(s) would be requeued. Nothing written: pass --all to requeue every one, or --aliased for only those with an alias.`);
+    process.exit(1);
+  }
   const reset = await exec(
     `update public.catalogue_candidates set status = 'pending', attempts = 0, last_error = null, updated_at = now() where status = 'failed';`,
   );
   console.log(`Requeued: ${reset}`);
+};
+
+/**
+ * Writes out every retired candidate with why it was retired, so the next pass writing
+ * aliases works from the real list rather than from a sample of it.
+ */
+const failed = async (out) => {
+  const rows = await queryJson(FAILED_ROWS);
+  const path = out ?? 'candidates-failed.json';
+  await writeFile(path, JSON.stringify(rows, null, 1));
+  console.log(`${rows.length} retired candidate(s) written to ${path}.`);
 };
 
 const stats = async () => {
@@ -216,13 +256,14 @@ const commands = {
   import: () => importCandidates(args),
   next: () => next(args[0] ?? 100, args[1]),
   reconcile,
-  retry,
+  retry: () => retry(args),
   fail: () => fail(args[0]),
+  failed: () => failed(args[0]),
   stats,
 };
 
 if (!commands[command]) {
-  console.log('Usage: candidates.mjs import <files…> | next <n> [out] | reconcile | retry | fail <file> | stats');
+  console.log('Usage: candidates.mjs import <files…> | next <n> [out] | reconcile | retry --aliased|--all | fail <file> | failed [out] | stats');
   process.exit(1);
 }
 await commands[command]();

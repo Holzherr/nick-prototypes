@@ -19,8 +19,11 @@
  *
  * Input is a JSON array of { name, year, type } — the script resolves each to a page,
  * verifies the name and year match what came back, and skips anything it cannot confirm.
+ * A record may also carry `aliases`, other names to try once its own has failed; a record
+ * without one gets whatever tools/data/aliases.json lists for it, which is usually nothing.
  */
 import { readFile, writeFile } from 'node:fs/promises';
+import { aliasesFor } from './aliases.mjs';
 
 const URL_BASE = process.env.SUPABASE_URL ?? 'https://piwfcsvnxcmxmvfhgtbk.supabase.co';
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -391,7 +394,30 @@ const searchForPage = async (name, year, type, { trustNameOverYear = true } = {}
  */
 const SEASONED = /\b(season|series)\s*\d+\s*$/i;
 
+/**
+ * A title under its own name first, then under each alias it was given.
+ *
+ * The search already reaches a page filed under a translation when the year agrees exactly
+ * (see searchForPage), so an alias is for the case that defeats it: the leading result for
+ * "Hotaru no haka" is the 2005 remake of Grave of the Fireflies, not the 1988 film, and the
+ * year rule rightly refuses it. Someone who knows the English name writes it down once in
+ * tools/data/aliases.json, and it is tried here as a name in its own right, cross-type
+ * fallback included. A candidate with no alias costs nothing extra: the loop is empty.
+ *
+ * What comes back is still filed under the candidate's own name and year. The alias found
+ * the page; it is not what the catalogue holds the work as, and identity is name and year.
+ */
 const resolveTitle = async (entry) => {
+  const found = await resolveNamed(entry);
+  if (found) return found;
+  for (const alias of entry.aliases ?? aliasesFor(entry)) {
+    const viaAlias = await resolveNamed({ name: alias, year: entry.year, type: entry.type });
+    if (viaAlias) return { ...viaAlias, correctedName: null, correctedYear: null, alias };
+  }
+  return null;
+};
+
+const resolveNamed = async (entry) => {
   const found = await resolveAs(entry, entry.type);
   if (found || entry.url) return found;
   // Never cross types for a name that carried a season suffix. "Attack on Titan Season 4"
@@ -601,11 +627,12 @@ const run = async () => {
     if (!resolved) {
       missed += 1;
       misses.push({ name: entry.name, year: entry.year, type: entry.type, error: 'no page matched' });
-      console.log(`  ?  ${entry.name} (${entry.year}) — no page matched`);
+      const tried = entry.aliases ?? aliasesFor(entry);
+      console.log(`  ?  ${entry.name} (${entry.year}) — no page matched${tried.length ? `, nor as ${tried.join(', ')}` : ''}`);
       return null;
     }
 
-    const { node, html, url, correctedYear, correctedName, correctedType } = resolved;
+    const { node, html, url, correctedYear, correctedName, correctedType, alias } = resolved;
     const poster = await posterFrom(html);
     const cast = (node.actor ?? [])
       .map((role) => decodeEntities(role.actor?.name ?? role.name))
@@ -631,7 +658,7 @@ const run = async () => {
     if (!fields.year) delete fields.year;
 
     const slug = `${slugify(entry.name)}-${fields.year ?? entry.year}`;
-    console.log(`  +  ${entry.name} (${fields.year})${poster ? '' : ' — NO POSTER'}`);
+    console.log(`  +  ${entry.name} (${fields.year})${alias ? ` — via ${alias}` : ''}${poster ? '' : ' — NO POSTER'}`);
     added += 1;
     return { entry, slug, url, fields };
   };
