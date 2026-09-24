@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Hotaru no haka",
+    "year": 1988,
+    "type": "movie",
+    "aliases": ["Grave of the Fireflies"],
+    "why": "Takahata's film, proposed under its Japanese title. JustWatch UK's search for the Japanese name leads with the 2005 live-action remake, which the year rule rightly refuses, and the 1988 page is filed as Grave of the Fireflies at /uk/movie/grave-of-the-fireflies-1988."
+  },
+  {
+    "name": "Dekalog",
+    "year": 1989,
+    "type": "series",
+    "aliases": ["The Decalogue"],
+    "why": "Kieślowski's ten films, proposed under both names (candidates-20.json as Dekalog, cand-c40-r3.json as The Decalogue). The UK page is filed as Dekalog; the English name is what an English list writes, and is the one to try if the Polish one ever stops resolving."
+  }
+]

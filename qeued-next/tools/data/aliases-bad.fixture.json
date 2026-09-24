@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Hotaru no haka",
+    "year": 1988,
+    "type": "movie",
+    "aliases": ["Grave of the Fireflies"],
+    "why": "A valid entry, so the two below are the only problems `aliases.mjs check` should report."
+  },
+  {
+    "name": "hotaru no haka",
+    "year": 1988,
+    "type": "movie",
+    "aliases": ["Tombstone for Fireflies"],
+    "why": "The same name, year and type as the entry above, differing only in case: a duplicate."
+  },
+  {
+    "name": "Dekalog",
+    "year": 1989,
+    "type": "series",
+    "aliases": ["The Decalogue"]
+  }
+]
