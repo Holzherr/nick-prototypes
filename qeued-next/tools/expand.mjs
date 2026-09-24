@@ -406,15 +406,34 @@ const SEASONED = /\b(season|series)\s*\d+\s*$/i;
  *
  * What comes back is still filed under the candidate's own name and year. The alias found
  * the page; it is not what the catalogue holds the work as, and identity is name and year.
+ *
+ * That is also why an alias may not override the year. searchForPage trusts an exact name
+ * over the year when it is the only exact hit, and hands the page's year back as
+ * correctedYear for the record to take. Under the candidate's own name that is a corrected
+ * fact; under an alias it is a different work — "Grave of the Fireflies" with 1988 absent
+ * would return the 2005 remake, and filing its poster and cast under Hotaru no haka (1988)
+ * would have reconcile mark the real film held. An alias hit whose year is outside the
+ * type's slack is refused, and the next alias is tried.
  */
 const resolveTitle = async (entry) => {
   const found = await resolveNamed(entry);
   if (found) return found;
   for (const alias of entry.aliases ?? aliasesFor(entry)) {
     const viaAlias = await resolveNamed({ name: alias, year: entry.year, type: entry.type });
-    if (viaAlias) return { ...viaAlias, correctedName: null, correctedYear: null, alias };
+    if (!viaAlias) continue;
+    if (!yearAgrees(entry.year, viaAlias.correctedYear, viaAlias.correctedType ?? entry.type)) {
+      console.log(`  ·  ${entry.name} (${entry.year}) — page under ${alias} is dated ${viaAlias.correctedYear}, not taken`);
+      continue;
+    }
+    return { ...viaAlias, correctedName: null, correctedYear: null, alias };
   }
   return null;
+};
+
+/** The same slack the matchers give an exact name: series date from a pilot, films from a late release. */
+const yearAgrees = (year, pageYear, type) => {
+  if (!year || !pageYear) return true;
+  return Math.abs(pageYear - year) <= (type === 'series' ? 3 : 2);
 };
 
 const resolveNamed = async (entry) => {
