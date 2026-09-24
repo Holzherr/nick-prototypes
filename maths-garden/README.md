@@ -83,7 +83,7 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   a trophy on the tile, a line on the end screen and a gold sticker from Nova. It is derived from the round
   log, so it needs no migration and reads the same on every device.
 - **Stickers:** after every finished round the child picks a pack and gets a sticker for their sticker book;
-  perfect rounds give sparkly ones. Emoji art only, no film characters. **Eight packs of eight**, unlocked
+  perfect rounds give sparkly ones. Emoji art only, no film characters. **Eight packs of sixteen**, unlocked
   by *breadth* — a stage reached in a number of games, not the best single game (`unlockedPacks`, `PackUnlock`):
   Unicorns, K-pop Hunters and Ice Queen from the start, **Space** at stage 2 in two games, **Under the Sea**
   at stage 2 in four, **Dinosaurs** at stage 3 in two, **In the Garden** at stage 3 in seven and **Night Sky**
