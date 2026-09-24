@@ -105,7 +105,10 @@ export function StartCard() {
             )}
           />
         </span>
-        {t('home.titleSuffix') && <span>{t('home.titleSuffix')}</span>}
+        {/* The suffix is a possessive ("’s Maths Garden"), which next to an empty box reads as a broken
+            sentence, so it waits for a name. The prefix stays: in fr, es, nl and the other prefix
+            catalogues it carries the app name itself ("Le jardin des maths de "). */}
+        {cleanName(name) && t('home.titleSuffix') && <span>{t('home.titleSuffix')}</span>}
       </h1>
 
       {/* Under the field it refers to, not next to the button that triggered it. role=alert so it is
