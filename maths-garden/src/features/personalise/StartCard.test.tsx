@@ -98,4 +98,30 @@ describe('starting play from the homepage', () => {
     fireEvent.click(start());
     expect(readJSON<Child[]>(GUEST_CHILDREN, [])[0].avatar).toBe(themeById('dragon').glyph);
   });
+
+  /**
+   * The headline is "<name>'s Maths Garden" with the name typed into it, so before a name exists it read
+   * "'s Maths Garden" next to an empty dashed box — a broken sentence as the first thing on the page.
+   * The possessive waits for a name; the placeholder carries the line until then.
+   */
+  it('shows no possessive until a name is typed', () => {
+    render(<StartCard />);
+
+    expect(screen.queryByText(/s Maths Garden/)).toBeNull();
+    expect(field()).toHaveAttribute('placeholder', expect.stringMatching(/your name/i));
+  });
+
+  it('reads "<name>’s Maths Garden" once a name is typed', () => {
+    render(<StartCard />);
+    fireEvent.change(field(), { target: { value: 'Tara' } });
+
+    expect(screen.getByRole('heading', { name: 'Tara’s Maths Garden' })).toBeInTheDocument();
+  });
+
+  it('keeps the possessive hidden for a name of only spaces', () => {
+    render(<StartCard />);
+    fireEvent.change(field(), { target: { value: '   ' } });
+
+    expect(screen.queryByText(/s Maths Garden/)).toBeNull();
+  });
 });
