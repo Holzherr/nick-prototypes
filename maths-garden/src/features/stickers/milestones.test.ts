@@ -8,11 +8,11 @@ const unicornPack = packById('unicorn').stickers.map((s) => s.id);
 
 describe('drawReward', () => {
   it('gives new stickers, then sparkly copies once the pack is complete, then repeats', () => {
-    const partial = unicornPack.slice(0, 7).map((id) => rec(id));
-    expect(drawReward('unicorn', partial)).toEqual({ sticker: packById('unicorn').stickers[7], sparkly: false });
+    const partial = unicornPack.slice(0, 15).map((id) => rec(id));
+    expect(drawReward('unicorn', partial)).toEqual({ sticker: packById('unicorn').stickers[15], sparkly: false });
 
-    const complete = unicornPack.map((id, i) => rec(id, i < 7));
-    expect(drawReward('unicorn', complete)).toEqual({ sticker: packById('unicorn').stickers[7], sparkly: true });
+    const complete = unicornPack.map((id, i) => rec(id, i < 15));
+    expect(drawReward('unicorn', complete)).toEqual({ sticker: packById('unicorn').stickers[15], sparkly: true });
 
     const allSparkly = unicornPack.map((id) => rec(id, true));
     expect(drawReward('unicorn', allSparkly).sparkly).toBe(false);
