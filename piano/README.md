@@ -20,6 +20,14 @@ npm run build        # VITE_BASE=/piano/ npm run build to publish
 - `features/practice` - state, guidance line, note strip, transport, and the session log (`sessionLog.ts`, localStorage; `?sessions` shows it as JSON).
 - `features/audio` - a small additive synth; no samples, so it works offline.
 
+## Backend
+
+`sessionSync.ts` uploads each session record to `piano_sessions` in the Maths Garden Supabase
+project, for G-11's sessions_7d. `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are that project's values: `.env.local`
+locally (copy `.env.example`), repo variables in the publish workflow. Left blank, nothing is sent.
+One request in flight at a time, so a finished run ends `reached_last: true`. A row is a random
+device id, piece, day and two counts: no name, no clock time.
+
 ## Adding a piece
 
 Add a file under `features/score/pieces`, fill in the notes, and point `App.tsx`

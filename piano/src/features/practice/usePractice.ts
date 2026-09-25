@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSynth } from '@/features/audio/useSynth.ts';
 import type { Piece } from '@/features/score/types.ts';
 import { logPress, type SessionRecord } from './sessionLog.ts';
+import { syncSession } from './sessionSync.ts';
 
 /** Practice state. There is no fail state anywhere in here on purpose: a wrong
  *  key sounds the note she pressed and leaves the target lit, so exploring the
@@ -57,6 +58,7 @@ export function usePractice(piece: Piece, soundOn: boolean) {
       });
       const last = index === piece.notes.length - 1;
       session.current = logPress(session.current, piece.id, piece.notes.length, new Date());
+      syncSession(session.current);
       if (last) {
         session.current = null;
         cheer();
