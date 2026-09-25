@@ -176,6 +176,16 @@ counts — and it only ever fills a field that is empty, so a hand-edit always s
 `tidy` is the only script that overwrites, which is why every overwrite is listed by hand in a
 corrections file with the reason it is wrong.
 
+Offers expire 30 days after they are written, so the stale ones are refreshed weekly by
+`tools/ci/qeued-availability.yml`: every Sunday at 03:00 UTC a GitHub Action runs
+`node tools/refresh-stale.mjs` over `QEUED_DB_URL` and nothing else, spending no model tokens.
+By hand it is `node tools/refresh-stale.mjs --dry-run`, which reads the pages and writes
+`offers.sql` instead of the rows. Turning the schedule on is two one-off steps: copy that file
+unchanged to `.github/workflows/` at the repo root, and set `QEUED_DB_URL` as a repository
+secret on Holzherr/nick-prototypes. Then run it once from the Actions tab with `dry_run`
+ticked: it uploads `offers.sql` as an artefact, and a runner that cannot reach the pages or
+the database fails there rather than silently on the first Sunday.
+
 ### The steps, and why they are separate
 
 None of them need a service key. `tools/db.mjs` runs SQL over the connection the Supabase CLI
