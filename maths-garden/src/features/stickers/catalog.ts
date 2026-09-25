@@ -83,6 +83,14 @@ export const PACKS: readonly Pack[] = [
     ['🌙', 'moon'],
     ['🦋', 'butterfly'],
     ['🍭', 'lollipop'],
+    ['🍬', 'sweet'],
+    ['🎀', 'bow'],
+    ['🌸', 'blossom'],
+    ['🧚', 'fairy'],
+    ['🎠', 'carousel'],
+    ['🍦', 'ice cream'],
+    ['🪁', 'kite'],
+    ['🎈', 'balloon'],
   ]),
   makePack('kpop', 'K-pop Hunters', '🎤', 'radial-gradient(circle at 32% 28%, #ffe3f6 0%, #e08cff 48%, #6a2bd1 100%)', { stage: 1, games: 1 }, [
     ['🎤', 'microphone'],
@@ -93,6 +101,14 @@ export const PACKS: readonly Pack[] = [
     ['🐯', 'tiger'],
     ['🎶', 'music'],
     ['🔥', 'fire'],
+    ['💃', 'dancer'],
+    ['🎸', 'guitar'],
+    ['🥁', 'drum'],
+    ['🎹', 'keyboard'],
+    ['🕶️', 'shades'],
+    ['👟', 'trainers'],
+    ['🎆', 'fireworks'],
+    ['🦊', 'fox'],
   ]),
   makePack('ice', 'Ice Queen', '❄️', 'radial-gradient(circle at 32% 28%, #ffffff 0%, #d4f1ff 48%, #7cc6f2 100%)', { stage: 1, games: 1 }, [
     ['❄️', 'snowflake'],
@@ -103,6 +119,14 @@ export const PACKS: readonly Pack[] = [
     ['🦌', 'reindeer'],
     ['🧊', 'ice cube'],
     ['🌨️', 'snow cloud'],
+    ['🧣', 'scarf'],
+    ['🧤', 'mittens'],
+    ['🛷', 'sledge'],
+    ['⛸️', 'ice skates'],
+    ['🐧', 'penguin'],
+    ['🐻‍❄️', 'polar bear'],
+    ['🎿', 'skis'],
+    ['🌬️', 'north wind'],
   ]),
   makePack('space', 'Space', '🚀', 'radial-gradient(circle at 32% 28%, #eef2ff 0%, #9aa8ff 48%, #2b2f77 100%)', { stage: 2, games: 2 }, [
     ['🚀', 'rocket'],
@@ -113,6 +137,14 @@ export const PACKS: readonly Pack[] = [
     ['🌕', 'full moon'],
     ['🛰️', 'satellite'],
     ['👽', 'alien'],
+    ['☀️', 'sun'],
+    ['🌍', 'earth'],
+    ['🌗', 'half moon'],
+    ['🤖', 'robot'],
+    ['🌟', 'bright star'],
+    ['🎇', 'sparkler'],
+    ['🛩️', 'plane'],
+    ['🔭', 'space telescope'],
   ]),
   makePack('sea', 'Under the Sea', '🐠', 'radial-gradient(circle at 32% 28%, #e7fbff 0%, #7fd8ea 48%, #14708f 100%)', { stage: 2, games: 4 }, [
     ['🐠', 'fish'],
@@ -124,6 +156,14 @@ export const PACKS: readonly Pack[] = [
     ['🌊', 'wave'],
     ['🐢', 'turtle'],
     ['🐟', 'angler fish', 'anglerfish'],
+    ['🦈', 'shark'],
+    ['🐡', 'puffer fish'],
+    ['🦑', 'squid'],
+    ['🦭', 'seal'],
+    ['🪸', 'coral'],
+    ['⚓', 'anchor'],
+    ['🏝️', 'island'],
+    ['🚤', 'boat'],
   ]),
   makePack('dino', 'Dinosaurs', '🦕', 'radial-gradient(circle at 32% 28%, #f2ffe9 0%, #a9d98a 48%, #3f6b2a 100%)', { stage: 3, games: 2 }, [
     ['🦕', 'long neck'],
@@ -134,6 +174,14 @@ export const PACKS: readonly Pack[] = [
     ['🐊', 'snapper'],
     ['🌿', 'fern'],
     ['🪨', 'rock'],
+    ['🦎', 'lizard'],
+    ['🐉', 'dragon'],
+    ['🦣', 'mammoth'],
+    ['🌴', 'palm'],
+    ['🪶', 'feather'],
+    ['🪵', 'log'],
+    ['🔍', 'magnifier'],
+    ['🐾', 'footprint'],
   ]),
   // The last two are the long game: stage 3 in most games, then in every one of them. Without something
   // this far out, a child who is doing well runs out of collection before she runs out of maths.
@@ -146,6 +194,14 @@ export const PACKS: readonly Pack[] = [
     ['🐛', 'caterpillar'],
     ['🪺', 'nest'],
     ['🍀', 'clover'],
+    ['🐞', 'ladybird'],
+    ['🌷', 'tulip'],
+    ['🌹', 'rose'],
+    ['🥕', 'carrot'],
+    ['🍓', 'strawberry'],
+    ['🐸', 'frog'],
+    ['🐇', 'rabbit'],
+    ['🌱', 'seedling'],
   ]),
   makePack('night', 'Night Sky', '🌌', 'radial-gradient(circle at 32% 28%, #e9ecff 0%, #6f7bd6 45%, #161a4a 100%)', { stage: 3, games: 9 }, [
     ['🌌', 'galaxy'],
@@ -156,6 +212,14 @@ export const PACKS: readonly Pack[] = [
     ['🕯️', 'candle'],
     ['☄️', 'shooting comet'],
     ['🛌', 'bedtime'],
+    ['⭐', 'star'],
+    ['🦔', 'hedgehog'],
+    ['🐺', 'wolf'],
+    ['🏮', 'lantern'],
+    ['🔦', 'torch'],
+    ['🧸', 'teddy'],
+    ['📖', 'storybook'],
+    ['🌃', 'city lights'],
   ]),
 ];
 
@@ -174,7 +238,7 @@ export const SPECIAL_PACK: Pack = makePack('special', 'Special from Nova', '⭐'
 ]);
 
 const ALL = [...PACKS, SPECIAL_PACK].flatMap((p) => p.stickers);
-/** Different stickers in every regular pack, locked ones included (eight packs of eight). */
+/** Different stickers in every regular pack, locked ones included (eight packs of sixteen, plus the angler fish). */
 export const STICKER_TOTAL = PACKS.reduce((sum, p) => sum + p.stickers.length, 0);
 
 /**
