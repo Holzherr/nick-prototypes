@@ -164,10 +164,11 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
   /** `offered`: the game home led with, so a start from home says whether the suggestion was the one picked. */
   const play = (game: Game, offered?: Recommendation) => {
     unlockAudio();
+    // Starting something else is the moment the paused round is really given up: record what was answered,
+    // before the new start is counted, so the old game is left before the next one begins.
+    if (paused && paused.game.id !== game.id) dropPaused();
     track('game_start');
     if (offered) track(offered.game.id === game.id ? 'offer_taken' : 'offer_skipped');
-    // Starting something else is the moment the paused round is really given up: record what was answered.
-    if (paused && paused.game.id !== game.id) dropPaused();
     runs.current += 1;
     setNovaDone(false);
     setScreen({ name: 'game', game, level: levelOf(latest.current.levels, game), run: runs.current });
@@ -226,9 +227,14 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
     home();
   };
 
-  /** Give up on the paused round for real: record what was answered, so quitting still shows in the log. */
+  /**
+   * Give up on the paused round for real: record what was answered, so quitting still shows in the log. A
+   * round with nothing in it is not worth a row, but the start was counted, so it is counted as left.
+   */
   const dropPaused = () => {
-    if (paused && paused.answers.length) apply({ kind: 'round', round: makeRound(paused.game, paused.level, paused.answers, false) });
+    if (!paused) return;
+    if (paused.answers.length) apply({ kind: 'round', round: makeRound(paused.game, paused.level, paused.answers, false) });
+    else track('game_left');
     setPaused(null);
   };
 
