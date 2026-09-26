@@ -89,6 +89,20 @@ describe('what leaving a game before its first answer records', () => {
     expect(rounds()).toEqual([]);
   });
 
+  it('Home, then the same game from its own card: a resume, so no second start and no offer event', () => {
+    const rounds = mount();
+    tapSuggested();
+    tapHome();
+    tapSuggested();
+    expect(names()).toEqual(['game_start', 'offer_taken']);
+    expect(rounds()).toEqual([]);
+    // Leaving the carried-on round for another game is still leaving it: one game_left, then the new start.
+    tapHome();
+    tapOther();
+    expect(names()).toEqual(['game_start', 'offer_taken', 'game_left', 'game_start', 'offer_skipped']);
+    expect(rounds()).toEqual([]);
+  });
+
   it('records nothing at all in guest mode', () => {
     localStorage.setItem(GUEST_FLAG, 'true');
     mount();
