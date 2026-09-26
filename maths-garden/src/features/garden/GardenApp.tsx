@@ -164,11 +164,16 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
   /** `offered`: the game home led with, so a start from home says whether the suggestion was the one picked. */
   const play = (game: Game, offered?: Recommendation) => {
     unlockAudio();
-    // Starting something else is the moment the paused round is really given up: record what was answered,
-    // before the new start is counted, so the old game is left before the next one begins.
-    if (paused && paused.game.id !== game.id) dropPaused();
-    track('game_start');
-    if (offered) track(offered.game.id === game.id ? 'offer_taken' : 'offer_skipped');
+    // Tapping the paused game's own tile carries its round on, the same act as "Carry on", so it counts as
+    // neither a start nor an offer. Starting something else is the moment the paused round is really given
+    // up: record what was answered, before the new start is counted, so the old game is left before the
+    // next one begins.
+    const resuming = paused !== null && paused.game.id === game.id;
+    if (paused && !resuming) dropPaused();
+    if (!resuming) {
+      track('game_start');
+      if (offered) track(offered.game.id === game.id ? 'offer_taken' : 'offer_skipped');
+    }
     runs.current += 1;
     setNovaDone(false);
     setScreen({ name: 'game', game, level: levelOf(latest.current.levels, game), run: runs.current });

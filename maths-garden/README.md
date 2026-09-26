@@ -293,8 +293,8 @@ QR link and carrying on a paused round record neither, so per day
 `offer_skipped / (offer_taken + offer_skipped)` is how often the suggestion is passed over. `game_left`: a
 game started and given up before its first answer, so no round was written for it — fired when a paused
 round with no answers is dropped for another game, from home or from "Start something else". Per day for
-signed-in play `game_start >= round_done + quits + game_left`; the remainder is tabs closed mid-round and
-the paused game tapped again from home, which carries the round on but counts as a fresh start.
+signed-in play `game_start >= round_done + quits + game_left`; the remainder is tabs closed mid-round.
+Tapping the paused game's own tile from home carries the round on and, like "Carry on", records nothing.
 
 Three rules make it safe to keep on a children's site, and each is load-bearing:
 
