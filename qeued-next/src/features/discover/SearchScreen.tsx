@@ -31,6 +31,8 @@ const SearchPage = () => {
   const { toast } = useToast();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<TitleResult[]>([]);
+  /** "queued" when the catalogue has no hit and the query now waits for the next wave. */
+  const [source, setSource] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleSearch = async (e: React.FormEvent) => {
@@ -44,6 +46,7 @@ const SearchPage = () => {
       });
       if (error) throw error;
       setResults(data?.titles || []);
+      setSource(data?.source ?? null);
     } catch (e: any) {
       toast({ title: "Search failed", description: e.message, variant: "destructive" });
     } finally {
@@ -151,7 +154,9 @@ const SearchPage = () => {
 
       {!loading && results.length === 0 && query && (
         <div className="text-center py-12 text-muted-foreground">
-          No results yet. Hit search to find titles.
+          {source === "queued"
+            ? "Not in the catalogue yet. It is queued for the next wave."
+            : "No results yet. Hit search to find titles."}
         </div>
       )}
     </div>

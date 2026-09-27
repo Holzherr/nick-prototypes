@@ -6,6 +6,9 @@ import {
   resolveCaller,
   takeModelCall,
 } from '../../supabase/functions/_shared/access.ts';
+import searchTitles from '../../supabase/functions/search-titles/index.ts?raw';
+import watchTonight from '../../supabase/functions/watch-tonight/index.ts?raw';
+import getRecommendations from '../../supabase/functions/get-recommendations/index.ts?raw';
 
 const ME = '11111111-1111-4111-8111-111111111111';
 const OTHER = '22222222-2222-4222-8222-222222222222';
@@ -45,6 +48,29 @@ describe('resolveCaller', () => {
     expect(await status(resolveCaller(req(`Bearer ${SERVICE}`), { serviceKey: SERVICE, getUserId }))).toBe(400);
     // An unset service key must not match an empty or absent token.
     expect(await status(resolveCaller(req('Bearer '), { serviceKey: '', getUserId, bodyUserId: OTHER }))).toBe(401);
+  });
+});
+
+/**
+ * The functions run under Deno with remote imports, so vitest cannot call them. What it can
+ * check is that each one gates on resolveCaller (a 401 without a user JWT) and answers an
+ * HttpError with its status, the same way for every function that takes a signed-in caller.
+ */
+describe('functions that take a signed-in caller', () => {
+  const sources = { 'search-titles': searchTitles, 'watch-tonight': watchTonight, 'get-recommendations': getRecommendations };
+
+  it.each(Object.entries(sources))('%s resolves the caller from the JWT and returns its status', (_name, src) => {
+    expect(src).toMatch(/await resolveCaller\(req, \{[^}]*getUserId: userIdFromJwt/s);
+    expect(src).toContain('if (e instanceof HttpError) return json({ error: e.message }, e.status);');
+  });
+
+  it('search-titles reads the catalogue only: no model, no poster lookup, no insert into titles', () => {
+    expect(searchTitles).not.toMatch(/_shared\/(claude|posters)\.ts/);
+    // No statement that starts from `titles` goes on to insert.
+    expect(searchTitles).not.toMatch(/from\('titles'\)[^;]*\.insert\(/);
+    expect(searchTitles).toContain(".from('catalogue_candidates').insert(");
+    expect(searchTitles).toContain("source: 'catalogue'");
+    expect(searchTitles).toContain("source: 'queued'");
   });
 });
 
