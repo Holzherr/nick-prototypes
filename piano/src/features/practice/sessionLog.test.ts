@@ -1,16 +1,20 @@
 import { act } from '@testing-library/react';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { logPress, readSessions, sessionsIn, writeSession, type SessionRecord } from './sessionLog.ts';
 
-const at = (iso: string): SessionRecord =>
-  ({ id: iso, pieceId: 'this-old-man', startedAt: iso, lastPressAt: iso, correctPresses: 1, reachedLast: false });
+const at = (iso: string, reachedLast = false): SessionRecord =>
+  ({ id: iso, pieceId: 'this-old-man', startedAt: iso, lastPressAt: iso, correctPresses: 1, reachedLast });
 const now = new Date('2026-09-20T20:00:00Z');
 
 beforeEach(() => localStorage.clear());
 
 describe('sessionsIn', () => {
   it('counts only sessions whose last press is within the window', () => {
-    const log = [at('2026-09-20T19:00:00Z'), at('2026-09-14T00:00:00Z'), at('2026-09-13T19:59:59Z'), at('2026-09-01T00:00:00Z')];
+    const log = [at('2026-09-20T19:00:00Z', true), at('2026-09-14T00:00:00Z', true), at('2026-09-13T19:59:59Z', true), at('2026-09-01T00:00:00Z', true)];
+    expect(sessionsIn(7, now, log)).toBe(2);
+  });
+  it('counts only runs that reached the last note, not every stored record', () => {
+    const log = [at('2026-09-20T19:00:00Z', true), at('2026-09-20T18:00:00Z'), at('2026-09-19T19:00:00Z', true), at('2026-09-18T19:00:00Z')];
     expect(sessionsIn(7, now, log)).toBe(2);
   });
 });
@@ -36,12 +40,13 @@ describe('the store', () => {
 });
 
 describe('?sessions', () => {
-  it('renders the log and the 7-day count instead of the practice screen', async () => {
-    writeSession(at(new Date().toISOString()));
+  it.each([[false, 0], [true, 1]])('renders the log and the 7-day count instead of the practice screen (reachedLast %s counts %i)', async (reachedLast, count) => {
+    vi.resetModules();
+    writeSession(at(new Date().toISOString(), reachedLast));
     history.replaceState(null, '', '?sessions');
     document.body.innerHTML = '<div id="root"></div>';
     await act(async () => { await import('@/main.tsx'); });
-    expect(document.body.textContent).toContain('"sessions_7d": 1');
+    expect(document.body.textContent).toContain(`"sessions_7d": ${count}`);
     expect(document.querySelector('.kb')).toBeNull();
   });
 });
