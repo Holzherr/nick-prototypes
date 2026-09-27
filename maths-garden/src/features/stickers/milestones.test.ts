@@ -23,7 +23,22 @@ describe('milestones', () => {
   it('counts sticker totals, finished packs and levels 3 and 5, ignoring special stickers', () => {
     const records = [...unicornPack.map((id) => rec(id)), rec('kpop/tiger'), rec('kpop/fire'), rec('special/trophy')];
     const keys = milestonesReached(records, { peek: 2, find: 4 }, GAMES).map((m) => m.key);
-    expect(keys).toEqual(['stickers-5', 'stickers-10', 'pack-unicorn', 'peek-lv3', 'find-lv3', 'find-lv5']);
+    expect(keys).toEqual(['stickers-5', 'stickers-10', 'pack-unicorn', 'pack-full-unicorn', 'peek-lv3', 'find-lv3', 'find-lv5']);
+  });
+
+  it('reaches a pack at eight stickers, the size it had when first paid, and the whole pack at sixteen', () => {
+    const packKeys = (records: { sticker: string; shiny: boolean }[]) =>
+      milestonesReached(records, {}, GAMES).map((m) => m.key).filter((k) => k.includes('unicorn'));
+    expect(packKeys(unicornPack.slice(0, 8).map((id) => rec(id)))).toEqual(['pack-unicorn']);
+    expect(packKeys(unicornPack.map((id) => rec(id)))).toEqual(['pack-unicorn', 'pack-full-unicorn']);
+    expect(packKeys(unicornPack.slice(0, 8).map((id) => rec(id, true)))).toEqual(['pack-unicorn', 'sparkly-unicorn']);
+    expect(packKeys(unicornPack.map((id) => rec(id, true)))).toEqual(['pack-unicorn', 'pack-full-unicorn', 'sparkly-unicorn', 'sparkly-full-unicorn']);
+  });
+
+  it('never un-reaches a milestone paid when packs held eight', () => {
+    // Before packs grew: eight shiny unicorns reached stickers-5, pack-unicorn and sparkly-unicorn, three specials paid.
+    const paid = [...unicornPack.slice(0, 8).map((id) => rec(id, true)), ...SPECIAL_PACK.stickers.slice(0, 3).map((s) => rec(s.id))];
+    expect(pendingMilestone(paid, {}, GAMES)).toBeNull();
   });
 
   it('owes one special sticker per milestone', () => {
