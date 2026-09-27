@@ -42,8 +42,9 @@ export function logPress(prev: SessionRecord | null, pieceId: string, total: num
   return record;
 }
 
-/** Sessions whose last press falls within `days` of `now`. */
+/** Full runs (G-11's session: every note pressed) whose last press falls within `days` of `now`.
+ *  A record exists from the first correct press, so an unfiltered count would call a stray tap a session. */
 export function sessionsIn(days: number, now: Date, sessions = readSessions()): number {
   const since = now.getTime() - days * 86_400_000;
-  return sessions.filter(s => Date.parse(s.lastPressAt) >= since && Date.parse(s.lastPressAt) <= now.getTime()).length;
+  return sessions.filter(s => s.reachedLast && Date.parse(s.lastPressAt) >= since && Date.parse(s.lastPressAt) <= now.getTime()).length;
 }
