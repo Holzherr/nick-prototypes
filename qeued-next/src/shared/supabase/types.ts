@@ -957,6 +957,10 @@ export type Database = {
         Args: { p_body: Json; p_name: string }
         Returns: number
       }
+      join_group: {
+        Args: { p_invite_code: string; p_profile_id: string }
+        Returns: string
+      }
       refresh_recommendation_slates: { Args: never; Returns: number }
       title_slug: { Args: { p_name: string; p_year: number }; Returns: string }
     }
