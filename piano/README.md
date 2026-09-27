@@ -22,14 +22,18 @@ npm run build        # VITE_BASE=/piano/ npm run build to publish
 
 ## Backend
 
-Piano has no Supabase project of its own: `supabase/migrations/0001_piano_sessions.sql` (written, **not
-applied**) goes into the Maths Garden project, which already has the `agent_reader` role the nightly
+Piano has no Supabase project of its own: `supabase/migrations/0001_piano_sessions.sql` (applied 27 Sep)
+lives in the Maths Garden project, which already has the `agent_reader` role the nightly
 report signs in with. One table, `piano_sessions` (`device_id`, `session_id`, `piece_id`, `day`,
 `reached_last`, `correct_presses`, `updated_at`; primary key device + session). RLS lets the anon key
 insert and update a row and never select or delete one, so a device writes with an upsert and nobody can
 read the table back through the API. "Own device only" is not enforceable without sign-in; the row key is
-a random UUID the device made. A row holds no name and no time finer than a day. Nothing in `src/` writes
-it yet (that client is PN-007).
+a random UUID the device made. A row holds no name and no time finer than a day.
+
+`features/practice/sessionSync.ts` upserts the record `sessionLog.ts` just wrote after every correct press,
+one request in flight at a time so a finished run ends `reached_last: true`. It reads `VITE_SUPABASE_URL` and
+`VITE_SUPABASE_ANON_KEY`, the Maths Garden project's values: locally in `.env.local` (gitignored; no
+`.env.example`, `policy.json` protects `.env*`), in production from the publish workflow. Either blank, nothing is sent.
 
 `piano_snapshot(days int default 7) returns jsonb` is the only way the report reads it: `security
 definer`, executable by `agent_reader` alone, `days` clamped to 1–400.
@@ -48,11 +52,8 @@ before it. That window is fixed at 7 calendar days whatever `days` is, because t
 function with 8 and the target is 2 a week. `days` only widens `sessions_by_day`: one entry per day with
 at least one row in the last `days` days, oldest first, `sessions` = reached the last note, `runs` = every row.
 
-Nick's three steps, once this and PN-007 are merged:
-
-1. apply the migration through the pooler
-2. set the piano publish workflow's `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` to the Maths Garden project's values
-3. add the `supabase` block with `snapshot_function: piano_snapshot` to `apps/piano/app.json`
+Nick's three steps (done 27 Sep, PN-008): migration applied through the pooler, the publish workflow exporting
+the two variables from the Maths Garden project, and `snapshot_function: piano_snapshot` in `apps/piano/app.json`.
 
 ## Adding a piece
 
