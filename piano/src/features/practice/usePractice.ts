@@ -17,6 +17,8 @@ export function usePractice(piece: Piece, soundOn: boolean) {
    *  press, and back to null whenever the run stops being hers from the start: after
    *  the last note, after a jump via the strip or Next, or when the app plays along. */
   const session = useRef<SessionRecord | null>(null);
+  /** True from the last note's cheer until the strip jumps back to the start (or she jumps herself). */
+  const finished = useRef(false);
   const { play, click, cheer } = useSynth(soundOn);
 
   const note = piece.notes[index];
@@ -33,6 +35,7 @@ export function usePractice(piece: Piece, soundOn: boolean) {
   const goTo = useCallback(
     (i: number) => {
       stop();
+      finished.current = false;
       setIndex(Math.max(0, Math.min(piece.notes.length - 1, i)));
       session.current = null;
     },
@@ -41,16 +44,26 @@ export function usePractice(piece: Piece, soundOn: boolean) {
 
   const restart = useCallback(() => {
     stop();
+    finished.current = false;
     setPlayed(piece.notes.map(() => false));
     setIndex(0);
     session.current = null;
   }, [piece.notes, stop]);
 
-  /** She pressed a key. Right one moves on; wrong one just sounds. */
+  /** The run is over: cheer, leave the last note lit while it sounds, then back to the start
+   *  for the next run. A jump inside the pause clears the timer, so it wins. */
+  const finish = useCallback(() => {
+    cheer();
+    finished.current = true;
+    timers.current.push(window.setTimeout(restart, 1500));
+  }, [cheer, restart]);
+
+  /** She pressed a key. Right one moves on; wrong one just sounds. While the app plays along,
+   *  or in the pause after the last note, every key only sounds: nothing moves, nothing is logged. */
   const press = useCallback(
     (pitch: number) => {
       play(pitch, 1);
-      if (pitch !== piece.notes[index].pitch) return;
+      if (playing || finished.current || pitch !== piece.notes[index].pitch) return;
       setPlayed(p => {
         const copy = [...p];
         copy[index] = true;
@@ -61,15 +74,16 @@ export function usePractice(piece: Piece, soundOn: boolean) {
       syncSession(session.current);
       if (last) {
         session.current = null;
-        cheer();
+        finish();
       } else setIndex(index + 1);
     },
-    [cheer, index, piece.id, piece.notes, play],
+    [finish, index, piece.id, piece.notes, play, playing],
   );
 
   /** Play the piece through with a count-in, lighting each note in time. */
   const playAlong = useCallback(() => {
     stop();
+    finished.current = false;
     setPlaying(true);
     session.current = null;
     const beat = 60000 / bpm;
@@ -92,12 +106,12 @@ export function usePractice(piece: Piece, soundOn: boolean) {
           });
           play(n.pitch, Math.max(0.5, (n.duration * beat) / 1000));
           if (from + k === piece.notes.length - 1) {
-            timers.current.push(window.setTimeout(() => { stop(); cheer(); }, n.duration * beat + 200));
+            timers.current.push(window.setTimeout(() => { stop(); finish(); }, n.duration * beat + 200));
           }
         }, lead + (n.onset - origin) * beat),
       );
     });
-  }, [bpm, cheer, click, index, piece, play, stop]);
+  }, [bpm, click, finish, index, piece, play, stop]);
 
   return { index, note, next, played, bpm, setBpm, playing, goTo, restart, press, playAlong, stop, play };
 }
