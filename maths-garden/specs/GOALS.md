@@ -18,3 +18,11 @@ Now: 0 · Target: 5 · By: 2026-09-26
 Weight: high
 Constraints: read-only aggregates through agent_snapshot; child ids hashed; Nick applies migrations.
 Not now: analytics dashboards; anything beyond what the Analyst needs.
+
+## G-14 · maths-garden · active
+Goal: character building and more difficulty and variety. An original character grows as Tara plays, and the maths keeps stretching her with new kinds of rounds (Nick, 26 Sep 2026).
+Metric: variety_7d — distinct game types played and highest level reached in the last 7 days, from agent_snapshot
+Now: unknown · Target: a character that visibly grows with her progress; at least 2 new round types; her highest level rising week on week · By: 2026-11-15
+Weight: high
+Constraints: an original character (no film or brand characters); nothing a four-year-old has to read; no paid APIs or paid image generation without Nick's OK.
+Not now: social features; anything aimed at other parents.
