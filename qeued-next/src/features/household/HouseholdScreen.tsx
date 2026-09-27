@@ -166,14 +166,13 @@ const HouseholdScreen = () => {
   const joinGroup = async () => {
     if (!active || !joinCode.trim()) return;
     setBusy(true);
-    const { data: group } = await supabase.from("groups").select("id").eq("invite_code", joinCode.trim()).maybeSingle();
-    if (!group) {
-      setBusy(false);
+    // groups is only visible to members, so the lookup and the insert both run inside join_group.
+    const { error } = await supabase.rpc("join_group", { p_invite_code: joinCode.trim(), p_profile_id: active.id });
+    setBusy(false);
+    if (error?.message.includes("No group with that code")) {
       toast({ title: "No group with that code", variant: "destructive" });
       return;
     }
-    const { error } = await supabase.from("group_members").insert({ group_id: group.id, profile_id: active.id } as never);
-    setBusy(false);
     if (error) {
       toast({ title: "Couldn't join", description: error.message, variant: "destructive" });
       return;
