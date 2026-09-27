@@ -41,6 +41,26 @@ describe('sessionSync', () => {
     expect(mock).toHaveBeenCalledTimes(2);
     expect(body(1).correct_presses).toBe(3);
   });
+  it('sends a finished run before the next run that started while it was waiting', async () => {
+    syncSession(record(29));
+    syncSession({ ...record(30), reachedLast: true });
+    syncSession({ ...record(1), id: 'run-2' });
+    settle[0].resolve();
+    await flush();
+    expect(mock).toHaveBeenCalledTimes(2);
+    expect(body(1)).toMatchObject({ session_id: 'run-1', correct_presses: 30, reached_last: true });
+    settle[1].resolve();
+    await flush();
+    expect(mock).toHaveBeenCalledTimes(3);
+    expect(body(2)).toMatchObject({ session_id: 'run-2', correct_presses: 1 });
+  });
+  it('still sends when localStorage throws on access, with a fresh device id', () => {
+    const blocked = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => { throw new Error('storage blocked'); });
+    expect(() => syncSession(record(1))).not.toThrow();
+    blocked.mockRestore();
+    expect(mock).toHaveBeenCalledTimes(1);
+    expect(body(0).device_id).toMatch(/^[0-9a-f-]{36}$/);
+  });
   it('still sends the waiting record when the request before it fails, and never throws', async () => {
     [1, 2].forEach(n => syncSession(record(n)));
     settle[0].reject();
