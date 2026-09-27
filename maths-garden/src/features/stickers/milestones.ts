@@ -12,6 +12,11 @@ export interface Milestone {
 }
 
 const COUNTS = [5, 10, 20, 30, 40, 50, 75, 100, 150, 200];
+/**
+ * Packs held eight stickers when `pack-<id>` and `sparkly-<id>` were first paid, so they stay reached at
+ * eight; the whole pack at sixteen is a second milestone. Un-reaching one would take a paid special back.
+ */
+const PACK_MILESTONE_AT = 8;
 
 /**
  * Every milestone reached so far, in a fixed order: sticker counts, finished packs, sparkly packs, game
@@ -29,8 +34,10 @@ export function milestonesReached(records: readonly StickerLike[], levels: Level
   const stages = games.map((game) => Math.min(levelOf(levels, game) + 1, 3));
   for (const pack of unlockedPacks(stages)) {
     const p = packProgress(pack, regular);
-    if (p.complete) list.push({ key: `pack-${pack.id}`, line: (name) => `${name}, you collected the whole ${pack.name} pack!` });
-    if (p.sparklyComplete) list.push({ key: `sparkly-${pack.id}`, line: (name) => `Every sparkly ${pack.name} sticker! Amazing, ${name}!` });
+    if (p.have >= PACK_MILESTONE_AT) list.push({ key: `pack-${pack.id}`, line: (name) => `${name}, you've got eight ${pack.name} stickers!` });
+    if (p.complete) list.push({ key: `pack-full-${pack.id}`, line: (name) => `${name}, you collected the whole ${pack.name} pack!` });
+    if (p.sparkly >= PACK_MILESTONE_AT) list.push({ key: `sparkly-${pack.id}`, line: (name) => `Eight sparkly ${pack.name} stickers, ${name}!` });
+    if (p.sparklyComplete) list.push({ key: `sparkly-full-${pack.id}`, line: (name) => `Every sparkly ${pack.name} sticker! Amazing, ${name}!` });
   }
   for (const game of games) {
     const level = levels[game.id] ?? 0;
