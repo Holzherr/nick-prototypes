@@ -19,6 +19,7 @@ npm run build        # VITE_BASE=/piano/ npm run build to publish
 - `features/hands` - the two hand panels.
 - `features/practice` - state, guidance line, note strip, transport, and the session log (`sessionLog.ts`, localStorage; `?sessions` shows it as JSON).
 - `features/audio` - a small additive synth; no samples, so it works offline.
+- `scripts/icons.mjs` - regenerates the home-screen PNGs in `public/` (192, 512, apple-touch 180) from the rectangles of `icon.svg`; built-ins only, `node scripts/icons.mjs`.
 
 ## Backend
 
