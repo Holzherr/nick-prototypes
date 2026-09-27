@@ -180,11 +180,12 @@ Offers expire 30 days after they are written, so the stale ones are refreshed we
 `tools/ci/qeued-availability.yml`: every Sunday at 03:00 UTC a GitHub Action runs
 `node tools/refresh-stale.mjs` over `QEUED_DB_URL` and nothing else, spending no model tokens.
 By hand it is `node tools/refresh-stale.mjs --dry-run`, which reads the pages and writes
-`offers.sql` instead of the rows. Turning the schedule on is two one-off steps: copy that file
-unchanged to `.github/workflows/` at the repo root, and set `QEUED_DB_URL` as a repository
-secret on Holzherr/nick-prototypes. Then run it once from the Actions tab with `dry_run`
-ticked: it uploads `offers.sql` as an artefact, and a runner that cannot reach the pages or
-the database fails there rather than silently on the first Sunday.
+`offers.sql` instead of the rows. The schedule has been on since 2026-09-27: the file is copied
+to `.github/workflows/` at the repo root, `QEUED_DB_URL` is set as a repository secret on
+Holzherr/nick-prototypes, and the first hand run with `dry_run` ticked was green
+(https://github.com/Holzherr/nick-prototypes/actions/runs/36332442917, 0 titles stale). A dry
+run with nothing stale writes no `offers.sql`, so the artefact step warns rather than fails.
+The file under `tools/ci/` is the source; the copy at the repo root must stay identical to it.
 
 ### The steps, and why they are separate
 
