@@ -1,5 +1,6 @@
 import { corsHeaders, json } from '../_shared/cors.ts';
-import { serviceClient } from '../_shared/db.ts';
+import { serviceClient, userIdFromJwt } from '../_shared/db.ts';
+import { HttpError, assertProfilesReadable, resolveCaller, takeModelCall } from '../_shared/access.ts';
 import { MODELS, callTool, claudeErrorResponse } from '../_shared/claude.ts';
 import { type Axes, type Candidate, combineScore, diversify, watchableNow } from '../_shared/ranking.ts';
 
@@ -35,6 +36,9 @@ const axisSchema = {
   additionalProperties: false,
 } as const;
 
+/** Model calls per account per day, whatever the mood — a new mood is a new cache key. */
+const DAILY_MODEL_CALLS = 20;
+
 const moodDescriptions: Record<string, string> = {
   easy: 'light, relaxing, feel-good',
   intense: 'gripping, dark, thrilling, suspenseful',
@@ -45,10 +49,17 @@ const moodDescriptions: Record<string, string> = {
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: corsHeaders });
   try {
-    const { user_id, profile_id, mood, type, time, subscriptions } = await req.json();
-    if (!user_id) return json({ error: 'user_id required' }, 400);
-
+    const { user_id: bodyUserId, profile_id, mood, type, time, subscriptions } = await req.json().catch(() => ({}));
     const supabase = serviceClient();
+    // The caller comes from the JWT; a user_id in the body is only honoured for the service role.
+    const caller = await resolveCaller(req, {
+      serviceKey: Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
+      getUserId: userIdFromJwt,
+      bodyUserId,
+    });
+    const user_id = caller.userId;
+    await assertProfilesReadable(supabase, caller, [profile_id]);
+
     const cacheKey = `tonight2:${profile_id ?? user_id}:${mood ?? 'any'}:${type ?? 'any'}:${time ?? 'any'}`;
     const { data: cached } = await supabase.from('ai_cache').select('response_data, expires_at').eq('cache_key', cacheKey).single();
     if (cached && new Date(cached.expires_at) > new Date()) return json(cached.response_data);
@@ -88,6 +99,10 @@ Deno.serve(async (req) => {
       : time === 'long'
       ? 'They have time: a long film or the start of a series is fine.'
       : '';
+
+    if (!caller.service && !(await takeModelCall(supabase, 'tonight', user_id, DAILY_MODEL_CALLS, 24 * 60 * 60 * 1000))) {
+      return json({ error: "That's enough picks for today. Try again tomorrow." }, 429);
+    }
 
     const scored = await callTool<{ queue_scores: ({ title: string; explanation: string; axes: Axes })[]; wildcard: { title: string; type: 'movie' | 'series'; year: number; genres: string[]; imdb_rating: number; explanation: string; axes: Axes } | null }>({
       model: MODELS.smart,
@@ -219,6 +234,7 @@ Deno.serve(async (req) => {
     );
     return json(result);
   } catch (e) {
+    if (e instanceof HttpError) return json({ error: e.message }, e.status);
     console.error('watch-tonight error:', e);
     return claudeErrorResponse(e, { ...corsHeaders, 'Content-Type': 'application/json' }) ?? json({ error: e instanceof Error ? e.message : 'Unknown error' }, 500);
   }

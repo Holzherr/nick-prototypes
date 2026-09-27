@@ -1,5 +1,6 @@
 import { corsHeaders, json } from '../_shared/cors.ts';
-import { serviceClient } from '../_shared/db.ts';
+import { serviceClient, userIdFromJwt } from '../_shared/db.ts';
+import { HttpError, assertProfilesReadable, resolveCaller, takeModelCall } from '../_shared/access.ts';
 import { MODELS, callTool, claudeErrorResponse } from '../_shared/claude.ts';
 import {
   type Axes,
@@ -65,6 +66,13 @@ type Result = {
  * one call.
  */
 const REFRESH_COOLDOWN_HOURS = 12;
+
+/**
+ * Model-scored refreshes per account per day, across every profile and filter. The cooldown
+ * above is per cache key, and the key includes the filters, so on its own it did not cap
+ * spend. Service-role runs (tools/refresh-slates.mjs) are exempt.
+ */
+const DAILY_REFRESHES = 6;
 
 const CANDIDATE_LIMIT = 120;
 const EXPLORATION_SLICE = 40;
@@ -178,8 +186,16 @@ Deno.serve(async (req) => {
   let heldLock: string | null = null;
   const supabase = serviceClient();
   try {
-    const { user_id, profile_id, partner_id, exclude_titles, mood, type_filter, time_filter, mode } = await req.json();
-    if (!user_id) return json({ error: 'user_id required' }, 400);
+    const { user_id: bodyUserId, profile_id, partner_id, exclude_titles, mood, type_filter, time_filter, mode } =
+      await req.json().catch(() => ({}));
+    // The caller comes from the JWT; a user_id in the body is only honoured for the service role.
+    const caller = await resolveCaller(req, {
+      serviceKey: Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
+      getUserId: userIdFromJwt,
+      bodyUserId,
+    });
+    const user_id = caller.userId;
+    await assertProfilesReadable(supabase, caller, [profile_id, partner_id]);
 
     const hasExclusions = Array.isArray(exclude_titles) && exclude_titles.length > 0;
     const filterSuffix = [mood, type_filter, time_filter].filter(Boolean).join(':');
@@ -202,7 +218,10 @@ Deno.serve(async (req) => {
         .select('expires_at')
         .eq('cache_key', lockKey)
         .maybeSingle();
-      if (lock && new Date(lock.expires_at) > new Date()) {
+      const cooling = Boolean(lock && new Date(lock.expires_at) > new Date());
+      const overBudget = !cooling && !caller.service &&
+        !(await takeModelCall(supabase, 'recs', user_id, DAILY_REFRESHES, 24 * 60 * 60 * 1000));
+      if (cooling || overBudget) {
         const { data: cached } = await supabase.from('ai_cache').select('response_data').eq('cache_key', cacheKey).maybeSingle();
         return json({ personal: [], shared: null, ...(cached?.response_data ?? {}), throttled: true });
       }
@@ -378,6 +397,7 @@ Deno.serve(async (req) => {
     );
     return json(result);
   } catch (e) {
+    if (e instanceof HttpError) return json({ error: e.message }, e.status);
     console.error('get-recommendations error:', e);
     if (heldLock) await supabase.from('ai_cache').delete().eq('cache_key', heldLock);
     return claudeErrorResponse(e, { ...corsHeaders, 'Content-Type': 'application/json' }) ?? json({ error: e instanceof Error ? e.message : 'Unknown error' }, 500);
