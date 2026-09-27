@@ -63,10 +63,12 @@ story only for their first frame.
 
 ## Backend
 
-Supabase project `piwfcsvnxcmxmvfhgtbk` (eu-central-1). Schema in `supabase/migrations/`, six
-Deno edge functions in `supabase/functions/` calling the Anthropic API (Haiku 4.5 for search /
-enrich / popular, Sonnet 5 for recommendations and Watch Tonight) through `_shared/claude.ts`.
-Results cache in `ai_cache`.
+Supabase project `piwfcsvnxcmxmvfhgtbk` (eu-central-1). Schema in `supabase/migrations/`, Deno
+edge functions in `supabase/functions/`. Four call the Anthropic API through `_shared/claude.ts`
+(Haiku 4.5 for enrich / popular, Sonnet 5 for recommendations and Watch Tonight); results cache
+in `ai_cache`. `search-titles` calls no model: it needs a signed-in caller, reads `titles` only,
+and queues a query with no hit as a pending `catalogue_candidates` row (bucket `search`) for the
+wave to resolve from a source page, so nothing invented reaches the catalogue from the search box.
 
 **Tonight** never waits on the model: `features/tonight/fastTonight.ts` ranks the profile's list on the device with `_shared/ranking.ts` (one line of data per pick), "Sharpen these" calls `watch-tonight` and the scored slate waits behind a "Sharper picks ready" button; `slateCache.ts` keeps scored slates in localStorage for 24h per profile, mood and length.
 
