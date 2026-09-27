@@ -130,6 +130,17 @@ facts and the UK offers, then reconcile — what landed becomes `held`, what cou
 resolved gets an attempt recorded and is retired on the second failure, so the next list of
 proposals does not keep re-suggesting a title that has no UK page.
 
+The same loop runs from the Actions tab with no key on any disk, once
+`tools/ci/qeued-wave.yml` is copied unchanged to `.github/workflows/` at the repo root. It
+reads the `QEUED_DB_URL` secret the availability refresh already uses and never runs on a
+schedule. Its `step` input is one of three: `probe` reads the pages for three titles JustWatch
+UK certainly lists and fails if none resolve, so a runner the pages block shows up before a
+wave records 150 titles as "no page matched" and retires them; `stats` prints what is pending
+by priority and keeps every retired row with its last error as the `candidates-failed`
+artefact, the list aliases are written from; `wave` requeues the retired rows that have gained
+an alias and fetches the `size` most-wanted pending titles. Run them in that order the first
+time: probe, then stats, then wave with a size.
+
 Proposals come from `tools/data/candidates-*.json`, written by research rather than by hand.
 They overlap heavily, which is fine: import is an upsert on name, year and type, and the
 second proposal of the same title raises its priority rather than adding a row.

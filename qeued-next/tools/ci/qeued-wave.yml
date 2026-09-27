@@ -1,0 +1,91 @@
+# A catalogue wave for qeued, run by hand from the Actions tab.
+#
+# It lives here, inside the app, because the agent team may not write under .github/ at the
+# repo root. To turn it on, copy this file unchanged to .github/workflows/qeued-wave.yml; it
+# reads the same QEUED_DB_URL repository secret the availability refresh already uses, and
+# nothing else. tools/db.mjs runs the SQL through the Supabase CLI over that connection, so no
+# service key is needed.
+#
+# It never runs on a schedule: `wave` writes to the live catalogue, so every run is a person
+# choosing one of three steps. Run them in this order the first time.
+#   probe  reads the pages for three titles JustWatch UK certainly lists and fails if none
+#          resolve; writes nothing. A runner the pages block would otherwise make a wave record
+#          every title as "no page matched" and retire the whole batch on its second run.
+#   stats  prints what is pending by priority and keeps the retired list as an artefact;
+#          writes nothing.
+#   wave   requeues the retired titles that have gained an alias, then fetches the `size`
+#          most-wanted pending titles end to end.
+name: qeued wave
+
+on:
+  workflow_dispatch:
+    inputs:
+      step:
+        description: probe the pages, print stats and keep the retired list, or run a wave
+        type: choice
+        options:
+          - probe
+          - stats
+          - wave
+        default: stats
+      size:
+        description: How many pending titles a wave takes
+        type: number
+        default: 150
+
+# Same group as the availability refresh, so a wave and a refresh never write offers at once.
+concurrency:
+  group: qeued-availability
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  wave:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: qeued-next
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: qeued-next/package-lock.json
+      - run: npm ci
+      - name: Probe the pages with three titles
+        if: inputs.step == 'probe'
+        run: |
+          cat > probe.json <<'EOF'
+          [
+           { "name": "The Godfather", "year": 1972, "type": "movie" },
+           { "name": "Spirited Away", "year": 2001, "type": "movie" },
+           { "name": "Breaking Bad", "year": 2008, "type": "series" }
+          ]
+          EOF
+          node tools/expand.mjs probe.json --gather probe-gathered.json --concurrency 1
+          node -e "const n = JSON.parse(require('fs').readFileSync('probe-gathered.json', 'utf8')).length; console.log(n + ' of 3 resolved'); process.exit(n ? 0 : 1)"
+      - name: Print stats and write the retired list
+        if: inputs.step == 'stats'
+        env:
+          QEUED_DB_URL: ${{ secrets.QEUED_DB_URL }}
+        run: |
+          node tools/candidates.mjs stats
+          node tools/candidates.mjs failed candidates-failed.json
+      - name: Keep the retired list
+        if: inputs.step == 'stats'
+        uses: actions/upload-artifact@v4
+        with:
+          name: candidates-failed
+          path: qeued-next/candidates-failed.json
+          if-no-files-found: error
+      - name: Run a wave
+        if: inputs.step == 'wave'
+        env:
+          QEUED_DB_URL: ${{ secrets.QEUED_DB_URL }}
+        run: |
+          node tools/candidates.mjs retry --aliased
+          node tools/wave.mjs --size ${{ inputs.size }}
