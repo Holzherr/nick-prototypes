@@ -18,6 +18,7 @@ npm run build        # VITE_BASE=/piano/ npm run build to publish
 - `features/keyboard` - the keyboard, including the resting finger badges.
 - `features/hands` - the two hand panels.
 - `features/practice` - state, guidance line, note strip, transport, and the session log (`sessionLog.ts`, localStorage; `?sessions` shows it as JSON).
+  A session is one full run (`sessions_7d` counts `reachedLast` only). After the last note, hers or Play along's, the strip cheers and 1.5 s later jumps back to the start; until then, and while Play along runs, a key only sounds and nothing is logged.
 - `features/audio` - a small additive synth; no samples, so it works offline.
 - `scripts/icons.mjs` - regenerates the home-screen PNGs in `public/` (192, 512, apple-touch 180) from the rectangles of `icon.svg`; built-ins only, `node scripts/icons.mjs`.
 
