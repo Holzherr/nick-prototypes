@@ -11,7 +11,9 @@
     "storybook": "storybook dev -p 6008",
     "build-storybook": "storybook build -o dist/storybook",
     "test": "vitest run --passWithNoTests",
-    "check-types": "tsc --noEmit -p tsconfig.app.json"
+    "check-types": "tsc --noEmit -p tsconfig.app.json",
+    "bank:build": "node tools/question-bank/build.ts && node tools/question-bank/validate.ts",
+    "bank:validate": "node tools/question-bank/validate.ts"
   },
   "dependencies": {
     "@fontsource/fredoka": "^5.3.0",
