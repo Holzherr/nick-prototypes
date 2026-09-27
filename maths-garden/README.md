@@ -219,6 +219,8 @@ src/
   features/auth/          AuthContext, AuthForm (brick), AuthScreen
   features/children/      model (age), api, use-children (cached), ChildForm, ProfilesScreen
   features/games/         catalog, questions (tested), engine (levels, stats; tested), sound, components/
+                          bank/ (question-bank.json: 585 fixed questions in seven topics × six levels, typed in types.ts,
+                          checked from first principles by validate.ts in bank.test.ts; nothing draws from it yet)
   features/stickers/      catalog (packs, draw; tested), StickerBadge, PackChooser, StickerReveal, StickerBookScreen
   features/character/     characters (the list, Nova first), stage (stageOf; tested), art/Nova (five SVG stages), CharacterSlot (tested)
   features/progress/      model (rounds, levels, level events), repo (outbox; tested), supabase-remote, memory-remote, probes, fixtures,
@@ -384,3 +386,6 @@ npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboar
 - Games for the remaining gaps: place value, ordering and patterns. Number bonds (Make Ten), teen numbers
   (Ten and Some More) and shapes (Spot the Shape) now have games of their own.
 - The second new round type, an ordering round (`specs/rounds.md`), once the quest round has a week of numbers.
+- Wire `features/games/bank/` into the games (G-14): story items mixed into the adding and taking-away
+  rounds, and pattern, sequence, double, money, clock and ordinal as new round types, each `show` drawn
+  as numerals, pictures, coins or clock faces. The bank is on main and checked in CI but unused.
