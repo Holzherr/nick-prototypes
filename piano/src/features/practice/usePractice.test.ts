@@ -8,7 +8,16 @@ const notes = thisOldMan.notes;
 const wrong = 61; // a black key; the piece has no sharps or flats
 
 beforeEach(() => { localStorage.clear(); vi.useFakeTimers({ now: new Date('2026-09-20T10:00:00Z') }); });
-afterEach(() => vi.useRealTimers());
+afterEach(() => { vi.useRealTimers(); vi.unstubAllEnvs(); vi.unstubAllGlobals(); });
+
+/** A build with a Supabase key, and a fetch that settles at once. */
+function withBackend(fetchImpl: () => Promise<Response>) {
+  vi.stubEnv('VITE_SUPABASE_URL', 'https://example.supabase.co'); vi.stubEnv('VITE_SUPABASE_ANON_KEY', 'sb_publishable_test');
+  vi.stubGlobal('fetch', vi.fn<typeof fetch>(fetchImpl));
+  const bodies = () => vi.mocked(fetch).mock.calls.map(c => JSON.parse(c[1]?.body as string) as Record<string, unknown>);
+  const drain = () => act(async () => { for (let i = 0; i < 8; i++) await Promise.resolve(); });
+  return { bodies, drain };
+}
 
 /** Each press lands one second after the last, so lastPressAt is checkable. */
 function setup() {
@@ -75,5 +84,30 @@ describe('the session log', () => {
     press(notes[0].pitch);
     press(wrong);
     expect(readSessions()).toEqual([expect.objectContaining({ correctPresses: 1 })]);
+  });
+});
+
+describe('the upload', () => {
+  it('ends a full run with a row that reached the last note, sends only those seven fields, nothing for play-along or wrong keys', async () => {
+    const { bodies, drain } = withBackend(() => Promise.resolve(new Response()));
+    const { h, press } = setup();
+    act(() => h.result.current.playAlong());
+    act(() => vi.advanceTimersByTime(60_000));
+    press(wrong);
+    await drain();
+    expect(bodies()).toEqual([]);
+    act(() => h.result.current.restart());
+    notes.forEach(n => press(n.pitch));
+    await drain();
+    expect(bodies().at(-1)).toMatchObject({ reached_last: true, correct_presses: 30, piece_id: 'this-old-man', day: '2026-09-20' });
+    bodies().forEach(b => expect(Object.keys(b).sort()).toEqual(['correct_presses', 'day', 'device_id', 'piece_id', 'reached_last', 'session_id', 'updated_at']));
+  });
+  it('keeps the localStorage record when every request fails', async () => {
+    const { bodies, drain } = withBackend(() => Promise.reject(new Error('offline')));
+    const { press } = setup();
+    notes.forEach(n => press(n.pitch));
+    await drain();
+    expect(bodies()).not.toEqual([]);
+    expect(readSessions()).toEqual([expect.objectContaining({ correctPresses: 30, reachedLast: true })]);
   });
 });
