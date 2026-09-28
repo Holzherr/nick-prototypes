@@ -9,3 +9,4 @@ Append-only. One line per decision: `- <date> <who>: <decision>`. Builders appen
 - 2026-09-21 Nick: migration 0009 (agent_snapshot v2) applied by hand in the Supabase SQL editor; agent_snapshot(8) returns total_ms, eased and stickers.
 - 2026-09-25 Nick: migration 0007 (feedback reporter and kind) applied by hand in the Supabase SQL editor; labelled feedback inserts are accepted.
 - 2026-09-25 Nick: migration 0010 (agent_snapshot v3) applied by hand in the Supabase SQL editor; agent_snapshot(8) returns reporter and kind on feedback rows.
+- 2026-09-28 Nick: the first new round type is a quest round mixing the three weakest skills.
