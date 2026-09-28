@@ -40,15 +40,13 @@ export interface RoundRecord {
 
 export type Levels = Partial<Record<GameId, number>>;
 
+/** A "good" round (suggestions, insights, advice) and a "struggling" one; not the levelling thresholds. */
 export const LEVEL_UP_AT = 0.8;
 export const DROP_BELOW = 0.5;
-export const STREAK = 2;
-/**
- * Rounds in a row at one level, all at `LEVEL_UP_AT` or better, that move a child up whatever the pace.
- * Accuracy that holds for this long is a finished level: "stay and build speed" is a sensible nudge for a
- * round or two and a trap for ever, and it is the rule that kept a child at 94% repeating work she could do.
- */
-export const SUSTAINED = 4;
+/** Levelling (specs/levelling.md): the mean score of the last `WINDOW` finished rounds at the current level. */
+export const WINDOW = 3;
+export const UP_AVERAGE = 0.9;
+export const DOWN_AVERAGE = 0.6;
 
 export const accuracy = (r: Pick<RoundRecord, 'score' | 'total'>) => (r.total ? r.score / r.total : 0);
 export const byTime = (a: RoundRecord, b: RoundRecord) => a.playedAt.localeCompare(b.playedAt);
@@ -108,34 +106,20 @@ const isSlow = (r: RoundRecord) => speedOf([r]).pace === 'slow';
 const isPerfect = (r: RoundRecord) => r.total > 0 && r.score === r.total;
 
 /**
- * The level after the latest finished round. Speed counts as well as accuracy:
- * - a perfect round moves up straight away; slow answers only hold it back when the round before was slow
- *   too, because one thoughtful round is not a habit and holding a child who got everything right is how
- *   she ends up replaying a level she has finished;
- * - two rounds in a row at the current level, both 80%+, move up unless both were slow (then stay and build speed);
- * - four in a row at 80%+ move up whatever the pace, so "build speed first" can never become forever;
- * - two in a row under 50% drop back.
+ * The level after the latest finished round, following where the child is on average rather than one
+ * round's result: the last `WINDOW` finished rounds at the current level move up at `UP_AVERAGE` or better
+ * and drop below `DOWN_AVERAGE`, whatever their pace. Fewer rounds than that at this level, or a mean in
+ * between, stays. Rounds left early are not in `roundsOf`, and a game left before the first answer is
+ * never written, so neither can enter the window; the bottom level never drops.
  */
 export function nextLevel(rounds: readonly RoundRecord[], game: Game, level: number): number {
-  const played = roundsOf(rounds, game.id);
-  const recent = played.slice(-STREAK);
-  const top = game.levels.length - 1;
-  const latest = recent.at(-1);
-  if (!latest) return level;
-  const here = (r: RoundRecord) => r.level === level;
-  const good = (r: RoundRecord) => accuracy(r) >= LEVEL_UP_AT;
-
-  if (here(latest) && isPerfect(latest) && level < top) {
-    const before = played.at(-2);
-    if (!isSlow(latest) || (before && !isSlow(before))) return level + 1;
-  }
-  if (level < top) {
-    const sustained = played.slice(-SUSTAINED);
-    if (sustained.length === SUSTAINED && sustained.every(here) && sustained.every(good)) return level + 1;
-  }
-  if (recent.length < STREAK || recent.some((r) => !here(r))) return level;
-  if (recent.every(good) && !recent.every(isSlow) && level < top) return level + 1;
-  if (recent.every((r) => accuracy(r) < DROP_BELOW) && level > 0) return level - 1;
+  const window = roundsOf(rounds, game.id)
+    .filter((r) => r.level === level)
+    .slice(-WINDOW);
+  if (window.length < WINDOW) return level;
+  const mean = window.reduce((sum, r) => sum + r.score, 0) / window.reduce((sum, r) => sum + r.total, 0);
+  if (mean >= UP_AVERAGE) return Math.min(level + 1, game.levels.length - 1);
+  if (mean < DOWN_AVERAGE) return Math.max(level - 1, 0);
   return level;
 }
 
@@ -180,8 +164,8 @@ export function skillStats(rounds: readonly RoundRecord[], game: GameId, window 
 export function advice(stats: SkillStats | null, level: number, game: Game, pace: Pace | null = null, isMastered = false): string {
   if (!stats) return 'Not played yet.';
   if (stats.pct >= 80) {
-    if (pace === 'slow') return 'Accurate but slow. Short, frequent rounds at this level build speed before moving up.';
-    if (level < game.levels.length - 1) return 'Doing great. A quick perfect round, or two in a row at 80%+, moves up a level.';
+    if (pace === 'slow') return 'Accurate but slow. Short, frequent rounds build speed; pace never holds a level back.';
+    if (level < game.levels.length - 1) return `Doing great. Averaging ${UP_AVERAGE * 100}% or better over the last ${WINDOW} rounds at this level moves up a level.`;
     return isMastered
       ? 'Mastered — the hardest level cleared outright. Keep it in the rotation, and stretch her with real objects.'
       : 'Top level. A perfect round here masters the game; stretch her with bigger numbers using real objects.';

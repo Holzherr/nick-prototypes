@@ -1,18 +1,16 @@
-import { DROP_BELOW, LEVEL_UP_AT, STREAK, SUSTAINED } from '@/features/games/engine';
+import { DOWN_AVERAGE, UP_AVERAGE, WINDOW } from '@/features/games/engine';
 import { QUESTIONS_PER_ROUND } from '@/features/games/catalog';
 import { DAILY_GOAL } from '@/features/games/insights';
 import { cn } from '@/shared/utils/cn';
 
-const UP = Math.round(LEVEL_UP_AT * 100);
-const DOWN = Math.round(DROP_BELOW * 100);
+const UP = Math.round(UP_AVERAGE * 100);
+const DOWN = Math.round(DOWN_AVERAGE * 100);
 
 const RULES = [
-  { icon: '⭐', when: 'A perfect round', then: 'Up a level, straight away', tone: 'up' },
-  { icon: '👍', when: `${STREAK} rounds in a row at ${UP}% or better`, then: 'Up a level', tone: 'up' },
-  { icon: '🐢', when: 'That perfect round and the one before it were both slow', then: 'Stays put, to build speed first', tone: 'hold' },
-  { icon: '🚀', when: `${SUSTAINED} rounds in a row at ${UP}% or better`, then: 'Up a level whatever the pace — building speed never becomes forever', tone: 'up' },
-  { icon: '🏆', when: 'A perfect round at the top level', then: 'The game is mastered: gold dots on the tile, and a gold sticker from Nova', tone: 'up' },
-  { icon: '🌱', when: `${STREAK} rounds in a row under ${DOWN}%`, then: 'Back a level', tone: 'down' },
+  { icon: '⭐', when: `The last ${WINDOW} rounds at this level average ${UP}% or better`, then: 'Up a level, whatever the pace', tone: 'up' },
+  { icon: '🌱', when: `They average under ${DOWN}%`, then: 'Back a level (level 1 never drops)', tone: 'down' },
+  { icon: '🐢', when: `Anything in between, or fewer than ${WINDOW} rounds at this level yet`, then: 'Stays put', tone: 'hold' },
+  { icon: '🏆', when: 'A quick perfect round at the top level', then: 'The game is mastered: gold dots on the tile, and a gold sticker from Nova', tone: 'up' },
   { icon: '🤝', when: 'Two misses in a row inside a round', then: 'The next question comes from the level below', tone: 'hold' },
 ] as const;
 
@@ -41,7 +39,7 @@ export function ScoringDiagram({ className }: { className?: string }) {
       <ol className="flex flex-col gap-3 sm:flex-row">
         <Step n="🎲" title={`${QUESTIONS_PER_ROUND} questions`} text="One round. Each answer is marked right or wrong, and timed from the moment the answer buttons appear." />
         <Step n="📊" title="Two measurements" text="Accuracy for the round, and the median answer time against what is reasonable for that question." />
-        <Step n="⚖️" title="The rules below" text="Applied to the last two rounds at the current level." />
+        <Step n="⚖️" title="The rules below" text={`Applied to the average of the last ${WINDOW} finished rounds at the current level.`} />
         <Step
           n="🖨"
           title="Stage and sheets"

@@ -19,37 +19,44 @@ const ans = (ms: number, correct = true): AnswerRecord => ({ target: '3', chosen
 const slowAnswers = Array.from({ length: 5 }, () => ans(9000));
 const quickAnswers = Array.from({ length: 5 }, () => ans(1500));
 
+/** specs/levelling.md: the mean of the last three finished rounds at the current level decides. */
 describe('nextLevel', () => {
-  it('moves up straight away after a perfect round', () => {
-    expect(nextLevel([round('peek', 0, 5, 1)], peek, 0)).toBe(1);
-    expect(nextLevel([round('peek', 0, 5, 1), round('peek', 1, 5, 2)], peek, 1)).toBe(2);
+  it('moves up when three rounds at this level average 90% or better, whatever their pace', () => {
+    expect(nextLevel([round('peek', 0, 5, 1), round('peek', 0, 4, 2), round('peek', 0, 5, 3)], peek, 0)).toBe(1);
+    expect(nextLevel([1, 2, 3].map((m) => round('peek', 0, 5, m, slowAnswers)), peek, 0)).toBe(1);
+    expect(nextLevel([round('peek', 1, 4, 1), round('peek', 1, 4, 2), round('peek', 1, 5, 3)], peek, 1)).toBe(1);
   });
 
-  it('moves up after two rounds in a row at 80%+', () => {
-    expect(nextLevel([round('peek', 0, 4, 1), round('peek', 0, 4, 2)], peek, 0)).toBe(1);
+  it('drops when three rounds at this level average under 60%; level 1 never drops', () => {
+    expect(nextLevel([round('peek', 1, 3, 1), round('peek', 1, 3, 2), round('peek', 1, 2, 3)], peek, 1)).toBe(0);
+    expect(nextLevel([round('peek', 1, 3, 1), round('peek', 1, 3, 2), round('peek', 1, 3, 3)], peek, 1)).toBe(1);
+    expect(nextLevel([round('peek', 0, 0, 1), round('peek', 0, 1, 2), round('peek', 0, 0, 3)], peek, 0)).toBe(0);
   });
 
-  it('needs both 80% rounds at the current level', () => {
-    expect(nextLevel([round('peek', 0, 5, 1), round('peek', 1, 4, 2)], peek, 1)).toBe(1);
+  it('stays with fewer than three rounds at this level; rounds at an earlier level never count', () => {
+    expect(nextLevel([round('peek', 0, 5, 1), round('peek', 0, 5, 2)], peek, 0)).toBe(0);
+    expect(nextLevel([round('peek', 0, 5, 1), round('peek', 0, 5, 2), round('peek', 1, 5, 3)], peek, 1)).toBe(1);
+    expect(nextLevel([round('peek', 0, 5, 1), round('peek', 0, 5, 2), round('peek', 1, 5, 3), round('peek', 1, 5, 4)], peek, 1)).toBe(1);
   });
 
-  it('only looks at the same game, in time order', () => {
-    const rounds = [round('peek', 0, 4, 3), round('count', 0, 1, 2), round('peek', 0, 4, 1)];
+  it('a single perfect round on its own no longer moves a level', () => {
+    expect(nextLevel([round('peek', 0, 5, 1, quickAnswers)], peek, 0)).toBe(0);
+    expect(nextLevel([round('peek', 0, 2, 1), round('peek', 0, 5, 2, quickAnswers)], peek, 0)).toBe(0);
+  });
+
+  it('keeps a round left early out of the window; a game left before its first answer has no record', () => {
+    const good = [round('peek', 0, 5, 1), { ...round('peek', 0, 1, 2), completed: false }, round('peek', 0, 5, 3), round('peek', 0, 4, 4)];
+    expect(nextLevel(good, peek, 0)).toBe(1);
+    const poor = [round('peek', 1, 2, 1), { ...round('peek', 1, 5, 2), completed: false }, round('peek', 1, 3, 3), round('peek', 1, 2, 4)];
+    expect(nextLevel(poor, peek, 1)).toBe(0);
+    // Nothing is written for a game entered and left before the first answer, so the window sees only the three real rounds.
+    expect(nextLevel([round('peek', 0, 5, 1), round('peek', 0, 5, 2)], peek, 0)).toBe(0);
+  });
+
+  it('only looks at the same game, in time order, and stops at the top level', () => {
+    const rounds = [round('peek', 0, 5, 3), round('count', 0, 1, 2), round('peek', 0, 4, 1), round('peek', 0, 5, 4)];
     expect(nextLevel(rounds, peek, 0)).toBe(1);
-  });
-
-  it('stops at the top level', () => {
-    const top = peek.levels.length - 1;
-    expect(nextLevel([round('peek', top, 5, 1), round('peek', top, 5, 2)], peek, top)).toBe(top);
-  });
-
-  it('drops back after two rounds under 50%', () => {
-    expect(nextLevel([round('peek', 1, 2, 1), round('peek', 1, 1, 2)], peek, 1)).toBe(0);
-    expect(nextLevel([round('peek', 0, 0, 1), round('peek', 0, 1, 2)], peek, 0)).toBe(0);
-  });
-
-  it('holds on a mixed pair', () => {
-    expect(nextLevel([round('peek', 1, 5, 1), round('peek', 1, 2, 2)], peek, 1)).toBe(1);
+    expect(nextLevel([1, 2, 3].map((m) => round('peek', topLevel, 5, m)), peek, topLevel)).toBe(topLevel);
   });
 });
 
@@ -57,14 +64,13 @@ describe('speed and within-round rules', () => {
   const answered = (ms: number, correct = true): AnswerRecord => ({ target: '3', chosen: correct ? '3' : '2', correct, ms });
   const slow = Array.from({ length: 5 }, () => answered(9000));
 
-  it('holds an accurate but slow round', () => {
-    expect(nextLevel([round('peek', 0, 5, 1, slow)], peek, 0)).toBe(0);
-    expect(nextLevel([round('peek', 0, 4, 1, slow), round('peek', 0, 4, 2, slow)], peek, 0)).toBe(0);
-    expect(nextLevel([round('peek', 0, 5, 1, Array.from({ length: 5 }, () => answered(1500)))], peek, 0)).toBe(1);
+  it('ignores pace: three slow 80% rounds stay, three slow perfect rounds move up', () => {
+    expect(nextLevel([1, 2, 3].map((m) => round('peek', 0, 4, m, slow)), peek, 0)).toBe(0);
+    expect(nextLevel([1, 2, 3].map((m) => round('peek', 0, 5, m, slow)), peek, 0)).toBe(1);
   });
 
   it('ignores rounds left early', () => {
-    expect(nextLevel([round('peek', 0, 4, 1), { ...round('peek', 0, 5, 2), completed: false }], peek, 0)).toBe(0);
+    expect(nextLevel([round('peek', 0, 5, 1), round('peek', 0, 5, 2), { ...round('peek', 0, 5, 3), completed: false }], peek, 0)).toBe(0);
     expect(skillStats([{ ...round('count', 0, 0, 1), completed: false }], 'count')).toBeNull();
   });
 
@@ -80,28 +86,20 @@ describe('speed and within-round rules', () => {
 });
 
 /**
- * She played 55 rounds at 94% and moved up seven times. Being accurate but slow held a level indefinitely,
- * which is the right nudge for a round or two and a trap for ever.
+ * One child went from the easiest level to the hardest in four perfect rounds, then scored 60% three rounds
+ * running with no drop back. The average follows where she is; a single round cannot move her.
  */
-describe('not holding an accurate child back', () => {
-  it('lets a slow perfect round through when the round before it was not slow', () => {
-    // On its own a slow perfect round still waits: one round says nothing about pace either way.
-    expect(nextLevel([round('peek', 0, 5, 1, slowAnswers)], peek, 0)).toBe(0);
-    expect(nextLevel([round('peek', 0, 4, 1, quickAnswers), round('peek', 0, 5, 2, slowAnswers)], peek, 0)).toBe(1);
-    expect(nextLevel([round('peek', 0, 4, 1, slowAnswers), round('peek', 0, 5, 2, slowAnswers)], peek, 0)).toBe(0);
+describe('following the average, not one round', () => {
+  it('reads only the latest three at this level, so an old poor round stops counting', () => {
+    const rounds = [round('peek', 1, 1, 1), round('peek', 1, 5, 2), round('peek', 1, 4, 3), round('peek', 1, 5, 4)];
+    expect(nextLevel(rounds, peek, 1)).toBe(2);
+    expect(nextLevel(rounds.slice(0, 3), peek, 1)).toBe(1);
   });
 
-  it('moves up after four good rounds in a row however slow they were', () => {
-    const four = [1, 2, 3, 4].map((minute) => round('peek', 0, 4, minute, slowAnswers));
-    expect(nextLevel(four, peek, 0)).toBe(1);
-    // Three is not enough: the two-in-a-row rule still holds a pair of slow rounds back.
-    expect(nextLevel(four.slice(0, 3), peek, 0)).toBe(0);
-  });
-
-  it('never moves up on four rounds that were not all good, and still drops back', () => {
-    const mixed = [round('peek', 1, 4, 1), round('peek', 1, 2, 2), round('peek', 1, 4, 3), round('peek', 1, 3, 4)];
-    expect(nextLevel(mixed, peek, 1)).toBe(1);
-    expect(nextLevel([round('peek', 1, 2, 1), round('peek', 1, 1, 2)], peek, 1)).toBe(0);
+  it('holds three 60% rounds at the top, and drops on the next one under', () => {
+    const sixty = [1, 2, 3].map((m) => round('peek', topLevel, 3, m));
+    expect(nextLevel(sixty, peek, topLevel)).toBe(topLevel);
+    expect(nextLevel([...sixty, round('peek', topLevel, 2, 4)], peek, topLevel)).toBe(topLevel - 1);
   });
 });
 

@@ -321,7 +321,7 @@ const SCORING: Article = {
     { kind: 'h', text: 'Why speed is in there at all' },
     {
       kind: 'p',
-      text: 'Because accuracy alone hides the difference between knowing something and working it out. A child who counts on her fingers every time gets five out of five and is not fluent; the same child a month later answers in two seconds because the fact is simply known. Moving her up on accuracy alone would take away the practice that builds that fluency. So a perfect round moves up immediately — unless the answers were slow, in which case the level holds and the questions stay where they are until they come faster.',
+      text: 'Because accuracy alone hides the difference between knowing something and working it out. A child who counts on her fingers every time gets five out of five and is not fluent; the same child a month later answers in two seconds because the fact is simply known. Speed is shown to you for that reason, but it no longer decides a level: a game moves up when the last three finished rounds at its level average 90% or better, drops back when they average under 60%, and otherwise stays — so one lucky or unlucky round cannot move her, and a slow but sure child is never held back.',
     },
     {
       kind: 'p',
