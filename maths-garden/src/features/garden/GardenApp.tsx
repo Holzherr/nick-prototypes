@@ -23,6 +23,7 @@ import { buildReport, stageOf } from '@/features/report/report';
 import { ReportScreen } from '@/features/report/ReportScreen';
 import { alreadySent, markSent, sendReport } from '@/features/report/send-report';
 import { appUrl } from '@/features/resources/qr';
+import { characterFor } from '@/features/character/characters';
 import { drawReward, stickerById, type PackId, type Sticker } from '@/features/stickers/catalog';
 import { NovaCelebration } from '@/features/stickers/components/NovaCelebration';
 import { StickerBookScreen } from '@/features/stickers/components/StickerBookScreen';
@@ -346,6 +347,8 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             stickerCount={progress.stickers.length}
             today={todaySummary(progress.rounds)}
             garden={garden}
+            character={characterFor(child)}
+            rounds={garden.rounds}
             recommended={recommended}
             paused={paused ? { game: paused.game, answered: paused.answers.length, total: paused.questions.length } : null}
             onResume={resumePaused}
@@ -388,6 +391,8 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             sticker={drawn && screen.sticker ? { sticker: drawn, shiny: screen.sticker.shiny } : null}
             gardenNews={gardenNews(screen.gardenBefore, garden)}
             stages={stages}
+            character={characterFor(child)}
+            rounds={garden.rounds}
             onPickPack={pickSticker}
             onAgain={() => play(screen.game)}
             onStickers={() => setScreen({ name: 'stickers' })}

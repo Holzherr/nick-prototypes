@@ -120,6 +120,17 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   device. The bed holds 42 flowers and butterflies run to 16: it used to stop at 30 and 8, with the unicorn
   at 50 the last thing that ever happened, so a child who kept playing was tending a garden that had
   finished. Trees and the pond arrive long after the unicorn, and `GardenScreen` always names the next one.
+- **A character that grows with her** (`features/character/`, spec `specs/character.md`): Nova, the
+  pop-star girl who hands out the gold stickers, stands at the garden's edge on home and above the stars on
+  the end screen, drawn as SVG in the repo at one of **five stages** by finished rounds: waving at the start,
+  a microphone at 5, a sparkly dress and headphones at 15, a stage under a spotlight at 40, a tiara and a
+  shower of stars at 80. `stageOf(character, rounds)` is monotone, so she never shrinks, and the count is
+  the garden's own. Nothing to read: tapping her speaks her line for the stage. She is the first entry of
+  `CHARACTERS`, not a special case — thresholds, lines and art are data on the entry, `CharacterSlot` draws
+  any entry, and `characterFor(child)` reads an optional `character` field, so a second character is a list
+  entry plus a profile field. Each milestone names the character who hands it out; the pop-up itself still
+  shows the emoji avatar. Stories: `Character/Stage 1`–`Stage 5`, `Screens/Game` home and end at stage 1
+  and the top stage.
 - **Grown-ups screen** (`#/grown-ups`, behind a sum): the one in-app screen with a hash of its own, so a
   parent reading it can refresh — or link straight to it — instead of being dropped back into the child's
   garden; the rest are steps in a child's play, where a refresh should not resume a half-finished round. The
@@ -197,6 +208,7 @@ src/
   features/children/      model (age), api, use-children (cached), ChildForm, ProfilesScreen
   features/games/         catalog, questions (tested), engine (levels, stats; tested), sound, components/
   features/stickers/      catalog (packs, draw; tested), StickerBadge, PackChooser, StickerReveal, StickerBookScreen
+  features/character/     characters (the list, Nova first), stage (stageOf; tested), art/Nova (five SVG stages), CharacterSlot (tested)
   features/progress/      model (rounds, levels, level events), repo (outbox; tested), supabase-remote, memory-remote, probes, fixtures,
                           history (charts data; tested), charts (hand-drawn SVG), ScoringDiagram, ProgressScreen, SkillRow, CheckInPanel, DashboardScreen
   features/garden/        GardenApp (home, game, end, garden, report, sticker book, gate, grown-ups), garden-state (tested), GardenScene/GardenScreen
