@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import type { Character } from '@/features/character/characters';
+import { CharacterSlot } from '@/features/character/components/CharacterSlot';
 import { GardenScene } from '@/features/garden/components/GardenScene';
 import type { Garden } from '@/features/garden/garden-state';
 import { readTheme } from '@/features/personalise/player';
@@ -34,6 +36,9 @@ export interface GardenHomeProps {
   today?: { done: number; goal: number };
   /** The garden growing along the bottom of the screen; tapping it opens the full garden. */
   garden?: Garden;
+  /** The child's character, standing beside the garden at the stage her finished `rounds` have earned. */
+  character?: Character;
+  rounds?: number;
   /** The game to lead with; without it every tile is shown at once. */
   recommended?: Recommendation;
   /** A round she left part-way through, offered above everything else so it is never lost by accident. */
@@ -68,6 +73,8 @@ export function GardenHome({
   stickerCount,
   today,
   garden,
+  character,
+  rounds = 0,
   recommended,
   paused = null,
   onResume,
@@ -196,6 +203,10 @@ export function GardenHome({
         >
           <GardenScene garden={garden} variant="strip" />
         </button>
+      )}
+      {/* She stands at the garden's edge, above the strip and clear of the pink button, every visit. */}
+      {character && (
+        <CharacterSlot character={character} rounds={rounds} childName={childName} size={104} className="fixed bottom-[max(6px,env(safe-area-inset-bottom))] right-3 z-0 print:hidden" />
       )}
       {/* In the flow, not fixed: pinned bottom-right it sat over the suggested game's title on a phone. */}
       <Button variant="ghost" className="mt-8" onClick={onGrownUps}>
