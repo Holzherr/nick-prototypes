@@ -8,6 +8,7 @@ import { cn } from '@/shared/utils/cn';
 import { GAMES, type Game, type GameId } from '../catalog';
 import { levelOf, type Levels } from '../engine';
 import type { BreakReason } from '../insights';
+import { QUEST, type Quest } from '../quest';
 import type { Recommendation } from '../recommend';
 import { GameTile, LevelDots } from './GameTile';
 import { gameName } from '@/features/i18n/content';
@@ -36,8 +37,8 @@ export interface GardenHomeProps {
   garden?: Garden;
   /** The game to lead with; without it every tile is shown at once. */
   recommended?: Recommendation;
-  /** A round she left part-way through, offered above everything else so it is never lost by accident. */
-  paused?: { game: Game; answered: number; total: number } | null;
+  /** A round she left part-way through, offered above everything else so it is never lost by accident. `quest`: it was the quest round. */
+  paused?: { game: Game; quest?: boolean; answered: number; total: number } | null;
   onResume?: () => void;
   onDropPaused?: () => void;
   /**
@@ -47,6 +48,8 @@ export interface GardenHomeProps {
    */
   windDown?: BreakReason | null;
   onPlay: (game: Game) => void;
+  /** Start the quest round `recommended` leads with; without it the quest tile is not offered. */
+  onPlayQuest?: (quest: Quest) => void;
   onStickers: () => void;
   onGarden?: () => void;
   onGrownUps: () => void;
@@ -74,6 +77,7 @@ export function GardenHome({
   onDropPaused,
   windDown = null,
   onPlay,
+  onPlayQuest,
   onStickers,
   onGarden,
   onGrownUps,
@@ -83,14 +87,16 @@ export function GardenHome({
   // Winding down, the games stay behind one faint "Or one more if you like" until she asks for them.
   const [oneMore, setOneMore] = useState(false);
   const resting = Boolean(windDown) && !oneMore;
-  const others = recommended ? GAMES.filter((game) => game.id !== recommended.game.id) : GAMES;
+  // The day's quest leads when there is one and something can start it; every game then stays behind the toggle.
+  const quest = onPlayQuest && recommended?.quest ? recommended.quest : null;
+  const others = recommended && !quest ? GAMES.filter((game) => game.id !== recommended.game.id) : GAMES;
 
   // Above everything, including the suggested game: a half-finished round is the one thing on this screen
   // she did not choose to leave behind, so it must not be something to scroll for.
   const pausedCard = paused && onResume && (
     <section className="mb-5 w-full max-w-[440px] rounded-[28px] bg-sunny/30 p-4 text-center">
       <p className="text-[clamp(18px,2.6vw,22px)] font-semibold text-grape">
-        {t('garden.wasPlaying', { emoji: paused.game.emoji, game: gameName(paused.game.id) })}
+        {t('garden.wasPlaying', { emoji: paused.quest ? QUEST.emoji : paused.game.emoji, game: paused.quest ? QUEST.name : gameName(paused.game.id) })}
       </p>
       <p className="mt-0.5 text-grape/70">
         {t('garden.carryOnWhere', { answered: paused.answered, total: paused.total })}
@@ -161,14 +167,21 @@ export function GardenHome({
           <p className="mb-4 mt-1 text-center text-xl font-medium text-grape/75">{t('garden.playThis')}</p>
           <button
             type="button"
-            onClick={() => onPlay(recommended.game)}
-            aria-label={`Play ${gameName(recommended.game.id)}. ${recommended.reason}`}
+            onClick={() => (quest ? onPlayQuest?.(quest) : onPlay(recommended.game))}
+            aria-label={`Play ${quest ? QUEST.name : gameName(recommended.game.id)}. ${recommended.reason}`}
             className="flex w-[clamp(280px,72vw,420px)] animate-pop-in flex-col items-center justify-center gap-2 rounded-[64px] bg-cream px-6 py-[clamp(22px,4vh,38px)] candy-bubble [--candy:12px] transition-transform active:translate-y-2 active:scale-[.98] active:[--candy:4px]"
           >
-            <span className="text-[clamp(64px,13vw,104px)] leading-none">{recommended.game.emoji}</span>
-            <span className="text-center text-[clamp(24px,4vw,34px)] font-bold leading-tight text-raspberry">{gameName(recommended.game.id)}</span>
+            <span className="text-[clamp(64px,13vw,104px)] leading-none">{quest ? QUEST.emoji : recommended.game.emoji}</span>
+            <span className="text-center text-[clamp(24px,4vw,34px)] font-bold leading-tight text-raspberry">{quest ? QUEST.name : gameName(recommended.game.id)}</span>
             <span className="rounded-full bg-petal/70 px-4 py-1 text-center text-[clamp(15px,2.2vw,19px)] font-semibold text-grape">{recommended.reason}</span>
-            <LevelDots count={recommended.game.levels.length} level={levelOf(levels, recommended.game)} mastered={mastered.has(recommended.game.id)} />
+            {quest ? (
+              // The three games in the quest, weakest first, in place of one game's level dots.
+              <span className="text-[clamp(22px,3.4vw,30px)] leading-none" aria-label={quest.games.map((game) => gameName(game.id)).join(', ')}>
+                {quest.games.map((game) => game.emoji).join(' ')}
+              </span>
+            ) : (
+              <LevelDots count={recommended.game.levels.length} level={levelOf(levels, recommended.game)} mastered={mastered.has(recommended.game.id)} />
+            )}
           </button>
 
           <Button variant="ghost" size="md" className="mt-4 text-[clamp(17px,2.4vw,21px)] text-grape/70" onClick={() => setShowAll((open) => !open)}>
