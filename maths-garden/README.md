@@ -77,12 +77,13 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   behind "Or pick another game": never played wins outright, then not played today, weak accuracy,
   staleness, and a boost when one good round would level it up — minus whatever was just played, so the
   suggestion moves on by itself.
-- **Levelling:** a perfect round, or two in a row at 80%+, moves a game up; two under 50% drops it back
-  (`features/games/engine.ts`). Game level n = printable stage n (`features/curriculum/skills.ts`).
-  Being accurate but slow no longer holds a level indefinitely: a perfect round only waits when the round
-  before it was slow as well, and **four good rounds in a row move up whatever the pace**. She played 55
-  rounds at 94% and moved up seven times — "stay and build speed" is a fair nudge for a round or two and a
-  trap for ever. **Mastery** (`mastered`) is a perfect, non-slow round at the top level: gold level dots and
+- **Levelling** (`specs/levelling.md`, `features/games/engine.ts`): the level follows the average of the
+  last three finished rounds at the current level — 90% or better moves a game up, under 60% drops it back,
+  level 1 never drops, and pace no longer matters. Fewer than three rounds at a level stays, so a fresh
+  level starts with an empty window; rounds left early are never in it, and a game left before the first
+  answer is never written at all. Game level n = printable stage n (`features/curriculum/skills.ts`). This
+  replaced single-round triggers after one child climbed from the easiest level to the hardest in four
+  perfect rounds and then sat at 60% with no drop. **Mastery** (`mastered`) is a perfect, non-slow round at the top level: gold level dots and
   a trophy on the tile, a line on the end screen and a gold sticker from Nova. It is derived from the round
   log, so it needs no migration and reads the same on every device.
 - **Stickers:** after every finished round the child picks a pack and gets a sticker for their sticker book;
