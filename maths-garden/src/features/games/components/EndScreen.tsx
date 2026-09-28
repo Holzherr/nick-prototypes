@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import type { Character } from '@/features/character/characters';
+import { CharacterSlot } from '@/features/character/components/CharacterSlot';
 import { withArticle, type PackId, type Sticker } from '@/features/stickers/catalog';
 import { PackChooser } from '@/features/stickers/components/PackChooser';
 import { StickerReveal } from '@/features/stickers/components/StickerReveal';
@@ -30,6 +32,9 @@ export interface EndScreenProps {
   gardenNews?: string | null;
   /** The printable stage reached in each game; decides which sticker packs the chooser offers. */
   stages?: readonly number[];
+  /** The child's character above the stars, at the stage her finished `rounds` (this one included) have earned. */
+  character?: Character;
+  rounds?: number;
   onPickPack: (pack: PackId) => void;
   onAgain: () => void;
   onStickers: () => void;
@@ -54,6 +59,8 @@ export function EndScreen({
   sticker,
   gardenNews = null,
   stages = [1],
+  character,
+  rounds = 0,
   onPickPack,
   onAgain,
   onStickers,
@@ -81,6 +88,7 @@ export function EndScreen({
 
   return (
     <main className="relative z-10 flex min-h-dvh flex-col items-center justify-center gap-[clamp(14px,3vh,26px)] px-6 py-10 text-center">
+      {character && <CharacterSlot character={character} rounds={rounds} childName={childName} size={96} className="-mb-2" />}
       <div className="text-[clamp(48px,9vw,96px)] leading-none tracking-[6px]" role="img" aria-label={`${score} stars`}>
         {'⭐'.repeat(score)}
         {'⚪'.repeat(total - score)}

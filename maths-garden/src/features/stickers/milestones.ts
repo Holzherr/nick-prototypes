@@ -1,3 +1,4 @@
+import type { CharacterId } from '@/features/character/characters';
 import type { Game } from '@/features/games/catalog';
 import { levelOf, mastered, type Levels, type RoundRecord } from '@/features/games/engine';
 import { collected, isSpecial, packProgress, SPECIAL_PACK, unlockedPacks } from './catalog';
@@ -5,11 +6,16 @@ import { gameName } from '@/features/i18n/content';
 
 type StickerLike = { sticker: string; shiny: boolean };
 
-/** Something worth a visit from Nova. Each one reached is owed exactly one special sticker. */
+/** Something worth a visit from the character. Each one reached is owed exactly one special sticker. */
 export interface Milestone {
   key: string;
   line: (name: string) => string;
+  /** Who turns up to hand out the special, so the pop-up can show her at her stage. */
+  character: CharacterId;
 }
+
+/** The special pack is "Special from Nova", so the milestones are hers whichever character the child has. */
+const HANDS_OUT_SPECIALS: CharacterId = 'nova';
 
 const COUNTS = [5, 10, 20, 30, 40, 50, 75, 100, 150, 200];
 /**
@@ -25,7 +31,7 @@ const PACK_MILESTONE_AT = 8;
  */
 export function milestonesReached(records: readonly StickerLike[], levels: Levels, games: readonly Game[], rounds: readonly RoundRecord[] = []): Milestone[] {
   const regular = records.filter((r) => !isSpecial(r.sticker));
-  const list: Milestone[] = [];
+  const list: Omit<Milestone, 'character'>[] = [];
   for (const n of COUNTS) {
     if (regular.length >= n) list.push({ key: `stickers-${n}`, line: (name) => `Wow, ${name}! You've got ${n} stickers!` });
   }
@@ -45,7 +51,7 @@ export function milestonesReached(records: readonly StickerLike[], levels: Level
     if (level >= 4) list.push({ key: `${game.id}-lv5`, line: (name) => `Level 5 in ${gameName(game.id)}! You're a superstar, ${name}!` });
     if (mastered(rounds, game)) list.push({ key: `${game.id}-gold`, line: (name) => `Gold star, ${name}! You have mastered ${gameName(game.id)}!` });
   }
-  return list;
+  return list.map((m) => ({ ...m, character: HANDS_OUT_SPECIALS }));
 }
 
 export const specialCount = (records: readonly StickerLike[]) => records.filter((r) => isSpecial(r.sticker)).length;
