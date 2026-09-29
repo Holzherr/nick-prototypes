@@ -51,7 +51,9 @@ npm run build && npm run build-storybook   # what CI does; output in dist/
 ```
 
 Edge functions: edit under `supabase/functions/`, then
-`npx supabase functions deploy --project-ref piwfcsvnxcmxmvfhgtbk`. Secrets:
+`npx supabase functions deploy --project-ref piwfcsvnxcmxmvfhgtbk`. Once `tools/ci/qeued-functions.yml`
+is copied to `.github/workflows/` at the repo root, a merged change under `supabase/functions/`
+deploys itself: only the functions whose directory changed, all of them when `_shared/` changed. Secrets:
 `npx supabase secrets set ANTHROPIC_API_KEY=… --project-ref piwfcsvnxcmxmvfhgtbk`.
 Schema changes: add a migration, `npx supabase db push`, regenerate `types.ts`.
 
