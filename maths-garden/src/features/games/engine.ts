@@ -1,4 +1,4 @@
-import type { Game, GameId } from './catalog';
+import { QUESTIONS_PER_ROUND, type Game, type GameId } from './catalog';
 
 /** One answered question. `target` is what was asked ("7", "4 vs 6"), `chosen` what was tapped. */
 export interface AnswerRecord {
@@ -105,7 +105,14 @@ export const levelOf = (levels: Levels, game: Game) => Math.min(Math.max(levels[
 
 const isSlow = (r: RoundRecord) => speedOf([r]).pace === 'slow';
 
-const isPerfect = (r: RoundRecord) => r.total > 0 && r.score === r.total;
+/**
+ * A full round of questions. A quest (specs/rounds.md) writes a row of one or two answers per source game;
+ * those rows sit in the game's history and stats, but a level is earned or mastered on whole rounds only,
+ * so one right answer at the top level cannot master a game and short rows do not make up a streak.
+ */
+const isFull = (r: RoundRecord) => r.total >= QUESTIONS_PER_ROUND;
+
+const isPerfect = (r: RoundRecord) => isFull(r) && r.score === r.total;
 
 /**
  * The level after the latest finished round. Speed counts as well as accuracy:
@@ -115,9 +122,10 @@ const isPerfect = (r: RoundRecord) => r.total > 0 && r.score === r.total;
  * - two rounds in a row at the current level, both 80%+, move up unless both were slow (then stay and build speed);
  * - four in a row at 80%+ move up whatever the pace, so "build speed first" can never become forever;
  * - two in a row under 50% drop back.
+ * Only full rounds count: a quest's short per-game rows are neither a round of the streak nor a break in it.
  */
 export function nextLevel(rounds: readonly RoundRecord[], game: Game, level: number): number {
-  const played = roundsOf(rounds, game.id);
+  const played = roundsOf(rounds, game.id).filter(isFull);
   const recent = played.slice(-STREAK);
   const top = game.levels.length - 1;
   const latest = recent.at(-1);

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mulberry32 } from '@/shared/utils/random';
 import { GAMES, gameById, type GameId } from './catalog';
-import type { AnswerRecord, RoundRecord } from './engine';
+import { mastered, nextLevel, skillStats, type AnswerRecord, type RoundRecord } from './engine';
 import { makeQuest, questFinishedToday, questRounds, weakestGames } from './quest';
 import { recommendGame } from './recommend';
 
@@ -113,6 +113,38 @@ describe('what a finished quest records', () => {
     // Yesterday's quest does not count, and two games finished at the same instant is what marks one.
     expect(questFinishedToday([...uneven(), ...rows], new Date(NOW.getTime() + 24 * 3600_000))).toBe(false);
     expect(questFinishedToday([round('x', 'peek', 5, 1), round('y', 'count', 5, 2)], NOW)).toBe(false);
+  });
+});
+
+describe('what a quest row does to levels', () => {
+  const peek = gameById('peek');
+  const top = peek.levels.length - 1;
+  /** A quest's row for one game: one or two answers, all quick. */
+  const short = (id: string, game: GameId, score: number, total: number, hours: number, level = 0): RoundRecord => ({
+    ...round(id, game, score, hours, level),
+    score,
+    total,
+    answers: Array.from({ length: total }, (_, i) => ({ target: '3', chosen: i < score ? '3' : 'x', correct: i < score, ms: 1000 })),
+  });
+
+  it('one right answer at the top level is not a mastery; a full perfect round is', () => {
+    expect(mastered([short('q', 'peek', 1, 1, 2, top)], peek)).toBe(false);
+    expect(mastered([short('q', 'peek', 2, 2, 2, top)], peek)).toBe(false);
+    expect(mastered([{ ...round('full', 'peek', 5, 2, top), answers: round('full', 'peek', 5, 2, top).answers.map((a) => ({ ...a, ms: 1000 })) }], peek)).toBe(true);
+  });
+
+  it('is neither a round of a level-up streak nor a break in it', () => {
+    // A full 4/5 then a quick 1/1 from a quest: not two good rounds, so no level up. A quick perfect short row alone: none either.
+    expect(nextLevel([round('a', 'peek', 4, 3), short('q', 'peek', 1, 1, 2)], peek, 0)).toBe(0);
+    expect(nextLevel([short('q', 'peek', 2, 2, 2)], peek, 0)).toBe(0);
+    // A missed quest answer between two good full rounds does not break their streak.
+    expect(nextLevel([round('a', 'peek', 4, 4), short('q', 'peek', 0, 1, 3), round('b', 'peek', 4, 2)], peek, 0)).toBe(1);
+    // Nor do two missed quest answers drop a level.
+    expect(nextLevel([round('a', 'peek', 4, 4, 1), short('q1', 'peek', 0, 1, 3, 1), short('q2', 'peek', 0, 2, 2, 1)], peek, 1)).toBe(1);
+  });
+
+  it('still counts in the accuracy the next quest reads', () => {
+    expect(skillStats([round('a', 'peek', 5, 3), short('q', 'peek', 0, 1, 2)], 'peek')).toEqual({ pct: 83, rounds: 2 });
   });
 });
 

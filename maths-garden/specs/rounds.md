@@ -31,11 +31,15 @@ game's level below, as in a round of that game.
 **Scoring.** Every answer counts to its own game. A finished quest writes **one round row per source game**
 (`maths_rounds`, `game` = that game, `level` = that game's level when the quest was drawn, `levelMax` from
 that level, `completed` true, all rows sharing one `playedAt`), so `agent_snapshot` counts the quest under
-each game with no migration. The quest itself moves no level: the rows sit in each game's history and the
-next full round of that game reads them under the usual rules (MG-020). A quest left part-way and then
-given up for another game writes the same rows with `completed` false, as a round does. Because the rows
-are ordinary rounds, a quest counts towards the daily goal, the garden and the break nudge as one round
-per game it touched; a marker column would fix that and is a migration, so it is left for Nick.
+each game with no migration. The quest itself moves no level: its rows are one or two answers each, and
+levels are earned, dropped and mastered on **full rounds only** (`total` at least five, `engine.ts`), so a
+quest row is neither a round of a streak nor a break in it, and one right answer at a game's top level is
+not a mastery. The rows do count in the grown-ups' accuracy and often-missed views, which is how the next
+quest sees whether a skill is still weak. A quest left part-way and then given up for another game writes
+the same rows with `completed` false, as a round does. Because the rows are ordinary rounds, a quest
+counts towards the daily goal, the garden and the break nudge as one round per game it touched, and the
+end screen's "daily goal done" line fires when the quest carries the day past the goal, not only when it
+lands on it exactly; a marker column would fix the counting and is a migration, so it is left for Nick.
 
 **Where home offers it.** In place of the suggested game, through `recommend.ts`: the lead tile is the quest
 (🗺️ "Quest") when three or more games have been played, no game is still unplayed (a new game wins

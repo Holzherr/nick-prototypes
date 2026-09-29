@@ -43,10 +43,11 @@ describe('playing the quest round', () => {
     levels: { count: 1, bond: 2 },
   });
 
-  const mount = () => {
+  const mount = (extra: RoundRecord[] = []) => {
+    const progress = { ...seeded(), rounds: [...seeded().rounds, ...extra] };
     const storage = new MemoryStorage();
-    storage.setItem(cacheKey(child.id), JSON.stringify(seeded()));
-    const repo = createRepo(memoryRemote({ [child.id]: seeded() }), storage);
+    storage.setItem(cacheKey(child.id), JSON.stringify(progress));
+    const repo = createRepo(memoryRemote({ [child.id]: progress }), storage);
     const applied = vi.spyOn(repo, 'apply');
     render(<GardenApp child={child} repo={repo} onSwitchChild={vi.fn()} onSignOut={vi.fn()} />);
     return () => applied.mock.calls.map(([change]) => change).filter((change) => change.kind === 'round');
@@ -89,6 +90,14 @@ describe('playing the quest round', () => {
     expect(new Set(written.map((r) => r.playedAt)).size).toBe(1);
     expect(written.every((r) => r.completed === undefined && r.childId === child.id)).toBe(true);
     expect(written.reduce((sum, r) => sum + r.total, 0)).toBe(5);
+  });
+
+  it('says the daily goal is done when the quest carries the day past it, not only onto it', () => {
+    // One round already today, goal three: the quest's three rows take it from one to four.
+    mount([{ ...round('peek', 5, 0), id: 'today-peek', playedAt: new Date().toISOString() }]);
+    fireEvent.click(screen.getByRole('button', { name: /^Play Quest\./ }));
+    for (let i = 0; i < 5; i++) answerOne();
+    expect(screen.getByText(/Daily goal done!/)).toBeInTheDocument();
   });
 
   it('a game picked instead of the quest is an offer_skipped, and leaving the quest pauses it', () => {

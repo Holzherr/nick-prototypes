@@ -243,6 +243,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
    */
   const finishQuest = (quest: Quest, answers: AnswerRecord[]) => {
     const gardenBefore = gardenOf(latest.current);
+    const doneBefore = todaySummary(latest.current.rounds).done;
     const rows = questRounds(quest, answers, child.id, true);
     const all = [...latest.current.rounds, ...rows];
     for (const round of rows) apply({ kind: 'round', round });
@@ -258,7 +259,8 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
       levelUp: false,
       justMastered: false,
       personalBest: false,
-      goal: { done: day.done, goal: day.goal, justReached: day.done === day.goal },
+      // Three rows land at once, so the goal is crossed, not necessarily hit exactly.
+      goal: { done: day.done, goal: day.goal, justReached: doneBefore < day.goal && day.done >= day.goal },
       breakHint: breakSuggestion(all),
       sticker: null,
       gardenBefore,
