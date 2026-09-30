@@ -1,0 +1,71 @@
+# Deploys the qeued edge functions when a change under supabase/functions lands on main.
+#
+# It lives here, inside the app, because the agent team may not write under .github/ at the
+# repo root. To turn it on, copy this file unchanged to .github/workflows/qeued-functions.yml
+# and set SUPABASE_ACCESS_TOKEN as a repository secret on Holzherr/nick-prototypes: a personal
+# access token from supabase.com/dashboard/account/tokens. That is the only secret it reads.
+#
+# A push to main deploys only the functions whose directory changed; a change under _shared/
+# deploys all of them. A hand run from the Actions tab deploys all of them, or with dry_run
+# ticked lists the live functions and deploys nothing. Run it that way once after setting the
+# secret, so a bad token fails in front of you rather than on the first merge. The CLI is
+# pinned to its current major (supabase@2) and bundles through the API, so no Docker is needed.
+name: qeued functions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'qeued-next/supabase/functions/**'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: List the live functions and deploy nothing
+        type: boolean
+        default: false
+
+# Two deploys at once could land the older bundle last, so a second run waits for the first.
+concurrency:
+  group: qeued-functions
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: qeued-next
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: qeued-next/package-lock.json
+      - name: List the live functions
+        if: inputs.dry_run
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: npx --yes supabase@2 functions list --project-ref piwfcsvnxcmxmvfhgtbk
+      - name: Deploy the functions that changed
+        if: ${{ !inputs.dry_run }}
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          names=""
+          if [ "$GITHUB_EVENT_NAME" = push ]; then
+            changed=$(git diff --name-only --relative "$BEFORE" "$GITHUB_SHA" -- supabase/functions | cut -d/ -f3 | sort -u) || changed=_shared
+            if ! echo "$changed" | grep -qx _shared; then
+              names=$(for n in $changed; do [ -d "supabase/functions/$n" ] || continue; echo "$n"; done)
+              if [ -z "$names" ]; then echo "only deletions under supabase/functions; nothing to deploy"; exit 0; fi
+            fi
+          fi
+          echo "deploying: ${names:-all functions}"
+          npx --yes supabase@2 functions deploy --project-ref piwfcsvnxcmxmvfhgtbk --use-api $names
