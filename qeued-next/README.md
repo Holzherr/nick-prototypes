@@ -51,9 +51,11 @@ npm run build && npm run build-storybook   # what CI does; output in dist/
 ```
 
 Edge functions: edit under `supabase/functions/`, then
-`npx supabase functions deploy --project-ref piwfcsvnxcmxmvfhgtbk`. Once `tools/ci/qeued-functions.yml`
-is copied to `.github/workflows/` at the repo root, a merged change under `supabase/functions/`
-deploys itself: only the functions whose directory changed, all of them when `_shared/` changed. Secrets:
+`npx supabase functions deploy --project-ref piwfcsvnxcmxmvfhgtbk` by hand if the workflow is down.
+The functions workflow has been in place at `.github/workflows/qeued-functions.yml` since 2026-09-30
+([dry run](https://github.com/Holzherr/nick-prototypes/actions/runs/36763490088)), copied from
+`tools/ci/qeued-functions.yml`: a merged change under `supabase/functions/` deploys itself, only the
+functions whose directory changed, all of them when `_shared/` changed. Secrets:
 `npx supabase secrets set ANTHROPIC_API_KEY=… --project-ref piwfcsvnxcmxmvfhgtbk`.
 Schema changes: add a migration, `npx supabase db push`, regenerate `types.ts`.
 
@@ -65,7 +67,7 @@ story only for their first frame.
 
 ## Backend
 
-Supabase project `piwfcsvnxcmxmvfhgtbk` (eu-central-1). Schema in `supabase/migrations/`, six
+Supabase project `piwfcsvnxcmxmvfhgtbk` (eu-central-1). Schema in `supabase/migrations/`, nine
 Deno edge functions in `supabase/functions/` calling the Anthropic API (Haiku 4.5 for search /
 enrich / popular, Sonnet 5 for recommendations and Watch Tonight) through `_shared/claude.ts`.
 Results cache in `ai_cache`.
