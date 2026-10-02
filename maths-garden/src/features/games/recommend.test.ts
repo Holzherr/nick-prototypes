@@ -75,6 +75,28 @@ describe('which game to offer next', () => {
     expect([a, b].every((id) => GAMES.some((g) => g.id === id))).toBe(true);
   });
 
+  it('a skipped game stops leading, even one never played', () => {
+    const rounds = GAMES.filter((g) => g.id !== 'add').map((game) => round(`r-${game.id}`, game.id, 5, 3));
+    const pick = recommend(rounds, {}, { skipped: ['add'] });
+    expect(pick.game.id).not.toBe('add');
+    expect(rounds.some((r) => r.game === pick.game.id)).toBe(true);
+    expect(recommend(rounds).game.id).toBe('add');
+  });
+
+  it('puts skipped games after every other, the one skipped first last', () => {
+    const rounds = GAMES.filter((g) => g.id !== 'add' && g.id !== 'bond').map((game) => round(`r-${game.id}`, game.id, 5, 3));
+    const ranked = rankGames(rounds, {}, GAMES, { now: NOW, skipped: ['add', 'bond'] }).map((r) => r.game.id);
+    expect(recommend(rounds, {}, { skipped: ['add', 'bond'] }).game.id).not.toMatch(/^(add|bond)$/);
+    expect(ranked.slice(-2)).toEqual(['bond', 'add']);
+  });
+
+  it('ranks the same with no skips as without the option', () => {
+    for (const rounds of [allPlayed(), [], GAMES.filter((g) => g.id !== 'add').map((game) => round(`r-${game.id}`, game.id, 5, 3))]) {
+      const ids = (options = {}) => rankGames(rounds, {}, GAMES, { now: NOW, ...options }).map((r) => r.game.id);
+      expect(ids({ skipped: [] })).toEqual(ids());
+    }
+  });
+
   it('recommends something on day one', () => {
     const pick = recommend([]);
     expect(pick.why).toBe('new');
