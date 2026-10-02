@@ -70,12 +70,13 @@ describe('what leaving a game before its first answer records', () => {
   it('Home after one answer, then a different game: no game_left, one round left unfinished', () => {
     vi.useFakeTimers();
     const rounds = mount();
-    // Counting answers with a digit, so one tap is one answer whatever the question; the suggested game comes second.
+    // Counting answers with a digit, so one tap is one answer whatever the question; the skipped game comes second, from the list.
     tapOther();
     answerOne();
     tapHome();
-    tapSuggested();
-    expect(names()).toEqual(['game_start', 'offer_skipped', 'game_start', 'offer_taken']);
+    fireEvent.click(screen.getByRole('button', { name: /Or pick another game/ }));
+    fireEvent.click(screen.getByRole('button', { name: new RegExp(gameName(suggested.id)) }));
+    expect(names()).toEqual(['game_start', 'offer_skipped', 'game_start', 'offer_skipped']);
     expect(rounds()).toHaveLength(1);
     expect(rounds()[0]).toMatchObject({ kind: 'round', round: { game: other.id, total: 1, completed: false } });
   });
