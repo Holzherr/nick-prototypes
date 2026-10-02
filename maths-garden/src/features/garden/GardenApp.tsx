@@ -111,6 +111,8 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
   const [novaDone, setNovaDone] = useState(false);
   // A round left part-way through. Held here rather than in GameScreen, which dies the moment she leaves.
   const [paused, setPaused] = useState<({ game: Game; level: number } & PausedRound) | null>(null);
+  /** Games home suggested and she passed over this visit, oldest first. Never stored: a reload forgets them. */
+  const [skipped, setSkipped] = useState<GameId[]>([]);
   const [guestsDismissed, setGuestsDismissed] = useState(false);
   const [importing, setImporting] = useState<{ busy: boolean; done: { name: string; rounds: number; stickers: number } | null }>({ busy: false, done: null });
   const [emailing, setEmailing] = useState<{ busy: boolean; sent: boolean; error: string | null }>({ busy: false, sent: false, error: null });
@@ -174,6 +176,8 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
     if (!resuming) {
       track('game_start');
       if (offered) track(offered.game.id === game.id ? 'offer_taken' : 'offer_skipped');
+      // Passed over: it goes to the back of the list until the app is reopened, so home stops repeating it.
+      if (offered && offered.game.id !== game.id) setSkipped((ids) => [...ids.filter((id) => id !== offered.game.id), offered.game.id]);
     }
     runs.current += 1;
     setNovaDone(false);
@@ -338,7 +342,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
   const view = (() => {
     switch (screen.name) {
       case 'home': {
-        const recommended = recommendGame(progress.rounds, progress.levels, GAMES);
+        const recommended = recommendGame(progress.rounds, progress.levels, GAMES, { skipped });
         return (
           <GardenHome
             childName={child.name}

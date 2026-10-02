@@ -76,6 +76,22 @@ describe('what home records about the suggested game', () => {
     expect(names()).toEqual(['game_start']);
   });
 
+  it('a game passed over for another stops being the suggestion for the visit, and comes back after a reload', () => {
+    vi.useFakeTimers();
+    const { unmount } = mount();
+    const shown = () => screen.getByRole('button', { name: /^Play / }).getAttribute('aria-label');
+    expect(shown()).toMatch(new RegExp(`^Play ${gameName(suggested.id)}\\.`));
+    tapOther();
+    fireEvent.click(screen.getAllByRole('button').filter((button) => /^\d+$/.test(button.textContent ?? ''))[0]);
+    act(() => vi.advanceTimersByTime(2400));
+    fireEvent.click(screen.getByRole('button', { name: 'Home' }));
+    expect(shown()).not.toMatch(new RegExp(`^Play ${gameName(suggested.id)}\\.`));
+    // Nothing is stored: a fresh mount leads with the unplayed game again.
+    unmount();
+    mount();
+    expect(shown()).toMatch(new RegExp(`^Play ${gameName(suggested.id)}\\.`));
+  });
+
   it('records nothing at all in guest mode, offer or not', () => {
     localStorage.setItem(GUEST_FLAG, 'true');
     mount();
