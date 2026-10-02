@@ -76,7 +76,8 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
 - **Home leads with one suggested game** (`features/games/recommend.ts`) and its reason, with the rest
   behind "Or pick another game": never played wins outright, then not played today, weak accuracy,
   staleness, and a boost when one good round would level it up — minus whatever was just played, so the
-  suggestion moves on by itself.
+  suggestion moves on by itself. A suggestion she passes over for another game goes to the back of the list
+  until the app is reopened (`skipped`, kept in `GardenApp` state, never stored).
 - **Levelling** (`specs/levelling.md`, `features/games/engine.ts`): the level follows the average of the
   last three finished rounds at the current level — 90% or better moves a game up, under 60% drops it back,
   level 1 never drops, and pace no longer matters. Fewer than three rounds at a level stays, so a fresh

@@ -40,13 +40,17 @@ export interface RecommendOptions {
   avoid?: GameId | null;
   /** Rotates ties so two equally-needed games alternate rather than one always winning. */
   rotate?: number;
+  /** Passed over from home this visit, oldest first: all go after every other game, the oldest last. */
+  skipped?: readonly GameId[];
 }
 
 const sameDay = (iso: string, now: Date) => new Date(iso).toDateString() === now.toDateString();
 
 /** Every game scored by how much it is needed, most-needed first. */
 export function rankGames(rounds: readonly RoundRecord[], levels: Levels, games: readonly Game[], options: RecommendOptions = {}): Scored[] {
-  const { now = new Date(), rotate = 0 } = options;
+  const { now = new Date(), rotate = 0, skipped = [] } = options;
+  // Not skipped outranks every skipped game; among skipped ones the latest skip comes first.
+  const skipRank = (id: GameId) => (skipped.includes(id) ? skipped.indexOf(id) : skipped.length);
   const lastPlayed = [...rounds].filter(finished).sort(byTime).at(-1)?.game ?? null;
   const avoid = options.avoid === undefined ? lastPlayed : options.avoid;
 
@@ -99,7 +103,7 @@ export function rankGames(rounds: readonly RoundRecord[], levels: Levels, games:
       const why = ORDER.find((candidate) => reasons.includes(candidate)) ?? 'variety';
       return { game, score, why };
     })
-    .sort((a, b) => b.score - a.score);
+    .sort((a, b) => skipRank(b.game.id) - skipRank(a.game.id) || b.score - a.score);
 }
 
 /** The one game to lead with. */
