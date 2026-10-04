@@ -142,6 +142,7 @@ const LandingPage = () => {
                         <AddToWatchlistSelect
                           titleName={t.name}
                           titleId={t.id}
+                          source="manual"
                           size="sm"
                         />
                       </div>
