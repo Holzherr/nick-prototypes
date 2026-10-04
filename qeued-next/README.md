@@ -86,7 +86,7 @@ and no column of `profiles` is read, so the output is safe to paste into a repor
 apply the migration, set the role's password by hand (it is deliberately not in the file, which is
 public), then store the connection string in the keychain under `agent-team-qeued-db`; the shape is
 in the migration's header comment. Nothing in `src/` calls it and the app does not change when it
-is applied. Three sections:
+is applied. Four sections, the fourth (`recs_taken`) from migration 0027, also not applied:
 
 ```json
 {
@@ -101,7 +101,8 @@ is applied. Three sections:
     "measures": "household activity, not recommendations taken",
     "weeks": [{ "week": "2026-W38", "profile": "9f86d081884c…", "status": "watched",
                 "created": 3, "updated": 1, "rated": 2 }]
-  }
+  },
+  "recs_taken": [{ "week": "2026-W38", "profile": "9f86d081884c…", "taken": 2 }]
 }
 ```
 
@@ -110,9 +111,12 @@ is applied. Three sections:
 is `held ÷ (held + candidates_not_held)`, the G-09 number. `candidates.top_errors` is the ten most
 common `last_error` values. `household_activity.weeks` is per ISO week × hashed profile × current
 status: rows created, rows changed after creation (`updated_at > created_at`), and rows carrying a
-`watched_rating`. It measures household activity only: no column says a `watch_entries` row came
-from a recommendation, so recommendations taken (G-10) is not readable until QD-004 adds one, and
-the fixed `measures` key is there so the report never presents this section as that metric.
+`watched_rating`. It measures household activity only, and the fixed `measures` key is there so
+the report never presents it as recommendations taken. That number is `recs_taken`, the G-10
+count: per ISO week × hashed profile, `watch_entries` rows created in the window whose `source` is
+`recommendation` or `tonight`. `source` (0027) is one of `recommendation`, `tonight`, `search`,
+`title_page`, `manual`, set once: a trigger keeps the first non-null value on every update. Rows
+from before 0027 stay null, and `recs_taken` reads empty until a client writes `source` (QD-017).
 `days` is clamped to 1–400 and defaults to 7.
 
 ## The catalogue
