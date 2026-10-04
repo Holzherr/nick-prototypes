@@ -11,6 +11,11 @@ let replies: ({ code: string; message: string } | null)[] = [];
 vi.mock('@/shared/supabase/client', () => ({
   supabase: {
     from: () => ({
+      // The titles lookup for a pick that came without a title_id.
+      select: () => {
+        const chain = { ilike: () => chain, limit: () => chain, maybeSingle: () => Promise.resolve({ data: { id: 'title-3' } }) };
+        return chain;
+      },
       insert: (payload: Record<string, unknown>) => {
         calls.push({ op: 'insert', payload });
         return Promise.resolve({ error: replies.shift() ?? null });
@@ -70,4 +75,11 @@ it('an insert rejected with PGRST204 is retried once without source and the entr
   expect(calls.map((c) => c.op)).toEqual(['insert', 'insert']);
   expect(calls[1].payload).not.toHaveProperty('source');
   expect(calls[1].payload).toMatchObject({ title_id: 'title-2', status: 'want_to_watch' });
+});
+
+it("Tonight's wildcard, which comes without a title_id, is looked up by name and added with source tonight", async () => {
+  render(<MemoryRouter><PickCard pick={{ ...pick, title_id: undefined }} /></MemoryRouter>);
+  add();
+  await waitFor(() => expect(calls).toHaveLength(1));
+  expect(calls[0]).toMatchObject({ op: 'insert', payload: { title_id: 'title-3', source: 'tonight' } });
 });
