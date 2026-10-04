@@ -10,7 +10,7 @@ const meta = {
     docs: {
       description: {
         component:
-          "Tonight, first frame: ranked on the device from the profile's list before any model call. Title and one-line subtitle; a row of four mood chips, then two length chips (Short night / Got time) with the selected one filled; a blue \"Sharpen these\" button, full-width on phones. Below: two PickCards — poster or icon left, badge (\"Put this on\" tinted, \"Or this\" plain), title with year, a one-line data explanation such as \"On Netflix · 95 min · from your list\", then runtime and provider badges — and a collapsed \"The rest of your list, ranked for tonight (n)\" details block. When a scored slate lands, a \"Sharper picks ready\" banner sits between the buttons and the cards until pressed; the button then reads \"Try again\".",
+          "Tonight, first frame: ranked on the device from the profile's list before any model call. Title and one-line subtitle; a row of four mood chips, then two length chips (Short night / Got time) with the selected one filled; a blue \"Sharpen these\" button, full-width on phones. Below: two PickCards — poster or icon left, badge (\"Put this on\" tinted, \"Or this\" plain), title with year, a one-line data explanation such as \"On Netflix · 95 min · from your list\", then runtime and provider badges; a pick not on the list (Wildcard) adds an \"Add to…\" select under them — and a collapsed \"The rest of your list, ranked for tonight (n)\" details block. When a scored slate lands, a \"Sharper picks ready\" banner sits between the buttons and the cards until pressed; the button then reads \"Try again\".",
       },
     },
   },
