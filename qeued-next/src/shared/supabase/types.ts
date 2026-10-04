@@ -823,6 +823,7 @@ export type Database = {
           progress_updated_at: string | null
           queue_rank: number | null
           review: string | null
+          source?: string | null
           status: Database["public"]["Enums"]["watch_status"]
           title_id: string
           updated_at: string
@@ -841,6 +842,7 @@ export type Database = {
           progress_updated_at?: string | null
           queue_rank?: number | null
           review?: string | null
+          source?: string | null
           status?: Database["public"]["Enums"]["watch_status"]
           title_id: string
           updated_at?: string
@@ -859,6 +861,7 @@ export type Database = {
           progress_updated_at?: string | null
           queue_rank?: number | null
           review?: string | null
+          source?: string | null
           status?: Database["public"]["Enums"]["watch_status"]
           title_id?: string
           updated_at?: string
