@@ -6,7 +6,7 @@ import { Button } from "@/shared/components/ui/button";
 import { Star, X, SkipForward } from "lucide-react";
 import { supabase } from "@/shared/supabase/client";
 import { useToast } from "@/shared/components/ui/use-toast";
-import AddToWatchlistSelect from "@/features/library/AddToWatchlistSelect";
+import AddToWatchlistSelect, { addWatchEntry } from "@/features/library/AddToWatchlistSelect";
 import { useProfile } from "@/features/household/ProfileContext";
 
 export interface Recommendation {
@@ -70,7 +70,7 @@ const RecommendationCard = ({ rec, userId, onRemoved, onNeedMore }: Props) => {
       const titleId = await ensureTitleId();
       if (!titleId || !active) return;
 
-      await supabase.from("watch_entries").upsert(
+      await addWatchEntry(
         {
           profile_id: active.id,
           user_id: userId,
@@ -79,7 +79,7 @@ const RecommendationCard = ({ rec, userId, onRemoved, onNeedMore }: Props) => {
           watched_rating: rating,
           watched_date: new Date().toISOString().slice(0, 10),
         },
-        { onConflict: "profile_id,title_id" },
+        "recommendation",
       );
 
       toast({ title: `Rated ${rating}/5`, description: rec.title });
@@ -214,6 +214,7 @@ const RecommendationCard = ({ rec, userId, onRemoved, onNeedMore }: Props) => {
               titleName={rec.title}
               titleId={rec.title_id}
               resolveTitleId={ensureTitleId}
+              source="recommendation"
               onStatusChange={(status) => {
                 if (status === "watched") {
                   setState("rating");

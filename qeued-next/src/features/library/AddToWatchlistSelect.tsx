@@ -10,6 +10,24 @@ import { Loader2 } from "lucide-react";
 
 import { STATUS_LABELS as statusLabels, type WatchStatus } from "./model";
 
+/** Where a list entry came from. The database keeps the first one written (0027). */
+export type EntrySource = "recommendation" | "tonight" | "search" | "title_page" | "manual";
+
+type EntryRow = { user_id: string; profile_id: string; title_id: string; status: WatchStatus; watched_rating?: number; watched_date?: string };
+
+/**
+ * Adds a title to a profile's list. `source` goes into the insert only: an entry that already
+ * exists (23505) is updated without it. PGRST204 means 0027 is not live yet, so the insert is
+ * tried once more without `source` rather than failing the add.
+ */
+export const addWatchEntry = async (row: EntryRow, source: EntrySource) => {
+  let { error } = await supabase.from("watch_entries").insert({ ...row, source });
+  if (error?.code === "PGRST204") ({ error } = await supabase.from("watch_entries").insert(row));
+  if (error?.code !== "23505") return { error };
+  const { profile_id, title_id, ...changes } = row;
+  return supabase.from("watch_entries").update(changes).eq("profile_id", profile_id).eq("title_id", title_id);
+};
+
 interface Props {
   titleId?: string | null;
   titleName: string;
@@ -19,6 +37,8 @@ interface Props {
   onStatusChange?: (status: WatchStatus) => void;
   /** For recommendation cards that need to resolve title ID */
   resolveTitleId?: () => Promise<string | null>;
+  /** Written on a new entry only, never over an existing one */
+  source?: EntrySource;
   /** Trigger size */
   size?: "sm" | "default";
   className?: string;
@@ -30,6 +50,7 @@ const AddToWatchlistSelect = ({
   currentStatus,
   onStatusChange,
   resolveTitleId,
+  source = "manual",
   size = "sm",
   className = "",
 }: Props) => {
@@ -60,10 +81,7 @@ const AddToWatchlistSelect = ({
         return;
       }
 
-      const { error } = await supabase.from("watch_entries").upsert(
-        { user_id: user.id, profile_id: active.id, title_id: resolvedId, status },
-        { onConflict: "profile_id,title_id" }
-      );
+      const { error } = await addWatchEntry({ user_id: user.id, profile_id: active.id, title_id: resolvedId, status }, source);
       if (error) throw error;
 
       toast({

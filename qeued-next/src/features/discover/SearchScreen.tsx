@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/features/auth/AuthContext";
 import { useProfile } from "@/features/household/ProfileContext";
 import { supabase } from "@/shared/supabase/client";
+import { addWatchEntry } from "@/features/library/AddToWatchlistSelect";
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
@@ -55,10 +56,7 @@ const SearchPage = () => {
     if (!title.id || !user || !active) return;
 
     try {
-      const { error } = await supabase.from("watch_entries").upsert(
-        { user_id: user.id, profile_id: active.id, title_id: title.id, status },
-        { onConflict: "profile_id,title_id" }
-      );
+      const { error } = await addWatchEntry({ user_id: user.id, profile_id: active.id, title_id: title.id, status }, "search");
       if (error) throw error;
 
       setResults((prev) =>
