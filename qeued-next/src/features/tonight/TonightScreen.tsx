@@ -56,6 +56,13 @@ const pickLabels: Record<TonightPick["pick_type"], string> = {
 const offerLabel = (offer: string) =>
   offer === "subscription" ? "included" : offer === "free" ? "free" : offer;
 
+/** The wildcard comes from watch-tonight without a title_id, so it is looked up by name. */
+const findTitleId = async (pick: TonightPick) => {
+  if (pick.title_id) return pick.title_id;
+  const { data } = await supabase.from("titles").select("id").ilike("name", pick.title).limit(1).maybeSingle();
+  return data?.id ?? null;
+};
+
 /**
  * A pick, with the thing the old app never told you: where you can actually watch it. A pick
  * that is not on the list yet can be added from here, so taking it is one tap.
@@ -92,7 +99,7 @@ export const PickCard = ({ pick, emphasis }: { pick: TonightPick; emphasis?: boo
       </div>
       {!pick.in_queue && (
         <div className="mt-3 w-40">
-          <AddToWatchlistSelect titleId={pick.title_id} titleName={pick.title} source="tonight" />
+          <AddToWatchlistSelect titleId={pick.title_id} titleName={pick.title} resolveTitleId={() => findTitleId(pick)} source="tonight" />
         </div>
       )}
     </div>
