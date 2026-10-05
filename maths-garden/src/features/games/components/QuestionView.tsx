@@ -345,7 +345,8 @@ function Bank({ q, chosen, onAnswer }: { q: BankQuestion; chosen: Choice | null;
   useEffect(() => {
     speak();
   }, [speak]);
-  // A short row (a number track, a counting-in-steps row) gets big cards; a long pattern row has to fit a phone.
+  // A short row (a number track, a counting-in-steps row) gets big cards; a long pattern row (up to 11 cards)
+  // stays on one line: each card takes an eleventh of the screen less main's padding and the gaps.
   const long = q.row.length > 6;
   return (
     <Stage
@@ -355,14 +356,21 @@ function Bank({ q, chosen, onAnswer }: { q: BankQuestion; chosen: Choice | null;
         </Button>
       }
     >
-      <div role="img" aria-label={q.row.map((cell) => cell ?? 'gap').join(', ')} className="flex flex-wrap justify-center gap-[clamp(4px,1vw,10px)]">
+      <div
+        role="img"
+        aria-label={q.row.map((cell) => cell ?? 'gap').join(', ')}
+        className={cn('flex justify-center', long ? 'flex-nowrap gap-[clamp(3px,1vw,10px)]' : 'flex-wrap gap-[clamp(4px,1vw,10px)]')}
+      >
         {q.row.map((cell, i) => (
           <span
             key={i}
             className={cn(
-              'flex items-center justify-center rounded-2xl border-[3px] font-bold leading-none',
-              long ? 'size-[clamp(30px,7.5vw,64px)] text-[clamp(20px,5vw,42px)]' : 'size-[clamp(54px,12vw,84px)] text-[clamp(34px,7vw,56px)]',
-              q.show === 'numeral' && 'text-[clamp(24px,5.5vw,40px)] text-grape',
+              'flex shrink-0 items-center justify-center border-[3px] font-bold leading-none',
+              long
+                ? 'size-[clamp(22px,calc((100vw_-_72px)/11),64px)] rounded-xl text-[clamp(16px,4.5vw,42px)]'
+                : 'size-[clamp(54px,12vw,84px)] rounded-2xl text-[clamp(34px,7vw,56px)]',
+              q.show === 'numeral' && !long && 'text-[clamp(24px,5.5vw,40px)]',
+              q.show === 'numeral' && 'text-grape',
               cell === null ? 'border-dashed border-bubble bg-white' : 'border-petal bg-cream',
             )}
           >
