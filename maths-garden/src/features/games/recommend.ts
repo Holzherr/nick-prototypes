@@ -1,5 +1,6 @@
 import type { Game, GameId } from './catalog';
 import { accuracy, byTime, finished, LEVEL_UP_AT, levelOf, roundsOf, type Levels, type RoundRecord } from './engine';
+import { makeQuest, QUEST, questFinishedToday, type Quest } from './quest';
 import { translate } from '@/features/i18n/i18n';
 
 /**
@@ -10,18 +11,20 @@ import { translate } from '@/features/i18n/i18n';
  * suggestion without anything having to remember what was shown.
  */
 
-export type Why = 'new' | 'nearly' | 'practise' | 'today' | 'stale' | 'variety';
+export type Why = 'new' | 'nearly' | 'practise' | 'today' | 'stale' | 'variety' | 'quest';
 
 export interface Recommendation {
   game: Game;
   /** Shown to the child under the tile: short, warm, never a telling-off. */
   reason: string;
   why: Why;
+  /** Set when home leads with the day's quest round instead of `game` (specs/rounds.md). */
+  quest?: Quest;
 }
 
 /** Why this game is suggested, in the reader's language. The key IS the reason, so the sentence lives in
-    the catalogue with every other sentence rather than in the picking logic. */
-export const reasonFor = (why: Why) => translate(`why.${why}` as never);
+    the catalogue with every other sentence rather than in the picking logic. The quest has no catalogue entry. */
+export const reasonFor = (why: Why) => (why === 'quest' ? QUEST.reason : translate(`why.${why}` as never));
 
 const DAY = 24 * 60 * 60 * 1000;
 /** Highest priority first: the reason shown is the strongest one that applied. */
@@ -42,6 +45,8 @@ export interface RecommendOptions {
   rotate?: number;
   /** Passed over from home this visit, oldest first: all go after every other game, the oldest last. */
   skipped?: readonly GameId[];
+  /** false: no quest this visit, because she passed the one home offered over for a game. */
+  quest?: boolean;
 }
 
 const sameDay = (iso: string, now: Date) => new Date(iso).toDateString() === now.toDateString();
@@ -106,8 +111,14 @@ export function rankGames(rounds: readonly RoundRecord[], levels: Levels, games:
     .sort((a, b) => skipRank(b.game.id) - skipRank(a.game.id) || b.score - a.score);
 }
 
-/** The one game to lead with. */
+/**
+ * The one thing to lead with. A never-played game still wins outright; after that, the first quest of the
+ * day (three games played, drawn from the three weakest) leads, and then the ranked game as before.
+ */
 export function recommendGame(rounds: readonly RoundRecord[], levels: Levels, games: readonly Game[], options: RecommendOptions = {}): Recommendation {
   const [best] = rankGames(rounds, levels, games, options);
+  const offerQuest = options.quest !== false && best.why !== 'new' && !questFinishedToday(rounds, options.now);
+  const quest = offerQuest ? makeQuest(rounds, levels, games) : null;
+  if (quest) return { game: best.game, reason: reasonFor('quest'), why: 'quest', quest };
   return { game: best.game, reason: reasonFor(best.why), why: best.why };
 }

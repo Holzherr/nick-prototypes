@@ -49,6 +49,17 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   ten-and-something) and **Spot the Shape** (names shapes, then counts their sides). Spoken prompts in a
   British voice, stars, praise by name. Levels 1–3 are the printable stages; 4–6 are challenge levels, and
   the sixth is the **gold level** — clearing it with a perfect round masters the game.
+- **The quest round** (`features/games/quest.ts`, `specs/rounds.md`): a new *shape* of round, not a tenth
+  game. Five questions from the three weakest skills (accuracy over each game's last three rounds; two each
+  from the two weakest, one from the third), drawn by those games' own generators at their current levels,
+  in one round with one star row. A finished quest writes **one round row per source game** at one
+  `playedAt`, so every answer lands in the game that asked it and `agent_snapshot` counts it by game with
+  no migration. The quest moves no level: levels and mastery read full rounds only (five answers or more).
+  Home leads with it (🗺️ Quest) once three games have been played, no game is still new and no quest has
+  been finished today; a game picked instead ends the quest for the visit. Because the rows are ordinary
+  rounds, a quest counts as two or three rounds for the daily goal, the garden and the break nudge; a
+  marker column would fix that and is a migration. No printable, no QR link, no catalogue strings. Story:
+  Games/Quest.
 - **Getting a better voice** (`VoicePanel`): the app can only choose from the voices installed on the
   device, and on one with nothing downloaded that is the thin compact voice — no respelling fixes that.
   `hasEnhancedVoice()` checks whether a Premium/Enhanced English voice is actually present and the panel
@@ -372,4 +383,4 @@ npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboar
   the assistant repo, `me/projects/maths-garden/`.
 - Games for the remaining gaps: place value, ordering and patterns. Number bonds (Make Ten), teen numbers
   (Ten and Some More) and shapes (Spot the Shape) now have games of their own.
-- A daily quest round drawn from the weakest skills, instead of five silos.
+- The second new round type, an ordering round (`specs/rounds.md`), once the quest round has a week of numbers.

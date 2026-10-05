@@ -9,6 +9,7 @@ import { GardenHome } from '@/features/games/components/GardenHome';
 import { GrownUpsGate, grownUpsPassed } from '@/features/games/components/GrownUpsGate';
 import { levelOf, mastered, nextLevel, type AnswerRecord, type RoundRecord } from '@/features/games/engine';
 import { breakSuggestion, isPersonalBest, todaySummary, type BreakReason } from '@/features/games/insights';
+import { questRounds, type Quest } from '@/features/games/quest';
 import { recommendGame, type Recommendation } from '@/features/games/recommend';
 import { setNameSound, unlockAudio } from '@/features/games/sound';
 import type { CheckinScores } from '@/features/progress/components/CheckInPanel';
@@ -35,7 +36,8 @@ import { gardenNews, gardenOf, type Garden } from './garden-state';
 
 type Screen =
   | { name: 'home' }
-  | { name: 'game'; game: Game; level: number; run: number }
+  /** A quest round: `game` is then its weakest game, which stands in wherever one game is needed. */
+  | { name: 'game'; game: Game; level: number; run: number; quest?: Quest }
   | {
       name: 'end';
       game: Game;
@@ -110,9 +112,11 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
   const [celebration, setCelebration] = useState<{ line: string; reward: { sticker: Sticker; sparkly: boolean } } | null>(null);
   const [novaDone, setNovaDone] = useState(false);
   // A round left part-way through. Held here rather than in GameScreen, which dies the moment she leaves.
-  const [paused, setPaused] = useState<({ game: Game; level: number } & PausedRound) | null>(null);
+  const [paused, setPaused] = useState<({ game: Game; level: number; quest?: Quest } & PausedRound) | null>(null);
   /** Games home suggested and she passed over this visit, oldest first. Never stored: a reload forgets them. */
   const [skipped, setSkipped] = useState<GameId[]>([]);
+  /** Home offered the quest and she picked a game instead: no quest again this visit. */
+  const [questSkipped, setQuestSkipped] = useState(false);
   const [guestsDismissed, setGuestsDismissed] = useState(false);
   const [importing, setImporting] = useState<{ busy: boolean; done: { name: string; rounds: number; stickers: number } | null }>({ busy: false, done: null });
   const [emailing, setEmailing] = useState<{ busy: boolean; sent: boolean; error: string | null }>({ busy: false, sent: false, error: null });
@@ -171,17 +175,31 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
     // neither a start nor an offer. Starting something else is the moment the paused round is really given
     // up: record what was answered, before the new start is counted, so the old game is left before the
     // next one begins.
-    const resuming = paused !== null && paused.game.id === game.id;
+    const resuming = paused !== null && !paused.quest && paused.game.id === game.id;
     if (paused && !resuming) dropPaused();
     if (!resuming) {
       track('game_start');
-      if (offered) track(offered.game.id === game.id ? 'offer_taken' : 'offer_skipped');
+      const taken = offered && !offered.quest && offered.game.id === game.id;
+      if (offered) track(taken ? 'offer_taken' : 'offer_skipped');
       // Passed over: it goes to the back of the list until the app is reopened, so home stops repeating it.
-      if (offered && offered.game.id !== game.id) setSkipped((ids) => [...ids.filter((id) => id !== offered.game.id), offered.game.id]);
+      if (offered?.quest) setQuestSkipped(true);
+      else if (offered && !taken) setSkipped((ids) => [...ids.filter((id) => id !== offered.game.id), offered.game.id]);
     }
     runs.current += 1;
     setNovaDone(false);
     setScreen({ name: 'game', game, level: levelOf(latest.current.levels, game), run: runs.current });
+  };
+
+  /** Start the quest home led with. A paused quest carries on instead; any other paused round is given up. */
+  const playQuest = (quest: Quest) => {
+    if (paused?.quest) return resumePaused();
+    unlockAudio();
+    if (paused) dropPaused();
+    track('game_start');
+    track('offer_taken');
+    runs.current += 1;
+    setNovaDone(false);
+    setScreen({ name: 'game', game: quest.games[0], level: levelOf(quest.levels, quest.games[0]), run: runs.current, quest });
   };
 
   const makeRound = (game: Game, level: number, answers: AnswerRecord[], completed: boolean): RoundRecord => ({
@@ -227,13 +245,43 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
   };
 
   /**
+   * A finished quest (specs/rounds.md): one round row per source game, each at that game's own level, so
+   * every answer lands in the game that asked it. No level moves here — the next full round of each game
+   * reads these rows under the usual rules — and no personal best, which is a per-game, per-level record.
+   */
+  const finishQuest = (quest: Quest, answers: AnswerRecord[]) => {
+    const gardenBefore = gardenOf(latest.current);
+    const doneBefore = todaySummary(latest.current.rounds).done;
+    const rows = questRounds(quest, answers, child.id, true);
+    const all = [...latest.current.rounds, ...rows];
+    for (const round of rows) apply({ kind: 'round', round });
+    track('round_done');
+    const day = todaySummary(all);
+    setScreen({
+      name: 'end',
+      game: quest.games[0],
+      roundId: rows[0].id,
+      score: answers.filter((a) => a.correct).length,
+      total: answers.length,
+      levelUp: false,
+      justMastered: false,
+      personalBest: false,
+      // Up to three rows land at once, so the goal is crossed, not necessarily hit exactly.
+      goal: { done: day.done, goal: day.goal, justReached: doneBefore < day.goal && day.done >= day.goal },
+      breakHint: breakSuggestion(all),
+      sticker: null,
+      gardenBefore,
+    });
+  };
+
+  /**
    * Left mid-round. The 🏠 button sits at a child's fingertip and fires on one tap, so this used to bin a
    * half-finished round with no way back. Leaving now pauses: nothing is written, home offers to carry on,
    * and the round is only recorded as abandoned once she actually starts something else — which keeps the
    * frustration signal without a stray tap costing her the round.
    */
-  const quit = (game: Game, level: number, round: PausedRound) => {
-    setPaused({ game, level, ...round });
+  const quit = (game: Game, level: number, round: PausedRound, quest?: Quest) => {
+    setPaused({ game, level, quest, ...round });
     home();
   };
 
@@ -243,8 +291,9 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
    */
   const dropPaused = () => {
     if (!paused) return;
-    if (paused.answers.length) apply({ kind: 'round', round: makeRound(paused.game, paused.level, paused.answers, false) });
-    else track('game_left');
+    if (!paused.answers.length) track('game_left');
+    else if (paused.quest) for (const round of questRounds(paused.quest, paused.answers, child.id, false)) apply({ kind: 'round', round });
+    else apply({ kind: 'round', round: makeRound(paused.game, paused.level, paused.answers, false) });
     setPaused(null);
   };
 
@@ -253,7 +302,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
     unlockAudio();
     runs.current += 1;
     setNovaDone(false);
-    setScreen({ name: 'game', game: paused.game, level: paused.level, run: runs.current });
+    setScreen({ name: 'game', game: paused.game, level: paused.level, run: runs.current, quest: paused.quest });
   };
 
   const addSticker = (sticker: Sticker, shiny: boolean, roundId: string | null): StickerRecord => {
@@ -342,7 +391,7 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
   const view = (() => {
     switch (screen.name) {
       case 'home': {
-        const recommended = recommendGame(progress.rounds, progress.levels, GAMES, { skipped });
+        const recommended = recommendGame(progress.rounds, progress.levels, GAMES, { skipped, quest: !questSkipped });
         return (
           <GardenHome
             childName={child.name}
@@ -354,11 +403,12 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             character={characterFor(child)}
             rounds={garden.rounds}
             recommended={recommended}
-            paused={paused ? { game: paused.game, answered: paused.answers.length, total: paused.questions.length } : null}
+            paused={paused ? { game: paused.game, quest: Boolean(paused.quest), answered: paused.answers.length, total: paused.questions.length } : null}
             onResume={resumePaused}
             onDropPaused={dropPaused}
             windDown={breakSuggestion(progress.rounds)}
             onPlay={(game) => play(game, recommended)}
+            onPlayQuest={playQuest}
             onStickers={() => setScreen({ name: 'stickers' })}
             onGarden={() => setScreen({ name: 'garden' })}
             onGrownUps={grownUps}
@@ -372,12 +422,14 @@ export function GardenApp({ child, repo, allowGuestImport = false, guestMode = f
             game={screen.game}
             level={screen.level}
             childName={child.name}
-            resume={paused && paused.game.id === screen.game.id ? { questions: paused.questions, index: paused.index, answers: paused.answers } : undefined}
+            quest={screen.quest}
+            resume={paused && paused.quest === screen.quest && paused.game.id === screen.game.id ? { questions: paused.questions, index: paused.index, answers: paused.answers } : undefined}
             onFinish={(answers) => {
               setPaused(null);
-              finish(screen.game, screen.level, answers);
+              if (screen.quest) finishQuest(screen.quest, answers);
+              else finish(screen.game, screen.level, answers);
             }}
-            onHome={(round) => quit(screen.game, screen.level, round)}
+            onHome={(round) => quit(screen.game, screen.level, round, screen.quest)}
           />
         );
       case 'end': {
