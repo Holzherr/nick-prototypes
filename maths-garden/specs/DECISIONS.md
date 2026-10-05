@@ -11,3 +11,4 @@ Append-only. One line per decision: `- <date> <who>: <decision>`. Builders appen
 - 2026-09-25 Nick: migration 0010 (agent_snapshot v3) applied by hand in the Supabase SQL editor; agent_snapshot(8) returns reporter and kind on feedback rows.
 - 2026-09-25 Nick: levelling follows the average of the last three finished rounds at the current level (up at 90%, down under 60%, level 1 never drops, pace no longer counts, rounds left early never count); approved on MG-020 with the condition that rounds entered and left are not miscounted.
 - 2026-09-28 Nick: Nova is the character that grows as Tara plays, built so more characters can be added and chosen later.
+- 2026-09-28 Nick: the first new round type is a quest round mixing the three weakest skills.
