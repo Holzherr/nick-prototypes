@@ -10,7 +10,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'One question of any game, with its spoken prompt and timing. Quick Peek shows the dots for 2 seconds then covers them and shows the answers; Count With Me makes each object tappable; Find the Number speaks a number and has "Hear it again"; Which Has More? is two tappable panels; One More Unicorn adds unicorns one by one before the answers appear; Spot the Shape asks for a shape by name, or at the top level by how many sides it has.',
+          'One question of any game, with its spoken prompt and timing. Quick Peek shows the dots for 2 seconds then covers them and shows the answers; Count With Me makes each object tappable; Find the Number speaks a number and has "Hear it again"; Which Has More? is two tappable panels; One More Unicorn adds unicorns one by one before the answers appear; Spot the Shape asks for a shape by name, or at the top level by how many sides it has; Patterns and Number Track draw a question-bank row with one gap and only speak the question.',
       },
     },
   },
@@ -37,6 +37,13 @@ export const OneMoreUnicorn: Story = { args: { question: { game: 'add', answer: 
 export const Answered: Story = { args: { question: { game: 'find', answer: 6, options: [9, 6, 4, 8, 5, 7] }, chosen: 9 } };
 export const SpotTheShape: Story = {
   args: { question: { game: 'shape', answer: 'hexagon', options: ['circle', 'hexagon', 'triangle'], ask: 'name', rotate: 0 } },
+};
+/** A question-bank item: the row is drawn, the question is only spoken, and 🔊 says it again. */
+export const Pattern: Story = {
+  args: { question: { game: 'pattern', item: 'pattern-2-01', say: 'What comes next?', show: 'emoji', row: ['🍓', '🍓', '🍌', '🍓', '🍓', '🍌', '🍓', '🍓', null], answer: '🍌', options: ['🍓', '🍌', '🍐'] } },
+};
+export const Sequence: Story = {
+  args: { question: { game: 'sequence', item: 'sequence-4-01', say: 'Which number goes in the gap?', show: 'numeral', row: [8, 9, null, 11, 12], answer: 10, options: [10, 9, 12, 8] } },
 };
 /** The top level turns every shape and asks by side count, so no option may share the answer's number of sides. */
 export const ShapeBySides: Story = {
