@@ -1,7 +1,7 @@
 import { SHAPE_IDS, type ShapeId } from './shapes';
 
 /** The games, the skill each one trains, and how hard each level is. */
-export type GameId = 'peek' | 'count' | 'find' | 'more' | 'add' | 'bond' | 'fewer' | 'teen' | 'shape';
+export type GameId = 'peek' | 'count' | 'find' | 'more' | 'add' | 'bond' | 'fewer' | 'teen' | 'shape' | 'pattern' | 'sequence';
 
 /** One level of a game. Only `max` is required; the rest tighten the challenge at the higher levels. */
 export interface GameLevel {
@@ -167,6 +167,24 @@ export const GAMES: readonly Game[] = [
       { max: 10, shapes: SHAPE_IDS, choices: 4, spin: true, bySides: true },
       { max: 10, shapes: SHAPE_IDS, choices: 5, spin: true, bySides: true },
     ],
+  },
+  // From here on, games draw fixed items from the question bank rather than generating them
+  // (specs/question-bank.md). `max` is the bank level, so a round records which level it drew from.
+  {
+    id: 'pattern',
+    name: 'Patterns',
+    emoji: '🔁',
+    skill: 'Patterns',
+    about: 'A row of pictures that repeats, with a gap: what comes next? Counting in twos, fives and tens at the top.',
+    levels: [{ max: 1 }, { max: 2 }, { max: 3 }, { max: 4 }, { max: 5 }, { max: 6 }],
+  },
+  {
+    id: 'sequence',
+    name: 'Number Track',
+    emoji: '🛤️',
+    skill: 'Number order',
+    about: 'A number track with a gap: the number after, the number before, the one that fell off. Up to 100.',
+    levels: [{ max: 1 }, { max: 2 }, { max: 3 }, { max: 4 }, { max: 5 }, { max: 6 }],
   },
 ];
 

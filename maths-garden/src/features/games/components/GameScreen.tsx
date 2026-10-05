@@ -81,7 +81,9 @@ export function GameScreen({ game, level, childName, questions: preset, quest, r
           ? 'Good try! The other side had more.'
           : q.game === 'shape'
             ? `Good try! The ${shapeName(q.answer)} is the green one.`
-            : `Good try! It was ${numberWord(q.answer)}.`,
+            : typeof q.answer === 'string'
+              ? "Good try! It's the green one."
+              : `Good try! It was ${numberWord(q.answer)}.`,
       );
     }
 

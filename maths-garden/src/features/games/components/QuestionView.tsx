@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { Button } from '@/shared/components/ui/button';
-import type { Choice, Question, Side } from '../questions';
+import { cn } from '@/shared/utils/cn';
+import type { BankQuestion, Choice, Question, Side } from '../questions';
 import { SHAPES, shapeWithArticle, type ShapeId } from '../shapes';
 import { numberWord, say, sounds } from '../sound';
 import { AnswerRow } from './AnswerRow';
@@ -50,7 +51,7 @@ const AnswerSpace = () => <div aria-hidden className="h-[clamp(93px,calc(14vw+9p
 
 const asNumber = (c: Choice | null) => (typeof c === 'number' ? c : null);
 const asSide = (c: Choice | null): Side | null => (c === 'left' || c === 'right' ? c : null);
-const asShape = (c: Choice | null): ShapeId | null => (typeof c === 'string' && c !== 'left' && c !== 'right' ? c : null);
+const asShape = (c: Choice | null): ShapeId | null => (typeof c === 'string' && c !== 'left' && c !== 'right' ? (c as ShapeId) : null);
 
 /** One question of any game: the prompt, the picture and the answer buttons, with its own speech and timing. */
 export function QuestionView({ question, chosen, onAnswer, peekMs = 2000, stepMs = 900, onReady, onTap, onReplay }: QuestionViewProps) {
@@ -73,6 +74,9 @@ export function QuestionView({ question, chosen, onAnswer, peekMs = 2000, stepMs
       return <Teen q={question} chosen={asNumber(chosen)} onAnswer={onAnswer} />;
     case 'shape':
       return <Shape q={question} chosen={asShape(chosen)} onAnswer={onAnswer} />;
+    case 'pattern':
+    case 'sequence':
+      return <Bank q={question} chosen={chosen} onAnswer={onAnswer} />;
   }
 }
 
@@ -327,6 +331,61 @@ function Shape({ q, chosen, onAnswer }: { q: Q<'shape'>; chosen: ShapeId | null;
           </Button>
         ))}
       </div>
+    </Stage>
+  );
+}
+
+/**
+ * A question-bank item (specs/question-bank.md): a row with one gap and the bank's own options. The question
+ * is spoken, never written: the only thing above the row is a button that says it again. Once answered, the
+ * gap fills with the right answer so the finished row can be seen.
+ */
+function Bank({ q, chosen, onAnswer }: { q: BankQuestion; chosen: Choice | null; onAnswer: (choice: Choice) => void }) {
+  const speak = useCallback(() => say(q.say), [q.say]);
+  useEffect(() => {
+    speak();
+  }, [speak]);
+  // A short row (a number track, a counting-in-steps row) gets big cards; a long pattern row has to fit a phone.
+  const long = q.row.length > 6;
+  return (
+    <Stage
+      prompt={
+        <Button variant="quiet" size="icon" aria-label="Hear it again" onClick={speak}>
+          🔊
+        </Button>
+      }
+    >
+      <div role="img" aria-label={q.row.map((cell) => cell ?? 'gap').join(', ')} className="flex flex-wrap justify-center gap-[clamp(4px,1vw,10px)]">
+        {q.row.map((cell, i) => (
+          <span
+            key={i}
+            className={cn(
+              'flex items-center justify-center rounded-2xl border-[3px] font-bold leading-none',
+              long ? 'size-[clamp(30px,7.5vw,64px)] text-[clamp(20px,5vw,42px)]' : 'size-[clamp(54px,12vw,84px)] text-[clamp(34px,7vw,56px)]',
+              q.show === 'numeral' && 'text-[clamp(24px,5.5vw,40px)] text-grape',
+              cell === null ? 'border-dashed border-bubble bg-white' : 'border-petal bg-cream',
+            )}
+          >
+            {cell ?? (chosen === null ? <span className="text-bubble">?</span> : q.answer)}
+          </span>
+        ))}
+      </div>
+      {q.show === 'numeral' ? (
+        <AnswerRow options={q.options} answer={q.answer} chosen={typeof chosen === 'number' ? chosen : null} onPick={onAnswer} />
+      ) : (
+        <div className="flex flex-wrap justify-center gap-[clamp(14px,3vw,26px)]">
+          {q.options.map((option) => (
+            <Button
+              key={option}
+              size="answer"
+              variant={chosen === null ? 'answer' : option === q.answer ? 'right' : option === chosen ? 'wrong' : 'answer'}
+              onClick={() => chosen === null && onAnswer(option)}
+            >
+              {option}
+            </Button>
+          ))}
+        </div>
+      )}
     </Stage>
   );
 }
