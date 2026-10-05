@@ -372,6 +372,7 @@ const TitleDetailPage = () => {
                       titleId={title.id}
                       titleName={title.name}
                       onStatusChange={(status) => setUserStatus(status)}
+                      source="title_page"
                       size="default"
                     />
                   </div>

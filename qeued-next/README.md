@@ -76,7 +76,7 @@ profile-control policy, public-profile reads key on the entry's own profile, `cl
 merges a provisioned list into the caller's existing profile, and `join_group(code, profile_id)`
 is how an invite code is redeemed.
 
-**Tonight** never waits on the model: `features/tonight/fastTonight.ts` ranks the profile's list on the device with `_shared/ranking.ts` (one line of data per pick), "Sharpen these" calls `watch-tonight` and the scored slate waits behind a "Sharper picks ready" button; `slateCache.ts` keeps scored slates in localStorage for 24h per profile, mood and length.
+**Tonight** never waits on the model: `features/tonight/fastTonight.ts` ranks the profile's list on the device with `_shared/ranking.ts` (one line of data per pick), "Sharpen these" calls `watch-tonight` and the scored slate waits behind a "Sharper picks ready" button; `slateCache.ts` keeps scored slates in localStorage for 24h per profile, mood and length. A pick not on the list carries an "Add to…" select; the scored slate's wildcard comes without a `title_id`, so it is looked up in `titles` by name when added.
 
 **Agent snapshot** (migration 0025, written, **not applied**). `agent_snapshot(days int) returns jsonb`
 is the only way the team's Analyst reads this database: one `security definer` function, and one
@@ -116,7 +116,11 @@ the report never presents it as recommendations taken. That number is `recs_take
 count: per ISO week × hashed profile, `watch_entries` rows created in the window whose `source` is
 `recommendation` or `tonight`. `source` (0027) is one of `recommendation`, `tonight`, `search`,
 `title_page`, `manual`, set once: a trigger keeps the first non-null value on every update. Rows
-from before 0027 stay null, and `recs_taken` reads empty until a client writes `source` (QD-017).
+from before 0027 stay null. The client writes `source` on every add through `addWatchEntry`
+(`features/library/AddToWatchlistSelect.tsx`): recommendation cards `recommendation`, Tonight's
+off-list picks `tonight`, Search `search`, the title page `title_page`, landing and genre pages
+`manual`. It goes into the insert only; an existing entry (23505) is updated without it, and an
+insert rejected with `PGRST204` (0027 not live) is retried once without it, so adding never breaks.
 `days` is clamped to 1–400 and defaults to 7.
 
 ## The catalogue

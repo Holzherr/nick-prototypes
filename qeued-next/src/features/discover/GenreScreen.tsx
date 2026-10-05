@@ -111,6 +111,7 @@ const GenrePage = () => {
                         <AddToWatchlistSelect
                           titleId={t.id}
                           titleName={t.name}
+                          source="manual"
                           size="sm"
                         />
                       </div>
