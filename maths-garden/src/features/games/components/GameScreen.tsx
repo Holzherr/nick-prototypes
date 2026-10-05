@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/shared/components/ui/button';
 import type { Game } from '../catalog';
-import { shouldEase, streakOf, type AnswerRecord } from '../engine';
+import { levelOf, shouldEase, streakOf, type AnswerRecord } from '../engine';
 import { makeQuestion, makeRound, questionKey, type Choice, type Question } from '../questions';
+import { sourceOf, type Quest } from '../quest';
 import { shapeName } from '../shapes';
 import { hush, numberWord, praise, say, sounds } from '../sound';
 import { Burst } from './Burst';
@@ -22,6 +23,8 @@ export interface GameScreenProps {
   childName: string;
   /** Fixed questions (stories, tests); otherwise a random round for the level. */
   questions?: Question[];
+  /** A quest round: its questions come from several games, and each eases from its own game's level below. */
+  quest?: Quest;
   /** Carrying on a paused round: same questions, same place, same answers. */
   resume?: PausedRound;
   onFinish: (answers: AnswerRecord[]) => void;
@@ -34,8 +37,8 @@ export interface GameScreenProps {
  * after each tap. Logs answer time, whole-question time, counting taps and replays per question; says
  * "Three in a row!" on streaks; after two misses in a row, asks the next question from the level below.
  */
-export function GameScreen({ game, level, childName, questions: preset, resume, onFinish, onHome }: GameScreenProps) {
-  const [questions, setQuestions] = useState(() => resume?.questions ?? preset ?? makeRound(game.id, game.levels[level]));
+export function GameScreen({ game, level, childName, questions: preset, quest, resume, onFinish, onHome }: GameScreenProps) {
+  const [questions, setQuestions] = useState(() => resume?.questions ?? preset ?? quest?.questions ?? makeRound(game.id, game.levels[level]));
   const [index, setIndex] = useState(resume?.index ?? 0);
   const [answers, setAnswers] = useState<AnswerRecord[]>(resume?.answers ?? []);
   const [chosen, setChosen] = useState<Choice | null>(null);
@@ -85,9 +88,12 @@ export function GameScreen({ game, level, childName, questions: preset, resume, 
     timer.current = window.setTimeout(
       () => {
         if (index + 1 >= questions.length) return onFinish(all);
-        if (!preset && level > 0 && shouldEase(all)) {
+        // In a quest the next question eases from its own game's level below, not from the lead game's.
+        const source = quest ? sourceOf(questions[index + 1]) : game;
+        const at = quest ? levelOf(quest.levels, source) : level;
+        if (!preset && at > 0 && shouldEase(all)) {
           eased.current.add(index + 1);
-          setQuestions((current) => current.map((question, i) => (i === index + 1 ? makeQuestion(game.id, game.levels[level - 1]) : question)));
+          setQuestions((current) => current.map((question, i) => (i === index + 1 ? makeQuestion(source.id, source.levels[at - 1]) : question)));
         }
         setIndex(index + 1);
         setChosen(null);

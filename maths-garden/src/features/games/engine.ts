@@ -1,4 +1,4 @@
-import type { Game, GameId } from './catalog';
+import { QUESTIONS_PER_ROUND, type Game, type GameId } from './catalog';
 
 /** One answered question. `target` is what was asked ("7", "4 vs 6"), `chosen` what was tapped. */
 export interface AnswerRecord {
@@ -103,18 +103,25 @@ export const levelOf = (levels: Levels, game: Game) => Math.min(Math.max(levels[
 
 const isSlow = (r: RoundRecord) => speedOf([r]).pace === 'slow';
 
-const isPerfect = (r: RoundRecord) => r.total > 0 && r.score === r.total;
+/**
+ * A full round of questions. A quest (specs/rounds.md) writes a row of one or two answers per source game;
+ * those rows sit in the game's history and stats, but a level is earned, dropped or mastered on whole
+ * rounds only, so one right answer at the top level cannot master a game and short rows fill no window.
+ */
+const isFull = (r: RoundRecord) => r.total >= QUESTIONS_PER_ROUND;
+
+const isPerfect = (r: RoundRecord) => isFull(r) && r.score === r.total;
 
 /**
  * The level after the latest finished round, following where the child is on average rather than one
  * round's result: the last `WINDOW` finished rounds at the current level move up at `UP_AVERAGE` or better
  * and drop below `DOWN_AVERAGE`, whatever their pace. Fewer rounds than that at this level, or a mean in
  * between, stays. Rounds left early are not in `roundsOf`, and a game left before the first answer is
- * never written, so neither can enter the window; the bottom level never drops.
+ * never written, so neither can enter the window, nor can a quest's short rows; the bottom level never drops.
  */
 export function nextLevel(rounds: readonly RoundRecord[], game: Game, level: number): number {
   const window = roundsOf(rounds, game.id)
-    .filter((r) => r.level === level)
+    .filter((r) => r.level === level && isFull(r))
     .slice(-WINDOW);
   if (window.length < WINDOW) return level;
   const mean = window.reduce((sum, r) => sum + r.score, 0) / window.reduce((sum, r) => sum + r.total, 0);
