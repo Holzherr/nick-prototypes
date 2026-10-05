@@ -76,7 +76,7 @@ profile-control policy, public-profile reads key on the entry's own profile, `cl
 merges a provisioned list into the caller's existing profile, and `join_group(code, profile_id)`
 is how an invite code is redeemed.
 
-**Tonight** never waits on the model: `features/tonight/fastTonight.ts` ranks the profile's list on the device with `_shared/ranking.ts` (one line of data per pick), "Sharpen these" calls `watch-tonight` and the scored slate waits behind a "Sharper picks ready" button; `slateCache.ts` keeps scored slates in localStorage for 24h per profile, mood and length. A pick not on the list carries an "Add to…" select.
+**Tonight** never waits on the model: `features/tonight/fastTonight.ts` ranks the profile's list on the device with `_shared/ranking.ts` (one line of data per pick), "Sharpen these" calls `watch-tonight` and the scored slate waits behind a "Sharper picks ready" button; `slateCache.ts` keeps scored slates in localStorage for 24h per profile, mood and length. A pick not on the list carries an "Add to…" select; the scored slate's wildcard comes without a `title_id`, so it is looked up in `titles` by name when added.
 
 **Agent snapshot** (migration 0025, written, **not applied**). `agent_snapshot(days int) returns jsonb`
 is the only way the team's Analyst reads this database: one `security definer` function, and one
