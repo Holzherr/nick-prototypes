@@ -207,6 +207,10 @@ export const EN = {
   'game.teen.about': 'A full ten frame and some loose ones: the teens as ten-and-something.',
   'game.shape.name': 'Spot the Shape',
   'game.shape.about': 'Names shapes by sight, then by counting their sides. Pentagons and hexagons from stage 3.',
+  'game.pattern.name': 'Patterns',
+  'game.pattern.about': 'A row of pictures that repeats, with a gap: what comes next? Counting in twos, fives and tens at the top.',
+  'game.sequence.name': 'Number Track',
+  'game.sequence.about': 'A number track with a gap: the number after, the number before, the one that fell off. Up to 100.',
 
   // ── Skills ────────────────────────────────────────────────────────────────
   'skill.subitising.name': 'Subitising',

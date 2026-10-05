@@ -49,6 +49,11 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   ten-and-something) and **Spot the Shape** (names shapes, then counts their sides). Spoken prompts in a
   British voice, stars, praise by name. Levels 1–3 are the printable stages; 4–6 are challenge levels, and
   the sixth is the **gold level** — clearing it with a perfect round masters the game.
+- **Patterns** 🔁 and **Number Track** 🛤️, tiles drawn from the question bank (`specs/question-bank.md`,
+  `bank/draw.ts`): level *n* deals five different bank items of level *n*, options as the item gives them.
+  The question is only spoken; the screen shows the row with a `?` gap, 🔊 and the buttons. Rounds record
+  the game id, `levelMax` = bank level and the item id per answer. No printable, QR link or skill row; the
+  whole bank (~190 KB JSON) ships in the main bundle. Stories: Games/QuestionView/Pattern and Sequence.
 - **The quest round** (`features/games/quest.ts`, `specs/rounds.md`): a new *shape* of round, not a tenth
   game. Five questions from the three weakest skills (accuracy over each game's last three rounds; two each
   from the two weakest, one from the third), drawn by those games' own generators at their current levels,
@@ -220,7 +225,8 @@ src/
   features/children/      model (age), api, use-children (cached), ChildForm, ProfilesScreen
   features/games/         catalog, questions (tested), engine (levels, stats; tested), sound, components/
                           bank/ (question-bank.json: 585 fixed questions in seven topics × six levels, typed in types.ts,
-                          checked from first principles by validate.ts in bank.test.ts; nothing draws from it yet)
+                          checked from first principles by validate.ts in bank.test.ts; draw.ts deals pattern and
+                          sequence rounds from it)
   features/stickers/      catalog (packs, draw; tested), StickerBadge, PackChooser, StickerReveal, StickerBookScreen
   features/character/     characters (the list, Nova first), stage (stageOf; tested), art/Nova (five SVG stages), CharacterSlot (tested)
   features/progress/      model (rounds, levels, level events), repo (outbox; tested), supabase-remote, memory-remote, probes, fixtures,
@@ -383,9 +389,9 @@ npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboar
   with legacy secret" on the function (see **Report email** above).
 - More sheets per stage (cut-and-stick, dot-to-dot, ten-frame bonds): provider research and work plan in
   the assistant repo, `me/projects/maths-garden/`.
-- Games for the remaining gaps: place value, ordering and patterns. Number bonds (Make Ten), teen numbers
-  (Ten and Some More) and shapes (Spot the Shape) now have games of their own.
+- Games for the remaining gap: place value. Number bonds (Make Ten), teen numbers (Ten and Some More),
+  shapes (Spot the Shape), patterns (Patterns) and ordering (Number Track) now have games of their own.
 - The second new round type, an ordering round (`specs/rounds.md`), once the quest round has a week of numbers.
-- Wire `features/games/bank/` into the games (G-14): story items mixed into the adding and taking-away
-  rounds, and pattern, sequence, double, money, clock and ordinal as new round types, each `show` drawn
-  as numerals, pictures, coins or clock faces. The bank is on main and checked in CI but unused.
+- The rest of `features/games/bank/` (G-14, `specs/question-bank.md`): story items mixed into the adding
+  and taking-away rounds, and double, money, clock and ordinal as tiles one item each, once Patterns and
+  Number Track have a week of numbers; `pence`, `coin` and `clock` options get drawn with them.
