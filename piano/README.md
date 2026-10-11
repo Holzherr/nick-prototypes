@@ -32,8 +32,15 @@ insert and update a row and never select or delete one, so a device writes with 
 read the table back through the API. "Own device only" is not enforceable without sign-in; the row key is
 a random UUID the device made. A row holds no name and no time finer than a day.
 
+`0002` refuses an update touching more than one row; `0003` (not applied yet; Nick applies both by hand)
+bounds a write to `day` within one day of today, `piece_id` and `session_id` 1–64 characters,
+`correct_presses` 0–500, and refuses an update that changes `device_id`, `session_id` or `day`.
+Open: anyone holding the public key can still insert any number of in-bounds rows with `reached_last: true`
+and fresh device ids, so `sessions_7d` can be inflated until writes go through sign-in or a server endpoint.
+
 `features/practice/sessionSync.ts` upserts the record `sessionLog.ts` just wrote after every correct press,
-one request in flight at a time so a finished run ends `reached_last: true`. It reads `VITE_SUPABASE_URL` and
+one request in flight at a time so a finished run ends `reached_last: true`; a row's `day` is the day the run
+started. It reads `VITE_SUPABASE_URL` and
 `VITE_SUPABASE_ANON_KEY`, the Maths Garden project's values: locally in `.env.local` (gitignored; no
 `.env.example`, `policy.json` protects `.env*`), in production from the publish workflow. Either blank, nothing is sent.
 
