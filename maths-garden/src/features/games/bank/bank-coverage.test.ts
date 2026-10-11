@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import bank from './question-bank.json';
-import type { BankItem, BankTopic, OptionShow } from './types';
+import type { BankItem, BankTopic, OptionShow, StoryItem } from './types';
 
 const items = bank as BankItem[];
+const stories = items.filter((i): i is StoryItem => i.topic === 'story');
 
 /**
  * How much of each round type the bank holds: at least `perLevel` items at every level 1–6, each drawn in a
@@ -13,6 +14,13 @@ const COVERAGE: { topic: BankTopic; perLevel: number; show: Record<string, Optio
   { topic: 'pattern', perLevel: 40, show: { repeat: ['emoji'], 'count-by': ['numeral'] } },
   { topic: 'sequence', perLevel: 40, show: { after: ['numeral'], before: ['numeral'], missing: ['numeral'] } },
 ];
+
+/**
+ * Story floors for the adding and taking-away rounds, which take one story at the game's level from level 2
+ * (level 1 stays pictures only). Every story is drawn as numerals, the only `show` stories used when the
+ * floor was set.
+ */
+const STORY = { levels: [2, 3, 4, 5, 6], perLevel: 40, perOp: { add: 15, take: 15 }, show: ['numeral'] as OptionShow[] };
 
 /** UK money only, and no film, TV, game or toy brands. */
 const BANNED = /\$|dollar|cent|disney|elsa|peppa|bluey|paw patrol|mickey|pokemon|spider-man|lego|barbie|frozen|minecraft/i;
@@ -38,6 +46,24 @@ describe('question bank coverage', () => {
       expect(seen.size).toBe(ofTopic.length);
     });
   }
+
+  it(`holds at least ${STORY.perLevel} story items at levels 2-6, enough adding and taking away at each`, () => {
+    for (const level of STORY.levels) {
+      const atLevel = stories.filter((i) => i.level === level);
+      expect(atLevel.length, `level ${level}`).toBeGreaterThanOrEqual(STORY.perLevel);
+      for (const [op, floor] of Object.entries(STORY.perOp))
+        expect(atLevel.filter((i) => i.op === op).length, `level ${level} ${op}`).toBeGreaterThanOrEqual(floor);
+    }
+  });
+
+  it('draws every story item in a show stories already use', () => {
+    for (const item of stories) expect(STORY.show, item.id).toContain(item.show);
+  });
+
+  it('never says the same story twice at one level', () => {
+    const seen = new Set(stories.map((i) => `${i.level} ${i.say}`));
+    expect(seen.size).toBe(stories.length);
+  });
 
   it('gives every item its own id', () => {
     expect(new Set(items.map((i) => i.id)).size).toBe(items.length);
