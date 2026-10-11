@@ -1,4 +1,6 @@
 import { serviceClient } from '../_shared/db.ts';
+import { takeModelCall } from '../_shared/access.ts';
+import { definedOnly, intArg, queueStatusFor, textArg, tonightRequest } from '../_shared/agent.ts';
 
 /**
  * qeued's MCP server: an assistant keeps its user's watchlist without the user opening the app.
@@ -48,6 +50,9 @@ const newToken = (): string => {
 };
 
 const newClaimCode = (): string => crypto.randomUUID().replace(/-/g, '').slice(0, 12);
+
+/** Model-backed Tonight calls per profile per day through the agent surface, cache hits included. */
+const AGENT_TONIGHT_CALLS = 20;
 
 const TOOLS = [
   {
@@ -300,7 +305,7 @@ const callTool = async (
       );
 
     case 'search_catalogue': {
-      const limit = Math.min(Number(args.limit ?? 10), 25);
+      const limit = intArg(args.limit, { min: 1, max: 25, fallback: 10 });
       const { data } = await db
         .from('titles')
         .select('name, year, type, genres, synopsis, certification')
@@ -323,7 +328,7 @@ const callTool = async (
     }
 
     case 'list_queue': {
-      const limit = Math.min(Number(args.limit ?? 20), 50);
+      const limit = intArg(args.limit, { min: 1, max: 50, fallback: 20 });
       const { data } = await db
         .from('watch_entries')
         .select('status, created_at, titles(name, year, type, runtime_minutes, title_availability(provider, offer_type))')
@@ -344,7 +349,7 @@ const callTool = async (
       if (!canWrite) return toolResult('This token is read-only.', true);
       const name_ = String(args.title ?? '').trim();
       if (!name_) return toolResult('title is required.', true);
-      const year = args.year ? Number(args.year) : undefined;
+      const year = args.year ? intArg(args.year, { min: 1870, max: 2100, fallback: 0 }) || undefined : undefined;
 
       let title = await findTitle(name_, year);
       if (!title) {
@@ -359,17 +364,32 @@ const callTool = async (
         title = created;
       }
 
+      const { data: existing } = await db
+        .from('watch_entries')
+        .select('status')
+        .eq('profile_id', profile.id)
+        .eq('title_id', title.id)
+        .maybeSingle();
+      const status = queueStatusFor(existing?.status);
+      const note = textArg(args.note);
+      if (!status && !note) {
+        return toolResult(`${title.name} is already on their list as ${String(existing?.status).replace(/_/g, ' ')}; left as it was.`);
+      }
       const { error: entryError } = await db.from('watch_entries').upsert(
-        {
+        definedOnly({
           profile_id: profile.id,
           user_id: profile.user_id,
           title_id: title.id,
-          status: 'want_to_watch',
-          notes: args.note ? String(args.note) : null,
-        },
+          status: status ?? undefined,
+          notes: note,
+        }),
         { onConflict: 'profile_id,title_id' },
       );
       if (entryError) return toolResult(`Could not add that: ${entryError.message}`, true);
+      if (!status) {
+        await logActivity(profile.id, 'add_to_queue', `Noted ${title.name}`);
+        return toolResult(`Saved the note on ${title.name}; it stays on their list as ${String(existing?.status).replace(/_/g, ' ')}.`);
+      }
       await logActivity(profile.id, 'add_to_queue', `Added ${title.name}`);
       return toolResult(`Added ${title.name}${title.year ? ` (${title.year})` : ''} to their list.\n${describeAvailability(title)}`);
     }
@@ -378,17 +398,17 @@ const callTool = async (
       if (!canWrite) return toolResult('This token is read-only.', true);
       const title = await findTitle(String(args.title ?? ''));
       if (!title) return toolResult('Could not find that title.', true);
-      const rating = args.rating ? Math.min(5, Math.max(1, Number(args.rating))) : null;
+      const rating = args.rating ? intArg(args.rating, { min: 1, max: 5, fallback: 0 }) || null : null;
       const { error } = await db.from('watch_entries').upsert(
-        {
+        definedOnly({
           profile_id: profile.id,
           user_id: profile.user_id,
           title_id: title.id,
           status: 'watched',
-          watched_rating: rating,
+          watched_rating: rating ?? undefined,
           watched_date: new Date().toISOString().slice(0, 10),
-          review: args.review ? String(args.review) : null,
-        },
+          review: textArg(args.review),
+        }),
         { onConflict: 'profile_id,title_id' },
       );
       if (error) return toolResult(`Could not record that: ${error.message}`, true);
@@ -400,8 +420,8 @@ const callTool = async (
       if (!canWrite) return toolResult('This token is read-only.', true);
       const title = await findTitle(String(args.title ?? ''));
       if (!title) return toolResult('Could not find that title.', true);
-      const season = Math.max(1, Number(args.season ?? 1));
-      const episode = Math.max(1, Number(args.episode ?? 1));
+      const season = intArg(args.season, { min: 1, max: 1000, fallback: 1 });
+      const episode = intArg(args.episode, { min: 1, max: 10000, fallback: 1 });
 
       const { error } = await db.from('watch_entries').upsert(
         {
@@ -421,11 +441,13 @@ const callTool = async (
     }
 
     case 'whats_on_tonight': {
-      const res = await fetch(`${origin}/functions/v1/watch-tonight`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${Deno.env.get('SUPABASE_ANON_KEY') ?? ''}` },
-        body: JSON.stringify({ user_id: profile.user_id ?? profile.id, profile_id: profile.id, mood: args.mood, time: args.time }),
-      });
+      // Forwarded with the service key (see tonightRequest), which skips watch-tonight's own
+      // budget — so this surface keeps one: provision_account hands out tokens to anyone, and
+      // each would otherwise be an uncapped model call.
+      if (!(await takeModelCall(db, 'tonight-agent', profile.id, AGENT_TONIGHT_CALLS, 24 * 60 * 60 * 1000))) {
+        return toolResult("That's enough picks for today. Try again tomorrow.", true);
+      }
+      const res = await fetch(tonightRequest(origin, profile, args, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''));
       if (!res.ok) return toolResult('Could not work out tonight’s picks just now.', true);
       const data = await res.json();
       if (!data.picks?.length) return toolResult('Nothing on their list yet — add a few things first.');
