@@ -31,6 +31,10 @@ export const bearerToken = (req: Request): string | null => {
   return match ? match[1] : null;
 };
 
+/** True only for a request carrying the service-role key, for maintenance endpoints. */
+export const isServiceCall = (req: Request, serviceKey: string | null | undefined): boolean =>
+  Boolean(serviceKey) && bearerToken(req) === serviceKey;
+
 /**
  * The caller. A signed-in user is whoever their JWT says; the anon key, a bad token or no token
  * is a 401. Only the service-role key may act for a user named in the body.
