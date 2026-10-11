@@ -32,7 +32,8 @@ insert and update a row and never select or delete one, so a device writes with 
 read the table back through the API. "Own device only" is not enforceable without sign-in; the row key is
 a random UUID the device made. A row holds no name and no time finer than a day.
 
-`0002` refuses an update touching more than one row; `0003` (not applied yet; Nick applies both by hand)
+`0002` refuses an update touching more than one row; `0003` (neither applied through the runner yet;
+deploy-watch applies both in order; 0002 has no `drop`, so the runner no longer holds it)
 bounds a write to `day` within one day of today, `piece_id` and `session_id` 1–64 characters,
 `correct_presses` 0–500, and refuses an update that changes `device_id`, `session_id` or `day`.
 Open: anyone holding the public key can still insert any number of in-bounds rows with `reached_last: true`
