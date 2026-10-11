@@ -219,8 +219,9 @@ src/
   features/auth/          AuthContext, AuthForm (brick), AuthScreen
   features/children/      model (age), api, use-children (cached), ChildForm, ProfilesScreen
   features/games/         catalog, questions (tested), engine (levels, stats; tested), sound, components/
-                          bank/ (question-bank.json: 585 fixed questions in seven topics × six levels, typed in types.ts,
-                          checked from first principles by validate.ts in bank.test.ts; nothing draws from it yet)
+                          bank/ (question-bank.json: 739 fixed questions in seven topics × six levels, typed in types.ts,
+                          checked from first principles by validate.ts in bank.test.ts; bank-coverage.test.ts holds the
+                          per-level floors, 40 pattern items a level so far; nothing draws from it yet)
   features/stickers/      catalog (packs, draw; tested), StickerBadge, PackChooser, StickerReveal, StickerBookScreen
   features/character/     characters (the list, Nova first), stage (stageOf; tested), art/Nova (five SVG stages), CharacterSlot (tested)
   features/progress/      model (rounds, levels, level events), repo (outbox; tested), supabase-remote, memory-remote, probes, fixtures,
