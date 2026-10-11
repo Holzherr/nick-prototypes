@@ -168,7 +168,8 @@ export const watchableNow = (
   { allowPaid = false }: { allowPaid?: boolean } = {},
 ): Candidate[] => {
   if (!subscriptions.length && allowPaid) return candidates;
-  const owned = new Set(subscriptions.map((s) => s.toLowerCase()));
+  // Comes straight from a request body, so anything that is not a name is ignored rather than thrown on.
+  const owned = new Set(subscriptions.filter((s) => typeof s === 'string').map((s) => s.toLowerCase()));
   return candidates.filter((c) => {
     if (!c.providers?.length) return allowPaid;
     return c.providers.some((p) => owned.has(p.toLowerCase())) || allowPaid;

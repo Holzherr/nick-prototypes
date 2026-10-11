@@ -1,5 +1,9 @@
 /** Household logic: who wants what, and what a given profile is allowed to be shown. */
 
+import { certificationAllowed } from '../../../supabase/functions/_shared/certification.ts';
+
+export { certificationAllowed, certificationRank } from '../../../supabase/functions/_shared/certification.ts';
+
 export type Profile = {
   id: string;
   name: string | null;
@@ -32,26 +36,6 @@ export type SharedItem = {
 };
 
 export const isManaged = (profile: Profile): boolean => profile.owner_user_id !== null;
-
-/** UK certificates, loosest first. Anything unrecognised sorts last — unknown is not safe. */
-const CERT_ORDER = ['U', 'PG', '12', '12A', '15', '18'];
-
-export const certificationRank = (certification: string | null | undefined): number => {
-  if (!certification) return CERT_ORDER.length;
-  const index = CERT_ORDER.indexOf(certification.toUpperCase());
-  return index === -1 ? CERT_ORDER.length : index;
-};
-
-/**
- * May this profile be shown this title? A profile with no limit sees everything; a limited
- * profile sees titles at or below its cap, and never an unrated one — we can't vouch for it.
- */
-export const certificationAllowed = (certification: string | null | undefined, max: string | null): boolean => {
-  if (!max) return true;
-  const limit = certificationRank(max);
-  if (limit === CERT_ORDER.length) return true;
-  return certificationRank(certification) <= limit;
-};
 
 /**
  * The group's queue: every title someone wants, with who wants it. Titles more than one

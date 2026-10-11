@@ -124,6 +124,11 @@ describe('watchableNow', () => {
   it('matches provider names case-insensitively', () => {
     expect(watchableNow(pool, ['netflix'])).toHaveLength(1);
   });
+
+  it('ignores a subscription list entry that is not a name instead of throwing', () => {
+    // watch-tonight passes the request body's list straight through.
+    expect(watchableNow(pool, ['Netflix', 42, null] as unknown as string[]).map((c) => c.name)).toEqual(['On Netflix']);
+  });
 });
 
 describe('buildSlate', () => {
