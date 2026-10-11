@@ -11,6 +11,7 @@ const items = bank as BankItem[];
  */
 const COVERAGE: { topic: BankTopic; perLevel: number; show: Record<string, OptionShow[]> }[] = [
   { topic: 'pattern', perLevel: 40, show: { repeat: ['emoji'], 'count-by': ['numeral'] } },
+  { topic: 'sequence', perLevel: 40, show: { after: ['numeral'], before: ['numeral'], missing: ['numeral'] } },
 ];
 
 /** UK money only, and no film, TV, game or toy brands. */
