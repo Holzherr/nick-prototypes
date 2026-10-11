@@ -42,6 +42,22 @@ export const SpotTheShape: Story = {
 export const Pattern: Story = {
   args: { question: { game: 'pattern', item: 'pattern-2-01', say: 'What comes next?', show: 'emoji', row: ['🍓', '🍓', '🍌', '🍓', '🍓', '🍌', '🍓', '🍓', null], answer: '🍌', options: ['🍓', '🍌', '🍐'] } },
 };
+/** The longest bank row, 11 cards, on a 375px phone: the cards shrink so the row stays on one line. */
+export const PatternLongOnPhone: Story = {
+  parameters: { viewport: { options: { phone375: { name: 'Phone 375', styles: { width: '375px', height: '812px' }, type: 'mobile' } } } },
+  globals: { viewport: { value: 'phone375', isRotated: false } },
+  args: {
+    question: {
+      game: 'pattern',
+      item: 'pattern-4-08',
+      say: 'Look at the pattern. What comes next?',
+      show: 'emoji',
+      row: ['☁️', '☁️', '⭐', '⭐', '☁️', '☁️', '⭐', '⭐', '☁️', '☁️', null],
+      answer: '⭐',
+      options: ['☁️', '⭐', '🌙', '☀️'],
+    },
+  },
+};
 export const Sequence: Story = {
   args: { question: { game: 'sequence', item: 'sequence-4-01', say: 'Which number goes in the gap?', show: 'numeral', row: [8, 9, null, 11, 12], answer: 10, options: [10, 9, 12, 8] } },
 };

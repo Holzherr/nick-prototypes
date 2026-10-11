@@ -51,9 +51,10 @@ chat on 11 Sep 2026 and moved into this structure the same day. Conventions mirr
   the sixth is the **gold level** — clearing it with a perfect round masters the game.
 - **Patterns** 🔁 and **Number Track** 🛤️, tiles drawn from the question bank (`specs/question-bank.md`,
   `bank/draw.ts`): level *n* deals five different bank items of level *n*, options as the item gives them.
-  The question is only spoken; the screen shows the row with a `?` gap, 🔊 and the buttons. Rounds record
+  The question is only spoken; the screen shows the row with a `?` gap, 🔊 and the buttons. A row over six
+  cards (up to 11) takes the full width and its cards share it, so it stays on one line on any phone. Rounds record
   the game id, `levelMax` = bank level and the item id per answer. No printable, QR link or skill row; the
-  whole bank (~190 KB JSON) ships in the main bundle. Stories: Games/QuestionView/Pattern and Sequence.
+  whole bank (~190 KB JSON) ships in the main bundle. Stories: Games/QuestionView/Pattern, Pattern Long On Phone (11 cards at 375px) and Sequence.
 - **The quest round** (`features/games/quest.ts`, `specs/rounds.md`): a new *shape* of round, not a tenth
   game. Five questions from the three weakest skills (accuracy over each game's last three rounds; two each
   from the two weakest, one from the third), drawn by those games' own generators at their current levels,
