@@ -68,4 +68,8 @@ describe('sessionSync', () => {
     expect(mock).toHaveBeenCalledTimes(2);
     expect(body(1).correct_presses).toBe(2);
   });
+  it('keeps the day the run started when it ends past midnight UTC, so 0003 never sees the day move', () => {
+    syncSession({ ...record(30), startedAt: '2026-09-20T23:59:40.000Z', lastPressAt: '2026-09-21T00:00:20.000Z', reachedLast: true });
+    expect(body(0).day).toBe('2026-09-20');
+  });
 });
