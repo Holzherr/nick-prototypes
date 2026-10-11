@@ -3,6 +3,7 @@ import {
   type AccessDb,
   HttpError,
   assertProfilesReadable,
+  isServiceCall,
   resolveCaller,
   takeModelCall,
 } from '../../supabase/functions/_shared/access.ts';
@@ -112,5 +113,16 @@ describe('takeModelCall', () => {
     // Another account has its own budget.
     expect(await takeModelCall(db, 'tonight', OTHER, 2, hour, t0 + 3)).toBe(true);
     expect(await takeModelCall(db, 'tonight', ME, 2, hour, t0 + hour + 1)).toBe(true);
+  });
+});
+
+describe('isServiceCall', () => {
+  it('accepts only the service-role key, never the anon key, a user JWT or an unset key', () => {
+    expect(isServiceCall(req(`Bearer ${SERVICE}`), SERVICE)).toBe(true);
+    expect(isServiceCall(req('Bearer anon-key'), SERVICE)).toBe(false);
+    expect(isServiceCall(req('Bearer user-jwt'), SERVICE)).toBe(false);
+    expect(isServiceCall(req(), SERVICE)).toBe(false);
+    expect(isServiceCall(req('Bearer '), '')).toBe(false);
+    expect(isServiceCall(req(), undefined)).toBe(false);
   });
 });

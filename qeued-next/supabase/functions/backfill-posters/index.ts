@@ -1,9 +1,15 @@
 import { corsHeaders, json } from '../_shared/cors.ts';
 import { serviceClient } from '../_shared/db.ts';
 import { fetchPosterUrl } from '../_shared/posters.ts';
+import { isServiceCall } from '../_shared/access.ts';
 
+/**
+ * Maintenance only: fills empty posters from Wikipedia. tools/posters.mjs deliberately clears
+ * unverified images, so an open endpoint let any anon-key caller write them back.
+ */
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: corsHeaders });
+  if (!isServiceCall(req, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'))) return json({ error: 'Service role only' }, 403);
   try {
     const supabase = serviceClient();
     const { data: titles } = await supabase.from('titles').select('id, name, type, year').is('image_url', null).limit(50);

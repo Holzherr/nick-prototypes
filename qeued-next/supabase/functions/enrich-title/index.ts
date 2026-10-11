@@ -1,6 +1,7 @@
 import { corsHeaders, json } from '../_shared/cors.ts';
 import { serviceClient } from '../_shared/db.ts';
 import { MODELS, callTool, claudeErrorResponse } from '../_shared/claude.ts';
+import { enrichmentUpdate, needsResearch } from '../_shared/enrich.ts';
 
 type CastMember = { name: string; bio: string; character_name: string; image_url: string | null };
 type Enrichment = { imdb_url: string; rt_url: string; director: string; cast_members: CastMember[]; runtime_minutes: number };
@@ -15,7 +16,7 @@ Deno.serve(async (req) => {
     const { data: title, error: fetchErr } = await supabase.from('titles').select('*').eq('id', title_id).single();
     if (fetchErr || !title) return json({ error: 'Title not found' }, 404);
 
-    if (title.enriched) {
+    if (!needsResearch(title)) {
       const { data: titleActors } = await supabase
         .from('title_actors')
         .select('display_order, character_name, actor_id, actors(id, name, bio, image_url)')
@@ -70,10 +71,8 @@ If you're not sure of exact URLs, construct the most likely ones.`,
     });
 
     const castNames = (enrichment.cast_members || []).map((c) => c.name);
-    const { error: updateErr } = await supabase
-      .from('titles')
-      .update({ imdb_url: enrichment.imdb_url || null, rt_url: enrichment.rt_url || null, director: enrichment.director || null, cast_members: castNames, runtime_minutes: enrichment.runtime_minutes || null, enriched: true })
-      .eq('id', title_id);
+    const update = enrichmentUpdate(title, { ...enrichment, cast_names: castNames });
+    const { error: updateErr } = await supabase.from('titles').update(update).eq('id', title_id);
     if (updateErr) console.error('Update error:', updateErr);
 
     // deno-lint-ignore no-explicit-any
@@ -99,7 +98,7 @@ If you're not sure of exact URLs, construct the most likely ones.`,
       actorsOut.push({ ...actor, character_name: member.character_name });
     }
 
-    return json({ title: { ...title, ...enrichment, cast_members: castNames, enriched: true }, actors: actorsOut });
+    return json({ title: { ...title, ...update }, actors: actorsOut });
   } catch (e) {
     console.error('enrich-title error:', e);
     return claudeErrorResponse(e, { ...corsHeaders, 'Content-Type': 'application/json' }) ?? json({ error: e instanceof Error ? e.message : 'Unknown error' }, 500);
