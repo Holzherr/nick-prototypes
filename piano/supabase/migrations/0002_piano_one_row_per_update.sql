@@ -22,8 +22,7 @@ begin
 end
 $$;
 
-drop trigger if exists piano_sessions_one_row on public.piano_sessions;
-create trigger piano_sessions_one_row
+create or replace trigger piano_sessions_one_row
   after update on public.piano_sessions
   referencing new table as changed
   for each statement execute function public.piano_sessions_one_row();
