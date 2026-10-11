@@ -6,6 +6,7 @@
 //   npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboarding@resend.dev>' \
 //     REPORT_ORIGINS='https://example.com,http://localhost:5173'
 import { createClient } from 'jsr:@supabase/supabase-js@2';
+import { foreignLinks } from './links.ts';
 
 // The report is a few KB; anything near these caps is not a report.
 const MAX_SUBJECT = 200;
@@ -42,6 +43,9 @@ Deno.serve(async (req) => {
   if (typeof subject !== 'string' || typeof html !== 'string') return json({ error: 'subject and html are required' }, 400);
   if (subject.length > MAX_SUBJECT || html.length > MAX_HTML || (typeof text === 'string' && text.length > MAX_TEXT)) {
     return json({ error: 'Report too large' }, 413);
+  }
+  if (foreignLinks(html, typeof text === 'string' ? text : undefined, ORIGINS).length) {
+    return json({ error: 'A report may only link to the app' }, 400);
   }
 
   const key = Deno.env.get('RESEND_API_KEY');

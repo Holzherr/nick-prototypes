@@ -8,5 +8,11 @@ ALLOW_ORIGIN = "https://holzherr.github.io"
 # Model used to review applicants. Swap to claude-haiku-4-5 for cheaper/faster, opus for sharpest.
 MODEL = "claude-sonnet-4-6"
 
+# Per-address cap on calls. Each call costs model tokens plus up to four web searches.
+[[ratelimits]]
+name = "GATE_LIMIT"
+namespace_id = "1001"
+simple = { limit = 3, period = 60 }
+
 # Secret (do NOT put here — set it once with: wrangler secret put ANTHROPIC_API_KEY):
 #   ANTHROPIC_API_KEY

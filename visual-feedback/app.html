@@ -141,7 +141,7 @@
 <div class="main">
   <div class="stage" id="stage">
     <div class="frameWrap" id="frameWrap" style="width:1024px;height:720px">
-      <iframe id="frame" sandbox="allow-same-origin allow-scripts allow-forms allow-popups" title="Captured page"></iframe>
+      <iframe id="frame" sandbox="allow-same-origin allow-popups" title="Captured page"></iframe>
       <div class="overlay" id="overlay"><div class="hl" id="hl"></div><div class="band" id="band"></div>
         <div class="seltools" id="seltools"><button data-s="comment" title="Comment on selection">💬</button><span class="sep"></span><button data-s="copy" title="Copy text">📋</button><button data-s="x" title="Dismiss">✕</button></div>
       </div>
@@ -214,7 +214,7 @@ const frame = $('#frame'), overlay = $('#overlay'), hl = $('#hl'), band = $('#ba
 (function boot(){
   document.getElementById('brandName').textContent = BRAND;
   const params = new URLSearchParams(location.search);
-  cliReturn = params.get('return');               // e.g. /api/done  (CLI/skill mode)
+  cliReturn = sameOrigin(params.get('return'));   // e.g. /api/done  (CLI/skill mode)
   if (cliReturn) { $('#sendBtn').style.display=''; }
   if (params.get('demo')) { state.pageUrl='https://acme.example/pricing'; loadSnapshot(DEMO_SNAPSHOT); return; }
   // restore from share link (#<lz>) if present
@@ -226,8 +226,8 @@ const frame = $('#frame'), overlay = $('#overlay'), hl = $('#hl'), band = $('#ba
     } catch(e){ /* ignore */ }
   }
   // CLI mode often injects the snapshot at /__snapshot.html — try fetching it
-  if (params.get('snapshot')) {
-    fetch(params.get('snapshot')).then(r=>r.text()).then(h=>{ state.pageUrl = params.get('url')||''; loadSnapshot(h); }).catch(()=>{});
+  if (sameOrigin(params.get('snapshot'))) {
+    fetch(sameOrigin(params.get('snapshot'))).then(r=>r.text()).then(h=>{ state.pageUrl = params.get('url')||''; loadSnapshot(h); }).catch(()=>{});
   }
 })();
 
@@ -415,7 +415,7 @@ function renderList(){
     const c=document.createElement('div'); c.className='card'+(a.status==='resolved'?' resolved':'')+(a.id===state.selected?' sel':''); c.dataset.id=a.id;
     c.innerHTML=`<div class="top"><span class="num">${i+1}</span><span class="sel-path" title="${esc(a.anchor.selector)}">${esc(a.anchor.selector)}</span></div>
       ${a.anchor.selectedText?`<div class="quote">“${esc(a.anchor.selectedText.slice(0,160))}”</div>`:''}<textarea placeholder="Describe the issue…">${esc(a.comment)}</textarea>
-      <div class="meta"><span class="tag">${a.viewport}</span><span class="tag">${a.type}</span>
+      <div class="meta"><span class="tag">${esc(a.viewport)}</span><span class="tag">${esc(a.type)}</span>
         <div class="acts"><button data-act="resolve">${a.status==='resolved'?'Reopen':'Resolve'}</button><button data-act="del">Delete</button></div></div>`;
     c.querySelector('textarea').oninput=e=>{ a.comment=e.target.value; const ie=overlay.querySelector(`.inote[data-id="${a.id}"] textarea`); if(ie) ie.value=e.target.value; };
     c.querySelector('[data-act=resolve]').onclick=()=>{ a.status=a.status==='resolved'?'open':'resolved'; renderAll(); };
@@ -496,7 +496,9 @@ $('#sendBtn').onclick = async ()=>{
 };
 
 /* ---------- util ---------- */
-function esc(s){ return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+// The CLI serves this page and its endpoints from one local origin; a link must not point them anywhere else.
+function sameOrigin(u){ if(!u) return null; try{ const x=new URL(u, location.href); return x.origin===location.origin ? x.href : null; }catch(e){ return null; } }
+function esc(s){ return String(s ?? '').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 let toastT; function toast(m){ const t=$('#toast'); t.textContent=m; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),2600); }
 
 /* expose for embed-mode reopen */
