@@ -3,6 +3,7 @@ import type { GameId } from '@/features/games/catalog';
 import type { RoundRecord } from '@/features/games/engine';
 import { emptyProgress } from '@/features/progress/model';
 import { buildReport } from './report';
+import { foreignLinks } from '../../../supabase/functions/send-report/links';
 import { buildReportEmail } from './report-email';
 
 const NOW = new Date('2026-09-12T18:00:00Z');
@@ -43,6 +44,11 @@ describe('report email', () => {
     expect(links.length).toBeGreaterThan(1);
     expect(links.every((href) => href.startsWith('https://'))).toBe(true);
     expect(email.text).toContain(`${APP}#/resources/`);
+  });
+
+  it('only links to the app, so send-report lets it through', () => {
+    const email = buildReportEmail(report(), { appUrl: APP, stageUp: { skillName: 'Subitising', stage: 3 } });
+    expect(foreignLinks(email.html, email.text, ['https://nickholzherr.com'])).toEqual([]);
   });
 
   it('says what to work on, in both html and plain text', () => {
