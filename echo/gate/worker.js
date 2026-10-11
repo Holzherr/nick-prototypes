@@ -63,6 +63,13 @@ export default {
     const origin = env.ALLOW_ORIGIN || '*';
     if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors(origin) });
     if (req.method !== 'POST') return json({ error: 'POST only' }, 405, origin);
+    // Every call spends Anthropic credit and up to four web searches, and CORS only binds browsers. Refuse
+    // other sites' pages, and cap each address (GATE_LIMIT in wrangler.toml) so a script cannot run up the bill.
+    if (origin !== '*' && req.headers.get('Origin') !== origin) return json({ error: 'origin not allowed' }, 403, origin);
+    if (env.GATE_LIMIT) {
+      const { success } = await env.GATE_LIMIT.limit({ key: req.headers.get('CF-Connecting-IP') || 'unknown' });
+      if (!success) return json({ error: 'slow down' }, 429, origin);
+    }
 
     let body;
     try { body = await req.json(); } catch { return json({ error: 'bad json' }, 400, origin); }
@@ -115,9 +122,10 @@ export default {
         body: JSON.stringify(payload),
       });
       data = await r.json();
-      if (!r.ok) return json({ error: 'model_error', detail: data }, 502, origin);
+      if (!r.ok) { console.error('model_error', r.status, JSON.stringify(data)); return json({ error: 'model_error' }, 502, origin); }
     } catch (e) {
-      return json({ error: 'upstream', detail: String(e) }, 502, origin);
+      console.error('upstream', String(e));
+      return json({ error: 'upstream' }, 502, origin);
     }
 
     const text = (data.content || [])
