@@ -378,10 +378,11 @@ npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboar
 ## Next
 
 - **Redeploy `send-report` before setting `RESEND_API_KEY`.** The code in this repo is hardened (confirmed
-  address only, payload caps, CORS limited to `REPORT_ORIGINS`, links to the app only, at most 10 sends per
-  account per 24 h logged in `app_metadata.report_sends`, mail-service errors logged not echoed); the
-  deployed copy predates that. With sign-up confirmation off "confirmed" is any address, so the cap is what
-  bounds a stranger's inbox. Still open: building the HTML server-side instead of taking it from the client.
+  address only, payload caps, CORS limited to `REPORT_ORIGINS`, links to the app only, mail-service errors
+  logged not echoed); the deployed copy predates that. With sign-up confirmation off (`config.toml`)
+  "confirmed" is any address, so anyone can sign up as a stranger and have the report mailed there with no
+  limit. Still open, for Nick: a per-account send limit (security audit, PR #174, row 1), and building the
+  HTML server-side instead of taking it from the client.
 - Then set `RESEND_API_KEY` so stage-up emails go out. If the first send fails 401, turn off "Verify JWT
   with legacy secret" on the function (see **Report email** above).
 - More sheets per stage (cut-and-stick, dot-to-dot, ten-frame bonds): provider research and work plan in
