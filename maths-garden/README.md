@@ -383,7 +383,12 @@ npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboar
   "confirmed" is any address, so anyone can sign up as a stranger and have the report mailed there with no
   limit. Still open, for Nick: a per-account send limit (security audit, PR #174, row 1), and building the
   HTML server-side instead of taking it from the client.
-- Then set `RESEND_API_KEY` so stage-up emails go out. If the first send fails 401, turn off "Verify JWT
+- **Do not set `RESEND_API_KEY` until the per-account send cap is deployed.** Without it the function is an
+  uncapped mail relay to any address. The cap is written in commit `6ecbb52` (`supabase/functions/send-report/cap.ts`,
+  the `index.ts` change, `src/features/report/report-cap.test.ts`: 10 emails per account per day) and
+  reverted in `e9489f1` because a Builder may not change `supabase/functions/`; Nick lands it by hand
+  (`git checkout 6ecbb52 --` those three paths), then redeploys.
+- Only then set `RESEND_API_KEY` so stage-up emails go out. If the first send fails 401, turn off "Verify JWT
   with legacy secret" on the function (see **Report email** above).
 - More sheets per stage (cut-and-stick, dot-to-dot, ten-frame bonds): provider research and work plan in
   the assistant repo, `me/projects/maths-garden/`.
