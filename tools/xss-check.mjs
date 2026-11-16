@@ -11,7 +11,7 @@ await p.goto(base + '/viewer.html?path=' + encodeURIComponent('<img src=x onerro
 await p.waitForTimeout(800); out.viewerErrorXss = await p.evaluate(() => !!window.__x);
 await p.goto(base + '/viewer.html?path=' + encodeURIComponent('data:text/plain,<img src=x onerror="window.__x=1">.md'));
 await p.waitForTimeout(800); out.viewerRemoteXss = await p.evaluate(() => !!window.__x);
-await p.goto(base + '/viewer.html?path=files-index/sources/README.md');
+await p.goto(base + '/viewer.html?path=README.md');
 await p.waitForTimeout(800); out.viewerLegitH1 = await p.evaluate(() => document.querySelector('#md h1')?.textContent);
 await p.goto(base + '/visual-feedback/app.html');
 await p.waitForTimeout(500);
