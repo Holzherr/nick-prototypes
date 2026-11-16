@@ -47,7 +47,7 @@ When reviewing `/print-memory` output, flag aggressively: when in doubt, mark a 
 
 ## Relationship to other prototypes
 
-Memory and [P4 · Files index](../files-index/) are sibling **extraction** features — Memory extracts from chat, Files index extracts from documents. They share the same underlying problem: turning unstructured input into structured legal facts that survive sessions.
+Memory and P4 · Files index (removed from this repo) are sibling **extraction** features — Memory extracts from chat, Files index extracts from documents. They share the same underlying problem: turning unstructured input into structured legal facts that survive sessions.
 
 ## Feedback format
 

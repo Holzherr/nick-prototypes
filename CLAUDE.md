@@ -9,7 +9,6 @@ Every push to `main` deploys to **https://holzherr.github.io/nick-prototypes/** 
 In this folder (public):
 - `lawyer-loop-in-lite/` — concierge handoff (A) + bring-your-own-lawyer (B) flow prototypes
 - `legal-advice-agent/` — agentic legal-advice UX prototype
-- `files-index/` — files-index UX rendered against a corpus of 23 sample contracts (from the memory-tests project), with a `sources/` viewer to read the original markdown
 - `index.html` — landing page that catalogues the prototypes above
 
 Elsewhere in the repo (NOT deployed):
