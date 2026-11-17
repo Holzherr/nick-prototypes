@@ -85,6 +85,10 @@ export function targetMs(game: GameId, target: string): number {
     // Looking at a shape and naming it is quick; counting its sides to check is not, so allow for both.
     case 'shape':
       return 3000;
+    // The spoken question is a sentence, and a row has to be looked along before the gap can be filled.
+    case 'pattern':
+    case 'sequence':
+      return 4000;
   }
 }
 

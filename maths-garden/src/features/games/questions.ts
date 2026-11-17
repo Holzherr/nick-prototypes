@@ -1,4 +1,6 @@
 import { arrangementsFor, type Arrangement } from '@/features/resources/subitising/patterns';
+import { bankItems, drawItems, type BankGameId, type BankGameItem } from './bank/draw';
+import type { BankLevel } from './bank/types';
 import { OBJECT_SETS, QUESTIONS_PER_ROUND, type GameId, type GameLevel } from './catalog';
 import { SHAPE_IDS, SHAPES, type ShapeId } from './shapes';
 
@@ -22,9 +24,15 @@ export type Question =
    * Which one is the hexagon (`ask: 'name'`), or which one has six sides (`ask: 'sides'`). `rotate` turns
    * every shape on screen by the same angle, so the shape has to be read rather than recognised as a picture.
    */
-  | { game: 'shape'; answer: ShapeId; options: ShapeId[]; ask: 'name' | 'sides'; rotate: number };
+  | { game: 'shape'; answer: ShapeId; options: ShapeId[]; ask: 'name' | 'sides'; rotate: number }
+  /** A question-bank item: `item` is its id, `say` is spoken, `row` has one gap (null), `show` says how to draw it. */
+  | { game: BankGameId; item: string; say: string; show: 'numeral'; row: (number | null)[]; answer: number; options: number[] }
+  | { game: 'pattern'; item: string; say: string; show: 'emoji'; row: (string | null)[]; answer: string; options: string[] };
 
-export type Choice = number | Side | ShapeId;
+export type BankQuestion = Extract<Question, { item: string }>;
+
+/** What was tapped: a number, a side, a shape, or a picture from a bank item. */
+export type Choice = number | Side | ShapeId | string;
 
 /** Integer in [min, max]. */
 export const between = (rng: Rng, min: number, max: number) => min + Math.floor(rng() * (max - min + 1));
@@ -133,11 +141,23 @@ export function makeQuestion(game: GameId, level: GameLevel, rng: Rng = Math.ran
       const answer = pick(rng, ask === 'sides' ? sided : pool);
       return { game, answer, ask, options: shapeChoices(rng, answer, pool, count, ask === 'sides'), rotate: level.spin ? between(rng, 0, 11) * 30 : 0 };
     }
+    case 'pattern':
+    case 'sequence':
+      return bankQuestion(pick(rng, bankItems(game, max as BankLevel)));
   }
 }
 
-/** What a question asks, as logged per answer ("7", "4 vs 6", "3+?=5"). */
+/** A bank item as a question: options and their order exactly as the bank has them. */
+function bankQuestion(item: BankGameItem): BankQuestion {
+  const { id, say, row, answer, options } = item;
+  return typeof answer === 'string'
+    ? { game: 'pattern', item: id, say, show: 'emoji', row: row as (string | null)[], answer, options: options as string[] }
+    : { game: item.topic, item: id, say, show: 'numeral', row: row as (number | null)[], answer, options: options as number[] };
+}
+
+/** What a question asks, as logged per answer ("7", "4 vs 6", "3+?=5", "pattern-3-07"). */
 export function questionKey(q: Question): string {
+  if ('item' in q) return q.item;
   switch (q.game) {
     case 'more':
       return `${q.left} vs ${q.right}`;
@@ -156,6 +176,8 @@ export function questionKey(q: Question): string {
  * three ways to flash 1–3 dots), so a repeat is sometimes unavoidable — it just never lands back to back.
  */
 export function makeRound(game: GameId, level: GameLevel, rng: Rng = Math.random, count = QUESTIONS_PER_ROUND): Question[] {
+  // A bank level is a fixed list, so it is dealt like cards rather than generated and retried.
+  if (game === 'pattern' || game === 'sequence') return drawItems(bankItems(game, level.max as BankLevel), rng, count).map(bankQuestion);
   const round: Question[] = [];
   const asked = new Set<string>();
   while (round.length < count) {

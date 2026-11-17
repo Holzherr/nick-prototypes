@@ -152,6 +152,10 @@ const DE: Partial<Catalogue> = {
   'game.teen.about': 'Ein volles Zehnerfeld und ein paar lose: die Zahlen 11 bis 19 als zehn-und-etwas.',
   'game.shape.name': 'Finde die Form',
   'game.shape.about': 'Formen auf den ersten Blick benennen, dann über ihre Ecken. Fünf- und Sechsecke ab Stufe 3.',
+  'game.pattern.name': 'Muster',
+  'game.pattern.about': 'Eine Bilderreihe, die sich wiederholt, mit einer Lücke: Was kommt als Nächstes? Ganz oben in Zweier-, Fünfer- und Zehnerschritten.',
+  'game.sequence.name': 'Zahlenstrahl',
+  'game.sequence.about': 'Ein Zahlenstrahl mit einer Lücke: die Zahl danach, die Zahl davor, die herausgefallene. Bis 100.',
 
   // ── Skills ──────────────────────────────────────────────────────────────
   'skill.subitising.name': 'Simultanerfassung',

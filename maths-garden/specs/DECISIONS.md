@@ -12,3 +12,4 @@ Append-only. One line per decision: `- <date> <who>: <decision>`. Builders appen
 - 2026-09-25 Nick: levelling follows the average of the last three finished rounds at the current level (up at 90%, down under 60%, level 1 never drops, pace no longer counts, rounds left early never count); approved on MG-020 with the condition that rounds entered and left are not miscounted.
 - 2026-09-28 Nick: Nova is the character that grows as Tara plays, built so more characters can be added and chosen later.
 - 2026-09-28 Nick: the first new round type is a quest round mixing the three weakest skills.
+- 2026-10-05 Nick: "yes" (28 Sep, on MG-028): every question-bank topic becomes a home tile of its own (name, emoji, skill), five items a round at the tile's level, options drawn as `item.show` says, the prompt spoken, recorded like the nine games; pattern and sequence first (specs/question-bank.md).
