@@ -12,10 +12,19 @@ export interface SessionRecord {
 export const SESSIONS_KEY = 'piano.sessions';
 const KEEP = 100;
 
+/** Every page on the origin shares localStorage, so a stored entry is checked before it is trusted:
+ *  one that is not a session record would otherwise throw on the next press. */
+const isRecord = (s: unknown): s is SessionRecord => {
+  const r = s as Partial<SessionRecord> | null;
+  return typeof r === 'object' && r !== null && typeof r.id === 'string' && typeof r.pieceId === 'string'
+    && typeof r.startedAt === 'string' && typeof r.lastPressAt === 'string'
+    && typeof r.correctPresses === 'number' && typeof r.reachedLast === 'boolean';
+};
+
 export function readSessions(): SessionRecord[] {
   try {
     const parsed: unknown = JSON.parse(localStorage.getItem(SESSIONS_KEY) ?? '[]');
-    return Array.isArray(parsed) ? (parsed as SessionRecord[]) : [];
+    return Array.isArray(parsed) ? parsed.filter(isRecord) : [];
   } catch { return []; }
 }
 

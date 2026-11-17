@@ -2,7 +2,8 @@ import type { SessionRecord } from './sessionLog.ts';
 
 /** Upserts the record `sessionLog.ts` just wrote onto `piano_sessions` in the Maths Garden Supabase
  *  project, for G-11's sessions_7d. With no URL and key in the build nothing leaves the device. A row
- *  is a random device id, the piece, the day and two counts: no name, no clock time, no key pressed. */
+ *  is a random device id, the piece, the day and two counts: no name, no clock time, no key pressed.
+ *  `day` is the day the run started, since migration 0003 refuses an update that moves a row's day. */
 export const DEVICE_KEY = 'piano.device';
 
 /** Safari throws on any localStorage access when storage is blocked; a press must still advance. */
@@ -36,7 +37,7 @@ export function syncSession(record: SessionRecord): void {
   };
   try {
     const headers = { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates' };
-    const row = { device_id: deviceId(), session_id: record.id, piece_id: record.pieceId, day: record.lastPressAt.slice(0, 10), reached_last: record.reachedLast, correct_presses: record.correctPresses, updated_at: record.lastPressAt };
+    const row = { device_id: deviceId(), session_id: record.id, piece_id: record.pieceId, day: record.startedAt.slice(0, 10), reached_last: record.reachedLast, correct_presses: record.correctPresses, updated_at: record.lastPressAt };
     fetch(`${url}/rest/v1/piano_sessions`, { method: 'POST', keepalive: true, headers, body: JSON.stringify(row) }).catch(() => undefined).then(release);
   } catch { release(); }
 }

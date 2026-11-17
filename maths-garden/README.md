@@ -225,9 +225,11 @@ src/
   features/auth/          AuthContext, AuthForm (brick), AuthScreen
   features/children/      model (age), api, use-children (cached), ChildForm, ProfilesScreen
   features/games/         catalog, questions (tested), engine (levels, stats; tested), sound, components/
-                          bank/ (question-bank.json: 585 fixed questions in seven topics × six levels, typed in types.ts,
-                          checked from first principles by validate.ts in bank.test.ts; draw.ts deals pattern and
-                          sequence rounds from it)
+                          bank/ (question-bank.json: 997 fixed questions in seven topics × six levels, typed in types.ts,
+                          checked from first principles by validate.ts in bank.test.ts; bank-coverage.test.ts holds the
+                          per-level floors (pattern and sequence: 40 at every level; stories: 40 at levels 2-6, 15 adding
+                          and 15 taking away each) and bans $/dollar/cent and brand characters; draw.ts deals pattern
+                          and sequence rounds from it)
   features/stickers/      catalog (packs, draw; tested), StickerBadge, PackChooser, StickerReveal, StickerBookScreen
   features/character/     characters (the list, Nova first), stage (stageOf; tested), art/Nova (five SVG stages), CharacterSlot (tested)
   features/progress/      model (rounds, levels, level events), repo (outbox; tested), supabase-remote, memory-remote, probes, fixtures,
@@ -353,7 +355,8 @@ Raw traffic (visits, referrers, countries) needs nothing in the page: the domain
 it is already counted at the edge and lives in the Cloudflare dashboard.
 
 **Report email.** `supabase/functions/send-report` posts the report to Resend. It takes the address from
-the caller's own session, so it can only ever email the signed-in parent. **Deployed 13 Sep 2026** through
+the caller's own session, but it has no per-account send limit yet (MG-042), and with sign-up confirmation
+off that session can belong to any address (security audit, PR #174). **Deployed 13 Sep 2026** through
 the dashboard's in-browser editor: the Supabase CLI on this machine is signed in to a different account and
 gets 403 on this project ref, so the commands below only work once logged in as the account that owns it.
 Until `RESEND_API_KEY` is set the function answers 501 ("Email is not set up yet") and the app carries on —
@@ -376,6 +379,7 @@ render, a blank page, and a list stuck on skeletons.
 
 ```
 npx supabase functions deploy send-report --project-ref <project-ref>
+# only after MG-042 (the per-account send limit) is merged and deployed:
 npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboarding@resend.dev>' \
   REPORT_ORIGINS='https://nickholzherr.com,http://localhost:5173'
 ```
@@ -383,11 +387,18 @@ npx supabase secrets set RESEND_API_KEY=re_... REPORT_FROM='Maths Garden <onboar
 ## Next
 
 - **Redeploy `send-report` before setting `RESEND_API_KEY`.** The code in this repo is hardened (confirmed
-  address only, payload caps, CORS limited to `REPORT_ORIGINS`, mail-service errors logged not echoed); the
-  deployed copy predates that. Still open: a per-user send limit, and building the HTML server-side instead
-  of taking it from the client — today the HTML can only reach the sender's own confirmed inbox.
-- Then set `RESEND_API_KEY` so stage-up emails go out. If the first send fails 401, turn off "Verify JWT
-  with legacy secret" on the function (see **Report email** above).
+  address only, payload caps, CORS limited to `REPORT_ORIGINS`, links to the app only, mail-service errors
+  logged not echoed); the deployed copy predates that. With sign-up confirmation off (`config.toml`)
+  "confirmed" is any address, so anyone can sign up as a stranger and have the report mailed there with no
+  limit. Still open, for Nick: MG-042, the per-account send limit (security audit, PR #174, row 1), and
+  building the HTML server-side instead of taking it from the client.
+- **MG-042: the per-account send limit.** Without it the function is an uncapped mail relay to any address.
+  The fix is written in commit `6ecbb52` (`supabase/functions/send-report/cap.ts`, the `index.ts` change,
+  `src/features/report/report-cap.test.ts`: 10 emails per account per day) and reverted in `e9489f1`
+  because a Builder may not change `supabase/functions/`. MG-042 waits on Nick's permission for that folder.
+- Set `RESEND_API_KEY` only after MG-042 (the per-account send limit) is merged and `send-report` is
+  redeployed. If the first send fails 401, turn off "Verify JWT with legacy secret" on the function (see
+  **Report email** above).
 - More sheets per stage (cut-and-stick, dot-to-dot, ten-frame bonds): provider research and work plan in
   the assistant repo, `me/projects/maths-garden/`.
 - Games for the remaining gap: place value. Number bonds (Make Ten), teen numbers (Ten and Some More),

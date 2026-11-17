@@ -2,6 +2,7 @@ import { corsHeaders, json } from '../_shared/cors.ts';
 import { serviceClient, userIdFromJwt } from '../_shared/db.ts';
 import { HttpError, assertProfilesReadable, resolveCaller, takeModelCall } from '../_shared/access.ts';
 import { MODELS, callTool, claudeErrorResponse } from '../_shared/claude.ts';
+import { allowedForAll } from '../_shared/certification.ts';
 import {
   type Axes,
   type Candidate,
@@ -197,6 +198,18 @@ Deno.serve(async (req) => {
     const user_id = caller.userId;
     await assertProfilesReadable(supabase, caller, [profile_id, partner_id]);
 
+    // A managed child's certificate cap, and the partner's on a shared slate: nothing above
+    // either is offered. Applied to saved slates too, since those were built before the cap was.
+    const { data: viewers } = await (profile_id
+      ? supabase.from('profiles').select('max_certification').in('id', [profile_id, partner_id].filter(Boolean))
+      : supabase.from('profiles').select('max_certification').eq('user_id', user_id));
+    const caps: string[] = (viewers ?? []).map((p: Row) => p.max_certification).filter(Boolean);
+    const capped = (r: Result): Result => ({
+      ...r,
+      personal: (r.personal ?? []).filter((x) => allowedForAll(x.certification, caps)),
+      ...(r.shared ? { shared: r.shared.filter((x) => allowedForAll(x.certification, caps)) } : {}),
+    });
+
     const hasExclusions = Array.isArray(exclude_titles) && exclude_titles.length > 0;
     const filterSuffix = [mood, type_filter, time_filter].filter(Boolean).join(':');
     const who = profile_id ?? user_id;
@@ -206,7 +219,7 @@ Deno.serve(async (req) => {
     // A refresh exists to replace the cached slate, so it must not be served one.
     if (!hasExclusions && mode !== 'refresh') {
       const { data: cached } = await supabase.from('ai_cache').select('response_data, expires_at').eq('cache_key', cacheKey).single();
-      if (cached && new Date(cached.expires_at) > new Date()) return json(cached.response_data);
+      if (cached && new Date(cached.expires_at) > new Date()) return json(capped(cached.response_data));
     }
 
     // The cooldown. A refresh that is turned down still answers with the slate we hold, so a
@@ -223,7 +236,7 @@ Deno.serve(async (req) => {
         !(await takeModelCall(supabase, 'recs', user_id, DAILY_REFRESHES, 24 * 60 * 60 * 1000));
       if (cooling || overBudget) {
         const { data: cached } = await supabase.from('ai_cache').select('response_data').eq('cache_key', cacheKey).maybeSingle();
-        return json({ personal: [], shared: null, ...(cached?.response_data ?? {}), throttled: true });
+        return json({ ...capped({ personal: [], shared: null, ...(cached?.response_data ?? {}) }), throttled: true });
       }
       await supabase.from('ai_cache').upsert(
         {
@@ -265,7 +278,8 @@ Deno.serve(async (req) => {
     const excluded = new Set((hasExclusions ? exclude_titles : []).map((t: string) => String(t).toLowerCase()));
     const eligible = (catalogue ?? [])
       .filter((t: Row) => !ownTitleIds.has(t.id) && !excluded.has(String(t.name).toLowerCase()))
-      .filter((t: Row) => (type_filter ? t.type === type_filter : true));
+      .filter((t: Row) => (type_filter ? t.type === type_filter : true))
+      .filter((t: Row) => allowedForAll(t.certification, caps));
 
     if (!eligible.length) {
       return json({ personal: [], shared: null, note: 'Nothing left in the catalogue for this profile.' });

@@ -1,4 +1,5 @@
 import { serviceClient } from '../_shared/db.ts';
+import { burnCode, pkceChallengeFor, redirectAllowed } from '../_shared/oauth.ts';
 
 /**
  * OAuth 2.1 for the MCP server, so an assistant connects with a button.
@@ -36,15 +37,6 @@ const sha256 = async (value: string): Promise<string> => {
   return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('');
 };
 
-/** PKCE S256: base64url of the SHA-256 digest, compared against the stored challenge. */
-const pkceChallengeFor = async (verifier: string): Promise<string> => {
-  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier));
-  return btoa(String.fromCharCode(...new Uint8Array(digest)))
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=+$/, '');
-};
-
 const newToken = (): string => {
   const bytes = crypto.getRandomValues(new Uint8Array(24));
   const base64 = btoa(String.fromCharCode(...bytes)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
@@ -62,18 +54,6 @@ const metadata = {
   code_challenge_methods_supported: ['S256'],
   token_endpoint_auth_methods_supported: ['none'],
   service_documentation: `${SITE}/agents`,
-};
-
-/** Only http(s) redirects, and loopback for desktop clients. Nothing else is accepted. */
-const redirectAllowed = (uri: string): boolean => {
-  try {
-    const url = new URL(uri);
-    if (url.protocol === 'https:') return true;
-    // Desktop MCP clients listen on localhost; http is unavoidable and safe there.
-    return url.protocol === 'http:' && ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname);
-  } catch {
-    return false;
-  }
 };
 
 // deno-lint-ignore no-explicit-any
@@ -188,12 +168,9 @@ Deno.serve(async (req) => {
     }
 
     // Burn the code before minting anything, so a race cannot yield two tokens.
-    const { error: burnError } = await db()
-      .from('oauth_codes')
-      .update({ used_at: new Date().toISOString() })
-      .eq('code', code)
-      .is('used_at', null);
-    if (burnError) return oauthError('server_error', burnError.message, 500);
+    const burn = await burnCode(db(), code);
+    if (burn.error) return oauthError('server_error', burn.error, 500);
+    if (!burn.burned) return oauthError('invalid_grant', 'That code has already been used');
 
     const { data: client } = await db().from('oauth_clients').select('client_name').eq('client_id', clientId).maybeSingle();
 
